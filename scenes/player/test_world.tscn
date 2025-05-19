@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://dn0df8tvhhkcn"]
+
+[ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
+[ext_resource type="PackedScene" uid="uid://delx6cwd7s7vi" path="res://scenes/pink_tree.tscn" id="3_anvu8"]
+[ext_resource type="PackedScene" uid="uid://byafmsxob8mia" path="res://3d_models/placeholders/crab.glb" id="3_nof16"]
+[ext_resource type="PackedScene" uid="uid://dyrkcj78kdujl" path="res://3d_models/placeholders/well.glb" id="4_vsqnw"]
+[ext_resource type="PackedScene" uid="uid://03c0c086wpdq" path="res://3d_models/placeholders/box.glb" id="5_s2ra0"]
+[ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="6_s2ra0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
+sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
+sky_horizon_color = Color(0.794826, 0.848696, 0.931927, 1)
+ground_bottom_color = Color(0.303577, 0.451742, 0.581673, 1)
+ground_horizon_color = Color(0.794826, 0.848696, 0.931927, 1)
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky_nof16"]
+sky_material = SubResource("ProceduralSkyMaterial_anvu8")
+
+[sub_resource type="Environment" id="Environment_vsqnw"]
+background_mode = 2
+sky = SubResource("Sky_nof16")
+ambient_light_color = Color(0.706233, 0.800714, 0.85531, 1)
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcn17"]
+albedo_color = Color(0.385112, 0.378432, 0.248665, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2nnkd"]
+material = SubResource("StandardMaterial3D_mcn17")
+size = Vector3(30, 0.2, 50)
+
+[node name="test_world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vsqnw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.492022, -0.827008, 0.271979, 0.0889811, 0.358546, 0.929261, 0, 6.51614, 0)
+light_color = Color(0.999999, 0.99695, 0.675937, 1)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.1
+shadow_opacity = 0.8
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = SubResource("BoxMesh_2nnkd")
+
+[node name="player" parent="." instance=ExtResource("1_2nnkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.220198, 0, -0.641132)
+
+[node name="crab" parent="." instance=ExtResource("3_nof16")]
+transform = Transform3D(0.920812, 0, 0.390008, 0, 1, 0, -0.390008, 0, 0.920812, -2.23211, 4.76837e-07, -0.692405)
+
+[node name="pink_tree" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(0.821796, 0, 0.569782, 0, 1, 0, -0.569782, 0, 0.821796, 5.26301, 0, -10.8289)
+
+[node name="pink_tree2" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(-0.282911, 0, -0.959146, 0, 1, 0, 0.959146, 0, -0.282911, -4.99895, -4.76837e-07, -14.1792)
+
+[node name="pink_tree4" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(0.567197, 0, -0.823582, 0, 1, 0, 0.823582, 0, 0.567197, -0.866666, -4.76837e-07, -8.28164)
+
+[node name="pink_tree3" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(0.988, 0, -0.154452, 0, 1, 0, 0.154452, 0, 0.988, -7.77115, -4.76837e-07, -5.94691)
+
+[node name="pink_tree5" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(0.76591, 0, -0.642948, 0, 1, 0, 0.642948, 0, 0.76591, 5.65259, -4.76837e-07, 7.75244)
+
+[node name="pink_tree6" parent="." instance=ExtResource("3_anvu8")]
+transform = Transform3D(0.908479, 0, 0.41793, 0, 1, 0, -0.41793, 0, 0.908479, -6.59244, -4.76837e-07, 7.92868)
+
+[node name="well" parent="." instance=ExtResource("4_vsqnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9573, -4.76837e-07, -4.10875)
+
+[node name="box" parent="." instance=ExtResource("5_s2ra0")]
+transform = Transform3D(0.927132, 0, 0.374736, 0, 1, 0, -0.374736, 0, 0.927132, 3.33942, 1.19209e-07, -1.00633)
+
+[node name="box2" parent="." instance=ExtResource("5_s2ra0")]
+transform = Transform3D(0.992126, 0, 0.125247, 0, 1, 0, -0.125247, 0, 0.992126, 4.28025, 1.19209e-07, -0.895644)
+
+[node name="box3" parent="." instance=ExtResource("5_s2ra0")]
+transform = Transform3D(0.642895, 0, -0.765955, 0, 1, 0, 0.765955, 0, 0.642895, 3.82826, 0.786571, -1.00172)
+
+[node name="barrel" parent="." instance=ExtResource("6_s2ra0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20182, -4.76837e-07, 8.40504)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33198, 1.54596, 1.01522)

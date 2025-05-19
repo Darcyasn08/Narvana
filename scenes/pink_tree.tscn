@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://delx6cwd7s7vi"]
+
+[ext_resource type="PackedScene" uid="uid://deglu1te8d2nd" path="res://3d_models/placeholders/tree.blend" id="1_iu8fk"]
+
+[node name="pink_tree" type="Node3D"]
+
+[node name="tree" parent="." instance=ExtResource("1_iu8fk")]
+
+[node name="Cube_001" parent="tree" index="6"]
+transform = Transform3D(1.49208, 0, 0, 0, 1.49206, 0.00839146, 0, -0.00839146, 1.49206, 0.0337909, 5.19839, -0.708408)
+
+[node name="AnimationPlayer" parent="tree" index="8"]
+autoplay = "leaves_moving"
+
+[editable path="tree"]
