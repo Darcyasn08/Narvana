@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4bh2fvmsqfw"]
+
+[ext_resource type="Script" uid="uid://dv8sgt6i5xugs" path="res://scripts/npc_dialogue_area.gd" id="1_jayf7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ih6au"]
+radius = 3.49285
+
+[node name="npc_dialogue_area" type="Area3D"]
+script = ExtResource("1_jayf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ih6au")

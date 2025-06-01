@@ -1,26 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=12 format=3 uid="uid://cjdchlemwopfg"]
 
+[ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
-[ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_dovo2"]
-[ext_resource type="AudioStream" uid="uid://iw6k17ro087p" path="res://music/bird-song.mp3" id="3_gmlin"]
+[ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="3_gmlin"]
+[ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="4_lvxji"]
+[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="5_p47bc"]
 
-[node name="player" type="Node3D"]
-script = ExtResource("1_dovo2")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p47bc"]
+render_priority = 0
+shader = ExtResource("3_gmlin")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
 
-[node name="narval" parent="." instance=ExtResource("1_8afob")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.300705, 0)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+radius = 1.81844
+height = 3.94488
 
-[node name="AnimationPlayer" parent="narval" index="1"]
-autoplay = "idle"
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.87329, 3.99258)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
+data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
 
-[node name="song" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_gmlin")
-volume_db = -10.0
-autoplay = true
-bus = &"Music"
-parameters/looping = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.632029, 0.319436, 0.277572, 1)
+roughness = 0.0
 
-[editable path="narval"]
+[sub_resource type="BoxMesh" id="BoxMesh_qek5x"]
+size = Vector3(1.6, 0.2, 0.3)
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_3vyb7")
+
+[node name="narval_model" parent="." instance=ExtResource("1_8afob")]
+
+[node name="narval-body" parent="narval_model" index="1"]
+material_overlay = SubResource("ShaderMaterial_p47bc")
+surface_material_override/0 = ExtResource("4_lvxji")
+surface_material_override/1 = ExtResource("4_lvxji")
+surface_material_override/2 = ExtResource("4_lvxji")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.553258, 0.079566)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="camera_pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44701, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
+shape = SubResource("SphereShape3D_g2els")
+spring_length = 4.5
+
+[node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
+
+[node name="player_hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.870276, -0.0126472)
+shape = SubResource("CapsuleShape3D_u8vuu")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823338, -0.12736, 0)
+visible = false
+
+[node name="arma" type="Area3D" parent="Node3D" groups=["weapon"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/arma"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30017, 0.374756, 0.217488)
+shape = SubResource("ConcavePolygonShape3D_75vfm")
+
+[node name="CSGBox3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30017, 0.374756, 0.217488)
+material_override = SubResource("StandardMaterial3D_0owmy")
+material_overlay = ExtResource("5_p47bc")
+mesh = SubResource("BoxMesh_qek5x")
+
+[connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
+
+[editable path="narval_model"]

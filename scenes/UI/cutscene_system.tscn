@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://bngpynw8vjxay"]
+
+[ext_resource type="Script" uid="uid://bk888l1j70g6i" path="res://scripts/cutscene_system.gd" id="1_qfkak"]
+[ext_resource type="Texture2D" uid="uid://db0jolkm6odcc" path="res://UI/cutscenes/cutscene-inicial.jpg" id="4_7gwa3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_octsf"]
+atlas = ExtResource("4_7gwa3")
+region = Rect2(74.8934, 148.557, 605.552, 486.374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gwa3"]
+atlas = ExtResource("4_7gwa3")
+region = Rect2(683.419, 144.066, 610.53, 508.043)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v5ml"]
+atlas = ExtResource("4_7gwa3")
+region = Rect2(1295.27, 157.784, 592.41, 491.077)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13gxu"]
+atlas = ExtResource("4_7gwa3")
+region = Rect2(1893.44, 167.026, 609.949, 485.231)
+
+[node name="cutscene_system" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qfkak")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="start_cutscene" type="Node2D" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/start_cutscene"]
+offset_right = 1171.0
+offset_bottom = 660.0
+color = Color(0.101961, 0.0313726, 0.0941176, 0.647059)
+
+[node name="frames" type="Node2D" parent="CanvasLayer/start_cutscene"]
+
+[node name="0" type="Sprite2D" parent="CanvasLayer/start_cutscene/frames"]
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_octsf")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/start_cutscene/frames"]
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_7gwa3")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/start_cutscene/frames"]
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_0v5ml")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/start_cutscene/frames"]
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_13gxu")
+
+[node name="skip_cutscene" type="Button" parent="CanvasLayer/start_cutscene"]
+offset_left = 996.0
+offset_top = 22.0
+offset_right = 1135.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 20
+text = "skip cutscene"
+
+[node name="final_cutscene" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/final_cutscene"]
+offset_right = 1171.0
+offset_bottom = 660.0
+color = Color(0.101961, 0.0313726, 0.0941176, 0.647059)
+
+[node name="frames" type="Node2D" parent="CanvasLayer/final_cutscene"]
+
+[node name="0" type="Sprite2D" parent="CanvasLayer/final_cutscene/frames"]
+visible = false
+position = Vector2(581, 327)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_octsf")
+
+[node name="1" type="Sprite2D" parent="CanvasLayer/final_cutscene/frames"]
+visible = false
+position = Vector2(581, 327)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_7gwa3")
+
+[node name="2" type="Sprite2D" parent="CanvasLayer/final_cutscene/frames"]
+visible = false
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_0v5ml")
+
+[node name="3" type="Sprite2D" parent="CanvasLayer/final_cutscene/frames"]
+visible = false
+position = Vector2(581, 327)
+scale = Vector2(1.13, 1.13)
+texture = SubResource("AtlasTexture_13gxu")
+
+[node name="skip_cutscene" type="Button" parent="CanvasLayer/final_cutscene"]
+offset_left = 996.0
+offset_top = 22.0
+offset_right = 1135.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 20
+text = "skip cutscene"
+
+[connection signal="pressed" from="CanvasLayer/start_cutscene/skip_cutscene" to="." method="_on_skip_cutscene_pressed"]
+[connection signal="pressed" from="CanvasLayer/final_cutscene/skip_cutscene" to="." method="_on_skip_cutscene_pressed"]

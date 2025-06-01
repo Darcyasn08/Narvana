@@ -1,0 +1,135 @@
+[gd_scene load_steps=16 format=3 uid="uid://c0mhi6ktt3kfj"]
+
+[ext_resource type="PackedScene" uid="uid://byafmsxob8mia" path="res://3d_models/placeholders/crab.glb" id="1_1wnsb"]
+[ext_resource type="Script" uid="uid://u4fkqjmy4lqs" path="res://scenes/crab_npc.gd" id="1_ih6au"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/npc_dialogue_area.tscn" id="3_4hd1a"]
+[ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="3_sichv"]
+[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="4_y7csx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gydx8"]
+render_priority = 0
+shader = ExtResource("3_sichv")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjiji"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.54237, 0.27958, 0.253424, 1)
+roughness = 0.0
+emission_enabled = true
+ao_light_affect = 1.0
+subsurf_scatter_strength = 0.96
+backlight_enabled = true
+backlight = Color(0.808134, 0.290312, 0.604731, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hd1a"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.459764, 0.19923, 0.128063, 1)
+roughness = 0.0
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+backlight_enabled = true
+backlight = Color(0.467534, 0.149776, 0.331519, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sichv"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.590494, 0.256382, 0.210121, 1)
+roughness = 0.0
+clearcoat_roughness = 0.85
+backlight_enabled = true
+backlight = Color(0.75738, 0.290351, 0.484975, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5pgoh"]
+render_priority = 0
+shader = ExtResource("3_sichv")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7csx"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.298137, 0.149234, 0.0625764, 1)
+roughness = 0.0
+backlight_enabled = true
+backlight = Color(0.937221, 0.525044, 0.591263, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gydx8"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.920995, 0.920995, 0.920995, 1)
+roughness = 0.0
+backlight_enabled = true
+backlight = Color(0.782352, 0.280834, 0.523576, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pgoh"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.270222, 0.270222, 0.270222, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2mua"]
+diffuse_mode = 3
+specular_mode = 1
+roughness = 0.0
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+backlight_enabled = true
+backlight = Color(0.671376, 0.278509, 0.511173, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ua45"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.0
+
+[node name="crab_npc" type="Node3D"]
+script = ExtResource("1_ih6au")
+
+[node name="crab" parent="." instance=ExtResource("1_1wnsb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.0135363, 0)
+
+[node name="crab-body" parent="crab" index="0"]
+transform = Transform3D(0.549004, 0, 0, 0, 0.0245351, -0.0471874, 0, 0.00278762, 0.415318, -0.0177275, 0.382452, 0.116878)
+material_overlay = SubResource("ShaderMaterial_gydx8")
+surface_material_override/0 = SubResource("StandardMaterial3D_jjiji")
+surface_material_override/1 = SubResource("StandardMaterial3D_4hd1a")
+
+[node name="arm" parent="crab" index="1"]
+material_override = SubResource("StandardMaterial3D_sichv")
+material_overlay = SubResource("ShaderMaterial_5pgoh")
+
+[node name="legs" parent="crab" index="2"]
+material_override = SubResource("StandardMaterial3D_y7csx")
+material_overlay = ExtResource("4_y7csx")
+
+[node name="spatula" parent="crab" index="3"]
+material_overlay = ExtResource("4_y7csx")
+surface_material_override/0 = SubResource("StandardMaterial3D_gydx8")
+surface_material_override/1 = SubResource("StandardMaterial3D_gydx8")
+surface_material_override/2 = SubResource("StandardMaterial3D_5pgoh")
+
+[node name="eyes" parent="crab" index="4"]
+material_override = SubResource("StandardMaterial3D_b2mua")
+material_overlay = ExtResource("4_y7csx")
+cast_shadow = 0
+
+[node name="pupils" parent="crab" index="5"]
+material_override = SubResource("StandardMaterial3D_5ua45")
+cast_shadow = 0
+
+[node name="npc_dialogue_area" parent="." instance=ExtResource("3_4hd1a")]
+
+[node name="name_label" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45153, 0)
+visible = false
+text = "press E"
+font_size = 50
+outline_size = 23
+
+[connection signal="body_entered" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_entered"]
+[connection signal="body_exited" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_exited"]
+
+[editable path="crab"]

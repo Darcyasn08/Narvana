@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c4tg74phgwyas"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.321569, 0.466667, 0.74902, 1)
+roughness = 0.0
+rim_enabled = true
+clearcoat_enabled = true
+clearcoat_roughness = 0.17
+ao_enabled = true
+ao_light_affect = 0.85
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+backlight_enabled = true
+backlight = Color(0.733132, 0.498915, 0.619693, 1)

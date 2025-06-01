@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0l4begr7id8h"]
+
+[ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_bl585"]
+[ext_resource type="Script" uid="uid://d0ao8ioh8ksj4" path="res://scripts/pause_menu.gd" id="1_mko1u"]
+[ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
+atlas = ExtResource("1_qo2fb")
+region = Rect2(47.0406, 38.4275, 299.023, 170.548)
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_mko1u")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -26.0
+offset_top = -29.0
+offset_right = 1385.0
+offset_bottom = 751.0
+color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
+
+[node name="options_button" type="Button" parent="."]
+offset_left = 585.0
+offset_top = 362.0
+offset_right = 702.0
+offset_bottom = 412.0
+theme_override_font_sizes/font_size = 30
+text = "options"
+
+[node name="back_button" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 33.0
+offset_right = 75.0
+offset_bottom = 83.0
+theme_override_font_sizes/font_size = 30
+text = "<"
+
+[node name="options_menu" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+script = ExtResource("1_bl585")
+
+[node name="ColorRect2" type="ColorRect" parent="options_menu"]
+offset_left = -26.0
+offset_top = -29.0
+offset_right = 1385.0
+offset_bottom = 751.0
+color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
+
+[node name="Telas" type="Sprite2D" parent="options_menu"]
+position = Vector2(635, 359)
+scale = Vector2(4.3, 4.3)
+texture = SubResource("AtlasTexture_bl585")
+
+[node name="back_button" type="Button" parent="options_menu"]
+offset_left = 40.0
+offset_top = 23.0
+offset_right = 85.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="options_menu/back_button" to="options_menu" method="_on_back_button_pressed"]

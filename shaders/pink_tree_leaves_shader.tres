@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cd64vrds3ubbi"]
+
+[resource]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.717179, 0.359503, 0.495137, 1)
+metallic_specular = 1.0
+roughness = 0.0
+ao_enabled = true
+ao_light_affect = 0.5
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 1.0
+backlight_enabled = true
+backlight = Color(0.538266, 0.177918, 0.363316, 1)
+refraction_scale = 1.0
