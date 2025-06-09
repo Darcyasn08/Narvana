@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjhaj6s8q7e0x"]
+
+[ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lks3o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fgw4t"]
+radius = 0.422072
+height = 1.4471
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tsjtq"]
+radius = 0.457245
+height = 1.49735
+
+[node name="pig_bank" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_fgw4t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.7, 0, 0, 0, -6.3163e-08, -1.7, 0, 1.445, -7.43094e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_lks3o")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, -0.0083648, 0)
+shape = SubResource("CapsuleShape3D_fgw4t")
+
+[node name="hitbox" type="Area3D" parent="." groups=["enemies"]]
+
+[node name="collision" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, -0.0083648, 0)
+shape = SubResource("CapsuleShape3D_tsjtq")
+
+[node name="coinslot1" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.582, 0.2, -0.48)
+
+[node name="coinslot2" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.767, 0.2, -0.48)
+
+[node name="coinslot3" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.018, 0.2, 0.508)
+
+[connection signal="area_shape_entered" from="hitbox" to="." method="_on_hitbox_area_shape_entered"]

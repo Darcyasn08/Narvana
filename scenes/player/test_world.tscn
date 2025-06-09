@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn0df8tvhhkcn"]
+[gd_scene load_steps=24 format=3 uid="uid://dn0df8tvhhkcn"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
 [ext_resource type="Script" uid="uid://reu1armmlmns" path="res://scripts/test_world.gd" id="1_8ash4"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://03c0c086wpdq" path="res://3d_models/placeholders/box.glb" id="5_s2ra0"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="6_s2ra0"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/crab_npc.tscn" id="7_lywpe"]
+[ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_lywpe"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="9_8ash4"]
+[ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="9_pli87"]
 [ext_resource type="PackedScene" uid="uid://c7tr11oyqicij" path="res://scenes/small_bridge.tscn" id="11_fithi"]
+[ext_resource type="PackedScene" uid="uid://cjhaj6s8q7e0x" path="res://scenes/pig_bank.tscn" id="12_4dyd7"]
+[ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/matador_3000.tscn" id="12_d55t2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
 sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
@@ -35,15 +39,15 @@ albedo_color = Color(0.385112, 0.378432, 0.248665, 1)
 material = SubResource("StandardMaterial3D_mcn17")
 size = Vector3(130, 1, 120)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ash4"]
-data = PackedVector3Array(-65, 0.5, 60, 65, 0.5, 60, -65, -0.5, 60, 65, 0.5, 60, 65, -0.5, 60, -65, -0.5, 60, 65, 0.5, -60, -65, 0.5, -60, 65, -0.5, -60, -65, 0.5, -60, -65, -0.5, -60, 65, -0.5, -60, 65, 0.5, 60, 65, 0.5, -60, 65, -0.5, 60, 65, 0.5, -60, 65, -0.5, -60, 65, -0.5, 60, -65, 0.5, -60, -65, 0.5, 60, -65, -0.5, -60, -65, 0.5, 60, -65, -0.5, 60, -65, -0.5, -60, 65, 0.5, 60, -65, 0.5, 60, 65, 0.5, -60, -65, 0.5, 60, -65, 0.5, -60, 65, 0.5, -60, -65, -0.5, 60, 65, -0.5, 60, -65, -0.5, -60, 65, -0.5, 60, 65, -0.5, -60, -65, -0.5, -60)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fithi"]
+data = PackedVector3Array(-65, 0.1, 60, 65, 0.1, 60, -65, -0.1, 60, 65, 0.1, 60, 65, -0.1, 60, -65, -0.1, 60, 65, 0.1, -60, -65, 0.1, -60, 65, -0.1, -60, -65, 0.1, -60, -65, -0.1, -60, 65, -0.1, -60, 65, 0.1, 60, 65, 0.1, -60, 65, -0.1, 60, 65, 0.1, -60, 65, -0.1, -60, 65, -0.1, 60, -65, 0.1, -60, -65, 0.1, 60, -65, -0.1, -60, -65, 0.1, 60, -65, -0.1, 60, -65, -0.1, -60, 65, 0.1, 60, -65, 0.1, 60, 65, 0.1, -60, -65, 0.1, 60, -65, 0.1, -60, 65, 0.1, -60, -65, -0.1, 60, 65, -0.1, 60, -65, -0.1, -60, 65, -0.1, 60, 65, -0.1, -60, -65, -0.1, -60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d55t2"]
 material = SubResource("StandardMaterial3D_mcn17")
 size = Vector3(50, 1, 120)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fithi"]
-data = PackedVector3Array(-25, 0.5, 60, 25, 0.5, 60, -25, -0.5, 60, 25, 0.5, 60, 25, -0.5, 60, -25, -0.5, 60, 25, 0.5, -60, -25, 0.5, -60, 25, -0.5, -60, -25, 0.5, -60, -25, -0.5, -60, 25, -0.5, -60, 25, 0.5, 60, 25, 0.5, -60, 25, -0.5, 60, 25, 0.5, -60, 25, -0.5, -60, 25, -0.5, 60, -25, 0.5, -60, -25, 0.5, 60, -25, -0.5, -60, -25, 0.5, 60, -25, -0.5, 60, -25, -0.5, -60, 25, 0.5, 60, -25, 0.5, 60, 25, 0.5, -60, -25, 0.5, 60, -25, 0.5, -60, 25, 0.5, -60, -25, -0.5, 60, 25, -0.5, 60, -25, -0.5, -60, 25, -0.5, 60, 25, -0.5, -60, -25, -0.5, -60)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4dyd7"]
+data = PackedVector3Array(-25, 0.1, 60, 25, 0.1, 60, -25, -0.1, 60, 25, 0.1, 60, 25, -0.1, 60, -25, -0.1, 60, 25, 0.1, -60, -25, 0.1, -60, 25, -0.1, -60, -25, 0.1, -60, -25, -0.1, -60, 25, -0.1, -60, 25, 0.1, 60, 25, 0.1, -60, 25, -0.1, 60, 25, 0.1, -60, 25, -0.1, -60, 25, -0.1, 60, -25, 0.1, -60, -25, 0.1, 60, -25, -0.1, -60, -25, 0.1, 60, -25, -0.1, 60, -25, -0.1, -60, 25, 0.1, 60, -25, 0.1, 60, 25, 0.1, -60, -25, 0.1, 60, -25, 0.1, -60, 25, 0.1, -60, -25, -0.1, 60, 25, -0.1, 60, -25, -0.1, -60, 25, -0.1, 60, 25, -0.1, -60, -25, -0.1, -60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imjh6"]
 albedo_color = Color(0, 0.631373, 0.898039, 1)
@@ -62,29 +66,30 @@ script = ExtResource("1_8ash4")
 environment = SubResource("Environment_vsqnw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7231, 0.690744, 0, -0.690744, 0.7231, 0.373757, 6.07769, 0)
+transform = Transform3D(1, 0, 0, 0, 0.958894, 0.283764, 0, -0.283764, 0.958894, 0.373757, 6.07769, 0)
 light_color = Color(0.999999, 0.99695, 0.675937, 1)
 shadow_enabled = true
 shadow_normal_bias = 0.1
 shadow_opacity = 0.8
 
 [node name="floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.106, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.106, -1, 0)
 mesh = SubResource("BoxMesh_2nnkd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_8ash4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConcavePolygonShape3D_fithi")
 
 [node name="floor2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.161, -0.5, -0.033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.161, -1, -0.033)
 mesh = SubResource("BoxMesh_d55t2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor2/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_fithi")
+shape = SubResource("ConcavePolygonShape3D_4dyd7")
 
 [node name="floor3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9961, -2.21525, -0.033)
@@ -104,23 +109,11 @@ transform = Transform3D(-0.282911, 0, -0.959146, 0, 1, 0, 0.959146, 0, -0.282911
 [node name="pink_tree4" parent="." instance=ExtResource("3_anvu8")]
 transform = Transform3D(0.567197, 0, -0.823582, 0, 1, 0, 0.823582, 0, 0.567197, -0.866666, -4.76837e-07, -8.28164)
 
-[node name="pink_tree" parent="pink_tree4" instance=ExtResource("3_anvu8")]
-transform = Transform3D(0.821796, 0, 0.569782, 0, 1, 0, -0.569782, 0, 0.821796, -34.6133, 0, 16.3112)
-
-[node name="pink_tree2" parent="pink_tree4" instance=ExtResource("3_anvu8")]
-transform = Transform3D(-0.282911, 0, -0.959146, 0, 1, 0, 0.959146, 0, -0.282911, -44.7307, -4.76837e-07, 30.3358)
-
-[node name="pink_tree4" parent="pink_tree4" instance=ExtResource("3_anvu8")]
-transform = Transform3D(0.567197, 0, -0.823582, 0, 1, 0, 0.823582, 0, 0.567197, -24.2374, -4.76837e-07, 33.4544)
-
-[node name="pink_tree9" parent="pink_tree4" instance=ExtResource("3_anvu8")]
-transform = Transform3D(0.424689, 0, 0.905339, 0, 1, 0, -0.905339, 0, 0.424689, -11.982, -4.76837e-07, 29.1891)
-
 [node name="pink_tree3" parent="." instance=ExtResource("3_anvu8")]
 transform = Transform3D(0.988, 0, -0.154452, 0, 1, 0, 0.154452, 0, 0.988, -16.6974, -1.43051e-06, -4.63332)
 
 [node name="pink_tree16" parent="." instance=ExtResource("3_anvu8")]
-transform = Transform3D(0.74738, 0, -0.664396, 0, 1, 0, 0.664396, 0, 0.74738, -41.9777, -4.76837e-07, -21.3982)
+transform = Transform3D(0.74738, 0, -0.664396, 0, 1, 0, 0.664396, 0, 0.74738, -38.5505, -4.76837e-07, -19.6225)
 
 [node name="pink_tree5" parent="." instance=ExtResource("3_anvu8")]
 transform = Transform3D(0.76591, 0, -0.642948, 0, 1, 0, 0.642948, 0, 0.76591, 15.8318, -4.76837e-07, 16.939)
@@ -171,7 +164,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20182, -4.76837e-07, 8.4050
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33198, 1.54596, 1.01522)
 
 [node name="player" parent="." instance=ExtResource("1_2nnkd")]
-transform = Transform3D(0.3222, 0, -0.946672, 0, 1, 0, 0.946672, 0, 0.3222, 65.4629, 0.349868, -4.72606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.349868, 0)
+
+[node name="dialogue_system" parent="." instance=ExtResource("8_lywpe")]
+
+[node name="pause_menu" parent="." instance=ExtResource("9_pli87")]
 
 [node name="crab_npc" parent="." instance=ExtResource("7_lywpe")]
 transform = Transform3D(0.882563, 0, -0.470196, 0, 1, 0, 0.470196, 0, 0.882563, 26.905, -4.76837e-07, -5.6712)
@@ -180,7 +177,10 @@ transform = Transform3D(0.882563, 0, -0.470196, 0, 1, 0, 0.470196, 0, 0.882563, 
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 68.2033, 0, 0.730785)
 
 [node name="small_bridge" parent="." instance=ExtResource("11_fithi")]
-transform = Transform3D(0.0265085, 0, -0.999649, 0, 1, 0, 0.999649, 0, 0.0265085, -25.0749, -1.76959, -11.634)
+transform = Transform3D(0.0265085, 0, -0.999649, 0, 1, 0, 0.999649, 0, 0.0265085, -25.0749, -1.81233, -11.634)
 
-[node name="crab_npc2" parent="." instance=ExtResource("7_lywpe")]
-transform = Transform3D(0.417883, 0, 0.908501, 0, 1, 0, -0.908501, 0, 0.417883, -33.9352, 0, -13.41)
+[node name="matador3000" parent="." instance=ExtResource("12_d55t2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36271, 0.561867, 0)
+
+[node name="pig_bank" parent="." instance=ExtResource("12_4dyd7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.42263, -6.31243)

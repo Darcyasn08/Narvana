@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqcvfpirtiax4"]
+[gd_scene load_steps=24 format=3 uid="uid://bqcvfpirtiax4"]
 
 [ext_resource type="PackedScene" uid="uid://c604eidrq5pn2" path="res://3d_models/placeholders/temple.glb" id="1_0u0yr"]
 [ext_resource type="PackedScene" uid="uid://cf76bkv4f1n3r" path="res://3d_models/placeholders/temple-fence.glb" id="2_0u0yr"]
@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://b8swkbrjsg2w3" path="res://music/crystal clear.mp3" id="4_a5w5l"]
 [ext_resource type="PackedScene" uid="uid://bfpc1iyyab0bn" path="res://3d_models/placeholders/temple-entrance.glb" id="5_jsg4b"]
 [ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="6_40f1g"]
-[ext_resource type="PackedScene" uid="uid://cehotwhkrkbkq" path="res://scenes/master.tscn" id="7_7p6xb"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_40f1g"]
 data = PackedVector3Array(-17.5, -0.6855, 10, -17.5, -0.6855, -10, -17.5, 0.6855, -10, 17.5, -0.6855, -10, -17.5, -0.6855, -10, -17.5, -0.6855, 10, -17.5, 0.6855, -10, -17.5, -0.6855, -10, 17.5, -0.6855, -10, -17.5, 0.6855, -10, -17.5, 0.6855, 10, -17.5, -0.6855, 10, -17.5, -0.6855, 10, -17.5, 0.6855, 10, 17.5, 0.6855, 10, 17.5, 0.6855, 10, -17.5, 0.6855, 10, -17.5, 0.6855, -10, -17.5, -0.6855, 10, 17.5, -0.6855, 10, 17.5, -0.6855, -10, 17.5, 0.6855, 10, 17.5, -0.6855, 10, -17.5, -0.6855, 10, 17.5, -0.6855, -10, 17.5, -0.6855, 10, 17.5, 0.6855, 10, 17.5, -0.6855, -10, 17.5, 0.6855, -10, -17.5, 0.6855, -10, -17.5, 0.6855, -10, 17.5, 0.6855, -10, 17.5, 0.6855, 10, 17.5, 0.6855, 10, 17.5, 0.6855, -10, 17.5, -0.6855, -10)
@@ -106,7 +105,6 @@ shape = SubResource("ConcavePolygonShape3D_vh502")
 
 [node name="Cube_001" parent="temple_model" index="13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06058, 2.87845, -5.35103)
-visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="temple_model/Cube_002" index="0"]
 
@@ -149,6 +147,13 @@ shape = SubResource("ConcavePolygonShape3D_6nvvq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_model/Cube_011/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3vtbg")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4988, 4.01495, 28.3809)
+light_color = Color(1, 0.776471, 0.419608, 1)
+light_size = 5.0
+shadow_enabled = true
+omni_range = 8.653
+
 [node name="temple-fence2" parent="." instance=ExtResource("2_0u0yr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1115, 0, 27.5821)
 visible = false
@@ -161,29 +166,17 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8064, 0, 27.5051)
 visible = false
 
+[node name="temple-fence3" parent="." instance=ExtResource("2_0u0yr")]
+transform = Transform3D(0.0262816, 0, 0.999655, 0, 1, 0, -0.999655, 0, 0.0262816, 24.4126, 0, 22.2907)
+
+[node name="temple-fence8" parent="." instance=ExtResource("2_0u0yr")]
+transform = Transform3D(0.0262816, 0, 0.999655, 0, 1, 0, -0.999655, 0, 0.0262816, 24.4126, 0, 12.0648)
+
 [node name="temple-fence4" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 37.6002)
-
-[node name="temple-fence10" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 27.3564)
-
-[node name="temple-fence11" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 17.071)
-
-[node name="temple-fence12" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 6.71696)
-
-[node name="temple-fence13" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, -3.45934)
-
-[node name="temple-fence14" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.2116, 0, -13.8134)
+transform = Transform3D(0.0262816, 0, 0.999655, 0, 1, 0, -0.999655, 0, 0.0262816, -23.2964, 0, 22.1869)
 
 [node name="temple-fence7" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0499, 0, 42.7648)
-
-[node name="temple-fence9" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4532, 0, 42.7648)
+transform = Transform3D(0.0262816, 0, 0.999655, 0, 1, 0, -0.999655, 0, 0.0262816, -23.2964, 0, 11.5077)
 
 [node name="pink_tree" parent="." instance=ExtResource("3_kyh5s")]
 transform = Transform3D(0.73631, 0, -0.676645, 0, 1, 0, 0.676645, 0, 0.73631, -12.2137, 1.90735e-06, 16.9102)
@@ -206,6 +199,7 @@ transform = Transform3D(-0.343906, 0, 0.939004, 0, 1, 0, -0.939004, 0, -0.343906
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(0.999081, 0, -0.0428693, 0, 1, 0, 0.0428693, 0, 0.999081, -1.69729, 4.56495, 7.45826)
 stream = ExtResource("4_a5w5l")
+autoplay = true
 bus = &"Music"
 emission_angle_enabled = true
 emission_angle_degrees = 52.0
@@ -221,44 +215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024093, -4.76837e-07, 42.7
 shape = SubResource("ConcavePolygonShape3D_hapkp")
 
 [node name="first_level_portal" parent="." instance=ExtResource("6_40f1g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11546, 4.34494, -24.033)
-
-[node name="master" parent="." instance=ExtResource("7_7p6xb")]
-transform = Transform3D(0.970258, 0, 0.242074, 0, 1, 0, -0.242074, 0, 0.970258, -8.68725, 2.07608, -25.7912)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.162039, 0.955524, -0.246409, 0.131043, 0.22666, 0.965118, 0.978045, -0.188677, -0.0884864, -9.95917, 8.28944, -26.043)
-visible = false
-light_color = Color(1, 1, 0.823529, 1)
-light_energy = 8.0
-spot_range = 11.382
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(0.205041, 0.947131, 0.24678, 0.0372465, -0.259505, 0.965023, 0.978045, -0.188677, -0.0884864, -4.07944, 7.02462, -22.3024)
-light_color = Color(0.999568, 0.999998, 0.717133, 1)
-light_energy = 2.0
-omni_range = 12.0
-omni_attenuation = 0.4
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(0.205041, 0.947131, 0.24678, 0.0372465, -0.259505, 0.965023, 0.978045, -0.188677, -0.0884864, 5.8439, 7.02462, -22.3024)
-light_color = Color(0.999568, 0.999998, 0.717133, 1)
-light_energy = 2.0
-omni_range = 12.0
-omni_attenuation = 0.4
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(0.205041, 0.947131, 0.24678, 0.0372465, -0.259505, 0.965023, 0.978045, -0.188677, -0.0884864, 1.46256, 9.50623, -10.9837)
-light_color = Color(0.999568, 0.999998, 0.717133, 1)
-light_energy = 2.0
-omni_range = 12.0
-omni_attenuation = 0.4
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.205041, 0.947132, 0.24678, 0.0372465, -0.259505, 0.965023, 0.978045, -0.188677, -0.0884864, 10.0783, 8.28944, -26.043)
-light_color = Color(1, 1, 0.823529, 1)
-light_energy = 8.0
-spot_range = 11.382
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.93206, 3.4919, -25.8364)
 
 [editable path="temple_model"]
 [editable path="temple-entrance"]

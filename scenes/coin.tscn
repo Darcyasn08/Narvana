@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://44nwxu6jw6k5"]
+
+[ext_resource type="Script" uid="uid://b1bw533a3rwsv" path="res://scripts/coin.gd" id="1_3o5iq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o5iq"]
+albedo_color = Color(1, 1, 0.0196078, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_188lh"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d5nlw"]
+height = 0.189972
+radius = 0.479004
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3o5iq"]
+height = 0.189972
+radius = 0.520996
+
+[node name="coin" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_3o5iq")
+
+[node name="uped" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+height = 0.187073
+material = SubResource("StandardMaterial3D_3o5iq")
+
+[node name="falled" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.380083, -0.534931)
+visible = false
+height = 0.187073
+material = SubResource("StandardMaterial3D_188lh")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0206807, 0.999786, 0, -0.999786, -0.0206807, 0, 0.0190308, 0.00384119)
+shape = SubResource("CylinderShape3D_d5nlw")
+
+[node name="hitbox" type="Area3D" parent="." groups=["enemies"]]
+
+[node name="collision2" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, -0.0206807, 0.999786, 0, -0.999786, -0.0206807, 0, 0.0190308, 0.00384119)
+shape = SubResource("CylinderShape3D_3o5iq")
+
+[connection signal="area_shape_entered" from="hitbox" to="." method="_on_hitbox_area_shape_entered"]
