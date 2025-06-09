@@ -17,7 +17,7 @@ offset_left = -26.0
 offset_top = -29.0
 offset_right = 1385.0
 offset_bottom = 751.0
-color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
+color = Color(0.0352941, 0.0196078, 0.0745098, 0.733333)
 
 [node name="options_button" type="Button" parent="."]
 offset_left = 585.0

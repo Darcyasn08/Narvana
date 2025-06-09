@@ -129,7 +129,4 @@ text = "press E"
 font_size = 50
 outline_size = 23
 
-[connection signal="body_entered" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_entered"]
-[connection signal="body_exited" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_exited"]
-
 [editable path="crab"]

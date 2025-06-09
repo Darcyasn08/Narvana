@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dn0df8tvhhkcn"]
+[gd_scene load_steps=20 format=3 uid="uid://dn0df8tvhhkcn"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
 [ext_resource type="Script" uid="uid://reu1armmlmns" path="res://scripts/test_world.gd" id="1_8ash4"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://03c0c086wpdq" path="res://3d_models/placeholders/box.glb" id="5_s2ra0"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="6_s2ra0"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/crab_npc.tscn" id="7_lywpe"]
-[ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_lywpe"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="9_8ash4"]
-[ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="9_pli87"]
 [ext_resource type="PackedScene" uid="uid://c7tr11oyqicij" path="res://scenes/small_bridge.tscn" id="11_fithi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
@@ -64,7 +62,7 @@ script = ExtResource("1_8ash4")
 environment = SubResource("Environment_vsqnw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.958894, 0.283764, 0, -0.283764, 0.958894, 0.373757, 6.07769, 0)
+transform = Transform3D(1, 0, 0, 0, 0.7231, 0.690744, 0, -0.690744, 0.7231, 0.373757, 6.07769, 0)
 light_color = Color(0.999999, 0.99695, 0.675937, 1)
 shadow_enabled = true
 shadow_normal_bias = 0.1
@@ -173,11 +171,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20182, -4.76837e-07, 8.4050
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33198, 1.54596, 1.01522)
 
 [node name="player" parent="." instance=ExtResource("1_2nnkd")]
-transform = Transform3D(-0.497807, 0, -0.867288, 0, 1, 0, 0.867288, 0, -0.497807, -9.26395, 0.349868, -3.72239)
-
-[node name="dialogue_system" parent="." instance=ExtResource("8_lywpe")]
-
-[node name="pause_menu" parent="." instance=ExtResource("9_pli87")]
+transform = Transform3D(0.3222, 0, -0.946672, 0, 1, 0, 0.946672, 0, 0.3222, 65.4629, 0.349868, -4.72606)
 
 [node name="crab_npc" parent="." instance=ExtResource("7_lywpe")]
 transform = Transform3D(0.882563, 0, -0.470196, 0, 1, 0, 0.470196, 0, 0.882563, 26.905, -4.76837e-07, -5.6712)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqxrcwsc2n7ag"]
+
+[ext_resource type="PackedScene" uid="uid://bt7o5s6maqr8o" path="res://3d_models/placeholders/village-entrance-sign.glb" id="1_n27lm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62fys"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.674628, 0.385388, 0.358272, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmtyf"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.755837, 0.495812, 0.392926, 1)
+roughness = 0.0
+
+[node name="village_entrance_sign" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="village_entrance_sign_model" parent="." instance=ExtResource("1_n27lm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="pole" parent="village_entrance_sign_model" index="0"]
+material_override = SubResource("StandardMaterial3D_62fys")
+
+[node name="MeshInstance3D2" parent="village_entrance_sign_model" index="1"]
+material_override = SubResource("StandardMaterial3D_wmtyf")
+
+[node name="MeshInstance3D3" parent="village_entrance_sign_model" index="2"]
+material_override = SubResource("StandardMaterial3D_wmtyf")
+
+[node name="pole_001" parent="village_entrance_sign_model" index="3"]
+material_override = SubResource("StandardMaterial3D_wmtyf")
+
+[node name="Label3D" type="Label3D" parent="village_entrance_sign_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565342, 2.81628, 0.0623218)
+text = "Village"
+
+[node name="Label3D2" type="Label3D" parent="village_entrance_sign_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575493, 1.86218, 0.0623218)
+text = "City"
+
+[editable path="village_entrance_sign_model"]

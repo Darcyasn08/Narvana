@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=17 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
 [ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="3_gmlin"]
 [ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="4_lvxji"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="6_0owmy"]
+[ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p47bc"]
 render_priority = 0
@@ -29,6 +31,44 @@ roughness = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_qek5x"]
 size = Vector3(1.6, 0.2, 0.3)
+
+[sub_resource type="Animation" id="Animation_75vfm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("narval_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "walk_anim"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("narval_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.933333, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
+_data = {
+&"RESET": SubResource("Animation_75vfm"),
+&"walk_anim": SubResource("Animation_p47bc")
+}
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
@@ -77,6 +117,125 @@ material_override = SubResource("StandardMaterial3D_0owmy")
 material_overlay = ExtResource("5_p47bc")
 mesh = SubResource("BoxMesh_qek5x")
 
+[node name="player_hud" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="player_hud"]
+offset_left = 49.0
+offset_top = -2.0
+offset_right = 407.0
+offset_bottom = 45.0
+rotation = -0.231101
+scale = Vector2(1.30339, 2.24474)
+color = Color(0.176471, 0.168627, 0.4, 0.329412)
+
+[node name="ColorRect2" type="ColorRect" parent="player_hud"]
+offset_left = 101.0
+offset_top = 21.0
+offset_right = 507.0
+offset_bottom = 136.0
+rotation = 1.84963
+color = Color(0.176471, 0.164706, 0.396078, 0.372549)
+
+[node name="Polygon2D2" type="Polygon2D" parent="player_hud"]
+position = Vector2(9, 26)
+scale = Vector2(1.26364, 1.26667)
+color = Color(0.197096, 0.250163, 0.366076, 1)
+polygon = PackedVector2Array(75, -10, 85, 15, 85, 37, 73, 54, 54, 68, 30, 72, 12, 66, -8, 45, -24, 16, -25, -33, 57, -28)
+
+[node name="Polygon2D" type="Polygon2D" parent="player_hud"]
+position = Vector2(11.7727, 27.2857)
+scale = Vector2(1.19091, 1.19048)
+color = Color(0.537495, 0.738504, 0.79098, 1)
+polygon = PackedVector2Array(75, -10, 85, 15, 85, 37, 73, 54, 54, 68, 30, 72, 12, 66, -8, 45, -24, 16, -25, -33, 57, -28)
+
+[node name="bat" type="Polygon2D" parent="player_hud"]
+position = Vector2(0, 4)
+polygon = PackedVector2Array(41, 89, 29, 82, 32, 77, 34, 78, 35, 76, 34, 75, 38, 69, 42, 72, 71, 33, 67, 31, 71, 26, 73, 27, 75, 25, 74, 23, 78, 16, 89, 22, 83, 29, 80, 28, 78, 30, 80, 31, 77, 37, 74, 35, 45, 73, 50, 76, 45, 82, 43, 81, 41, 83, 42, 84)
+
+[node name="star1" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="black" type="Polygon2D" parent="player_hud/star1"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star1"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="star2" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 55.0
+offset_top = 1.0
+offset_right = 95.0
+offset_bottom = 41.0
+
+[node name="black" type="Polygon2D" parent="player_hud/star2"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star2"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="star3" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 106.0
+offset_top = 1.0
+offset_right = 146.0
+offset_bottom = 41.0
+
+[node name="black" type="Polygon2D" parent="player_hud/star3"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star3"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="star4" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 159.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 43.0
+
+[node name="black" type="Polygon2D" parent="player_hud/star4"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star4"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0owmy")
+}
+
+[node name="dialogue_system" parent="." instance=ExtResource("6_0owmy")]
+
+[node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
+
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="narval_model"]
