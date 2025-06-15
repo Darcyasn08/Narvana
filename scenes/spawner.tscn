@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://btpev621cofay"]
+
+[ext_resource type="Script" uid="uid://dyi8i2lae7hk" path="res://scripts/spawner.gd" id="1_2vbf6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ik2nu"]
+
+[node name="spawner" type="Node3D"]
+script = ExtResource("1_2vbf6")
+
+[node name="detection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detection"]
+shape = SubResource("SphereShape3D_ik2nu")
+
+[connection signal="area_shape_entered" from="detection" to="." method="_on_detection_area_shape_entered"]

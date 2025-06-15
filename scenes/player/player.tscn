@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=11 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
@@ -21,6 +21,9 @@ height = 3.86882
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dovo2"]
 size = Vector3(1.88477, 0.225464, 0.555176)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvxji"]
+albedo_color = Color(0.992157, 0.952941, 0, 1)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
@@ -48,7 +51,7 @@ spring_length = 7.0
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
 
-[node name="player_hitbox" type="Area3D" parent="."]
+[node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
 transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0.00704908, 0.535965, 0.229773)
@@ -56,6 +59,7 @@ shape = SubResource("CapsuleShape3D_lvxji")
 debug_color = Color(0.242656, 0.506679, 1, 0.42)
 
 [node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 0, 0)
 visible = false
 
 [node name="arma" type="Area3D" parent="Node3D" groups=["weapon"]]
@@ -68,6 +72,14 @@ disabled = true
 [node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32387, 0.374756, 0.213623)
 size = Vector3(1.60425, 0.250488, 0.572754)
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51831, 0.154162)
+visible = false
+layers = 33
+inner_radius = 0.275638
+outer_radius = 0.429279
+material = SubResource("StandardMaterial3D_lvxji")
 
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 

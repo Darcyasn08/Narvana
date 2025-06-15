@@ -15,6 +15,7 @@ var health := 6
 var dashed := false
 var knockbacked := false 
 var immune := false
+var sens := 0.07
 
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
@@ -46,12 +47,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
 		velocity.y = y_velocity + gravity * delta
 	
-	var is_starting_jump := Input.is_action_just_pressed("space") and is_on_floor()
+	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor()
 	if is_starting_jump:
 		velocity.y += jump_impulse
 	
 	move_and_slide()
 	dash()
+	attack()
 	
 	if move_direction.length() > 0.2:
 		last_movement_direction = move_direction
@@ -64,19 +66,9 @@ func _physics_process(delta: float) -> void:
 		pass
 		#velocity.y -= gravity * delta
 	
-	if Input.is_action_just_pressed("space") and is_on_floor():
+	if Input.is_action_just_pressed("space") and is_on_floor():#tem que ter o is on floor pra ele ficar pulando
 		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_pressed("e"): #arma temporaria só pra testes
-		$Node3D.show()
-		$Node3D/arma/CollisionShape3D.disabled = false
-		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-		await(get_tree().create_timer(.3).timeout)
-		$Node3D.hide()
-		$Node3D/arma/CollisionShape3D.disabled = true
-		$Node3D.rotation.y = 0
-	else: 
-		$Node3D.rotation.y = skin.rotation.y
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -85,7 +77,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 	)
 	if is_camera_motion:
-		camera_input_direction = event.relative * 0.15
+		camera_input_direction = event.relative * sens
 
 
 func _input(event: InputEvent) -> void:
@@ -96,10 +88,11 @@ func _input(event: InputEvent) -> void:
 
 
 func hurt(damage):
-	if damage < health:
+	if damage < health and immune == false:
+		get_immune()
 		health -= damage
 		print(health)
-	else:
+	elif damage >= health and immune == false:
 		health = 0
 	if health == 0:
 		die()
@@ -110,7 +103,7 @@ func die():
 
 
 func dash():
-	if Input.is_action_just_pressed("shift") and dashed == false:
+	if Input.is_action_just_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dashed = true
 		move_speed += 300
 		acceleration += 300
@@ -135,3 +128,23 @@ func _on_player_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shap
 		knockback(force, body_collision)
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
+
+func attack():
+	if Input.is_action_pressed("e"): #arma temporaria só pra testes
+		$Node3D.show()
+		$Node3D/arma/CollisionShape3D.disabled = false
+		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
+		await(get_tree().create_timer(.3).timeout)
+		$Node3D.hide()
+		$Node3D/arma/CollisionShape3D.disabled = true
+		$Node3D.rotation.y = skin.rotation.y
+	else:
+		$Node3D.rotation.y = skin.rotation.y
+	
+func get_immune():
+	immune = true
+	$CSGTorus3D.show()
+	await(get_tree().create_timer(3).timeout)
+	$CSGTorus3D.hide()
+	immune = false
+	
