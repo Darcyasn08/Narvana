@@ -83,8 +83,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
 		$Node3D.show()
 		$Node3D/arma/CollisionShape3D.disabled = false
-		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-		await(get_tree().create_timer(.3).timeout)
+		#$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
+		$AnimationPlayer2.play("bat_swing")
+		await(get_tree().create_timer(.5).timeout)
 		$Node3D.hide()
 		$Node3D/arma/CollisionShape3D.disabled = true
 		$Node3D.rotation.y = 0

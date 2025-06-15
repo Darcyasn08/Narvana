@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1aoegujykbb"]
+
+[ext_resource type="PackedScene" uid="uid://1ugtjlwjbooy" path="res://3d_models/placeholders/casadecha.glb" id="1_h5r8t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5r8t"]
+albedo_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyrec"]
+albedo_color = Color(0.711798, 0.29742, 0.24394, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvfp0"]
+albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
+
+[node name="low_house" type="Node3D"]
+
+[node name="casadecha" parent="." instance=ExtResource("1_h5r8t")]
+
+[node name="Cube" parent="casadecha" index="0"]
+material_override = SubResource("StandardMaterial3D_h5r8t")
+
+[node name="Plane_002" parent="casadecha" index="10"]
+material_override = SubResource("StandardMaterial3D_gyrec")
+
+[node name="Cube_001" parent="casadecha" index="11"]
+material_override = SubResource("StandardMaterial3D_uvfp0")
+
+[editable path="casadecha"]
