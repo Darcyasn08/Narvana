@@ -1,6 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://b321563xw53sn"]
 
-[ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_385i6"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
 [ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/matador_3000.tscn" id="2_imgkl"]
 [ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="4_snglc"]
@@ -18,11 +17,11 @@ energy_multiplier = 0.8
 sky_material = SubResource("ProceduralSkyMaterial_imgkl")
 
 [sub_resource type="Environment" id="Environment_snglc"]
-background_mode = 1
-background_color = Color(0.422777, 0.818231, 0.768946, 1)
+background_mode = 2
 sky = SubResource("Sky_7pb34")
-ambient_light_color = Color(0.761279, 0.902138, 0.755793, 1)
-ambient_light_sky_contribution = 0.2
+ambient_light_color = Color(0.714931, 0.878789, 0.70918, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_imgkl"]
 size = Vector3(20, 0.3, 20)
@@ -43,17 +42,14 @@ size = Vector3(20, 0.3, 21)
 radius = 2.51882
 
 [node name="first_level" type="Node3D"]
-script = ExtResource("1_385i6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_snglc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5.48245, 0)
-light_color = Color(0.732041, 0.921915, 0.767393, 1)
-light_energy = 0.9
-light_indirect_energy = 2.0
-light_specular = 4.0
+light_color = Color(0.676656, 0.9793, 0.815445, 1)
+light_energy = 0.6
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -120,7 +116,7 @@ mesh = SubResource("BoxMesh_385i6")
 shape = SubResource("ConcavePolygonShape3D_tqy6i")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(-0.953994, 0, -0.299824, 0, 1, 0, 0.299824, 0, -0.953994, -23.6868, 0.145206, -10.2767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2982, 0.145206, -10.9634)
 
 [node name="matador3000" parent="." instance=ExtResource("2_imgkl")]
 transform = Transform3D(0.999997, 0.00143993, 0.00182307, -0.00144929, 0.999986, 0.00513514, -0.00181563, -0.00513777, 0.999985, -2.48634, 0.672043, -2.83085)

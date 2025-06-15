@@ -1,11 +1,6 @@
 extends Node
 
 var player_damage := 200
-var player_can_attack: bool = false
-var player_base_pos: Vector3 = Vector3(0,1,0)
-
-var current_world
-enum worlds {NORMAL, FIRST_LEVEL}
 
 var cutscenes: Dictionary = {
 	"start": false,
@@ -20,8 +15,8 @@ var dialogues: Dictionary = {
 			"hello",
 			"i am crab",
 			"how are you?",
-			"i'm fine; ...; that's good to hear!; ... okay...",
-			"bye :)"
+			"i'm fine; i'm sad :(",
+			"ok :D"
 		],
 	},
 	

@@ -1,14 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://delx6cwd7s7vi"]
 
-[ext_resource type="PackedScene" uid="uid://deglu1te8d2nd" path="res://3d_models/placeholders/tree.blend" id="1_iu8fk"]
+[ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="1_iu8fk"]
 [ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="2_txfh0"]
 [ext_resource type="Material" uid="uid://cd64vrds3ubbi" path="res://shaders/pink_tree_leaves_shader.tres" id="2_xa8gp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_txfh0"]
 render_priority = 0
 shader = ExtResource("2_txfh0")
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa8gp"]
 diffuse_mode = 3
@@ -27,8 +25,6 @@ data = PackedVector3Array(1.1776, 1, -1, -0.6664, 1, 1, -0.6664, 1, -1, 1.1776, 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0urqp"]
 render_priority = 0
 shader = ExtResource("2_txfh0")
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 1.5
 
 [node name="pink_tree" type="Node3D"]
 

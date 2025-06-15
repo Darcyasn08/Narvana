@@ -3,13 +3,10 @@
 [ext_resource type="Script" uid="uid://dv8sgt6i5xugs" path="res://scripts/npc_dialogue_area.gd" id="1_jayf7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ih6au"]
-radius = 4.51893
+radius = 2.50579
 
 [node name="npc_dialogue_area" type="Area3D"]
 script = ExtResource("1_jayf7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ih6au")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

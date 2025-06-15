@@ -11,8 +11,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p47bc"]
 render_priority = 0
 shader = ExtResource("3_gmlin")
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
-shader_parameter/shadow_thickness = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
 radius = 1.79579
@@ -20,8 +18,9 @@ height = 3.59159
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
-data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvxji"]
+radius = 1.93441
+height = 3.86882
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
@@ -132,6 +131,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.1158
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.743699, 0.079566)
 shape = SubResource("CapsuleShape3D_u8vuu")
+debug_color = Color(0.242656, 0.506679, 1, 0.42)
 
 [node name="camera_pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
@@ -139,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
 shape = SubResource("SphereShape3D_g2els")
-spring_length = 4.5
+spring_length = 7.0
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
@@ -334,6 +334,5 @@ libraries = {
 }
 
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="narval_model"]

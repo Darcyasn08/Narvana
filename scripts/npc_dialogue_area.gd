@@ -9,16 +9,11 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = true
-		get_parent().get_node("name_label").show()
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = false
-		get_parent().get_node("name_label").hide()
-		SignalBus.on_dialog_area_leave.emit()
 
 func activate_dialogue():
-	if player_near and Input.is_action_just_pressed("e"):
+	if player_near and Input.is_action_just_pressed("space"):
 		SignalBus.on_dialogue_activated.emit(get_parent().npc_name)
-		print(get_parent().npc_name)
-		print("sent dialog request")
