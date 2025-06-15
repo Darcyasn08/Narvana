@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d35rab8iwrhju"]
+
+[ext_resource type="PackedScene" uid="uid://cj700syxcvate" path="res://3d_models/placeholders/small-house.glb" id="1_w4mha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wetn"]
+albedo_color = Color(0.711798, 0.29742, 0.24394, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0i8io"]
+albedo_color = Color(0.617455, 0.617455, 0.617455, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n6sq"]
+albedo_color = Color(0.264123, 0.139503, 0.139823, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6vr6"]
+albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4mha"]
+size = Vector3(12.1991, 8.33151, 8.29068)
+
+[node name="small_house" type="Node3D"]
+
+[node name="small_house_model" parent="." instance=ExtResource("1_w4mha")]
+
+[node name="Cube_001" parent="small_house_model" index="0"]
+material_override = SubResource("StandardMaterial3D_2wetn")
+
+[node name="Cube_002" parent="small_house_model" index="1"]
+material_override = SubResource("StandardMaterial3D_0i8io")
+
+[node name="Cube_003" parent="small_house_model" index="2"]
+material_override = SubResource("StandardMaterial3D_7n6sq")
+
+[node name="Cube_004" parent="small_house_model" index="3"]
+material_override = SubResource("StandardMaterial3D_7n6sq")
+
+[node name="Cube_005" parent="small_house_model" index="4"]
+material_override = SubResource("StandardMaterial3D_n6vr6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131683, 4.16277, -0.0462799)
+shape = SubResource("BoxShape3D_w4mha")
+
+[editable path="small_house_model"]

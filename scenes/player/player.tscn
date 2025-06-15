@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=15 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
 [ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="3_gmlin"]
 [ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="4_lvxji"]
-[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="5_p47bc"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="6_0owmy"]
+[ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="6_qek5x"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p47bc"]
@@ -15,22 +15,13 @@ shader_parameter/shadow_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_thickness = 1.8
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 1.81844
-height = 3.94488
+radius = 1.79579
+height = 3.59159
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
 data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.632029, 0.319436, 0.277572, 1)
-roughness = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_qek5x"]
-size = Vector3(1.6, 0.2, 0.3)
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
@@ -74,19 +65,39 @@ _data = {
 script = ExtResource("1_3vyb7")
 
 [node name="narval_model" parent="." instance=ExtResource("1_8afob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
+
+[node name="Cylinder_001" parent="narval_model" index="0"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
 
 [node name="narval-body" parent="narval_model" index="1"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
 material_overlay = SubResource("ShaderMaterial_p47bc")
 surface_material_override/0 = ExtResource("4_lvxji")
 surface_material_override/1 = ExtResource("4_lvxji")
 surface_material_override/2 = ExtResource("4_lvxji")
 
+[node name="Cylinder_004" parent="narval_model" index="2"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
+
+[node name="Cylinder_005" parent="narval_model" index="3"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
+
+[node name="glass1" parent="narval_model" index="4"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
+
+[node name="glass2" parent="narval_model" index="5"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
+
+[node name="glass3" parent="narval_model" index="6"]
+transform = Transform3D(0.15, 0, 0, 0, 0.231742, -0.0952572, 0, 0.190514, 0.115871, 0.0140608, 1.08735, 0.686807)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.553258, 0.079566)
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.743699, 0.079566)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44701, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
@@ -94,62 +105,64 @@ shape = SubResource("SphereShape3D_g2els")
 spring_length = 4.5
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
 
 [node name="player_hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.870276, -0.0126472)
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.883282, 0.160236)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823338, -0.12736, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823338, -0.0830647, 0)
 visible = false
 
 [node name="arma" type="Area3D" parent="Node3D" groups=["weapon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12464, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/arma"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30017, 0.374756, 0.217488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67383, 0.374756, 0.217488)
 shape = SubResource("ConcavePolygonShape3D_75vfm")
 
-[node name="CSGBox3D" type="MeshInstance3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30017, 0.374756, 0.217488)
-material_override = SubResource("StandardMaterial3D_0owmy")
-material_overlay = ExtResource("5_p47bc")
-mesh = SubResource("BoxMesh_qek5x")
+[node name="bat" parent="Node3D" instance=ExtResource("6_qek5x")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.48593, 0.389795, 0.191806)
 
 [node name="player_hud" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="player_hud"]
-offset_left = 49.0
-offset_top = -2.0
-offset_right = 407.0
-offset_bottom = 45.0
+offset_left = 3.0
+offset_top = -20.0
+offset_right = 361.0
+offset_bottom = 27.0
 rotation = -0.231101
 scale = Vector2(1.30339, 2.24474)
 color = Color(0.176471, 0.168627, 0.4, 0.329412)
 
 [node name="ColorRect2" type="ColorRect" parent="player_hud"]
-offset_left = 101.0
+offset_left = 70.0
 offset_top = 21.0
-offset_right = 507.0
+offset_right = 476.0
 offset_bottom = 136.0
-rotation = 1.84963
+rotation = 1.75197
 color = Color(0.176471, 0.164706, 0.396078, 0.372549)
 
 [node name="Polygon2D2" type="Polygon2D" parent="player_hud"]
 position = Vector2(9, 26)
-scale = Vector2(1.26364, 1.26667)
+scale = Vector2(0.987868, 0.990236)
 color = Color(0.197096, 0.250163, 0.366076, 1)
 polygon = PackedVector2Array(75, -10, 85, 15, 85, 37, 73, 54, 54, 68, 30, 72, 12, 66, -8, 45, -24, 16, -25, -33, 57, -28)
 
 [node name="Polygon2D" type="Polygon2D" parent="player_hud"]
 position = Vector2(11.7727, 27.2857)
-scale = Vector2(1.19091, 1.19048)
+scale = Vector2(0.93101, 0.930674)
 color = Color(0.537495, 0.738504, 0.79098, 1)
 polygon = PackedVector2Array(75, -10, 85, 15, 85, 37, 73, 54, 54, 68, 30, 72, 12, 66, -8, 45, -24, 16, -25, -33, 57, -28)
 
 [node name="bat" type="Polygon2D" parent="player_hud"]
 position = Vector2(0, 4)
+scale = Vector2(0.781764, 0.781764)
 polygon = PackedVector2Array(41, 89, 29, 82, 32, 77, 34, 78, 35, 76, 34, 75, 38, 69, 42, 72, 71, 33, 67, 31, 71, 26, 73, 27, 75, 25, 74, 23, 78, 16, 89, 22, 83, 29, 80, 28, 78, 30, 80, 31, 77, 37, 74, 35, 45, 73, 50, 76, 45, 82, 43, 81, 41, 83, 42, 84)
 
 [node name="star1" type="Control" parent="player_hud"]
@@ -157,6 +170,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.781764, 0.781764)
 
 [node name="black" type="Polygon2D" parent="player_hud/star1"]
 color = Color(0.113088, 0.0820557, 0.159906, 1)
@@ -175,6 +189,7 @@ offset_left = 55.0
 offset_top = 1.0
 offset_right = 95.0
 offset_bottom = 41.0
+scale = Vector2(0.781764, 0.781764)
 
 [node name="black" type="Polygon2D" parent="player_hud/star2"]
 color = Color(0.113088, 0.0820557, 0.159906, 1)
@@ -193,6 +208,7 @@ offset_left = 106.0
 offset_top = 1.0
 offset_right = 146.0
 offset_bottom = 41.0
+scale = Vector2(0.781764, 0.781764)
 
 [node name="black" type="Polygon2D" parent="player_hud/star3"]
 color = Color(0.113088, 0.0820557, 0.159906, 1)
@@ -211,12 +227,51 @@ offset_left = 159.0
 offset_top = 3.0
 offset_right = 199.0
 offset_bottom = 43.0
+scale = Vector2(0.781764, 0.781764)
 
 [node name="black" type="Polygon2D" parent="player_hud/star4"]
 color = Color(0.113088, 0.0820557, 0.159906, 1)
 polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
 
 [node name="color" type="Polygon2D" parent="player_hud/star4"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="star5" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 209.0
+offset_top = 3.0
+offset_right = 249.0
+offset_bottom = 43.0
+scale = Vector2(0.781764, 0.781764)
+
+[node name="black" type="Polygon2D" parent="player_hud/star5"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star5"]
+position = Vector2(18, 4)
+scale = Vector2(0.883721, 0.906977)
+color = Color(0.621772, 0.483928, 0.82958, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="star6" type="Control" parent="player_hud"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 259.0
+offset_top = 3.0
+offset_right = 299.0
+offset_bottom = 43.0
+scale = Vector2(0.781764, 0.781764)
+
+[node name="black" type="Polygon2D" parent="player_hud/star6"]
+color = Color(0.113088, 0.0820557, 0.159906, 1)
+polygon = PackedVector2Array(158, 26, 149, 39, 135, 42, 145, 51, 143, 68, 156, 58, 168, 69, 168, 54, 178, 43, 165, 39)
+
+[node name="color" type="Polygon2D" parent="player_hud/star6"]
 position = Vector2(18, 4)
 scale = Vector2(0.883721, 0.906977)
 color = Color(0.621772, 0.483928, 0.82958, 1)
@@ -234,6 +289,7 @@ libraries = {
 [node name="dialogue_system" parent="." instance=ExtResource("6_0owmy")]
 
 [node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
+visible = false
 
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

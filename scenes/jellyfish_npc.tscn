@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://doqjhvexujiyp"]
+
+[ext_resource type="PackedScene" uid="uid://bo544662wnm3w" path="res://3d_models/placeholders/jellyfish-npc.glb" id="1_id08o"]
+[ext_resource type="Script" uid="uid://7cooo3j6tb61" path="res://scripts/jellyfish_npc.gd" id="1_qrr1g"]
+[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_54smk"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/npc_dialogue_area.tscn" id="3_onbid"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onbid"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.292274, 0.624086, 0.281983, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrr1g"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.747426, 0.872459, 0.609651, 1)
+roughness = 0.0
+
+[node name="jellyfish_npc" type="Node3D"]
+script = ExtResource("1_qrr1g")
+
+[node name="jellyfish-npc" parent="." instance=ExtResource("1_id08o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681794, 0.689962, 0)
+
+[node name="body" parent="jellyfish-npc" index="0"]
+material_override = SubResource("StandardMaterial3D_onbid")
+material_overlay = ExtResource("2_54smk")
+
+[node name="eyes" parent="jellyfish-npc" index="1"]
+material_overlay = ExtResource("2_54smk")
+
+[node name="arms" parent="jellyfish-npc" index="2"]
+material_override = SubResource("StandardMaterial3D_qrr1g")
+material_overlay = ExtResource("2_54smk")
+
+[node name="npc_dialogue_area" parent="." instance=ExtResource("3_onbid")]
+
+[node name="name_label" type="Label3D" parent="."]
+transform = Transform3D(0.121107, 0, 0.992639, 0, 1, 0, -0.992639, 0, 0.121107, 0, 2.32609, 0)
+visible = false
+text = "press E"
+font_size = 50
+outline_size = 23
+
+[editable path="jellyfish-npc"]

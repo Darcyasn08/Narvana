@@ -2,20 +2,21 @@ extends CharacterBody3D
 
 var current_time: int = 5
 
-var JUMP_VELOCITY = 4
+var JUMP_VELOCITY: float = 4
 #var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
 
 var mouse_sens: float = .11
-var move_speed := 8.0
-var acceleration := 15.0
-var rotation_speed := 10.0
-var jump_impulse := 12.0
-var gravity := -30.0
-var health := 1110
-var dashed := false
-var knockbacked := false
+var move_speed: float = 8.0
+var acceleration: float = 15.0
+var rotation_speed: float = 10.0
+var jump_impulse: float = 12.0
+var gravity: float = -30.0
+var health: int = 6
+var dashed: bool = false
+var knockbacked: bool = false
+var immune: bool = false
 
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
@@ -29,6 +30,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if position.y < -50:
 		position = Global.player_base_pos
+	
+	
 	
 	camera_pivot.rotation.x += camera_input_direction.y * delta
 	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -PI/6, PI/4) #limitar a rotação
@@ -67,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	
 	var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
 	skin.global_rotation.y = lerp(skin.global_rotation.y, target_angle, rotation_speed * delta)
-	print("target: ", snapped(target_angle, 0.1), "  currnt: ", snapped(skin.global_rotation.y,.1))
+	#print("target: ", snapped(target_angle, 0.1), "  currnt: ", snapped(skin.global_rotation.y,.1))
 	
 	
 	if not is_on_floor():
@@ -116,7 +119,7 @@ func hurt(damage):
 
 
 func die():
-	print("pinto ereto amo pau erguido")
+	print("morreu")
 
 
 func dash():
@@ -138,7 +141,7 @@ func knockback(force: Vector3, impact_point: Vector3):
 func _on_player_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("enemies"):
 		knockbacked = true
-		var body_collision = (skin.global_position - (area.global_position))
+		var body_collision = (skin.global_position - area.global_position)
 		body_collision.y = 0.0
 		var force = body_collision
 		force = force * 2.0

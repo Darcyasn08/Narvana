@@ -43,6 +43,7 @@ func start_dialog(npc):
 func end_dialog():
 	cur_text = 0
 	cur_npc = ""
+	$dialogue_text.text = ""
 	print("limit")
 	has_started_diag = false
 	hide()

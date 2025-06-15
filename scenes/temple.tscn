@@ -1,12 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://bqcvfpirtiax4"]
+[gd_scene load_steps=27 format=3 uid="uid://bqcvfpirtiax4"]
 
 [ext_resource type="PackedScene" uid="uid://c604eidrq5pn2" path="res://3d_models/placeholders/temple.glb" id="1_0u0yr"]
-[ext_resource type="PackedScene" uid="uid://cf76bkv4f1n3r" path="res://3d_models/placeholders/temple-fence.glb" id="2_0u0yr"]
 [ext_resource type="PackedScene" uid="uid://delx6cwd7s7vi" path="res://scenes/pink_tree.tscn" id="3_kyh5s"]
 [ext_resource type="AudioStream" uid="uid://b8swkbrjsg2w3" path="res://music/crystal clear.mp3" id="4_a5w5l"]
 [ext_resource type="PackedScene" uid="uid://bfpc1iyyab0bn" path="res://3d_models/placeholders/temple-entrance.glb" id="5_jsg4b"]
 [ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="6_40f1g"]
 [ext_resource type="PackedScene" uid="uid://cehotwhkrkbkq" path="res://scenes/master.tscn" id="7_7p6xb"]
+[ext_resource type="PackedScene" uid="uid://bxvhcn73lm845" path="res://scenes/objects/temple_outside_fence.tscn" id="7_hapkp"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_40f1g"]
 data = PackedVector3Array(-17.5, -0.6855, 10, -17.5, -0.6855, -10, -17.5, 0.6855, -10, 17.5, -0.6855, -10, -17.5, -0.6855, -10, -17.5, -0.6855, 10, -17.5, 0.6855, -10, -17.5, -0.6855, -10, 17.5, -0.6855, -10, -17.5, 0.6855, -10, -17.5, 0.6855, 10, -17.5, -0.6855, 10, -17.5, -0.6855, 10, -17.5, 0.6855, 10, 17.5, 0.6855, 10, 17.5, 0.6855, 10, -17.5, 0.6855, 10, -17.5, 0.6855, -10, -17.5, -0.6855, 10, 17.5, -0.6855, 10, 17.5, -0.6855, -10, 17.5, 0.6855, 10, 17.5, -0.6855, 10, -17.5, -0.6855, 10, 17.5, -0.6855, -10, 17.5, -0.6855, 10, 17.5, 0.6855, 10, 17.5, -0.6855, -10, 17.5, 0.6855, -10, -17.5, 0.6855, -10, -17.5, 0.6855, -10, 17.5, 0.6855, -10, 17.5, 0.6855, 10, 17.5, 0.6855, 10, 17.5, 0.6855, -10, 17.5, -0.6855, -10)
@@ -58,6 +58,12 @@ data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hapkp"]
 data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 0.3, -0.1148, 1, 1, -1, 1, 0.3, -1, 1, 0.3, -0.1148, 1, 1, 1, 1, 1, -1, 1, 0.2819, 0.1503, 1, 1, 1, 1, 0.3, -0.1148, 1, 0.2304, 0.3751, 1, 1, 1, 1, 0.2819, 0.1503, 1, 0.1533, 0.5253, 1, 1, 1, 1, 0.2304, 0.3751, 1, 0.0625, 0.578, 1, 1, 1, 1, 0.1533, 0.5253, 1, 1, 1, 1, 0.0625, 0.578, 1, -1, 1, 1, -1, 1, 1, 0.0625, 0.578, 1, -0.0625, 0.578, 1, -1, 1, 1, -0.0625, 0.578, 1, -0.1534, 0.5253, 1, -1, 1, 1, -0.1534, 0.5253, 1, -0.2305, 0.3751, 1, -1, 1, 1, -0.2305, 0.3751, 1, -0.2819, 0.1503, 1, -1, 1, 1, -0.2819, 0.1503, 1, -0.3, -0.1148, 1, -1, 1, 1, -0.3, -0.1148, 1, -0.3, -1, 1, -1, 1, 1, -0.3, -1, 1, -1, -1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 0.3, -1, -0.845, 1, -1, -1, 0.3, -1, -1, 0.8449, -1, -0.845, 1, -1, -1, 0.3, -1, -0.845, 1, -1, -1, 0.8449, -1, -0.845, 1, -1, 1, 1, -1, 1, 0.8449, -1, -0.845, 0.8449, -1, 0.8449, 1, -1, 1, 0.8449, -1, 0.8449, 0.3, -1, 0.8449, 1, -1, 1, 0.3, -1, 0.8449, 0.3, -1, 1, -0.845, -1, 0.8449, -0.3, -1, 1, -0.3, -1, 0.8449, -0.845, -1, 0.8449, -1, -1, 1, -0.3, -1, 1, -1, -1, 1, -0.845, -1, 0.8449, -1, -1, -1, -1, -1, -1, -0.845, -1, 0.8449, -0.845, -1, -0.845, -1, -1, -1, -0.845, -1, -0.845, -0.3, -1, -0.845, -1, -1, -1, -0.3, -1, -0.845, -0.3, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -0.3, -0.1148, -1, -1, -1, -1, -0.3, -1, -1, -0.3, -0.1148, -1, -1, 1, -1, -1, -1, -1, -0.2819, 0.1503, -1, -1, 1, -1, -0.3, -0.1148, -1, -0.2305, 0.3751, -1, -1, 1, -1, -0.2819, 0.1503, -1, -0.1534, 0.5253, -1, -1, 1, -1, -0.2305, 0.3751, -1, -0.0625, 0.578, -1, -1, 1, -1, -0.1534, 0.5253, -1, -1, 1, -1, -0.0625, 0.578, -1, 1, 1, -1, 1, 1, -1, -0.0625, 0.578, -1, 0.0625, 0.578, -1, 1, 1, -1, 0.0625, 0.578, -1, 0.1533, 0.5253, -1, 1, 1, -1, 0.1533, 0.5253, -1, 0.2304, 0.3751, -1, 1, 1, -1, 0.2304, 0.3751, -1, 0.2819, 0.1503, -1, 1, 1, -1, 0.2819, 0.1503, -1, 0.3, -0.1148, -1, 1, 1, -1, 0.3, -0.1148, -1, 0.3, -1, -1, 1, 1, -1, 0.3, -1, -1, 1, -1, -1, -0.3, -1, -1, -0.3, -0.1148, -0.845, -0.3, -0.1148, -1, -0.3, -1, -1, -0.3, -1, -0.845, -0.3, -0.1148, -0.845, -0.3, -0.1148, 1, -0.3, -1, 0.8449, -0.3, -1, 1, -0.3, -0.1148, 1, -0.3, -0.1148, 0.8449, -0.3, -1, 0.8449, -0.0625, 0.578, -0.845, 0.0625, 0.578, -1, -0.0625, 0.578, -1, -0.0625, 0.578, -0.845, 0.0625, 0.578, -0.845, 0.0625, 0.578, -1, 0.0625, 0.578, 1, -0.0625, 0.578, 0.8449, -0.0625, 0.578, 1, 0.0625, 0.578, 1, 0.0625, 0.578, 0.8449, -0.0625, 0.578, 0.8449, 0.3, -0.1148, -0.845, 0.3, -1, -1, 0.3, -0.1148, -1, 0.3, -0.1148, -0.845, 0.3, -1, -0.845, 0.3, -1, -1, 0.3, -1, 0.8449, 0.3, -0.1148, 1, 0.3, -1, 1, 0.3, -1, 0.8449, 0.3, -0.1148, 0.8449, 0.3, -0.1148, 1, 0.0625, 0.578, -0.845, 0.1533, 0.5253, -1, 0.0625, 0.578, -1, 0.0625, 0.578, -0.845, 0.1533, 0.5253, -0.845, 0.1533, 0.5253, -1, 0.1533, 0.5253, 1, 0.0625, 0.578, 0.8449, 0.0625, 0.578, 1, 0.1533, 0.5253, 1, 0.1533, 0.5253, 0.8449, 0.0625, 0.578, 0.8449, 0.1533, 0.5253, -0.845, 0.2304, 0.3751, -1, 0.1533, 0.5253, -1, 0.1533, 0.5253, -0.845, 0.2304, 0.3751, -0.845, 0.2304, 0.3751, -1, 0.2304, 0.3751, 0.8449, 0.1533, 0.5253, 1, 0.2304, 0.3751, 1, 0.2304, 0.3751, 0.8449, 0.1533, 0.5253, 0.8449, 0.1533, 0.5253, 1, 0.2819, 0.1503, 0.8449, 0.2304, 0.3751, 1, 0.2819, 0.1503, 1, 0.2819, 0.1503, 0.8449, 0.2304, 0.3751, 0.8449, 0.2304, 0.3751, 1, 0.2304, 0.3751, -1, 0.2819, 0.1503, -0.845, 0.2819, 0.1503, -1, 0.2304, 0.3751, -1, 0.2304, 0.3751, -0.845, 0.2819, 0.1503, -0.845, 0.2819, 0.1503, -1, 0.3, -0.1148, -0.845, 0.3, -0.1148, -1, 0.2819, 0.1503, -1, 0.2819, 0.1503, -0.845, 0.3, -0.1148, -0.845, 0.3, -0.1148, 0.8449, 0.2819, 0.1503, 1, 0.3, -0.1148, 1, 0.3, -0.1148, 0.8449, 0.2819, 0.1503, 0.8449, 0.2819, 0.1503, 1, -0.1534, 0.5253, -0.845, -0.0625, 0.578, -1, -0.1534, 0.5253, -1, -0.1534, 0.5253, -0.845, -0.0625, 0.578, -0.845, -0.0625, 0.578, -1, -0.0625, 0.578, 1, -0.1534, 0.5253, 0.8449, -0.1534, 0.5253, 1, -0.0625, 0.578, 1, -0.0625, 0.578, 0.8449, -0.1534, 0.5253, 0.8449, -0.2305, 0.3751, -1, -0.1534, 0.5253, -0.845, -0.1534, 0.5253, -1, -0.2305, 0.3751, -1, -0.2305, 0.3751, -0.845, -0.1534, 0.5253, -0.845, -0.1534, 0.5253, 1, -0.2305, 0.3751, 0.8449, -0.2305, 0.3751, 1, -0.1534, 0.5253, 1, -0.1534, 0.5253, 0.8449, -0.2305, 0.3751, 0.8449, -0.2819, 0.1503, -0.845, -0.2305, 0.3751, -1, -0.2819, 0.1503, -1, -0.2819, 0.1503, -0.845, -0.2305, 0.3751, -0.845, -0.2305, 0.3751, -1, -0.2305, 0.3751, 1, -0.2819, 0.1503, 0.8449, -0.2819, 0.1503, 1, -0.2305, 0.3751, 1, -0.2305, 0.3751, 0.8449, -0.2819, 0.1503, 0.8449, -0.3, -0.1148, -1, -0.2819, 0.1503, -0.845, -0.2819, 0.1503, -1, -0.3, -0.1148, -1, -0.3, -0.1148, -0.845, -0.2819, 0.1503, -0.845, -0.2819, 0.1503, 0.8449, -0.3, -0.1148, 1, -0.2819, 0.1503, 1, -0.2819, 0.1503, 0.8449, -0.3, -0.1148, 0.8449, -0.3, -0.1148, 1, 0.8449, 0.6413, -0.845, -0.845, 0.6413, 0.8449, 0.8449, 0.6413, 0.8449, 0.8449, 0.6413, -0.845, -0.845, 0.6413, -0.845, -0.845, 0.6413, 0.8449, -0.3, -1, 0.8449, -0.845, 0.6413, 0.8449, -0.845, -1, 0.8449, -0.3, -0.1148, 0.8449, -0.845, 0.6413, 0.8449, -0.3, -1, 0.8449, -0.2819, 0.1503, 0.8449, -0.845, 0.6413, 0.8449, -0.3, -0.1148, 0.8449, -0.2305, 0.3751, 0.8449, -0.845, 0.6413, 0.8449, -0.2819, 0.1503, 0.8449, -0.1534, 0.5253, 0.8449, -0.845, 0.6413, 0.8449, -0.2305, 0.3751, 0.8449, -0.0625, 0.578, 0.8449, -0.845, 0.6413, 0.8449, -0.1534, 0.5253, 0.8449, -0.845, 0.6413, 0.8449, -0.0625, 0.578, 0.8449, 0.8449, 0.6413, 0.8449, 0.8449, 0.6413, 0.8449, -0.0625, 0.578, 0.8449, 0.0625, 0.578, 0.8449, 0.8449, 0.6413, 0.8449, 0.0625, 0.578, 0.8449, 0.1533, 0.5253, 0.8449, 0.8449, 0.6413, 0.8449, 0.1533, 0.5253, 0.8449, 0.2304, 0.3751, 0.8449, 0.8449, 0.6413, 0.8449, 0.2304, 0.3751, 0.8449, 0.2819, 0.1503, 0.8449, 0.8449, 0.6413, 0.8449, 0.2819, 0.1503, 0.8449, 0.3, -0.1148, 0.8449, 0.8449, 0.6413, 0.8449, 0.3, -0.1148, 0.8449, 0.3, -1, 0.8449, 0.8449, 0.6413, 0.8449, 0.3, -1, 0.8449, 0.8449, -1, 0.8449, -0.845, -1, -0.845, -0.845, 0.6413, 0.8449, -0.845, 0.6413, -0.845, -0.845, -1, -0.845, -0.845, -1, 0.8449, -0.845, 0.6413, 0.8449, 0.8449, 0.6413, 0.8449, 0.8449, -1, -0.845, 0.8449, 0.6413, -0.845, 0.8449, 0.6413, 0.8449, 0.8449, -1, 0.8449, 0.8449, -1, -0.845, 0.3, -1, -0.845, 0.8449, 0.6413, -0.845, 0.8449, -1, -0.845, 0.3, -0.1148, -0.845, 0.8449, 0.6413, -0.845, 0.3, -1, -0.845, 0.2819, 0.1503, -0.845, 0.8449, 0.6413, -0.845, 0.3, -0.1148, -0.845, 0.2304, 0.3751, -0.845, 0.8449, 0.6413, -0.845, 0.2819, 0.1503, -0.845, 0.1533, 0.5253, -0.845, 0.8449, 0.6413, -0.845, 0.2304, 0.3751, -0.845, 0.0625, 0.578, -0.845, 0.8449, 0.6413, -0.845, 0.1533, 0.5253, -0.845, 0.8449, 0.6413, -0.845, 0.0625, 0.578, -0.845, -0.845, 0.6413, -0.845, -0.845, 0.6413, -0.845, 0.0625, 0.578, -0.845, -0.0625, 0.578, -0.845, -0.845, 0.6413, -0.845, -0.0625, 0.578, -0.845, -0.1534, 0.5253, -0.845, -0.845, 0.6413, -0.845, -0.1534, 0.5253, -0.845, -0.2305, 0.3751, -0.845, -0.845, 0.6413, -0.845, -0.2305, 0.3751, -0.845, -0.2819, 0.1503, -0.845, -0.845, 0.6413, -0.845, -0.2819, 0.1503, -0.845, -0.3, -0.1148, -0.845, -0.845, 0.6413, -0.845, -0.3, -0.1148, -0.845, -0.3, -1, -0.845, -0.845, 0.6413, -0.845, -0.3, -1, -0.845, -0.845, -1, -0.845)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_l2ffi"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_osv1c"]
+data = PackedVector3Array(1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1)
 
 [node name="temple" type="Node3D"]
 
@@ -149,44 +155,11 @@ shape = SubResource("ConcavePolygonShape3D_6nvvq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_model/Cube_011/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3vtbg")
 
-[node name="temple-fence2" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1115, 0, 27.5821)
-visible = false
-
-[node name="temple-fence5" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4473, 0, 27.5821)
-visible = false
-
-[node name="temple-fence6" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8064, 0, 27.5051)
-visible = false
-
-[node name="temple-fence4" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 37.6002)
-
-[node name="temple-fence10" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 27.3564)
-
-[node name="temple-fence11" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 17.071)
-
-[node name="temple-fence12" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, 6.71696)
-
-[node name="temple-fence13" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.4836, 0, -3.45934)
-
-[node name="temple-fence14" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -36.2116, 0, -13.8134)
-
-[node name="temple-fence7" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0499, 0, 42.7648)
-
-[node name="temple-fence9" parent="." instance=ExtResource("2_0u0yr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4532, 0, 42.7648)
-
 [node name="pink_tree" parent="." instance=ExtResource("3_kyh5s")]
 transform = Transform3D(0.73631, 0, -0.676645, 0, 1, 0, 0.676645, 0, 0.73631, -12.2137, 1.90735e-06, 16.9102)
+
+[node name="pink_tree7" parent="." instance=ExtResource("3_kyh5s")]
+transform = Transform3D(-0.255547, 0, -0.966797, 0, 1, 0, 0.966797, 0, -0.255547, -23.7934, 1.90735e-06, 33.1427)
 
 [node name="pink_tree4" parent="." instance=ExtResource("3_kyh5s")]
 transform = Transform3D(0.331634, 0, -0.943408, 0, 1, 0, 0.943408, 0, 0.331634, -9.04807, 9.53676e-07, 32.9436)
@@ -219,6 +192,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024093, -4.76837e-07, 42.7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple-entrance/Cube/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_hapkp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple-entrance/Cube_005" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple-entrance/Cube_005/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_l2ffi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple-entrance/Cube_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple-entrance/Cube_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_osv1c")
 
 [node name="first_level_portal" parent="." instance=ExtResource("6_40f1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11546, 4.34494, -24.033)
@@ -259,6 +242,87 @@ transform = Transform3D(0.205041, 0.947132, 0.24678, 0.0372465, -0.259505, 0.965
 light_color = Color(1, 1, 0.823529, 1)
 light_energy = 8.0
 spot_range = 11.382
+
+[node name="temple_outside_fence" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6008, 0, 42.8387)
+
+[node name="temple_outside_fence2" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.9503, 0, 42.8387)
+
+[node name="temple_outside_fence3" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, 37.4327)
+
+[node name="temple_outside_fence4" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, 26.994)
+
+[node name="temple_outside_fence5" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, 16.6642)
+
+[node name="temple_outside_fence6" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, 6.46199)
+
+[node name="temple_outside_fence7" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, -3.86781)
+
+[node name="temple_outside_fence25" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, -13.9456)
+
+[node name="temple_outside_fence26" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, -24.1478)
+
+[node name="temple_outside_fence27" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.9642, 0, -34.4776)
+
+[node name="temple_outside_fence8" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.368, 0, 42.8387)
+
+[node name="temple_outside_fence9" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8297, 0, 42.8387)
+
+[node name="temple_outside_fence10" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, 37.4327)
+
+[node name="temple_outside_fence11" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, 26.994)
+
+[node name="temple_outside_fence12" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, 16.6642)
+
+[node name="temple_outside_fence13" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, 6.46199)
+
+[node name="temple_outside_fence14" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, -3.86781)
+
+[node name="temple_outside_fence15" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, -14.321)
+
+[node name="temple_outside_fence16" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, -24.6508)
+
+[node name="temple_outside_fence17" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.8803, 0, -34.4396)
+
+[node name="temple_outside_fence18" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2684, 0, -39.6996)
+
+[node name="temple_outside_fence19" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3841, 0, -39.6996)
+
+[node name="temple_outside_fence20" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0693, 0, -39.6996)
+
+[node name="temple_outside_fence21" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200445, 0, -39.6996)
+
+[node name="temple_outside_fence22" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1903, 0, -39.6996)
+
+[node name="temple_outside_fence23" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8858, 0, -39.6996)
+
+[node name="temple_outside_fence24" parent="." instance=ExtResource("7_hapkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1329, 0, -39.6996)
 
 [editable path="temple_model"]
 [editable path="temple-entrance"]

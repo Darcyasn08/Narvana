@@ -32,6 +32,14 @@ var dialogues: Dictionary = {
 			"oh!",
 			"have you just come here to escape your old damn life?"
 		],
+	},
+	
+	"jellyfish": {
+		0: [
+			"vamo rir vamo rir",
+			"vamo rir, daniel, vamo rir",
+			"muahahaHAHAHAHAH"
+		],
 	}
 }
 
