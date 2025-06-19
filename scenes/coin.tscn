@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://2qo7msqk15km"]
 
-[ext_resource type="Script" uid="uid://bv61e7c61l4jw" path="res://scripts/coin.gd" id="1_3o5iq"]
+[ext_resource type="Script" uid="uid://b1bw533a3rwsv" path="res://scripts/coin.gd" id="1_3o5iq"]
 [ext_resource type="PackedScene" uid="uid://dgs7nyv5m3kr0" path="res://3d_models/placeholders/coin.glb" id="2_i64fm"]
 [ext_resource type="Texture2D" uid="uid://tijjr38jsodr" path="res://3d_models/placeholders/coin-enemy-texture.png" id="3_11l1o"]
 

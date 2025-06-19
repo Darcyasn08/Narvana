@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://vssohrk800fr"]
+
+[ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
+[ext_resource type="Texture2D" uid="uid://cyrkd5onfkwkh" path="res://UI/star-life.png" id="2_q0ngs"]
+
+[node name="player_hud" type="CanvasLayer"]
+script = ExtResource("1_umbc4")
+
+[node name="health" type="HBoxContainer" parent="."]
+offset_left = 27.0
+offset_top = 14.0
+offset_right = 389.0
+offset_bottom = 71.0
+
+[node name="TextureRect" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2

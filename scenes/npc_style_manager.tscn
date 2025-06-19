@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqmyrr2s6wvko"]
+
+[ext_resource type="Script" uid="uid://cdi3twfur2err" path="res://scripts/npc_style_manager.gd" id="1_acnet"]
+
+[node name="npc_style_manager" type="Node3D"]
+script = ExtResource("1_acnet")

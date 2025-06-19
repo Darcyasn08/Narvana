@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-var speed := 1.0
-var life := 1000
-var damage := 1
-var acceleration := 10.0
+var speed: float = 1.0
+var life: int= 1000
+var damage: int = 1
+var acceleration: float = 10.0
 var coinins = preload("res://scenes/coin.tscn")
 
 @onready var player = $"../player"
@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	if is_on_floor() == true:
-		look_at(player.global_position)#muda a rotação do bixo pra ficar de frente com o player
+		look_at(player.global_position) #muda a rotação do bixo pra ficar de frente com o player
 		rotation.x = 0
 		var forward := global_basis.z #determina oq é a frente 
 		var move_direction := forward 
@@ -25,10 +25,8 @@ func _physics_process(delta: float) -> void:
 		move_direction = move_direction.normalized() #nao sei oq isso faz
 		velocity = velocity.move_toward(move_direction * -speed, acceleration * delta) #move pra frente
 		velocity.y = 0
-
-	move_and_slide()
 	
-
+	move_and_slide()
 
 
 func knockback(force: Vector3, impact_point: Vector3):
@@ -44,7 +42,7 @@ func calculate_knockback(area: Area3D):
 	velocity = velocity * 0
 
 
-func _on_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("weapon"):
 		if life > Global.player_damage :
 			life -= Global.player_damage
@@ -66,7 +64,6 @@ func _on_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index
 			get_parent().add_child(coin2)
 			get_parent().add_child(coin3)
 			queue_free() #morre
-
-
+	
 	if area.name == "player_hitbox":
 		get_tree().call_group("player","hurt",damage)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8vm4aos1dsc1"]
 
-[ext_resource type="Script" uid="uid://b7xb2wow3hx13" path="res://scripts/coin_trap.gd" id="1_ufq6v"]
+[ext_resource type="Script" path="res://scripts/coin_trap.gd" id="1_ufq6v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_waxui"]
 albedo_color = Color(1, 0.701961, 0.0196078, 1)

@@ -1,35 +1,39 @@
 extends CharacterBody3D
 
-
+# VARIÁVEIS EM REAÇÃO A MOVIMENTAÇÃO
 var JUMP_VELOCITY: float = 4
-#var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var camera_input_direction := Vector2.ZERO
 var last_movement_direction := Vector3.BACK
-
 var mouse_sens: float = .11
 var move_speed: float = 8.0
 var acceleration: float = 15.0
 var rotation_speed: float = 10.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
+
+# OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
 var dashed: bool = false
 var knockbacked: bool = false
 var immune: bool = false
 var sens := 0.07
+var immune_time: float = 2.5
 
+# VARIÁVEIS DE IMPRTAÇÃO
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
 @onready var skin: Node3D = $narval_model
 
 
 func _ready() -> void:
-	pass
+	print(health)
 
 func _physics_process(delta: float) -> void:
+	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
 	if position.y < -50:
 		position = Global.player_base_pos
 	
+	# MOVIMENTO DA CÂMERA
 	camera_pivot.rotation.x += camera_input_direction.y * delta
 	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -PI/6, PI/4) #limitar a rotação
 	camera_pivot.rotation.y += -camera_input_direction.x * delta
@@ -44,7 +48,14 @@ func _physics_process(delta: float) -> void:
 	move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
 	move_direction = move_direction.normalized()
 	
-	#print(move_direction)
+	if move_direction.length() > 0.1:
+		last_movement_direction = move_direction
+	
+	var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
+	skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
+	#skin.global_rotation.y = lerp(skin.rotation.y, target_angle, rotation_speed * delta)
+	#print("target: ", snapped(target_angle, 0.1), "  currnt: ", snapped(skin.global_rotation.y,.1))
+	
 	if !knockbacked:
 		var y_velocity := velocity.y
 		velocity.y = 0.0
@@ -59,32 +70,12 @@ func _physics_process(delta: float) -> void:
 	dash()
 	attack()
 	
-	if move_direction.length() > 0.2:
-		last_movement_direction = move_direction
-	
-	var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
-	skin.global_rotation.y = lerp(skin.global_rotation.y, target_angle, rotation_speed * delta)
-	#print("target: ", snapped(target_angle, 0.1), "  currnt: ", snapped(skin.global_rotation.y,.1))
-	
-	
 	if not is_on_floor():
 		pass
 		#velocity.y -= gravity * delta
 	
 	if Input.is_action_just_pressed("space") and is_on_floor():#tem que ter o is on floor pra ele ficar pulando
 		velocity.y = JUMP_VELOCITY
-	
-	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
-		$Node3D.show()
-		$Node3D/arma/CollisionShape3D.disabled = false
-		#$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-		$AnimationPlayer2.play("bat_swing")
-		await(get_tree().create_timer(.5).timeout)
-		$Node3D.hide()
-		$Node3D/arma/CollisionShape3D.disabled = true
-		$Node3D.rotation.y = 0
-	else:
-		$Node3D.rotation.y = skin.rotation.y
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -108,12 +99,15 @@ func hurt(damage):
 		get_immune()
 		health -= damage
 		print(health)
+		SignalBus.on_player_health_changed.emit(health)
 	elif damage >= health and immune == false:
 		health = 0
 	if health == 0:
+		SignalBus.on_player_health_changed.emit(health)
 		die()
 
 
+# próxima atualização: fazer tela de morte
 func die():
 	print("morreu")
 
@@ -146,7 +140,7 @@ func _on_player_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shap
 		knockbacked = false
 
 func attack():
-	if Input.is_action_pressed("e"): #arma temporaria só pra testes
+	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
 		$Node3D.show()
 		$Node3D/arma/CollisionShape3D.disabled = false
 		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
@@ -156,11 +150,10 @@ func attack():
 		$Node3D.rotation.y = skin.rotation.y
 	else:
 		$Node3D.rotation.y = skin.rotation.y
-	
+
 func get_immune():
 	immune = true
-	$CSGTorus3D.show()
-	await(get_tree().create_timer(3).timeout)
-	$CSGTorus3D.hide()
+	$torus_mesh.show()
+	await(get_tree().create_timer(immune_time).timeout)
+	$torus_mesh.hide()
 	immune = false
-	

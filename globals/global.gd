@@ -1,6 +1,11 @@
 extends Node
 
 var player_damage := 200
+var player_can_attack: bool = false
+var player_base_pos: Vector3 = Vector3(0,5,0)
+
+var current_world: int
+enum worlds {NORMAL, FIRST_LEVEL}
 
 var cutscenes: Dictionary = {
 	"start": false,

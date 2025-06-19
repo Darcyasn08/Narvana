@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=50 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="8_5xlhr"]
 [ext_resource type="PackedScene" uid="uid://fnkudfo2e07e" path="res://scenes/objects/village_tent.tscn" id="9_eqvwj"]
 [ext_resource type="PackedScene" uid="uid://bxja8fhpxhuv4" path="res://scenes/buildings/health_building.tscn" id="10_h6eg7"]
-[ext_resource type="PackedScene" uid="uid://bo544662wnm3w" path="res://3d_models/placeholders/jellyfish-npc.glb" id="11_aiid6"]
 [ext_resource type="PackedScene" uid="uid://do6ir7morkvd3" path="res://3d_models/placeholders/stone-floor.blend" id="12_x68fd"]
 [ext_resource type="PackedScene" uid="uid://csg4ifwj144jf" path="res://3d_models/placeholders/stone.glb" id="13_bun2p"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="14_6kbp7"]
@@ -37,7 +36,7 @@ background_color = Color(0.0506039, 0.142458, 0.291146, 1)
 background_energy_multiplier = 1.84
 sky = SubResource("Sky_p2tsv")
 ambient_light_source = 2
-ambient_light_color = Color(0.623517, 0.300951, 0.0951371, 1)
+ambient_light_color = Color(0.827096, 0.334941, 3.85046e-07, 1)
 ambient_light_energy = 1.37
 tonemap_mode = 2
 glow_enabled = true
@@ -145,8 +144,8 @@ environment = SubResource("Environment_8qtj8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0588538, -0.850269, -0.523047, 0.241788, -0.520496, 0.818916, -0.968543, -0.07827, 0.236218, 0, 5.99897, 0)
-light_color = Color(0.969058, 0.785489, 0.39686, 1)
-light_energy = 0.3
+light_color = Color(0.986186, 0.84637, 0.565131, 1)
+light_energy = 0.476
 light_angular_distance = 4.95
 shadow_enabled = true
 shadow_bias = 1.865
@@ -207,9 +206,6 @@ mesh = SubResource("BoxMesh_wcbeh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0367, 0.178845, -18.5265)
 material_override = SubResource("StandardMaterial3D_ge66w")
 mesh = SubResource("BoxMesh_wcbeh")
-
-[node name="player" parent="." instance=ExtResource("1_d5nc6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.521988, 15.791)
 
 [node name="pink_tree" parent="." instance=ExtResource("2_p2tsv")]
 transform = Transform3D(0.867166, 0, -0.498019, 0, 1, 0, 0.498019, 0, 0.867166, -5.60423, 0, -7.81125)
@@ -543,9 +539,6 @@ transform = Transform3D(-0.897035, 0, -0.44196, 0, 1, 0, 0.44196, 0, -0.897035, 
 [node name="health_building4" parent="." instance=ExtResource("10_h6eg7")]
 transform = Transform3D(-0.157555, 0, 0.98751, 0, 1, 0, -0.98751, 0, -0.157555, -72.6266, 5.49461, 98.73)
 
-[node name="jellyfish-npc2" parent="." instance=ExtResource("11_aiid6")]
-transform = Transform3D(-0.770814, 0, -0.637061, 0, 1, 0, 0.637061, 0, -0.770814, 13.1434, 1.0981, 46.6424)
-
 [node name="stone_path" type="Node3D" parent="."]
 transform = Transform3D(0.999998, 0, 0.00205949, 0, 1, 0, -0.00205949, 0, 0.999998, -2.46092, -1.49012e-07, 34.8699)
 
@@ -869,6 +862,7 @@ transform = Transform3D(0.415344, -0.909664, 3.97627e-08, -1.98689e-15, -4.37114
 
 [node name="jellyfish_npc" parent="." instance=ExtResource("15_yp02o")]
 transform = Transform3D(0.931189, 0, -0.364535, 0, 1, 0, 0.364535, 0, 0.931189, -13.934, 0.191751, 46.4664)
+current_color = 1
 
 [node name="river" type="Node3D" parent="."]
 transform = Transform3D(0.393059, 0, -0.919513, 0, 1, 0, 0.919513, 0, 0.393059, 29.178, 0.0614553, 223.726)
@@ -1030,3 +1024,9 @@ transform = Transform3D(-0.0734645, 0, 0.997298, 0, 1, 0, -0.997298, 0, -0.07346
 
 [node name="health_building" parent="." instance=ExtResource("10_h6eg7")]
 transform = Transform3D(-0.0123043, 0, 0.999924, 0, 1, 0, -0.999924, 0, -0.0123043, -37.0732, 0.302797, 87.4001)
+
+[node name="player" parent="." instance=ExtResource("1_d5nc6")]
+
+[node name="jellyfish_npc2" parent="." instance=ExtResource("15_yp02o")]
+transform = Transform3D(-0.84342, 0, -0.537255, 0, 1, 0, 0.537255, 0, -0.84342, 12.7989, 0.133238, 46.9396)
+current_color = 2

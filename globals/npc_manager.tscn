@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://caothemudeyai"]
+
+[ext_resource type="Script" uid="uid://cfsx6607num3f" path="res://globals/npc_manager.gd" id="1_6hmqu"]
+
+[node name="npc_manager" type="Node3D"]
+script = ExtResource("1_6hmqu")

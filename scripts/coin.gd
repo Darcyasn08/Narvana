@@ -44,10 +44,9 @@ func _on_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index
 			calculate_knockback(area)
 			await(get_tree().create_timer(5).timeout)
 			on_ground = false
-			
-			
 		else:
 			queue_free()
+	
 	if area.name == "player_hitbox":
 		get_tree().call_group("player","hurt",damage)
 		on_ground = true
