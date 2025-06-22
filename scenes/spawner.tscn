@@ -12,4 +12,4 @@ script = ExtResource("1_2vbf6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="detection"]
 shape = SubResource("SphereShape3D_ik2nu")
 
-[connection signal="area_shape_entered" from="detection" to="." method="_on_detection_area_shape_entered"]
+[connection signal="area_entered" from="detection" to="." method="_on_detection_area_entered"]

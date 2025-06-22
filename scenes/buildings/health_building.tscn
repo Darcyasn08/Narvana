@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxja8fhpxhuv4"]
+[gd_scene load_steps=10 format=3 uid="uid://bxja8fhpxhuv4"]
 
 [ext_resource type="PackedScene" uid="uid://2k4gteefurk1" path="res://3d_models/placeholders/health_center.glb" id="1_u6tqe"]
 
@@ -22,6 +22,9 @@ data = PackedVector3Array(-2.0672, 0.0986, 4.5072, 2.0672, 0.0986, -4.5072, 2.06
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_70mot"]
 data = PackedVector3Array(-2.0672, 0.0899, 4.4011, 2.0672, 0.0899, -4.4011, 2.0672, 0.0899, 4.4011, -2.0672, 0.0899, 4.4011, -2.0672, 0.0899, -4.4011, 2.0672, 0.0899, -4.4011, -2.0672, -0.0899, 4.4011, 2.0672, -0.0899, -4.4011, -2.0672, -0.0899, -4.4011, -2.0672, -0.0899, 4.4011, 2.0672, -0.0899, 4.4011, 2.0672, -0.0899, -4.4011, -2.0672, 0.0899, 4.4011, -2.0672, -0.0899, -4.4011, -2.0672, 0.0899, -4.4011, -2.0672, 0.0899, 4.4011, -2.0672, -0.0899, 4.4011, -2.0672, -0.0899, -4.4011, 2.0672, 0.0899, 4.4011, -2.0672, -0.0899, 4.4011, -2.0672, 0.0899, 4.4011, 2.0672, 0.0899, 4.4011, 2.0672, -0.0899, 4.4011, -2.0672, -0.0899, 4.4011, 2.0672, 0.0899, -4.4011, 2.0672, -0.0899, 4.4011, 2.0672, 0.0899, 4.4011, 2.0672, 0.0899, -4.4011, 2.0672, -0.0899, -4.4011, 2.0672, -0.0899, 4.4011, -2.0672, 0.0899, -4.4011, 2.0672, -0.0899, -4.4011, 2.0672, 0.0899, -4.4011, -2.0672, 0.0899, -4.4011, -2.0672, -0.0899, -4.4011, 2.0672, -0.0899, -4.4011)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_u6tqe"]
+size = Vector3(9.17556, 11.9145, 9.00486)
 
 [node name="health_building" type="Node3D"]
 
@@ -75,5 +78,9 @@ light_indirect_energy = 5.044
 light_size = 0.154
 omni_range = 3.127
 omni_attenuation = 4.736
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82301, 5.91634, 0)
+occluder = SubResource("BoxOccluder3D_u6tqe")
 
 [editable path="health_center"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d35rab8iwrhju"]
+[gd_scene load_steps=8 format=3 uid="uid://d35rab8iwrhju"]
 
 [ext_resource type="PackedScene" uid="uid://cj700syxcvate" path="res://3d_models/placeholders/small-house.glb" id="1_w4mha"]
 
@@ -16,6 +16,9 @@ albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4mha"]
 size = Vector3(12.1991, 8.33151, 8.29068)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_w4mha"]
+size = Vector3(12.0951, 8.22643, 7.98496)
 
 [node name="small_house" type="Node3D"]
 
@@ -41,5 +44,9 @@ material_override = SubResource("StandardMaterial3D_n6vr6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0131683, 4.16277, -0.0462799)
 shape = SubResource("BoxShape3D_w4mha")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06035, 0)
+occluder = SubResource("BoxOccluder3D_w4mha")
 
 [editable path="small_house_model"]

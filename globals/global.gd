@@ -4,6 +4,16 @@ var player_damage := 200
 var player_can_attack: bool = false
 var player_base_pos: Vector3 = Vector3(0,5,0)
 
+var enemies = [
+	["res://scenes/coin.tscn","res://scenes/pig_bank.tscn"] #uma fase
+]
+
+var dead_enemies_first_level = [
+	[0, 2],
+	[0, 3]
+]
+
+var current_stage: int = 0
 var current_world: int
 enum worlds {NORMAL, FIRST_LEVEL}
 

@@ -22,7 +22,7 @@ var immune_time: float = 2.5
 # VARIÁVEIS DE IMPRTAÇÃO
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
-@onready var skin: Node3D = $narval_model
+@onready var skin: Node3D = $narwhal_skin
 
 
 func _ready() -> void:
@@ -53,8 +53,14 @@ func _physics_process(delta: float) -> void:
 	
 	var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
 	skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
-	#skin.global_rotation.y = lerp(skin.rotation.y, target_angle, rotation_speed * delta)
-	#print("target: ", snapped(target_angle, 0.1), "  currnt: ", snapped(skin.global_rotation.y,.1))
+	
+	var ground_speed := velocity.length()
+	if ground_speed > 0.0:
+		$narwhal_skin/narval_model/AnimationPlayer.play("walk")
+		#print(ground_speed)
+	elif ground_speed <= 0.0:
+		$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
+		#print(ground_speed)
 	
 	if !knockbacked:
 		var y_velocity := velocity.y

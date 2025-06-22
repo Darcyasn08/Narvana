@@ -43,6 +43,7 @@ emission_energy_multiplier = 1.4
 environment = SubResource("Environment_3b6ix")
 
 [node name="tent" parent="." instance=ExtResource("1_piban")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396988, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tent"]
 visible = false
@@ -60,6 +61,6 @@ mesh = SubResource("BoxMesh_4sv7x")
 transform = Transform3D(-2.73805, 0, -1.72504, 0, 1.031, 0, 1.72504, 0, -2.73805, -0.011735, 0.326066, 0.0539312)
 light_color = Color(0.840052, 0.715973, 0.266331, 1)
 light_energy = 0.829
-omni_range = 7.204
+omni_range = 2.72556
 
 [editable path="tent"]

@@ -1,15 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1aoegujykbb"]
+[gd_scene load_steps=10 format=3 uid="uid://c1aoegujykbb"]
 
 [ext_resource type="PackedScene" uid="uid://1ugtjlwjbooy" path="res://3d_models/placeholders/casadecha.glb" id="1_h5r8t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5r8t"]
 albedo_color = Color(0.617455, 0.617455, 0.617455, 1)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h5r8t"]
+data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyrec"]
 albedo_color = Color(0.711798, 0.29742, 0.24394, 1)
 
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_h5r8t"]
+size = Vector3(0.0911812, 4.94903, 1.37215)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_gyrec"]
+size = Vector3(0.0911812, 5.5499, 1.92749)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvfp0"]
 albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7kem"]
+albedo_color = Color(0.41598, 0.41598, 0.41598, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gyrec"]
+data = PackedVector3Array(3.5802, -0.1665, 1.2888, 5.5802, -0.1665, -0.7112, 5.5802, -0.1665, 1.2888, 3.5802, -0.1665, 1.2888, 3.5802, -0.1665, -0.7112, 5.5802, -0.1665, -0.7112, -4.4525, -1.5946, 1.2888, -2.4525, -1.5946, -0.7112, -4.4525, -1.5946, -0.7112, -4.4525, -1.5946, 1.2888, -2.4525, -1.5946, 1.2888, -2.4525, -1.5946, -0.7112, 3.5802, -0.1665, 1.2888, -4.4525, -1.5946, -0.7112, 3.5802, -0.1665, -0.7112, 3.5802, -0.1665, 1.2888, -4.4525, -1.5946, 1.2888, -4.4525, -1.5946, -0.7112, 5.5802, -0.1665, 1.2888, -4.4525, -1.5946, 1.2888, 3.5802, -0.1665, 1.2888, 5.5802, -0.1665, 1.2888, -2.4525, -1.5946, 1.2888, -4.4525, -1.5946, 1.2888, 5.5802, -0.1665, -0.7112, -2.4525, -1.5946, 1.2888, 5.5802, -0.1665, 1.2888, 5.5802, -0.1665, -0.7112, -2.4525, -1.5946, -0.7112, -2.4525, -1.5946, 1.2888, 3.5802, -0.1665, -0.7112, -2.4525, -1.5946, -0.7112, 5.5802, -0.1665, -0.7112, 3.5802, -0.1665, -0.7112, -4.4525, -1.5946, -0.7112, -2.4525, -1.5946, -0.7112)
 
 [node name="low_house" type="Node3D"]
 
@@ -18,10 +33,31 @@ albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
 [node name="Cube" parent="casadecha" index="0"]
 material_override = SubResource("StandardMaterial3D_h5r8t")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="casadecha/Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="casadecha/Cube/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_h5r8t")
+
 [node name="Plane_002" parent="casadecha" index="10"]
 material_override = SubResource("StandardMaterial3D_gyrec")
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="casadecha/Plane_002" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.949204, 1.64478, -0.319561)
+occluder = SubResource("BoxOccluder3D_h5r8t")
+
+[node name="OccluderInstance3D2" type="OccluderInstance3D" parent="casadecha/Plane_002" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0105032, 1.64478, -0.966209)
+occluder = SubResource("BoxOccluder3D_gyrec")
+
 [node name="Cube_001" parent="casadecha" index="11"]
 material_override = SubResource("StandardMaterial3D_uvfp0")
+
+[node name="Plane" parent="casadecha" index="12"]
+material_override = SubResource("StandardMaterial3D_x7kem")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="casadecha/Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="casadecha/Plane/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gyrec")
 
 [editable path="casadecha"]

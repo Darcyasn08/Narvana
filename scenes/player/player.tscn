@@ -1,116 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=16 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
-[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="3_75vfm"]
+[ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
 [ext_resource type="PackedScene" uid="uid://vssohrk800fr" path="res://scenes/UI/player_hud.tscn" id="6_0owmy"]
 [ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="6_qek5x"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
-
-[sub_resource type="Animation" id="Animation_qek5x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -2.23833)]
-}
-
-[sub_resource type="Animation" id="Animation_0owmy"]
-resource_name = "arm-moving"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.54, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -2.23833), Vector3(0, 0, -1.85137), Vector3(0, 0, -2.23833)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gtgg"]
-_data = {
-&"RESET": SubResource("Animation_qek5x"),
-&"arm-moving": SubResource("Animation_0owmy")
-}
-
-[sub_resource type="Animation" id="Animation_h17s1"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.0442953, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5gtgg"]
-resource_name = "narwhal_idle"
-length = 2.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.33333, 2.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0.0442953, 0), Vector3(0, 0.175133, 0), Vector3(0, 0.0442953, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_je7p5"]
-resource_name = "walk"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0995885)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_je7p5"]
-_data = {
-&"RESET": SubResource("Animation_h17s1"),
-&"narwhal_idle": SubResource("Animation_5gtgg"),
-&"walk": SubResource("Animation_je7p5")
-}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
 radius = 1.68373
@@ -127,35 +22,11 @@ data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8
 
 [sub_resource type="Animation" id="Animation_75vfm"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("narval_model:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_p47bc"]
 resource_name = "walk_anim"
 length = 1.3
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("narval_model:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.933333, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.174533), Vector3(0, 0, -0.174533), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
 _data = {
@@ -171,46 +42,10 @@ albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
 
-[node name="narval_model" parent="." instance=ExtResource("1_8afob")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
-
-[node name="arm_001" parent="narval_model" index="0"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="body" parent="narval_model" index="1"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="narval-body_004" parent="narval_model" index="2"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="narval-body_005" parent="narval_model" index="3"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="narval-body_006" parent="narval_model" index="4"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="glasses" parent="narval_model" index="5"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="Armature_001" parent="narval_model" index="6"]
-transform = Transform3D(-0.169899, 0.21554, 0, -0.21554, -0.169899, 0, 0, 0, 0.274451, 0.572441, 0.360827, 0)
-
-[node name="arm" parent="narval_model/Armature_001/Skeleton3D" index="0"]
-material_overlay = ExtResource("3_75vfm")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="narval_model/Armature_001" index="1"]
-libraries = {
-&"": SubResource("AnimationLibrary_5gtgg")
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="narval_model"]
-libraries = {
-&"": SubResource("AnimationLibrary_je7p5")
-}
-autoplay = "narwhal_idle"
+[node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.720261, 0.184613)
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.558864, 0.0474415)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
@@ -224,8 +59,8 @@ spring_length = 4.5
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
 
-[node name="player_hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0.0568552)
+[node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117101, -0.0803163)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
 transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.883282, 0.160236)
@@ -270,5 +105,3 @@ mesh = SubResource("TorusMesh_5gtgg")
 
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-
-[editable path="narval_model"]
