@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=13 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -19,20 +19,6 @@ height = 3.59159
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
 data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
-
-[sub_resource type="Animation" id="Animation_75vfm"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_p47bc"]
-resource_name = "walk_anim"
-length = 1.3
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
-_data = {
-&"RESET": SubResource("Animation_75vfm"),
-&"walk_anim": SubResource("Animation_p47bc")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qek5x"]
 albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
@@ -85,11 +71,6 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.485
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_0owmy")
-}
 
 [node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
 visible = false

@@ -62,14 +62,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681794, 0.689962, 0)
 
 [node name="body" parent="jellyfish-npc" index="0"]
 material_override = ExtResource("3_v8h1v")
+lod_bias = 0.1
+visibility_range_end = 70.0
 mesh = SubResource("ArrayMesh_v8h1v")
 
 [node name="eyes" parent="jellyfish-npc" index="1"]
 material_overlay = ExtResource("2_54smk")
+lod_bias = 0.1
+visibility_range_end = 70.0
 
 [node name="arms" parent="jellyfish-npc" index="2"]
 material_override = SubResource("StandardMaterial3D_qrr1g")
 material_overlay = ExtResource("2_54smk")
+lod_bias = 0.1
+visibility_range_end = 70.0
 
 [node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager") instance=ExtResource("3_onbid")]
 npc_manager = NodePath("../npc_manager")

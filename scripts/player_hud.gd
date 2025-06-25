@@ -25,6 +25,6 @@ func change_player_health_status(health):
 	if health == 1:
 		$health/TextureRect.modulate = Color(1,.2,.3)
 	elif health > 1:
-		$health/TextureRect.modulate = Color("#4dffff")
+		$health/TextureRect.modulate = Color("#ffffff")
 	elif health < 1:
 		hearts_list[0].visible = false

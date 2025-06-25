@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=30 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c8vm4aos1dsc1" path="res://scenes/coin_trap.tscn" id="6_qndhv"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/spawner.tscn" id="7_kalee"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="7_qedf2"]
-[ext_resource type="PackedScene" uid="uid://w1dh1r4ewd5b" path="res://scenes/pig_bank.tscn" id="9_vtkm1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_imgkl"]
 sky_top_color = Color(0.824865, 0.978278, 0.938845, 1)
@@ -170,6 +169,7 @@ shape = SubResource("ConcavePolygonShape3D_tqy6i")
 
 [node name="platform2" type="Node3D" parent="."]
 transform = Transform3D(0.936837, 0, -0.349766, 0, 1, 0, 0.349766, 0, 0.936837, -42.7219, 0, 17.0999)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="platform2"]
 transform = Transform3D(0.981464, 0, -0.191648, 0, 1, 0, 0.191648, 0, 0.981464, -1.26404, -0.15765, 3.9605)
@@ -242,7 +242,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConcavePolygonShape3D_tqy6i")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8421, 0.145208, -6.26996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2982, 0.145206, -10.9634)
 
 [node name="first_level_portal" parent="." instance=ExtResource("4_snglc")]
 transform = Transform3D(0.429031, 0.00237526, 0.903287, -0.0040737, 0.999991, -0.000694706, -0.903281, -0.00338168, 0.429036, -22.6334, 2.4909, -14.0668)
@@ -415,10 +415,10 @@ mesh = SubResource("BoxMesh_qedf2")
 shape = SubResource("ConcavePolygonShape3D_kalee")
 
 [node name="spawner" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64664, 1.54622, 0.0274305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64664, 1.75248, 0.0274305)
 
 [node name="spawner2" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4645, 1.60887, 2.7728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.4645, 1.2701, 2.7728)
 
 [node name="spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -2)
@@ -430,42 +430,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 2)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5735, 2.77563, 0)
 shape = SubResource("CylinderShape3D_qedf2")
-debug_color = Color(0.953282, 0.571446, 7.70092e-07, 0.42)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="spawner4" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9324, -0.197532, 22.112)
+
+[node name="spawner5" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.4528, -0.197533, 18.2306)
+
+[node name="spawner6" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7563, -0.197532, 1.6395)
+
 [node name="spawner_manager2" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.341, -0.336362, 12.2352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8015, -0.197531, 12.2352)
 area_node = NodePath("Area3D")
 current_wave = 1
 
 [node name="Area3D" type="Area3D" parent="spawner_manager2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08414, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.2648, 0.00765219, -1.08532)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager2/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5735, 2.77563, 0)
 shape = SubResource("CylinderShape3D_qedf2")
-debug_color = Color(0.953282, 0.571446, 7.70092e-07, 0.42)
-
-[node name="spawner4" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9324, 1.25342, 22.112)
-wave_number = 1
-
-[node name="spawner5" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.4528, 1.4714, 18.2306)
-wave_number = 1
-
-[node name="spawner6" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7563, 1.24382, 1.6395)
-wave_number = 1
-
-[node name="pig_bank" parent="." instance=ExtResource("9_vtkm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6661, 0.842353, 2.15706)
 
 [connection signal="area_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="spawner_manager2/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]

@@ -75,6 +75,8 @@ script = ExtResource("1_h2qy3")
 [node name="body" parent="master_model" index="0"]
 material_override = SubResource("StandardMaterial3D_jooxx")
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="master_model/body" index="0"]
 
@@ -83,25 +85,37 @@ shape = SubResource("ConcavePolygonShape3D_h2qy3")
 
 [node name="eyes" parent="master_model" index="1"]
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="barba" parent="master_model" index="2"]
 material_override = SubResource("StandardMaterial3D_rnotf")
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="arms" parent="master_model" index="3"]
 material_override = SubResource("StandardMaterial3D_rnotf")
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="tail" parent="master_model" index="4"]
 material_override = SubResource("StandardMaterial3D_rnotf")
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="hair" parent="master_model" index="5"]
 material_override = SubResource("StandardMaterial3D_rnotf")
 material_overlay = ExtResource("2_rnotf")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="clothes" parent="master_model" index="6"]
 material_override = SubResource("StandardMaterial3D_h2qy3")
+lod_bias = 0.01
+visibility_range_end = 80.0
 
 [node name="npc_dialogue_area" parent="." instance=ExtResource("4_q3f5g")]
 

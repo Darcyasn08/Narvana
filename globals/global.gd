@@ -13,9 +13,15 @@ var dead_enemies_first_level = [
 	[0, 3]
 ]
 
-var current_stage: int = 0
+var current_wave: int = 0
 var current_world: int
 enum worlds {NORMAL, FIRST_LEVEL}
+
+var completed_levels: Dictionary = {
+	"first_level": false,
+	"second_level": false,
+	"third_level": false
+}
 
 var cutscenes: Dictionary = {
 	"start": false,

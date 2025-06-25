@@ -23,10 +23,12 @@ var immune_time: float = 2.5
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
 @onready var skin: Node3D = $narwhal_skin
+@onready var death_screen_inst = preload("res://scenes/UI/death_screen.tscn")
 
 
 func _ready() -> void:
 	print(health)
+	SignalBus.on_player_health_changed.emit(health)
 
 func _physics_process(delta: float) -> void:
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
@@ -103,6 +105,7 @@ func _input(event: InputEvent) -> void:
 func hurt(damage):
 	if damage < health and immune == false:
 		get_immune()
+		#muda a cor da skin do narval
 		health -= damage
 		print(health)
 		SignalBus.on_player_health_changed.emit(health)
@@ -116,7 +119,9 @@ func hurt(damage):
 # próxima atualização: fazer tela de morte
 func die():
 	print("morreu")
-
+	get_tree().paused = true
+	var death_screen = death_screen_inst.instantiate()
+	add_child(death_screen)
 
 func dash():
 	if Input.is_action_just_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar

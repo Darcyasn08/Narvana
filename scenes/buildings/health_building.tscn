@@ -31,11 +31,23 @@ size = Vector3(9.17556, 11.9145, 9.00486)
 [node name="health_center" parent="." instance=ExtResource("1_u6tqe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93109, 0)
 
+[node name="floor1" parent="health_center" index="0"]
+visibility_range_end = 90.0
+
+[node name="roof" parent="health_center" index="1"]
+visibility_range_end = 90.0
+
+[node name="floor" parent="health_center" index="2"]
+visibility_range_end = 90.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/floor" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/floor/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055763, -0.0262604, 0.0122984)
 shape = SubResource("BoxShape3D_o83xo")
+
+[node name="stairs" parent="health_center" index="3"]
+visibility_range_end = 90.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/stairs" index="0"]
 
@@ -47,28 +59,116 @@ shape = SubResource("BoxShape3D_u6tqe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442393, 0.0035013, -0.387695)
 shape = SubResource("BoxShape3D_opxjy")
 
+[node name="Cube_004" parent="health_center" index="4"]
+visibility_range_end = 90.0
+
+[node name="Cube_002" parent="health_center" index="5"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof3_001" parent="health_center" index="6"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof3_002" parent="health_center" index="7"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof3_003" parent="health_center" index="8"]
+visibility_range_end = 90.0
+
+[node name="pillars1_001" parent="health_center" index="9"]
+visibility_range_end = 90.0
+
+[node name="pillars2_001" parent="health_center" index="10"]
+visibility_range_end = 90.0
+
+[node name="wall1_001" parent="health_center" index="11"]
+visibility_range_end = 90.0
+
+[node name="wall2_001" parent="health_center" index="12"]
+visibility_range_end = 90.0
+
+[node name="wall3_001" parent="health_center" index="13"]
+visibility_range_end = 90.0
+
+[node name="wall4_001" parent="health_center" index="14"]
+visibility_range_end = 90.0
+
+[node name="pillars_A_roof1" parent="health_center" index="15"]
+visibility_range_end = 90.0
+
+[node name="pillars_A_roof2" parent="health_center" index="16"]
+visibility_range_end = 90.0
+
+[node name="pillars_A_roof3" parent="health_center" index="17"]
+visibility_range_end = 90.0
+
+[node name="pillars_A_roof4" parent="health_center" index="18"]
+visibility_range_end = 90.0
+
+[node name="roof_001" parent="health_center" index="19"]
+visibility_range_end = 90.0
+
+[node name="pillars1" parent="health_center" index="20"]
+visibility_range_end = 90.0
+
+[node name="pillars2" parent="health_center" index="21"]
+visibility_range_end = 90.0
+
+[node name="wall1" parent="health_center" index="22"]
+visibility_range_end = 90.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/wall1" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/wall1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_u6tqe")
+
+[node name="wall2" parent="health_center" index="23"]
+visibility_range_end = 90.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/wall2" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/wall2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_to8ga")
 
+[node name="wall3" parent="health_center" index="24"]
+visibility_range_end = 90.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/wall3" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/wall3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wkhsg")
+
+[node name="wall4" parent="health_center" index="25"]
+visibility_range_end = 90.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/wall4" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/wall4/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70mot")
 
+[node name="pillars_U_roof1" parent="health_center" index="26"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof2" parent="health_center" index="27"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof3" parent="health_center" index="28"]
+visibility_range_end = 90.0
+
+[node name="pillars_U_roof14" parent="health_center" index="29"]
+visibility_range_end = 90.0
+
+[node name="stone_wall_B" parent="health_center" index="30"]
+visibility_range_end = 90.0
+
 [node name="stone_wall_F" parent="health_center" index="31"]
 transform = Transform3D(0.994291, -0.0377582, 0.0998, -0.0393864, -0.99912, 0.0143947, 0.0991687, -0.0182433, -0.994903, 7.34317, -0.990822, -0.0834394)
+visibility_range_end = 90.0
+
+[node name="stone_wall_L" parent="health_center" index="32"]
+visibility_range_end = 90.0
+
+[node name="stone_wall_R" parent="health_center" index="33"]
+visibility_range_end = 90.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.107999, 0.994151, 0, -0.994151, 0.107999, 0.480566, 3.98594, -1.79871)
