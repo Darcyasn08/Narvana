@@ -41,7 +41,7 @@ data = PackedVector3Array(-1, -1, 0.3393, -0.8065, -1, -0.8065, -1, -1, -0.3394,
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilehk"]
 emission_enabled = true
 emission = Color(0.914696, 0.63865, 0.171596, 1)
-emission_energy_multiplier = 3.69
+emission_energy_multiplier = 5.89
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d443k"]
 albedo_color = Color(0.736351, 0.480508, 0.201947, 1)
@@ -129,72 +129,39 @@ material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1
 visibility_range_end = 110.0
 
-[node name="OmniLight3D" type="OmniLight3D" parent="light_pole_model/lamp" index="0"]
-omni_range = 1.269
-
 [node name="lamp_001" parent="light_pole_model" index="6"]
 material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1
 visibility_range_end = 110.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="light_pole_model/lamp_001" index="0"]
-transform = Transform3D(4.53928, 0, 0, 0, 4.53928, 0, 0, 0, 4.53928, 0, 0, 0)
-omni_range = 1.269
 
 [node name="lamp_002" parent="light_pole_model" index="7"]
 material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1
 visibility_range_end = 110.0
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="light_pole_model/lamp_002" index="0"]
-transform = Transform3D(4.53928, 0, 0, 0, 4.53928, 0, 0, 0, 4.53928, 0, 0, 0)
-distance_fade_enabled = true
-distance_fade_begin = 70.0
-distance_fade_length = 5.0
-omni_range = 1.80923
-
 [node name="lamp_003" parent="light_pole_model" index="8"]
 material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1
 visibility_range_end = 110.0
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="light_pole_model/lamp_003" index="0"]
-transform = Transform3D(4.53928, 0, 0, 0, 4.53928, 0, 0, 0, 4.53928, 0, 0, 0)
-distance_fade_enabled = true
-distance_fade_begin = 70.0
-distance_fade_length = 5.0
-omni_range = 1.7343
 
 [node name="lamp_004" parent="light_pole_model" index="9"]
 material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1
 visibility_range_end = 110.0
 
-[node name="OmniLight3D5" type="OmniLight3D" parent="light_pole_model/lamp_004" index="0"]
-transform = Transform3D(4.53928, 0, 0, 0, 4.53928, 0, 0, 0, 4.53928, 0, 0, 0)
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.99756, 5.31716, -0.0168253)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 1.269
+omni_range = 1.80923
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.86478, 6.27521, 0)
-visible = false
-light_color = Color(0.963003, 0.908836, 0.721302, 1)
-light_energy = 5.923
-light_size = 0.766
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9668, 5.31716, -0.0168253)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 6.0
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019784, 6.64819, 0)
-visible = false
-light_color = Color(0.963003, 0.908836, 0.721302, 1)
-distance_fade_enabled = true
-distance_fade_begin = 70.0
-distance_fade_length = 5.0
+omni_range = 1.7343
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.362713, 0, 0, 0, 0.362713, 0, 0, 0, 0.362713, 9.98099, 6.64819, 0)
