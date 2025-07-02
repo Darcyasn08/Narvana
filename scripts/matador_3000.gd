@@ -1,5 +1,5 @@
 extends Area3D
-var damage := 500
+var damage := 1
 @onready var player = $"../player"
 var life := 500
 

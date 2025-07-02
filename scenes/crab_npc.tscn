@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0mhi6ktt3kfj"]
+[gd_scene load_steps=6 format=3 uid="uid://c0mhi6ktt3kfj"]
 
-[ext_resource type="PackedScene" uid="uid://byafmsxob8mia" path="res://3d_models/placeholders/crab.glb" id="1_1wnsb"]
+[ext_resource type="PackedScene" uid="uid://c4vlknd21mmit" path="res://3d_models/placeholders/crab.glb" id="1_1wnsb"]
 [ext_resource type="Script" uid="uid://u4fkqjmy4lqs" path="res://scenes/crab_npc.gd" id="1_ih6au"]
 [ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/npc_dialogue_area.tscn" id="3_4hd1a"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjiji"]
-diffuse_mode = 3
-albedo_color = Color(0.704516, 0.379537, 0.399316, 1)
-roughness = 0.04
+[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="3_sichv"]
+[ext_resource type="PackedScene" uid="uid://caothemudeyai" path="res://globals/npc_manager.tscn" id="4_4hd1a"]
 
 [node name="crab_npc" type="Node3D"]
 script = ExtResource("1_ih6au")
@@ -15,11 +12,12 @@ script = ExtResource("1_ih6au")
 [node name="crab" parent="." instance=ExtResource("1_1wnsb")]
 
 [node name="crab-body" parent="crab" index="0"]
-material_overlay = SubResource("StandardMaterial3D_jjiji")
+material_overlay = ExtResource("3_sichv")
 
-[node name="npc_dialogue_area" parent="." instance=ExtResource("3_4hd1a")]
+[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager") instance=ExtResource("3_4hd1a")]
+npc_manager = NodePath("../npc_manager")
 
-[connection signal="body_entered" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_entered"]
-[connection signal="body_exited" from="npc_dialogue_area" to="npc_dialogue_area" method="_on_body_exited"]
+[node name="npc_manager" parent="." instance=ExtResource("4_4hd1a")]
+current_npc = "crab"
 
 [editable path="crab"]

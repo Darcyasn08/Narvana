@@ -1,22 +1,30 @@
 extends Node3D
 
-@onready var fase = int(round(rad_to_deg(rotation.x)))
-@onready var inimigo = int(round(rad_to_deg(rotation.y)))
-@onready var catch_enemy = Global.enemys[fase][inimigo]
+@export var level_number: int
+@export var enemy_number: int
+
+@onready var catch_enemy = Global.enemies[level_number][enemy_number]
 @onready var enemy_path = load(catch_enemy)
 
 func _ready() -> void:
-	pass
+	SignalBus.on_first_level_entered.connect(spawn_enemies)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+func spawn_enemies():
+	#var catch_enemy = Global.enemies[level_number][enemy_number]
+	#var enemy_path = load(catch_enemy)
+	
+	var enemy = enemy_path.instantiate()
+	enemy.global_position = global_position
+	get_parent().add_child(enemy)
+	queue_free()
 
-func _on_detection_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
-	if area.is_in_group("weapon"):
-		var enemy = enemy_path.instantiate()
-		enemy.global_position = global_position
-		get_parent().add_child(enemy)
-		queue_free()
+func _on_detection_area_entered(area: Area3D) -> void:
+	pass
+	#if area.is_in_group("weapon"):
+		#var enemy = enemy_path.instantiate()
+		#enemy.global_position = global_position
+		#get_parent().add_child(enemy)
+		#queue_free()

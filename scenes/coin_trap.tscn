@@ -27,6 +27,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00160217, 0.381049, 0)
 shape = SubResource("BoxShape3D_xqnro")
 
 [node name="hurtbox" type="Area3D" parent="."]
+disable_mode = 1
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559947, -0.017)
@@ -42,5 +44,11 @@ transform = Transform3D(-4.37114e-08, -0.267238, -0.96363, 0, 0.96363, -0.267238
 visible = false
 size = Vector3(1.5, 1.5, 1.5)
 
-[connection signal="area_shape_entered" from="hitbox" to="." method="_on_hitbox_area_shape_entered"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

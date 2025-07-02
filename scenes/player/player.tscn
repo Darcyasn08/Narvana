@@ -1,86 +1,126 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=17 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_8afob"]
-[ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="3_gmlin"]
-[ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="4_lvxji"]
+[ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
+[ext_resource type="PackedScene" uid="uid://vssohrk800fr" path="res://scenes/UI/player_hud.tscn" id="6_0owmy"]
+[ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="6_qek5x"]
+[ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
+[ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_p47bc"]
-render_priority = 0
-shader = ExtResource("3_gmlin")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 1.39715
-height = 3.83858
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
+radius = 1.68373
+height = 3.59159
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvxji"]
-radius = 1.93441
-height = 3.86882
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
+radius = 1.79579
+height = 3.59159
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dovo2"]
-size = Vector3(1.88477, 0.225464, 0.555176)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
+data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvxji"]
-albedo_color = Color(0.992157, 0.952941, 0, 1)
+[sub_resource type="Animation" id="Animation_75vfm"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "walk_anim"
+length = 1.3
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
+_data = {
+&"RESET": SubResource("Animation_75vfm"),
+&"walk_anim": SubResource("Animation_p47bc")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qek5x"]
+albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_5gtgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
+size = Vector3(3.02588, 2.61572, 2.97473)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
 
-[node name="narval_model" parent="." instance=ExtResource("1_8afob")]
-
-[node name="narval-body" parent="narval_model" index="1"]
-material_overlay = SubResource("ShaderMaterial_p47bc")
-surface_material_override/0 = ExtResource("4_lvxji")
-surface_material_override/1 = ExtResource("4_lvxji")
-surface_material_override/2 = ExtResource("4_lvxji")
+[node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.553258, 0.183558)
-shape = SubResource("CapsuleShape3D_u8vuu")
-debug_color = Color(0.242656, 0.506679, 1, 0.42)
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.558864, 0.0474415)
+shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44701, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
 shape = SubResource("SphereShape3D_g2els")
-spring_length = 7.0
+spring_length = 4.5
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
 
 [node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117101, -0.0803163)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0.00704908, 0.535965, 0.229773)
-shape = SubResource("CapsuleShape3D_lvxji")
-debug_color = Color(0.242656, 0.506679, 1, 0.42)
+transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.883282, 0.160236)
+shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823338, -0.0830647, 0)
 visible = false
 
 [node name="arma" type="Area3D" parent="Node3D" groups=["weapon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12464, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/arma"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20613, 0.387268, 0.222412)
-shape = SubResource("BoxShape3D_dovo2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67383, 0.374756, 0.217488)
+shape = SubResource("ConcavePolygonShape3D_75vfm")
 disabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32387, 0.374756, 0.213623)
-size = Vector3(1.60425, 0.250488, 0.572754)
-
-[node name="CSGTorus3D" type="CSGTorus3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51831, 0.154162)
+[node name="pause_menu" parent="Node3D" instance=ExtResource("7_qek5x")]
 visible = false
-layers = 33
-inner_radius = 0.275638
-outer_radius = 0.429279
-material = SubResource("StandardMaterial3D_lvxji")
+
+[node name="bat" parent="Node3D" instance=ExtResource("6_qek5x")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.48593, 0.389795, 0.191806)
+
+[node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0owmy")
+}
+
+[node name="dialogue_system" parent="." instance=ExtResource("8_qek5x")]
+visible = false
+
+[node name="torus_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 1.69677, 0.211602)
+visible = false
+material_override = SubResource("StandardMaterial3D_qek5x")
+mesh = SubResource("TorusMesh_5gtgg")
+
+[node name="magics" type="Node3D" parent="."]
+
+[node name="dust_magic" type="Area3D" parent="magics" groups=["damage_magic"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="magics/dust_magic" groups=["damage_magic"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19263, 2.55156)
+shape = SubResource("BoxShape3D_75vfm")
+disabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="magics"]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="magics/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0397136, 2.54569)
+size = Vector3(2.8, 0.3, 2.8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="magics/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.53518)
+size = Vector3(3, 0.2, 3)
 
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
-
-[editable path="narval_model"]

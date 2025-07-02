@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbrwv7t17y737"]
+
+[ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://dqpvv5sxf0cw4" path="res://scripts/car.gd" id="1_qt2eu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qt2eu"]
+height = 2.76221
+radius = 0.850586
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_50v30"]
+height = 2.39539
+radius = 0.743164
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qt2eu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jtldb"]
+albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_3mrxu"]
+
+[node name="car" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_qt2eu")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+radius = 0.8
+height = 2.5
+
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_c35m8")]
+hitbox_collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(0.999998, 0, 1.61003e-09, 7.41227e-09, -4.3714e-08, -0.999987, 2.32831e-09, 1, -4.3452e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_qt2eu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999998, 0, 1.61037e-09, 7.41227e-09, -4.3714e-08, -0.999987, 2.32831e-09, 1, -4.33938e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_50v30")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.750213, 0)
+shape = SubResource("SphereShape3D_qt2eu")
+
+[node name="torus_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 1.04042, 0.211602)
+visible = false
+material_override = SubResource("StandardMaterial3D_jtldb")
+mesh = SubResource("TorusMesh_3mrxu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

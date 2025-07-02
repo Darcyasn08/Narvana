@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dys58dchdp2po"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1ofo"]
+albedo_color = Color(0.265967, 0.159115, 0.06636, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_50nwf"]
+size = Vector3(1, 10, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50nwf"]
+albedo_color = Color(0.791765, 0.31795, 0.198909, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u1ofo"]
+size = Vector3(0.4, 7, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kqbxo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dou3w"]
+size = Vector3(0.2, 1, 0.3)
+
+[node name="village_entrance_gate" type="Node3D"]
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0463901, 7.28106, -0.211114)
+material_override = SubResource("StandardMaterial3D_u1ofo")
+mesh = SubResource("BoxMesh_50nwf")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.545, 3.51403, -0.211114)
+material_override = SubResource("StandardMaterial3D_50nwf")
+mesh = SubResource("BoxMesh_u1ofo")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.58248, 3.51403, -0.211114)
+material_override = SubResource("StandardMaterial3D_50nwf")
+mesh = SubResource("BoxMesh_u1ofo")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0360813, 0.499276, -0.211114)
+visible = false
+mesh = SubResource("BoxMesh_kqbxo")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -4.96954, 7.74028, -0.208365)
+material_override = SubResource("StandardMaterial3D_u1ofo")
+mesh = SubResource("BoxMesh_dou3w")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.807043, 0.590493, 0, -0.590493, 0.807043, 0, 0, 0, 1, 4.96857, 7.82389, -0.208365)
+material_override = SubResource("StandardMaterial3D_u1ofo")
+mesh = SubResource("BoxMesh_dou3w")
