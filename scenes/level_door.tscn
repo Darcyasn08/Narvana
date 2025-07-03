@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d1xj13tku3knt" path="res://scripts/level_door.gd" id="1_7dh4e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3641t"]
-albedo_color = Color(0.320087, 0.408379, 0.336453, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dh4e"]
+albedo_color = Color(0.473268, 0.321685, 0.188362, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qedf2"]
 size = Vector3(2, 10, 25)
@@ -14,7 +14,7 @@ data = PackedVector3Array(-1, 5, 12.5, 1, 5, 12.5, -1, -5, 12.5, 1, 5, 12.5, 1, 
 [node name="level_door" type="MeshInstance3D"]
 transform = Transform3D(-0.948479, 0, -0.316841, 0, 1, 0, 0.316841, 0, -0.948479, 0, 0, 0)
 layers = 33
-material_override = SubResource("StandardMaterial3D_3641t")
+material_override = SubResource("StandardMaterial3D_7dh4e")
 mesh = SubResource("BoxMesh_qedf2")
 script = ExtResource("1_7dh4e")
 

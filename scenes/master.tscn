@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cehotwhkrkbkq"]
+[gd_scene load_steps=13 format=3 uid="uid://cehotwhkrkbkq"]
 
 [ext_resource type="Script" uid="uid://0o75wa888xm4" path="res://scripts/master.gd" id="1_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://daidw401j2ftw" path="res://3d_models/placeholders/master.glb" id="1_jooxx"]
@@ -28,6 +28,9 @@ diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0.697626, 0.335568, 0.180609, 1)
 roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_h2qy3"]
+radius = 5.80923
 
 [sub_resource type="Animation" id="Animation_q3f5g"]
 length = 0.001
@@ -117,7 +120,13 @@ material_override = SubResource("StandardMaterial3D_h2qy3")
 lod_bias = 0.01
 visibility_range_end = 80.0
 
-[node name="npc_dialogue_area" parent="." instance=ExtResource("4_q3f5g")]
+[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("area_collision") instance=ExtResource("4_q3f5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06267)
+area_collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_dialogue_area"]
+shape = SubResource("SphereShape3D_h2qy3")
+debug_color = Color(0.784679, 0.151575, 0.463059, 0.42)
 
 [node name="name_label" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35931, 0)

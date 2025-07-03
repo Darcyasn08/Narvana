@@ -1,29 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=11 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
 [ext_resource type="PackedScene" uid="uid://vssohrk800fr" path="res://scenes/UI/player_hud.tscn" id="6_0owmy"]
-[ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="6_qek5x"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
-radius = 1.68373
-height = 3.59159
+radius = 2.26942
+height = 4.71178
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 1.79579
-height = 3.59159
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
-data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
+radius = 2.27452
+height = 4.93631
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qek5x"]
 albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
 
 [sub_resource type="TorusMesh" id="TorusMesh_5gtgg"]
+outer_radius = 0.84
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_3vyb7")
@@ -31,7 +28,7 @@ script = ExtResource("1_3vyb7")
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.558864, 0.0474415)
+transform = Transform3D(0.273969, 0, -0.352677, 0, 0.446587, 0, 0.352677, 0, 0.273969, 0, 1.06733, -0.145649)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
@@ -40,31 +37,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
 shape = SubResource("SphereShape3D_g2els")
-spring_length = 4.5
+spring_length = 7.0
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
 
 [node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117101, -0.0803163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463014, -0.228351)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.446587, 0, 0, 0, 0.446587, 0, 0, 0, 0.446587, 0, 0.883282, 0.160236)
+transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.347729, 0, 1.03775, 0.0830008)
 shape = SubResource("CapsuleShape3D_u8vuu")
-
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0823338, -0.0830647, 0)
-visible = false
-
-[node name="arma" type="Area3D" parent="Node3D" groups=["weapon"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12464, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/arma"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67383, 0.374756, 0.217488)
-shape = SubResource("ConcavePolygonShape3D_75vfm")
-
-[node name="bat" parent="Node3D" instance=ExtResource("6_qek5x")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.48593, 0.389795, 0.191806)
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
 
@@ -79,10 +62,18 @@ visible = false
 visible = false
 
 [node name="torus_mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 1.69677, 0.211602)
+transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 1.54498, 0.0199297)
 visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_thickness = 5
+
+[connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

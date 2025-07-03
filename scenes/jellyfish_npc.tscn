@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://doqjhvexujiyp"]
+[gd_scene load_steps=13 format=4 uid="uid://doqjhvexujiyp"]
 
 [ext_resource type="PackedScene" uid="uid://bo544662wnm3w" path="res://3d_models/placeholders/jellyfish-npc.glb" id="1_id08o"]
 [ext_resource type="Script" uid="uid://7cooo3j6tb61" path="res://scripts/jellyfish_npc.gd" id="1_qrr1g"]
@@ -54,6 +54,9 @@ specular_mode = 1
 albedo_color = Color(0.747426, 0.872459, 0.609651, 1)
 roughness = 0.0
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_v8h1v"]
+radius = 3.32051
+
 [node name="jellyfish_npc" type="Node3D"]
 script = ExtResource("1_qrr1g")
 
@@ -77,8 +80,14 @@ material_overlay = ExtResource("2_54smk")
 lod_bias = 0.1
 visibility_range_end = 70.0
 
-[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager") instance=ExtResource("3_onbid")]
+[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager", "area_collision") instance=ExtResource("3_onbid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.598917, 0)
 npc_manager = NodePath("../npc_manager")
+area_collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_dialogue_area"]
+shape = SubResource("SphereShape3D_v8h1v")
+debug_color = Color(0.784679, 0.151575, 0.463059, 0.42)
 
 [node name="name_label" type="Label3D" parent="."]
 transform = Transform3D(0.121107, 0, 0.992639, 0, 1, 0, -0.992639, 0, 0.121107, 0, 2.32609, 0)

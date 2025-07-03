@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
 [ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
 [ext_resource type="Texture2D" uid="uid://dccy454b0rflp" path="res://3d_models/placeholders/piggy-bank-texture.png" id="3_0pmpx"]
-[ext_resource type="PackedScene" uid="uid://b23g6gcwrq58o" path="res://scenes/managers/take_damage_system.tscn" id="4_yw1nj"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemy_hitbox.tscn" id="5_nykp7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw1nj"]
 diffuse_mode = 3
@@ -16,6 +16,30 @@ subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.44
 backlight_enabled = true
 backlight = Color(0.896509, 0.420443, 0.0263604, 1)
+
+[sub_resource type="Animation" id="Animation_6vu3a"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone.001")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.0678402, -1.07384e-14, 1.61744e-08, 0.997696)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:Bone.007")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.0912161, -0.0010179, -0.0224956, 0.995577)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:Bone.010")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0802843, 0.0141743, 0.131938, 0.9879)
 
 [sub_resource type="Animation" id="Animation_nykp7"]
 resource_name = "walk"
@@ -42,30 +66,6 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, -0.0802843, 0.0141743, 0.131938, 0.9879, 0.47, 1, -0.184325, 0.0478865, -0.0869247, 0.977842, 0.77, 1, -0.0383471, -0.00884684, 0.296408, 0.95425)
 
-[sub_resource type="Animation" id="Animation_6vu3a"]
-length = 0.001
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Armature/Skeleton3D:Bone.001")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.0678402, -1.07384e-14, 1.61744e-08, 0.997696)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Armature/Skeleton3D:Bone.007")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.0912161, -0.0010179, -0.0224956, 0.995577)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Armature/Skeleton3D:Bone.010")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.0802843, 0.0141743, 0.131938, 0.9879)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pqxdv"]
 _data = {
 &"RESET": SubResource("Animation_6vu3a"),
@@ -91,10 +91,10 @@ transform = Transform3D(0.727908, 0, 0, 0, 0.727908, 0, 0, 0, 0.727908, 0, 0, 0)
 
 [node name="Skeleton3D" parent="piggy-bank-enemy/Armature" index="0"]
 bones/1/position = Vector3(9.75424e-14, 1.16776, 4.09647e-07)
-bones/1/rotation = Quaternion(-0.0678402, -1.07384e-14, 1.61744e-08, 0.997696)
+bones/1/rotation = Quaternion(-0.0678402, -1.07748e-14, 1.61744e-08, 0.997696)
 bones/1/scale = Vector3(1, 0.999999, 1)
-bones/2/scale = Vector3(1, 1, 1)
 bones/5/position = Vector3(9.83516e-08, 0.697526, -2.19585e-07)
+bones/5/rotation = Quaternion(0.0912161, -0.0010179, -0.0224956, 0.995577)
 bones/5/scale = Vector3(1, 1, 0.999999)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(1.69539e-06, 0.670109, -7.77032e-07)
@@ -118,13 +118,6 @@ mesh = SubResource("CapsuleMesh_lks3o")
 transform = Transform3D(2.45139, 0, 0, 0, -1.07154e-07, -2.45139, 0, 2.45139, -1.07154e-07, 0, 1.0987, 0)
 shape = SubResource("CapsuleShape3D_fgw4t")
 
-[node name="enemy_hitbox" type="Area3D" parent="." groups=["enemies"]]
-transform = Transform3D(1.22569, 0, 0, 0, 1.22569, 0, 0, 0, 1.22569, 0, 1.10896, 0)
-
-[node name="collision" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0.115051, -0.0544047)
-shape = SubResource("CapsuleShape3D_tsjtq")
-
 [node name="coinslot1" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.582, 0.2, -0.48)
 
@@ -134,9 +127,12 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 [node name="coinslot3" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.018, 0.2, 0.508)
 
-[node name="take_damage_system" parent="." node_paths=PackedStringArray("hitbox_area") instance=ExtResource("4_yw1nj")]
-hitbox_area = NodePath("../enemy_hitbox")
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("5_nykp7")]
+hitbox_collision = NodePath("collision")
 
-[connection signal="area_entered" from="enemy_hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="collision" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(2.70274, 0.011671, 0.0230015, 0.0230047, -0.00069562, -2.70277, -0.0116646, 2.70284, -0.000794867, -0.0120461, 1.37818, -0.0731184)
+shape = SubResource("CapsuleShape3D_tsjtq")
+debug_color = Color(0.811433, 0.396121, 0.298925, 0.42)
 
 [editable path="piggy-bank-enemy"]

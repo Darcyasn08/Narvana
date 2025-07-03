@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://1ugtjlwjbooy"
-path="res://.godot/imported/casadecha.glb-a26c424655f20d35915cdf45c00abab1.scn"
+uid="uid://ciwyo6nldgprw"
+path="res://.godot/imported/tea-house.glb-3ac51915b10ae7c7587f729dd1966b8b.scn"
 
 [deps]
 
-source_file="res://3d_models/placeholders/casadecha.glb"
-dest_files=["res://.godot/imported/casadecha.glb-a26c424655f20d35915cdf45c00abab1.scn"]
+source_file="res://3d_models/placeholders/tea-house.glb"
+dest_files=["res://.godot/imported/tea-house.glb-3ac51915b10ae7c7587f729dd1966b8b.scn"]
 
 [params]
 

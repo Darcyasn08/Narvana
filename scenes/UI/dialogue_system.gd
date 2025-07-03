@@ -29,7 +29,7 @@ asfjid
 
 
 func _ready() -> void:
-	SignalBus.on_dialogue_activated.connect(start_dialogue)
+	SignalBus.on_dialog_activated.connect(start_dialogue)
 	SignalBus.on_dialog_area_leave.connect(end_dialog)
 	hide()
 	$diag_option1.hide()
@@ -68,7 +68,7 @@ func end_dialog():
 	cur_npc = ""
 	$dialogue_text.text = ""
 	talk_speed = normal_talk_speed #reseta pra velociade normal, pra ter certeza
-	print("limit")
+	#print("limit")
 	has_started_diag = false
 	hide()
 	can_progress = false
@@ -87,8 +87,9 @@ func progress_dialogue():
 				$next_label.hide()
 			if Global.dialogues[cur_npc][random_diag][cur_text].find(";") != -1:
 				#print("in: ",cur_text," there is a ;")
-				print(Global.dialogues[cur_npc][random_diag][cur_text].get_slice(";", 0))
+				#print(Global.dialogues[cur_npc][random_diag][cur_text].get_slice(";", 0))
 				#print(cur_text)
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				$diag_option1.show()
 				$diag_option2.show()
 				#$name_label.hide()

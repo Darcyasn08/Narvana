@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=6 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="Texture2D" uid="uid://cyrkd5onfkwkh" path="res://UI/star-life.png" id="2_q0ngs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q0ngs"]
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r6s25"]
+font_size = 27
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xffaj"]
+bg_color = Color(0.40428, 0.466038, 0.567124, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
@@ -43,15 +60,55 @@ texture = ExtResource("2_q0ngs")
 expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
-offset_left = 1155.0
-offset_top = 23.0
-offset_right = 1198.0
-offset_bottom = 46.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_top = 15.0
+offset_right = -79.0
+offset_bottom = 49.0
+grow_horizontal = 0
 text = "FPS"
+label_settings = SubResource("LabelSettings_q0ngs")
 
 [node name="fps_label" type="Label" parent="."]
-offset_left = 1198.0
-offset_top = 23.0
-offset_right = 1241.0
-offset_bottom = 46.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 15.0
+offset_right = -13.0
+offset_bottom = 52.0
+grow_horizontal = 0
 text = "00.0"
+label_settings = SubResource("LabelSettings_r6s25")
+
+[node name="quests_panel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -89.5
+offset_right = -18.0
+offset_bottom = 89.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="quests_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xffaj")
+
+[node name="Label" type="Label" parent="quests_panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 33.0

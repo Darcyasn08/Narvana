@@ -43,7 +43,7 @@ emission_energy_multiplier = 1.4
 environment = SubResource("Environment_3b6ix")
 
 [node name="tent" parent="." instance=ExtResource("1_piban")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.396988, 0)
+transform = Transform3D(1.243, 0, 0, 0, 1.243, 0, 0, 0, 1.243, 0, 0.396988, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tent"]
 visible = false

@@ -10,6 +10,7 @@ var acceleration: float = 15.0
 var rotation_speed: float = 10.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
+var ground_speed
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
@@ -27,8 +28,10 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
+	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
 	SignalBus.on_player_health_changed.emit(health)
+	#SignalBus.on_dialog_activated.connect(set_move)
 
 func _physics_process(delta: float) -> void:
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
@@ -42,33 +45,40 @@ func _physics_process(delta: float) -> void:
 	
 	camera_input_direction = Vector2.ZERO #a cada frame resetar, pra não rodar pra sempre
 	
-	var raw_input := Input.get_vector("a", "d", "w", "s")
-	var forward := camera.global_basis.z
-	var right := camera.global_basis.x
+	if Global.player_can_move:
+		var raw_input := Input.get_vector("a", "d", "w", "s")
+		var forward := camera.global_basis.z
+		var right := camera.global_basis.x
+		
+		var move_direction := (forward * raw_input.y + right * raw_input.x)*delta #combina os valores de x e z
+		move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
+		move_direction = move_direction.normalized()
 	
-	var move_direction := forward * raw_input.y + right * raw_input.x #combina os valores de x e z
-	move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
-	move_direction = move_direction.normalized()
+		if move_direction.length() > 0.1:
+			last_movement_direction = move_direction
+		
+		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
+		skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
+		
+		ground_speed = velocity.length()
+		if ground_speed > 0.0:
+			$narwhal_skin/narval_model/AnimationPlayer.play("walk")
+			#print(ground_speed)
+		elif ground_speed <= 0.0:
+			$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
+		
+		if !knockbacked:
+			var y_velocity := velocity.y
+			velocity.y = 0.0
+			velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
+			velocity.y = y_velocity + gravity * delta
+	else:
+		ground_speed = 0
+		velocity = Vector3(0,0,0)
+		#print("you cant just move mate")
 	
-	if move_direction.length() > 0.1:
-		last_movement_direction = move_direction
-	
-	var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
-	skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
-	
-	var ground_speed := velocity.length()
-	if ground_speed > 0.0:
-		$narwhal_skin/narval_model/AnimationPlayer.play("walk")
-		#print(ground_speed)
-	elif ground_speed <= 0.0:
-		$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
-		#print(ground_speed)
-	
-	if !knockbacked:
-		var y_velocity := velocity.y
-		velocity.y = 0.0
-		velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
-		velocity.y = y_velocity + gravity * delta
+	if velocity != Vector3.ZERO:
+		$RayCast3D.target_position = velocity.normalized() * 4
 	
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor()
 	if is_starting_jump:
@@ -81,9 +91,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		pass
 		#velocity.y -= gravity * delta
-	
-	if Input.is_action_just_pressed("space") and is_on_floor():#tem que ter o is on floor pra ele ficar pulando
-		velocity.y = JUMP_VELOCITY
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -100,6 +107,16 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
+	if event.is_action_pressed("e"):
+		var target = $RayCast3D.get_collider()
+		if target != null:
+			if target.is_in_group("npcs"):
+				print("hi npc!")
+	
+	#para o ataque
+	#if event.is_action_pressed("e") and Global.player_can_attack:
+		#attack()
 
 
 func hurt(damage):
@@ -135,11 +152,40 @@ func dash():
 		dashed = false
 
 
-func knockback(force: Vector3, impact_point: Vector3):
+func knockback(force: Vector3, _impact_point: Vector3):
 	velocity = force.limit_length(15.0)
 
 
-func _on_player_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func attack():
+	if Input.is_action_just_pressed("e") and Global.player_can_attack:
+		if Global.current_weapon == "tonfa":
+			$narwhal_skin/narval_model/Armature_001.show()
+			$narwhal_skin/narval_model/Armature_002.hide()
+			$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
+		elif Global.current_weapon == "bat":
+			$narwhal_skin/narval_model/Armature_002.show()
+			$narwhal_skin/narval_model/Armature_001.hide()
+			$narwhal_skin/narval_model/attack_player.play("bat_attack")
+		#print("attack!")
+	#$Node3D.show()
+	#$Node3D/arma/CollisionShape3D.disabled = false
+	#$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
+	#await(get_tree().create_timer(.3).timeout)
+	#$Node3D.hide()
+	#$Node3D/arma/CollisionShape3D.disabled = true
+	#$Node3D.rotation.y = skin.rotation.y
+	#else:
+		#$Node3D.rotation.y = skin.rotation.y
+
+func get_immune():
+	immune = true
+	$torus_mesh.show()
+	await(get_tree().create_timer(immune_time).timeout)
+	$torus_mesh.hide()
+	immune = false
+
+
+func _on_player_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies"):
 		knockbacked = true
 		var body_collision = (skin.global_position - area.global_position)
@@ -149,22 +195,3 @@ func _on_player_hitbox_area_shape_entered(area_rid: RID, area: Area3D, area_shap
 		knockback(force, body_collision)
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
-
-func attack():
-	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
-		$Node3D.show()
-		$Node3D/arma/CollisionShape3D.disabled = false
-		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-		await(get_tree().create_timer(.3).timeout)
-		$Node3D.hide()
-		$Node3D/arma/CollisionShape3D.disabled = true
-		$Node3D.rotation.y = skin.rotation.y
-	else:
-		$Node3D.rotation.y = skin.rotation.y
-
-func get_immune():
-	immune = true
-	$torus_mesh.show()
-	await(get_tree().create_timer(immune_time).timeout)
-	$torus_mesh.hide()
-	immune = false
