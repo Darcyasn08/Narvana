@@ -8,18 +8,28 @@ extends Area3D
 func _ready() -> void:
 	pass
 
-func _on_area_entered(area: Area3D) -> void:
-	#print("AREAA!!")
+func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 	if area.is_in_group("weapon"):
-		print("ive seen a weapon")
-		take_damage(area)
+		if parent.name == "car":
+			if parent.state == "knocked":
+				defense = 1
+			else:
+				defense = 0.75
+		#print("ive seen a weapon")
+		take_damage(area, Global.player_damage, defense)
 	
 	if area.name == "player_hitbox":
-		take_damage_player(area)
+		damage_player(area)
+		
+	if area.is_in_group("damage_magic"):
+		#print("ive seen a magic")
+		take_damage(area, Global.dust_damage)
 
-func take_damage(area):
-	if parent.life > Global.player_damage:
-		parent.life -= Global.player_damage
+
+func take_damage(area, damage, defense := 1.0):
+	if parent.life >int(round(damage * defense)):
+		parent.life -= int(round(damage * defense))
+		print(int(round(damage * defense)))
 		print(parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre
@@ -27,5 +37,6 @@ func take_damage(area):
 		print("parent died")
 		parent.queue_free()
 
-func take_damage_player(area):
+
+func damage_player(area):
 	parent.damage_player(area)

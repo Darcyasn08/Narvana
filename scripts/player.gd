@@ -16,6 +16,7 @@ var ground_speed
 var health: int = 6
 var dashed: bool = false
 var knockbacked: bool = false
+var stunned: bool = false
 var immune: bool = false
 var sens := 0.07
 var immune_time: float = 2.5
@@ -32,6 +33,7 @@ func _ready() -> void:
 	print(health)
 	SignalBus.on_player_health_changed.emit(health)
 	#SignalBus.on_dialog_activated.connect(set_move)
+
 
 func _physics_process(delta: float) -> void:
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
@@ -79,14 +81,15 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity != Vector3.ZERO:
 		$RayCast3D.target_position = velocity.normalized() * 4
-	
-	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor()
+
+	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
 	if is_starting_jump:
 		velocity.y += jump_impulse
 	
 	move_and_slide()
 	dash()
 	attack()
+	magic()
 	
 	if not is_on_floor():
 		pass
@@ -166,16 +169,19 @@ func attack():
 			$narwhal_skin/narval_model/Armature_002.show()
 			$narwhal_skin/narval_model/Armature_001.hide()
 			$narwhal_skin/narval_model/attack_player.play("bat_attack")
-		#print("attack!")
-	#$Node3D.show()
-	#$Node3D/arma/CollisionShape3D.disabled = false
-	#$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-	#await(get_tree().create_timer(.3).timeout)
-	#$Node3D.hide()
-	#$Node3D/arma/CollisionShape3D.disabled = true
-	#$Node3D.rotation.y = skin.rotation.y
-	#else:
-		#$Node3D.rotation.y = skin.rotation.y
+
+func atta2ck():
+	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
+		$Node3D.show()
+		$Node3D/arma/CollisionShape3D.disabled = false
+		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
+		await(get_tree().create_timer(.3).timeout)
+		$Node3D.hide()
+		$Node3D/arma/CollisionShape3D.disabled = true
+		$Node3D.rotation.y = skin.rotation.y
+	else:
+		$Node3D.rotation.y = skin.rotation.y
+
 
 func get_immune():
 	immune = true
@@ -187,7 +193,7 @@ func get_immune():
 
 func _on_player_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies"):
-		knockbacked = true
+		stunned = true
 		var body_collision = (skin.global_position - area.global_position)
 		body_collision.y = 0.0
 		var force = body_collision
@@ -195,3 +201,19 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		knockback(force, body_collision)
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
+		stunned = false
+	
+func magic():
+	if Input.is_action_just_pressed("r") and is_on_floor():
+		$magics.rotation.y = skin.rotation.y
+		stunned= true
+		velocity = Vector3(0,0,0) #impede o player de se mover enquanto faz a magia
+		$magics/CSGCombiner3D.show()
+		await(get_tree().create_timer(1).timeout)
+		$magics/dust_magic/CollisionShape3D.disabled = false 
+		print($magics/dust_magic.monitorable)
+		await(get_tree().create_timer(1).timeout)
+		$magics/dust_magic/CollisionShape3D.disabled = true
+		$magics/CSGCombiner3D.hide()
+		stunned = false
+		

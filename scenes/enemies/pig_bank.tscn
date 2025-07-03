@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=12 format=3 uid="uid://w1dh1r4ewd5b"]
 
 [ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
@@ -16,6 +17,13 @@ subsurf_scatter_enabled = true
 subsurf_scatter_strength = 0.44
 backlight_enabled = true
 backlight = Color(0.896509, 0.420443, 0.0263604, 1)
+=======
+[gd_scene load_steps=10 format=3 uid="uid://w1dh1r4ewd5b"]
+
+[ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
+[ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="5_nykp7"]
+>>>>>>> origin/coin_enemy_update
 
 [sub_resource type="Animation" id="Animation_6vu3a"]
 length = 0.001
@@ -89,6 +97,7 @@ script = ExtResource("1_fgw4t")
 [node name="piggy-bank-enemy" parent="." instance=ExtResource("2_tsjtq")]
 transform = Transform3D(0.727908, 0, 0, 0, 0.727908, 0, 0, 0, 0.727908, 0, 0, 0)
 
+<<<<<<< HEAD
 [node name="Skeleton3D" parent="piggy-bank-enemy/Armature" index="0"]
 bones/1/position = Vector3(9.75424e-14, 1.16776, 4.09647e-07)
 bones/1/rotation = Quaternion(-0.0678402, -1.07748e-14, 1.61744e-08, 0.997696)
@@ -104,6 +113,8 @@ bones/8/scale = Vector3(0.999999, 0.999999, 1)
 [node name="Cube" parent="piggy-bank-enemy/Armature/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_yw1nj")
 
+=======
+>>>>>>> origin/coin_enemy_update
 [node name="AnimationPlayer" type="AnimationPlayer" parent="piggy-bank-enemy"]
 libraries = {
 &"": SubResource("AnimationLibrary_pqxdv")
@@ -119,13 +130,13 @@ transform = Transform3D(2.45139, 0, 0, 0, -1.07154e-07, -2.45139, 0, 2.45139, -1
 shape = SubResource("CapsuleShape3D_fgw4t")
 
 [node name="coinslot1" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -0.582, 0.2, -0.48)
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -0.582, 0.2, -0.48)
 
 [node name="coinslot2" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.767, 0.2, -0.48)
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, 0.767, 0.2, -0.48)
 
 [node name="coinslot3" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.018, 0.2, 0.508)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.2, 0.508)
 
 [node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("5_nykp7")]
 hitbox_collision = NodePath("collision")

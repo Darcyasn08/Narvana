@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
-[ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/crab_npc.tscn" id="3_8qtj8"]
+[ext_resource type="PackedScene" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
 [ext_resource type="AudioStream" uid="uid://6oo3epj6okg8" path="res://music/Flute-song.mp3" id="4_p2tsv"]
 [ext_resource type="PackedScene" uid="uid://enqb1127sq5q" path="res://scenes/objects/grass.tscn" id="6_vclft"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="7_s47ii"]

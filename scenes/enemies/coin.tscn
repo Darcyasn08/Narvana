@@ -1,13 +1,23 @@
 [gd_scene load_steps=10 format=3 uid="uid://2qo7msqk15km"]
 
 [ext_resource type="Script" uid="uid://b1bw533a3rwsv" path="res://scripts/coin.gd" id="1_3o5iq"]
-[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemy_hitbox.tscn" id="2_1ikuy"]
 [ext_resource type="PackedScene" uid="uid://dgs7nyv5m3kr0" path="res://3d_models/placeholders/coin.glb" id="2_i64fm"]
 [ext_resource type="Texture2D" uid="uid://tijjr38jsodr" path="res://3d_models/placeholders/coin-enemy-texture.png" id="3_11l1o"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="4_d14el"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d5nlw"]
 height = 0.189972
-radius = 0.509277
+radius = 0.445801
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_11l1o"]
+height = 0.376404
+radius = 0.185547
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d14el"]
+albedo_texture = ExtResource("3_11l1o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ikuy"]
+albedo_texture = ExtResource("3_11l1o")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_11l1o"]
 height = 0.376404
@@ -27,34 +37,31 @@ albedo_texture = ExtResource("3_11l1o")
 script = ExtResource("1_3o5iq")
 
 [node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0206807, 0.999786, 0, -0.999786, -0.0206807, 0.0169812, 0.690706, 0.00384119)
+transform = Transform3D(1, 0, 0, 0, -0.0206807, 0.999786, 0, -0.999786, -0.0206807, 0, 0.690706, 0.00384119)
 shape = SubResource("CylinderShape3D_d5nlw")
 
 [node name="collision2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.207715, 0.00384119)
 shape = SubResource("CylinderShape3D_11l1o")
 
-[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("2_1ikuy")]
-transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.00026668, 0.00391623, -0.000233359, 0.906947, 0, 0.695878, 0)
-hitbox_collision = NodePath("collision3")
-
-[node name="collision3" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(0.999999, -1.39698e-09, -1.45519e-11, 7.41204e-09, -0.0206806, 0.999783, 2.79397e-09, -0.999786, -0.0206807, 0, 0, 0)
-shape = SubResource("CylinderShape3D_1ikuy")
-debug_color = Color(0.932975, 0.555588, 0.3736, 0.42)
-
 [node name="uped" parent="." instance=ExtResource("2_i64fm")]
-transform = Transform3D(-1, 0, 0.000698241, 0, 1, 0, -0.000698241, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 0.000698241, 0, 1, 0, -0.000698241, 0, -1, 0.013108, 5.96046e-08, 0.0421165)
 
 [node name="Cylinder" parent="uped" index="0"]
 material_override = SubResource("StandardMaterial3D_d14el")
 
 [node name="falled" parent="." instance=ExtResource("2_i64fm")]
-transform = Transform3D(1, 0, 0, 0, -0.0260897, 0.99966, 0, -0.99966, -0.0260897, 0.0323865, 0.0927716, 0.142758)
-visible = false
+transform = Transform3D(-1, 8.73928e-08, 2.28846e-09, 0, -0.026177, 0.999658, 8.74228e-08, 0.999658, 0.026177, 0.032, 0.093, 0.0501808)
 
 [node name="Cylinder" parent="falled" index="0"]
 material_override = SubResource("StandardMaterial3D_1ikuy")
+
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("4_d14el")]
+hitbox_collision = NodePath("collision3")
+
+[node name="collision3" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(1, 0, -2.18279e-11, 8.91873e-10, -0.0206807, 0.999786, 0, -0.999786, -0.0206807, -0.00652947, 0.786272, 0.0040668)
+shape = SubResource("CylinderShape3D_3o5iq")
 
 [editable path="uped"]
 [editable path="falled"]

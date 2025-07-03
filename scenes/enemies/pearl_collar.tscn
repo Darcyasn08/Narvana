@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgbkj0s64h0nv"]
+
+[ext_resource type="Script" uid="uid://cg6qy8sdeyuxu" path="res://scripts/pearl_collar.gd" id="1_8t814"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="2_f22wo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f22wo"]
+radius = 0.190688
+height = 1.07904
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kp1w"]
+size = Vector3(0.511475, 0.456818, 0.876709)
+
+[node name="pearl_collar" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_8t814")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
+radius = 0.2
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.636864, 0.587778)
+radius = 0.2
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466576, 0.396296)
+radius = 0.2
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.251961)
+radius = 0.2
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195953, 0.206549)
+radius = 0.2
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.447, -1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260837, -0.165915)
+shape = SubResource("CapsuleShape3D_f22wo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("2_f22wo")]
+hitbox_collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(-1.10254, -0.00449599, -0.00951294, -0.00938438, 0.871012, 0.675985, 0.00475849, 0.676035, -0.87101, -0.00402435, 0.329735, -0.282163)
+shape = SubResource("BoxShape3D_2kp1w")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

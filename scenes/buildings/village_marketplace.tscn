@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1db4w3dsb4tq" path="res://scenes/objects/light_pole.tscn" id="2_5a6mm"]
 [ext_resource type="PackedScene" uid="uid://csg4ifwj144jf" path="res://3d_models/placeholders/stone.glb" id="3_1lfl5"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="4_mx2sk"]
-[ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/jellyfish_npc.tscn" id="5_yebb3"]
+[ext_resource type="PackedScene" path="res://scenes/NPCs/jellyfish_npc.tscn" id="5_yebb3"]
 [ext_resource type="PackedScene" uid="uid://cw3bywfskij7i" path="res://3d_models/placeholders/marketplace_floor.glb" id="6_7xm76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lfl5"]

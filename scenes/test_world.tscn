@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dn0df8tvhhkcn"]
+[gd_scene load_steps=27 format=3 uid="uid://dn0df8tvhhkcn"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
 [ext_resource type="Script" uid="uid://reu1armmlmns" path="res://scripts/test_world.gd" id="1_8ash4"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c7tr11oyqicij" path="res://scenes/small_bridge.tscn" id="11_fithi"]
 [ext_resource type="PackedScene" uid="uid://c8vm4aos1dsc1" path="res://scenes/coin_trap.tscn" id="12_4dyd7"]
 [ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/matador_3000.tscn" id="12_d55t2"]
+[ext_resource type="PackedScene" uid="uid://2qo7msqk15km" path="res://scenes/coin.tscn" id="13_4dyd7"]
+[ext_resource type="PackedScene" uid="uid://cbrwv7t17y737" path="res://scenes/car.tscn" id="14_imjh6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
 sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
@@ -59,6 +61,9 @@ size = Vector3(8, 2, 120)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ts66r"]
 data = PackedVector3Array(-4, 1, 60, 4, 1, 60, -4, -1, 60, 4, 1, 60, 4, -1, 60, -4, -1, 60, 4, 1, -60, -4, 1, -60, 4, -1, -60, -4, 1, -60, -4, -1, -60, 4, -1, -60, 4, 1, 60, 4, 1, -60, 4, -1, 60, 4, 1, -60, 4, -1, -60, 4, -1, 60, -4, 1, -60, -4, 1, 60, -4, -1, -60, -4, 1, 60, -4, -1, 60, -4, -1, -60, 4, 1, 60, -4, 1, 60, 4, 1, -60, -4, 1, 60, -4, 1, -60, 4, 1, -60, -4, -1, 60, 4, -1, 60, -4, -1, -60, 4, -1, 60, 4, -1, -60, -4, -1, -60)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_imjh6"]
+size = Vector3(37.6229, 12.0454, 0.863781)
+
 [node name="test_world" type="Node3D"]
 script = ExtResource("1_8ash4")
 
@@ -89,6 +94,7 @@ mesh = SubResource("BoxMesh_d55t2")
 [node name="StaticBody3D" type="StaticBody3D" parent="floor2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547078, 0)
 shape = SubResource("ConcavePolygonShape3D_4dyd7")
 
 [node name="floor3" type="MeshInstance3D" parent="."]
@@ -164,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20182, -4.76837e-07, 8.4050
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33198, 1.54596, 1.01522)
 
 [node name="player" parent="." instance=ExtResource("1_2nnkd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.349868, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9897, 0.349868, 0)
 
 [node name="dialogue_system" parent="." instance=ExtResource("8_lywpe")]
 
@@ -184,3 +190,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.36271, 0.561867, 0)
 
 [node name="coin_trap" parent="." instance=ExtResource("12_4dyd7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.41512)
+
+[node name="coin" parent="." instance=ExtResource("13_4dyd7")]
+
+[node name="car" parent="." instance=ExtResource("14_imjh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.869, 2.08731, 11.0571)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1276, 4.13257, -52.6316)
+shape = SubResource("BoxShape3D_imjh6")

@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		
 	if is_on_floor() == true:
-		look_at(player.global_position) #muda a rotação do bixo pra ficar de frente com o player
+		look_to_player() #muda a rotação do bixo pra ficar de frente com o player
 		rotation.x = 0
 		var forward := global_basis.z #determina oq é a frente 
 		var move_direction := forward 
@@ -68,3 +68,9 @@ func unique_die():
 	get_parent().add_child(coin2)
 	get_parent().add_child(coin3)
 	print("im deaaaddd noooooo")
+
+func look_to_player():
+	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
+	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
+	var target_angle = pos2d - targetpos2d
+	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y),.05)

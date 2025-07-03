@@ -68,6 +68,7 @@ offset_bottom = 148.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_okyy2")
 
 [node name="dialog_text" type="RichTextLabel" parent="dialog_box"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 46.0
 offset_right = 554.0
@@ -77,6 +78,7 @@ theme_override_font_sizes/normal_font_size = 21
 scroll_active = false
 
 [node name="name_label" type="Label" parent="dialog_box"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 1.0
 offset_right = 74.0
@@ -89,6 +91,7 @@ root_node = NodePath("../..")
 
 [node name="dialog_options" type="VBoxContainer" parent="dialog_box"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 28.0
 offset_top = 77.0
 offset_right = 434.0

@@ -8,7 +8,6 @@ extends Node3D
 @onready var enemy_path = load(catch_enemy)
 
 func _ready() -> void:
-	pass
 	SignalBus.on_start_room.connect(spawn_enemies)
 
 func _process(delta: float) -> void:
