@@ -25,7 +25,7 @@ var has_option: bool = false
 var npc_dialog
 
 
-@export var normal_talk_speed: float = .2
+@export var normal_talk_speed: float = .01
 @export var fast_talk_speed: float = .008
 
 @onready var dialog_options: Control = %dialog_options
@@ -64,7 +64,7 @@ func start_dialogue(npc):
 			can_progress = false
 			dialog_text.text += letter
 			await get_tree().create_timer(talk_speed).timeout
-			print(dialog_text.text)
+			
 			#se a caixa de dialogo for a mesma do dicionario, parar
 			if dialog_text.text == npc_dialog["text"]:
 				can_progress = true
@@ -94,7 +94,7 @@ func check_options():
 		can_progress = false
 		has_option = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		print(npc_dialog["options"])
+		#print(npc_dialog["options"])
 		diag_option_1.text = npc_dialog["options"][0]["text"]
 		diag_option_2.text = npc_dialog["options"][1]["text"]
 		dialog_options.show()
@@ -102,10 +102,10 @@ func check_options():
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("e") and can_progress and has_started_diag:
 		progress_dialog() #se [e] for clicado, isso roda
-	elif Input.is_action_just_pressed("e") and !can_progress and has_started_diag:
-		print("too fast")
-		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
+	elif Input.is_action_just_pressed("e") and !can_progress and has_started_diag and !has_option:
 		can_progress = true
+		#print("too fast")
+		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
 	
 	#var prev_mouse_pos = get_viewport().get_mouse_position()
 	#await get_tree().create_timer(.06).timeout
@@ -122,29 +122,47 @@ func progress_dialog():
 		await get_tree().create_timer(.06).timeout #tempo pro dialogo não começar automaticamente
 		end_dialog()
 	else:
-		print("next")
+		#print("next")
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
+		can_progress = false
 		check_options()
 		for letter in npc_dialog["text"]:
-			if dialog_text.text == npc_dialog["text"]:
-				print("tá igualzin, pode parar")
-				can_progress = true
+			if can_progress:
 				return
-			can_progress = false
 			await get_tree().create_timer(talk_speed).timeout
 			#print(letter)
+			if can_progress: #pra checar frequentemente
+				#print("oh..")
+				return
 			dialog_text.text += letter
-			print(dialog_text.text)
+			#print(dialog_text.text)
 		can_progress = true
 		talk_speed = normal_talk_speed
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
 
 #checa qual opção foi pressionada
 func check_pressed_option():
+	dialog_text.text = ""
 	if npc_dialog["options"][pressed_option]["ignite"] == "quest":
 		print("omg its a quest!")
 		print("And the quest is: ",Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"])
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
+		
+		# ========== PARA IMPLEMENTAR ALGUMA HORA ============
+		#can_progress = false
+		#for letter in Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]:
+			#print("heyyy")
+			#if can_progress:
+				#print("oh..")
+				#return
+			#await get_tree().create_timer(talk_speed).timeout
+			##print(letter)
+			#if can_progress: #pra checar frequentemente
+				#print("oh..")
+				#return
+			#dialog_text.text += letter
+			#print(dialog_text.text)
+		#can_progress = true
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "exit":
 		print("exit please ma'am")
@@ -153,6 +171,11 @@ func check_pressed_option():
 	elif npc_dialog["options"][pressed_option]["ignite"] == "continue":
 		print("continue with normal dialog")
 		progress_dialog()
+	
+	elif npc_dialog["options"][pressed_option]["ignite"] == "function":
+		print("alguma função tem que ser acionada aqui")
+		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
+		SignalBus.on_start_dialog_function.emit(cur_npc)
 	
 	has_option = false
 

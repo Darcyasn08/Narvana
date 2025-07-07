@@ -4,7 +4,7 @@ var speed: float = 3.0
 var life: int= 700
 var damage: int = 1
 var acceleration: float = 10.0
-var pearlins = preload("res://scenes/projectile.tscn")
+var pearlins = preload("res://scenes/weapon/projectile.tscn")
 var bullet_speed: float = 20.0
 var random: int 
 var swimming: bool = false

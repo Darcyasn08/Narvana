@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxja8fhpxhuv4"]
+[gd_scene load_steps=14 format=3 uid="uid://bxja8fhpxhuv4"]
 
 [ext_resource type="PackedScene" uid="uid://2k4gteefurk1" path="res://3d_models/placeholders/health_center.glb" id="1_u6tqe"]
 
@@ -6,10 +6,10 @@
 size = Vector3(9.66798, 2.13522, 9.27277)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u6tqe"]
-size = Vector3(4.96814, 1, 2.85352)
+size = Vector3(3.17157, 1, 3.63675)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_opxjy"]
-size = Vector3(4.28375, 1, 2.85352)
+size = Vector3(4.28375, 1.94727, 3.65473)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u6tqe"]
 data = PackedVector3Array(-0.9627, 0.0899, -3.022, 2.0672, 0.0899, -4.4011, 2.0672, 0.0899, -3.022, -0.9627, 0.0899, -3.022, -0.9627, 0.0899, -4.4011, 2.0672, 0.0899, -4.4011, -0.9627, 0.0899, -3.022, -2.0672, 0.0899, -4.4011, -0.9627, 0.0899, -4.4011, -0.9627, 0.0899, -1.1017, -2.0672, 0.0899, -4.4011, -0.9627, 0.0899, -3.022, -2.0672, 0.0899, -4.4011, -0.9627, 0.0899, -1.1017, -0.9627, 0.0899, 4.4011, -2.0672, 0.0899, -4.4011, -0.9627, 0.0899, 4.4011, -2.0672, 0.0899, 4.4011, -0.9627, 0.0899, 4.4011, -0.9627, 0.0899, -1.1017, 2.0672, 0.0899, -1.1017, -0.9627, 0.0899, 4.4011, 2.0672, 0.0899, -1.1017, 2.0672, 0.0899, 4.4011, -0.9627, -0.0899, -3.022, 2.0672, -0.0899, -4.4011, -0.9627, -0.0899, -4.4011, -0.9627, -0.0899, -3.022, 2.0672, -0.0899, -3.022, 2.0672, -0.0899, -4.4011, -2.0672, -0.0899, -4.4011, -0.9627, -0.0899, -3.022, -0.9627, -0.0899, -4.4011, -0.9627, -0.0899, -1.1017, -0.9627, -0.0899, -3.022, -2.0672, -0.0899, -4.4011, -0.9627, -0.0899, -1.1017, -2.0672, -0.0899, -4.4011, -0.9627, -0.0899, 4.4011, -0.9627, -0.0899, 4.4011, -2.0672, -0.0899, -4.4011, -2.0672, -0.0899, 4.4011, -0.9627, -0.0899, -1.1017, -0.9627, -0.0899, 4.4011, 2.0672, -0.0899, 4.4011, -0.9627, -0.0899, -1.1017, 2.0672, -0.0899, 4.4011, 2.0672, -0.0899, -1.1017, -0.9627, 0.0899, 4.4011, -2.0672, -0.0899, 4.4011, -2.0672, 0.0899, 4.4011, -0.9627, 0.0899, 4.4011, -0.9627, -0.0899, 4.4011, -2.0672, -0.0899, 4.4011, 2.0672, 0.0899, 4.4011, -0.9627, -0.0899, 4.4011, -0.9627, 0.0899, 4.4011, 2.0672, 0.0899, 4.4011, 2.0672, -0.0899, 4.4011, -0.9627, -0.0899, 4.4011, 2.0672, 0.0899, -1.1017, 2.0672, -0.0899, 4.4011, 2.0672, 0.0899, 4.4011, 2.0672, 0.0899, -1.1017, 2.0672, -0.0899, -1.1017, 2.0672, -0.0899, 4.4011, 2.0672, 0.0899, -3.022, 2.0672, -0.0899, -1.1017, 2.0672, 0.0899, -1.1017, 2.0672, 0.0899, -3.022, 2.0672, -0.0899, -3.022, 2.0672, -0.0899, -1.1017, 2.0672, 0.0899, -4.4011, 2.0672, -0.0899, -3.022, 2.0672, 0.0899, -3.022, 2.0672, 0.0899, -4.4011, 2.0672, -0.0899, -4.4011, 2.0672, -0.0899, -3.022, -0.9627, 0.0899, -4.4011, 2.0672, -0.0899, -4.4011, 2.0672, 0.0899, -4.4011, -0.9627, 0.0899, -4.4011, -0.9627, -0.0899, -4.4011, 2.0672, -0.0899, -4.4011, -2.0672, 0.0899, -4.4011, -0.9627, -0.0899, -4.4011, -0.9627, 0.0899, -4.4011, -2.0672, 0.0899, -4.4011, -2.0672, -0.0899, -4.4011, -0.9627, -0.0899, -4.4011, 2.0672, -0.0899, -3.022, -0.9627, 0.0899, -3.022, 2.0672, 0.0899, -3.022, 2.0672, -0.0899, -3.022, -0.9627, -0.0899, -3.022, -0.9627, 0.0899, -3.022, -0.9627, 0.0899, -3.022, -0.9627, -0.0899, -1.1017, -0.9627, 0.0899, -1.1017, -0.9627, -0.0899, -1.1017, -0.9627, 0.0899, -3.022, -0.9627, 0.0899, -4.4011, -0.9627, -0.0899, -1.1017, -0.9627, 0.0899, -4.4011, -0.9627, -0.0899, -3.022, 2.0672, 0.0899, -1.1017, -0.9627, -0.0899, -1.1017, 2.0672, -0.0899, -1.1017, 2.0672, 0.0899, -1.1017, -0.9627, 0.0899, -1.1017, -0.9627, -0.0899, -1.1017, -2.0672, 0.0899, 4.4011, -2.0672, -0.0899, -4.4011, -2.0672, 0.0899, -4.4011, -2.0672, 0.0899, 4.4011, -2.0672, -0.0899, 4.4011, -2.0672, -0.0899, -4.4011)
@@ -26,6 +26,21 @@ data = PackedVector3Array(-2.0672, 0.0899, 4.4011, 2.0672, 0.0899, -4.4011, 2.06
 [sub_resource type="BoxOccluder3D" id="BoxOccluder3D_u6tqe"]
 size = Vector3(9.17556, 11.9145, 9.00486)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6tqe"]
+albedo_color = Color(0.490034, 0.270715, 0.165181, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_opxjy"]
+size = Vector3(0.2, 3, 2)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_opxjy"]
+data = PackedVector3Array(-0.1, 1.5, 1, 0.1, 1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, -1, 0.1, -1.5, -1, -0.1, 1.5, -1, -0.1, -1.5, -1, 0.1, -1.5, -1, 0.1, 1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, -1, 0.1, -1.5, 1, -0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, 1.5, 1, -0.1, 1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, 1.5, -1, 0.1, 1.5, -1, -0.1, -1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, -1.5, 1, 0.1, -1.5, -1, -0.1, -1.5, -1)
+
+[sub_resource type="MultiMesh" id="MultiMesh_u6tqe"]
+transform_format = 1
+instance_count = 1
+visible_instance_count = 1
+buffer = PackedFloat32Array(236, 28, 0.147, 0.168, 0.203, 1, 0, 1, 236, 28, 0.147, 0.168)
+
 [node name="health_building" type="Node3D"]
 
 [node name="health_center" parent="." instance=ExtResource("1_u6tqe")]
@@ -35,6 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93109, 0)
 visibility_range_end = 90.0
 
 [node name="roof" parent="health_center" index="1"]
+transform = Transform3D(0.898994, 0, 0, 0, 0.898994, 0, 0, 0, 0.898994, 2.80118, 4.28115, 0.0177218)
 visibility_range_end = 90.0
 
 [node name="floor" parent="health_center" index="2"]
@@ -46,17 +62,14 @@ visibility_range_end = 90.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055763, -0.0262604, 0.0122984)
 shape = SubResource("BoxShape3D_o83xo")
 
-[node name="stairs" parent="health_center" index="3"]
-visibility_range_end = 90.0
-
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/stairs" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/stairs/StaticBody3D"]
-transform = Transform3D(0.842763, 0.538285, 0, -0.538285, 0.842763, 0, 0, 0, 1, 4.13228, -1.24722, -0.387695)
+transform = Transform3D(0.738668, 0.67407, 0, -0.67407, 0.738668, 0, 0, 0, 1, 3.41828, -0.934401, -0.276076)
 shape = SubResource("BoxShape3D_u6tqe")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="health_center/stairs/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442393, 0.0035013, -0.387695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442393, -0.470132, -0.273773)
 shape = SubResource("BoxShape3D_opxjy")
 
 [node name="Cube_004" parent="health_center" index="4"]
@@ -105,6 +118,7 @@ visibility_range_end = 90.0
 visibility_range_end = 90.0
 
 [node name="roof_001" parent="health_center" index="19"]
+transform = Transform3D(0.882423, 0, 0, 0, 0.882423, 0, 0, 0, 0.882423, 2.80118, 8.91672, 0.0177218)
 visibility_range_end = 90.0
 
 [node name="pillars1" parent="health_center" index="20"]
@@ -182,5 +196,18 @@ omni_attenuation = 4.736
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.82301, 5.91634, 0)
 occluder = SubResource("BoxOccluder3D_u6tqe")
+
+[node name="door" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44923, 3.20836, -2.06253)
+material_override = SubResource("StandardMaterial3D_u6tqe")
+mesh = SubResource("BoxMesh_opxjy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_opxjy")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_u6tqe")
 
 [editable path="health_center"]

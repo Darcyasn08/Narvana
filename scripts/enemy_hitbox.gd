@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 	if area.is_in_group("weapon"):
+		print("ouch, it hurts")
 		if parent.name == "car":
 			if parent.state == "knocked":
 				defense = 1

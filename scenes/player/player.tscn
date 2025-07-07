@@ -27,12 +27,19 @@ script = ExtResource("1_3vyb7")
 
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
+[node name="RayCast3D" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
+target_position = Vector3(0, 0, 4)
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
+debug_shape_thickness = 5
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.273969, 0, -0.352677, 0, 0.446587, 0, 0.352677, 0, 0.273969, 0, 1.06733, -0.145649)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.49131, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
@@ -67,12 +74,31 @@ visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
-target_position = Vector3(0, 0, 3)
+[node name="RayCast3D2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448136, 0.711494, -0.508869)
+visible = false
+target_position = Vector3(0, 0, 4)
 collide_with_areas = true
-debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
 debug_shape_thickness = 5
+
+[node name="RayCast3D3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461903, 0.711494, -0.508869)
+visible = false
+target_position = Vector3(0, 0, 4)
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
+debug_shape_thickness = 5
+
+[node name="saidas" type="Node3D" parent="."]
+
+[node name="node1" type="Node3D" parent="saidas"]
+
+[node name="a1" type="Node3D" parent="saidas/node1"]
+
+[node name="node2" type="Node3D" parent="saidas"]
+
+[node name="node3" type="Node3D" parent="saidas"]
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]

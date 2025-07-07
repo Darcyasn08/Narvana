@@ -9,7 +9,7 @@ var player_base_pos: Vector3 = Vector3(0,5,0)
 
 
 var enemies = [
-	["res://scenes/coin.tscn","res://scenes/pig_bank.tscn"] #uma fase
+	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn"] #uma fase
 ]
 
 var dead_enemies_first_level = [
@@ -42,7 +42,7 @@ var dialogs: Dictionary = {
 			"is_first_time": true,
 			"first_dialog": {
 				"text": "hi",
-				"options": {}
+				"options": {},
 			},
 			"middle": {
 				0: {
@@ -86,10 +86,130 @@ var dialogs: Dictionary = {
 				"text": "Até logo, rapaz",
 				"options": {}
 			}
-		},
-		"jellyfish": {},
-		"grandma": {},
-	}
+		}
+	},
+	"jellyfish": {
+		"dialog_tree": {
+			"is_first_time": true,
+			"first_dialog": {
+				"text": "hi",
+				"options": {}
+			},
+			"middle": {
+				0: {
+					"text": "Oi, eu sou o Anderson",
+					"options": {}
+				},
+				1: {
+					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
+					"options": {}
+				},
+				2: {
+					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
+					"options": {}
+				},
+			},
+			"quest": {
+				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
+				"status": "none",
+				"id": "secret_stash",
+				"text": "(fazer um texto aqui alguma hora)",
+				"options": {}
+			},
+			"exit": {
+				"text": "Te vejo mais tarde",
+				"options": {}
+			}
+		}
+	},
+		
+	"grandma": {
+		"dialog_tree": {
+			"is_first_time": true,
+			"first_dialog": {
+				"text": "hi",
+				"options": {}
+			},
+			"middle": {
+				0: {
+					"text": "Oi, eu sou o Anderson",
+					"options": {}
+				},
+				1: {
+					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
+					"options": {}
+				},
+				2: {
+					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
+					"options": {}
+				},
+			},
+			"quest": {
+				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
+				"status": "none",
+				"id": "secret_stash",
+				"text": "(fazer um texto aqui alguma hora)",
+				"options": {}
+			},
+			"exit": {
+				"text": "Te vejo mais tarde",
+				"options": {}
+			}
+		}
+	},
+	
+	"master": {
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Olá garoto, vejo que você é bem jovem",
+					"options": {},
+				},
+				1: {
+					"text": "E pelas suas vestimentas, é de fora, não é?",
+					"options": {},
+				},
+				2: {
+					"text": "Hmm... também tem um ar de tristeza envolta de ti",
+					"options": {},
+				},
+				3: {
+					"text": "Venha, posso ajudar a sua jovem alma a curar todas as suas tristezas",
+					"options": {
+						0: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+						1: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+					},
+				},
+				4: {
+					"text": "Após se aproximar no portal, entre nele usando [e] e vou te ajudar nessa jornada",
+					"options": {},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "(clica [e] pra continuar, não pensei nesse dialogo ainda)",
+				"id": "open_first_level_portal",
+				"options": {},
+			}
+		}
+	},
+	
+	"first_level_master": {
+		"is_first_time": true,
+	},
+	"second_level_master": {
+		"is_first_time": true,
+	},
+	"third_level_master": {
+		"is_first_time": true,
+	},
 }
 
 var quests: Dictionary = {

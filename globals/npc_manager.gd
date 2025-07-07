@@ -4,7 +4,7 @@ extends Node3D
 @export var current_npc: String = ""
 
 #@export var npc_name = ["crab", "jellyfish", "mint"]
-enum npc_name {CRAB, JELLYFISH}
+enum npc_name {CRAB, JELLYFISH, MASTER}
 
 func _ready() -> void:
 	pass

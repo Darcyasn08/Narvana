@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dei3a3xrdp3f0"]
+[gd_scene load_steps=9 format=3 uid="uid://dei3a3xrdp3f0"]
 
 [ext_resource type="Script" uid="uid://c726ymnqq4fig" path="res://scenes/UI/dialogue_manager.gd" id="1_jyfl6"]
 
@@ -35,6 +35,16 @@ corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opry4"]
+bg_color = Color(0.108937, 0.182614, 0.259784, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_o25ia"]
+font_size = 21
 
 [node name="dialogue_system" type="CanvasLayer"]
 script = ExtResource("1_jyfl6")
@@ -92,24 +102,55 @@ root_node = NodePath("../..")
 [node name="dialog_options" type="VBoxContainer" parent="dialog_box"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 28.0
-offset_top = 77.0
-offset_right = 434.0
-offset_bottom = 130.0
+offset_left = 323.0
+offset_top = 70.0
+offset_right = 579.0
+offset_bottom = 135.0
 
 [node name="diag_option1" type="Button" parent="dialog_box/dialog_options"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_jyfl6")
 text = "option1"
 alignment = 0
 
 [node name="diag_option2" type="Button" parent="dialog_box/dialog_options"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_hvep2")
 text = "option2"
 alignment = 0
+
+[node name="Panel3" type="Panel" parent="dialog_box"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -29.0
+offset_right = 12.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_opry4")
+
+[node name="Label" type="Label" parent="dialog_box"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -23.0
+offset_right = 1.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "E"
+label_settings = SubResource("LabelSettings_o25ia")
 
 [connection signal="pressed" from="dialog_box/dialog_options/diag_option1" to="." method="_on_diag_option_1_pressed"]
 [connection signal="pressed" from="dialog_box/dialog_options/diag_option2" to="." method="_on_diag_option_2_pressed"]

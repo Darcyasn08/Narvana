@@ -7,6 +7,11 @@ var life := 500
 var damage := 1
 var acceleration := 15.0
 
+var fall_time: float = 3.5
+
+@onready var collision: CollisionShape3D = $collision
+@onready var collision_2: CollisionShape3D = $collision2
+
 @onready var player = $"../player"
 #@onready var enemy_inst = Enemies.new()
 
@@ -55,13 +60,13 @@ func unique_die():
 func fall():
 	$uped.hide()
 	$falled.show()
-	$enemy_hitbox.PROCESS_MODE_DISABLED
-	$enemy_hitbox.monitoring = false
+	collision.set_deferred("disabled", true)
+	$enemy_hitbox.set_deferred("monitoring", false)
 	await(get_tree().create_timer(5).timeout)
 	$uped.show()
 	$falled.hide()
-	$enemy_hitbox.monitoring = true
-	$enemy_hitbox.process_mode
+	collision.set_deferred("disabled", false)
+	$enemy_hitbox.set_deferred("monitoring", true)
 
 
 func knockback(force: Vector3, impact_point: Vector3):

@@ -4,7 +4,7 @@ var speed: float = 1.0
 var life: int= 1000
 var damage: int = 1
 var acceleration: float = 10.0
-var coinins = preload("res://scenes/coin.tscn")
+var coinins = preload("res://scenes/enemies/coin.tscn")
 
 @onready var player = $"../player"
 

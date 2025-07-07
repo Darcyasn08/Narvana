@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0l4begr7id8h"]
+[gd_scene load_steps=10 format=3 uid="uid://d0l4begr7id8h"]
 
 [ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_bl585"]
 [ext_resource type="Script" uid="uid://d0ao8ioh8ksj4" path="res://scripts/pause_menu.gd" id="1_mko1u"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
+[ext_resource type="Texture2D" uid="uid://bo0yes7q65kd3" path="res://UI/pause_screen.webp" id="4_feath"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
 atlas = ExtResource("1_qo2fb")
@@ -153,18 +154,24 @@ text = "GAME PAUSED"
 label_settings = SubResource("LabelSettings_mko1u")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Telas" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(957, 538)
 scale = Vector2(6.69737, 6.28235)
 texture = SubResource("AtlasTexture_mko1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
+texture = ExtResource("4_feath")
 
 [connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

@@ -31,6 +31,7 @@ var immune_time: float = 2.5
 func _ready() -> void:
 	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
+	get_nodes()
 	SignalBus.on_player_health_changed.emit(health)
 	#SignalBus.on_dialog_activated.connect(set_move)
 
@@ -78,9 +79,6 @@ func _physics_process(delta: float) -> void:
 		ground_speed = 0
 		velocity = Vector3(0,0,0)
 		#print("you cant just move mate")
-	
-	if velocity != Vector3.ZERO:
-		$RayCast3D.target_position = velocity.normalized() * 4
 
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
 	if is_starting_jump:
@@ -111,11 +109,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	if event.is_action_pressed("e"):
-		var target = $RayCast3D.get_collider()
-		if target != null:
-			if target.is_in_group("npcs"):
-				print("hi npc!")
+	#if event.is_action_pressed("e"):
+		#var target = $RayCast3D.get_collider()
+		#if target != null:
+			#if target.is_in_group("npcs"):
+				#print("hi npc!")
+	
 	
 	#para o ataque
 	#if event.is_action_pressed("e") and Global.player_can_attack:
@@ -202,7 +201,7 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
 		stunned = false
-	
+
 func magic():
 	if Input.is_action_just_pressed("r") and is_on_floor():
 		$magics.rotation.y = skin.rotation.y
@@ -216,4 +215,8 @@ func magic():
 		$magics/dust_magic/CollisionShape3D.disabled = true
 		$magics/CSGCombiner3D.hide()
 		stunned = false
-		
+
+func get_nodes():
+	var node_n = 1
+	var node = get_node("saidas/node"+str(node_n)+"/a1")
+	print(node)

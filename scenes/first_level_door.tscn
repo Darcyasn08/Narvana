@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cexua4one0xip"]
+
+[ext_resource type="Script" uid="uid://d1xj13tku3knt" path="res://scripts/level_door.gd" id="1_st38b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st38b"]
+albedo_color = Color(0.702416, 0.334254, 0.24369, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gpdqj"]
+size = Vector3(5, 4, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_st38b"]
+size = Vector3(4.82324, 3.70142, 1)
+
+[node name="first_level_door" type="StaticBody3D"]
+script = ExtResource("1_st38b")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+material_override = SubResource("StandardMaterial3D_st38b")
+mesh = SubResource("BoxMesh_gpdqj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207, 2.05149, 0)
+shape = SubResource("BoxShape3D_st38b")
