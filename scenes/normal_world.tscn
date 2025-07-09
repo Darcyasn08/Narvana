@@ -115,7 +115,7 @@ script = ExtResource("1_eqvwj")
 environment = SubResource("Environment_8qtj8")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.0588538, -0.850269, -0.523047, 0.241788, -0.520496, 0.818916, -0.968543, -0.07827, 0.236218, 0, 5.99897, 0)
+transform = Transform3D(-0.243024, -0.850269, -0.466885, 0.520124, -0.520496, 0.677168, -0.818786, -0.07827, 0.568738, -0.78182, 9.21091, -12.8662)
 light_color = Color(0.986186, 0.84637, 0.565131, 1)
 light_energy = 1.179
 light_angular_distance = 7.92
@@ -123,7 +123,6 @@ shadow_enabled = true
 shadow_bias = 1.865
 shadow_transmittance_bias = 16.0
 shadow_opacity = 0.85
-directional_shadow_blend_splits = true
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 125.355)

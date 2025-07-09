@@ -14,7 +14,9 @@ var enemies = [
 
 var dead_enemies_first_level = [
 	[0, 0],
-	[0, 0]
+	[0, 0],
+	[0, 0],
+	[0, 0],
 ]
 
 var current_weapon: String = "bat"

@@ -31,7 +31,7 @@ script = ExtResource("1_3vyb7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
 target_position = Vector3(0, 0, 4)
 collide_with_areas = true
-debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
+debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
 debug_shape_thickness = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -69,7 +69,7 @@ visible = false
 visible = false
 
 [node name="torus_mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 1.54498, 0.0199297)
+transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.25216, -0.160188)
 visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")

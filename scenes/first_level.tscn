@@ -1,45 +1,52 @@
-[gd_scene load_steps=19 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=33 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
+[ext_resource type="Material" uid="uid://dhe5pluydox4d" path="res://shaders/temple_wall.tres" id="2_385i6"]
+[ext_resource type="PackedScene" uid="uid://bnrktbdvxmrep" path="res://scenes/objects/small_rock.tscn" id="5_qedf2"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/spawner.tscn" id="7_kalee"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="7_qedf2"]
+[ext_resource type="PackedScene" uid="uid://ck0g2dnevpq5k" path="res://scenes/objects/big_rock.tscn" id="7_vtkm1"]
 [ext_resource type="PackedScene" uid="uid://cexua4one0xip" path="res://scenes/first_level_door.tscn" id="8_kalee"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_imgkl"]
-sky_top_color = Color(0.824865, 0.978278, 0.938845, 1)
-sky_horizon_color = Color(1.41875, 1.50934, 1.50266, 1)
-ground_bottom_color = Color(0.266846, 0.475812, 0.488515, 1)
-ground_horizon_color = Color(1.41875, 1.50934, 1.50266, 1)
-energy_multiplier = 0.8
-
-[sub_resource type="Sky" id="Sky_7pb34"]
-sky_material = SubResource("ProceduralSkyMaterial_imgkl")
+[ext_resource type="PackedScene" uid="uid://bs2we3xlo46nm" path="res://3d_models/placeholders/fence.glb" id="8_vtkm1"]
+[ext_resource type="ArrayMesh" uid="uid://c6wsqvho3vpbx" path="res://3d_models/placeholders/temple-fence.obj" id="10_m5da8"]
+[ext_resource type="Script" uid="uid://cox5hu7ho8b6a" path="res://scripts/temple_muitimesh.gd" id="11_3641t"]
 
 [sub_resource type="Environment" id="Environment_snglc"]
-background_mode = 2
-sky = SubResource("Sky_7pb34")
-ambient_light_color = Color(0.525387, 0.757359, 0.444543, 1)
+background_mode = 1
+background_color = Color(0.185799, 0.268193, 0.347811, 1)
+ambient_light_color = Color(0.533219, 0.472242, 0.126854, 1)
 ambient_light_sky_contribution = 0.33
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_vtkm1"]
-size = Vector3(35, 1, 30)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qndhv"]
+albedo_color = Color(0.267789, 0.100479, 0.0535916, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kalee"]
-data = PackedVector3Array(-17.5, 0.5, 15, 17.5, 0.5, 15, -17.5, -0.5, 15, 17.5, 0.5, 15, 17.5, -0.5, 15, -17.5, -0.5, 15, 17.5, 0.5, -15, -17.5, 0.5, -15, 17.5, -0.5, -15, -17.5, 0.5, -15, -17.5, -0.5, -15, 17.5, -0.5, -15, 17.5, 0.5, 15, 17.5, 0.5, -15, 17.5, -0.5, 15, 17.5, 0.5, -15, 17.5, -0.5, -15, 17.5, -0.5, 15, -17.5, 0.5, -15, -17.5, 0.5, 15, -17.5, -0.5, -15, -17.5, 0.5, 15, -17.5, -0.5, 15, -17.5, -0.5, -15, 17.5, 0.5, 15, -17.5, 0.5, 15, 17.5, 0.5, -15, -17.5, 0.5, 15, -17.5, 0.5, -15, 17.5, 0.5, -15, -17.5, -0.5, 15, 17.5, -0.5, 15, -17.5, -0.5, -15, 17.5, -0.5, 15, 17.5, -0.5, -15, -17.5, -0.5, -15)
+[sub_resource type="BoxMesh" id="BoxMesh_385i6"]
+material = SubResource("StandardMaterial3D_qndhv")
+size = Vector3(35, 1, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_38i4m"]
+material = SubResource("StandardMaterial3D_qndhv")
+size = Vector3(80, 1, 62)
 
 [sub_resource type="BoxMesh" id="BoxMesh_m5da8"]
+material = ExtResource("2_385i6")
 size = Vector3(35, 9, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3641t"]
+material = ExtResource("2_385i6")
 size = Vector3(20, 9, 1)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qndhv"]
+data = PackedVector3Array(-10, 4.5, 0.5, 10, 4.5, 0.5, -10, -4.5, 0.5, 10, 4.5, 0.5, 10, -4.5, 0.5, -10, -4.5, 0.5, 10, 4.5, -0.5, -10, 4.5, -0.5, 10, -4.5, -0.5, -10, 4.5, -0.5, -10, -4.5, -0.5, 10, -4.5, -0.5, 10, 4.5, 0.5, 10, 4.5, -0.5, 10, -4.5, 0.5, 10, 4.5, -0.5, 10, -4.5, -0.5, 10, -4.5, 0.5, -10, 4.5, -0.5, -10, 4.5, 0.5, -10, -4.5, -0.5, -10, 4.5, 0.5, -10, -4.5, 0.5, -10, -4.5, -0.5, 10, 4.5, 0.5, -10, 4.5, 0.5, 10, 4.5, -0.5, -10, 4.5, 0.5, -10, 4.5, -0.5, 10, 4.5, -0.5, -10, -4.5, 0.5, 10, -4.5, 0.5, -10, -4.5, -0.5, 10, -4.5, 0.5, 10, -4.5, -0.5, -10, -4.5, -0.5)
+
 [sub_resource type="BoxMesh" id="BoxMesh_b30th"]
+material = ExtResource("2_385i6")
 size = Vector3(10, 9, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ab8ao"]
-data = PackedVector3Array(-17.5, 0.5, 15, 17.5, 0.5, 15, -17.5, -0.5, 15, 17.5, 0.5, 15, 17.5, -0.5, 15, -17.5, -0.5, 15, 17.5, 0.5, -15, -17.5, 0.5, -15, 17.5, -0.5, -15, -17.5, 0.5, -15, -17.5, -0.5, -15, 17.5, -0.5, -15, 17.5, 0.5, 15, 17.5, 0.5, -15, 17.5, -0.5, 15, 17.5, 0.5, -15, 17.5, -0.5, -15, 17.5, -0.5, 15, -17.5, 0.5, -15, -17.5, 0.5, 15, -17.5, -0.5, -15, -17.5, 0.5, 15, -17.5, -0.5, 15, -17.5, -0.5, -15, 17.5, 0.5, 15, -17.5, 0.5, 15, 17.5, 0.5, -15, -17.5, 0.5, 15, -17.5, 0.5, -15, 17.5, 0.5, -15, -17.5, -0.5, 15, 17.5, -0.5, 15, -17.5, -0.5, -15, 17.5, -0.5, 15, 17.5, -0.5, -15, -17.5, -0.5, -15)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qedf2"]
+data = PackedVector3Array(-5, 4.5, 0.5, 5, 4.5, 0.5, -5, -4.5, 0.5, 5, 4.5, 0.5, 5, -4.5, 0.5, -5, -4.5, 0.5, 5, 4.5, -0.5, -5, 4.5, -0.5, 5, -4.5, -0.5, -5, 4.5, -0.5, -5, -4.5, -0.5, 5, -4.5, -0.5, 5, 4.5, 0.5, 5, 4.5, -0.5, 5, -4.5, 0.5, 5, 4.5, -0.5, 5, -4.5, -0.5, 5, -4.5, 0.5, -5, 4.5, -0.5, -5, 4.5, 0.5, -5, -4.5, -0.5, -5, 4.5, 0.5, -5, -4.5, 0.5, -5, -4.5, -0.5, 5, 4.5, 0.5, -5, 4.5, 0.5, 5, 4.5, -0.5, -5, 4.5, 0.5, -5, 4.5, -0.5, 5, 4.5, -0.5, -5, -4.5, 0.5, 5, -4.5, 0.5, -5, -4.5, -0.5, 5, -4.5, 0.5, 5, -4.5, -0.5, -5, -4.5, -0.5)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m5da8"]
 top_radius = 0.7
@@ -49,7 +56,11 @@ height = 9.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_kalee"]
 size = Vector3(35.1094, 9.24918, 26.6061)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_385i6"]
+albedo_color = Color(0.337285, 0.0758462, 0.0785033, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_38i4m"]
+material = SubResource("StandardMaterial3D_385i6")
 top_radius = 0.7
 bottom_radius = 0.7
 height = 9.0
@@ -59,7 +70,33 @@ transform_format = 1
 instance_count = 4
 visible_instance_count = 4
 mesh = SubResource("CylinderMesh_38i4m")
-buffer = PackedFloat32Array(1377, 28, 0.147, 0.168, 0.203, 1, 1, 1, 1377, 28, 0.147, 0.168, 0.203, 1, 1, 1, 1377, 28, 0.147, 0.168, 0.203, 1, 1, 1, 1377, 28, 0.147, 0.168, 0.203, 1, 1, 1, 0, 28, 0.147, 0.168, 0.203, 1, 0, 1, 0, 28, 0.147, 0.168, 0.203, 1, 0, 1)
+buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kalee"]
+albedo_color = Color(0.673027, 0.488409, 0.261905, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vtkm1"]
+material = SubResource("StandardMaterial3D_kalee")
+size = Vector3(80, 1, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ab8ao"]
+data = PackedVector3Array(-40, 0.5, 100, 40, 0.5, 100, -40, -0.5, 100, 40, 0.5, 100, 40, -0.5, 100, -40, -0.5, 100, 40, 0.5, -100, -40, 0.5, -100, 40, -0.5, -100, -40, 0.5, -100, -40, -0.5, -100, 40, -0.5, -100, 40, 0.5, 100, 40, 0.5, -100, 40, -0.5, 100, 40, 0.5, -100, 40, -0.5, -100, 40, -0.5, 100, -40, 0.5, -100, -40, 0.5, 100, -40, -0.5, -100, -40, 0.5, 100, -40, -0.5, 100, -40, -0.5, -100, 40, 0.5, 100, -40, 0.5, 100, 40, 0.5, -100, -40, 0.5, 100, -40, 0.5, -100, 40, 0.5, -100, -40, -0.5, 100, 40, -0.5, 100, -40, -0.5, -100, 40, -0.5, 100, 40, -0.5, -100, -40, -0.5, -100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab8ao"]
+size = Vector3(33.6871, 9.45813, 40.4415)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m5da8"]
+size = Vector3(35, 2, 117.857)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ab8ao"]
+size = Vector3(20, 9, 60)
+
+[sub_resource type="MultiMesh" id="MultiMesh_b30th"]
+transform_format = 1
+instance_count = 8
+visible_instance_count = 8
+mesh = ExtResource("10_m5da8")
+buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="first_level" type="Node3D"]
 script = ExtResource("1_qndhv")
@@ -68,186 +105,254 @@ script = ExtResource("1_qndhv")
 environment = SubResource("Environment_snglc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 5.48245, 0)
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 12.0761, 0)
 light_color = Color(0.676656, 0.9793, 0.815445, 1)
 light_energy = 0.6
+light_bake_mode = 1
 shadow_enabled = true
 
 [node name="temple_room1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0095, 0, -64.2192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01088, 0, -12.0219)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 0, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
+mesh = SubResource("BoxMesh_385i6")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_kalee")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="temple_room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.19199, 0)
+mesh = SubResource("BoxMesh_38i4m")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.04842, -14.465)
 visible = false
 mesh = SubResource("BoxMesh_m5da8")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 5.04842, 81.5821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.87053, 29.4447)
 mesh = SubResource("BoxMesh_m5da8")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.7308, 5.04842, 52.7423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28707, 4.93271, 0)
 mesh = SubResource("BoxMesh_3641t")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qndhv")
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.7685, 5.04842, 52.7423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4968, 4.98673, 0)
 mesh = SubResource("BoxMesh_b30th")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 9.98756, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D10"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qedf2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ab8ao")
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="temple_room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28707, 4.93271, -29.7044)
+mesh = SubResource("BoxMesh_3641t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qndhv")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="temple_room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4968, 4.98673, -29.7044)
+mesh = SubResource("BoxMesh_b30th")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room1/MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/MeshInstance3D12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qedf2")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.252, 4.88168, 9.74087)
 visible = false
 mesh = SubResource("CylinderMesh_m5da8")
 
 [node name="spawner_manager" parent="temple_room1" node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2207, 15.1208)
 area_node = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="temple_room1/spawner_manager"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/spawner_manager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.4952, 4.12459, 66.305)
 shape = SubResource("BoxShape3D_kalee")
-debug_color = Color(0.635619, 0.220568, 0.758876, 0.42)
+debug_color = Color(0, 0, 0, 0.784314)
 
 [node name="multi_pillar" type="MultiMeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.154, 4.5, 76.667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6402, 4.5, 23.4183)
 multimesh = SubResource("MultiMesh_rfcne")
 
 [node name="Node3D" type="Node3D" parent="temple_room1/multi_pillar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9407, 0, -18.4635)
 
 [node name="multi_pillar2" type="MultiMeshInstance3D" parent="temple_room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.154, 4.5, 46.9871)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43625, 4.5, -4.97704)
 multimesh = SubResource("MultiMesh_rfcne")
 
 [node name="Node3D" type="Node3D" parent="temple_room1/multi_pillar2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9407, 0, -18.4635)
+
+[node name="first_level_door" parent="temple_room1" instance=ExtResource("8_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10082, 0.5, 29.2564)
+
+[node name="first_level_door2" parent="temple_room1" instance=ExtResource("8_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08542, 0.5, 0.0148754)
+room2 = 1
+
+[node name="first_level_door3" parent="temple_room1" instance=ExtResource("8_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.29436, 0.5, -29.9343)
+room1 = 1
+room2 = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="temple_room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88716, 14.9239)
+light_energy = 1.2
+light_bake_mode = 1
+omni_range = 3950.72
+omni_attenuation = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="temple_room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.88716, -14.3063)
+light_energy = 1.2
+light_bake_mode = 1
+omni_range = 3950.72
+omni_attenuation = 0.5
 
 [node name="temple_room2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0095, 0, -93.193)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 0, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room2/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room2/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_kalee")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="temple_room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 5.04842, 52.6363)
-mesh = SubResource("BoxMesh_m5da8")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="temple_room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 9.98756, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room2/MeshInstance3D6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room2/MeshInstance3D6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ab8ao")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.8986)
 
 [node name="spawner_manager" parent="temple_room2" node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.48127, 0.499999, 0.649456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137938, 3.99524, -1.27423)
 area_node = NodePath("Area3D")
+current_room = 1
 
 [node name="Area3D" type="Area3D" parent="temple_room2/spawner_manager"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room2/spawner_manager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.4952, 4.12459, 66.305)
 shape = SubResource("BoxShape3D_kalee")
-debug_color = Color(0.635619, 0.220568, 0.758876, 0.42)
-
-[node name="temple_room4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0095, 0, -151.795)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 0, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_kalee")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 5.04842, 52.6363)
-mesh = SubResource("BoxMesh_m5da8")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 5.04842, 81.5821)
-mesh = SubResource("BoxMesh_m5da8")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 9.98756, 67.1013)
-mesh = SubResource("BoxMesh_vtkm1")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D6"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D6/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ab8ao")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.3937, 4.88168, 58.6022)
-mesh = SubResource("CylinderMesh_m5da8")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.2686, 4.88168, 58.6022)
-mesh = SubResource("CylinderMesh_m5da8")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.2686, 4.88168, 76.8422)
-mesh = SubResource("CylinderMesh_m5da8")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="temple_room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.6477, 4.90015, 76.8265)
-mesh = SubResource("CylinderMesh_m5da8")
+debug_color = Color(0, 0, 0, 0.784314)
 
 [node name="temple_room3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.0095, 0, -122.921)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64.0166)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.0166, 0, 67.1013)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
 mesh = SubResource("BoxMesh_vtkm1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="temple_room3/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room3/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_kalee")
+shape = SubResource("ConcavePolygonShape3D_ab8ao")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="temple_room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.3937, 4.88168, 58.6022)
+[node name="spawner_manager" parent="temple_room3" node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.918862, 4.99379, 0.873689)
+area_node = NodePath("Area3D")
+current_room = 2
+
+[node name="Area3D" type="Area3D" parent="temple_room3/spawner_manager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room3/spawner_manager/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.416079, 0, -2.27728)
+shape = SubResource("BoxShape3D_ab8ao")
+debug_color = Color(0.5511, 0.301779, 0.687454, 1)
+
+[node name="small_rock" parent="temple_room3" instance=ExtResource("5_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9262, 0.170254, -17.8557)
+
+[node name="small_rock2" parent="temple_room3" instance=ExtResource("5_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8565, 0.170254, -21.6042)
+
+[node name="small_rock3" parent="temple_room3" instance=ExtResource("5_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.172, 0.170254, 7.86613)
+
+[node name="small_rock4" parent="temple_room3" instance=ExtResource("5_qedf2")]
+transform = Transform3D(0.657394, 0, 0, 0, 0.657394, 0, 0, 0, 0.657394, 16.1369, 0.170254, 9.28063)
+
+[node name="temple_room4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01088, 0, -116.578)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room4"]
+mesh = SubResource("BoxMesh_385i6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.19199, 0)
+mesh = SubResource("BoxMesh_385i6")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="temple_room4"]
+visible = false
+mesh = SubResource("BoxMesh_m5da8")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.87053, 29.4447)
+mesh = SubResource("BoxMesh_m5da8")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28707, 4.93271, 0)
+mesh = SubResource("BoxMesh_3641t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qndhv")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4968, 4.98673, 0)
+mesh = SubResource("BoxMesh_b30th")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D10/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qedf2")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.28707, 4.93271, -29.7044)
+mesh = SubResource("BoxMesh_3641t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qndhv")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4968, 4.98673, -29.7044)
+mesh = SubResource("BoxMesh_b30th")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_qedf2")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="temple_room4"]
+visible = false
 mesh = SubResource("CylinderMesh_m5da8")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="temple_room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.2686, 4.88168, 58.6022)
-mesh = SubResource("CylinderMesh_m5da8")
+[node name="spawner_manager" parent="temple_room4" node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2207, 15.1208)
+area_node = NodePath("Area3D")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="temple_room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.2686, 4.88168, 76.8422)
-mesh = SubResource("CylinderMesh_m5da8")
+[node name="Area3D" type="Area3D" parent="temple_room4/spawner_manager"]
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="temple_room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.6477, 4.90015, 76.8265)
-mesh = SubResource("CylinderMesh_m5da8")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/spawner_manager/Area3D"]
+shape = SubResource("BoxShape3D_kalee")
+debug_color = Color(0, 0, 0, 0.784314)
+
+[node name="multi_pillar" type="MultiMeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6402, 4.5, 23.4183)
+multimesh = SubResource("MultiMesh_rfcne")
+
+[node name="Node3D" type="Node3D" parent="temple_room4/multi_pillar"]
+
+[node name="multi_pillar2" type="MultiMeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43625, 4.5, -4.97704)
+multimesh = SubResource("MultiMesh_rfcne")
+
+[node name="Node3D" type="Node3D" parent="temple_room4/multi_pillar2"]
+
+[node name="first_level_door" parent="temple_room4" instance=ExtResource("8_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.10082, 0.5, 29.2564)
+
+[node name="first_level_door2" parent="temple_room4" instance=ExtResource("8_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08542, 0.5, 0.0148754)
+room2 = 1
 
 [node name="spawner" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, 2.08454, 6.94019)
@@ -261,25 +366,69 @@ room_number = 1
 transform = Transform3D(0.873798, 0, -0.48629, 0, 1, 0, 0.48629, 0, 0.873798, 11.4756, 2.08454, -23.7081)
 room_number = 1
 
+[node name="spawner4" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.873798, 0, -0.48629, 0, 1, 0, 0.48629, 0, 0.873798, -8.57324, 3.07691, -74.9867)
+enemy_number = 2
+room_number = 2
+
+[node name="floor_collision" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95637, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor_collision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0649, -2.37573, -40.1769)
+shape = SubResource("BoxShape3D_m5da8")
+debug_color = Color(0.270102, 0.136775, 0.052403, 0.42)
+
+[node name="big_rock" parent="." instance=ExtResource("7_vtkm1")]
+transform = Transform3D(0.557203, 0, 0.222335, 0, 0.599924, 0, -0.222335, 0, 0.557203, 19.8514, -0.0656517, -45.8291)
+
+[node name="big_rock2" parent="." instance=ExtResource("7_vtkm1")]
+transform = Transform3D(0.365574, 0, 0.145871, 0, 0.393602, 0, -0.145871, 0, 0.365574, 19.0419, -0.0656517, -48.744)
+
+[node name="fence" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(1.25626, 0, 0, 0, 1.25626, 0, 0, 0, 1.25626, 23.5608, 0.586096, -55.0282)
+
+[node name="fence2" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(1.25626, 0, 0, 0, 1.25626, 0, 0, 0, 1.25626, 23.5608, 0.586096, -56.7474)
+
+[node name="fence3" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(1.21381, 0, -0.323831, 0, 1.25626, 0, 0.323831, 0, 1.21381, 23.3164, 0.586096, -53.4235)
+
+[node name="fence4" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -13.206, 0.586096, -75.3802)
+
+[node name="fence5" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -13.3579, 0.586096, -73.6678)
+
+[node name="fence6" parent="." instance=ExtResource("8_vtkm1")]
+transform = Transform3D(-1.18044, 0, 0.429831, 0, 1.25626, 0, -0.429831, 0, -1.18044, -12.8208, 0.586096, -76.9571)
+
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007061, 0.547381, 2.88209)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5635, 0.903255, -62.6586)
 
-[node name="first_level_door" parent="." instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.08994, 0.5, 17.2345)
+[node name="Camera3D" type="Camera3D" parent="."]
+process_priority = 1
+process_physics_priority = 1
+transform = Transform3D(0.083156, -0.0738192, 0.993799, 0.0197674, 0.997179, 0.0724163, -0.99634, 0.013623, 0.0843806, 72.7603, 15.0823, -40.9409)
 
-[node name="first_level_door2" parent="." instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15836, 0.500002, -11.5152)
-room2 = 1
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 0, -62.7769)
+light_bake_mode = 1
 
-[node name="first_level_door3" parent="." instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.98704, 0.500002, -40.5367)
-room1 = 1
-room2 = 2
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.155, 4.789, -12.2)
+material_override = ExtResource("2_385i6")
+mesh = SubResource("BoxMesh_ab8ao")
 
-[node name="first_level_door4" parent="." instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80326, 0.500002, -70.1937)
-room1 = 1
-room2 = 2
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.2113, 4.789, -12.2)
+material_override = ExtResource("2_385i6")
+mesh = SubResource("BoxMesh_ab8ao")
+
+[node name="temple_fences" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3033, -0.177227, -47.6001)
+multimesh = SubResource("MultiMesh_b30th")
+script = ExtResource("11_3641t")
 
 [connection signal="area_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_body_entered"]
@@ -287,3 +436,9 @@ room2 = 2
 [connection signal="area_entered" from="temple_room2/spawner_manager/Area3D" to="temple_room2/spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="temple_room2/spawner_manager/Area3D" to="temple_room2/spawner_manager" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="temple_room2/spawner_manager/Area3D" to="temple_room2/spawner_manager" method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="temple_room3/spawner_manager/Area3D" to="temple_room3/spawner_manager" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="temple_room3/spawner_manager/Area3D" to="temple_room3/spawner_manager" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="temple_room3/spawner_manager/Area3D" to="temple_room3/spawner_manager" method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="temple_room4/spawner_manager/Area3D" to="temple_room4/spawner_manager" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="temple_room4/spawner_manager/Area3D" to="temple_room4/spawner_manager" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="temple_room4/spawner_manager/Area3D" to="temple_room4/spawner_manager" method="_on_area_3d_body_exited"]

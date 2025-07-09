@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://45m2rb81gimd"]
+
+[ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
+[ext_resource type="PackedScene" uid="uid://2qo7msqk15km" path="res://scenes/enemies/coin.tscn" id="2_hfe2k"]
+
+[sub_resource type="Environment" id="Environment_hfe2k"]
+background_mode = 1
+background_color = Color(0.121341, 0.161466, 0.287771, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.621334, 0.538103, 0.872232, 1)
+ambient_light_energy = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw0oj"]
+albedo_color = Color(0.801188, 0.533137, 0.448013, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f6rwo"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nhu02"]
+data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, 0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, -50, 50, -0.5, -50, 50, -0.5, 50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, -50, 50, 0.5, 50, -50, 0.5, 50, 50, 0.5, -50, -50, 0.5, 50, -50, 0.5, -50, 50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, -50, -0.5, -50, 50, -0.5, 50, 50, -0.5, -50, -50, -0.5, -50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ghpiu"]
+size = Vector3(10, 15, 10)
+
+[node name="second_level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hfe2k")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.143553, -0.939437, 0.31121, 0.133079, 0.329935, 0.934576, -0.980654, -0.0927457, 0.172383, 0, 4.16648, 0)
+light_color = Color(0.676656, 0.9793, 0.815445, 1)
+light_energy = 2.582
+light_indirect_energy = 11.901
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.496066, 0)
+material_override = SubResource("StandardMaterial3D_aw0oj")
+mesh = SubResource("BoxMesh_f6rwo")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nhu02")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -20.8719, 6.90636, -11.7059)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -16.0511, 0.843187, -26.7736)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00186752, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.00186752, 23.2482, 6.90636, -11.6585)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00186752, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.00186752, 18.8089, 4.30066, -31.1914)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00186752, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.00186752, 15.9036, 2.62594, -1.9253)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.00186752, 0, 0.999998, 0, 1, 0, -0.999998, 0, -0.00186752, 24.7273, 5.89349, 22.1833)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -18.8695, 1.57205, 1.63397)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -16.2105, 3.59905, 24.3037)
+mesh = SubResource("BoxMesh_ghpiu")
+
+[node name="player" parent="." instance=ExtResource("1_k6ckt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681013, 0.24365, -43.0582)
+
+[node name="coin" parent="." instance=ExtResource("2_hfe2k")]
+transform = Transform3D(-0.939058, 0, 0.343758, 0, 1, 0, -0.343758, 0, -0.939058, -6.88132, 0.0225968, -16.0035)
+
+[node name="coin2" parent="." instance=ExtResource("2_hfe2k")]
+transform = Transform3D(-0.999204, 0, -0.0398877, 0, 1, 0, 0.0398877, 0, -0.999204, 5.60877, 0.0225958, 4.2947)
