@@ -47,36 +47,8 @@ func calculate_knockback(area: Area3D):
 	await(get_tree().create_timer(.3).timeout)
 	velocity = velocity * 0
 
-
-#func _on_hitbox_area_entered(area: Area3D) -> void:
-	#if area.is_in_group("weapon"):
-		#if life > Global.player_damage :
-			#life -= Global.player_damage
-			#print(life)
-			#calculate_knockback(area)
-		#else:
-			#calculate_knockback(area)
-			#await(get_tree().create_timer(.1).timeout)
-			#var coin1 = coinins.instantiate()
-			#coin1.position = $coinslot1.global_position #determina o local onde a moeda vai spawnar
-			#coin1.rotation = $coinslot1.global_rotation #determina a rotação q a moeda vai spawnar
-			#var coin2 = coinins.instantiate()
-			#coin2.position = $coinslot2.global_position
-			#coin2.rotation = $coinslot2.global_rotation
-			#var coin3 = coinins.instantiate()
-			#coin3.position = $coinslot3.global_position
-			#coin3.rotation = $coinslot3.global_rotation
-			#get_parent().add_child(coin1) #spawna a moeda
-			#get_parent().add_child(coin2)
-			#get_parent().add_child(coin3)
-			#queue_free() #morre
-	#
-	#if area.name == "player_hitbox":
-		#get_tree().call_group("player","hurt",damage)
-
 func unique_take_damage(area):
 	calculate_knockback(area)
-	
 
 func damage_player(area):
 	get_tree().call_group("player","hurt",damage)

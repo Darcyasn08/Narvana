@@ -1,0 +1,39 @@
+{
+	"crab": {
+		"dialog_tree": [
+			{
+				"branch_id": "crab_1_1",
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "Hello, I am Crab.",
+					},
+					{
+						"state": "progress",
+						"text": "Do you need something?",
+						"options": {
+							"no, thanks": "exit",
+							"yes, give me money": ""
+						},
+					},
+					{
+						"state": "exit",
+						"text": "Ok, bye :)",
+					}
+				],
+			},
+			{
+				"branch_id": "crab_1_2",
+				"dialogs": [],
+			},
+		],
+	},
+	"grandma": {
+		"dialog_tree": [
+			{
+				"branch_id": "grandma_1",
+				"dialogs": []
+			},
+		],
+	},
+}
