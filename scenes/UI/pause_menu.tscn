@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0l4begr7id8h"]
+[gd_scene load_steps=9 format=3 uid="uid://d0l4begr7id8h"]
 
 [ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_bl585"]
 [ext_resource type="Script" uid="uid://d0ao8ioh8ksj4" path="res://scripts/pause_menu.gd" id="1_mko1u"]
@@ -8,8 +8,18 @@
 atlas = ExtResource("1_qo2fb")
 region = Rect2(47.0406, 38.4275, 299.023, 170.548)
 
+[sub_resource type="LabelSettings" id="LabelSettings_feath"]
+font_size = 53
+
+[sub_resource type="LabelSettings" id="LabelSettings_w67w4"]
+font_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
 font_size = 45
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mko1u"]
+atlas = ExtResource("1_qo2fb")
+region = Rect2(442.215, 51.343, 266.996, 170.471)
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
@@ -24,16 +34,15 @@ grow_vertical = 2
 color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
 
 [node name="options_button" type="Button" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -58.5
-offset_top = -25.0
+offset_top = 60.0
 offset_right = 58.5
-offset_bottom = 25.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -61,18 +70,20 @@ layer = 2
 visible = false
 script = ExtResource("1_bl585")
 
-[node name="ColorRect2" type="ColorRect" parent="options_menu"]
+[node name="ColorRect3" type="ColorRect" parent="options_menu"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
+color = Color(0.0372205, 0.0769108, 0.113894, 1)
 
-[node name="Telas" type="Sprite2D" parent="options_menu"]
-position = Vector2(635, 359)
-scale = Vector2(4.3, 4.3)
-texture = SubResource("AtlasTexture_bl585")
+[node name="ColorRect" type="ColorRect" parent="options_menu"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 320.0
+grow_vertical = 2
+color = Color(0.0676492, 0.120297, 0.169335, 1)
 
 [node name="back_button" type="Button" parent="options_menu"]
 offset_left = 40.0
@@ -81,6 +92,52 @@ offset_right = 85.0
 offset_bottom = 100.0
 theme_override_font_sizes/font_size = 50
 text = "<"
+
+[node name="Telas" type="Sprite2D" parent="options_menu"]
+visible = false
+modulate = Color(1, 1, 1, 0.4)
+position = Vector2(635, 359)
+scale = Vector2(4.3, 4.3)
+texture = SubResource("AtlasTexture_bl585")
+
+[node name="Label" type="Label" parent="options_menu"]
+offset_left = 412.0
+offset_top = 48.0
+offset_right = 603.0
+offset_bottom = 121.0
+text = "SOUND"
+label_settings = SubResource("LabelSettings_feath")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options_menu"]
+custom_minimum_size = Vector2(0, 30)
+offset_left = 75.0
+offset_top = 211.0
+offset_right = 183.0
+offset_bottom = 463.0
+
+[node name="Label2" type="Label" parent="options_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SCREEN"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label3" type="Label" parent="options_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SOUND"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label4" type="Label" parent="options_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label5" type="Label" parent="options_menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_w67w4")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 5
@@ -94,6 +151,20 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 text = "GAME PAUSED"
 label_settings = SubResource("LabelSettings_mko1u")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Telas" type="Sprite2D" parent="Control"]
+position = Vector2(957, 538)
+scale = Vector2(6.69737, 6.28235)
+texture = SubResource("AtlasTexture_mko1u")
 
 [connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

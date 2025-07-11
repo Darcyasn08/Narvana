@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dguwrwm1lltu3"]
+
+[ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="1_8lbm1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_75vfm"]
+data = PackedVector3Array(-0.8, 0.1, 0.15, 0.8, 0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, -0.15, 0.8, -0.1, -0.15, -0.8, 0.1, -0.15, -0.8, -0.1, -0.15, 0.8, -0.1, -0.15, 0.8, 0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, 0.15, 0.8, 0.1, -0.15, 0.8, -0.1, -0.15, 0.8, -0.1, 0.15, -0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, -0.15, -0.8, 0.1, 0.15, -0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, 0.1, 0.15, -0.8, 0.1, 0.15, 0.8, 0.1, -0.15, -0.8, 0.1, 0.15, -0.8, 0.1, -0.15, 0.8, 0.1, -0.15, -0.8, -0.1, 0.15, 0.8, -0.1, 0.15, -0.8, -0.1, -0.15, 0.8, -0.1, 0.15, 0.8, -0.1, -0.15, -0.8, -0.1, -0.15)
+
+[node name="test_weapon" type="Node3D"]
+visible = false
+
+[node name="arma" type="Area3D" parent="." groups=["weapon"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12464, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="arma"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67383, 0.374756, 0.217488)
+shape = SubResource("ConcavePolygonShape3D_75vfm")
+
+[node name="bat" parent="." instance=ExtResource("1_8lbm1")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.48593, 0.389795, 0.191806)

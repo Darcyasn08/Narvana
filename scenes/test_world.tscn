@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dn0df8tvhhkcn"]
+[gd_scene load_steps=27 format=3 uid="uid://wxwv0l0a5ue6"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
 [ext_resource type="Script" uid="uid://reu1armmlmns" path="res://scripts/test_world.gd" id="1_8ash4"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c8vm4aos1dsc1" path="res://scenes/coin_trap.tscn" id="12_4dyd7"]
 [ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/matador_3000.tscn" id="12_d55t2"]
 [ext_resource type="PackedScene" uid="uid://2qo7msqk15km" path="res://scenes/coin.tscn" id="13_4dyd7"]
-[ext_resource type="PackedScene" uid="uid://dnch3cbsutmqm" path="res://house.tscn" id="14_imjh6"]
+[ext_resource type="PackedScene" uid="uid://cbrwv7t17y737" path="res://scenes/car.tscn" id="14_imjh6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
 sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
@@ -88,7 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("ConcavePolygonShape3D_fithi")
 
 [node name="floor2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8073, -1.85842, 0.912499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.161, -1, -0.033)
 mesh = SubResource("BoxMesh_d55t2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor2"]
@@ -193,11 +193,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.41512)
 
 [node name="coin" parent="." instance=ExtResource("13_4dyd7")]
 
+[node name="car" parent="." instance=ExtResource("14_imjh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.869, 2.08731, 11.0571)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1276, 4.13257, -52.6316)
 shape = SubResource("BoxShape3D_imjh6")
-
-[node name="house" parent="." instance=ExtResource("14_imjh6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.2131, 0.085175, -17.6593)

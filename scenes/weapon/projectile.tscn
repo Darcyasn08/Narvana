@@ -17,4 +17,3 @@ radius = 0.2
 shape = SubResource("SphereShape3D_6aapk")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

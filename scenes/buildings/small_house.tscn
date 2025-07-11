@@ -26,18 +26,59 @@ size = Vector3(12.0951, 8.22643, 7.98496)
 
 [node name="Cube_001" parent="small_house_model" index="0"]
 material_override = SubResource("StandardMaterial3D_2wetn")
+visibility_range_end = 90.0
 
 [node name="Cube_002" parent="small_house_model" index="1"]
 material_override = SubResource("StandardMaterial3D_0i8io")
+visibility_range_end = 90.0
 
 [node name="Cube_003" parent="small_house_model" index="2"]
 material_override = SubResource("StandardMaterial3D_7n6sq")
+visibility_range_end = 90.0
 
 [node name="Cube_004" parent="small_house_model" index="3"]
 material_override = SubResource("StandardMaterial3D_7n6sq")
+visibility_range_end = 90.0
 
 [node name="Cube_005" parent="small_house_model" index="4"]
 material_override = SubResource("StandardMaterial3D_n6vr6")
+visibility_range_end = 90.0
+
+[node name="Cube_006" parent="small_house_model" index="5"]
+visibility_range_end = 90.0
+
+[node name="Cube_007" parent="small_house_model" index="6"]
+visibility_range_end = 90.0
+
+[node name="Cube_008" parent="small_house_model" index="7"]
+visibility_range_end = 90.0
+
+[node name="Cube_009" parent="small_house_model" index="8"]
+visibility_range_end = 90.0
+
+[node name="Cube_010" parent="small_house_model" index="9"]
+visibility_range_end = 90.0
+
+[node name="Cube_011" parent="small_house_model" index="10"]
+visibility_range_end = 90.0
+
+[node name="Cube_012" parent="small_house_model" index="11"]
+visibility_range_end = 90.0
+
+[node name="Cube_013" parent="small_house_model" index="12"]
+visibility_range_end = 90.0
+
+[node name="Cube_014" parent="small_house_model" index="13"]
+visibility_range_end = 90.0
+
+[node name="Cube_015" parent="small_house_model" index="14"]
+visibility_range_end = 90.0
+
+[node name="Cube_016" parent="small_house_model" index="15"]
+visibility_range_end = 90.0
+
+[node name="Cube_017" parent="small_house_model" index="16"]
+visibility_range_end = 90.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -1,22 +1,36 @@
 extends Node
 
+var player_can_move: bool = true
 var player_damage := 200.0
 var dust_damage := 1500.0
 var player_can_attack: bool = true
 var player_base_pos: Vector3 = Vector3(0,5,0)
+
+var player_health: int = 6
+var house_health: int = 5000
+
+
 
 var enemies = [
 	["res://scenes/coin.tscn","res://scenes/pig_bank.tscn"] #uma fase
 ]
 
 var dead_enemies_first_level = [
-	[0, 2],
-	[0, 3]
+	[0, 0],
+	[0, 0]
 ]
 
-var current_stage: int = 0
+var current_weapon: String = "bat"
+
+var current_room: int = 0
 var current_world: int
 enum worlds {NORMAL, FIRST_LEVEL}
+
+var completed_levels: Dictionary = {
+	"first_level": false,
+	"second_level": false,
+	"third_level": false
+}
 
 var cutscenes: Dictionary = {
 	"start": false,
@@ -24,6 +38,79 @@ var cutscenes: Dictionary = {
 }
 
 enum npcs {crab, master}
+
+var dialogs: Dictionary = {
+	"crab": {
+		"dialog_tree": {
+			"is_first_time": true,
+			"first_dialog": {
+				"text": "hi",
+				"options": {}
+			},
+			"middle": {
+				0: {
+					"text": "Ah, olá",
+					"options": {}
+				},
+				1: {
+					"text": "Você parece ser novo por aqui", 
+					"options": {}
+				},
+				2: {
+					"text": "Eu sou o caranguejo, caso precise de algo pra comer, minha loja sempre está aberta",
+					"options": {}
+				},
+				3: {
+					"text": "Quer olhar o cardápio?",
+					"options": {
+						0: {
+							"text": "Sim",
+							"ignite": "quest",
+						},
+						1: {
+							"text": "Não",
+							"ignite": "exit"
+						},
+					}
+				},
+				4: {
+					"text": "Até logo!",
+					"options": {}
+				}
+			},
+			"quest": {
+				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
+				"status": "none",
+				"id": "socks",
+				"text": "notas da lia: juro que eu faço algo melhor depois :'), só finge que tem um cardápio aqui",
+				"options": {}
+			},
+			"exit": {
+				"text": "Até logo, rapaz",
+				"options": {}
+			}
+		},
+		"jellyfish": {},
+		"grandma": {},
+	}
+}
+
+var quests: Dictionary = {
+	"crab": {
+		"quest_1": {
+			"title": "helping foot",
+			"desc": "give crab a pair of socks",
+			"item_to_give": "socks"
+		}
+	},
+	"grandma": {
+		"quest_1": {
+			"title": "flowers for grandma",
+			"desc": "give grandma some flowers",
+			"item_to_give": "flower bouquet"
+		}
+	}
+}
 
 var dialogues: Dictionary = {
 	"crab": {

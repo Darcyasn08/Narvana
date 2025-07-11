@@ -8,8 +8,8 @@ height = 2.76221
 radius = 0.850586
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_50v30"]
-height = 2.39539
-radius = 0.743164
+height = 2.31027
+radius = 0.68457
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qt2eu"]
 
@@ -34,7 +34,7 @@ transform = Transform3D(0.999998, 0, 1.61003e-09, 7.41227e-09, -4.3714e-08, -0.9
 shape = SubResource("CylinderShape3D_qt2eu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.999998, 0, 1.61037e-09, 7.41227e-09, -4.3714e-08, -0.999987, 2.32831e-09, 1, -4.33938e-08, 0, 0, 0)
+transform = Transform3D(0.999998, 0, 1.61037e-09, 7.41227e-09, -4.3714e-08, -0.999987, 2.32831e-09, 1, -4.33938e-08, 0, 4.75566e-10, -0.010879)
 shape = SubResource("CylinderShape3D_50v30")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]

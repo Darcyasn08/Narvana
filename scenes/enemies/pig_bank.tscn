@@ -1,8 +1,29 @@
+<<<<<<< HEAD
+[gd_scene load_steps=12 format=3 uid="uid://w1dh1r4ewd5b"]
+
+[ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
+[ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
+[ext_resource type="Texture2D" uid="uid://dccy454b0rflp" path="res://3d_models/placeholders/piggy-bank-texture.png" id="3_0pmpx"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemy_hitbox.tscn" id="5_nykp7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw1nj"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("3_0pmpx")
+metallic = 0.11
+metallic_specular = 0.78
+roughness = 0.35
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.44
+backlight_enabled = true
+backlight = Color(0.896509, 0.420443, 0.0263604, 1)
+=======
 [gd_scene load_steps=10 format=3 uid="uid://w1dh1r4ewd5b"]
 
 [ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
 [ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
 [ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="5_nykp7"]
+>>>>>>> origin/coin_enemy_update
 
 [sub_resource type="Animation" id="Animation_6vu3a"]
 length = 0.001
@@ -76,11 +97,24 @@ script = ExtResource("1_fgw4t")
 [node name="piggy-bank-enemy" parent="." instance=ExtResource("2_tsjtq")]
 transform = Transform3D(0.727908, 0, 0, 0, 0.727908, 0, 0, 0, 0.727908, 0, 0, 0)
 
+<<<<<<< HEAD
 [node name="Skeleton3D" parent="piggy-bank-enemy/Armature" index="0"]
+bones/1/position = Vector3(9.75424e-14, 1.16776, 4.09647e-07)
 bones/1/rotation = Quaternion(-0.0678402, -1.07748e-14, 1.61744e-08, 0.997696)
+bones/1/scale = Vector3(1, 0.999999, 1)
+bones/5/position = Vector3(9.83516e-08, 0.697526, -2.19585e-07)
 bones/5/rotation = Quaternion(0.0912161, -0.0010179, -0.0224956, 0.995577)
+bones/5/scale = Vector3(1, 1, 0.999999)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/position = Vector3(1.69539e-06, 0.670109, -7.77032e-07)
 bones/8/rotation = Quaternion(-0.0802843, 0.0141743, 0.131938, 0.9879)
+bones/8/scale = Vector3(0.999999, 0.999999, 1)
 
+[node name="Cube" parent="piggy-bank-enemy/Armature/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_yw1nj")
+
+=======
+>>>>>>> origin/coin_enemy_update
 [node name="AnimationPlayer" type="AnimationPlayer" parent="piggy-bank-enemy"]
 libraries = {
 &"": SubResource("AnimationLibrary_pqxdv")

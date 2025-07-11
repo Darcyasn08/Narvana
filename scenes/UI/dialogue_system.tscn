@@ -1,77 +1,115 @@
-[gd_scene load_steps=4 format=3 uid="uid://dei3a3xrdp3f0"]
+[gd_scene load_steps=7 format=3 uid="uid://dei3a3xrdp3f0"]
 
-[ext_resource type="Script" uid="uid://b5sengliiggy3" path="res://scenes/UI/dialogue_system.gd" id="1_jyfl6"]
+[ext_resource type="Script" uid="uid://c726ymnqq4fig" path="res://scenes/UI/dialogue_manager.gd" id="1_jyfl6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqhs2"]
+bg_color = Color(0.146538, 0.192096, 0.2944, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okyy2"]
+bg_color = Color(0.199831, 0.25658, 0.383825, 1)
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyfl6"]
-font_size = 21
-outline_size = 7
+font_size = 20
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_hvep2"]
-font_size = 25
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyfl6"]
+content_margin_left = 10.0
+bg_color = Color(0.269183, 0.345908, 0.477687, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvep2"]
+content_margin_left = 10.0
+bg_color = Color(0.269183, 0.345908, 0.477687, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [node name="dialogue_system" type="CanvasLayer"]
 script = ExtResource("1_jyfl6")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 356.0
-offset_top = 551.0
-offset_right = 467.0
-offset_bottom = 586.0
-color = Color(0.442861, 0.344487, 0.481133, 1)
+[node name="dialog_box" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -301.0
+offset_top = -175.0
+offset_right = 301.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 356.0
-offset_top = 583.0
-offset_right = 957.0
-offset_bottom = 702.0
-color = Color(0.28112, 0.164952, 0.272189, 1)
+[node name="Panel2" type="Panel" parent="dialog_box"]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 194.0
+offset_bottom = 53.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uqhs2")
 
-[node name="dialogue_text" type="RichTextLabel" parent="."]
-offset_left = 390.0
-offset_top = 597.0
-offset_right = 925.0
-offset_bottom = 691.0
+[node name="Panel" type="Panel" parent="dialog_box"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 597.0
+offset_bottom = 148.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_okyy2")
+
+[node name="dialog_text" type="RichTextLabel" parent="dialog_box"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 46.0
+offset_right = 554.0
+offset_bottom = 140.0
 theme_override_font_sizes/bold_italics_font_size = 1
-theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/normal_font_size = 21
 scroll_active = false
 
-[node name="name_label" type="Label" parent="."]
-offset_left = 365.0
-offset_top = 552.0
-offset_right = 423.0
-offset_bottom = 582.0
+[node name="name_label" type="Label" parent="dialog_box"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 1.0
+offset_right = 74.0
+offset_bottom = 31.0
 text = "name"
 label_settings = SubResource("LabelSettings_jyfl6")
 
-[node name="next_label" type="Label" parent="."]
-offset_left = 953.0
-offset_top = 679.0
-offset_right = 967.0
-offset_bottom = 714.0
-rotation = 1.56788
-text = ">"
-label_settings = SubResource("LabelSettings_hvep2")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dialog_box"]
+root_node = NodePath("../..")
 
-[node name="diag_option1" type="Button" parent="."]
-offset_left = 380.0
-offset_top = 602.0
-offset_right = 833.0
-offset_bottom = 638.0
-theme_override_font_sizes/font_size = 20
+[node name="dialog_options" type="VBoxContainer" parent="dialog_box"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 28.0
+offset_top = 77.0
+offset_right = 434.0
+offset_bottom = 130.0
+
+[node name="diag_option1" type="Button" parent="dialog_box/dialog_options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_jyfl6")
 text = "option1"
 alignment = 0
 
-[node name="diag_option2" type="Button" parent="."]
-offset_left = 380.0
-offset_top = 646.0
-offset_right = 833.0
-offset_bottom = 682.0
-theme_override_font_sizes/font_size = 20
+[node name="diag_option2" type="Button" parent="dialog_box/dialog_options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_hvep2")
 text = "option2"
 alignment = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[connection signal="pressed" from="diag_option1" to="." method="_on_diag_option_1_pressed"]
-[connection signal="pressed" from="diag_option2" to="." method="_on_diag_option_2_pressed"]
+[connection signal="pressed" from="dialog_box/dialog_options/diag_option1" to="." method="_on_diag_option_1_pressed"]
+[connection signal="pressed" from="dialog_box/dialog_options/diag_option2" to="." method="_on_diag_option_2_pressed"]
