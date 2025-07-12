@@ -9,9 +9,18 @@ func _physics_process(_delta: float) -> void:
 		show()
 
 func _on_options_button_pressed() -> void:
-	$options_menu.show()
-	print("open options")
+	$button_container.show()
+	$inventory_menu.hide()
+	#$options_menu.show()
+	#print("open options")
 
 func _on_back_button_pressed() -> void:
 	self.hide()
 	get_tree().paused = false
+
+func _on_inventory_button_pressed() -> void:
+	$inventory_menu.show()
+	$button_container.hide()
+
+func _on_config_button_pressed() -> void:
+	$options_menu.show()

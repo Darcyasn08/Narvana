@@ -1,9 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=44 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
 [ext_resource type="AudioStream" uid="uid://dgteiwd2130d7" path="res://music/The old village (1).mp3" id="2_ge66w"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
+[ext_resource type="AudioStream" uid="uid://ts35pdocjbbb" path="res://music/Tune of the Kalimba.mp3" id="3_ektfp"]
+[ext_resource type="AudioStream" uid="uid://iw6k17ro087p" path="res://music/bird-song.mp3" id="4_jebyo"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="7_s47ii"]
 [ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="8_5xlhr"]
 [ext_resource type="PackedScene" uid="uid://b6he2j4ixhwk8" path="res://scenes/buildings/village_marketplace.tscn" id="8_wcbeh"]
@@ -15,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0g2dnevpq5k" path="res://scenes/objects/big_rock.tscn" id="18_ge66w"]
 [ext_resource type="PackedScene" uid="uid://otbch3rh6pyo" path="res://3d_models/placeholders/village-plateau.glb" id="18_jptho"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
+[ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="19_ektfp"]
 [ext_resource type="PackedScene" uid="uid://dys58dchdp2po" path="res://scenes/buildings/village_entrance_gate.tscn" id="19_jptho"]
 [ext_resource type="PackedScene" uid="uid://d35rab8iwrhju" path="res://scenes/buildings/small_house.tscn" id="19_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://c1aoegujykbb" path="res://scenes/buildings/low_house.tscn" id="20_jptho"]
@@ -31,11 +34,11 @@ sky_material = SubResource("ProceduralSkyMaterial_d5nc6")
 
 [sub_resource type="Environment" id="Environment_8qtj8"]
 background_mode = 1
-background_color = Color(0.157806, 0.307305, 0.423191, 1)
+background_color = Color(0.249773, 0.354109, 0.404721, 1)
 background_energy_multiplier = 2.03
 sky = SubResource("Sky_p2tsv")
 ambient_light_source = 2
-ambient_light_color = Color(0.768044, 0.275614, 0.187824, 1)
+ambient_light_color = Color(0.770193, 0.332097, 0.295849, 1)
 ambient_light_energy = 2.0
 glow_enabled = true
 glow_levels/1 = 8.3
@@ -55,6 +58,8 @@ volumetric_fog_albedo = Color(0.98046, 0.715333, 0.639702, 1)
 volumetric_fog_sky_affect = 0.839
 
 [sub_resource type="BoxMesh" id="BoxMesh_vclft"]
+lightmap_size_hint = Vector2i(3754, 2106)
+add_uv2 = true
 size = Vector3(350, 10, 400)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ge66w"]
@@ -77,6 +82,13 @@ albedo_color = Color(0.830887, 0.805724, 0.532295, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wcbeh"]
 size = Vector3(50, 0.3, 60)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_peaqf"]
+fade_time = 1.0
+stream_count = 3
+stream_0 = ExtResource("2_ge66w")
+stream_1 = ExtResource("3_ektfp")
+stream_2 = ExtResource("4_jebyo")
 
 [sub_resource type="BoxMesh" id="BoxMesh_x68fd"]
 size = Vector3(20, 0.2, 2)
@@ -111,18 +123,13 @@ size = Vector3(200, 40, 50)
 [node name="normal_world" type="Node3D"]
 script = ExtResource("1_eqvwj")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.86835, 0.371635, -0.328415, 0.272318, 0.19616, 0.942, 0.414502, -0.907419, 0.0691329, 0.656735, 18.7075, -1.13749)
+light_color = Color(0.83168, 0.92532, 0.873422, 1)
+light_bake_mode = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8qtj8")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.243024, -0.850269, -0.466885, 0.520124, -0.520496, 0.677168, -0.818786, -0.07827, 0.568738, -0.78182, 9.21091, -12.8662)
-light_color = Color(0.986186, 0.84637, 0.565131, 1)
-light_energy = 1.179
-light_angular_distance = 7.92
-shadow_enabled = true
-shadow_bias = 1.865
-shadow_transmittance_bias = 16.0
-shadow_opacity = 0.85
 
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 125.355)
@@ -187,11 +194,11 @@ mesh = SubResource("BoxMesh_wcbeh")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.38755, 1.99415, 75.5312)
-stream = ExtResource("2_ge66w")
+stream = SubResource("AudioStreamPlaylist_peaqf")
 volume_db = -5.0
 autoplay = true
 max_distance = 120.0
-parameters/looping = true
+panning_strength = 1.17
 
 [node name="temple" parent="." instance=ExtResource("7_s47ii")]
 transform = Transform3D(0.0143985, 0, -0.999896, 0, 1, 0, 0.999896, 0, 0.0143985, 66.8287, 5.72205e-06, 116.362)
@@ -448,3 +455,15 @@ transform = Transform3D(0.0937086, 0, 0.9956, 0, 1, 0, -0.9956, 0, 0.0937086, -2
 
 [node name="small_rock4" parent="." instance=ExtResource("10_ge66w")]
 transform = Transform3D(0.0937086, 0, 0.9956, 0, 1, 0, -0.9956, 0, 0.0937086, -8.65553, 4.76837e-07, 61.1142)
+
+[node name="bubble_particle" parent="." instance=ExtResource("19_ektfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95251, 0, 9.92114)
+
+[node name="bubble_particle2" parent="." instance=ExtResource("19_ektfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.42057, 0, 59.4823)
+
+[node name="bubble_particle3" parent="." instance=ExtResource("19_ektfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6762, 0, 47.369)
+
+[node name="bubble_particle4" parent="." instance=ExtResource("19_ektfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1493, 0, 75.6621)

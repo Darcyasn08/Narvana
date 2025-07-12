@@ -1,9 +1,12 @@
-[gd_scene load_steps=17 format=4 uid="uid://utkg066kgy3y"]
+[gd_scene load_steps=21 format=4 uid="uid://utkg066kgy3y"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_ngfep"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_tcxjl"]
 [ext_resource type="PackedScene" uid="uid://crdiuusqir52a" path="res://scenes/weapon/tonfa.tscn" id="3_tcxjl"]
 [ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="4_audoe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_audoe"]
+albedo_color = Color(0.385804, 0.390818, 0.580464, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdj30"]
 resource_name = "Material.008"
@@ -248,6 +251,43 @@ _data = {
 &"tonfa_attack": SubResource("Animation_tcxjl")
 }
 
+[sub_resource type="Animation" id="Animation_h238m"]
+resource_name = "take_damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.385804, 0.390818, 0.580464, 1), Color(0.570988, 0.314882, 0.458073, 1), Color(0.385804, 0.390818, 0.580464, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_chc6g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.385804, 0.390818, 0.580464, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6ta3"]
+_data = {
+&"RESET": SubResource("Animation_chc6g"),
+&"take_damage": SubResource("Animation_h238m")
+}
+
 [node name="narwhal_skin" type="Node3D"]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
@@ -259,6 +299,7 @@ transform = Transform3D(0.246802, 0, 0, 0, 0.381296, -0.156731, 0, 0.313462, 0.1
 material_overlay = ExtResource("2_tcxjl")
 
 [node name="body" parent="narval_model" index="1"]
+material_override = SubResource("StandardMaterial3D_audoe")
 material_overlay = ExtResource("2_tcxjl")
 
 [node name="narval-body_004" parent="narval_model" index="2"]
@@ -330,6 +371,11 @@ libraries = {
 [node name="attack_player" type="AnimationPlayer" parent="narval_model"]
 libraries = {
 &"": SubResource("AnimationLibrary_1hi58")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="narval_model"]
+libraries = {
+&"": SubResource("AnimationLibrary_g6ta3")
 }
 
 [editable path="narval_model"]

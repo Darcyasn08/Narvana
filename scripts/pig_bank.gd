@@ -67,7 +67,6 @@ func unique_die():
 	get_parent().add_child(coin1) #spawna a moeda
 	get_parent().add_child(coin2)
 	get_parent().add_child(coin3)
-	print("im deaaaddd noooooo")
 
 func look_to_player():
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)

@@ -88,14 +88,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.99756, 5.31716, -0.0168253)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 1.80923
+omni_range = 3.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="light_pole_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9668, 5.31716, -0.0168253)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 1.7343
+omni_range = 3.0
+
+[node name="VisibleOnScreenEnabler3D" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82737, 3.99369, -0.0191126)
+enable_node_path = NodePath("../VisibleOnScreenNotifier3D")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82737, 3.99369, -0.0191126)

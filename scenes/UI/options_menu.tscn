@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcwkhk5uegqo"]
+
+[ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_3t8k5"]
+[ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_qgort"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
+atlas = ExtResource("2_qgort")
+region = Rect2(47.0406, 38.4275, 299.023, 170.548)
+
+[sub_resource type="LabelSettings" id="LabelSettings_feath"]
+font_size = 53
+
+[sub_resource type="LabelSettings" id="LabelSettings_w67w4"]
+font_size = 30
+
+[node name="options_menu" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_3t8k5")
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 337.0
+offset_top = 185.0
+offset_right = 240.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.713245, 0.713245)
+color = Color(0.0372205, 0.0769108, 0.113894, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 185.0
+offset_right = 468.0
+offset_bottom = 185.0
+grow_vertical = 2
+scale = Vector2(0.713245, 0.713245)
+color = Color(0.0676492, 0.120297, 0.169335, 1)
+
+[node name="back_button" type="Button" parent="."]
+offset_left = 123.0
+offset_top = 208.0
+offset_right = 168.0
+offset_bottom = 285.0
+scale = Vector2(0.713245, 0.713245)
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="Telas" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.4)
+position = Vector2(635, 359)
+scale = Vector2(4.3, 4.3)
+texture = SubResource("AtlasTexture_bl585")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 418.0
+offset_top = 233.0
+offset_right = 609.0
+offset_bottom = 306.0
+scale = Vector2(0.713245, 0.713245)
+text = "SOUND"
+label_settings = SubResource("LabelSettings_feath")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 30)
+offset_left = 147.0
+offset_top = 396.0
+offset_right = 306.0
+offset_bottom = 648.0
+scale = Vector2(0.713245, 0.713245)
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SCREEN"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "SOUND"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "EXIT"
+label_settings = SubResource("LabelSettings_w67w4")
+
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

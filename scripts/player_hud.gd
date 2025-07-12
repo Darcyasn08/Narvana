@@ -13,11 +13,11 @@ func _physics_process(delta: float) -> void:
 	$fps_label.text = str(snapped(Engine.get_frames_per_second(), 0.01))
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("e"):
+	if event.is_action_pressed("e"):
 		pass
 		#change_player_health_status(0)
 
-func change_player_health_status(health):
+func change_player_health_status(health: int) -> void:
 	for i in range(hearts_list.size()):
 		hearts_list[i].visible = i < health #deixar visível apenas a qtd certa
 		#print(i<health)

@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func unique_take_damage(area):
-	print(life)
+	#print(life)
 	on_ground = true
 	fall()
 	calculate_knockback(area)
@@ -55,7 +55,8 @@ func damage_player(area):
 	on_ground = false
 
 func unique_die():
-	print("im dead dude...")
+	pass
+	#print("im dead dude...")
 
 func fall():
 	$uped.hide()

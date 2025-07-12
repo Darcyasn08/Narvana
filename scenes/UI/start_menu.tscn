@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cc7turudgrccy"]
 
-[ext_resource type="Texture2D" uid="uid://cj0m4hdmyi81p" path="res://UI/start_menu_art.webp" id="1_bpkul"]
-[ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
+[ext_resource type="Script" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
+[ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
 bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
@@ -35,7 +35,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_bpkul")
 modulate = Color(0.552956, 0.552956, 0.552956, 1)
 position = Vector2(643, 354)
 scale = Vector2(0.992554, 0.992554)
-texture = ExtResource("1_bpkul")
+texture = ExtResource("2_jcvkx")
 
 [node name="art_container" type="Control" parent="."]
 layout_mode = 3
@@ -51,10 +51,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -66.5
-offset_top = 19.0
-offset_right = 66.5
-offset_bottom = 81.0
+offset_left = -536.0
+offset_top = 206.0
+offset_right = -403.0
+offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -68,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -144.5
-offset_top = -200.0
-offset_right = 144.5
-offset_bottom = -117.0
+offset_left = -541.0
+offset_top = -215.0
+offset_right = -252.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 60
@@ -83,10 +83,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -33.0
-offset_right = -9.0
-offset_bottom = -10.0
+offset_left = -90.0
+offset_top = -55.0
+offset_right = -14.0
+offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "v0.0.1"

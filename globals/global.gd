@@ -1,18 +1,18 @@
 extends Node
 
 var player_can_move: bool = true
-var player_damage := 200.0
-var dust_damage := 1500.0
+var player_damage: float = 200.0
+var dust_damage: float= 1500.0
 var player_can_attack: bool = true
 var player_base_pos: Vector3 = Vector3(0,5,0)
 
 
 
-var enemies = [
+var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn"] #uma fase
 ]
 
-var dead_enemies_first_level = [
+var dead_enemies_first_level: Array = [
 	[0, 0],
 	[0, 0],
 	[0, 0],
@@ -29,6 +29,46 @@ var completed_levels: Dictionary = {
 	"first_level": false,
 	"second_level": false,
 	"third_level": false
+}
+
+var inventory: Dictionary = {
+	"current_weapon": current_weapon,
+	"current_spell": "",
+	"items": {
+		"photo": {
+			"icon": "res://icon.svg",
+			"name": "Foto da banda",
+			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
+			"buff": {
+				"damage": 100,
+				"shield": 0,
+				"health": 1,
+				"speed": 0,
+			},
+		},
+		"teddy": {
+			"icon": "res://UI/inventory/teddy-bear.png",
+			"name": "Ursinho de pelúcia antigo",
+			"desc": "Algo dele te traz um conforto muito grande (+defesa, +vida)",
+			"buff": {
+				"damage": 0,
+				"shield": 100,
+				"health": 2,
+				"speed": 0,
+			},
+		},
+		"coffee": {
+			"icon": "res://UI/inventory/teddy-bear.png",
+			"name": "Copo de café",
+			"desc": "É sempre bom um café pela manhã (+velocidade)",
+			"buff": {
+				"damage": 0,
+				"shield": 100,
+				"health": 2,
+				"speed": 1,
+			},
+		}
+	}
 }
 
 var cutscenes: Dictionary = {

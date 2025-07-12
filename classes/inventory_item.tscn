@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://3uf3l8ridahk"]
+
+[ext_resource type="Script" uid="uid://cjj54xe5wbpdq" path="res://classes/inventory_item.gd" id="1_ut6bi"]
+[ext_resource type="StyleBox" uid="uid://m4gxmfaa6kbp" path="res://shaders/item_stylebox.tres" id="2_jeuma"]
+
+[node name="inventory_item" type="Control"]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1193.0
+offset_bottom = -638.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_ut6bi")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 102.0
+theme_override_styles/panel = ExtResource("2_jeuma")

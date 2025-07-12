@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds7kd37e4kocp"]
+
+[ext_resource type="Script" uid="uid://b7xb2wow3hx13" path="res://scripts/coin_trap.gd" id="1_ufq6v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_waxui"]
+albedo_color = Color(1, 0.701961, 0.0196078, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqnro"]
+size = Vector3(1.23837, 1.25244, 0.407715)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1lujl"]
+size = Vector3(2.8855, 2.11922, 1.92468)
+
+[node name="coin_trap" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_ufq6v")
+
+[node name="coin" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.361981, 0)
+radius = 0.654297
+height = 0.187073
+material = SubResource("StandardMaterial3D_waxui")
+
+[node name="hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00160217, 0.381049, 0)
+shape = SubResource("BoxShape3D_xqnro")
+
+[node name="hurtbox" type="Area3D" parent="."]
+disable_mode = 1
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559947, -0.017)
+shape = SubResource("BoxShape3D_1lujl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.267238, 0.96363, 0, 0.96363, -0.267238, -1, -1.16814e-08, -4.21216e-08, 1.07944, 0.414787, 0.022737)
+visible = false
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.267238, -0.96363, 0, 0.96363, -0.267238, 1, -1.16814e-08, -4.21216e-08, -1.067, 0.414787, 0.022737)
+visible = false
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

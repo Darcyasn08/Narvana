@@ -10,7 +10,7 @@ var player_near: bool = false
 func _physics_process(_delta: float) -> void:
 	activate_dialogue()
 
-func get_npc_data():
+func get_npc_data() -> void:
 	if npc_manager == null:
 		print("ops, não tem node3d aqui, arruma depois isso hein")
 	else:
@@ -29,6 +29,6 @@ func _on_body_exited(body: Node3D) -> void:
 		player_near = false
 		SignalBus.on_dialog_area_leave.emit()
 
-func activate_dialogue():
+func activate_dialogue() -> void:
 	if player_near and Input.is_action_just_pressed("e"):
 		get_npc_data()

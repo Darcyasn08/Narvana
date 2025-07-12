@@ -99,7 +99,7 @@ func _on_timer_timeout() -> void:
 			if sider < global_rotation.y: 
 				drift_side = -1
 			await (get_tree().create_timer(1.7).timeout)
-			print(drift_side)
+			#print(drift_side)
 			state = "waiting"
 			velocity = Vector3(0,0,0)
 			$Timer.wait_time = 3

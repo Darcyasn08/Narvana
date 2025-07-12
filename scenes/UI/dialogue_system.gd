@@ -121,12 +121,12 @@ func _on_diag_option_1_pressed() -> void:
 	$diag_option1.hide()
 	$diag_option2.hide()
 	$dialogue_text.text = Global.dialogues[cur_npc][random_diag][cur_text].get_slice(";", 2)
-	print("first button pressed")
+	#print("first button pressed")
 	can_progress = true
 
 func _on_diag_option_2_pressed() -> void:
 	$diag_option1.hide()
 	$diag_option2.hide()
 	$dialogue_text.text = Global.dialogues[cur_npc][random_diag][cur_text].get_slice(";", 3)
-	print("second button pressed")
+	#print("second button pressed")
 	can_progress = true

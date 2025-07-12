@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cw3bywfskij7i" path="res://3d_models/placeholders/marketplace_floor.glb" id="6_7xm76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lfl5"]
-albedo_color = Color(0.823609, 0.760784, 0.684329, 1)
+shading_mode = 0
+albedo_color = Color(0.50581, 0.315428, 0.170037, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2uk2"]
 

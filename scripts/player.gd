@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 # VARIÁVEIS EM REAÇÃO A MOVIMENTAÇÃO
 var JUMP_VELOCITY: float = 4
-var camera_input_direction := Vector2.ZERO
-var last_movement_direction := Vector3.BACK
+var camera_input_direction: Vector2 = Vector2.ZERO
+var last_movement_direction: Vector3 = Vector3.BACK
 var mouse_sens: float = .11
 var move_speed: float = 8.0
 var acceleration: float = 15.0
 var rotation_speed: float = 10.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
-var ground_speed
+var ground_speed: float
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
@@ -18,7 +18,7 @@ var dashed: bool = false
 var knockbacked: bool = false
 var stunned: bool = false
 var immune: bool = false
-var sens := 0.07
+var sens: float = 0.07
 var immune_time: float = 2.5
 
 # VARIÁVEIS DE IMPRTAÇÃO
@@ -29,11 +29,8 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
-	get_nodes()
 	SignalBus.on_player_health_changed.emit(health)
-	#SignalBus.on_dialog_activated.connect(set_move)
 
 
 func _physics_process(delta: float) -> void:
@@ -86,7 +83,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	dash()
-	attack()
 	magic()
 	
 	if not is_on_floor():
@@ -108,6 +104,8 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("e") and Global.player_can_attack:
+		attack()
 	
 	#if event.is_action_pressed("e"):
 		#var target = $RayCast3D.get_collider()
@@ -115,18 +113,14 @@ func _input(event: InputEvent) -> void:
 			#if target.is_in_group("npcs"):
 				#print("hi npc!")
 	
-	
-	#para o ataque
-	#if event.is_action_pressed("e") and Global.player_can_attack:
-		#attack()
 
-
-func hurt(damage):
+func hurt(damage) -> void:
 	if damage < health and immune == false:
 		get_immune()
 		#muda a cor da skin do narval
+		$narwhal_skin/narval_model/AnimationPlayer2.play("take_damage")
 		health -= damage
-		print(health)
+		print("Vída do player: ",health)
 		SignalBus.on_player_health_changed.emit(health)
 	elif damage >= health and immune == false:
 		health = 0
@@ -134,15 +128,12 @@ func hurt(damage):
 		SignalBus.on_player_health_changed.emit(health)
 		die()
 
-
-# próxima atualização: fazer tela de morte
-func die():
-	print("morreu")
+func die() -> void:
 	get_tree().paused = true
 	var death_screen = death_screen_inst.instantiate()
 	add_child(death_screen)
 
-func dash():
+func dash() -> void:
 	if Input.is_action_just_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dashed = true
 		move_speed += 300
@@ -153,23 +144,20 @@ func dash():
 		await(get_tree().create_timer(1).timeout)
 		dashed = false
 
-
-func knockback(force: Vector3, _impact_point: Vector3):
+func knockback(force: Vector3, _impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
 
+func attack() -> void:
+	if Global.current_weapon == "tonfa":
+		$narwhal_skin/narval_model/Armature_001.show()
+		$narwhal_skin/narval_model/Armature_002.hide()
+		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
+	elif Global.current_weapon == "bat":
+		$narwhal_skin/narval_model/Armature_002.show()
+		$narwhal_skin/narval_model/Armature_001.hide()
+		$narwhal_skin/narval_model/attack_player.play("bat_attack")
 
-func attack():
-	if Input.is_action_just_pressed("e") and Global.player_can_attack:
-		if Global.current_weapon == "tonfa":
-			$narwhal_skin/narval_model/Armature_001.show()
-			$narwhal_skin/narval_model/Armature_002.hide()
-			$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
-		elif Global.current_weapon == "bat":
-			$narwhal_skin/narval_model/Armature_002.show()
-			$narwhal_skin/narval_model/Armature_001.hide()
-			$narwhal_skin/narval_model/attack_player.play("bat_attack")
-
-func atta2ck():
+func atta2ck() -> void:
 	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
 		$Node3D.show()
 		$Node3D/arma/CollisionShape3D.disabled = false
@@ -182,7 +170,7 @@ func atta2ck():
 		$Node3D.rotation.y = skin.rotation.y
 
 
-func get_immune():
+func get_immune() -> void:
 	immune = true
 	$torus_mesh.show()
 	await(get_tree().create_timer(immune_time).timeout)
@@ -202,7 +190,7 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		knockbacked = false
 		stunned = false
 
-func magic():
+func magic() -> void:
 	if Input.is_action_just_pressed("r") and is_on_floor():
 		$magics.rotation.y = skin.rotation.y
 		stunned= true
@@ -210,13 +198,8 @@ func magic():
 		$magics/CSGCombiner3D.show()
 		await(get_tree().create_timer(1).timeout)
 		$magics/dust_magic/CollisionShape3D.disabled = false 
-		print($magics/dust_magic.monitorable)
+		#print($magics/dust_magic.monitorable)
 		await(get_tree().create_timer(1).timeout)
 		$magics/dust_magic/CollisionShape3D.disabled = true
 		$magics/CSGCombiner3D.hide()
 		stunned = false
-
-func get_nodes():
-	var node_n = 1
-	var node = get_node("saidas/node"+str(node_n)+"/a1")
-	print(node)

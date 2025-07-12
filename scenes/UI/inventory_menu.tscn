@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddw77aywbgkt1"]
+
+[ext_resource type="Script" uid="uid://qfijfq46qev1" path="res://scripts/UI/inventory_menu.gd" id="1_qtyf2"]
+[ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_j6bxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
+bg_color = Color(0.167724, 0.248556, 0.277141, 1)
+
+[node name="inventory_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qtyf2")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -503.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fnxws")
+
+[node name="item_list" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 312.0
+offset_right = 1196.0
+offset_bottom = 550.0
+
+[node name="Telas" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(628, 407)
+scale = Vector2(3.39253, 3.27962)
+texture = ExtResource("2_j6bxq")
+region_enabled = true
+region_rect = Rect2(738.54, 52.881, 271.755, 173.387)
+
+[node name="Telas2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1413, 304)
+scale = Vector2(3.39253, 3.27962)
+texture = ExtResource("2_j6bxq")
+region_enabled = true
+region_rect = Rect2(445.624, 52.0704, 262.513, 170.714)

@@ -13,7 +13,7 @@ func _on_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, 
 	if area.is_in_group("weapon"):
 		if life > Global.player_damage :
 			life -= Global.player_damage
-			print(life)
+			#print(life)
 		else:
 			queue_free()
 		
