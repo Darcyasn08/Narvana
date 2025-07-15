@@ -49,3 +49,9 @@ scale = Vector2(3.39253, 3.27962)
 texture = ExtResource("2_j6bxq")
 region_enabled = true
 region_rect = Rect2(445.624, 52.0704, 262.513, 170.714)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

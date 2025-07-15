@@ -1,12 +1,15 @@
 extends Node
 
 var player_can_move: bool = true
-var player_damage: float = 200.0
+
 var dust_damage: float= 1500.0
 var player_can_attack: bool = true
 var player_base_pos: Vector3 = Vector3(0,5,0)
 
 var player_health: int = 6
+var player_damage: float = 200.0
+var player_speed: float = 8.0
+
 var house_health: int = 5000
 
 var enemies: Array = [
@@ -37,34 +40,34 @@ var inventory: Dictionary = {
 	"current_spell": "",
 	"items": {
 		"photo": {
+			"player_has": true,
 			"icon": "res://icon.svg",
 			"name": "Foto da banda",
 			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
 			"buff": {
-				"damage": 100,
-				"shield": 0,
+				"damage": 50000,
 				"health": 1,
 				"speed": 0,
 			},
 		},
 		"teddy": {
+			"player_has": false,
 			"icon": "res://UI/inventory/teddy-bear.png",
 			"name": "Ursinho de pelúcia antigo",
-			"desc": "Algo dele te traz um conforto muito grande (+defesa, +vida)",
+			"desc": "Algo dele te traz um conforto muito grande (+vida)",
 			"buff": {
 				"damage": 0,
-				"shield": 100,
 				"health": 2,
 				"speed": 0,
 			},
 		},
 		"coffee": {
+			"player_has": true,
 			"icon": "res://UI/inventory/teddy-bear.png",
 			"name": "Copo de café",
 			"desc": "É sempre bom um café pela manhã (+velocidade)",
 			"buff": {
 				"damage": 0,
-				"shield": 100,
 				"health": 2,
 				"speed": 1,
 			},

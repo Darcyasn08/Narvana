@@ -35,6 +35,7 @@ func _ready() -> void:
 	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
 	SignalBus.on_player_health_changed.emit(health)
+	SignalBus.on_item_list_updated.connect(update_status)
 
 
 func _physics_process(delta: float) -> void:
@@ -215,6 +216,9 @@ func magic() -> void:
 		stunned = false 
 		$magics/crab.hide()
 
+func update_status() -> void:
+	health = Global.player_health
+	move_speed = Global.player_speed
 
 func _on_player_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies"):

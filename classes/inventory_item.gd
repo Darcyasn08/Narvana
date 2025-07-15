@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 	item_desc_label.position = item_name_label.position + Vector2(0,25)
 	mouse_hover_panel.add_child(item_desc_label)
-	print(item_desc_label)
+	#print(item_desc_label)
 	
 	mouse_hover_panel.hide()
 
