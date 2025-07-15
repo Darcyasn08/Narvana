@@ -6,7 +6,10 @@ extends Area3D
 @export var hitbox_collision: CollisionShape3D
 
 func _ready() -> void:
-	pass
+	parent.set_collision_layer_value(2, true)
+	print("cu"+str(parent.collision_layer))
+	parent.set_collision_mask_value(1, true)
+	parent.set_collision_mask_value(2, true)
 
 func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 	if area.is_in_group("weapon"):

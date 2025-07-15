@@ -61,8 +61,18 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_feath"]
+font_size = 53
+
+[sub_resource type="LabelSettings" id="LabelSettings_w67w4"]
+font_size = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
 font_size = 25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mko1u"]
+atlas = ExtResource("1_qo2fb")
+region = Rect2(442.215, 51.343, 266.996, 170.471)
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3

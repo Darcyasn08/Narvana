@@ -6,7 +6,8 @@ var dust_damage: float= 1500.0
 var player_can_attack: bool = true
 var player_base_pos: Vector3 = Vector3(0,5,0)
 
-
+var player_health: int = 6
+var house_health: int = 5000
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn"] #uma fase
@@ -297,26 +298,5 @@ var dialogues: Dictionary = {
 			"vamo rir, daniel, vamo rir",
 			"muahahaHAHAHAHAH"
 		],
-	}
-}
-
-var crab_diag: Dictionary = {
-	"name": "crab junior",
-	"missions": {
-		0: [
-			"your first missions is..",
-			"give me your phone"
-		]
-	},
-	
-	"daily": {
-		0: [
-			"hey soul sister",
-			"i dont care"
-		],
-		1: [
-			"my godness!",
-			"youre a bitch."
-		]
 	}
 }

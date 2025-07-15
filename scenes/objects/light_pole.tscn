@@ -58,6 +58,10 @@ shape = SubResource("CylinderShape3D_ilehk")
 lod_bias = 0.3
 visibility_range_end = 110.0
 
+[node name="wire" parent="light_pole_model" index="4"]
+lod_bias = 0.3
+visibility_range_end = 110.0
+
 [node name="lamp" parent="light_pole_model" index="5"]
 material_override = SubResource("StandardMaterial3D_ilehk")
 lod_bias = 0.1

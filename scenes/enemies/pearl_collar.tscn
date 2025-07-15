@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cgbkj0s64h0nv"]
 
-[ext_resource type="Script" uid="uid://cg6qy8sdeyuxu" path="res://scripts/pearl_collar.gd" id="1_8t814"]
+[ext_resource type="Script" uid="uid://cg6qy8sdeyuxu" path="res://scripts/enemies/pearl_collar.gd" id="1_8t814"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_f22wo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f22wo"]

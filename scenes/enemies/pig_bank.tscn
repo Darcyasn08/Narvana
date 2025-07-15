@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://w1dh1r4ewd5b"]
 
-[ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/pig_bank.gd" id="1_fgw4t"]
+[ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/enemies/pig_bank.gd" id="1_fgw4t"]
 [ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
 [ext_resource type="Texture2D" uid="uid://dccy454b0rflp" path="res://3d_models/placeholders/piggy-bank-texture.png" id="3_0pmpx"]
-[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemy_hitbox.tscn" id="5_nykp7"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="5_nykp7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw1nj"]
 diffuse_mode = 3

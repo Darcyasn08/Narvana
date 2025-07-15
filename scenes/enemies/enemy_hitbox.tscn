@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8d1fkygyobpy"]
 
-[ext_resource type="Script" uid="uid://djx1he0n44cmm" path="res://scripts/enemy_hitbox.gd" id="1_6tm2y"]
+[ext_resource type="Script" uid="uid://djx1he0n44cmm" path="res://scripts/enemies/enemy_hitbox.gd" id="1_6tm2y"]
 
 [node name="enemy_hitbox" type="Area3D" groups=["enemies"]]
 transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0, 0)

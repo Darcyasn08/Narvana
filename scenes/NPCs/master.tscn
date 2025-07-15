@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cehotwhkrkbkq"]
 
-[ext_resource type="Script" uid="uid://0o75wa888xm4" path="res://scripts/master.gd" id="1_h2qy3"]
+[ext_resource type="Script" uid="uid://0o75wa888xm4" path="res://scripts/NPCs/master.gd" id="1_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://daidw401j2ftw" path="res://3d_models/placeholders/master.glb" id="1_jooxx"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_rnotf"]
 [ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/npc_dialogue_area.tscn" id="4_q3f5g"]

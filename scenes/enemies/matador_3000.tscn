@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxuc6bndkvomy"]
 
-[ext_resource type="Script" uid="uid://bgleic34bjq5k" path="res://scripts/matador_3000.gd" id="1_xvfsl"]
+[ext_resource type="Script" uid="uid://bgleic34bjq5k" path="res://scripts/enemies/matador_3000.gd" id="1_xvfsl"]
 [ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="2_qeony"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dbsys"]

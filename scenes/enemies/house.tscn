@@ -1,0 +1,320 @@
+[gd_scene load_steps=21 format=3 uid="uid://dnch3cbsutmqm"]
+
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
+[ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
+[ext_resource type="Material" path="res://shaders/red_laser.tres" id="2_6syyc"]
+[ext_resource type="Script" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
+size = Vector3(5, 3, 11)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hfkix"]
+size = Vector3(5, 3, 21)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5ubp"]
+size = Vector3(4.49379, 6.06525, 21.0398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfkix"]
+size = Vector3(5.06287, 4.33057, 4.0173)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_metfq"]
+size = Vector3(4.05014, 4.33057, 4.95892)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6syyc"]
+size = Vector3(4.0477, 4.37659, 5.06628)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
+size = Vector3(4.00152, 4.46899, 5.0526)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 20.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6syyc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 25.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vy7fe"]
+size = Vector3(10.0142, 4.60742, 4.04362)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10qhy"]
+size = Vector3(8.9153, 4.09398, 3.49633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2y50f"]
+size = Vector3(3.00882, 3.30933, 3.47893)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy7fe"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.752941)
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_10qhy"]
+material = SubResource("StandardMaterial3D_vy7fe")
+height = 0.01
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o1325"]
+height = 50.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obbqb"]
+size = Vector3(2.89917, 2.57715, 2.86987)
+
+[node name="house" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_metfq")
+
+[node name="house_model" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="house_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67575, -1.55259)
+size = Vector3(10, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="house_model"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0595918, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_g5ubp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="house_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48536, 0.828836, -1.37848)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="house_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="walls_holder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="parede2" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.931, 0, 14.3948)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="parede3" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06762, 0, 26.2211)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="collision_das_paredes" type="StaticBody3D" parent="walls_holder"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.412, 1.5, 10.975)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, 24.763)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365, 1.5, 10.975)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.88095, 1.34249, 23.3742)
+shape = SubResource("BoxShape3D_hfkix")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88811, 1.33687, -1.12138)
+shape = SubResource("BoxShape3D_metfq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87599, 1.32416, -1.25257)
+shape = SubResource("BoxShape3D_6syyc")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89019, 1.31531, 23.2593)
+shape = SubResource("BoxShape3D_o1325")
+
+[node name="saidas" type="Node3D" parent="walls_holder"]
+
+[node name="exit1" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.34593, 1.222, 4)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit1"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 4.76837e-07, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit2" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 8)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit2"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit3" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 12)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit3"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit4" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 16)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit4"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit5" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 20)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit5"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit6" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit6"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.89501)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit7" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit7"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 10.7895)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit8" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit8"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.51116)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit9" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 1.222, 0.870655)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit9"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.222, -11.287)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="parede1" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.9315, 0, 7.70123)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_hfkix")]
+hitbox_collision = NodePath("hitbox")
+
+[node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.0135483, 1.60156, -1.68813)
+shape = SubResource("BoxShape3D_vy7fe")
+
+[node name="colisao_principal" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.0393789, 1.54614, -1.57819)
+shape = SubResource("BoxShape3D_10qhy")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.65948, 0.831869, -1.3904)
+shape = SubResource("BoxShape3D_2y50f")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.56563, 0.831869, -1.3904)
+shape = SubResource("BoxShape3D_2y50f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="holo_holder" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5088, 0)
+
+[node name="holofote" type="CSGBox3D" parent="holo_holder"]
+size = Vector3(1.7, 1.7, 2.6)
+
+[node name="laser_holofote" type="RayCast3D" parent="holo_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.422)
+target_position = Vector3(0, -1, 80)
+script = ExtResource("4_o1325")
+
+[node name="beam" type="MeshInstance3D" parent="holo_holder/laser_holofote"]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 1.89736e-08, 0, -0.0717747)
+mesh = SubResource("CylinderMesh_10qhy")
+
+[node name="laser_area" type="Area3D" parent="holo_holder"]
+
+[node name="hurtbox" type="CollisionShape3D" parent="holo_holder/laser_area"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 24.269)
+shape = SubResource("CylinderShape3D_o1325")
+disabled = true
+
+[node name="door" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.48015)
+
+[node name="door_collision" type="CollisionShape3D" parent="door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36731, 0.788574, 1.48338)
+shape = SubResource("BoxShape3D_obbqb")
+disabled = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="holo_holder/laser_area" to="." method="_on_laser_area_area_entered"]
+[connection signal="area_entered" from="door" to="." method="_on_door_area_entered"]
+[connection signal="area_exited" from="door" to="." method="_on_door_area_exited"]

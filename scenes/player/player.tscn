@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=17 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -25,7 +25,29 @@ outer_radius = 0.84
 [sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
 size = Vector3(3.02588, 2.61572, 2.97473)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_p47bc"]
+size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_75vfm"]
+albedo_color = Color(1, 0.34902, 0.0156863, 1)
+emission_enabled = true
+emission = Color(1, 0.34902, 0.0156863, 1)
+emission_energy_multiplier = 6.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_p47bc"]
+size = Vector3(5, 3, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_75vfm"]
+radius = 1.5
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
+transparency = 1
+albedo_color = Color(1, 1, 0, 0.498039)
+
 [node name="player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_3vyb7")
 
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
@@ -61,10 +83,6 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-
 [node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
 visible = false
 
@@ -76,22 +94,6 @@ transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.252
 visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
-
-[node name="RayCast3D2" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448136, 0.711494, -0.508869)
-visible = false
-target_position = Vector3(0, 0, 4)
-collide_with_areas = true
-debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
-debug_shape_thickness = 5
-
-[node name="RayCast3D3" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461903, 0.711494, -0.508869)
-visible = false
-target_position = Vector3(0, 0, 4)
-collide_with_areas = true
-debug_shape_custom_color = Color(0, 0.473197, 0.153518, 1)
-debug_shape_thickness = 5
 
 [node name="magics" type="Node3D" parent="."]
 
@@ -113,6 +115,26 @@ size = Vector3(2.8, 0.3, 2.8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.53518)
 size = Vector3(3, 0.2, 3)
 
+[node name="mandala" type="MeshInstance3D" parent="magics"]
+visible = false
+mesh = SubResource("PlaneMesh_p47bc")
+surface_material_override/0 = SubResource("StandardMaterial3D_75vfm")
+
+[node name="mandala2" type="MeshInstance3D" parent="magics/mandala"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+mesh = SubResource("PlaneMesh_p47bc")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_75vfm")
+
+[node name="crab" type="MeshInstance3D" parent="magics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67432, -2.10079)
+visible = false
+mesh = SubResource("BoxMesh_p47bc")
+
+[node name="bubble" type="MeshInstance3D" parent="magics/crab"]
+transform = Transform3D(0.999986, 0, 0.00532323, 0, 1, 0, -0.00532323, 0, 0.999986, 0, -0.708933, 1.98576)
+mesh = SubResource("SphereMesh_75vfm")
+surface_material_override/0 = SubResource("StandardMaterial3D_0owmy")
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

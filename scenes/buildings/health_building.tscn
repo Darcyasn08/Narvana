@@ -65,6 +65,9 @@ visibility_range_end = 90.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055763, -0.0262604, 0.0122984)
 shape = SubResource("BoxShape3D_o83xo")
 
+[node name="stairs" parent="health_center" index="3"]
+visibility_range_end = 90.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="health_center/stairs" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="health_center/stairs/StaticBody3D"]

@@ -50,6 +50,10 @@ shape = SubResource("BoxShape3D_txfh0")
 lod_bias = 0.4
 visibility_range_end = 80.0
 
+[node name="Cube_002" parent="tree" index="1"]
+lod_bias = 0.4
+visibility_range_end = 80.0
+
 [node name="Cube_001" parent="tree" index="2"]
 transform = Transform3D(1.49208, 0, 0, 0, 1.49208, 0, 0, 0, 1.49208, 0.0337909, 5.20534, -0.708408)
 material_overlay = SubResource("ShaderMaterial_0urqp")
