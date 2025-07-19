@@ -7,6 +7,7 @@
 radius = 3.15509
 
 [node name="first_level_portal" type="Area3D"]
+collision_mask = 5
 script = ExtResource("1_l7h6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

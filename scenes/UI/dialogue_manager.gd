@@ -91,6 +91,7 @@ func check_options() -> void:
 	if npc_dialog["options"] == {}:
 		pass #sem opções
 	else: #se tiver opções, esse roda
+		print("there is an option")
 		can_progress = false
 		has_option = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -103,9 +104,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("e") and can_progress and has_started_diag:
 		progress_dialog() #se [e] for clicado, isso roda
 	elif event.is_action_pressed("e") and !can_progress and has_started_diag and !has_option:
-		can_progress = true
-		#print("too fast")
+		print("too fast")
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
+		can_progress = true
+	elif event.is_action_pressed("e") and has_option:
+		print("too fast when there is an option")
+		can_progress = false
 
 #função para progressar dialogo
 func progress_dialog() -> void:
@@ -137,7 +141,6 @@ func progress_dialog() -> void:
 func check_pressed_option() -> void:
 	dialog_text.text = ""
 	if npc_dialog["options"][pressed_option]["ignite"] == "quest":
-		#print("omg its a quest!")
 		print("And the quest is: ",Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"])
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
 		

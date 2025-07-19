@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://45m2rb81gimd"]
+[gd_scene load_steps=15 format=3 uid="uid://45m2rb81gimd"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
+[ext_resource type="Script" uid="uid://cog8qajqsgdme" path="res://scripts/second_level.gd" id="1_pfrex"]
 [ext_resource type="PackedScene" uid="uid://2qo7msqk15km" path="res://scenes/enemies/coin.tscn" id="2_hfe2k"]
+[ext_resource type="Script" uid="uid://d1mop2pl6ehi1" path="res://scripts/enemy_test.gd" id="4_7wo7l"]
 
 [sub_resource type="Environment" id="Environment_hfe2k"]
 background_mode = 1
@@ -22,7 +24,24 @@ data = PackedVector3Array(-50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50,
 [sub_resource type="BoxMesh" id="BoxMesh_ghpiu"]
 size = Vector3(10, 15, 10)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wo7l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfrex"]
+albedo_color = Color(0.437311, 0.616592, 0.585587, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pfrex"]
+material = SubResource("StandardMaterial3D_pfrex")
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7wo7l"]
+material = SubResource("StandardMaterial3D_pfrex")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8wih"]
+size = Vector3(25.1794, 4.50879, 1)
+
 [node name="second_level" type="Node3D"]
+script = ExtResource("1_pfrex")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hfe2k")
@@ -49,7 +68,7 @@ transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.007923
 mesh = SubResource("BoxMesh_ghpiu")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -16.0511, 0.843187, -26.7736)
+transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.00792371, -21.1399, 0.843187, -26.7736)
 mesh = SubResource("BoxMesh_ghpiu")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
@@ -77,10 +96,57 @@ transform = Transform3D(0.00792371, 0, 0.999969, 0, 1, 0, -0.999969, 0, 0.007923
 mesh = SubResource("BoxMesh_ghpiu")
 
 [node name="player" parent="." instance=ExtResource("1_k6ckt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681013, 0.24365, -43.0582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7396, 0.24365, -41.8038)
 
 [node name="coin" parent="." instance=ExtResource("2_hfe2k")]
 transform = Transform3D(-0.939058, 0, 0.343758, 0, 1, 0, -0.343758, 0, -0.939058, -6.88132, 0.0225968, -16.0035)
 
 [node name="coin2" parent="." instance=ExtResource("2_hfe2k")]
 transform = Transform3D(-0.999204, 0, -0.0398877, 0, 1, 0, 0.0398877, 0, -0.999204, 5.60877, 0.0225958, 4.2947)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.760893, 0, -0.648877, 0, 1, 0, 0.648877, 0, 0.760893, -2.00403, 0.766785, -38.9016)
+script = ExtResource("4_7wo7l")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0880203, 0, -3.8147e-06)
+target_position = Vector3(0, 0, 25)
+hit_from_inside = true
+debug_shape_thickness = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_7wo7l")
+
+[node name="indicator" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("BoxMesh_pfrex")
+
+[node name="Timer" type="Timer" parent="CharacterBody3D"]
+wait_time = 4.0
+
+[node name="indicator" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78956, 1.10909, -36.9399)
+mesh = SubResource("BoxMesh_7wo7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.01747, 0, -49.2914)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84314, 1.75439, 0)
+shape = SubResource("BoxShape3D_u8wih")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.0256884, 0, 0.99967, 0, 1, 0, -0.99967, 0, -0.0256884, -7.75935, 1.75439, 12.784)
+shape = SubResource("BoxShape3D_u8wih")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-0.0256884, 0, 0.99967, 0, 1, 0, -0.99967, 0, -0.0256884, 17.0735, 1.75439, 12.5548)
+shape = SubResource("BoxShape3D_u8wih")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.999566, 0, -0.0294395, 0, 1, 0, 0.0294395, 0, 0.999566, 4.46696, 1.75439, 24.2433)
+shape = SubResource("BoxShape3D_u8wih")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -48)
+
+[connection signal="timeout" from="CharacterBody3D/Timer" to="CharacterBody3D" method="_on_timer_timeout"]

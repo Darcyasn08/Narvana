@@ -11,6 +11,7 @@ signal on_room_completed()
 signal on_start_room()
 
 signal on_item_list_updated()
+signal on_item_removed()
 
 signal on_start_dialog_function()
 

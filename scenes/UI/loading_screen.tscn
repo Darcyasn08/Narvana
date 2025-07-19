@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bme2ibv0u6u3e"]
+
+[ext_resource type="Script" uid="uid://ctmepyurh4wor" path="res://scripts/UI/loading_screen.gd" id="1_35dpi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7gmj"]
+bg_color = Color(0.197447, 0.167183, 0.118067, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_35dpi"]
+font_size = 24
+
+[node name="loading_screen" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_35dpi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l7gmj")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 662.0
+offset_right = 1240.0
+offset_bottom = 696.0
+text = "carregando..."
+label_settings = SubResource("LabelSettings_35dpi")

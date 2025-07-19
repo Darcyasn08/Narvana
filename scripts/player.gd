@@ -31,12 +31,9 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	health = Global.player_health
-	#print(Global.dialogs["crab"]["dialog_tree"].size())
-	print(health)
-	SignalBus.on_player_health_changed.emit(health)
 	SignalBus.on_item_list_updated.connect(update_status)
-
+	SignalBus.on_player_health_changed.emit(health)
+	health = Global.player_health
 
 func _physics_process(delta: float) -> void:
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
@@ -63,14 +60,17 @@ func _physics_process(delta: float) -> void:
 			last_movement_direction = move_direction
 		
 		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
+		#skin.global_rotation.y = target_angle
 		skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
 		
 		ground_speed = velocity.length()
-		if ground_speed > 0.0:
-			$narwhal_skin/narval_model/AnimationPlayer.play("walk")
+		if ground_speed > 0.1:
+			pass
+			#$narwhal_skin/narval_model/AnimationPlayer.play("walk")
 			#print(ground_speed)
 		elif ground_speed <= 0.0:
-			$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
+			pass
+			#$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
 		
 		if !knockbacked:
 			var y_velocity := velocity.y
@@ -78,13 +78,22 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
 			velocity.y = y_velocity + gravity * delta
 	else:
+		velocity.y = velocity.y + gravity * delta #aplica a gravidade, pra ele sempre ficar no chão
 		ground_speed = 0
-		velocity = Vector3(0,0,0)
-		#print("you cant just move mate")
 
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
 	if is_starting_jump:
 		velocity.y += jump_impulse
+	
+	#suporte inicial pra controle
+	if Input.is_action_pressed("move_camera_right"):
+		camera_pivot.rotation.y -= .03
+	if Input.is_action_pressed("move_camera_left"):
+		camera_pivot.rotation.y += .03
+	if Input.is_action_pressed("move_camera_up"):
+		camera_pivot.rotation.x += .03
+	if Input.is_action_pressed("move_camera_down"):
+		camera_pivot.rotation.x -= .03
 	
 	move_and_slide()
 	dash()
@@ -104,16 +113,24 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("e") and Global.player_can_attack:
+	if event.is_action_pressed("attack") and Global.player_can_attack:
 		attack()
 	if event.is_action_pressed("r"):
 		magic()
-	#if event.is_action_pressed("e"):
-		#var target = $RayCast3D.get_collider()
-		#if target != null:
-			#if target.is_in_group("npcs"):
-				#print("hi npc!")
-	
+	if event.is_action_pressed("e"):
+		var actual_target
+		var target = $narwhal_skin/RayCast3D.get_collider()
+		var target2 = $narwhal_skin/RayCast3D2.get_collider()
+		var target3 = $narwhal_skin/RayCast3D3.get_collider()
+		if target != null:
+			actual_target = target
+		if target2 != null:
+			actual_target = target2
+		if target3 != null:
+			actual_target = target3
+		if actual_target != null and actual_target.is_in_group("item_throwers"):
+			print("its an item_thrower!!")
+			SignalBus.on_item_removed.emit("teddy")
 
 func hurt(damage) -> void:
 	if damage < health and immune == false:
@@ -121,6 +138,7 @@ func hurt(damage) -> void:
 		#muda a cor da skin do narval
 		$narwhal_skin/narval_model/AnimationPlayer2.play("take_damage")
 		health -= damage
+		Global.player_health = health
 		print("Vída do player: ",health)
 		SignalBus.on_player_health_changed.emit(health)
 	elif damage >= health and immune == false:
@@ -135,7 +153,7 @@ func die() -> void:
 	add_child(death_screen)
 
 func dash() -> void:
-	if Input.is_action_just_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
+	if Input.is_action_just_pressed("shift") and !dashed and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dashed = true
 		move_speed += 300
 		acceleration += 300
@@ -219,6 +237,8 @@ func magic() -> void:
 func update_status() -> void:
 	health = Global.player_health
 	move_speed = Global.player_speed
+	print("move_speed: ",move_speed)
+	SignalBus.on_player_health_changed.emit(health)
 
 func _on_player_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies"):

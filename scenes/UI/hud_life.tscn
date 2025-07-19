@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkowergo43vnh"]
+
+[ext_resource type="Texture2D" uid="uid://cyrkd5onfkwkh" path="res://UI/star-life.png" id="1_cqoy7"]
+
+[node name="hud_life" type="TextureRect"]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_cqoy7")
+expand_mode = 2

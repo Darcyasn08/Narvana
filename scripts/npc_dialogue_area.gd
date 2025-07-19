@@ -16,7 +16,7 @@ func get_npc_data() -> void:
 	else:
 		npc_name = npc_manager.current_npc
 		#print(npc_name)
-		#print("dialog ignited")
+		print("dialog ignited")
 		SignalBus.on_dialog_activated.emit(npc_name)
 
 func _on_body_entered(body: Node3D) -> void:

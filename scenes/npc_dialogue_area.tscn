@@ -3,7 +3,14 @@
 [ext_resource type="Script" uid="uid://dv8sgt6i5xugs" path="res://scripts/npc_dialogue_area.gd" id="1_jayf7"]
 
 [node name="npc_dialogue_area" type="Area3D"]
+collision_mask = 5
 script = ExtResource("1_jayf7")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23538, 0)
+text = "[E] para interagir"
+font_size = 48
+outline_size = 19
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

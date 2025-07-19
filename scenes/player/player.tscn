@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
-radius = 2.26942
-height = 4.71178
+radius = 1.81826
+height = 3.80696
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 2.27452
-height = 4.93631
+radius = 2.04166
+height = 4.57104
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qek5x"]
 albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
@@ -53,14 +53,28 @@ script = ExtResource("1_3vyb7")
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
 [node name="RayCast3D" type="RayCast3D" parent="narwhal_skin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, -0.727218)
 target_position = Vector3(0, 0, 4)
 collide_with_areas = true
 debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
 debug_shape_thickness = 5
 
+[node name="RayCast3D2" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547864, 0.711494, -0.547569)
+target_position = Vector3(0, 0, 3.5)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
+debug_shape_thickness = 5
+
+[node name="RayCast3D3" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553924, 0.711494, -0.547569)
+target_position = Vector3(0, 0, 3.5)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
+debug_shape_thickness = 5
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.273969, 0, -0.352677, 0, 0.446587, 0, 0.352677, 0, 0.273969, 0, 1.06733, -0.145649)
+transform = Transform3D(0.260728, 0, -0.335632, 0, 0.425004, 0, 0.335632, 0, 0.260728, 0, 0.818147, -0.109938)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
@@ -75,10 +89,10 @@ spring_length = 7.0
 transform = Transform3D(1, 0, -7.10543e-15, 0, 1, -4.47035e-08, 0, 4.47035e-08, 1, -1.06163e-07, 0.0315475, 1.25275)
 
 [node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463014, -0.228351)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463014, -0.187945)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.347729, 0, 1.03775, 0.0830008)
+transform = Transform3D(0.324399, 0, -0.261421, 0, 0.416625, 0, 0.261421, 0, 0.324399, 0, 0.851279, 0.0830008)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
@@ -100,7 +114,7 @@ mesh = SubResource("TorusMesh_5gtgg")
 [node name="dust_magic" type="Area3D" parent="magics" groups=["damage_magic"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="magics/dust_magic" groups=["damage_magic"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19263, 2.55156)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19263, 2.2934)
 shape = SubResource("BoxShape3D_75vfm")
 disabled = true
 

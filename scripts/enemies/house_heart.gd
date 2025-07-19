@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	$Timer.start()
+	print("timer started")
 	if area.is_in_group("weapon"):
 		Global.house_health -= Global.player_damage * 2
 

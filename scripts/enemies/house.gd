@@ -15,7 +15,8 @@ func _ready() -> void:
 	life = Global.house_health
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("space") and player_near:
+	if event.is_action_pressed("e") and player_near:
+		print("let me enter!")
 		Global.house_health = life
 		Global.player_health = player.health
 		get_tree().change_scene_to_file("res://scenes/enemies/inside_house.tscn")

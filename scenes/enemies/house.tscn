@@ -1,12 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnch3cbsutmqm"]
+[gd_scene load_steps=23 format=3 uid="uid://dnch3cbsutmqm"]
 
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
 [ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
-[ext_resource type="Material" path="res://shaders/red_laser.tres" id="2_6syyc"]
-[ext_resource type="Script" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
+[ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="2_6syyc"]
+[ext_resource type="Script" uid="uid://3uoc66t42d1e" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
 size = Vector3(5, 3, 11)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edarn"]
+albedo_color = Color(1, 0.580392, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4pusr"]
+material = SubResource("StandardMaterial3D_edarn")
+size = Vector3(0.5, 3, 3)
 
 [sub_resource type="PrismMesh" id="PrismMesh_hfkix"]
 size = Vector3(5, 3, 21)
@@ -83,6 +90,11 @@ size = Vector3(3.71033, 3.37061, 2.96338)
 [node name="CSGBox3D4" type="CSGBox3D" parent="house_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
 size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="house_model"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.204376, 0.799185, 0.35848)
+mesh = SubResource("BoxMesh_4pusr")
+skeleton = NodePath("../../walls_holder/parede2")
 
 [node name="walls_holder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
@@ -307,7 +319,8 @@ shape = SubResource("CylinderShape3D_o1325")
 disabled = true
 
 [node name="door" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.48015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293264, 0, -0.731185)
+collision_mask = 5
 
 [node name="door_collision" type="CollisionShape3D" parent="door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36731, 0.788574, 1.48338)

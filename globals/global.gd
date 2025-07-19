@@ -1,19 +1,31 @@
 extends Node
 
+var has_started_game: bool = false
+
 var player_can_move: bool = true
 
 var dust_damage: float= 1500.0
 var player_can_attack: bool = true
 var player_base_pos: Vector3 = Vector3(0,5,0)
 
+var base_player_health: int = 6
+var base_player_damage: float = 200.0
+var base_player_speed: float = 8.0
+
 var player_health: int = 6
 var player_damage: float = 200.0
 var player_speed: float = 8.0
 
+var plus_player_health: int
+var plus_player_damage: float
+var plus_player_speed: float
+
 var house_health: int = 5000
 
 var enemies: Array = [
-	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn"] #uma fase
+	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn"], #uma fase
+	[],
+	[]
 ]
 
 var dead_enemies_first_level: Array = [
@@ -27,7 +39,7 @@ var current_weapon: String = "bat"
 
 var current_room: int = 0
 var current_world: int
-enum worlds {NORMAL, FIRST_LEVEL}
+enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
 
 var completed_levels: Dictionary = {
 	"first_level": false,
@@ -45,31 +57,31 @@ var inventory: Dictionary = {
 			"name": "Foto da banda",
 			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
 			"buff": {
-				"damage": 50000,
-				"health": 1,
+				"damage": 50,
+				"health": 0,
 				"speed": 0,
 			},
 		},
 		"teddy": {
-			"player_has": false,
+			"player_has": true,
 			"icon": "res://UI/inventory/teddy-bear.png",
 			"name": "Ursinho de pelúcia antigo",
 			"desc": "Algo dele te traz um conforto muito grande (+vida)",
 			"buff": {
 				"damage": 0,
-				"health": 2,
+				"health": 1,
 				"speed": 0,
 			},
 		},
 		"coffee": {
 			"player_has": true,
-			"icon": "res://UI/inventory/teddy-bear.png",
+			"icon": "res://UI/inventory/coffee-cup.png",
 			"name": "Copo de café",
 			"desc": "É sempre bom um café pela manhã (+velocidade)",
 			"buff": {
 				"damage": 0,
-				"health": 2,
-				"speed": 1,
+				"health": 0,
+				"speed": 2,
 			},
 		}
 	}
@@ -272,34 +284,5 @@ var quests: Dictionary = {
 			"desc": "give grandma some flowers",
 			"item_to_give": "flower bouquet"
 		}
-	}
-}
-
-var dialogues: Dictionary = {
-	"crab": {
-		0: [
-			"hello",
-			"i am crab",
-			"how are you?",
-			"i'm fine; i'm sad :(",
-			"ok :D"
-		],
-	},
-	
-	"master": {
-		0: [
-			"hello little one",
-			"i wonder what brings you here...",
-			"oh!",
-			"have you just come here to escape your old damn life?"
-		],
-	},
-	
-	"jellyfish": {
-		0: [
-			"vamo rir vamo rir",
-			"vamo rir, daniel, vamo rir",
-			"muahahaHAHAHAHAH"
-		],
 	}
 }

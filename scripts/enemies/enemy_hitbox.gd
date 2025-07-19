@@ -7,7 +7,6 @@ extends Area3D
 
 func _ready() -> void:
 	parent.set_collision_layer_value(2, true)
-	print("cu"+str(parent.collision_layer))
 	parent.set_collision_mask_value(1, true)
 	parent.set_collision_mask_value(2, true)
 

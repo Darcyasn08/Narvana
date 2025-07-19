@@ -467,3 +467,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6762, 0, 47.369)
 
 [node name="bubble_particle4" parent="." instance=ExtResource("19_ektfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1493, 0, 75.6621)
+
+[node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
+transform = Transform3D(-0.987383, 0, -0.158348, 0, 1, 0, 0.158348, 0, -0.987383, -0.071369, 0.235441, 4.62914)

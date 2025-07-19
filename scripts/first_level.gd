@@ -8,4 +8,5 @@ func _ready() -> void:
 	$temple_room1/multi_pillar.multimesh.set_instance_transform(2, Transform3D(Basis(), Vector3(-20,0,-18)))
 	$temple_room1/multi_pillar.multimesh.set_instance_transform(3, Transform3D(Basis(), Vector3(0,0,-18)))
 	#print($Area3D/CollisionShape3D.disabled)
+	Global.current_world = Global.worlds.FIRST_LEVEL
 	

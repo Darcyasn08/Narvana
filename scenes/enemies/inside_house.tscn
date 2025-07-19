@@ -53,6 +53,60 @@ mesh = SubResource("BoxMesh_jul8y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sala1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_i36tp")
 
+[node name="sala4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, 8.79254, -0.365469, 0.905021)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.16334e-15, 4.94913e-08, 1.13223, 1.13223, -4.94913e-08, 0, 4.94913e-08, 1.13223, -4.94913e-08, 0.105407, -0.365469, 10.1168)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.16334e-15, 4.94913e-08, 1.13223, 1.13223, -4.94913e-08, 0, 4.94913e-08, 1.13223, -4.94913e-08, 0.105407, -0.365469, -31.8585)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, -8.65131, -0.365469, 0.905021)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, -7.97649, -0.365469, -24.1343)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, 7.39745, -0.365469, -24.1343)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala9"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala9/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
 [node name="player" parent="." instance=ExtResource("1_xoj0w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430923, 3.73821)
 
@@ -85,7 +139,7 @@ mesh = SubResource("BoxMesh_jul8y")
 shape = SubResource("ConcavePolygonShape3D_i36tp")
 
 [node name="level_door" parent="." instance=ExtResource("3_i48gd")]
-transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -9.54967)
+transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -11.1323)
 room2 = 1
 
 [node name="house_heart" type="Area3D" parent="."]
@@ -106,7 +160,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90028, 0.906749, -7.04946)
 
 [node name="barrel" parent="movel" instance=ExtResource("5_qkv2e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16051, 0, 1.57302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.521151, 0, 0.0988836)
 
 [connection signal="area_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_entered"]

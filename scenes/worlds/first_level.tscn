@@ -12,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c6wsqvho3vpbx" path="res://3d_models/placeholders/temple-fence.obj" id="10_m5da8"]
 [ext_resource type="Script" uid="uid://cox5hu7ho8b6a" path="res://scripts/temple_muitimesh.gd" id="11_3641t"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="12_3641t"]
-[ext_resource type="PackedScene" uid="uid://dnch3cbsutmqm" path="res://scenes/enemies/house.tscn" id="13_pkb0d"]
+[ext_resource type="PackedScene" uid="uid://cw01vvimnw8u4" path="res://scenes/item_thrower.tscn" id="13_pkb0d"]
 
 [sub_resource type="Environment" id="Environment_snglc"]
 background_mode = 1
@@ -211,6 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2207, 15.1208)
 area_node = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="temple_room1/spawner_manager"]
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room1/spawner_manager/Area3D"]
 shape = SubResource("BoxShape3D_kalee")
@@ -256,6 +257,7 @@ area_node = NodePath("Area3D")
 current_room = 1
 
 [node name="Area3D" type="Area3D" parent="temple_room2/spawner_manager"]
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room2/spawner_manager/Area3D"]
 shape = SubResource("BoxShape3D_kalee")
@@ -279,6 +281,7 @@ area_node = NodePath("Area3D")
 current_room = 2
 
 [node name="Area3D" type="Area3D" parent="temple_room3/spawner_manager"]
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room3/spawner_manager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153044, 0, -2.27728)
@@ -370,6 +373,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.2207, 15.1208)
 area_node = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="temple_room4/spawner_manager"]
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/spawner_manager/Area3D"]
 shape = SubResource("BoxShape3D_kalee")
@@ -407,8 +411,8 @@ transform = Transform3D(0.873798, 0, -0.48629, 0, 1, 0, 0.48629, 0, 0.873798, 11
 room_number = 1
 
 [node name="spawner4" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(0.873798, 0, -0.48629, 0, 1, 0, 0.48629, 0, 0.873798, -8.57324, 3.07691, -74.9867)
-enemy_number = 2
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.536496, 3.07691, -77.9077)
+enemy_number = 1
 room_number = 2
 
 [node name="floor_collision" type="StaticBody3D" parent="."]
@@ -498,7 +502,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4726, 0.903255, -70.2276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2023, 0.903255, -61.7091)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 2.01786, -62.7769)
@@ -518,8 +522,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3518, 1.41415, -48.71)
 [node name="bubble_particle2" parent="." instance=ExtResource("12_3641t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6514, 0.748244, -63.604)
 
-[node name="house" parent="." instance=ExtResource("13_pkb0d")]
-transform = Transform3D(0.00162311, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00162311, -1.05494, 1.2466, -65.7009)
+[node name="item_thrower" parent="." instance=ExtResource("13_pkb0d")]
+transform = Transform3D(-0.0563617, 0, 0.99841, 0, 1, 0, -0.99841, 0, -0.0563617, -6.67522, 0.58064, 11.8947)
 
 [connection signal="area_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_body_entered"]

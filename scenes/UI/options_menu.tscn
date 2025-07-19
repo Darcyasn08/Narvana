@@ -1,102 +1,246 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcwkhk5uegqo"]
+[gd_scene load_steps=8 format=3 uid="uid://bcwkhk5uegqo"]
 
 [ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_3t8k5"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_qgort"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t8k5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
 atlas = ExtResource("2_qgort")
 region = Rect2(47.0406, 38.4275, 299.023, 170.548)
 
-[sub_resource type="LabelSettings" id="LabelSettings_feath"]
-font_size = 53
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3t8k5"]
+bg_color = Color(0.305404, 0.377805, 0.430827, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="LabelSettings" id="LabelSettings_w67w4"]
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_qgort"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ijsq6"]
+font_size = 14
 
 [node name="options_menu" type="CanvasLayer"]
 process_mode = 3
 layer = 2
 script = ExtResource("1_3t8k5")
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="base_screen" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 337.0
-offset_top = 185.0
-offset_right = 240.0
-offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.713245, 0.713245)
+
+[node name="ColorRect3" type="ColorRect" parent="base_screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.0372205, 0.0769108, 0.113894, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 92.0
-offset_top = 185.0
-offset_right = 468.0
-offset_bottom = 185.0
+[node name="ColorRect" type="ColorRect" parent="base_screen"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -361.0
+offset_right = 376.0
+offset_bottom = 655.0
 grow_vertical = 2
 scale = Vector2(0.713245, 0.713245)
 color = Color(0.0676492, 0.120297, 0.169335, 1)
 
-[node name="back_button" type="Button" parent="."]
-offset_left = 123.0
-offset_top = 208.0
-offset_right = 168.0
-offset_bottom = 285.0
+[node name="VBoxContainer" type="VBoxContainer" parent="base_screen"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_left = 53.0
+offset_top = 226.0
+offset_right = 212.0
+offset_bottom = 478.0
+scale = Vector2(0.713245, 0.713245)
+
+[node name="screen_settings_button" type="Button" parent="base_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+text = "TELA"
+flat = true
+alignment = 0
+
+[node name="audio_settings_button" type="Button" parent="base_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+text = "ÁUDIO"
+flat = true
+alignment = 0
+
+[node name="control_settings_button" type="Button" parent="base_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+text = "CONTROLES"
+flat = true
+alignment = 0
+
+[node name="quit_button" type="Button" parent="base_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+text = "SAIR"
+flat = true
+alignment = 0
+
+[node name="back_button" type="Button" parent="base_screen"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 38.0
+offset_right = 74.0
+offset_bottom = 115.0
 scale = Vector2(0.713245, 0.713245)
 theme_override_font_sizes/font_size = 50
 text = "<"
 
-[node name="Telas" type="Sprite2D" parent="."]
+[node name="Telas" type="Sprite2D" parent="base_screen"]
 visible = false
 modulate = Color(1, 1, 1, 0.4)
 position = Vector2(635, 359)
 scale = Vector2(4.3, 4.3)
 texture = SubResource("AtlasTexture_bl585")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 418.0
-offset_top = 233.0
-offset_right = 609.0
-offset_bottom = 306.0
-scale = Vector2(0.713245, 0.713245)
-text = "SOUND"
-label_settings = SubResource("LabelSettings_feath")
+[node name="Label" type="Label" parent="base_screen"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 51.0
+offset_right = 361.0
+offset_bottom = 74.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 30)
-offset_left = 147.0
-offset_top = 396.0
+[node name="controls_screen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 85.0
+offset_right = 304.0
+offset_bottom = 209.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
+
+[node name="Label" type="Label" parent="controls_screen/Panel"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "MOVIMENTAÇÃO"
+label_settings = SubResource("LabelSettings_qgort")
+
+[node name="Label2" type="Label" parent="controls_screen/Panel"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 79.0
+text = "Use WASD para se mover"
+label_settings = SubResource("LabelSettings_ijsq6")
+
+[node name="Panel2" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 85.0
+offset_right = 577.0
+offset_bottom = 209.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
+
+[node name="Label" type="Label" parent="controls_screen/Panel2"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "INTERAÇÃO"
+label_settings = SubResource("LabelSettings_qgort")
+
+[node name="Label2" type="Label" parent="controls_screen/Panel2"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 79.0
+text = "Use [E] para interagir com
+personagens e objetos"
+label_settings = SubResource("LabelSettings_ijsq6")
+
+[node name="Panel3" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 86.0
+offset_right = 852.0
+offset_bottom = 210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
+
+[node name="Label" type="Label" parent="controls_screen/Panel3"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "ATAQUE"
+label_settings = SubResource("LabelSettings_qgort")
+
+[node name="Label2" type="Label" parent="controls_screen/Panel3"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 79.0
+text = "Use o [Botão esquerdo do
+mouse] para atacar com a 
+arma equipada"
+label_settings = SubResource("LabelSettings_ijsq6")
+
+[node name="Panel4" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 244.0
 offset_right = 306.0
-offset_bottom = 648.0
-scale = Vector2(0.713245, 0.713245)
+offset_bottom = 368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-text = "SCREEN"
-label_settings = SubResource("LabelSettings_w67w4")
+[node name="Label" type="Label" parent="controls_screen/Panel4"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "PULO"
+label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label3" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-text = "SOUND"
-label_settings = SubResource("LabelSettings_w67w4")
+[node name="Label2" type="Label" parent="controls_screen/Panel4"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 79.0
+text = "Use [Espaço] para pular]"
+label_settings = SubResource("LabelSettings_ijsq6")
 
-[node name="Label4" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-text = "CONTROLS"
-label_settings = SubResource("LabelSettings_w67w4")
-
-[node name="Label5" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-text = "EXIT"
-label_settings = SubResource("LabelSettings_w67w4")
-
-[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="base_screen/VBoxContainer/control_settings_button" to="." method="_on_control_settings_button_pressed"]
+[connection signal="pressed" from="base_screen/back_button" to="." method="_on_back_button_pressed"]
