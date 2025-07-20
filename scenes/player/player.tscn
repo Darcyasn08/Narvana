@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=16 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -7,23 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
-radius = 1.81826
-height = 3.80696
+radius = 2.26942
+height = 4.71178
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vuu"]
-radius = 2.04166
-height = 4.57104
+radius = 2.27452
+height = 4.93631
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qek5x"]
 albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
 
 [sub_resource type="TorusMesh" id="TorusMesh_5gtgg"]
 outer_radius = 0.84
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
-size = Vector3(3.02588, 2.61572, 2.97473)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p47bc"]
 size = Vector2(4, 4)
@@ -47,38 +44,16 @@ albedo_color = Color(1, 1, 0, 0.498039)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 collision_layer = 4
-collision_mask = 7
 script = ExtResource("1_3vyb7")
 
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 
-[node name="RayCast3D" type="RayCast3D" parent="narwhal_skin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, -0.727218)
-target_position = Vector3(0, 0, 4)
-collide_with_areas = true
-debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
-debug_shape_thickness = 5
-
-[node name="RayCast3D2" type="RayCast3D" parent="narwhal_skin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547864, 0.711494, -0.547569)
-target_position = Vector3(0, 0, 3.5)
-collide_with_areas = true
-debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
-debug_shape_thickness = 5
-
-[node name="RayCast3D3" type="RayCast3D" parent="narwhal_skin"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553924, 0.711494, -0.547569)
-target_position = Vector3(0, 0, 3.5)
-collide_with_areas = true
-debug_shape_custom_color = Color(0.703327, 0.0982878, 0.292419, 1)
-debug_shape_thickness = 5
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.260728, 0, -0.335632, 0, 0.425004, 0, 0.335632, 0, 0.260728, 0, 0.818147, -0.109938)
+transform = Transform3D(0.273969, 0, -0.352677, 0, 0.446587, 0, 0.352677, 0, 0.273969, 0, 1.06733, -0.145649)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.14566, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
@@ -86,16 +61,20 @@ shape = SubResource("SphereShape3D_g2els")
 spring_length = 7.0
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D"]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, -4.47035e-08, 0, 4.47035e-08, 1, -1.06163e-07, 0.0315475, 1.25275)
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 1.49012e-08, 1, 0, 0.197022, 0.0449431)
 
 [node name="player_hitbox" type="Area3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463014, -0.187945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0463014, -0.228351)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.324399, 0, -0.261421, 0, 0.416625, 0, 0.261421, 0, 0.324399, 0, 0.851279, 0.0830008)
+transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.347729, 0, 1.03775, 0.0830008)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
 visible = false
@@ -104,30 +83,19 @@ visible = false
 visible = false
 
 [node name="torus_mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.25216, -0.160188)
+transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.33041, 0.0199297)
 visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_thickness = 5
+
 [node name="magics" type="Node3D" parent="."]
-
-[node name="dust_magic" type="Area3D" parent="magics" groups=["damage_magic"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="magics/dust_magic" groups=["damage_magic"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19263, 2.2934)
-shape = SubResource("BoxShape3D_75vfm")
-disabled = true
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="magics"]
-visible = false
-
-[node name="CSGBox3D" type="CSGBox3D" parent="magics/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0397136, 2.54569)
-size = Vector3(2.8, 0.3, 2.8)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="magics/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.53518)
-size = Vector3(3, 0.2, 3)
 
 [node name="mandala" type="MeshInstance3D" parent="magics"]
 visible = false
@@ -152,3 +120,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0owmy")
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cbrwv7t17y737"]
 
-[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_c35m8"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemy_hitbox.tscn" id="1_c35m8"]
 [ext_resource type="PackedScene" uid="uid://yyiley45xvxj" path="res://3d_models/placeholders/enemies/car.glb" id="1_q40b2"]
 [ext_resource type="Script" uid="uid://c86m1882mmsr7" path="res://scripts/enemies/car.gd" id="1_qt2eu"]
 
@@ -29,7 +29,7 @@ transparency = 1
 albedo_color = Color(0.584758, 0.683342, 0.819668, 0.568627)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srlri"]
-albedo_color = Color(0.196181, 0.446515, 0.32724, 1)
+albedo_color = Color(0.988756, 0.751052, 0.125296, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_br4js"]
 material = SubResource("StandardMaterial3D_srlri")

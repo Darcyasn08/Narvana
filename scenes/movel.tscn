@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2jwqqve8ovxk"]
 
-[ext_resource type="Script" uid="uid://i4oqnfvm682d" path="res://scripts/enemies/movel.gd" id="1_1dyxo"]
-[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_x46gv"]
+[ext_resource type="Script" uid="uid://i4oqnfvm682d" path="res://scripts/movel.gd" id="1_1dyxo"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_hitbox.tscn" id="2_x46gv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_77ik0"]
 radius = 0.604492

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxuc6bndkvomy"]
+
+[ext_resource type="Script" uid="uid://bgleic34bjq5k" path="res://scripts/matador_3000.gd" id="1_xvfsl"]
+[ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="2_qeony"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbsys"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6jre"]
+render_priority = 0
+shader = ExtResource("2_qeony")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_xvfsl"]
+
+[node name="matador3000" type="Area3D" groups=["enemies"]]
+script = ExtResource("1_xvfsl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dbsys")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999978, 0.00566434, -0.00351396, -0.00565345, 0.999979, 0.00310144, 0.00353146, -0.0030815, 0.999989, 0, 0, 0)
+material_overlay = SubResource("ShaderMaterial_f6jre")
+mesh = SubResource("BoxMesh_xvfsl")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

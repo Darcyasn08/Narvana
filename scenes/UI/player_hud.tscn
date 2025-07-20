@@ -1,22 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=7 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ngs"]
-bg_color = Color(0.566484, 0.704534, 0.801609, 1)
-corner_radius_bottom_right = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umbc4"]
-bg_color = Color(0.566484, 0.704534, 0.801609, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="LabelSettings" id="LabelSettings_xffaj"]
-font_size = 60
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cyrkd5onfkwkh" path="res://UI/star-life.png" id="2_q0ngs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0ngs"]
 font_size = 24
@@ -35,44 +20,48 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="LabelSettings" id="LabelSettings_umbc4"]
-font_size = 22
-font_color = Color(0.770781, 0.943237, 0.662571, 1)
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_xffaj"]
+font_color = Color(1, 0, 1, 1)
 
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
-
-[node name="Panel" type="Panel" parent="."]
-offset_left = -54.0
-offset_top = -44.0
-offset_right = 100.0
-offset_bottom = 113.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_q0ngs")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 1204.0
-offset_top = 649.0
-offset_right = 1358.0
-offset_bottom = 806.0
-scale = Vector2(0.308422, 0.308422)
-theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
-
-[node name="Label" type="Label" parent="Panel2"]
-layout_mode = 0
-offset_left = 59.9085
-offset_top = 38.1234
-offset_right = 92.9085
-offset_bottom = 121.123
-text = "E"
-label_settings = SubResource("LabelSettings_xffaj")
+metadata/_edit_horizontal_guides_ = [249.0]
 
 [node name="health" type="HBoxContainer" parent="."]
-offset_left = 109.0
-offset_top = 22.0
-offset_right = 513.0
-offset_bottom = 79.0
+offset_left = 27.0
+offset_top = 14.0
+offset_right = 389.0
+offset_bottom = 71.0
+
+[node name="TextureRect" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="health"]
+layout_mode = 2
+texture = ExtResource("2_q0ngs")
+expand_mode = 2
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 1
@@ -99,7 +88,6 @@ text = "00.0"
 label_settings = SubResource("LabelSettings_r6s25")
 
 [node name="quests_panel" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -129,9 +117,11 @@ offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 33.0
 
-[node name="removed_item_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 136.0
-offset_right = 62.0
-offset_bottom = 159.0
-label_settings = SubResource("LabelSettings_umbc4")
+[node name="blush" type="Label" parent="."]
+visible = false
+offset_left = 381.0
+offset_top = 221.0
+offset_right = 684.0
+offset_bottom = 244.0
+text = "vc esta com o efeito de blush na cara :0"
+label_settings = SubResource("LabelSettings_xffaj")

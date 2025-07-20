@@ -19,19 +19,9 @@ albedo_texture = ExtResource("3_11l1o")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ikuy"]
 albedo_texture = ExtResource("3_11l1o")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_11l1o"]
-height = 0.376404
-radius = 0.185547
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_1ikuy"]
-height = 0.259048
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3o5iq"]
+height = 0.189972
 radius = 0.520996
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d14el"]
-albedo_texture = ExtResource("3_11l1o")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ikuy"]
-albedo_texture = ExtResource("3_11l1o")
 
 [node name="coin" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_3o5iq")

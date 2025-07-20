@@ -1,184 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc7turudgrccy"]
+[gd_scene load_steps=4 format=3 uid="uid://cc7turudgrccy"]
 
-[ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
-[ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
-bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcvkx"]
-content_margin_left = 20.0
-content_margin_top = 10.0
-content_margin_right = 20.0
-content_margin_bottom = 10.0
-bg_color = Color(0.400358, 0.650285, 0.778217, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_bpkul"]
-font_size = 27
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_201h0"]
-bg_color = Color(0.288857, 0.492477, 0.513928, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4tv"]
-bg_color = Color(0.194655, 0.35167, 0.368167, 1)
+[ext_resource type="Texture2D" uid="uid://r4xbx0ka6e1t" path="res://UI/3-1.png" id="1_bpkul"]
+[ext_resource type="Script" uid="uid://ct7n11oeevnb0" path="res://scripts/start_menu.gd" id="1_jcvkx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jcvkx"]
-font_size = 25
+font_size = 50
+font_color = Color(0, 0, 0, 1)
 
 [node name="start_menu" type="CanvasLayer"]
 script = ExtResource("1_jcvkx")
 
-[node name="Panel" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bpkul")
-
-[node name="StartMenuArt" type="Sprite2D" parent="."]
-modulate = Color(0.552956, 0.552956, 0.552956, 1)
-position = Vector2(643, 354)
-scale = Vector2(0.992554, 0.992554)
-texture = ExtResource("2_jcvkx")
-
-[node name="art_container" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="3-1" type="Sprite2D" parent="."]
+position = Vector2(9.99999, 350)
+scale = Vector2(4.63894, 4.61808)
+texture = ExtResource("1_bpkul")
 
 [node name="start_button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -536.0
-offset_top = 206.0
-offset_right = -403.0
-offset_bottom = 268.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
-text = "JOGAR"
+offset_left = 67.0
+offset_top = 570.0
+offset_right = 218.0
+offset_bottom = 657.0
+theme_override_font_sizes/font_size = 40
+text = "start"
 
 [node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -541.0
-offset_top = -215.0
-offset_right = -252.0
-offset_bottom = -132.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
+offset_left = 247.0
+offset_top = 80.0
+offset_right = 488.0
+offset_bottom = 149.0
 text = "NARVANA"
-
-[node name="Label2" type="Label" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -90.0
-offset_top = -55.0
-offset_right = -14.0
-offset_bottom = -18.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "v0.0.1"
-label_settings = SubResource("LabelSettings_bpkul")
-
-[node name="save_screen" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -557.0
-offset_top = -289.0
-offset_right = 550.0
-offset_bottom = 275.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel2" type="Panel" parent="save_screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_201h0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="save_screen"]
-layout_mode = 0
-offset_left = 95.0
-offset_top = 100.0
-offset_right = 1022.0
-offset_bottom = 470.0
-
-[node name="0" type="Panel" parent="save_screen/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
-
-[node name="Label" type="Label" parent="save_screen/HBoxContainer/0"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 19.0
-offset_right = 62.0
-offset_bottom = 42.0
-text = "save 1"
 label_settings = SubResource("LabelSettings_jcvkx")
 
-[node name="Label2" type="Label" parent="save_screen/HBoxContainer/0"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 95.0
-offset_right = 143.0
-offset_bottom = 118.0
-text = "mundo atual: {}"
-
-[node name="Label3" type="Label" parent="save_screen/HBoxContainer/0"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 120.0
-offset_right = 143.0
-offset_bottom = 143.0
-text = "tempo total: ..."
-
-[node name="start_save" type="Button" parent="save_screen/HBoxContainer/0"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 301.0
-offset_right = 246.0
-offset_bottom = 344.0
-text = "abrir save"
-
-[node name="Panel4" type="Panel" parent="save_screen/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
-
-[node name="Panel5" type="Panel" parent="save_screen/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
-
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="save_screen/HBoxContainer/0/start_save" to="." method="_on_start_save_pressed"]

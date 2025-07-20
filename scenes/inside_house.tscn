@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=3 uid="uid://l5n6kg8s0e4a"]
+
+[ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_xoj0w"]
+[ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="2_08v5b"]
+[ext_resource type="PackedScene" uid="uid://1nka7s0nvnjj" path="res://scenes/level_door.tscn" id="3_i48gd"]
+[ext_resource type="Script" uid="uid://bwv0fbi8nec35" path="res://scripts/house_heart.gd" id="4_08v5b"]
+[ext_resource type="PackedScene" uid="uid://c2jwqqve8ovxk" path="res://scenes/movel.tscn" id="4_edtcm"]
+[ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="5_qkv2e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xoj0w"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_08v5b"]
+sky_material = SubResource("ProceduralSkyMaterial_xoj0w")
+
+[sub_resource type="Environment" id="Environment_i48gd"]
+background_mode = 2
+sky = SubResource("Sky_08v5b")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_jul8y"]
+size = Vector3(15, 1, 17)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i36tp"]
+data = PackedVector3Array(-7.5, 0.5, 8.5, 7.5, 0.5, 8.5, -7.5, -0.5, 8.5, 7.5, 0.5, 8.5, 7.5, -0.5, 8.5, -7.5, -0.5, 8.5, 7.5, 0.5, -8.5, -7.5, 0.5, -8.5, 7.5, -0.5, -8.5, -7.5, 0.5, -8.5, -7.5, -0.5, -8.5, 7.5, -0.5, -8.5, 7.5, 0.5, 8.5, 7.5, 0.5, -8.5, 7.5, -0.5, 8.5, 7.5, 0.5, -8.5, 7.5, -0.5, -8.5, 7.5, -0.5, 8.5, -7.5, 0.5, -8.5, -7.5, 0.5, 8.5, -7.5, -0.5, -8.5, -7.5, 0.5, 8.5, -7.5, -0.5, 8.5, -7.5, -0.5, -8.5, 7.5, 0.5, 8.5, -7.5, 0.5, 8.5, 7.5, 0.5, -8.5, -7.5, 0.5, 8.5, -7.5, 0.5, -8.5, 7.5, 0.5, -8.5, -7.5, -0.5, 8.5, 7.5, -0.5, 8.5, -7.5, -0.5, -8.5, 7.5, -0.5, 8.5, 7.5, -0.5, -8.5, -7.5, -0.5, -8.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ou0g"]
+size = Vector3(17.0222, 5.47095, 19.4886)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5qk87"]
+radius = 1.37021
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lqmp3"]
+radius = 1.2
+height = 3.0
+
+[node name="inside_house" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i48gd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="sala1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.13223, 0, 0, 0, 1.13223, 0, 0, 0, 1.13223, 0, 0, 0.905021)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="player" parent="." instance=ExtResource("1_xoj0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430923, 3.73821)
+
+[node name="sala2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.9393)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("2_08v5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.240443)
+area_node = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="spawner_manager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01931, 3.30266, 0.898422)
+shape = SubResource("BoxShape3D_2ou0g")
+
+[node name="sala3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.358044, 0, 0, 0, 0.358044, 0, 0, 0, 0.358044, 0, 0.312995, -11.3997)
+mesh = SubResource("BoxMesh_jul8y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="level_door" parent="." instance=ExtResource("3_i48gd")]
+transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -9.54967)
+room2 = 1
+
+[node name="house_heart" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11162, -23.8768)
+script = ExtResource("4_08v5b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house_heart"]
+shape = SubResource("SphereShape3D_5qk87")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="house_heart"]
+mesh = SubResource("CapsuleMesh_lqmp3")
+
+[node name="Timer" type="Timer" parent="house_heart"]
+wait_time = 5.0
+one_shot = true
+
+[node name="movel" parent="." instance=ExtResource("4_edtcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90028, 0.906749, -7.04946)
+
+[node name="barrel" parent="movel" instance=ExtResource("5_qkv2e")]
+
+[connection signal="area_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_exited"]
+[connection signal="area_entered" from="house_heart" to="house_heart" method="_on_area_entered"]
+[connection signal="timeout" from="house_heart/Timer" to="house_heart" method="_on_timer_timeout"]
