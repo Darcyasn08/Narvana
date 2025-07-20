@@ -6,6 +6,7 @@ var pos : Vector3
 var rot : Vector3
 var model : float #futuramente colocar pra essa variavel determinar o modelo do tiro
 var damage : int
+var blush : bool = false
 
 @onready var player = $"../player"
 
@@ -28,8 +29,12 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
-		get_tree().call_group("player","hurt",damage)
-		queue_free()
+		if blush:
+			SignalBus.on_blush_hit.emit()
+			queue_free()
+		if blush == false:
+			get_tree().call_group("player","hurt",damage)
+			queue_free()
 	if area.name != "player_hitbox" and !area.is_in_group("enemies"):
 		queue_free()
 

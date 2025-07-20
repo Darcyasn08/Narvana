@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 
 func spawn_enemies(room):
 	if room == room_number:
-		#print(catch_enemy, " --- ",enemy_path)
 		var enemy = enemy_path.instantiate()
 		
 		#substitui global_position por transform.origin, pra não aparecer um sinal de erro

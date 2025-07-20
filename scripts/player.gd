@@ -2,16 +2,15 @@ extends CharacterBody3D
 
 # VARIÁVEIS EM REAÇÃO A MOVIMENTAÇÃO
 var JUMP_VELOCITY: float = 4
-var camera_input_direction: Vector2 = Vector2.ZERO
-var last_movement_direction: Vector3 = Vector3.BACK
+var camera_input_direction := Vector2.ZERO
+var last_movement_direction := Vector3.BACK
 var mouse_sens: float = .11
 var move_speed: float = 8.0
 var acceleration: float = 15.0
 var rotation_speed: float = 10.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
-var ground_speed: float
-
+var ground_speed
 var magic_selec : int = 2 #temporario
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
@@ -20,7 +19,7 @@ var dashed: bool = false
 var knockbacked: bool = false
 var stunned: bool = false
 var immune: bool = false
-var sens: float = 0.07
+var sens := 0.07
 var immune_time: float = 2.5
 
 # VARIÁVEIS DE IMPRTAÇÃO
@@ -31,9 +30,12 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	SignalBus.on_item_list_updated.connect(update_status)
-	SignalBus.on_player_health_changed.emit(health)
 	health = Global.player_health
+	#print(Global.dialogs["crab"]["dialog_tree"].size())
+	print(health)
+	SignalBus.on_player_health_changed.emit(health)
+	#SignalBus.on_dialog_activated.connect(set_move)
+
 
 func _physics_process(delta: float) -> void:
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
@@ -60,17 +62,14 @@ func _physics_process(delta: float) -> void:
 			last_movement_direction = move_direction
 		
 		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
-		#skin.global_rotation.y = target_angle
 		skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
 		
 		ground_speed = velocity.length()
-		if ground_speed > 0.1:
-			pass
-			#$narwhal_skin/narval_model/AnimationPlayer.play("walk")
+		if ground_speed > 0.0:
+			$narwhal_skin/narval_model/AnimationPlayer.play("walk")
 			#print(ground_speed)
 		elif ground_speed <= 0.0:
-			pass
-			#$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
+			$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
 		
 		if !knockbacked:
 			var y_velocity := velocity.y
@@ -78,25 +77,25 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
 			velocity.y = y_velocity + gravity * delta
 	else:
-		velocity.y = velocity.y + gravity * delta #aplica a gravidade, pra ele sempre ficar no chão
 		ground_speed = 0
+		velocity = Vector3(0,0,0)
+		#print("you cant just move mate")
+	
+	if velocity != Vector3.ZERO:
+		$RayCast3D.target_position = velocity.normalized() * 4
 
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
 	if is_starting_jump:
 		velocity.y += jump_impulse
 	
-	#suporte inicial pra controle
-	if Input.is_action_pressed("move_camera_right"):
-		camera_pivot.rotation.y -= .03
-	if Input.is_action_pressed("move_camera_left"):
-		camera_pivot.rotation.y += .03
-	if Input.is_action_pressed("move_camera_up"):
-		camera_pivot.rotation.x += .03
-	if Input.is_action_pressed("move_camera_down"):
-		camera_pivot.rotation.x -= .03
-	
 	move_and_slide()
 	dash()
+	attack()
+	
+	
+	if not is_on_floor():
+		pass
+		#velocity.y -= gravity * delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -113,33 +112,26 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("attack") and Global.player_can_attack:
-		attack()
+	
+	if event.is_action_pressed("e"):
+		var target = $RayCast3D.get_collider()
+		if target != null:
+			if target.is_in_group("npcs"):
+				print("hi npc!")
 	if event.is_action_pressed("r"):
 		magic()
-	if event.is_action_pressed("e"):
-		var actual_target
-		var target = $narwhal_skin/RayCast3D.get_collider()
-		var target2 = $narwhal_skin/RayCast3D2.get_collider()
-		var target3 = $narwhal_skin/RayCast3D3.get_collider()
-		if target != null:
-			actual_target = target
-		if target2 != null:
-			actual_target = target2
-		if target3 != null:
-			actual_target = target3
-		if actual_target != null and actual_target.is_in_group("item_throwers"):
-			print("its an item_thrower!!")
-			SignalBus.on_item_removed.emit("teddy")
+	
+	#para o ataque
+	#if event.is_action_pressed("e") and Global.player_can_attack:
+		#attack()
+
 
 func hurt(damage) -> void:
 	if damage < health and immune == false:
-		get_immune()
+		get_immune(immune_time)
 		#muda a cor da skin do narval
-		$narwhal_skin/narval_model/AnimationPlayer2.play("take_damage")
 		health -= damage
-		Global.player_health = health
-		print("Vída do player: ",health)
+		print(health)
 		SignalBus.on_player_health_changed.emit(health)
 	elif damage >= health and immune == false:
 		health = 0
@@ -147,13 +139,16 @@ func hurt(damage) -> void:
 		SignalBus.on_player_health_changed.emit(health)
 		die()
 
+
+# próxima atualização: fazer tela de morte
 func die() -> void:
+	print("morreu")
 	get_tree().paused = true
 	var death_screen = death_screen_inst.instantiate()
 	add_child(death_screen)
 
 func dash() -> void:
-	if Input.is_action_just_pressed("shift") and !dashed and is_on_floor(): #tem o is on floor pra nao dar dash no ar
+	if Input.is_action_just_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dashed = true
 		move_speed += 300
 		acceleration += 300
@@ -163,18 +158,21 @@ func dash() -> void:
 		await(get_tree().create_timer(1).timeout)
 		dashed = false
 
+
 func knockback(force: Vector3, _impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
 
+
 func attack() -> void:
-	if Global.current_weapon == "tonfa":
-		$narwhal_skin/narval_model/Armature_001.show()
-		$narwhal_skin/narval_model/Armature_002.hide()
-		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
-	elif Global.current_weapon == "bat":
-		$narwhal_skin/narval_model/Armature_002.show()
-		$narwhal_skin/narval_model/Armature_001.hide()
-		$narwhal_skin/narval_model/attack_player.play("bat_attack")
+	if Input.is_action_just_pressed("e") and Global.player_can_attack:
+		if Global.current_weapon == "tonfa":
+			$narwhal_skin/narval_model/Armature_001.show()
+			$narwhal_skin/narval_model/Armature_002.hide()
+			$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
+		elif Global.current_weapon == "bat":
+			$narwhal_skin/narval_model/Armature_002.show()
+			$narwhal_skin/narval_model/Armature_001.hide()
+			$narwhal_skin/narval_model/attack_player.play("bat_attack")
 
 func atta2ck() -> void:
 	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
@@ -199,6 +197,18 @@ func get_immune(immune_time:= 5.0) -> void:
 	immune = false
 
 
+func _on_player_hitbox_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemies"):
+		stunned = true
+		var body_collision = (skin.global_position - area.global_position)
+		body_collision.y = 0.0
+		var force = body_collision
+		force = force * 2.0
+		knockback(force, body_collision)
+		await(get_tree().create_timer(.3).timeout)
+		knockbacked = false
+		stunned = false
+	
 func magic() -> void:
 	if is_on_floor() and magic_selec == 1:
 		$magics.rotation.y = skin.rotation.y
@@ -212,7 +222,6 @@ func magic() -> void:
 		$magics/dust_magic/CollisionShape3D.disabled = true
 		$magics/CSGCombiner3D.hide()
 		stunned = false
-	
 	if is_on_floor() and magic_selec == 2:
 		$magics/mandala.show()
 		stunned= true
@@ -224,7 +233,6 @@ func magic() -> void:
 		await(get_tree().create_timer(5).timeout)
 		Global.player_damage = pre_boost
 		print(Global.player_damage)
-	
 	if is_on_floor() and magic_selec == 3:
 		$magics.rotation.y = skin.rotation.y
 		get_immune(3.0)
@@ -233,21 +241,3 @@ func magic() -> void:
 		await(get_tree().create_timer(3).timeout)
 		stunned = false 
 		$magics/crab.hide()
-
-func update_status() -> void:
-	health = Global.player_health
-	move_speed = Global.player_speed
-	print("move_speed: ",move_speed)
-	SignalBus.on_player_health_changed.emit(health)
-
-func _on_player_hitbox_area_entered(area: Area3D) -> void:
-	if area.is_in_group("enemies"):
-		stunned = true
-		var body_collision = (skin.global_position - area.global_position)
-		body_collision.y = 0.0
-		var force = body_collision
-		force = force * 2.0
-		knockback(force, body_collision)
-		await(get_tree().create_timer(.3).timeout)
-		knockbacked = false
-		stunned = false

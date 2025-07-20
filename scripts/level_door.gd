@@ -1,8 +1,9 @@
-extends StaticBody3D
+extends MeshInstance3D
 
 @export var room1: int
 @export var room2: int
-@onready var door_collision: CollisionShape3D = $CollisionShape3D
+@onready var door_collision: CollisionShape3D = $StaticBody3D/CollisionShape3D
+
 
 func _ready() -> void:
 	SignalBus.on_start_room.connect(close)
