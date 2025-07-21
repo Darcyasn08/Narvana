@@ -1,11 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=40 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
-[ext_resource type="AudioStream" uid="uid://dgteiwd2130d7" path="res://music/The old village (1).mp3" id="2_ge66w"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
-[ext_resource type="AudioStream" uid="uid://ts35pdocjbbb" path="res://music/Tune of the Kalimba.mp3" id="3_ektfp"]
-[ext_resource type="AudioStream" uid="uid://iw6k17ro087p" path="res://music/bird-song.mp3" id="4_jebyo"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="7_s47ii"]
 [ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="8_5xlhr"]
 [ext_resource type="PackedScene" uid="uid://b6he2j4ixhwk8" path="res://scenes/buildings/village_marketplace.tscn" id="8_wcbeh"]
@@ -82,13 +79,6 @@ albedo_color = Color(0.830887, 0.805724, 0.532295, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wcbeh"]
 size = Vector3(50, 0.3, 60)
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_peaqf"]
-fade_time = 1.0
-stream_count = 3
-stream_0 = ExtResource("2_ge66w")
-stream_1 = ExtResource("3_ektfp")
-stream_2 = ExtResource("4_jebyo")
 
 [sub_resource type="BoxMesh" id="BoxMesh_x68fd"]
 size = Vector3(20, 0.2, 2)
@@ -192,13 +182,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.0367, 0.178845, -32.2505)
 material_override = SubResource("StandardMaterial3D_ge66w")
 mesh = SubResource("BoxMesh_wcbeh")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.38755, 1.99415, 75.5312)
-stream = SubResource("AudioStreamPlaylist_peaqf")
-volume_db = -5.0
-autoplay = true
-max_distance = 120.0
-panning_strength = 1.17
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.0143985, 0, -0.999896, 0, 1, 0, 0.999896, 0, 0.0143985, 90.0746, 2.74296, 113.414)
 
 [node name="temple" parent="." instance=ExtResource("7_s47ii")]
 transform = Transform3D(0.0143985, 0, -0.999896, 0, 1, 0, 0.999896, 0, 0.0143985, 66.8287, 5.72205e-06, 116.362)
@@ -467,6 +452,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6762, 0, 47.369)
 
 [node name="bubble_particle4" parent="." instance=ExtResource("19_ektfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1493, 0, 75.6621)
-
-[node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
-transform = Transform3D(-0.987383, 0, -0.158348, 0, 1, 0, 0.158348, 0, -0.987383, -0.071369, 0.235441, 4.62914)

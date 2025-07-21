@@ -6,18 +6,6 @@
 bg_color = Color(0.566484, 0.704534, 0.801609, 1)
 corner_radius_bottom_right = 100
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umbc4"]
-bg_color = Color(0.566484, 0.704534, 0.801609, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="LabelSettings" id="LabelSettings_xffaj"]
-font_size = 60
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_q0ngs"]
 font_size = 24
 outline_size = 4
@@ -41,6 +29,18 @@ font_color = Color(0.770781, 0.943237, 0.662571, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umbc4"]
+bg_color = Color(0.566484, 0.704534, 0.801609, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_xffaj"]
+font_size = 60
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
 
@@ -50,23 +50,6 @@ offset_top = -44.0
 offset_right = 100.0
 offset_bottom = 113.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_q0ngs")
-
-[node name="Panel2" type="Panel" parent="."]
-offset_left = 1204.0
-offset_top = 649.0
-offset_right = 1358.0
-offset_bottom = 806.0
-scale = Vector2(0.308422, 0.308422)
-theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
-
-[node name="Label" type="Label" parent="Panel2"]
-layout_mode = 0
-offset_left = 59.9085
-offset_top = 38.1234
-offset_right = 92.9085
-offset_bottom = 121.123
-text = "E"
-label_settings = SubResource("LabelSettings_xffaj")
 
 [node name="health" type="HBoxContainer" parent="."]
 offset_left = 109.0
@@ -135,3 +118,96 @@ offset_top = 136.0
 offset_right = 62.0
 offset_bottom = 159.0
 label_settings = SubResource("LabelSettings_umbc4")
+
+[node name="commands" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -319.0
+offset_top = -193.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel2" type="Panel" parent="commands"]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 131.0
+offset_right = 320.0
+offset_bottom = 288.0
+scale = Vector2(0.308422, 0.308422)
+theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
+
+[node name="Label" type="Label" parent="commands/Panel2"]
+layout_mode = 0
+offset_left = 59.9085
+offset_top = 38.1234
+offset_right = 92.9085
+offset_bottom = 121.123
+text = "E"
+label_settings = SubResource("LabelSettings_xffaj")
+
+[node name="Label2" type="Label" parent="commands/Panel2"]
+layout_mode = 0
+offset_left = 184.812
+offset_top = 38.1234
+offset_right = 434.812
+offset_bottom = 121.123
+text = "interagir"
+label_settings = SubResource("LabelSettings_xffaj")
+
+[node name="Panel3" type="Panel" parent="commands"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 77.0
+offset_right = 663.0
+offset_bottom = 234.0
+scale = Vector2(0.308422, 0.308422)
+theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
+
+[node name="Label" type="Label" parent="commands/Panel3"]
+layout_mode = 0
+offset_left = 29.1807
+offset_top = 32.423
+offset_right = 669.181
+offset_bottom = 115.423
+text = "BOTÃO ESQ. MOUSE"
+label_settings = SubResource("LabelSettings_xffaj")
+
+[node name="Label2" type="Label" parent="commands/Panel3"]
+layout_mode = 0
+offset_left = 684.128
+offset_top = 38.1234
+offset_right = 934.128
+offset_bottom = 121.123
+text = "atacar"
+label_settings = SubResource("LabelSettings_xffaj")
+
+[node name="Panel4" type="Panel" parent="commands"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 21.0
+offset_right = 324.0
+offset_bottom = 178.0
+scale = Vector2(0.308422, 0.308422)
+theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
+
+[node name="Label" type="Label" parent="commands/Panel4"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 32.0
+offset_right = 93.0
+offset_bottom = 115.0
+text = "R"
+label_settings = SubResource("LabelSettings_xffaj")
+
+[node name="Label2" type="Label" parent="commands/Panel4"]
+layout_mode = 0
+offset_left = 191.296
+offset_top = 38.1234
+offset_right = 441.296
+offset_bottom = 121.123
+text = "magia"
+label_settings = SubResource("LabelSettings_xffaj")

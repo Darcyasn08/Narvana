@@ -40,5 +40,5 @@ func remove_item(item: String) -> void:
 	update_items()
 
 func _on_timer_timeout() -> void:
-	Global.inventory["items"]["teddy"]["player_has"] = false
+	#Global.inventory["items"]["teddy"]["player_has"] = false
 	update_items()

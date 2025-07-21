@@ -1,16 +1,15 @@
 extends Node
 
+#game
 var has_started_game: bool = false
 
+#player
 var player_can_move: bool = true
-
-var dust_damage: float= 1500.0
 var player_can_attack: bool = true
-var player_base_pos: Vector3 = Vector3(0,5,0)
-
 var base_player_health: int = 6
 var base_player_damage: float = 200.0
 var base_player_speed: float = 8.0
+var current_weapon: String = "bat"
 
 var player_health: int = 6
 var player_damage: float = 200.0
@@ -20,7 +19,17 @@ var plus_player_health: int
 var plus_player_damage: float
 var plus_player_speed: float
 
+#enemies
+var dust_damage: float= 1500.0
 var house_health: int = 5000
+
+
+#world positions
+var player_base_pos: Vector3 = Vector3(0,5,0)
+var player_normal_pos: Vector3 = Vector3(0,5,0)
+var player_first_level_pos: Vector3
+
+
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn"], #uma fase
@@ -28,14 +37,13 @@ var enemies: Array = [
 	[]
 ]
 
+#levels
 var dead_enemies_first_level: Array = [
 	[0, 0],
 	[0, 0],
 	[0, 0],
 	[0, 0],
 ]
-
-var current_weapon: String = "bat"
 
 var current_room: int = 0
 var current_world: int

@@ -30,7 +30,7 @@ albedo_color = Color(0.697626, 0.335568, 0.180609, 1)
 roughness = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h2qy3"]
-radius = 6.3483
+radius = 4.29407
 
 [sub_resource type="Animation" id="Animation_q3f5g"]
 length = 0.001

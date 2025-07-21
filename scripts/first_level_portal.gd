@@ -15,8 +15,10 @@ func _input(_event: InputEvent) -> void:
 		if Global.current_world == Global.worlds.NORMAL:
 			Global.player_can_attack = true
 			Global.current_world = Global.worlds.FIRST_LEVEL
-			get_tree().change_scene_to_file("res://scenes/first_level.tscn")
+			print("teleportando..")
+			get_tree().change_scene_to_file("res://scenes/worlds/first_level.tscn")
 		elif Global.current_world == Global.worlds.FIRST_LEVEL:
 			Global.player_can_attack = true
+			Global.player_normal_pos = Vector3(90,2,113)
 			Global.current_world = Global.worlds.NORMAL
-			get_tree().change_scene_to_file("res://scenes/normal_world.tscn")
+			get_tree().change_scene_to_file("res://scenes/worlds/normal_world.tscn")

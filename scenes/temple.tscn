@@ -591,12 +591,5 @@ transform = Transform3D(0.0469844, 0, 0.998896, 0, 1, 0, -0.998896, 0, 0.0469844
 multimesh = SubResource("MultiMesh_hapkp")
 script = ExtResource("5_40f1g")
 
-[node name="Label3D2" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.357419, 3.95524, -25.6442)
-text = "USE [BOTÃO DIREITO DO MOUSE]
-PARA ATACAR"
-font_size = 48
-outline_size = 19
-
 [editable path="temple_model"]
 [editable path="temple-entrance"]

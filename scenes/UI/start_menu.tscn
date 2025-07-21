@@ -54,18 +54,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start_button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -536.0
-offset_top = 206.0
-offset_right = -403.0
-offset_bottom = 268.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 121.0
+offset_top = 559.0
+offset_right = 254.0
+offset_bottom = 621.0
+
+[node name="start_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
@@ -102,6 +98,7 @@ text = "v0.0.1"
 label_settings = SubResource("LabelSettings_bpkul")
 
 [node name="save_screen" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -139,35 +136,35 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
 
 [node name="Label" type="Label" parent="save_screen/HBoxContainer/0"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 19.0
-offset_right = 62.0
-offset_bottom = 42.0
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 104.0
+offset_bottom = 61.0
 text = "save 1"
 label_settings = SubResource("LabelSettings_jcvkx")
 
 [node name="Label2" type="Label" parent="save_screen/HBoxContainer/0"]
 layout_mode = 0
-offset_left = 23.0
+offset_left = 35.0
 offset_top = 95.0
-offset_right = 143.0
+offset_right = 155.0
 offset_bottom = 118.0
-text = "mundo atual: {}"
+text = "mundo atual: \"China\""
 
 [node name="Label3" type="Label" parent="save_screen/HBoxContainer/0"]
 layout_mode = 0
-offset_left = 23.0
+offset_left = 35.0
 offset_top = 120.0
-offset_right = 143.0
+offset_right = 155.0
 offset_bottom = 143.0
-text = "tempo total: ..."
+text = "tempo total: 0s"
 
 [node name="start_save" type="Button" parent="save_screen/HBoxContainer/0"]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 301.0
-offset_right = 246.0
-offset_bottom = 344.0
+offset_left = 54.0
+offset_top = 299.0
+offset_right = 243.0
+offset_bottom = 342.0
 text = "abrir save"
 
 [node name="Panel4" type="Panel" parent="save_screen/HBoxContainer"]
@@ -180,5 +177,14 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
 
-[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[node name="close_save_screen_button" type="Button" parent="save_screen"]
+layout_mode = 0
+offset_left = 1042.0
+offset_top = 24.0
+offset_right = 1088.0
+offset_bottom = 67.0
+text = "x"
+
+[connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="save_screen/HBoxContainer/0/start_save" to="." method="_on_start_save_pressed"]
+[connection signal="pressed" from="save_screen/close_save_screen_button" to="." method="_on_close_save_screen_button_pressed"]

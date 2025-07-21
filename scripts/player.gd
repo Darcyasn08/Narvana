@@ -27,7 +27,7 @@ var immune_time: float = 2.5
 @onready var camera_pivot: Node3D = $camera_pivot
 @onready var camera: Camera3D = $camera_pivot/SpringArm3D/Camera3D
 @onready var skin: Node3D = $narwhal_skin
-@onready var death_screen_inst = preload("res://scenes/UI/death_screen.tscn")
+@onready var death_screen_inst: Object = preload("res://scenes/UI/death_screen.tscn")
 
 
 func _ready() -> void:
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 			#$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
 		
 		if !knockbacked:
-			var y_velocity := velocity.y
+			var y_velocity: float = velocity.y
 			velocity.y = 0.0
 			velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
 			velocity.y = y_velocity + gravity * delta
@@ -149,7 +149,7 @@ func hurt(damage) -> void:
 
 func die() -> void:
 	get_tree().paused = true
-	var death_screen = death_screen_inst.instantiate()
+	var death_screen: Object = death_screen_inst.instantiate()
 	add_child(death_screen)
 
 func dash() -> void:
@@ -175,18 +175,6 @@ func attack() -> void:
 		$narwhal_skin/narval_model/Armature_002.show()
 		$narwhal_skin/narval_model/Armature_001.hide()
 		$narwhal_skin/narval_model/attack_player.play("bat_attack")
-
-func atta2ck() -> void:
-	if Input.is_action_pressed("e") and Global.player_can_attack: #arma temporaria só pra testes
-		$Node3D.show()
-		$Node3D/arma/CollisionShape3D.disabled = false
-		$Node3D.rotation.y = lerp($Node3D.rotation.y, 180.0, .001 )
-		await(get_tree().create_timer(.3).timeout)
-		$Node3D.hide()
-		$Node3D/arma/CollisionShape3D.disabled = true
-		$Node3D.rotation.y = skin.rotation.y
-	else:
-		$Node3D.rotation.y = skin.rotation.y
 
 
 func get_immune(immune_time:= 5.0) -> void:

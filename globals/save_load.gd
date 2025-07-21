@@ -1,7 +1,7 @@
 extends Node
 
 #https://www.youtube.com/watch?v=xG2GGniUa5o
-var save_path = "user://narvana_save.json"
+var save_path: String = "user://narvana_save.json"
 
 var save_content: Dictionary = {
 	"health": Global.player_health,
@@ -17,12 +17,12 @@ func _ready() -> void:
 	else:
 		print("game hasnt started yet... show start cutscene")
 
-func save():
+func save() -> void:
 	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
 	file.store_var(save_content.duplicate())
 	file.close()
 
-func load_save():
+func load_save() -> void:
 	if FileAccess.file_exists(save_path):
 		#print("save exists")
 		var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ, "narval")
@@ -36,7 +36,7 @@ func load_save():
 		for i in save_data:
 			pass
 
-func delete_save():
+func delete_save() -> void:
 	if FileAccess.file_exists(save_path):
 		save_content.todo_list = {}
 		print(save_content.todo_list)

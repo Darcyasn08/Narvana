@@ -79,8 +79,25 @@ color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
 [node name="options_menu" parent="." instance=ExtResource("2_feath")]
 visible = false
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 268.0
+offset_top = 411.0
+offset_right = 471.0
+offset_bottom = 486.0
+text = "caros testers, não cliquem
+nesse botão na versão de
+web, vai travar tudo!"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 475.0
+offset_top = 437.0
+offset_right = 500.0
+offset_bottom = 460.0
+text = "--->"
+
 [node name="inventory_menu" parent="." instance=ExtResource("5_w67w4")]
 visible = false
+z_index = 1
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -186,22 +203,6 @@ grow_vertical = 0
 size_flags_horizontal = 4
 text = "jogo pausado"
 label_settings = SubResource("LabelSettings_mko1u")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 258.0
-offset_top = 405.0
-offset_right = 461.0
-offset_bottom = 480.0
-text = "caros testers, não cliquem
-nesse botão na versão de
-web, vai travar tudo!"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 474.0
-offset_top = 436.0
-offset_right = 506.0
-offset_bottom = 459.0
-text = "--->"
 
 [connection signal="pressed" from="menu_selection/inventory_button" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="menu_selection/options_button" to="." method="_on_options_button_pressed"]

@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bnrktbdvxmrep" path="res://scenes/objects/small_rock.tscn" id="5_qedf2"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="7_kalee"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="7_qedf2"]
+[ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="7_u5f21"]
 [ext_resource type="PackedScene" uid="uid://ck0g2dnevpq5k" path="res://scenes/objects/big_rock.tscn" id="7_vtkm1"]
 [ext_resource type="PackedScene" uid="uid://cexua4one0xip" path="res://scenes/first_level_door.tscn" id="8_kalee"]
 [ext_resource type="PackedScene" uid="uid://bs2we3xlo46nm" path="res://3d_models/placeholders/fence.glb" id="8_vtkm1"]
 [ext_resource type="ArrayMesh" uid="uid://c6wsqvho3vpbx" path="res://3d_models/placeholders/temple-fence.obj" id="10_m5da8"]
 [ext_resource type="Script" uid="uid://cox5hu7ho8b6a" path="res://scripts/temple_muitimesh.gd" id="11_3641t"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="12_3641t"]
-[ext_resource type="PackedScene" uid="uid://cw01vvimnw8u4" path="res://scenes/item_thrower.tscn" id="13_pkb0d"]
 
 [sub_resource type="Environment" id="Environment_snglc"]
 background_mode = 1
@@ -88,7 +88,7 @@ size = Vector3(80, 1, 200)
 data = PackedVector3Array(-40, 0.5, 100, 40, 0.5, 100, -40, -0.5, 100, 40, 0.5, 100, 40, -0.5, 100, -40, -0.5, 100, 40, 0.5, -100, -40, 0.5, -100, 40, -0.5, -100, -40, 0.5, -100, -40, -0.5, -100, 40, -0.5, -100, 40, 0.5, 100, 40, 0.5, -100, 40, -0.5, 100, 40, 0.5, -100, 40, -0.5, -100, 40, -0.5, 100, -40, 0.5, -100, -40, 0.5, 100, -40, -0.5, -100, -40, 0.5, 100, -40, -0.5, 100, -40, -0.5, -100, 40, 0.5, 100, -40, 0.5, 100, 40, 0.5, -100, -40, 0.5, 100, -40, 0.5, -100, 40, 0.5, -100, -40, -0.5, 100, 40, -0.5, 100, -40, -0.5, -100, 40, -0.5, 100, 40, -0.5, -100, -40, -0.5, -100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab8ao"]
-size = Vector3(60.9942, 9.45813, 40.4415)
+size = Vector3(60.9942, 9.45813, 39.6593)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b30th"]
 data = PackedVector3Array(-17.5, 0.5, 30, 17.5, 0.5, 30, -17.5, -0.5, 30, 17.5, 0.5, 30, 17.5, -0.5, 30, -17.5, -0.5, 30, 17.5, 0.5, -30, -17.5, 0.5, -30, 17.5, -0.5, -30, -17.5, 0.5, -30, -17.5, -0.5, -30, 17.5, -0.5, -30, 17.5, 0.5, 30, 17.5, 0.5, -30, 17.5, -0.5, 30, 17.5, 0.5, -30, 17.5, -0.5, -30, 17.5, -0.5, 30, -17.5, 0.5, -30, -17.5, 0.5, 30, -17.5, -0.5, -30, -17.5, 0.5, 30, -17.5, -0.5, 30, -17.5, -0.5, -30, 17.5, 0.5, 30, -17.5, 0.5, 30, 17.5, 0.5, -30, -17.5, 0.5, 30, -17.5, 0.5, -30, 17.5, 0.5, -30, -17.5, -0.5, 30, 17.5, -0.5, 30, -17.5, -0.5, -30, 17.5, -0.5, 30, 17.5, -0.5, -30, -17.5, -0.5, -30)
@@ -284,7 +284,7 @@ current_room = 2
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room3/spawner_manager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153044, 0, -2.27728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153044, 0, -2.66836)
 shape = SubResource("BoxShape3D_ab8ao")
 debug_color = Color(0.5511, 0.301779, 0.687454, 1)
 
@@ -411,8 +411,8 @@ transform = Transform3D(0.873798, 0, -0.48629, 0, 1, 0, 0.48629, 0, 0.873798, 11
 room_number = 1
 
 [node name="spawner4" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.536496, 3.07691, -77.9077)
-enemy_number = 1
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.15076, 3.07691, -73.2713)
+enemy_number = 4
 room_number = 2
 
 [node name="floor_collision" type="StaticBody3D" parent="."]
@@ -497,12 +497,17 @@ material_override = SubResource("StandardMaterial3D_l5n3x")
 mesh = SubResource("BoxMesh_jd5vw")
 
 [node name="temple_fences" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.3033, -0.177227, -47.6001)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.5673, -0.177227, -47.6001)
+multimesh = SubResource("MultiMesh_b30th")
+script = ExtResource("11_3641t")
+
+[node name="temple_fences2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.0994, -0.177227, -47.6001)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2023, 0.903255, -61.7091)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.74959, 1.32931, 9.40041)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 2.01786, -62.7769)
@@ -522,8 +527,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3518, 1.41415, -48.71)
 [node name="bubble_particle2" parent="." instance=ExtResource("12_3641t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6514, 0.748244, -63.604)
 
-[node name="item_thrower" parent="." instance=ExtResource("13_pkb0d")]
-transform = Transform3D(-0.0563617, 0, 0.99841, 0, 1, 0, -0.99841, 0, -0.0563617, -6.67522, 0.58064, 11.8947)
+[node name="first_level_portal" parent="." instance=ExtResource("7_u5f21")]
+transform = Transform3D(0.729959, 0, 0.68349, 0, 1, 0, -0.68349, 0, 0.729959, 6.80167, 2.99, 14.8236)
 
 [connection signal="area_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="temple_room1/spawner_manager/Area3D" to="temple_room1/spawner_manager" method="_on_area_3d_body_entered"]
