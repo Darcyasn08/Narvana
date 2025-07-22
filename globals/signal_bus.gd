@@ -16,3 +16,5 @@ signal on_item_removed()
 signal on_start_dialog_function()
 
 signal on_player_health_changed()
+
+signal on_blush_hit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2jwqqve8ovxk"]
+[gd_scene load_steps=5 format=3 uid="uid://bvm3to65ulkb1"]
 
 [ext_resource type="Script" uid="uid://i4oqnfvm682d" path="res://scripts/enemies/movel.gd" id="1_1dyxo"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_x46gv"]

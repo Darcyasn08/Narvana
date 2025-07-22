@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8vm4aos1dsc1"]
+[gd_scene load_steps=5 format=3 uid="uid://fti7eumun2t0"]
 
 [ext_resource type="Script" uid="uid://b7xb2wow3hx13" path="res://scripts/enemies/coin_trap.gd" id="1_ufq6v"]
 

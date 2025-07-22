@@ -1,9 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcwkhk5uegqo"]
+[gd_scene load_steps=12 format=3 uid="uid://bcwkhk5uegqo"]
 
-[ext_resource type="Script" uid="uid://ds6jiac67r5d3" path="res://scripts/options_menu.gd" id="1_3t8k5"]
+[ext_resource type="Script" uid="uid://rsoqnta267iu" path="res://scripts/options_menu.gd" id="1_3t8k5"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_qgort"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t8k5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgort"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.286266, 0.323243, 0.392259, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijsq6"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
 atlas = ExtResource("2_qgort")
@@ -21,6 +34,19 @@ font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_ijsq6"]
 font_size = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ijsq6"]
+bg_color = Color(0.238935, 0.33717, 0.424239, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mmsa"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="options_menu" type="CanvasLayer"]
 process_mode = 3
@@ -70,8 +96,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
 text = "TELA"
-flat = true
 alignment = 0
 
 [node name="audio_settings_button" type="Button" parent="base_screen/VBoxContainer"]
@@ -79,8 +106,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
 text = "ÁUDIO"
-flat = true
 alignment = 0
 
 [node name="control_settings_button" type="Button" parent="base_screen/VBoxContainer"]
@@ -88,8 +116,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
 text = "CONTROLES"
-flat = true
 alignment = 0
 
 [node name="quit_button" type="Button" parent="base_screen/VBoxContainer"]
@@ -97,8 +126,9 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
 text = "SAIR"
-flat = true
 alignment = 0
 
 [node name="back_button" type="Button" parent="base_screen"]
@@ -241,6 +271,47 @@ offset_right = 222.0
 offset_bottom = 79.0
 text = "Use [Espaço] para pular]"
 label_settings = SubResource("LabelSettings_ijsq6")
+
+[node name="Label" type="Label" parent="controls_screen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 420.0
+offset_right = 120.0
+offset_bottom = 443.0
+text = "SENSIBILIDADE DA CÂMERA"
+
+[node name="HScrollBar" type="HScrollBar" parent="controls_screen/Label"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 35.0
+offset_right = 466.0
+offset_bottom = 54.0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_ijsq6")
+value = 50.0
+
+[node name="Label3" type="Label" parent="controls_screen/Label"]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 34.0
+offset_right = 502.0
+offset_bottom = 57.0
+text = "50"
+
+[node name="Label2" type="Label" parent="controls_screen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 524.0
+offset_right = 292.0
+offset_bottom = 547.0
+text = "INVERTER MOVIMENTAÇÃO DA CÂMERA EM Y"
+
+[node name="CheckButton" type="CheckButton" parent="controls_screen/Label2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 38.0
+offset_bottom = 57.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
 
 [connection signal="pressed" from="base_screen/VBoxContainer/control_settings_button" to="." method="_on_control_settings_button_pressed"]
 [connection signal="pressed" from="base_screen/back_button" to="." method="_on_back_button_pressed"]

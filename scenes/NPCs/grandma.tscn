@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://p0sgx84xx5b5"]
 
 [ext_resource type="PackedScene" uid="uid://b8wkprpsyjmnk" path="res://3d_models/placeholders/grandma.glb" id="1_u83jt"]
-[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/npc_dialogue_area.tscn" id="2_7mxpi"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="2_7mxpi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7mxpi"]
 radius = 1.45334

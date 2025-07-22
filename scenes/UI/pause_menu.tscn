@@ -1,10 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0l4begr7id8h"]
 
-[ext_resource type="Script" uid="uid://d0ao8ioh8ksj4" path="res://scripts/pause_menu.gd" id="1_mko1u"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_mko1u"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
 [ext_resource type="PackedScene" uid="uid://bcwkhk5uegqo" path="res://scenes/UI/options_menu.tscn" id="2_feath"]
 [ext_resource type="Texture2D" uid="uid://bo0yes7q65kd3" path="res://UI/pause_screen.webp" id="4_feath"]
 [ext_resource type="PackedScene" uid="uid://ddw77aywbgkt1" path="res://scenes/UI/inventory_menu.tscn" id="5_w67w4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
+font_size = 26
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mko1u"]
 atlas = ExtResource("1_qo2fb")
@@ -61,9 +64,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
-font_size = 25
-
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_mko1u")
@@ -78,6 +78,23 @@ color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
 
 [node name="options_menu" parent="." instance=ExtResource("2_feath")]
 visible = false
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.5
+offset_top = -52.0
+offset_right = 83.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "jogo pausado"
+label_settings = SubResource("LabelSettings_mko1u")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 268.0
@@ -97,7 +114,7 @@ text = "--->"
 
 [node name="inventory_menu" parent="." instance=ExtResource("5_w67w4")]
 visible = false
-z_index = 1
+z_index = 2
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -186,23 +203,6 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
 text = "Salvar e sair"
-
-[node name="Label" type="Label" parent="."]
-z_index = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.5
-offset_top = -51.0
-offset_right = 80.5
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-text = "jogo pausado"
-label_settings = SubResource("LabelSettings_mko1u")
 
 [connection signal="pressed" from="menu_selection/inventory_button" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="menu_selection/options_button" to="." method="_on_options_button_pressed"]

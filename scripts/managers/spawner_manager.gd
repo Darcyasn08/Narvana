@@ -21,7 +21,7 @@ func update_enemy_deaths():
 	
 	await get_tree().create_timer(.3).timeout #dá o tempo para caso mais algum inimigo apareça (tipo do porquinho)
 	#vê se o valor é maior ou igual ao objetivo global
-	#print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
+	print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 	if enemy_death_count >= Global.dead_enemies_first_level[current_room][1]:
 		SignalBus.on_room_completed.emit(current_room)
 
@@ -31,7 +31,7 @@ func start_room(current_room):
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		if !player_left:
-			#print("player entered!! and current wave: ",current_room)
+			print("player entered!! and current wave: ",current_room)
 			await get_tree().create_timer(.4).timeout
 			start_room(current_room)
 
@@ -44,6 +44,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemies"):
 		Global.dead_enemies_first_level[current_room][1] += 1
-		#print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
+		print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 	if body.name == "player":
 		pass

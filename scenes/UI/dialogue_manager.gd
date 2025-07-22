@@ -4,7 +4,7 @@ extends CanvasLayer
 var cur_text: int = 0
 
 ## carrega o nome do npc atual
-var cur_npc: String = ""
+var cur_npc := ""
 
 ## para checar se pode progredir no dialogo
 var can_progress: bool = false
@@ -22,10 +22,10 @@ var pressed_option: int
 
 var has_option: bool = false
 
-var npc_dialog: Dictionary
+var npc_dialog
 
 
-@export var normal_talk_speed: float = .01
+@export var normal_talk_speed: float = .2
 @export var fast_talk_speed: float = .008
 
 @onready var dialog_options: Control = %dialog_options
@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 #função iniciada pelo sinal para iniciar o dialogo
-func start_dialogue(npc: String) -> void:
+func start_dialogue(npc):
 	#garante que o [e] não seja clicado de novo no meio do dialogo
 	if !has_started_diag:
 		Global.player_can_move = false
@@ -54,7 +54,7 @@ func start_dialogue(npc: String) -> void:
 		talk_speed = normal_talk_speed
 		has_started_diag = true
 		cur_npc = npc
-		#print("started")
+		print("started")
 		cur_text = 0
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
 		check_options()
@@ -64,7 +64,7 @@ func start_dialogue(npc: String) -> void:
 			can_progress = false
 			dialog_text.text += letter
 			await get_tree().create_timer(talk_speed).timeout
-			
+			print(dialog_text.text)
 			#se a caixa de dialogo for a mesma do dicionario, parar
 			if dialog_text.text == npc_dialog["text"]:
 				can_progress = true
@@ -73,13 +73,13 @@ func start_dialogue(npc: String) -> void:
 		talk_speed = normal_talk_speed #garante que a velocidade continue normal
 
 #função pra terminar dialogo
-func end_dialog() -> void:
+func end_dialog():
 	cur_text = 0
 	cur_npc = ""
 	dialog_text.text = ""
 	dialog_options.hide()
 	talk_speed = normal_talk_speed #reseta pra velociade normal, pra ter certeza
-	#print("limit")
+	print("limit")
 	hide()
 	can_progress = false
 	await get_tree().create_timer(.06).timeout
@@ -87,91 +87,72 @@ func end_dialog() -> void:
 	has_started_diag = false
 
 #esse checa se há opções de dialogo
-func check_options() -> void:
+func check_options():
 	if npc_dialog["options"] == {}:
 		pass #sem opções
 	else: #se tiver opções, esse roda
-		print("there is an option")
 		can_progress = false
 		has_option = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		#print(npc_dialog["options"])
+		print(npc_dialog["options"])
 		diag_option_1.text = npc_dialog["options"][0]["text"]
 		diag_option_2.text = npc_dialog["options"][1]["text"]
 		dialog_options.show()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("e") and can_progress and has_started_diag:
+	if Input.is_action_just_pressed("e") and can_progress and has_started_diag:
 		progress_dialog() #se [e] for clicado, isso roda
-	elif event.is_action_pressed("e") and !can_progress and has_started_diag and !has_option:
+	elif Input.is_action_just_pressed("e") and !can_progress and has_started_diag:
 		print("too fast")
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
 		can_progress = true
-	elif event.is_action_pressed("e") and has_option:
-		print("too fast when there is an option")
-		can_progress = false
+	
+	#var prev_mouse_pos = get_viewport().get_mouse_position()
+	#await get_tree().create_timer(.06).timeout
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and has_option:
+		#Input.warp_mouse(prev_mouse_pos)
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#print("she has an option and she didnt click right!")
 
 #função para progressar dialogo
-func progress_dialog() -> void:
+func progress_dialog():
 	dialog_text.text = "" #reseta caixa pra garantir
 	cur_text += 1
 	if cur_text >= Global.dialogs[cur_npc]["dialog_tree"]["middle"].size():
 		await get_tree().create_timer(.06).timeout #tempo pro dialogo não começar automaticamente
 		end_dialog()
 	else:
-		#print("next")
+		print("next")
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
-		can_progress = false
 		check_options()
 		for letter in npc_dialog["text"]:
-			if can_progress:
+			if dialog_text.text == npc_dialog["text"]:
+				print("tá igualzin, pode parar")
+				can_progress = true
 				return
+			can_progress = false
 			await get_tree().create_timer(talk_speed).timeout
 			#print(letter)
-			if can_progress: #pra checar frequentemente
-				#print("oh..")
-				return
 			dialog_text.text += letter
-			#print(dialog_text.text)
+			print(dialog_text.text)
 		can_progress = true
 		talk_speed = normal_talk_speed
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]["text"]
 
 #checa qual opção foi pressionada
-func check_pressed_option() -> void:
-	dialog_text.text = ""
+func check_pressed_option():
 	if npc_dialog["options"][pressed_option]["ignite"] == "quest":
+		print("omg its a quest!")
 		print("And the quest is: ",Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"])
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
-		
-		# ========== PARA IMPLEMENTAR ALGUMA HORA ============
-		#can_progress = false
-		#for letter in Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]:
-			#print("heyyy")
-			#if can_progress:
-				#print("oh..")
-				#return
-			#await get_tree().create_timer(talk_speed).timeout
-			##print(letter)
-			#if can_progress: #pra checar frequentemente
-				#print("oh..")
-				#return
-			#dialog_text.text += letter
-			#print(dialog_text.text)
-		#can_progress = true
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "exit":
-		#print("exit please ma'am")
+		print("exit please ma'am")
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["exit"]["text"]
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "continue":
-		#print("continue with normal dialog")
+		print("continue with normal dialog")
 		progress_dialog()
-	
-	elif npc_dialog["options"][pressed_option]["ignite"] == "function":
-		print("alguma função tem que ser acionada aqui")
-		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
-		SignalBus.on_start_dialog_function.emit(cur_npc)
 	
 	has_option = false
 

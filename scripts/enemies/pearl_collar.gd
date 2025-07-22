@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
 var speed: float = 3.0
-var life: int= 700
+var life: int = 700
 var damage: int = 1
 var acceleration: float = 10.0
-var pearlins = preload("res://scenes/weapon/projectile.tscn")
+var pearlins = preload("res://scenes/projectile.tscn")
 var bullet_speed: float = 20.0
 var random: int 
 var swimming: bool = false
@@ -29,7 +29,7 @@ func _on_timer_timeout() -> void:
 	$Timer.start(2)
 	
 
-func atirar():
+func atirar() -> void:
 	var pearl = pearlins.instantiate()
 	pearl.pos = $Node3D.global_position
 	pearl.rot = rotation
@@ -42,7 +42,7 @@ func atirar():
 	if shots == 0:
 		queue_free()
 	
-func andar():
+func andar() -> void:
 	swimming = true
 	random = randi_range(0 , 360)
 	rotation.y = deg_to_rad(float(random))
@@ -54,11 +54,11 @@ func andar():
 	swimming = false
 	velocity = Vector3(0,0,0)
 	
-func knockback(force: Vector3, impact_point: Vector3):
+func knockback(force: Vector3, impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
 
 
-func calculate_knockback(area: Area3D):
+func calculate_knockback(area: Area3D) -> void:
 	var body_collision = (global_position - area.global_position)
 	body_collision.y = 0.0
 	var force = body_collision
@@ -67,13 +67,13 @@ func calculate_knockback(area: Area3D):
 	velocity = velocity * 0
 	
 	
-func unique_take_damage(area):
+func unique_take_damage(area) -> void:
 	calculate_knockback(area)
 	
-func unique_die():
+func unique_die() -> void:
 	pass
 	
-func damage_player(area):
+func damage_player(area) -> void:
 	pass
 
 

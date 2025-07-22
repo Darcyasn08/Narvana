@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var damage := 1
+var damage : int = 1
 
 func _ready() -> void:
 	pass
@@ -13,7 +13,7 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 		await activate()
 		queue_free()
 
-func activate():
+func activate() -> void:
 	print("activate")
 	$CSGBox3D.show() #substituir pela animação dele mordendo
 	$CSGBox3D2.show()

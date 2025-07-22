@@ -4,8 +4,8 @@ extends Node3D
 @export var enemy_number: int
 @export var room_number: int
 
-@onready var catch_enemy = Global.enemies[level_number][enemy_number]
-@onready var enemy_path = load(catch_enemy)
+@onready var catch_enemy: String = Global.enemies[level_number][enemy_number]
+@onready var enemy_path: Object = load(catch_enemy)
 
 func _ready() -> void:
 	SignalBus.on_start_room.connect(spawn_enemies)
@@ -13,10 +13,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func spawn_enemies(room):
+func spawn_enemies(room) -> void:
 	if room == room_number:
-		#print(catch_enemy, " --- ",enemy_path)
-		var enemy = enemy_path.instantiate()
+		var enemy: Object = enemy_path.instantiate()
 		
 		#substitui global_position por transform.origin, pra não aparecer um sinal de erro
 		#talvez precisemos fazer isso em outras partes também

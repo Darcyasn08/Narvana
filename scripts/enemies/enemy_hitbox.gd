@@ -12,7 +12,6 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 	if area.is_in_group("weapon"):
-		print("ouch, it hurts")
 		if parent.name == "car":
 			if parent.state == "knocked":
 				defense = 1
@@ -29,10 +28,9 @@ func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 		take_damage(area, Global.dust_damage)
 
 
-func take_damage(area, damage, defense := 1.0):
+func take_damage(area, damage, defense := 1.0) -> void:
 	if parent.life >int(round(damage * defense)):
 		parent.life -= int(round(damage * defense))
-		#print(int(round(damage * defense)))
 		print(parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre
@@ -41,5 +39,5 @@ func take_damage(area, damage, defense := 1.0):
 		parent.queue_free()
 
 
-func damage_player(area):
+func damage_player(area) -> void:
 	parent.damage_player(area)

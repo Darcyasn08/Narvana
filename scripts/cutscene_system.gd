@@ -1,6 +1,6 @@
 extends Node2D
 
-# NOTA PARA MIM MESMA: fazer com que o array com que os frames sejam construidos na hora
+# NOTA PARA MIM MESMA: fazer com que os frames no array sejam construidos na hora
 # ou montar um array que tenha cada frame integrado nele
 
 var cur_frame = 0 ## @experimental: incompleto [br] um indicador para o frame atual

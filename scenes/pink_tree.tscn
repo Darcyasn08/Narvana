@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1lk5j8cothsr"]
+
+[ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="1_iu8fk"]
+[ext_resource type="Shader" uid="uid://l66s7iq8jmo4" path="res://shaders/outline_shader.gdshader" id="2_txfh0"]
+[ext_resource type="Material" uid="uid://cd64vrds3ubbi" path="res://shaders/pink_tree_leaves_shader.tres" id="2_xa8gp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txfh0"]
+render_priority = 0
+shader = ExtResource("2_txfh0")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xa8gp"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.473297, 0.285666, 0.214038, 1)
+metallic_specular = 1.0
+roughness = 0.0
+subsurf_scatter_strength = 1.0
+backlight_enabled = true
+backlight = Color(0.592348, 0.368105, 0.25292, 1)
+proximity_fade_distance = 0.01
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_txfh0"]
+data = PackedVector3Array(1.1776, 1, -1, -0.6664, 1, 1, -0.6664, 1, -1, 1.1776, 1, -1, 1.1776, 1, 1, -0.6664, 1, 1, 1, 0, 1.5113, -0.6664, 1, 1, 1.1776, 1, 1, 1, 0, 1.5113, -0.6664, 0, 1.5113, -0.6664, 1, 1, -0.6664, 0, 1.5113, -0.6664, 1, -1, -0.6664, 1, 1, -0.6664, 0, 1.5113, -0.6664, 0, -0.2717, -0.6664, 1, -1, -1.1625, -1, -1, 1, -1, 2.2199, 1, -1, -1, -1.1625, -1, -1, -1.1625, -1, 2.2199, 1, -1, 2.2199, 1, 0, -0.2717, 1.1776, 1, 1, 1.1776, 1, -1, 1, 0, -0.2717, 1, 0, 1.5113, 1.1776, 1, 1, -0.6664, 0, -0.2717, 1.1776, 1, -1, -0.6664, 1, -1, -0.6664, 0, -0.2717, 1, 0, -0.2717, 1.1776, 1, -1, -0.9916, -0.6555, -0.7491, 1, 0, -0.2717, -0.6664, 0, -0.2717, -0.9916, -0.6555, -0.7491, 1, -0.6555, -0.7491, 1, 0, -0.2717, 1, -0.6555, -0.7491, 1, 0, 1.5113, 1, 0, -0.2717, 1, -0.6555, -0.7491, 1, -0.6555, 1.1762, 1, 0, 1.5113, 1, -1, -1, 1, -0.6555, 1.1762, 1, -0.6555, -0.7491, 1, -1, -1, 1, -1, 2.2199, 1, -0.6555, 1.1762, -0.9916, -0.6555, 1.1762, -0.6664, 0, -0.2717, -0.6664, 0, 1.5113, -0.9916, -0.6555, 1.1762, -0.9916, -0.6555, -0.7491, -0.6664, 0, -0.2717, -1.1625, -1, 2.2199, -1.1625, -1, -1, -0.9916, -0.6555, -0.7491, -1.1625, -1, 2.2199, -0.9916, -0.6555, -0.7491, -0.9916, -0.6555, 1.1762, 1, -0.6555, 1.1762, -0.6664, 0, 1.5113, 1, 0, 1.5113, 1, -0.6555, 1.1762, -0.9916, -0.6555, 1.1762, -0.6664, 0, 1.5113, 1, -1, 2.2199, -0.9916, -0.6555, 1.1762, 1, -0.6555, 1.1762, 1, -1, 2.2199, -1.1625, -1, 2.2199, -0.9916, -0.6555, 1.1762, -1.1625, -1, -1, 1, -0.6555, -0.7491, -0.9916, -0.6555, -0.7491, -1.1625, -1, -1, 1, -1, -1, 1, -0.6555, -0.7491)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0urqp"]
+render_priority = 0
+shader = ExtResource("2_txfh0")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 1.8
+
+[node name="pink_tree" type="Node3D"]
+
+[node name="tree" parent="." instance=ExtResource("1_iu8fk")]
+
+[node name="Cube" parent="tree" index="0"]
+material_overlay = SubResource("ShaderMaterial_txfh0")
+lod_bias = 0.4
+visibility_range_end = 80.0
+surface_material_override/0 = SubResource("StandardMaterial3D_xa8gp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree/Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree/Cube/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_txfh0")
+
+[node name="Cube_002" parent="tree" index="1"]
+lod_bias = 0.4
+visibility_range_end = 80.0
+
+[node name="Cube_001" parent="tree" index="2"]
+transform = Transform3D(1.49208, 0, 0, 0, 1.49208, 0, 0, 0, 1.49208, 0.0337909, 5.20534, -0.708408)
+material_overlay = SubResource("ShaderMaterial_0urqp")
+lod_bias = 0.4
+visibility_range_end = 80.0
+surface_material_override/0 = ExtResource("2_xa8gp")
+surface_material_override/1 = ExtResource("2_xa8gp")
+surface_material_override/2 = ExtResource("2_xa8gp")
+surface_material_override/3 = ExtResource("2_xa8gp")
+surface_material_override/4 = ExtResource("2_xa8gp")
+surface_material_override/5 = ExtResource("2_xa8gp")
+
+[editable path="tree"]

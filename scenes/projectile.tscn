@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdxop4socjcll"]
+[gd_scene load_steps=3 format=3 uid="uid://de51qlxq8iqa6"]
 
 [ext_resource type="Script" uid="uid://j8w5dob30igb" path="res://scripts/projectile.gd" id="1_c8fcr"]
 
@@ -17,3 +17,4 @@ radius = 0.2
 shape = SubResource("SphereShape3D_6aapk")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

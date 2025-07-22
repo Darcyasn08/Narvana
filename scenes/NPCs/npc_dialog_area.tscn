@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu4bh2fvmsqfw"]
+
+[ext_resource type="Script" uid="uid://cnu3qxlw07a0a" path="res://scripts/NPCs/npc_dialog_area.gd" id="1_jayf7"]
+
+[node name="npc_dialogue_area" type="Area3D"]
+script = ExtResource("1_jayf7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

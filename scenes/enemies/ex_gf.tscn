@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b72vmmimc4mar"]
+
+[ext_resource type="Script" uid="uid://dyn662tb1kf1x" path="res://scripts/enemies/ex_gf.gd" id="1_bsjvi"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_mc0wb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrtep"]
+size = Vector3(0.5, 1, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eaht2"]
+size = Vector3(0.495544, 1, 1.50073)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0jigo"]
+size = Vector3(0.398849, 0.83551, 1.23627)
+
+[node name="ex_gf" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_bsjvi")
+
+[node name="placeholder" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lrtep")
+
+[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("2_mc0wb")]
+hitbox_collision = NodePath("hitbox")
+
+[node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, 0.000200199, -4.72906e-07, 0.00740185)
+shape = SubResource("BoxShape3D_eaht2")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, 0.00010205, 0.000369007, 0.00683033)
+shape = SubResource("BoxShape3D_0jigo")
+
+[node name="invocation_point1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13966, 0, 0)
+
+[node name="invocation_point2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14, 0, 0)
+
+[node name="shoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.55639)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="tele_pilot" type="Node3D" parent="."]
+
+[node name="teleport" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 40)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
