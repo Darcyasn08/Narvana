@@ -30,6 +30,7 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
 	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
@@ -89,10 +90,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += jump_impulse
 	
 	move_and_slide()
-	
-	if not is_on_floor():
-		pass
-		#velocity.y -= gravity * delta
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -107,9 +104,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and Global.player_can_attack:
 		attack()
+
+	#
+	#if event.is_action_pressed("left_click"):
 		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if event.is_action_pressed("esc"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if event.is_action_pressed("e"):
 		var actual_target

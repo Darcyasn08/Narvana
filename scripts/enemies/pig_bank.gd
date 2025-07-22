@@ -27,10 +27,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 	
 	var ground_speed := velocity.length()
-	if ground_speed > 0.0:
-		$"piggy-bank-enemy/AnimationPlayer".play("walk")
-	elif ground_speed <= 0.0:
-		$"piggy-bank-enemy/AnimationPlayer".stop()
+	#if ground_speed > 0.0:
+		#$"piggy-bank-enemy/AnimationPlayer".play("walk")
+	#elif ground_speed <= 0.0:
+		#$"piggy-bank-enemy/AnimationPlayer".stop()
 	
 	move_and_slide()
 

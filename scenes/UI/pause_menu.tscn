@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d0l4begr7id8h"]
 
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_mko1u"]
+[ext_resource type="Script" uid="uid://cljn2vudist6q" path="res://scripts/pause_menu.gd" id="1_mko1u"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
 [ext_resource type="PackedScene" uid="uid://bcwkhk5uegqo" path="res://scenes/UI/options_menu.tscn" id="2_feath"]
 [ext_resource type="Texture2D" uid="uid://bo0yes7q65kd3" path="res://UI/pause_screen.webp" id="4_feath"]

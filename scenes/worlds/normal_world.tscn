@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=37 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bnrktbdvxmrep" path="res://scenes/objects/small_rock.tscn" id="10_ge66w"]
 [ext_resource type="PackedScene" uid="uid://bxja8fhpxhuv4" path="res://scenes/buildings/health_building.tscn" id="10_h6eg7"]
 [ext_resource type="PackedScene" uid="uid://csg4ifwj144jf" path="res://3d_models/placeholders/stone.glb" id="13_bun2p"]
-[ext_resource type="PackedScene" uid="uid://c7tr11oyqicij" path="res://scenes/small_bridge.tscn" id="16_joo1b"]
 [ext_resource type="PackedScene" uid="uid://c1db4w3dsb4tq" path="res://scenes/objects/light_pole.tscn" id="17_f4vow"]
 [ext_resource type="PackedScene" uid="uid://ck0g2dnevpq5k" path="res://scenes/objects/big_rock.tscn" id="18_ge66w"]
 [ext_resource type="PackedScene" uid="uid://otbch3rh6pyo" path="res://3d_models/placeholders/village-plateau.glb" id="18_jptho"]
@@ -82,12 +81,6 @@ size = Vector3(50, 0.3, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_x68fd"]
 size = Vector3(20, 0.2, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4vow"]
-albedo_color = Color(0.338811, 0.770369, 0.875226, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ge66w"]
-size = Vector3(50, 1, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcbeh"]
 albedo_color = Color(0.556177, 0.409486, 0.335098, 1)
@@ -216,43 +209,6 @@ mesh = SubResource("BoxMesh_x68fd")
 
 [node name="stone9" parent="." instance=ExtResource("13_bun2p")]
 transform = Transform3D(0.997418, 0, -0.0718108, 0, 1, 0, 0.0718108, 0, 0.997418, 41.1028, 8.9407e-08, 41.1611)
-
-[node name="river" type="Node3D" parent="."]
-transform = Transform3D(0.393059, 0, -0.919513, 0, 1, 0, 0.919513, 0, 0.393059, 29.178, 0.0614553, 223.726)
-visible = false
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="river"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_f4vow")
-mesh = SubResource("BoxMesh_ge66w")
-skeleton = NodePath("../small_bridge")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="river"]
-transform = Transform3D(0.988993, 0, 0.147965, 0, 1, 0, -0.147965, 0, 0.988993, -48.2768, -3.7998e-06, 3.5336)
-material_override = SubResource("StandardMaterial3D_f4vow")
-mesh = SubResource("BoxMesh_ge66w")
-skeleton = NodePath("../small_bridge")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="river"]
-transform = Transform3D(0.940401, 0, 0.340068, 0, 1, 0, -0.340068, 0, 0.940401, 47.8567, 0, -8.2347)
-material_override = SubResource("StandardMaterial3D_f4vow")
-mesh = SubResource("BoxMesh_ge66w")
-skeleton = NodePath("../small_bridge")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="river"]
-transform = Transform3D(0.813355, 0, 0.581768, 0, 1, 0, -0.581768, 0, 0.813355, 90.4345, 0, -30.2768)
-material_override = SubResource("StandardMaterial3D_f4vow")
-mesh = SubResource("BoxMesh_ge66w")
-skeleton = NodePath("../small_bridge")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="river"]
-transform = Transform3D(0.89858, 0, 0.438811, 0, 1, 0, -0.438811, 0, 0.89858, 131.71, 0, -55.2595)
-material_override = SubResource("StandardMaterial3D_f4vow")
-mesh = SubResource("BoxMesh_ge66w")
-skeleton = NodePath("../small_bridge")
-
-[node name="small_bridge" parent="river" instance=ExtResource("16_joo1b")]
-transform = Transform3D(0.940401, 0, 0.340068, 0, 1, 0, -0.340068, 0, 0.940401, 48.3507, -0.327714, -8.08276)
 
 [node name="light_poles" type="Node3D" parent="."]
 transform = Transform3D(0.512867, 0, 0.858468, 0, 1, 0, -0.858468, 0, 0.512867, -16.5234, 9.53674e-07, 50.5886)
