@@ -32,10 +32,8 @@ var immune_time: float = 2.5
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
-	#print(Global.dialogs["crab"]["dialog_tree"].size())
 	print(health)
 	SignalBus.on_player_health_changed.emit(health)
-	#SignalBus.on_dialog_activated.connect(set_move)
 
 
 func _physics_process(delta: float) -> void:
@@ -81,9 +79,6 @@ func _physics_process(delta: float) -> void:
 		ground_speed = 0
 		velocity = Vector3(0,0,0)
 		#print("you cant just move mate")
-	
-	if velocity != Vector3.ZERO:
-		$RayCast3D.target_position = velocity.normalized() * 4
 
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
 	if is_starting_jump:
@@ -135,12 +130,14 @@ func _input(event: InputEvent) -> void:
 
 
 func hurt(damage) -> void:
-	if damage < health and immune == false:
+	if damage < Global.player_health and immune == false:
 		get_immune(immune_time)
 		#muda a cor da skin do narval
-		health -= damage
-		print(health)
-		SignalBus.on_player_health_changed.emit(health)
+		#health -= damage
+		Global.player_health -= damage
+		health = Global.player_health
+		print("player health: ",Global.player_health)
+		SignalBus.on_player_health_changed.emit(Global.player_health)
 	elif damage >= health and immune == false:
 		health = 0
 	if health == 0:
@@ -172,13 +169,19 @@ func knockback(force: Vector3, _impact_point: Vector3) -> void:
 
 func attack() -> void:
 	if Global.current_weapon == "tonfa":
+		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", true)
 		$narwhal_skin/narval_model/Armature_001.show()
 		$narwhal_skin/narval_model/Armature_002.hide()
 		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
+		get_tree().create_timer(1).timeout
+		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", false)
 	elif Global.current_weapon == "bat":
+		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.set_deferred("monitorable", true)
 		$narwhal_skin/narval_model/Armature_002.show()
 		$narwhal_skin/narval_model/Armature_001.hide()
 		$narwhal_skin/narval_model/attack_player.play("bat_attack")
+		get_tree().create_timer(1).timeout
+		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.set_deferred("monitorable", false)
 
 
 func get_immune(immune_time:= 5.0) -> void:

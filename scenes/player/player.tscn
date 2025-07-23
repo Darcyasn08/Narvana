@@ -49,6 +49,27 @@ script = ExtResource("1_3vyb7")
 [node name="narwhal_skin" parent="." instance=ExtResource("2_75vfm")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
 
+[node name="RayCast3D" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0, 0.790549, 0)
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_thickness = 5
+
+[node name="RayCast3D2" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, 0.354127, 0.790549, -0.392962)
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_thickness = 5
+
+[node name="RayCast3D3" type="RayCast3D" parent="narwhal_skin"]
+transform = Transform3D(1.11111, 0, 0, 0, 1.11111, 0, 0, 0, 1.11111, -0.390404, 0.790549, -0.392962)
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true
+debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
+debug_shape_thickness = 5
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.273969, 0, -0.352677, 0, 0.446587, 0, 0.352677, 0, 0.273969, 0, 1.06733, -0.145649)
 shape = SubResource("CapsuleShape3D_qek5x")
@@ -87,13 +108,6 @@ transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.330
 visible = false
 material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
-
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711494, 0)
-target_position = Vector3(0, 0, 3)
-collide_with_areas = true
-debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
-debug_shape_thickness = 5
 
 [node name="magics" type="Node3D" parent="."]
 

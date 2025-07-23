@@ -298,10 +298,11 @@ mesh = SubResource("ArrayMesh_yb3wd")
 skin = SubResource("Skin_k7kmy")
 
 [node name="bat" parent="narval_model/Armature_002/Skeleton3D" instance=ExtResource("4_audoe")]
-transform = Transform3D(0.825655, -2.34541, 0.759834, -2.45344, -0.860552, 0.00966712, 0.242771, -0.720072, -2.48647, 0.671884, 0.979378, -1.559)
+transform = Transform3D(0.825654, -2.34541, 1.02285, -2.45344, -0.860552, 0.0130129, 0.242771, -0.720072, -3.34718, 0.671884, 0.979378, -1.559)
 
 [node name="Area3D" type="Area3D" parent="narval_model/Armature_002/Skeleton3D/bat" groups=["weapon"]]
 transform = Transform3D(1, 0, 0, 0, -0.0205236, 0.999789, 0, -0.999789, -0.0205236, 0, -0.0497178, -0.727042)
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="narval_model/Armature_002/Skeleton3D/bat/Area3D"]
 transform = Transform3D(0.64764, -1.41561e-07, -0.761945, 1.63913e-07, 0.999996, 0, 0.761945, -2.38419e-07, 0.647641, 0.0268073, 0.0719604, 0.0315389)

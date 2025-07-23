@@ -36,6 +36,7 @@ material_override = SubResource("StandardMaterial3D_0vhhs")
 material_override = SubResource("StandardMaterial3D_0vhhs")
 
 [node name="area" type="Area3D" parent="." groups=["weapon"]]
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
 transform = Transform3D(1, 0, 0, 0, 0.875042, 0.484046, 0, -0.484046, 0.875042, 0, 0.446826, -0.254736)

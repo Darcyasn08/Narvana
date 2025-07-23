@@ -4,20 +4,20 @@ var life: int = 700
 var damage: int = 1
 var bullet_speed: float = 20.0
 var level: int = 2
-var state : String = "dragons"
-var speed : float = 10.0
+var state: String = "dragons"
+var speed: float = 10.0
 
-var dragonins = preload("res://scenes/pearl_collar.tscn")
-var pearlins = preload("res://scenes/projectile.tscn")
-var blushins := 1
+var dragonins: Object = preload("res://scenes/pearl_collar.tscn")
+var pearlins: Object = preload("res://scenes/projectile.tscn")
+var blushins: int = 1
 
 @onready var player = $"../player"
 
 
 func _ready() -> void:
 	$Timer.start()
-	
-	
+
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,7 +52,7 @@ func look_to_player(delta : float)-> void:
 	var target_angle = pos2d - targetpos2d
 	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), delta * 1.5)
 
-func shoot():
+func shoot() -> void:
 	var pearl = pearlins.instantiate()
 	pearl.pos = $shoot.global_position
 	pearl.rot = rotation
@@ -63,9 +63,9 @@ func shoot():
 	if state == "blush":
 		pearl.blush = true
 	get_parent().add_child(pearl)
-	
+
+
 func _on_timer_timeout() -> void:
-	
 	if state != "blush":
 		shoot()
 		await(get_tree().create_timer(3).timeout)
@@ -127,8 +127,8 @@ func teleporting2() -> void:
 	state = old_state
 	rotation.y = old_rotation
 	show()
-	
-	
+
+
 func teleporting() -> void:
 	var old_rotation = rotation.y
 	#var old_state = state
@@ -141,9 +141,6 @@ func teleporting() -> void:
 		print("limit is: ",limit)
 		print("prev global pos: ",global_position)
 		#print($tele_pilot/teleport.global_position.z)
-		
-		
-		
 		
 		var rand_posz = check_pos_difference(limit)
 		if rand_posz == null:
@@ -187,7 +184,7 @@ func teleporting() -> void:
 			print(global_position)
 			rotation.y = old_rotation
 
-func check_pos_difference(limit):
+func check_pos_difference(limit) -> void:
 #tenta 10 vezes algum valor que seja pelo menos 2 metros longe do player
 	for i in 10:
 		var rand_posz = randf_range(global_position.z, limit.z)

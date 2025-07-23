@@ -1,20 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgkvbcn4gwfui"]
+[gd_scene load_steps=6 format=3 uid="uid://cgkvbcn4gwfui"]
 
 [ext_resource type="Script" uid="uid://dup3kl0m5qpl8" path="res://scripts/first_level_portal.gd" id="1_l7h6p"]
 [ext_resource type="Texture2D" uid="uid://cjs00e6sncidg" path="res://art/portal.png" id="2_prr58"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu1gx"]
-radius = 3.15509
+radius = 3.52674
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prr58"]
+albedo_color = Color(0.400117, 0.173141, 0.146734, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_prr58"]
+material = SubResource("StandardMaterial3D_prr58")
+size = Vector3(4, 3, 0.6)
 
 [node name="first_level_portal" type="Area3D"]
 script = ExtResource("1_l7h6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4583, 0)
 shape = SubResource("SphereShape3D_hu1gx")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.866243, 0, -0.499622, 0, 1, 0, 0.499622, 0, 0.866243, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 texture = ExtResource("2_prr58")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46147, 0)
+mesh = SubResource("BoxMesh_prr58")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

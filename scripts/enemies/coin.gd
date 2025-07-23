@@ -6,6 +6,7 @@ var on_ground : bool = false
 var life : int = 500
 var damage : int = 1
 var acceleration : float = 15.0
+var fall_time: float
 
 @onready var player = $"../player"
 
@@ -38,7 +39,7 @@ func unique_take_damage(area) -> void:
 	on_ground = true
 	fall()
 	calculate_knockback(area)
-	await(get_tree().create_timer(5).timeout)
+	await(get_tree().create_timer(fall_time).timeout)
 	on_ground = false
 
 func damage_player(area) -> void:
@@ -46,17 +47,18 @@ func damage_player(area) -> void:
 	on_ground = true
 	fall()
 	calculate_knockback(area)
-	await(get_tree().create_timer(5).timeout)
+	await(get_tree().create_timer(fall_time).timeout)
 	on_ground = false
 
 func unique_die() -> void:
 	print("im dead dude...")
 
 func fall() -> void:
+	fall_time = randf_range(2,3.5)
 	$uped.hide()
 	$falled.show()
 	$enemy_hitbox.monitoring = false
-	await(get_tree().create_timer(5).timeout)
+	await(get_tree().create_timer(fall_time).timeout)
 	$uped.show()
 	$falled.hide()
 	$enemy_hitbox.monitoring = true
@@ -78,5 +80,5 @@ func look_to_player(delta : float) -> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
 	var target_angle = pos2d - targetpos2d
-	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y),delta * 1.5)
+	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), 0.1)
 		

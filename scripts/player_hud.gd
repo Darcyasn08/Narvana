@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	$fps_label.text = str(snapped(Engine.get_frames_per_second(), 0.01))
-	print($fps_label.text)
+	#print($fps_label.text)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("e"):

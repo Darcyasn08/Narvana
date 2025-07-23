@@ -73,4 +73,4 @@ func look_to_player(delta: float) -> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
 	var target_angle = pos2d - targetpos2d
-	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y),delta * 1.3)
+	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), .1)

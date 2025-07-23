@@ -6,10 +6,11 @@ var has_started_game: bool = false
 #player
 var player_can_move: bool = true
 var player_can_attack: bool = true
+var current_weapon: String = "bat"
+
 var base_player_health: int = 6
 var base_player_damage: float = 200.0
 var base_player_speed: float = 8.0
-var current_weapon: String = "bat"
 
 var player_health: int = 6
 var player_damage: float = 200.0
