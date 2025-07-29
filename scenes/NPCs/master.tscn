@@ -145,6 +145,6 @@ autoplay = "idle"
 current_npc = "master"
 
 [node name="portal_pos" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.83956, 1.8408, 1.09021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.84, 0, 1.09)
 
 [editable path="master_model"]

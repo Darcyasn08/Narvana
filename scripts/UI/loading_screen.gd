@@ -1,13 +1,15 @@
 extends CanvasLayer
 
 func _ready() -> void:
-	if SaveLoad.save_content.has_started_game:
-		var current_world = SaveLoad.save_content.current_world
-		match current_world:
-			0:
-				var game_inst: Object = preload("res://scripts/normal_world.gd")
-				var game = game_inst.instantiate()
-				add_child(game)
-	else:
-		print("open_ normal world")
-		get_tree().change_scene_to_file("res://scenes/worlds/normal_world.tscn")
+	await get_tree().create_timer(.1).timeout
+	ResourceLoader.load_threaded_request(Global.next_scene)
+
+func _process(delta: float) -> void:
+	var progress: Array = []
+	ResourceLoader.load_threaded_get_status(Global.next_scene, progress)
+	$ProgressBar.value = progress[0]*100
+	
+	if progress[0] == 1:
+		#await get_tree().create_timer(1).timeout
+		var packed_scene = ResourceLoader.load_threaded_get(Global.next_scene)
+		get_tree().change_scene_to_packed(packed_scene)

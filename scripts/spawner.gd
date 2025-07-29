@@ -9,6 +9,8 @@ extends Node3D
 
 func _ready() -> void:
 	SignalBus.on_start_room.connect(spawn_enemies)
+	$Label3D.hide()
+	$MeshInstance3D.hide()
 
 func _process(delta: float) -> void:
 	pass

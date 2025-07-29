@@ -32,9 +32,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_l7gmj")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 1088.0
-offset_top = 662.0
-offset_right = 1240.0
-offset_bottom = 696.0
+offset_left = 1171.0
+offset_top = 698.0
+offset_right = 1323.0
+offset_bottom = 732.0
 text = "carregando..."
 label_settings = SubResource("LabelSettings_35dpi")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 172.0
+offset_top = 704.0
+offset_right = 1141.0
+offset_bottom = 731.0

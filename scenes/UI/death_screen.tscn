@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd5k8srgl834u"]
+[gd_scene load_steps=9 format=3 uid="uid://cd5k8srgl834u"]
 
 [ext_resource type="Script" uid="uid://w8bi61i30kpt" path="res://scripts/UI/death_screen.gd" id="1_jcrgr"]
+[ext_resource type="Texture2D" uid="uid://dl58854f6etpo" path="res://UI/death_screen.jpg" id="2_2n4oe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucpc2"]
 font_size = 35
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4w52"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrt7s"]
+bg_color = Color(0.372101, 0.430404, 0.498262, 1)
 
 [sub_resource type="Animation" id="Animation_2n4oe"]
 length = 0.001
@@ -63,6 +69,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.108447, 0.0779328, 0.0746851, 0.713726)
 
+[node name="TextureRect" type="TextureRect" parent="collection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2n4oe")
+
 [node name="Label" type="Label" parent="collection"]
 process_mode = 3
 layout_mode = 1
@@ -71,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -155.0
-offset_right = 102.0
-offset_bottom = -106.0
+offset_left = -88.0
+offset_top = -298.0
+offset_right = 116.0
+offset_bottom = -249.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -88,13 +103,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -21.5
-offset_right = 57.0
-offset_bottom = 21.5
+offset_left = -36.0
+offset_top = 286.0
+offset_right = 78.0
+offset_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4w52")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrt7s")
 text = "try again"
 
 [node name="ColorRect2" type="ColorRect" parent="collection"]

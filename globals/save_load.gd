@@ -11,6 +11,7 @@ var save_content: Dictionary = {
 }
 
 func _ready() -> void:
+	delete_save()
 	load_save()
 	if save_content.has_started_game:
 		print("game has started!")
@@ -21,6 +22,7 @@ func save() -> void:
 	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
 	file.store_var(save_content.duplicate())
 	file.close()
+	print("jogo salvo!")
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):
@@ -30,14 +32,22 @@ func load_save() -> void:
 		file.close()
 		
 		var save_data = data.duplicate()
-		#print("save: ",save_data)
-		#save_content.n = save_data.n
+		
 		save_content.health = save_data.health
+		Global.player_health = save_content.health
+		save_content.current_world = save_data.current_world
+		save_content.inventory = save_data.inventory
+		Global.inventory = save_content.inventory
+		print(save_data.inventory)
 		for i in save_data:
 			pass
 
 func delete_save() -> void:
 	if FileAccess.file_exists(save_path):
-		save_content.todo_list = {}
-		print(save_content.todo_list)
+		DirAccess.remove_absolute(save_path)
+		save_content.current_world = Global.current_world
+		save_content.health = Global.player_health
+		save_content.inventory = Global.inventory
+		Global.has_started_game = false
+		save_content.has_started_game = Global.has_started_game
 		save()

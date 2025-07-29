@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://b6he2j4ixhwk8"]
+[gd_scene load_steps=12 format=4 uid="uid://b6he2j4ixhwk8"]
 
 [ext_resource type="PackedScene" uid="uid://fnkudfo2e07e" path="res://scenes/objects/village_tent.tscn" id="1_xmxjs"]
 [ext_resource type="PackedScene" uid="uid://c1db4w3dsb4tq" path="res://scenes/objects/light_pole.tscn" id="2_5a6mm"]
 [ext_resource type="PackedScene" uid="uid://csg4ifwj144jf" path="res://3d_models/placeholders/stone.glb" id="3_1lfl5"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="4_mx2sk"]
-[ext_resource type="PackedScene" path="res://scenes/NPCs/jellyfish_npc.tscn" id="5_yebb3"]
+[ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="5_yebb3"]
 [ext_resource type="PackedScene" uid="uid://cw3bywfskij7i" path="res://3d_models/placeholders/marketplace_floor.glb" id="6_7xm76"]
+[ext_resource type="PackedScene" uid="uid://dq20xfygww1g1" path="res://scenes/objects/water_fountain.tscn" id="7_mx2sk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lfl5"]
 albedo_color = Color(0.823609, 0.760784, 0.684329, 1)
@@ -99,5 +100,8 @@ skeleton = NodePath("")
 [node name="marketplace_floor" parent="." instance=ExtResource("6_7xm76")]
 transform = Transform3D(0.506004, 0, 0.862531, 0, 1, 0, -0.862531, 0, 0.506004, 0, 0, 0)
 visible = false
+
+[node name="water_fountain" parent="." instance=ExtResource("7_mx2sk")]
+transform = Transform3D(0.607205, 0, 1.03504, 0, 1.2, 0, -1.03504, 0, 0.607205, 0.315577, 0, -0.066442)
 
 [editable path="marketplace_floor"]

@@ -30,6 +30,9 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
+	SignalBus.on_change_player_weapon.connect(change_current_weapon)
+	change_current_weapon(Global.current_weapon)
+	print(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
 	print(health)
@@ -37,6 +40,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if $narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.monitorable:
+		$MeshInstance3D.mesh.size.y = 1
+	else:
+		$MeshInstance3D.mesh.size.y = .2
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
 	if position.y < -50:
 		position = Global.player_base_pos
@@ -62,11 +69,12 @@ func _physics_process(delta: float) -> void:
 		
 		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
 		skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
+		$CollisionShape3D.global_rotation.y = lerp_angle($CollisionShape3D.global_rotation.y,target_angle,rotation_speed *delta)
+		$player_hitbox.global_rotation.y = lerp_angle($player_hitbox.global_rotation.y,target_angle,rotation_speed *delta)
 		
 		ground_speed = velocity.length()
 		if ground_speed > 0.0:
 			$narwhal_skin/narval_model/AnimationPlayer.play("walk")
-			#print(ground_speed)
 		elif ground_speed <= 0.0:
 			$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
 		
@@ -78,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		ground_speed = 0
 		velocity = Vector3(0,0,0)
+		#print("velocity: ", velocity, "... ground_speed: ", ground_speed)
 		#print("you cant just move mate")
 
 	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
@@ -99,8 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and Global.player_can_attack:
 		attack()
-
-	#
+	
 	#if event.is_action_pressed("left_click"):
 		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -166,22 +174,34 @@ func dash() -> void:
 func knockback(force: Vector3, _impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
 
+func change_current_weapon(weapon: String):
+	match weapon:
+		"":
+			$narwhal_skin/narval_model/Armature_001.hide()
+			$narwhal_skin/narval_model/Armature_002.hide()
+			$narwhal_skin/narval_model/Armature_003.show()
+		"bat":
+			$narwhal_skin/narval_model/Armature_001.hide()
+			$narwhal_skin/narval_model/Armature_002.show()
+			$narwhal_skin/narval_model/Armature_003.hide()
+		"tonfa":
+			$narwhal_skin/narval_model/Armature_001.show()
+			$narwhal_skin/narval_model/Armature_002.hide()
+			$narwhal_skin/narval_model/Armature_003.hide()
 
 func attack() -> void:
 	if Global.current_weapon == "tonfa":
 		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", true)
-		$narwhal_skin/narval_model/Armature_001.show()
-		$narwhal_skin/narval_model/Armature_002.hide()
 		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
-		get_tree().create_timer(1).timeout
-		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", false)
+		get_tree().create_timer(.5).timeout
+		#$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", false)
 	elif Global.current_weapon == "bat":
-		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.set_deferred("monitorable", true)
-		$narwhal_skin/narval_model/Armature_002.show()
-		$narwhal_skin/narval_model/Armature_001.hide()
+		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", false)
 		$narwhal_skin/narval_model/attack_player.play("bat_attack")
-		get_tree().create_timer(1).timeout
-		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.set_deferred("monitorable", false)
+		await $narwhal_skin/narval_model/attack_player.animation_finished
+		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", true)
+	else:
+		print("sem nenhuma arma equipada")
 
 
 func get_immune(immune_time:= 5.0) -> void:

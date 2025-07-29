@@ -7,7 +7,7 @@ var level: int = 2
 var state: String = "dragons"
 var speed: float = 10.0
 
-var dragonins: Object = preload("res://scenes/pearl_collar.tscn")
+var dragonins: Object = preload("res://scenes/enemies/pearl_collar.tscn")
 var pearlins: Object = preload("res://scenes/projectile.tscn")
 var blushins: int = 1
 
@@ -184,7 +184,7 @@ func teleporting() -> void:
 			print(global_position)
 			rotation.y = old_rotation
 
-func check_pos_difference(limit) -> void:
+func check_pos_difference(limit):
 #tenta 10 vezes algum valor que seja pelo menos 2 metros longe do player
 	for i in 10:
 		var rand_posz = randf_range(global_position.z, limit.z)
@@ -192,8 +192,8 @@ func check_pos_difference(limit) -> void:
 			print("diferente!!!!")
 			print("rand: ",rand_posz)
 			return rand_posz
-		else:
-			print("não é diferente...")
+		#else:
+			#print("não é diferente...")
 	var rand_posz = randf_range(global_position.z, limit.z)
 	#se depois das 10 tentivas, ainda não der certo..
 	if abs(abs(rand_posz)-abs(global_position.z)) < 2:

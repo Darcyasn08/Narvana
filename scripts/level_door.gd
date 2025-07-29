@@ -10,12 +10,14 @@ func _ready() -> void:
 
 func open(current_room):
 	if current_room == room1 or current_room == room2:
-		print("door is open")
-		door_collision.disabled = true
-		hide()
+		#print("door is open")
+		door_collision.set_deferred("disabled", true)
+		$AnimationPlayer.play("door_open")
+		#hide()
 
 func close(current_room):
 	if current_room == room1 or current_room == room2:
-		print("door is closed")
-		door_collision.disabled = false
-		show()
+		#print("door is closed")
+		door_collision.set_deferred("disabled", false)
+		$AnimationPlayer.play("door_close")
+		#show()

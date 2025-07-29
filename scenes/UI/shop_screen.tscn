@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ffjrswqwb134"]
+[gd_scene load_steps=16 format=3 uid="uid://ffjrswqwb134"]
 
 [ext_resource type="Texture2D" uid="uid://cvr58ioampw4g" path="res://UI/shop_screen.webp" id="1_y6ot4"]
 
@@ -18,6 +18,49 @@ shadow_offset = Vector2(1, 1)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6ot4"]
 atlas = ExtResource("1_y6ot4")
 region = Rect2(84.4526, 53.7239, 1062.94, 621.657)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h33vf"]
+bg_color = Color(0.238651, 0.1563, 0.0835014, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvn71"]
+bg_color = Color(0.432276, 0.330919, 0.27064, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqfv6"]
+font_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2f03"]
+bg_color = Color(0.524922, 0.280172, 0.164141, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cbke"]
+bg_color = Color(0.564789, 0.32953, 0.17615, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_myp1c"]
+bg_color = Color(0.564706, 0.329412, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsweg"]
+bg_color = Color(0.646528, 0.38341, 0.213271, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf0no"]
+bg_color = Color(0.470076, 0.470076, 0.470076, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivtsw"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd5d6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7aq7s"]
+font_size = 23
 
 [node name="shop_screen" type="CanvasLayer"]
 
@@ -60,5 +103,314 @@ scale = Vector2(0.95028, 0.95028)
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6ot4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
 scale = Vector2(0.888369, 0.888369)
 texture = SubResource("AtlasTexture_y6ot4")
+
+[node name="Panel3" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -486.0
+offset_top = -281.0
+offset_right = -269.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h33vf")
+
+[node name="Panel4" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -254.0
+offset_top = -281.0
+offset_right = 483.0
+offset_bottom = 286.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h33vf")
+
+[node name="Panel5" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -237.0
+offset_top = -265.0
+offset_right = 463.0
+offset_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvn71")
+
+[node name="Panel6" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = -237.0
+offset_top = 15.0
+offset_right = 463.0
+offset_bottom = 270.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvn71")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -473.0
+offset_top = -262.0
+offset_right = -298.0
+offset_bottom = -185.0
+text = "LOJA DO 
+CARANGUEJO"
+label_settings = SubResource("LabelSettings_dqfv6")
+
+[node name="Control" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -473.0
+offset_top = -262.0
+offset_right = -433.0
+offset_bottom = -222.0
+
+[node name="Panel11" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 158.0
+offset_top = 493.0
+offset_right = 186.0
+offset_bottom = 466.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2f03")
+
+[node name="Panel2" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = 410.0
+offset_right = 127.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5cbke")
+
+[node name="Panel9" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 98.0
+offset_top = 365.0
+offset_right = 90.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
+
+[node name="Panel10" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 365.0
+offset_right = 43.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
+
+[node name="Panel12" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 198.0
+offset_top = 474.0
+offset_right = 210.0
+offset_bottom = 482.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gsweg")
+
+[node name="Panel14" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 215.0
+offset_top = 431.0
+offset_right = 185.0
+offset_bottom = 435.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
+
+[node name="Panel15" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 195.0
+offset_top = 391.0
+offset_right = 207.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
+
+[node name="Panel13" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = 465.0
+offset_right = 191.0
+offset_bottom = 469.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
+
+[node name="Panel16" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 203.0
+offset_top = 399.0
+offset_right = 170.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
+
+[node name="Panel17" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 217.0
+offset_top = 399.0
+offset_right = 184.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
+
+[node name="Panel18" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 231.0
+offset_top = 399.0
+offset_right = 198.0
+offset_bottom = 385.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
+
+[node name="Panel7" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = 375.0
+offset_right = 83.0
+offset_bottom = 382.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
+
+[node name="Panel8" type="Panel" parent="Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 59.0
+offset_top = 374.0
+offset_right = 39.0
+offset_bottom = 381.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
+
+[node name="item" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = -162.0
+offset_top = -240.0
+offset_right = 98.0
+offset_bottom = -21.0
+
+[node name="Panel" type="Panel" parent="Control/item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Control/item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = 68.0
+offset_right = -53.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/item"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 22.0
+offset_right = 194.0
+offset_bottom = 54.0
+text = "PRODUTO 1"
+label_settings = SubResource("LabelSettings_7aq7s")
+
+[node name="Label2" type="Label" parent="Control/item"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 167.0
+offset_right = 154.0
+offset_bottom = 199.0
+text = "$100"
+label_settings = SubResource("LabelSettings_7aq7s")
+
+[node name="item2" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 123.0
+offset_top = -240.0
+offset_right = 383.0
+offset_bottom = -21.0
+
+[node name="Panel" type="Panel" parent="Control/item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="Control/item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.0
+offset_top = 68.0
+offset_right = -57.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/item2"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 22.0
+offset_right = 194.0
+offset_bottom = 54.0
+text = "PRODUTO 2"
+label_settings = SubResource("LabelSettings_7aq7s")
+
+[node name="Label2" type="Label" parent="Control/item2"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 167.0
+offset_right = 154.0
+offset_bottom = 199.0
+text = "$100"
+label_settings = SubResource("LabelSettings_7aq7s")

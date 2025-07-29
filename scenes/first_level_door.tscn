@@ -1,6 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cexua4one0xip"]
+[gd_scene load_steps=12 format=3 uid="uid://cexua4one0xip"]
 
 [ext_resource type="Script" uid="uid://d1xj13tku3knt" path="res://scripts/level_door.gd" id="1_st38b"]
+[ext_resource type="PackedScene" uid="uid://cniyires1knml" path="res://3d_models/placeholders/temple_door_normal.glb" id="2_gpdqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpdqj"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.311833, 0.132251, 0.0157811, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7bhj"]
+albedo_color = Color(0.859922, 0.637533, 0.651644, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st38b"]
 albedo_color = Color(0.702416, 0.334254, 0.24369, 1)
@@ -11,14 +21,129 @@ size = Vector3(5, 4, 1.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_st38b"]
 size = Vector3(4.82324, 3.70142, 1)
 
+[sub_resource type="Animation" id="Animation_p7bhj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.27915, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.16388, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kevib"]
+resource_name = "door_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3, 0, 0), Vector3(-1.2665, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3, 0, 0), Vector3(1.30647, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gpdqj"]
+resource_name = "door_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.27915, 0, 0), Vector3(-3, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.16388, 0, 0), Vector3(3, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kevib"]
+_data = {
+&"RESET": SubResource("Animation_p7bhj"),
+&"door_close": SubResource("Animation_kevib"),
+&"door_open": SubResource("Animation_gpdqj")
+}
+
 [node name="first_level_door" type="StaticBody3D"]
 script = ExtResource("1_st38b")
 
+[node name="temple_door_normal" parent="." instance=ExtResource("2_gpdqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27915, 0, 0)
+
+[node name="Cube" parent="temple_door_normal" index="0"]
+material_override = SubResource("StandardMaterial3D_gpdqj")
+
+[node name="Cube_002" parent="temple_door_normal" index="1"]
+material_override = SubResource("StandardMaterial3D_p7bhj")
+
+[node name="temple_door_normal2" parent="." instance=ExtResource("2_gpdqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16388, 0, 0)
+
+[node name="Cube" parent="temple_door_normal2" index="0"]
+material_override = SubResource("StandardMaterial3D_gpdqj")
+
+[node name="Cube_002" parent="temple_door_normal2" index="1"]
+material_override = SubResource("StandardMaterial3D_p7bhj")
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_st38b")
 mesh = SubResource("BoxMesh_gpdqj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207, 2.05149, 0)
 shape = SubResource("BoxShape3D_st38b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kevib")
+}
+
+[editable path="temple_door_normal"]
+[editable path="temple_door_normal2"]

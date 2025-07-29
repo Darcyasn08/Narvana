@@ -150,18 +150,19 @@ lod_bias = 0.1
 visibility_range_end = 110.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.99756, 5.31716, -0.0168253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70106, 5.31716, -0.0168253)
+light_color = Color(0.960277, 0.9729, 0.918149, 1)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 1.80923
+omni_range = 4.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9668, 5.31716, -0.0168253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0038, 5.31716, -0.0168253)
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
-omni_range = 1.7343
+omni_range = 4.0
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.362713, 0, 0, 0, 0.362713, 0, 0, 0, 0.362713, 9.98099, 6.64819, 0)

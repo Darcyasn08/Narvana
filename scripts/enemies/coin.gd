@@ -9,12 +9,13 @@ var acceleration : float = 15.0
 var fall_time: float
 
 @onready var player = $"../player"
-
+@onready var collision: CollisionShape3D = $collision
+@onready var collision_2: CollisionShape3D = $collision2
 
 func _ready() -> void:
 	on_ground = true
 	fall()
-	await(get_tree().create_timer(5).timeout)
+	await(get_tree().create_timer(fall_time).timeout)
 	on_ground = false
 
 func _physics_process(delta: float) -> void:
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func unique_take_damage(area) -> void:
-	print(life)
+	print("i was hit by a weapon!!",life)
 	on_ground = true
 	fall()
 	calculate_knockback(area)
@@ -58,10 +59,13 @@ func fall() -> void:
 	$uped.hide()
 	$falled.show()
 	$enemy_hitbox.monitoring = false
+	collision.set_deferred("disabled", true)
+	$enemy_hitbox.set_deferred("monitoring", false)
 	await(get_tree().create_timer(fall_time).timeout)
 	$uped.show()
 	$falled.hide()
-	$enemy_hitbox.monitoring = true
+	collision.set_deferred("disabled", false)
+	$enemy_hitbox.set_deferred("monitoring", true)
 
 
 func knockback(force: Vector3, impact_point: Vector3) -> void:
@@ -75,10 +79,10 @@ func calculate_knockback(area: Area3D) -> void:
 	knockback(force, body_collision)
 	await(get_tree().create_timer(.3).timeout)
 	velocity = velocity * 0
-	
+
+
 func look_to_player(delta : float) -> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
 	var target_angle = pos2d - targetpos2d
 	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), 0.1)
-		

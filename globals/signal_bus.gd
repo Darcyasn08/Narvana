@@ -12,8 +12,10 @@ signal on_start_room()
 
 signal on_item_list_updated()
 signal on_item_removed()
+signal on_change_player_weapon()
 
 signal on_start_dialog_function()
+signal on_game_paused()
 
 signal on_player_health_changed()
 

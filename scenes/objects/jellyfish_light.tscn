@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwdrwq364ltc7"]
+
+[ext_resource type="PackedScene" uid="uid://oy0qp4gmhfxy" path="res://3d_models/placeholders/jellyfish-light.glb" id="1_vmkl0"]
+[ext_resource type="Script" uid="uid://b3y8abh0ajya3" path="res://scripts/objects/jellyfish_light.gd" id="1_xf1a7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf1a7"]
+transparency = 1
+albedo_color = Color(0.705486, 0.596818, 0.331543, 0.839216)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmkl0"]
+albedo_color = Color(0.608765, 0.793458, 0.854813, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4foa"]
+emission_enabled = true
+emission = Color(0.97985, 0.972928, 0.910944, 1)
+emission_energy_multiplier = 3.5
+
+[sub_resource type="Animation" id="Animation_vmkl0"]
+resource_name = "light_move"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jellyfish-light:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 2.06667, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.271319, 0), Vector3(0, 0.584558, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xf1a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jellyfish-light:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4foa"]
+_data = {
+&"RESET": SubResource("Animation_xf1a7"),
+&"light_move": SubResource("Animation_vmkl0")
+}
+
+[node name="jellyfish_light" type="Node3D"]
+script = ExtResource("1_xf1a7")
+
+[node name="jellyfish-light" parent="." instance=ExtResource("1_vmkl0")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Cube" parent="jellyfish-light" index="0"]
+transform = Transform3D(1.44985, 0, 0, 0, 1.27632, 0, 0, 0, 1.44985, 0, 0.326745, 0)
+material_override = SubResource("StandardMaterial3D_xf1a7")
+
+[node name="Plane" parent="jellyfish-light" index="1"]
+transform = Transform3D(0.273977, -0.52856, 0, 0, 0, -1.21671, 0.17059, 0.848896, 0, 0.607747, -1.61436, -0.412408)
+material_override = SubResource("StandardMaterial3D_vmkl0")
+
+[node name="Plane_001" parent="jellyfish-light" index="2"]
+transform = Transform3D(0.27188, 0.538856, -4.76113e-08, 9.61857e-09, -1.19209e-07, -1.21671, -0.173913, 0.842398, -1.41723e-07, -0.255564, -1.38585, 0.545868)
+material_override = SubResource("StandardMaterial3D_vmkl0")
+
+[node name="Cube_001" parent="jellyfish-light" index="3"]
+material_override = SubResource("StandardMaterial3D_j4foa")
+
+[node name="Plane_002" parent="jellyfish-light" index="4"]
+transform = Transform3D(0.194261, 0.798572, -1.37652e-07, -9.61857e-09, -1.19209e-07, -1.21671, -0.257736, 0.6019, -5.83445e-08, -0.387281, -1.47983, -0.318506)
+material_override = SubResource("StandardMaterial3D_vmkl0")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="jellyfish-light"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+light_color = Color(0.98697, 0.964678, 0.950787, 1)
+light_energy = 1.5
+omni_range = 18.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j4foa")
+}
+autoplay = "light_move"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.493261, 0)
+light_color = Color(0.891952, 0.990439, 0.689059, 1)
+light_energy = 3.462
+spot_range = 10.1262
+spot_angle = 50.854
+
+[editable path="jellyfish-light"]

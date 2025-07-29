@@ -2,6 +2,9 @@ extends Node
 
 #game
 var has_started_game: bool = false
+var game_paused: bool = false
+var next_scene: String = "res://scenes/worlds/normal_world.tscn"
+var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
 
 #player
 var player_can_move: bool = true
@@ -13,12 +16,14 @@ var base_player_damage: float = 200.0
 var base_player_speed: float = 8.0
 
 var player_health: int = 6
-var player_damage: float = 200.0
+var player_damage: float = 100.0
 var player_speed: float = 8.0
 
 var plus_player_health: int
 var plus_player_damage: float
 var plus_player_speed: float
+
+var max_player_health: int
 
 #enemies
 var dust_damage: float= 1500.0
@@ -30,7 +35,10 @@ var player_base_pos: Vector3 = Vector3(0,5,0)
 var player_normal_pos: Vector3 = Vector3(0,5,0)
 var player_first_level_pos: Vector3
 
-
+var worlds_files: Dictionary = {
+	"normal_world": "res://scenes/worlds/normal_world.tscn",
+	"first_level": "res://scenes/worlds/first_level.tscn"
+}
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn"], #uma fase
@@ -40,16 +48,16 @@ var enemies: Array = [
 
 #levels
 var dead_enemies_first_level: Array = [
-	[0, 0],
-	[0, 0],
-	[0, 0],
-	[0, 0],
-	[0, 0]
+	[0, 0], #inimigos derrotados/objetivo
+	#[0, 0],
+	#[0, 0],
+	#[0, 0],
+	#[0, 0],
 ]
 
 var current_room: int = 0
-var current_world: int
-enum worlds {NORMAL, FIRST_LEVEL}
+var current_world: int = 0
+enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
 
 var completed_levels: Dictionary = {
 	"first_level": false,
@@ -67,7 +75,7 @@ var inventory: Dictionary = {
 			"name": "Foto da banda",
 			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
 			"buff": {
-				"damage": 50,
+				"damage": 10,
 				"health": 0,
 				"speed": 0,
 			},
@@ -100,13 +108,28 @@ var inventory: Dictionary = {
 
 enum npcs {crab, master}
 
+var npc_manager: Dictionary = {
+	"crab": {
+		"has_talked_to": false,
+	},
+	"jellyfish": {
+		"has_talked_to": false,
+	},
+	"grandma": {
+		"has_talked_to": false,
+	},
+	"master": {
+		"has_talked_to": false
+	}
+}
+
 var dialogs: Dictionary = {
 	"crab": {
 		"dialog_tree": {
 			"is_first_time": true,
 			"first_dialog": {
 				"text": "hi",
-				"options": {}
+				"options": {},
 			},
 			"middle": {
 				0: {
@@ -150,10 +173,176 @@ var dialogs: Dictionary = {
 				"text": "Até logo, rapaz",
 				"options": {}
 			}
-		},
-		"jellyfish": {},
-		"grandma": {},
-	}
+		}
+	},
+	"jellyfish": {
+		"dialog_tree": {
+			"is_first_time": true,
+			"first_dialog": {
+				"text": "hi",
+				"options": {}
+			},
+			"middle": {
+				0: {
+					"text": "Oi, eu sou o Anderson",
+					"options": {}
+				},
+				1: {
+					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
+					"options": {}
+				},
+				2: {
+					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
+					"options": {}
+				},
+			},
+			"quest": {
+				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
+				"status": "none",
+				"id": "secret_stash",
+				"text": "(fazer um texto aqui alguma hora)",
+				"options": {}
+			},
+			"exit": {
+				"text": "Te vejo mais tarde",
+				"options": {}
+			}
+		}
+	},
+		
+	"grandma": {
+		"dialog_tree": {
+			"is_first_time": true,
+			"first_dialog": {
+				"text": "hi",
+				"options": {}
+			},
+			"middle": {
+				0: {
+					"text": "Oi, eu sou o Anderson",
+					"options": {}
+				},
+				1: {
+					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
+					"options": {}
+				},
+				2: {
+					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
+					"options": {}
+				},
+			},
+			"quest": {
+				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
+				"status": "none",
+				"id": "secret_stash",
+				"text": "(fazer um texto aqui alguma hora)",
+				"options": {}
+			},
+			"exit": {
+				"text": "Te vejo mais tarde",
+				"options": {}
+			}
+		}
+	},
+	
+	"master": {
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Olá garoto, vejo que você é bem jovem",
+					"options": {},
+				},
+				1: {
+					"text": "E pelas suas vestimentas, é de fora, não é?",
+					"options": {},
+				},
+				2: {
+					"text": "Hmm... também tem um ar de tristeza envolta de ti",
+					"options": {},
+				},
+				3: {
+					"text": "Venha, posso ajudar a sua jovem alma a curar todas as suas tristezas",
+					"options": {
+						0: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+						1: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+					},
+				},
+				4: {
+					"text": "Após se aproximar no portal, entre nele usando [e] e vou te ajudar nessa jornada",
+					"options": {},
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "Estarei te esperando do outro lado da porta para te dar as instruções",
+					"options": {},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "(clica [e] pra continuar, não pensei nesse dialogo ainda)",
+				"id": "open_first_level_portal",
+				"options": {},
+			}
+		}
+	},
+	
+	"master_first_level": {
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Para enfrentar essas coisas que existem dentro de você, é necessário lutar contra elas",
+					"options": {},
+				},
+				1: {
+					"text": "Começaremos com sua parte mais... supérflua",
+					"options": {},
+				},
+				2: {
+					"text": "Como primeira tentativa, tente usar o bastão para bater naquele boneco ali",
+					"options": {},
+				},
+				3: {
+					"text": "Dê a quantidade suficiente de dano para ele ser destruido, assim como aquilo que te incomoda",
+					"options": {},
+				},
+				4: {
+					"text": "Após isso, a porta abrirá, e você poderá prosseguir para o desafio de verdade",
+					"options": {},
+				},
+				5: {
+					"text": "Boa sorte, jovem. Estarei no final disso tudo te esperando",
+					"options": {},
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "Derrote o boneco do seu lado, e você pode prosseguir com o seu desafio. Te esperarei no final da fase",
+					"options": {},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "(clica [e] pra continuar, não pensei nesse dialogo ainda)",
+				"id": "open_first_level_portal",
+				"options": {},
+			}
+		}
+	},
+	"second_level_master": {
+		"is_first_time": true,
+	},
+	"third_level_master": {
+		"is_first_time": true,
+	},
 }
 
 var cutscenes: Dictionary = {
@@ -175,35 +364,6 @@ var quests: Dictionary = {
 			"desc": "give grandma some flowers",
 			"item_to_give": "flower bouquet"
 		}
-	}
-}
-
-var dialogues: Dictionary = {
-	"crab": {
-		0: [
-			"hello",
-			"i am crab",
-			"how are you?",
-			"i'm fine; i'm sad :(",
-			"ok :D"
-		],
-	},
-	
-	"master": {
-		0: [
-			"hello little one",
-			"i wonder what brings you here...",
-			"oh!",
-			"have you just come here to escape your old damn life?"
-		],
-	},
-	
-	"jellyfish": {
-		0: [
-			"vamo rir vamo rir",
-			"vamo rir, daniel, vamo rir",
-			"muahahaHAHAHAHAH"
-		],
 	}
 }
 

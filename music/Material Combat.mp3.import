@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6vh5whn5c54y"
+path="res://.godot/imported/Material Combat.mp3-aadf89eeb67fc58df02e975324b09108.mp3str"
+
+[deps]
+
+source_file="res://music/Material Combat.mp3"
+dest_files=["res://.godot/imported/Material Combat.mp3-aadf89eeb67fc58df02e975324b09108.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

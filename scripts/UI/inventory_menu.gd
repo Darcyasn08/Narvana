@@ -21,7 +21,7 @@ func update_items() -> void:
 	
 	for item: String in Global.inventory["items"]:
 		item_buff = Global.inventory["items"][item]["buff"]
-		print("ITEM ATUAL: ",item)
+		#print("ITEM ATUAL: ",item)
 		
 		#se o player possuir o item
 		if Global.inventory["items"][item]["player_has"]:
@@ -33,29 +33,30 @@ func update_items() -> void:
 			
 			if item_buff["damage"] != 0:
 				Global.plus_player_damage += item_buff["damage"]
+				print("add damage ",item_buff["damage"])
+				print(Global.player_damage)
 			if item_buff["speed"] != 0:
 				Global.plus_player_speed += item_buff["speed"]
 			if item_buff["health"] != 0:
-				print("vida add!")
-				print("vida antes: ",Global.plus_player_health)
 				Global.plus_player_health += item_buff["health"]
-				print("vida depois: ",Global.plus_player_health)
+				Global.max_player_health += item_buff["health"]
 			$item_list.add_child(item_label)
 		
 		#se o player não possuir o item
 		else:
 			print("player doesnt have this item anymore... ", item)
 			if item_buff["damage"] != 0:
-				print("dano retirado!!")
+				#print("dano retirado!!")
 				Global.plus_player_damage -= item_buff["damage"]
 			if item_buff["speed"] != 0:
-				print("velocidade retirada!!")
+				#print("velocidade retirada!!")
 				Global.plus_player_speed -= item_buff["speed"]
 			if item_buff["health"] != 0:
-				print("vida retirada!!")
-				print("vida antes: ",Global.plus_player_health)
+				#print("vida retirada!!")
+				#print("vida antes: ",Global.plus_player_health)
 				Global.plus_player_health -= item_buff["health"]
-				print("vida depois: ",Global.plus_player_health)
+				Global.max_player_health -= item_buff["health"]
+				#print("vida depois: ",Global.plus_player_health)
 	
 	#deixar com que os valores não sejam menores que 0
 	adjust_plus_values()
@@ -83,11 +84,18 @@ func adjust_plus_values() -> void:
 		Global.plus_player_health = 0
 
 func add_plus_values() -> void:
+	Global.max_player_health = Global.base_player_health + Global.plus_player_health
 	Global.player_health = Global.base_player_health + Global.plus_player_health
 	Global.player_damage = Global.base_player_damage + Global.plus_player_damage
 	Global.player_speed = Global.base_player_speed + Global.plus_player_speed
+	
+	print(Global.player_damage)
+	
+	if Global.player_health > Global.max_player_health:
+		Global.player_health = Global.max_player_health
+	
 	SignalBus.on_player_health_changed.emit(Global.player_health)
-	print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
+	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
 func _on_timer_timeout() -> void:
 	#Global.inventory["items"]["teddy"]["player_has"] = false
