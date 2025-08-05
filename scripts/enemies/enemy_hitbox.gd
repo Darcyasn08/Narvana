@@ -30,8 +30,8 @@ func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 
 func take_damage(area, damage, defense := 1.0) -> void:
 	if parent.life > int(round(damage * defense)):
-		print(damage)
 		parent.life -= int(round(damage * defense))
+		print(parent.life)
 		#print("parent life: ",parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre

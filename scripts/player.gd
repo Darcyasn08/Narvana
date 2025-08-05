@@ -30,6 +30,9 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
+	print(Global.current_weapon)
+	Global.current_weapon = 1
+	print(Global.current_weapon)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	change_current_weapon(Global.current_weapon)
 	print(Global.current_weapon)
@@ -174,28 +177,32 @@ func dash() -> void:
 func knockback(force: Vector3, _impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
 
-func change_current_weapon(weapon: String):
+func change_current_weapon(weapon: int):
+	print("received weapon: ",weapon)
 	match weapon:
-		"":
+		Global.weapons.NONE:
+			Global.current_weapon == Global.weapons.NONE
 			$narwhal_skin/narval_model/Armature_001.hide()
 			$narwhal_skin/narval_model/Armature_002.hide()
 			$narwhal_skin/narval_model/Armature_003.show()
-		"bat":
+		Global.weapons.BAT:
+			Global.current_weapon == 1
 			$narwhal_skin/narval_model/Armature_001.hide()
 			$narwhal_skin/narval_model/Armature_002.show()
 			$narwhal_skin/narval_model/Armature_003.hide()
-		"tonfa":
+		Global.weapons.TONFA:
+			Global.current_weapon == 2
 			$narwhal_skin/narval_model/Armature_001.show()
 			$narwhal_skin/narval_model/Armature_002.hide()
 			$narwhal_skin/narval_model/Armature_003.hide()
 
 func attack() -> void:
-	if Global.current_weapon == "tonfa":
-		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", true)
+	if Global.current_weapon == Global.weapons.TONFA:
+		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", true)
 		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
-		get_tree().create_timer(.5).timeout
-		#$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area.set_deferred("monitorable", false)
-	elif Global.current_weapon == "bat":
+		await $narwhal_skin/narval_model/attack_player.animation_finished
+		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", false)
+	elif Global.current_weapon == Global.weapons.BAT:
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", false)
 		$narwhal_skin/narval_model/attack_player.play("bat_attack")
 		await $narwhal_skin/narval_model/attack_player.animation_finished

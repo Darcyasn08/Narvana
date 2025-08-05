@@ -29,7 +29,7 @@ func _on_back_button_pressed() -> void:
 	get_tree().paused = false
 	hide()
 	Global.game_paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalBus.on_game_paused.emit(Global.game_paused)
 
 func _on_inventory_button_pressed() -> void:

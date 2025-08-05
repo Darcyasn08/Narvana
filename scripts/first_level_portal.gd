@@ -1,6 +1,14 @@
 extends Area3D
 
+@export var portal_type: portal_types
+enum portal_types {ENTER, EXIT}
+@export var portal_closed: bool = false
 var player_near: bool = false
+
+func _ready() -> void:
+	if portal_type == portal_types.EXIT:
+		SignalBus.on_boss_defeated.connect(open_exit_portal)
+		portal_closed = true
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player":
@@ -10,6 +18,9 @@ func _on_body_exited(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = false
 
+func open_exit_portal() -> void:
+	portal_closed = false
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("e") and player_near:
 		if Global.current_world == Global.worlds.NORMAL:
@@ -18,7 +29,7 @@ func _input(_event: InputEvent) -> void:
 			print("teleportando..")
 			Global.next_scene = "res://scenes/worlds/first_level.tscn"
 			get_tree().change_scene_to_packed(Global.loading_screen)
-		elif Global.current_world == Global.worlds.FIRST_LEVEL:
+		elif Global.current_world == Global.worlds.FIRST_LEVEL and !portal_closed:
 			Global.player_can_attack = true
 			Global.player_normal_pos = Vector3(90,2,113)
 			Global.current_world = Global.worlds.NORMAL

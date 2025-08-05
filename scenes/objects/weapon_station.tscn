@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmc4qvahhs3qq"]
+
+[ext_resource type="Script" uid="uid://qt8ut7hd183e" path="res://scripts/objects/weapon_station.gd" id="1_q1buy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jw78n"]
+albedo_color = Color(0.161448, 0.383801, 0.395788, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q1buy"]
+material = SubResource("StandardMaterial3D_jw78n")
+size = Vector3(6, 0.6, 1.4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jw78n"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.4
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q1buy"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nyvj2"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_4kcqw"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jw78n"]
+size = Vector3(6.21578, 1.95384, 1.44867)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1buy"]
+size = Vector3(6.50649, 2.64246, 2.9519)
+
+[node name="weapon_station" type="Node3D"]
+script = ExtResource("1_q1buy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_q1buy")
+
+[node name="bat" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.924885, 0.380247, 0, -0.380247, 0.924885, 0, 0, 0, 1, -1.98622, 1.28878, -1.19209e-07)
+mesh = SubResource("CylinderMesh_jw78n")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="tonfa" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.924885, 0.380247, 0, -0.380247, 0.924885, 0, 0, 0, 1, 0.0247084, 1.2092, 0)
+mesh = SubResource("CylinderMesh_q1buy")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="tonfa"]
+transform = Transform3D(-0.0340099, 0.999421, 0, -0.999421, -0.0340099, 0, 0, 0, 1, 0.224193, 0.127613, 1.19209e-07)
+mesh = SubResource("CylinderMesh_nyvj2")
+skeleton = NodePath("../../MeshInstance3D")
+
+[node name="mangual" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.924885, 0.380247, 0, -0.380247, 0.924885, 0, 0, 0, 1, 2.35016, 1.24676, -1.19209e-07)
+mesh = SubResource("SphereMesh_4kcqw")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0651875, 0.757783, -0.000823975)
+shape = SubResource("BoxShape3D_jw78n")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126125, 0.821228, 0.533325)
+shape = SubResource("BoxShape3D_q1buy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

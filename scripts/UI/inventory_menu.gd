@@ -4,6 +4,7 @@ var item_buff: Dictionary
 
 func _ready() -> void:
 	SignalBus.on_item_removed.connect(remove_item)
+	SignalBus.on_buy_shop_item.connect(add_shop_item)
 	update_items()
 
 func set_items() -> void:
@@ -97,7 +98,10 @@ func add_plus_values() -> void:
 	SignalBus.on_player_health_changed.emit(Global.player_health)
 	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
-func _on_timer_timeout() -> void:
-	#Global.inventory["items"]["teddy"]["player_has"] = false
-	pass
-	#update_items()
+func add_shop_item() -> void:
+	for shop_item in Global.inventory["shop_items"]:
+		var item_label: Label = Label.new()
+		item_label.custom_minimum_size.y = 50
+		item_label.text = str(shop_item)
+		$VBoxContainer.add_child(item_label)
+		print(shop_item)

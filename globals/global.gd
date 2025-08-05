@@ -9,7 +9,16 @@ var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
 #player
 var player_can_move: bool = true
 var player_can_attack: bool = true
-var current_weapon: String = "bat"
+var current_weapon: int
+var n: int = 0
+
+enum weapons {NONE, BAT, TONFA, MANGUAL}
+var unlocked_weapons: Dictionary = {
+	0: true,
+	1: true,
+	2: false,
+	3: false
+}
 
 var base_player_health: int = 6
 var base_player_damage: float = 200.0
@@ -24,6 +33,8 @@ var plus_player_damage: float
 var plus_player_speed: float
 
 var max_player_health: int
+
+var coins: int = 100
 
 #enemies
 var dust_damage: float= 1500.0
@@ -59,6 +70,31 @@ var current_room: int = 0
 var current_world: int = 0
 enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
 
+var shop_items: Dictionary = {
+	0: {
+		"name": "Doce",
+		"desc": "É bem docinho",
+		"price": 45,
+		"buff": {
+			"damage": 0,
+			"health": 0,
+			"speed": 1,
+		},
+		"icon": "res://UI/inventory/teddy-bear.png"
+	},
+	1: {
+		"name": "Chá",
+		"desc": "Acalma bastante",
+		"buff": {
+			"damage": 0,
+			"health": 1,
+			"speed": 0,
+		},
+		"price": 20,
+		"icon": "res://UI/inventory/coffee-cup.png"
+	}
+}
+
 var completed_levels: Dictionary = {
 	"first_level": false,
 	"second_level": false,
@@ -66,7 +102,6 @@ var completed_levels: Dictionary = {
 }
 
 var inventory: Dictionary = {
-	"current_weapon": current_weapon,
 	"current_spell": "",
 	"items": {
 		"photo": {
@@ -102,7 +137,8 @@ var inventory: Dictionary = {
 				"speed": 2,
 			},
 		}
-	}
+	},
+	"shop_items": {}
 }
 
 
@@ -125,8 +161,8 @@ var npc_manager: Dictionary = {
 
 var dialogs: Dictionary = {
 	"crab": {
+		"is_first_time": true,
 		"dialog_tree": {
-			"is_first_time": true,
 			"first_dialog": {
 				"text": "hi",
 				"options": {},
@@ -149,7 +185,7 @@ var dialogs: Dictionary = {
 					"options": {
 						0: {
 							"text": "Sim",
-							"ignite": "quest",
+							"ignite": "function",
 						},
 						1: {
 							"text": "Não",
@@ -168,6 +204,12 @@ var dialogs: Dictionary = {
 				"id": "socks",
 				"text": "notas da lia: juro que eu faço algo melhor depois :'), só finge que tem um cardápio aqui",
 				"options": {}
+			},
+			"function": {
+				"status": "none",
+				"text": "Aqui está!",
+				"id": "open_shop_screen",
+				"options": {},
 			},
 			"exit": {
 				"text": "Até logo, rapaz",

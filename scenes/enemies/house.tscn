@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://cbmvifyq76o3c"]
+[gd_scene load_steps=24 format=3 uid="uid://cbmvifyq76o3c"]
 
-[ext_resource type="PackedScene" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
 [ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
 [ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="2_6syyc"]
 [ext_resource type="Script" uid="uid://3uoc66t42d1e" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
@@ -54,13 +54,25 @@ emission_energy_multiplier = 10.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_10qhy"]
 material = SubResource("StandardMaterial3D_vy7fe")
-height = 0.01
+height = 0.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o1325"]
 height = 50.0
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_edarn"]
+top_radius = 0.08
+bottom_radius = 0.08
+height = 46.428
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_obbqb"]
-size = Vector3(2.89917, 2.57715, 2.86987)
+size = Vector3(2.89917, 2.57715, 3.37244)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edarn"]
+albedo_color = Color(0.389984, 0.258355, 0.313964, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4pusr"]
+material = SubResource("StandardMaterial3D_edarn")
+size = Vector3(3, 2.4, 1)
 
 [node name="house" type="CharacterBody3D"]
 collision_layer = 2
@@ -306,13 +318,23 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_o1325")
 disabled = true
 
+[node name="laser" type="MeshInstance3D" parent="holo_holder/laser_area"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.0368853, 23.0353)
+mesh = SubResource("CylinderMesh_edarn")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
 [node name="door" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.48015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047686, 0.581242, -0.296493)
 
 [node name="door_collision" type="CollisionShape3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36731, 0.788574, 1.48338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.251283)
 shape = SubResource("BoxShape3D_obbqb")
 disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.457118)
+mesh = SubResource("BoxMesh_4pusr")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="holo_holder/laser_area" to="." method="_on_laser_area_area_entered"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://q3b824gclokt"]
+
+[ext_resource type="Script" uid="uid://cna6ydksk78hw" path="res://scripts/UI/shop_item_panel.gd" id="1_1uu53"]
+[ext_resource type="Texture2D" uid="uid://ch0lsf6imx7bn" path="res://UI/inventory/teddy-bear.png" id="1_by4wm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uu53"]
+bg_color = Color(0.416358, 0.315345, 0.263039, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odd00"]
+bg_color = Color(0.204822, 0.140174, 0.131555, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_7aq7s"]
+font_size = 23
+
+[node name="shop_item_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 620.0
+offset_bottom = 219.0
+script = ExtResource("1_1uu53")
+
+[node name="back_panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 34.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1uu53")
+
+[node name="Panel3" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 176.0
+offset_bottom = 194.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_odd00")
+
+[node name="product_icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = -432.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_by4wm")
+expand_mode = 1
+
+[node name="item_name_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 189.0
+offset_top = 30.0
+offset_right = 320.0
+offset_bottom = 62.0
+text = "PRODUTO 1"
+label_settings = SubResource("LabelSettings_7aq7s")
+
+[node name="item_desc_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 72.0
+offset_right = 329.0
+offset_bottom = 104.0
+text = "desc"
+
+[node name="item_price_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 152.0
+offset_right = 251.0
+offset_bottom = 184.0
+text = "$100"
+label_settings = SubResource("LabelSettings_7aq7s")

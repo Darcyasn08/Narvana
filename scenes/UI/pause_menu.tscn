@@ -140,15 +140,15 @@ texture = ExtResource("4_feath")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -171.0
-offset_top = 56.0
-offset_right = 171.0
-offset_bottom = 122.0
+offset_left = -161.0
+offset_top = 34.0
+offset_right = 161.0
+offset_bottom = 100.0
 grow_horizontal = 2
 
 [node name="inventory_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sipkl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
@@ -157,7 +157,7 @@ text = "INVENTÁRIO"
 
 [node name="options_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w67w4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")

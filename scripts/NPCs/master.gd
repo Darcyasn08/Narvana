@@ -22,6 +22,6 @@ func open_portal(emmited_name: String) -> void:
 	if emmited_name == npc_name:
 		var first_level_portal: Object = portal_inst.instantiate()
 		first_level_portal.position = $portal_pos.position
-		Global.current_weapon = "bat"
+		Global.current_weapon = Global.weapons.BAT
 		SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 		add_child(first_level_portal)

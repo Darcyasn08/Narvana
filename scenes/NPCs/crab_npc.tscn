@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0mhi6ktt3kfj"]
+[gd_scene load_steps=8 format=3 uid="uid://c0mhi6ktt3kfj"]
 
 [ext_resource type="PackedScene" uid="uid://c4vlknd21mmit" path="res://3d_models/placeholders/crab.glb" id="1_1wnsb"]
 [ext_resource type="Script" uid="uid://u4fkqjmy4lqs" path="res://scripts/NPCs/crab_npc.gd" id="1_ih6au"]
-[ext_resource type="PackedScene" path="res://scenes/NPCs/npc_dialog_area.tscn" id="3_4hd1a"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="3_4hd1a"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="3_sichv"]
 [ext_resource type="PackedScene" uid="uid://caothemudeyai" path="res://globals/npc_manager.tscn" id="4_4hd1a"]
+[ext_resource type="PackedScene" uid="uid://ffjrswqwb134" path="res://scenes/UI/shop_screen.tscn" id="6_vdpm1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sichv"]
 radius = 4.49643
@@ -30,5 +31,8 @@ debug_color = Color(0.784679, 0.151575, 0.463059, 0.42)
 
 [node name="npc_manager" parent="." instance=ExtResource("4_4hd1a")]
 current_npc = "crab"
+
+[node name="shop_screen" parent="." instance=ExtResource("6_vdpm1")]
+visible = false
 
 [editable path="crab"]

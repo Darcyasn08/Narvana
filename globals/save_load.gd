@@ -39,8 +39,8 @@ func load_save() -> void:
 		save_content.inventory = save_data.inventory
 		Global.inventory = save_content.inventory
 		print(save_data.inventory)
-		for i in save_data:
-			pass
+		#for i: int in save_data:
+			#pass
 
 func delete_save() -> void:
 	if FileAccess.file_exists(save_path):

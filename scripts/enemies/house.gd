@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("space") and player_near: #funcao de entrar na casa
+	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa
 		Global.house_health = life
 		Global.player_health = player.health
 		get_tree().change_scene_to_file("res://scenes/inside_house.tscn")
@@ -128,9 +128,6 @@ func _on_timer_timeout() -> void:
 		state = "shooting"
 		$Timer.wait_time = 1
 		$Timer.start()
-		
-		
-			
 
 
 func _on_laser_area_area_entered(area: Area3D) -> void:
@@ -142,7 +139,7 @@ func unique_take_damage(area) -> void:
 	
 
 func unique_die() -> void:
-	pass
+	SignalBus.on_boss_defeated.emit()
 
 func damage_player(area) -> void:
 	pass

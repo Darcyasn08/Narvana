@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=79 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
@@ -204,17 +204,6 @@ size = Vector3(32, 9, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_phf25"]
 data = PackedVector3Array(-16, 4.5, 0.5, 16, 4.5, 0.5, -16, -4.5, 0.5, 16, 4.5, 0.5, 16, -4.5, 0.5, -16, -4.5, 0.5, 16, 4.5, -0.5, -16, 4.5, -0.5, 16, -4.5, -0.5, -16, 4.5, -0.5, -16, -4.5, -0.5, 16, -4.5, -0.5, 16, 4.5, 0.5, 16, 4.5, -0.5, 16, -4.5, 0.5, 16, 4.5, -0.5, 16, -4.5, -0.5, 16, -4.5, 0.5, -16, 4.5, -0.5, -16, 4.5, 0.5, -16, -4.5, -0.5, -16, 4.5, 0.5, -16, -4.5, 0.5, -16, -4.5, -0.5, 16, 4.5, 0.5, -16, 4.5, 0.5, 16, 4.5, -0.5, -16, 4.5, 0.5, -16, 4.5, -0.5, 16, 4.5, -0.5, -16, -4.5, 0.5, 16, -4.5, 0.5, -16, -4.5, -0.5, 16, -4.5, 0.5, 16, -4.5, -0.5, -16, -4.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phf25"]
-albedo_color = Color(0.650033, 0.315179, 0.312956, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4c4wp"]
-material = SubResource("StandardMaterial3D_phf25")
-size = Vector3(13, 10, 0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_7coi1"]
-material = SubResource("StandardMaterial3D_phf25")
-size = Vector3(13, 10, 1.1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_tidtu"]
 lightmap_size_hint = Vector2i(309, 506)
 add_uv2 = true
@@ -240,7 +229,7 @@ size = Vector3(1, 20, 79)
 data = PackedVector3Array(-0.5, 10, 39.5, 0.5, 10, 39.5, -0.5, -10, 39.5, 0.5, 10, 39.5, 0.5, -10, 39.5, -0.5, -10, 39.5, 0.5, 10, -39.5, -0.5, 10, -39.5, 0.5, -10, -39.5, -0.5, 10, -39.5, -0.5, -10, -39.5, 0.5, -10, -39.5, 0.5, 10, 39.5, 0.5, 10, -39.5, 0.5, -10, 39.5, 0.5, 10, -39.5, 0.5, -10, -39.5, 0.5, -10, 39.5, -0.5, 10, -39.5, -0.5, 10, 39.5, -0.5, -10, -39.5, -0.5, 10, 39.5, -0.5, -10, 39.5, -0.5, -10, -39.5, 0.5, 10, 39.5, -0.5, 10, 39.5, 0.5, 10, -39.5, -0.5, 10, 39.5, -0.5, 10, -39.5, 0.5, 10, -39.5, -0.5, -10, 39.5, 0.5, -10, 39.5, -0.5, -10, -39.5, 0.5, -10, 39.5, 0.5, -10, -39.5, -0.5, -10, -39.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gmcgx"]
-size = Vector3(77.1666, 20.3847, 57.9176)
+size = Vector3(77.1666, 20.3847, 51.287)
 
 [sub_resource type="BoxMesh" id="BoxMesh_235iq"]
 lightmap_size_hint = Vector2i(719, 436)
@@ -380,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.595)
 transform = Transform3D(0.921056, 0, -0.389429, 0, 1, 0, 0.389429, 0, 0.921056, 7.64214, 2.44292, 13.0135)
 
 [node name="jellyfish_light" parent="temple_room_start" instance=ExtResource("18_phf25")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -8.11244, 7.28254, 10.883)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -8.11244, 7.74498, 10.883)
 
 [node name="jellyfish_light2" parent="temple_room_start" instance=ExtResource("18_phf25")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.16196, 6.7927, 17.3878)
@@ -793,7 +782,7 @@ room1 = 4
 room2 = 5
 
 [node name="first_level_door3" parent="temple_room4" instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.910389, 1.98217, -29.5774)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50836, 1.98217, -29.5774)
 room1 = 5
 room2 = 6
 
@@ -924,14 +913,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72108, 2.03972, -29.8411)
 room1 = 4
 room2 = 5
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="temple_room6/meshes/first_level_door3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.399373, 3.74473, 0.116394)
-mesh = SubResource("BoxMesh_4c4wp")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="temple_room6/meshes/first_level_door3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.60816, 3.74473, -59.6111)
-mesh = SubResource("BoxMesh_7coi1")
-
 [node name="MeshInstance3D18" type="MeshInstance3D" parent="temple_room6/meshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6391, 11.3893, -59.9468)
 material_override = ExtResource("2_385i6")
@@ -985,9 +966,9 @@ current_room = 6
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room6/spawner_manager6/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3073, 3.85693, 0.176834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3073, 3.85693, -3.26657)
 shape = SubResource("BoxShape3D_gmcgx")
-debug_color = Color(0, 0, 0, 0.784314)
+debug_color = Color(0.877616, 0.877616, 0.877616, 0.784314)
 
 [node name="Label3D" type="Label3D" parent="temple_room6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73547, 4.0283, -137.161)
@@ -1021,6 +1002,11 @@ room_number = 3
 [node name="spawner7" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -6.60052, 4.61663, -106.488)
 room_number = 4
+
+[node name="spawner9" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 9.75177, 4.61663, -240.852)
+enemy_number = 4
+room_number = 6
 
 [node name="spawner8" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(0.477879, 0, -0.878425, 0, 1, 0, 0.878425, 0, 0.477879, 9.13671, 4.61663, -103.284)
@@ -1080,7 +1066,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, 40.1695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, -191.919)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 3.55758, -62.7769)
@@ -1101,7 +1087,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9336, 2.28796, -162.134)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1273, 2.28796, -177.898)
 
 [node name="stone_path2" type="Node3D" parent="."]
-transform = Transform3D(0.954963, 0, -0.296725, 0, 1, 0, 0.296725, 0, 0.954963, 5.25945, 0.475656, -152.199)
+transform = Transform3D(0.954963, 0, -0.296725, 0, 1, 0, 0.296725, 0, 0.954963, 5.25945, -0.862809, -152.199)
 
 [node name="stone-floor" parent="stone_path2" instance=ExtResource("14_1kpyw")]
 transform = Transform3D(1.5, 0, 1.49012e-07, 0, 1.5, 0, -1.49012e-07, 0, 1.5, 0, 1.53972, 0)
@@ -1146,7 +1132,7 @@ transform = Transform3D(0.943879, 0, -1.1658, 0, 1.5, 0, 1.1658, 0, 0.943879, 0.
 transform = Transform3D(-0.363822, 0, -1.45521, 0, 1.5, 0, 1.45521, 0, -0.363822, -0.62096, 1.53972, 2.20045)
 
 [node name="stone_path3" type="Node3D" parent="."]
-transform = Transform3D(0.990915, 0, 0.134488, 0, 1, 0, -0.134488, 0, 0.990915, 12.2658, 0.475656, -180.045)
+transform = Transform3D(0.990915, 0, 0.134488, 0, 1, 0, -0.134488, 0, 0.990915, 12.2658, -0.862809, -180.045)
 
 [node name="stone-floor" parent="stone_path3" instance=ExtResource("14_1kpyw")]
 transform = Transform3D(1.5, 0, 8.9407e-08, 0, 1.5, 0, -8.9407e-08, 0, 1.5, 0, 1.53972, 0)
@@ -1189,3 +1175,12 @@ transform = Transform3D(0.943879, 0, -1.1658, 0, 1.5, 0, 1.1658, 0, 0.943879, 0.
 
 [node name="stone-floor3" parent="stone_path3" instance=ExtResource("14_1kpyw")]
 transform = Transform3D(-0.363822, 0, -1.45521, 0, 1.5, 0, 1.45521, 0, -0.363822, -0.620964, 1.53972, 2.20045)
+
+[node name="first_level_portal" parent="." instance=ExtResource("7_u5f21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56617, 1.61605, -266.126)
+portal_type = 1
+
+[node name="Label3D" type="Label3D" parent="first_level_portal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.53015, 0)
+text = "CLIQUE [E] PARA SAIR"
+font_size = 50

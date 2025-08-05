@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ffjrswqwb134"]
+[gd_scene load_steps=25 format=3 uid="uid://ffjrswqwb134"]
 
+[ext_resource type="Script" uid="uid://cmfilbue6eadk" path="res://scripts/UI/shop_screen.gd" id="1_h33vf"]
 [ext_resource type="Texture2D" uid="uid://cvr58ioampw4g" path="res://UI/shop_screen.webp" id="1_y6ot4"]
+[ext_resource type="Texture2D" uid="uid://m5mats7y5ajb" path="res://UI/inventory/coffee-cup.png" id="3_dqfv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4aa2i"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.670588)
@@ -26,15 +28,43 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvn71"]
-bg_color = Color(0.432276, 0.330919, 0.27064, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="LabelSettings" id="LabelSettings_dqfv6"]
 font_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aq7s"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tycs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf0yp"]
+font_size = 28
+font_color = Color(0.12559, 0.0567729, 0.0227351, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h33vf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqfv6"]
+bg_color = Color(0.631978, 0.777788, 0.465521, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvn71"]
+bg_color = Color(0.241438, 0.318015, 0.148674, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ry6x"]
+bg_color = Color(0.382958, 0.493253, 0.250542, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2f03"]
 bg_color = Color(0.524922, 0.280172, 0.164141, 1)
@@ -59,10 +89,19 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd5d6"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_7aq7s"]
-font_size = 23
+[sub_resource type="LabelSettings" id="LabelSettings_h33vf"]
+font_size = 46
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf0yp"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
 
 [node name="shop_screen" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_h33vf")
 
 [node name="Panel2" type="Panel" parent="."]
 anchors_preset = 15
@@ -72,91 +111,159 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4aa2i")
 
-[node name="Control" type="Control" parent="."]
+[node name="item_list" type="Control" parent="."]
+process_mode = 3
+z_index = 1
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = 6.0
-offset_right = 41.0
-offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="shop_item_pos_node" type="Control" parent="item_list"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 342.0
+offset_top = 137.0
+offset_right = 342.0
+offset_bottom = 137.0
+
+[node name="arrow_mark" type="Control" parent="item_list"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 321.0
+offset_top = 199.0
+offset_right = 321.0
+offset_bottom = 199.0
+
+[node name="Panel" type="Panel" parent="item_list"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -535.0
-offset_top = -329.0
-offset_right = 565.0
-offset_bottom = 323.0
+offset_left = 35.9999
+offset_top = 56.9999
+offset_right = 1099.0
+offset_bottom = 651.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.95028, 0.95028)
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6ot4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="Sprite2D" type="Sprite2D" parent="item_list"]
 visible = false
 scale = Vector2(0.888369, 0.888369)
 texture = SubResource("AtlasTexture_y6ot4")
 
-[node name="Panel3" type="Panel" parent="Control"]
+[node name="Panel3" type="Panel" parent="item_list"]
 layout_mode = 0
-offset_left = -486.0
-offset_top = -281.0
-offset_right = -269.0
-offset_bottom = 286.0
+offset_left = 85.0
+offset_top = 105.0
+offset_right = 302.0
+offset_bottom = 612.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h33vf")
 
-[node name="Panel4" type="Panel" parent="Control"]
+[node name="Panel4" type="Panel" parent="item_list"]
 layout_mode = 0
-offset_left = -254.0
-offset_top = -281.0
-offset_right = 483.0
-offset_bottom = 286.0
+offset_left = 317.0
+offset_top = 105.0
+offset_right = 1035.0
+offset_bottom = 613.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h33vf")
 
-[node name="Panel5" type="Panel" parent="Control"]
+[node name="Label" type="Label" parent="item_list"]
 layout_mode = 0
-offset_left = -237.0
-offset_top = -265.0
-offset_right = 463.0
-offset_bottom = 1.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gvn71")
-
-[node name="Panel6" type="Panel" parent="Control"]
-layout_mode = 0
-offset_left = -237.0
-offset_top = 15.0
-offset_right = 463.0
-offset_bottom = 270.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_gvn71")
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = -473.0
-offset_top = -262.0
-offset_right = -298.0
-offset_bottom = -185.0
+offset_left = 98.0
+offset_top = 124.0
+offset_right = 273.0
+offset_bottom = 201.0
 text = "LOJA DO 
 CARANGUEJO"
 label_settings = SubResource("LabelSettings_dqfv6")
 
-[node name="Control" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = -473.0
-offset_top = -262.0
-offset_right = -433.0
-offset_bottom = -222.0
+[node name="dialog" type="Panel" parent="item_list"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 315.0
+offset_top = 571.0
+offset_right = 893.0
+offset_bottom = 716.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7aq7s")
 
-[node name="Panel11" type="Panel" parent="Control/Control"]
+[node name="Panel8" type="Panel" parent="item_list/dialog"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 31.0
+offset_right = 66.0
+offset_bottom = 140.0
+rotation = -0.286123
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tycs")
+
+[node name="Label" type="Label" parent="item_list/dialog"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 21.0
+offset_right = 416.0
+offset_bottom = 60.0
+text = "Deseja confirmar a compra?"
+label_settings = SubResource("LabelSettings_uf0yp")
+
+[node name="buy_button" type="Button" parent="item_list/dialog"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 101.0
+offset_right = 590.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h33vf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_dqfv6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dqfv6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gvn71")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dqfv6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ry6x")
+text = "SIM"
+
+[node name="selected_item_icon" type="Control" parent="item_list"]
+anchors_preset = 0
+offset_left = 1115.0
+offset_top = 296.0
+offset_right = 1155.0
+offset_bottom = 336.0
+
+[node name="Panel2" type="Panel" parent="item_list/selected_item_icon"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 204.0
+offset_bottom = 214.0
+
+[node name="item_icon" type="TextureRect" parent="item_list/selected_item_icon"]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -83.0
+offset_right = 249.0
+offset_bottom = 202.0
+texture = ExtResource("3_dqfv6")
+expand_mode = 1
+
+[node name="crab_icon" type="Control" parent="item_list"]
+z_index = 1
+anchors_preset = 0
+offset_left = 99.0
+offset_top = 60.0
+offset_right = 139.0
+offset_bottom = 100.0
+
+[node name="Panel11" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,7 +276,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c2f03")
 
-[node name="Panel2" type="Panel" parent="Control/Control"]
+[node name="Panel2" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,7 +289,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5cbke")
 
-[node name="Panel9" type="Panel" parent="Control/Control"]
+[node name="Panel9" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -195,7 +302,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
 
-[node name="Panel10" type="Panel" parent="Control/Control"]
+[node name="Panel10" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -208,7 +315,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
 
-[node name="Panel12" type="Panel" parent="Control/Control"]
+[node name="Panel12" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,7 +328,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gsweg")
 
-[node name="Panel14" type="Panel" parent="Control/Control"]
+[node name="Panel14" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,7 +341,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
 
-[node name="Panel15" type="Panel" parent="Control/Control"]
+[node name="Panel15" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -247,7 +354,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
 
-[node name="Panel13" type="Panel" parent="Control/Control"]
+[node name="Panel13" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -260,7 +367,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
-[node name="Panel16" type="Panel" parent="Control/Control"]
+[node name="Panel16" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,7 +380,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
-[node name="Panel17" type="Panel" parent="Control/Control"]
+[node name="Panel17" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,7 +393,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
-[node name="Panel18" type="Panel" parent="Control/Control"]
+[node name="Panel18" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -299,7 +406,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
-[node name="Panel7" type="Panel" parent="Control/Control"]
+[node name="Panel7" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -312,7 +419,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
 
-[node name="Panel8" type="Panel" parent="Control/Control"]
+[node name="Panel8" type="Panel" parent="item_list/crab_icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -325,92 +432,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
 
-[node name="item" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = -162.0
-offset_top = -240.0
-offset_right = 98.0
-offset_bottom = -21.0
+[node name="Polygon2D" type="Polygon2D" parent="item_list"]
+position = Vector2(318, 196)
+polygon = PackedVector2Array(-1, -10, -1, 12, 9, 2)
 
-[node name="Panel" type="Panel" parent="Control/item"]
-layout_mode = 1
-anchors_preset = 15
+[node name="coins_label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -100.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 69.0
+grow_horizontal = 0
+text = "$199"
+label_settings = SubResource("LabelSettings_h33vf")
 
-[node name="Panel2" type="Panel" parent="Control/item"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 51.0
-offset_top = 68.0
-offset_right = -53.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="exit_button" type="Button" parent="."]
+offset_left = 1126.0
+offset_top = 672.0
+offset_right = 1339.0
+offset_bottom = 741.0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_uf0yp")
+text = "sair da loja"
 
-[node name="Label" type="Label" parent="Control/item"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 22.0
-offset_right = 194.0
-offset_bottom = 54.0
-text = "PRODUTO 1"
-label_settings = SubResource("LabelSettings_7aq7s")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
 
-[node name="Label2" type="Label" parent="Control/item"]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 167.0
-offset_right = 154.0
-offset_bottom = 199.0
-text = "$100"
-label_settings = SubResource("LabelSettings_7aq7s")
-
-[node name="item2" type="Control" parent="Control"]
-anchors_preset = 0
-offset_left = 123.0
-offset_top = -240.0
-offset_right = 383.0
-offset_bottom = -21.0
-
-[node name="Panel" type="Panel" parent="Control/item2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel2" type="Panel" parent="Control/item2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 54.0
-offset_top = 68.0
-offset_right = -57.0
-offset_bottom = -64.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control/item2"]
-layout_mode = 0
-offset_left = 63.0
-offset_top = 22.0
-offset_right = 194.0
-offset_bottom = 54.0
-text = "PRODUTO 2"
-label_settings = SubResource("LabelSettings_7aq7s")
-
-[node name="Label2" type="Label" parent="Control/item2"]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 167.0
-offset_right = 154.0
-offset_bottom = 199.0
-text = "$100"
-label_settings = SubResource("LabelSettings_7aq7s")
+[connection signal="pressed" from="item_list/dialog/buy_button" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

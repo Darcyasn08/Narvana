@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_j6bxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
-bg_color = Color(0.167724, 0.248556, 0.277141, 1)
+bg_color = Color(0.172074, 0.244793, 0.292624, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j6bxq"]
-font_size = 15
+font_size = 25
 
 [node name="inventory_menu" type="Control"]
 layout_mode = 3
@@ -25,17 +25,24 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -503.0
+offset_top = -597.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fnxws")
 
 [node name="item_list" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 312.0
-offset_right = 1196.0
-offset_bottom = 550.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -475.5
+offset_top = -119.0
+offset_right = 475.5
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Telas" type="Sprite2D" parent="."]
 visible = false
@@ -58,15 +65,23 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 586.0
-offset_right = 425.0
-offset_bottom = 658.0
-text = "(os status dos itens ainda serão implementados 
-numa próxima atualização, ainda tô fazendo testes
-junto com o sistema de desapego)"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -20.0
+offset_right = -22.0
+offset_bottom = 242.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ITEMS DA LOJA"
 label_settings = SubResource("LabelSettings_j6bxq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,7 +4,7 @@ func _ready() -> void:
 	await get_tree().create_timer(.1).timeout
 	ResourceLoader.load_threaded_request(Global.next_scene)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var progress: Array = []
 	ResourceLoader.load_threaded_get_status(Global.next_scene, progress)
 	$ProgressBar.value = progress[0]*100

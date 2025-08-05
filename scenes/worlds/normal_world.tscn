@@ -348,7 +348,10 @@ transform = Transform3D(0.991903, 0, 0.126995, 0, 1, 0, -0.126995, 0, 0.991903, 
 transform = Transform3D(-0.967214, 0, -0.25396, 0, 1, 0, 0.25396, 0, -0.967214, 74.9348, 0.0149412, 19.5404)
 
 [node name="small_house7" parent="." instance=ExtResource("19_wcbeh")]
-transform = Transform3D(0.909889, 0, 0.414852, 0, 1, 0, -0.414852, 0, 0.909889, 91.8893, 0.0149412, 42.2374)
+transform = Transform3D(0.968696, 0, -0.24825, 0, 1, 0, 0.24825, 0, 0.968696, 92.5859, 0.0149412, 49.0017)
+
+[node name="small_house8" parent="." instance=ExtResource("19_wcbeh")]
+transform = Transform3D(0.712687, 0, -0.701482, 0, 1, 0, 0.701482, 0, 0.712687, 108.673, 0.0149412, 57.5012)
 
 [node name="small_house5" parent="." instance=ExtResource("19_wcbeh")]
 transform = Transform3D(0.998101, 0, 0.0616058, 0, 1, 0, -0.0616058, 0, 0.998101, 56.7866, 0.0149412, 46.7665)
@@ -360,7 +363,7 @@ transform = Transform3D(-0.0734645, 0, 0.997298, 0, 1, 0, -0.997298, 0, -0.07346
 transform = Transform3D(0.0984514, 0, 0.995142, 0, 1, 0, -0.995142, 0, 0.0984514, 54.8753, 0.141884, 19.1572)
 
 [node name="low_house3" parent="." instance=ExtResource("20_jptho")]
-transform = Transform3D(0.775793, 0, -0.630987, 0, 1, 0, 0.630987, 0, 0.775793, 109.415, 0.141884, 29.6709)
+transform = Transform3D(-0.997738, 0, -0.0672144, 0, 1, 0, 0.0672144, 0, -0.997738, 120.329, 0.141884, 77.0331)
 
 [node name="health_building" parent="." instance=ExtResource("10_h6eg7")]
 transform = Transform3D(-0.0123043, 0, 0.999924, 0, 1, 0, -0.999924, 0, -0.0123043, -37.0732, 0.302797, 87.4001)
@@ -546,3 +549,18 @@ transform = Transform3D(-0.419811, 0, -0.758202, 0, 0.866667, 0, 0.758202, 0, -0
 
 [node name="giant_boulder8" parent="mountains4" instance=ExtResource("18_fr0nj")]
 transform = Transform3D(0.675924, 0, 0.284438, 0, 0.733333, 0, -0.284438, 0, 0.675924, -1.02207, 0.110485, -57.7396)
+
+[node name="giant_boulder9" parent="." instance=ExtResource("18_fr0nj")]
+transform = Transform3D(-0.867071, 0, 0.498185, 0, 1, 0, -0.498185, 0, -0.867071, 84.3147, -1.90735e-06, 185.147)
+
+[node name="giant_boulder10" parent="." instance=ExtResource("18_fr0nj")]
+transform = Transform3D(-0.60695, 0, 0.348729, 0, 0.7, 0, -0.348729, 0, -0.60695, 88.1498, 0, 171.653)
+
+[node name="giant_boulder11" parent="." instance=ExtResource("18_fr0nj")]
+transform = Transform3D(-0.60695, 0, 0.348729, 0, 0.7, 0, -0.348729, 0, -0.60695, 91.9161, 0, 194.551)
+
+[node name="giant_boulder12" parent="." instance=ExtResource("18_fr0nj")]
+transform = Transform3D(-0.672977, 0, -0.192617, 0, 0.7, 0, 0.192617, 0, -0.672977, 81.1531, 0, 165.959)
+
+[node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315569, 0.0204333, 5.4508)

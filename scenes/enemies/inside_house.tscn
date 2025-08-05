@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://l5n6kg8s0e4a"]
+[gd_scene load_steps=16 format=3 uid="uid://l5n6kg8s0e4a"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_xoj0w"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="2_08v5b"]
@@ -34,6 +34,9 @@ radius = 1.37021
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lqmp3"]
 radius = 1.2
 height = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tdyb8"]
+size = Vector3(1, 8.09473, 20.2944)
 
 [node name="inside_house" type="Node3D"]
 
@@ -85,7 +88,7 @@ mesh = SubResource("BoxMesh_jul8y")
 shape = SubResource("ConcavePolygonShape3D_i36tp")
 
 [node name="level_door" parent="." instance=ExtResource("3_i48gd")]
-transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -9.54967)
+transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -10.6717)
 room2 = 1
 
 [node name="house_heart" type="Area3D" parent="."]
@@ -106,6 +109,20 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90028, 0.906749, -7.04946)
 
 [node name="barrel" parent="movel" instance=ExtResource("5_qkv2e")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.65741, 3.54736, 1.20337)
+shape = SubResource("BoxShape3D_tdyb8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.49119, 3.54736, 1.20337)
+shape = SubResource("BoxShape3D_tdyb8")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.285404, 3.54736, 10.2625)
+shape = SubResource("BoxShape3D_tdyb8")
 
 [connection signal="area_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_entered"]
