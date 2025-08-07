@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://daf2tkgikjdin"]
+[gd_scene load_steps=8 format=3 uid="uid://daf2tkgikjdin"]
 
 [ext_resource type="Script" uid="uid://d1xj13tku3knt" path="res://scripts/level_door.gd" id="1_7dh4e"]
 
@@ -11,15 +11,31 @@ albedo_color = Color(0.702416, 0.334254, 0.24369, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_7dh4e"]
 size = Vector3(25, 10, 1.5)
 
+[sub_resource type="Animation" id="Animation_7dh4e"]
+resource_name = "door_close"
+
+[sub_resource type="Animation" id="Animation_brta1"]
+resource_name = "door_open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hm2c8"]
+_data = {
+&"door_close": SubResource("Animation_7dh4e"),
+&"door_open": SubResource("Animation_brta1")
+}
+
 [node name="level_door" type="StaticBody3D"]
 transform = Transform3D(-0.948479, 0, -0.316841, 0, 1, 0, 0.316841, 0, -0.948479, 0, 0, 0)
 script = ExtResource("1_7dh4e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_kalee")
-disabled = true
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0153233, 0, -0.999883, 0, 1, 0, 0.999883, 0, -0.0153233, -0.0528961, -0.197159, -0.01767)
 material_override = SubResource("StandardMaterial3D_dr8c4")
 mesh = SubResource("BoxMesh_7dh4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hm2c8")
+}

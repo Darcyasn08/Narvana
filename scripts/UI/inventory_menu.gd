@@ -1,6 +1,7 @@
 extends Control
 
 var item_buff: Dictionary
+var selected_shop_item
 
 func _ready() -> void:
 	SignalBus.on_item_removed.connect(remove_item)
@@ -34,8 +35,6 @@ func update_items() -> void:
 			
 			if item_buff["damage"] != 0:
 				Global.plus_player_damage += item_buff["damage"]
-				print("add damage ",item_buff["damage"])
-				print(Global.player_damage)
 			if item_buff["speed"] != 0:
 				Global.plus_player_speed += item_buff["speed"]
 			if item_buff["health"] != 0:
@@ -45,7 +44,7 @@ func update_items() -> void:
 		
 		#se o player não possuir o item
 		else:
-			print("player doesnt have this item anymore... ", item)
+			#print("player doesnt have this item anymore... ", item)
 			if item_buff["damage"] != 0:
 				#print("dano retirado!!")
 				Global.plus_player_damage -= item_buff["damage"]
@@ -90,7 +89,7 @@ func add_plus_values() -> void:
 	Global.player_damage = Global.base_player_damage + Global.plus_player_damage
 	Global.player_speed = Global.base_player_speed + Global.plus_player_speed
 	
-	print(Global.player_damage)
+	#print(Global.player_damage)
 	
 	if Global.player_health > Global.max_player_health:
 		Global.player_health = Global.max_player_health
@@ -99,9 +98,30 @@ func add_plus_values() -> void:
 	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
 func add_shop_item() -> void:
+	var next_index: int = 0
 	for shop_item in Global.inventory["shop_items"]:
-		var item_label: Label = Label.new()
-		item_label.custom_minimum_size.y = 50
-		item_label.text = str(shop_item)
-		$VBoxContainer.add_child(item_label)
-		print(shop_item)
+		next_index += 1
+	next_index -= 1 #para manter dentro dos padrões do index
+	var item_label: Label = Label.new()
+	item_label.custom_minimum_size.y = 50 
+	item_label.text = str(Global.inventory["shop_items"][next_index]["name"])
+	$VBoxContainer.add_child(item_label)
+	select_shop_item()
+
+func select_shop_item() -> void:
+	var index: int = 0
+	#for item_name in $VBoxContainer.get_children():
+		#print(item_name.name, " --- ", item_name.text)
+	for item in $VBoxContainer.get_children():
+		selected_shop_item = index
+		#print("cur shop item: ",selected_shop_item)
+		if Global.inventory["shop_items"][index]["buff"]["damage"] != 0:
+			Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["damage"]
+		if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
+			Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["speed"]
+		if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
+			Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["damage"]
+			Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["damage"]
+		index += 1
+	index = 0
+	add_plus_values()

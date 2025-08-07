@@ -99,14 +99,14 @@ shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
+[node name="dialogue_system" parent="." instance=ExtResource("8_qek5x")]
+visible = false
 
 [node name="pause_menu" parent="." instance=ExtResource("7_qek5x")]
 
-[node name="dialogue_system" parent="." instance=ExtResource("8_qek5x")]
-visible = false
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="torus_mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.321266, 0, 0, 0, 0.321266, 0, 0, 0, 0.321266, 0, 2.33041, 0.0199297)

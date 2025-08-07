@@ -113,15 +113,15 @@ func check_options() -> void:
 		dialog_options.show()
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("e") and has_option:
+		print("too fast when there is an option")
+		can_progress = false
 	if event.is_action_pressed("e") and can_progress and has_started_diag:
 		progress_dialog() #se [e] for clicado, isso roda
 	elif event.is_action_pressed("e") and !can_progress and has_started_diag and !has_option:
 		#print("too fast")
 		dialog_text.text = npc_dialog_tree[cur_text]["text"]
 		can_progress = true
-	elif event.is_action_pressed("e") and has_option:
-		#print("too fast when there is an option")
-		can_progress = false
 
 #função para progressar dialogo
 func progress_dialog() -> void:
@@ -142,12 +142,9 @@ func progress_dialog() -> void:
 			if can_progress:
 				return
 			await get_tree().create_timer(talk_speed).timeout
-			#print(letter)
 			if can_progress: #pra checar frequentemente
-				#print("oh..")
 				return
 			dialog_text.text += letter
-			#print(dialog_text.text)
 		can_progress = true
 		talk_speed = normal_talk_speed
 		dialog_text.text = npc_dialog["text"]

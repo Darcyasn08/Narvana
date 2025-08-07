@@ -1,11 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://l5n6kg8s0e4a"]
+[gd_scene load_steps=24 format=3 uid="uid://l5n6kg8s0e4a"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_xoj0w"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="2_08v5b"]
 [ext_resource type="PackedScene" uid="uid://daf2tkgikjdin" path="res://scenes/level_door.tscn" id="3_i48gd"]
 [ext_resource type="Script" uid="uid://bwv0fbi8nec35" path="res://scripts/enemies/house_heart.gd" id="4_08v5b"]
 [ext_resource type="PackedScene" uid="uid://bvm3to65ulkb1" path="res://scenes/enemies/movel.tscn" id="4_edtcm"]
-[ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="5_qkv2e"]
+[ext_resource type="PackedScene" uid="uid://hfpwt0l7ewk7" path="res://3d_models/placeholders/heart.glb" id="5_3pdy1"]
+[ext_resource type="PackedScene" uid="uid://c5d5l5bkx4sns" path="res://3d_models/placeholders/fridge.glb" id="7_eh1tk"]
+[ext_resource type="PackedScene" uid="uid://dyake8ul26wbf" path="res://3d_models/placeholders/work_table.glb" id="8_7ee51"]
+[ext_resource type="PackedScene" uid="uid://c2m461dohs76q" path="res://3d_models/placeholders/bed.glb" id="9_eh1tk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xoj0w"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,14 +22,29 @@ background_mode = 2
 sky = SubResource("Sky_08v5b")
 tonemap_mode = 2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh1tk"]
+albedo_color = Color(0.224524, 0.250156, 0.351265, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_jul8y"]
 size = Vector3(15, 1, 17)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i36tp"]
 data = PackedVector3Array(-7.5, 0.5, 8.5, 7.5, 0.5, 8.5, -7.5, -0.5, 8.5, 7.5, 0.5, 8.5, 7.5, -0.5, 8.5, -7.5, -0.5, 8.5, 7.5, 0.5, -8.5, -7.5, 0.5, -8.5, 7.5, -0.5, -8.5, -7.5, 0.5, -8.5, -7.5, -0.5, -8.5, 7.5, -0.5, -8.5, 7.5, 0.5, 8.5, 7.5, 0.5, -8.5, 7.5, -0.5, 8.5, 7.5, 0.5, -8.5, 7.5, -0.5, -8.5, 7.5, -0.5, 8.5, -7.5, 0.5, -8.5, -7.5, 0.5, 8.5, -7.5, -0.5, -8.5, -7.5, 0.5, 8.5, -7.5, -0.5, 8.5, -7.5, -0.5, -8.5, 7.5, 0.5, 8.5, -7.5, 0.5, 8.5, 7.5, 0.5, -8.5, -7.5, 0.5, 8.5, -7.5, 0.5, -8.5, 7.5, 0.5, -8.5, -7.5, -0.5, 8.5, 7.5, -0.5, 8.5, -7.5, -0.5, -8.5, 7.5, -0.5, 8.5, 7.5, -0.5, -8.5, -7.5, -0.5, -8.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ee51"]
+albedo_color = Color(0.392719, 0.518997, 0.61715, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eh1tk"]
+size = Vector3(10, 1, 17)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tpct"]
+albedo_color = Color(0.224524, 0.250156, 0.351265, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_2ou0g"]
 size = Vector3(17.0222, 5.47095, 19.4886)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38ifu"]
+albedo_color = Color(0.224524, 0.250156, 0.351265, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5qk87"]
 radius = 1.37021
@@ -49,6 +67,7 @@ shadow_enabled = true
 
 [node name="sala1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.13223, 0, 0, 0, 1.13223, 0, 0, 0, 1.13223, 0, 0, 0.905021)
+material_override = SubResource("StandardMaterial3D_eh1tk")
 mesh = SubResource("BoxMesh_jul8y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sala1"]
@@ -56,11 +75,42 @@ mesh = SubResource("BoxMesh_jul8y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sala1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_i36tp")
 
+[node name="sala4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, 8.89887, 4.47252, 0.217158)
+material_override = SubResource("StandardMaterial3D_7ee51")
+mesh = SubResource("BoxMesh_eh1tk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.94913e-08, -1.13223, 0, 1.13223, -4.94913e-08, 0, 0, 0, 1.13223, -8.8059, 4.47252, 0.217158)
+material_override = SubResource("StandardMaterial3D_7ee51")
+mesh = SubResource("BoxMesh_eh1tk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
+[node name="sala6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.16334e-15, 4.94913e-08, 1.13223, 1.13223, -4.94913e-08, 0, 4.94913e-08, 1.13223, -4.94913e-08, 0.620061, 4.47252, 10.3047)
+material_override = SubResource("StandardMaterial3D_7ee51")
+mesh = SubResource("BoxMesh_eh1tk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sala6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sala6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_i36tp")
+
 [node name="player" parent="." instance=ExtResource("1_xoj0w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430923, 3.73821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430923, 6.10876)
 
 [node name="sala2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.9393)
+material_override = SubResource("StandardMaterial3D_0tpct")
 mesh = SubResource("BoxMesh_jul8y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sala2"]
@@ -80,6 +130,7 @@ shape = SubResource("BoxShape3D_2ou0g")
 
 [node name="sala3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.358044, 0, 0, 0, 0.358044, 0, 0, 0, 0.358044, 0, 0.312995, -11.3997)
+material_override = SubResource("StandardMaterial3D_38ifu")
 mesh = SubResource("BoxMesh_jul8y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="sala3"]
@@ -88,27 +139,29 @@ mesh = SubResource("BoxMesh_jul8y")
 shape = SubResource("ConcavePolygonShape3D_i36tp")
 
 [node name="level_door" parent="." instance=ExtResource("3_i48gd")]
-transform = Transform3D(-0.0322833, 0, -0.999479, 0, 1, 0, 0.999479, 0, -0.0322833, 1.01282, 5.24189, -10.6717)
+transform = Transform3D(-0.0154284, 0, -0.999881, 0, 1, 0, 0.999881, 0, -0.0154284, 1.01282, 5.24189, -10.0315)
 room2 = 1
 
 [node name="house_heart" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11162, -23.8768)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 2.47427, -23.8768)
 script = ExtResource("4_08v5b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="house_heart"]
 shape = SubResource("SphereShape3D_5qk87")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="house_heart"]
+visible = false
 mesh = SubResource("CapsuleMesh_lqmp3")
 
 [node name="Timer" type="Timer" parent="house_heart"]
 wait_time = 5.0
 one_shot = true
 
-[node name="movel" parent="." instance=ExtResource("4_edtcm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90028, 0.906749, -7.04946)
+[node name="heart" parent="house_heart" instance=ExtResource("5_3pdy1")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.145319, -0.339512, -0.149904)
 
-[node name="barrel" parent="movel" instance=ExtResource("5_qkv2e")]
+[node name="movel" parent="." instance=ExtResource("4_edtcm")]
+transform = Transform3D(1.3472, 0, -0.863162, 0, 1.6, 0, 0.863162, 0, 1.3472, 6.57383, 0.60208, -4.13157)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -123,6 +176,15 @@ shape = SubResource("BoxShape3D_tdyb8")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.285404, 3.54736, 10.2625)
 shape = SubResource("BoxShape3D_tdyb8")
+
+[node name="fridge" parent="." instance=ExtResource("7_eh1tk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.78005, 0.566115, 0.422098)
+
+[node name="work_table" parent="." instance=ExtResource("8_7ee51")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -7.17915, 0.568786, 4.58785)
+
+[node name="bed" parent="." instance=ExtResource("9_eh1tk")]
+transform = Transform3D(-0.518161, 0, -0.855283, 0, 1, 0, 0.855283, 0, -0.518161, 4.45942, 0.697142, 5.93833)
 
 [connection signal="area_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="spawner_manager/Area3D" to="spawner_manager" method="_on_area_3d_body_entered"]

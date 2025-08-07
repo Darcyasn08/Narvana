@@ -30,17 +30,13 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	print(Global.current_weapon)
 	Global.current_weapon = 1
-	print(Global.current_weapon)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	change_current_weapon(Global.current_weapon)
-	print(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
-	print(health)
 	SignalBus.on_player_health_changed.emit(health)
-
+	await get_tree().create_timer(2).timeout
 
 func _physics_process(delta: float) -> void:
 	if $narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.monitorable:

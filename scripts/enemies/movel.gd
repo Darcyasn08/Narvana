@@ -11,6 +11,8 @@ var imovel := true
 @onready var player = $"../player"
 
 func _ready() -> void:
+	await get_tree().create_timer(.2).timeout
+	$enemy_hitbox/hitbox.set_deferred("disabled", false)
 	await(get_tree().create_timer(5).timeout)
 	imovel = false
 	

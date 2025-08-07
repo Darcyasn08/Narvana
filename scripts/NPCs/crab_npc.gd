@@ -11,3 +11,4 @@ func open_shop(emmited_name: String) -> void:
 	if emmited_name == npc_name:
 		get_tree().paused = true
 		$shop_screen.show()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvm3to65ulkb1"]
+[gd_scene load_steps=6 format=3 uid="uid://bvm3to65ulkb1"]
 
 [ext_resource type="Script" uid="uid://i4oqnfvm682d" path="res://scripts/enemies/movel.gd" id="1_1dyxo"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_x46gv"]
+[ext_resource type="PackedScene" uid="uid://6sqrygw2vy41" path="res://3d_models/placeholders/plant.glb" id="3_ktyo2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_77ik0"]
-radius = 0.604492
-height = 1.39453
+radius = 0.563423
+height = 1.19195
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oajom"]
-radius = 0.355034
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ktyo2"]
+height = 0.68335
+radius = 0.386719
 
 [node name="movel" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_1dyxo")
@@ -16,9 +18,13 @@ script = ExtResource("1_1dyxo")
 [node name="enemy_hitbox" parent="." instance=ExtResource("2_x46gv")]
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, 0, 0, 0)
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.0033388, 0.392323, 0.000115362)
 shape = SubResource("CapsuleShape3D_77ik0")
+disabled = true
 
-[node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_oajom")
+[node name="plant" parent="." instance=ExtResource("3_ktyo2")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.743938, 0, -0.668248, 0, 1, 0, 0.668248, 0, 0.743938, 0, 0.346061, 0)
+shape = SubResource("CylinderShape3D_ktyo2")

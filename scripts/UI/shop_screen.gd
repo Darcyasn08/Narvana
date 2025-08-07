@@ -12,7 +12,6 @@ var price_list: Array = []
 func _ready() -> void:
 	$coins_label.text = str("$",Global.coins)
 	item_panel_pos = shop_item_pos_node
-	print(item_panel_pos)
 	create_items()
 
 func create_items() -> void:
@@ -61,10 +60,9 @@ func buy_item() -> void:
 	for shop_item: int in Global.inventory["shop_items"]:
 		n += 1
 	
-	print(Global.shop_items[selected_index]["name"])
-	Global.inventory["shop_items"][n] = Global.shop_items[selected_index]["name"]
-	Global.inventory["shop_items"][n] = Global.shop_items[selected_index]["buff"]
-	print(Global.inventory["shop_items"])
+	#print(Global.shop_items[selected_index]["name"])
+	Global.inventory["shop_items"][n] = {"name": Global.shop_items[selected_index]["name"], "buff": Global.shop_items[selected_index]["buff"]}
+	#print(Global.inventory["shop_items"])
 	
 	SignalBus.on_buy_shop_item.emit()
 	
@@ -78,13 +76,8 @@ func _on_buy_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	hide()
-	$item_list.hide()
 	#await get_tree().create_timer(.2)
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
 	Global.game_paused = false
 	SignalBus.on_game_paused.emit(Global.game_paused)
-
-
-func _on_timer_timeout() -> void:
-	hide()

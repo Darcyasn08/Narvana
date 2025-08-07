@@ -212,9 +212,24 @@ var dialogs: Dictionary = {
 				"options": {},
 			},
 			"exit": {
-				"text": "Até logo, rapaz",
+				"text": "Estarei te esperando outro dia, hein",
 				"options": {}
-			}
+			},
+			"middle_done": {
+				0: {
+					"text": "Oi de novo :)",
+					"options": {
+						0: {
+							"text": "Ver loja",
+							"ignite": "function",
+						},
+						1: {
+							"text": "Tchau :)",
+							"ignite": "exit",
+						}
+					},
+				},
+			},
 		}
 	},
 	"jellyfish": {
@@ -386,6 +401,7 @@ var dialogs: Dictionary = {
 		"is_first_time": true,
 	},
 }
+
 
 var cutscenes: Dictionary = {
 	"start": false,

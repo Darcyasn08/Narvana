@@ -26,10 +26,11 @@ func _on_options_button_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	click_sfx.play()
-	get_tree().paused = false
 	hide()
+	print("pause menu: ",visible)
+	get_tree().paused = false
 	Global.game_paused = false
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	SignalBus.on_game_paused.emit(Global.game_paused)
 
 func _on_inventory_button_pressed() -> void:
@@ -60,7 +61,7 @@ func save() -> void:
 	SaveLoad.save_content.current_world = Global.current_world
 	SaveLoad.save_content.health = Global.player_health
 	SaveLoad.save_content.inventory = Global.inventory
-	print(Global.inventory)
+	#print(Global.inventory)
 	Global.has_started_game = true
 	SaveLoad.save_content.has_started_game = Global.has_started_game
 	SaveLoad.save()

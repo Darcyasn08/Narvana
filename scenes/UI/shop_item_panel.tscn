@@ -21,6 +21,7 @@ corner_radius_bottom_left = 10
 font_size = 23
 
 [node name="shop_item_panel" type="Control"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 620.0

@@ -38,7 +38,7 @@ func load_save() -> void:
 		save_content.current_world = save_data.current_world
 		save_content.inventory = save_data.inventory
 		Global.inventory = save_content.inventory
-		print(save_data.inventory)
+		#print(save_data.inventory)
 		#for i: int in save_data:
 			#pass
 

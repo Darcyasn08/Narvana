@@ -385,9 +385,6 @@ transform = Transform3D(0.744929, 0, -0.667144, 0, 1, 0, 0.667144, 0, 0.744929, 
 [node name="village_entrance_gate" parent="." instance=ExtResource("19_jptho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105333, 0.110535, 6.94757)
 
-[node name="crab_npc" parent="." instance=ExtResource("3_8qtj8")]
-transform = Transform3D(-0.963817, 0, -0.266566, 0, 1, 0, 0.266566, 0, -0.963817, -61.5114, 0.311127, 88.6578)
-
 [node name="stone10" parent="." instance=ExtResource("13_bun2p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6114, 4.76837e-07, 9.99247)
 
