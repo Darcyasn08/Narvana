@@ -6,6 +6,9 @@ var damage: int = 1
 var acceleration: float = 10.0
 var coinins = preload("res://scenes/enemies/coin.tscn")
 
+@export var enemy_min_coins: int = 2
+@export var enemy_max_coins: int = 4
+
 @onready var player = $"../player"
 
 func _ready() -> void:

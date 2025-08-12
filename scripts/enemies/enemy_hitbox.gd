@@ -2,6 +2,7 @@ extends Area3D
 
 @onready var parent = get_parent()
 @onready var life = parent.life
+@onready var coin_inst: Object = preload("res://scenes/money.tscn")
 
 @export var hitbox_collision: CollisionShape3D
 
@@ -35,10 +36,21 @@ func take_damage(area, damage, defense := 1.0) -> void:
 		#print("parent life: ",parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre
+		drop_coins(parent.enemy_min_coins, parent.enemy_max_coins)
 		await parent.unique_die()
 		print("parent died")
+		await get_tree().create_timer(1).timeout
 		parent.queue_free()
 
 
 func damage_player(area) -> void:
 	parent.damage_player(area)
+
+#isso vai estar no enemy_hitbox
+
+func drop_coins(enemy_min_coins, enemy_max_coins) -> void:
+	var coin: Object = coin_inst.instantiate()
+	var coins: int = randi_range(enemy_min_coins, enemy_max_coins)
+	for i in range(coins):
+		print("coin is: ",coin)
+		add_child(coin)

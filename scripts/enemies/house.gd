@@ -26,10 +26,10 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if state == "shooting" and $walls_holder.position.y < -0.2: # erque as paredes até certo ponto
-		$walls_holder.position.y += 0.03
-	if state == "death_ray" and $walls_holder.position.y > -8: #desce as paredes até certo ponto
-		$walls_holder.position.y -= 0.03
+	if state == "shooting" and %walls_holder.position.y < -0.2: # erque as paredes até certo ponto
+		%walls_holder.position.y += 0.03
+	if state == "death_ray" and %walls_holder.position.y > -8: #desce as paredes até certo ponto
+		%walls_holder.position.y -= 0.03
 	if state == "death_ray": #ativa a funçao que faz o holofote olhar pro player todo frame
 		look_to_player(delta) #essa aqui
 		#look_to_player()
@@ -68,8 +68,8 @@ func sorteia_numero() -> void:
 		
 
 func shoot(saida: int) -> void:
-	var node = get_node("walls_holder/saidas/exit"+str(saida))
-	var laser = get_node("walls_holder/saidas/exit"+str(saida)+"/laser")
+	var node = get_node("house_model/walls_holder/saidas/exit"+str(saida))
+	var laser = get_node("house_model/walls_holder/saidas/exit"+str(saida)+"/laser")
 	var bullet = bullet_inst.instantiate()
 	bullet.pos = node.global_position
 	bullet.rot = -node.global_rotation

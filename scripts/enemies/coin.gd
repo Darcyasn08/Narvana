@@ -8,6 +8,9 @@ var damage : int = 1
 var acceleration : float = 15.0
 var fall_time: float
 
+@export var enemy_min_coins: int = 2
+@export var enemy_max_coins: int = 3
+
 @onready var player = $"../player"
 @onready var collision: CollisionShape3D = $collision
 @onready var collision_2: CollisionShape3D = $collision2

@@ -87,6 +87,18 @@ grow_horizontal = 0
 text = "00.0"
 label_settings = SubResource("LabelSettings_r6s25")
 
+[node name="coins_label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 59.0
+offset_right = -13.0
+offset_bottom = 96.0
+grow_horizontal = 0
+text = "99"
+label_settings = SubResource("LabelSettings_r6s25")
+
 [node name="quests_panel" type="Control" parent="."]
 visible = false
 layout_mode = 3

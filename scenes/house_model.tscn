@@ -1,0 +1,293 @@
+[gd_scene load_steps=19 format=3 uid="uid://c05fwr0udet8m"]
+
+[ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="1_e1y3w"]
+[ext_resource type="PackedScene" uid="uid://6ds2uxjtlw1" path="res://3d_models/placeholders/house_model.glb" id="2_pb63u"]
+[ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="3_6f60q"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
+size = Vector3(5, 3, 11)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hfkix"]
+size = Vector3(5, 3, 21)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5ubp"]
+size = Vector3(4.49379, 6.06525, 21.0398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfkix"]
+size = Vector3(5.06287, 4.33057, 4.0173)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_metfq"]
+size = Vector3(4.05014, 4.33057, 4.95892)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6syyc"]
+size = Vector3(4.0477, 4.37659, 5.06628)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
+size = Vector3(4.00152, 4.46899, 5.0526)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 20.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6syyc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 25.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wy8i"]
+albedo_color = Color(0.693244, 0.869655, 0.881001, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0g5w"]
+albedo_color = Color(0.43396, 0.696443, 0.804683, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ehuo"]
+transparency = 1
+albedo_color = Color(0.568627, 0.921569, 0.905882, 0.67451)
+metallic = 0.75
+metallic_specular = 0.66
+roughness = 0.24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13acg"]
+albedo_color = Color(0.559311, 0.808699, 0.799602, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ly6yb"]
+albedo_color = Color(0.693244, 0.869655, 0.881001, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85rfp"]
+albedo_color = Color(0.395297, 0.395795, 0.541855, 1)
+
+[node name="house_model" type="Node3D"]
+
+[node name="molde_principal" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67575, -1.55259)
+size = Vector3(10, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="molde_principal"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0595918, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_g5ubp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48536, 0.828836, -1.37848)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="walls_holder" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="parede2" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.931, 0, 14.3948)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="parede3" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06762, 0, 26.2211)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="collision_das_paredes" type="StaticBody3D" parent="walls_holder"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.412, 1.5, 10.975)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, 24.763)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365, 1.5, 10.975)
+shape = SubResource("BoxShape3D_g5ubp")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.88095, 1.34249, 23.3742)
+shape = SubResource("BoxShape3D_hfkix")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88811, 1.33687, -1.12138)
+shape = SubResource("BoxShape3D_metfq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87599, 1.32416, -1.25257)
+shape = SubResource("BoxShape3D_6syyc")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89019, 1.31531, 23.2593)
+shape = SubResource("BoxShape3D_o1325")
+
+[node name="saidas" type="Node3D" parent="walls_holder"]
+
+[node name="exit1" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.34593, 1.222, 4)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit1"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 4.76837e-07, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit2" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 8)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit2"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit3" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 12)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit3"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit4" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 16)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit4"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit5" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 20)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit5"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit6" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit6"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.89501)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit7" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit7"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 10.7895)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit8" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit8"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.51116)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="exit9" type="Node3D" parent="walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 1.222, 0.870655)
+
+[node name="laser" type="MeshInstance3D" parent="walls_holder/saidas/exit9"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.222, -11.287)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("1_e1y3w")
+
+[node name="parede1" type="CSGCombiner3D" parent="walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.9315, 0, 7.70123)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="walls_holder/parede1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="house_model" parent="." instance=ExtResource("2_pb63u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5861, 0, -5.75565)
+
+[node name="parede12" parent="house_model" index="7"]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 24.529, 0.836281, 7.70123)
+
+[node name="Cube_001" parent="house_model" index="8"]
+material_override = SubResource("StandardMaterial3D_3wy8i")
+
+[node name="Cube_002" parent="house_model" index="9"]
+material_override = SubResource("StandardMaterial3D_s0g5w")
+
+[node name="Cube_008" parent="house_model" index="15"]
+material_override = SubResource("StandardMaterial3D_8ehuo")
+
+[node name="Cube_009" parent="house_model" index="16"]
+material_override = SubResource("StandardMaterial3D_8ehuo")
+
+[node name="Cube_010" parent="house_model" index="17"]
+material_override = SubResource("StandardMaterial3D_13acg")
+
+[node name="Cube_011" parent="house_model" index="18"]
+material_override = SubResource("StandardMaterial3D_ly6yb")
+
+[node name="Cube_015" parent="house_model" index="22"]
+material_override = SubResource("StandardMaterial3D_85rfp")
+
+[node name="Cube_016" parent="house_model" index="23"]
+material_override = SubResource("StandardMaterial3D_85rfp")
+
+[node name="Cube_018" parent="house_model" index="26"]
+transform = Transform3D(0.46801, -0.142784, 0, 0.0675163, 0.989754, 0, 0, 0, 0.531744, 11.6101, 0.939677, 12.1702)
+
+[node name="player" parent="." instance=ExtResource("3_6f60q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8093, 0, 4.313)
+
+[editable path="house_model"]
