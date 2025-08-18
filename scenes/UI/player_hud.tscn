@@ -88,6 +88,7 @@ text = "00.0"
 label_settings = SubResource("LabelSettings_r6s25")
 
 [node name="coins_label" type="Label" parent="."]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

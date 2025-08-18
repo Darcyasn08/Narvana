@@ -156,15 +156,15 @@ func teleporting() -> void:
 			#rand_posz = randf_range(global_position.z, limit.z - 3)
 			#global_rotation.y = $RayCast3D.rotation.y
 		await(get_tree().create_timer(1).timeout)
-		print("aaa ", global_position.z, "aaaa ",rand_posz)
+		#print("aaa ", global_position.z, "aaaa ",rand_posz)
 		var mult = abs(abs(global_position.z)-abs(rand_posz))/global_basis.z.z
-		print("mult: ",mult, " --- distance: ", abs(global_position.z-rand_posz), "/global_basis.z.z: ",global_basis.z.z)
-		print("diff pos: ",(rand_posz-global_position.z))
+		#print("mult: ",mult, " --- distance: ", abs(global_position.z-rand_posz), "/global_basis.z.z: ",global_basis.z.z)
+		#print("diff pos: ",(rand_posz-global_position.z))
 		global_position = ($teleport.global_basis.z * mult) + global_position
-		print("global_basis: ",global_basis.z)
-		print("rand_posz: ",rand_posz)
-		print("current_global_pos: ",global_position)
-		print("------")
+		#print("global_basis: ",global_basis.z)
+		#print("rand_posz: ",rand_posz)
+		#print("current_global_pos: ",global_position)
+		#print("------")
 		rotation.y = old_rotation
 	
 	else:

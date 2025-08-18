@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=45 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -16,8 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="19_ektfp"]
 [ext_resource type="PackedScene" uid="uid://dys58dchdp2po" path="res://scenes/buildings/village_entrance_gate.tscn" id="19_jptho"]
+[ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="19_ljwqo"]
 [ext_resource type="PackedScene" uid="uid://d35rab8iwrhju" path="res://scenes/buildings/small_house.tscn" id="19_wcbeh"]
+[ext_resource type="PackedScene" uid="uid://diw5if6u5s55c" path="res://scenes/seahorse_model.tscn" id="20_7buoh"]
 [ext_resource type="PackedScene" uid="uid://c1aoegujykbb" path="res://scenes/buildings/low_house.tscn" id="20_jptho"]
+[ext_resource type="PackedScene" uid="uid://dchjhtknwjuh8" path="res://scenes/turtle_model.tscn" id="21_5r4qp"]
+[ext_resource type="PackedScene" uid="uid://by6ejqq7ger37" path="res://3d_models/placeholders/enemies/stage_band.glb" id="22_l6xqp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d5nc6"]
 sky_top_color = Color(0.936386, 0.697044, 0.692253, 1)
@@ -109,6 +113,9 @@ size = Vector3(192.358, 40, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ljwqo"]
 size = Vector3(324.789, 40, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6xqp"]
+albedo_color = Color(0.177398, 0.089734, 0.219116, 1)
 
 [node name="normal_world" type="Node3D"]
 script = ExtResource("1_eqvwj")
@@ -560,4 +567,21 @@ transform = Transform3D(-0.60695, 0, 0.348729, 0, 0.7, 0, -0.348729, 0, -0.60695
 transform = Transform3D(-0.672977, 0, -0.192617, 0, 0.7, 0, 0.192617, 0, -0.672977, 81.1531, 0, 165.959)
 
 [node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315569, 0.0204333, 5.4508)
+transform = Transform3D(-0.999767, 0, -0.0216054, 0, 1, 0, 0.0216054, 0, -0.999767, -61.979, 0.0204333, 88.9328)
+
+[node name="octopus_model" parent="." instance=ExtResource("19_ljwqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81129, 19.2013)
+
+[node name="seahorse_model" parent="." instance=ExtResource("20_7buoh")]
+transform = Transform3D(-0.799674, 0, 0.600434, 0, 1, 0, -0.600434, 0, -0.799674, -4.70184, 1.87002, 14.2233)
+
+[node name="turtle_model" parent="." instance=ExtResource("21_5r4qp")]
+transform = Transform3D(0.897799, 0.0342632, 0.439071, 0.0242426, 0.991613, -0.126952, -0.439738, 0.124621, 0.889438, 4.54255, 1.6052, 14.9259)
+
+[node name="stage_band" parent="." instance=ExtResource("22_l6xqp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.470546, 0, 16.2471)
+
+[node name="Cylinder" parent="stage_band" index="0"]
+material_override = SubResource("StandardMaterial3D_l6xqp")
+
+[editable path="stage_band"]

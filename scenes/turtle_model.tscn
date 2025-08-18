@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dchjhtknwjuh8"]
+
+[ext_resource type="PackedScene" uid="uid://buvv843slkhqe" path="res://3d_models/placeholders/enemies/turtle.glb" id="1_2upk1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icrkm"]
+albedo_color = Color(0.343912, 0.280357, 0.128574, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_024mk"]
+albedo_color = Color(0.426163, 0.54646, 0.311892, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2upk1"]
+albedo_color = Color(0.446703, 0.203552, 0.599033, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13mka"]
+albedo_color = Color(0.359234, 0.154234, 0.486652, 1)
+
+[node name="turtle_model" type="Node3D"]
+
+[node name="turtle" parent="." instance=ExtResource("1_2upk1")]
+
+[node name="Cube_001" parent="turtle" index="0"]
+material_override = SubResource("StandardMaterial3D_icrkm")
+
+[node name="Cube_002" parent="turtle" index="1"]
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube_003" parent="turtle" index="2"]
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube_004" parent="turtle" index="3"]
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube_005" parent="turtle" index="4"]
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube" parent="turtle" index="6"]
+material_override = SubResource("StandardMaterial3D_2upk1")
+
+[node name="Cube_008" parent="turtle" index="7"]
+material_override = SubResource("StandardMaterial3D_13mka")
+
+[node name="Cube_006" parent="turtle" index="8"]
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube_009" parent="turtle" index="9"]
+material_override = SubResource("StandardMaterial3D_2upk1")
+
+[editable path="turtle"]

@@ -233,8 +233,8 @@ var dialogs: Dictionary = {
 		}
 	},
 	"jellyfish": {
+		"is_first_time": true,
 		"dialog_tree": {
-			"is_first_time": true,
 			"first_dialog": {
 				"text": "hi",
 				"options": {}
@@ -263,7 +263,13 @@ var dialogs: Dictionary = {
 			"exit": {
 				"text": "Te vejo mais tarde",
 				"options": {}
-			}
+			},
+			"middle_done": {
+				0: {
+					"text": "Oi?",
+					"options": {},
+				},
+			},
 		}
 	},
 		
