@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dos6p8ge7u8oc"]
+
+[ext_resource type="PackedScene" uid="uid://btg0hfv5cm5tj" path="res://3d_models/placeholders/temple-pillar.glb" id="1_8ad77"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_agki5"]
+height = 7.84424
+radius = 0.65625
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ad77"]
+albedo_color = Color(0.424643, 0.154539, 0.153561, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsmwx"]
+albedo_color = Color(0.347657, 0.155541, 0.10219, 1)
+
+[node name="temple_pillar_mesh" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.04294, 0.00110948)
+visible = false
+shape = SubResource("CylinderShape3D_agki5")
+
+[node name="temple-pillar" parent="." instance=ExtResource("1_8ad77")]
+
+[node name="Cylinder" parent="temple-pillar" index="1"]
+material_override = SubResource("StandardMaterial3D_8ad77")
+
+[node name="Cylinder_001" parent="temple-pillar" index="6"]
+material_override = SubResource("StandardMaterial3D_jsmwx")
+
+[editable path="temple-pillar"]

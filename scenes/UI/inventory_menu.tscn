@@ -1,13 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddw77aywbgkt1"]
+[gd_scene load_steps=7 format=3 uid="uid://ddw77aywbgkt1"]
 
 [ext_resource type="Script" uid="uid://qfijfq46qev1" path="res://scripts/UI/inventory_menu.gd" id="1_qtyf2"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_j6bxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
-bg_color = Color(0.172074, 0.244793, 0.292624, 1)
+bg_color = Color(0.145098, 0.172549, 0.227451, 0.988235)
 
-[sub_resource type="LabelSettings" id="LabelSettings_j6bxq"]
-font_size = 25
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6bxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgxa"]
+bg_color = Color(0.278734, 0.472982, 0.557744, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6bxq"]
+bg_color = Color(0.394165, 0.432446, 0.475894, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="inventory_menu" type="Control"]
 layout_mode = 3
@@ -65,27 +78,70 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-offset_left = 1132.0
-offset_top = 364.0
-offset_right = 1344.0
-offset_bottom = 399.0
-text = "ITEMS DA LOJA"
-label_settings = SubResource("LabelSettings_j6bxq")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="open_item_select" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 6
+anchors_preset = 3
 anchor_left = 1.0
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -234.0
-offset_top = 21.0
-offset_right = -22.0
-offset_bottom = 283.0
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -68.0
+offset_right = -21.0
+offset_bottom = -18.0
 grow_horizontal = 0
-grow_vertical = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j6bxq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lfgxa")
+text = "SELECIONAR ITEM DA LOJA"
+
+[node name="shop_items_container" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -246.0
+offset_top = -349.0
+offset_right = -27.0
+offset_bottom = -87.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j6bxq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="shop_items_container"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 209.0
+offset_bottom = 254.0
+
+[node name="selected_item_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 924.0
+offset_top = 620.0
+offset_right = 964.0
+offset_bottom = 643.0
+text = "-"
+
+[node name="label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 620.0
+offset_right = 916.0
+offset_bottom = 643.0
+text = "item selecionado:"
+
+[node name="selected_item_stats" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 647.0
+offset_right = 948.0
+offset_bottom = 721.0
+text = "item selecionado:"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="open_item_select" to="." method="_on_open_item_select_pressed"]

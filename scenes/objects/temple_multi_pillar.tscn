@@ -1,21 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://23wewg1rwspg"]
+[gd_scene load_steps=4 format=3 uid="uid://23wewg1rwspg"]
 
 [ext_resource type="Script" uid="uid://clwwy3yvjb26c" path="res://scripts/objects/temple_multi_pillar.gd" id="1_unbyq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_385i6"]
-albedo_color = Color(0.337285, 0.0758462, 0.0785033, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_38i4m"]
-material = SubResource("StandardMaterial3D_385i6")
-top_radius = 0.7
-bottom_radius = 0.7
-height = 9.0
 
 [sub_resource type="MultiMesh" id="MultiMesh_rfcne"]
 transform_format = 1
 instance_count = 4
 visible_instance_count = 4
-mesh = SubResource("CylinderMesh_38i4m")
 buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_unbyq"]
@@ -26,5 +16,17 @@ multimesh = SubResource("MultiMesh_rfcne")
 script = ExtResource("1_unbyq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.585259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490963, 0)
+mesh = SubResource("BoxMesh_unbyq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.491, 0)
+mesh = SubResource("BoxMesh_unbyq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.491, -18)
+mesh = SubResource("BoxMesh_unbyq")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.491, -18)
 mesh = SubResource("BoxMesh_unbyq")

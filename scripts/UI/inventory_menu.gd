@@ -1,11 +1,16 @@
 extends Control
 
 var item_buff: Dictionary
-var selected_shop_item
+var selected_shop_item: int
+var previous_selected_item: int = -1
+
+@onready var item_button_inst: Object = preload("res://scenes/UI/inventory_shop_item.tscn")
 
 func _ready() -> void:
+	$shop_items_container.hide()
 	SignalBus.on_item_removed.connect(remove_item)
 	SignalBus.on_buy_shop_item.connect(add_shop_item)
+	SignalBus.on_item_selected.connect(select_shop_item)
 	update_items()
 
 func set_items() -> void:
@@ -85,11 +90,9 @@ func adjust_plus_values() -> void:
 
 func add_plus_values() -> void:
 	Global.max_player_health = Global.base_player_health + Global.plus_player_health
-	Global.player_health = Global.base_player_health + Global.plus_player_health
+	#Global.player_health = Global.base_player_health + Global.plus_player_health
 	Global.player_damage = Global.base_player_damage + Global.plus_player_damage
 	Global.player_speed = Global.base_player_speed + Global.plus_player_speed
-	
-	#print(Global.player_damage)
 	
 	if Global.player_health > Global.max_player_health:
 		Global.player_health = Global.max_player_health
@@ -105,23 +108,36 @@ func add_shop_item() -> void:
 	var item_label: Label = Label.new()
 	item_label.custom_minimum_size.y = 50 
 	item_label.text = str(Global.inventory["shop_items"][next_index]["name"])
-	$VBoxContainer.add_child(item_label)
-	select_shop_item()
+	#$VBoxContainer.add_child(item_label)
+	var item_button: Object = item_button_inst.instantiate()
+	item_button.text_name = str(Global.inventory["shop_items"][next_index]["name"])
+	item_button.id = next_index
+	item_button.size = Vector2(50,40)
+	$shop_items_container/VBoxContainer.add_child(item_button)
 
-func select_shop_item() -> void:
-	var index: int = 0
-	#for item_name in $VBoxContainer.get_children():
-		#print(item_name.name, " --- ", item_name.text)
-	for item in $VBoxContainer.get_children():
-		selected_shop_item = index
-		#print("cur shop item: ",selected_shop_item)
-		if Global.inventory["shop_items"][index]["buff"]["damage"] != 0:
-			Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["damage"]
-		if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
-			Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["speed"]
-		if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
-			Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["damage"]
-			Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["damage"]
-		index += 1
-	index = 0
+func select_shop_item(index: int) -> void:
+	#print("item index: ", index)
+	if previous_selected_item != -1:
+		if Global.inventory["shop_items"][previous_selected_item]["buff"]["damage"] != 0:
+			Global.plus_player_damage -= Global.inventory["shop_items"][previous_selected_item]["buff"]["damage"]
+		if Global.inventory["shop_items"][previous_selected_item]["buff"]["speed"] != 0:
+			Global.plus_player_speed -= Global.inventory["shop_items"][previous_selected_item]["buff"]["speed"]
+		if Global.inventory["shop_items"][previous_selected_item]["buff"]["health"] != 0:
+			Global.max_player_health -= Global.inventory["shop_items"][previous_selected_item]["buff"]["health"]
+			Global.plus_player_health -= Global.inventory["shop_items"][previous_selected_item]["buff"]["health"]
+	
+	if Global.inventory["shop_items"][index]["buff"]["damage"] != 0:
+		Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["damage"]
+	if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
+		Global.plus_player_speed += Global.inventory["shop_items"][index]["buff"]["speed"]
+	if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
+		Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
+		Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
 	add_plus_values()
+	$selected_item_label.text = Global.inventory["shop_items"][index]["name"]
+	$selected_item_stats.text = str("vida: ",Global.inventory["shop_items"][index]["buff"]["health"], "\ndano: ",Global.inventory["shop_items"][index]["buff"]["damage"], "\nvelocidade: ",Global.inventory["shop_items"][index]["buff"]["speed"])
+	$shop_items_container.hide()
+	previous_selected_item = index
+
+func _on_open_item_select_pressed() -> void:
+	$shop_items_container.show()

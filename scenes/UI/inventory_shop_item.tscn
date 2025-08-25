@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://byovkl7m2ufqh"]
+
+[ext_resource type="Script" uid="uid://bqboje1m5kwcb" path="res://scripts/UI/inventory_shop_item.gd" id="1_7vor6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vor6"]
+bg_color = Color(0.70797, 0.77409, 0.805221, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.310708, 0.54531, 0.73118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="inventory_shop_item" type="Button"]
+offset_right = 40.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.0883983, 0.137601, 0.224905, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7vor6")
+text = "text"
+script = ExtResource("1_7vor6")

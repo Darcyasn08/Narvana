@@ -15,6 +15,21 @@ emission_enabled = true
 emission = Color(0.97985, 0.972928, 0.910944, 1)
 emission_energy_multiplier = 3.5
 
+[sub_resource type="Animation" id="Animation_xf1a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jellyfish-light:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_vmkl0"]
 resource_name = "light_move"
 length = 3.0
@@ -30,21 +45,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.271319, 0), Vector3(0, 0.584558, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xf1a7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("jellyfish-light:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4foa"]
@@ -81,7 +81,7 @@ material_override = SubResource("StandardMaterial3D_vmkl0")
 [node name="OmniLight3D" type="OmniLight3D" parent="jellyfish-light"]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 light_color = Color(0.98697, 0.964678, 0.950787, 1)
-light_energy = 1.5
+light_energy = 2.167
 omni_range = 18.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -92,8 +92,8 @@ autoplay = "light_move"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.493261, 0)
-light_color = Color(0.891952, 0.990439, 0.689059, 1)
-light_energy = 3.462
+light_color = Color(0.943594, 0.994268, 0.849429, 1)
+light_energy = 5.129
 spot_range = 10.1262
 spot_angle = 50.854
 

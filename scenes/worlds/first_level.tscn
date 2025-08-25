@@ -357,7 +357,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09291, 2.03972, 0.0148754)
 room2 = 1
 
 [node name="multi_pillar" parent="temple_room_start" instance=ExtResource("6_g7jmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6402, 4.5, 23.4183)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6402, 1.98961, 23.4183)
 
 [node name="master" parent="temple_room_start" instance=ExtResource("15_u5f21")]
 transform = Transform3D(0.839487, 0, 0.54338, 0, 1, 0, -0.54338, 0, 0.839487, -6.18116, 2.54557, 11.67)
@@ -525,10 +525,10 @@ shape = SubResource("BoxShape3D_kalee")
 debug_color = Color(0, 0, 0, 0.784314)
 
 [node name="multi_pillar" parent="temple_room1" instance=ExtResource("6_g7jmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.601, 5, 22.864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.601, 2.00769, 22.864)
 
 [node name="multi_pillar2" parent="temple_room1" instance=ExtResource("6_g7jmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.697, 5, -4.636)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76139, 2.01142, -5.5934)
 
 [node name="first_level_door2" parent="temple_room1" instance=ExtResource("8_kalee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08542, 2.03972, 0.0148754)
@@ -990,7 +990,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, 3.62426, 6.94019)
 room_number = 1
 
 [node name="spawner2" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48402, 4.19867, -31.704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96711, 4.19867, -31.9431)
 enemy_number = 1
 room_number = 2
 
