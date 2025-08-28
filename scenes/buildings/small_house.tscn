@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d35rab8iwrhju"]
+[gd_scene load_steps=22 format=3 uid="uid://d35rab8iwrhju"]
 
 [ext_resource type="PackedScene" uid="uid://cj700syxcvate" path="res://3d_models/placeholders/small-house.glb" id="1_w4mha"]
 
@@ -13,6 +13,48 @@ albedo_color = Color(0.264123, 0.139503, 0.139823, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6vr6"]
 albedo_color = Color(0.1778, 0.103637, 0.0960601, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w4mha"]
+albedo_color = Color(0.73667, 0.576161, 0.462829, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivmtu"]
+albedo_color = Color(0.669743, 0.511733, 0.399525, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qll5n"]
+albedo_color = Color(0.73667, 0.576161, 0.462829, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyrcw"]
+albedo_color = Color(0.968667, 0.521456, 0.347812, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qi2d"]
+albedo_color = Color(0.870323, 0.419861, 0.23331, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4d6k"]
+albedo_color = Color(0.870323, 0.419861, 0.23331, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65krf"]
+albedo_color = Color(0.73667, 0.576161, 0.462829, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6en2i"]
+albedo_color = Color(0.968667, 0.521456, 0.347812, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k552i"]
+albedo_color = Color(0.870323, 0.419861, 0.23331, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ai3iy"]
+albedo_color = Color(0.407855, 0.660888, 0.483045, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq17f"]
+albedo_color = Color(0.968667, 0.521456, 0.347812, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64yfv"]
+albedo_color = Color(0.968667, 0.521456, 0.347812, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umnkt"]
+albedo_color = Color(0.848979, 0.747318, 0.648046, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlt1m"]
+albedo_color = Color(0.848979, 0.747318, 0.648046, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w4mha"]
 size = Vector3(12.1991, 8.33151, 8.29068)
@@ -79,6 +121,60 @@ visibility_range_end = 90.0
 
 [node name="Cube_017" parent="small_house_model" index="16"]
 visibility_range_end = 90.0
+
+[node name="Cube" parent="small_house_model" index="21"]
+material_override = SubResource("StandardMaterial3D_w4mha")
+
+[node name="Cube_018" parent="small_house_model" index="22"]
+material_override = SubResource("StandardMaterial3D_ivmtu")
+
+[node name="Cube_019" parent="small_house_model" index="23"]
+material_override = SubResource("StandardMaterial3D_qll5n")
+
+[node name="Cube_020" parent="small_house_model" index="24"]
+material_override = SubResource("StandardMaterial3D_qll5n")
+
+[node name="Plane" parent="small_house_model" index="26"]
+material_override = SubResource("StandardMaterial3D_oyrcw")
+
+[node name="Plane_001" parent="small_house_model" index="27"]
+material_override = SubResource("StandardMaterial3D_5qi2d")
+
+[node name="Plane_002" parent="small_house_model" index="28"]
+material_override = SubResource("StandardMaterial3D_o4d6k")
+
+[node name="Cube_021" parent="small_house_model" index="29"]
+material_override = SubResource("StandardMaterial3D_65krf")
+
+[node name="Cube_022" parent="small_house_model" index="30"]
+material_override = SubResource("StandardMaterial3D_qll5n")
+
+[node name="Plane_003" parent="small_house_model" index="31"]
+material_override = SubResource("StandardMaterial3D_6en2i")
+
+[node name="Plane_004" parent="small_house_model" index="32"]
+material_override = SubResource("StandardMaterial3D_k552i")
+
+[node name="Plane_005" parent="small_house_model" index="35"]
+material_override = SubResource("StandardMaterial3D_ai3iy")
+
+[node name="Plane_006" parent="small_house_model" index="36"]
+material_override = SubResource("StandardMaterial3D_ai3iy")
+
+[node name="Plane_007" parent="small_house_model" index="37"]
+material_override = SubResource("StandardMaterial3D_ai3iy")
+
+[node name="Plane_008" parent="small_house_model" index="38"]
+material_override = SubResource("StandardMaterial3D_jq17f")
+
+[node name="Plane_009" parent="small_house_model" index="39"]
+material_override = SubResource("StandardMaterial3D_64yfv")
+
+[node name="Cube_023" parent="small_house_model" index="41"]
+material_override = SubResource("StandardMaterial3D_umnkt")
+
+[node name="Cube_024" parent="small_house_model" index="42"]
+material_override = SubResource("StandardMaterial3D_dlt1m")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

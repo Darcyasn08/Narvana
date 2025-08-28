@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ou3gw8hkytg"]
+[gd_scene load_steps=6 format=3 uid="uid://c3ou3gw8hkytg"]
 
 [ext_resource type="Script" uid="uid://clrsr0herrc3n" path="res://scripts/managers/music_manager.gd" id="1_64p8j"]
 [ext_resource type="AudioStream" uid="uid://c6vh5whn5c54y" path="res://music/Material Combat.mp3" id="1_fp10t"]
 [ext_resource type="AudioStream" uid="uid://ts35pdocjbbb" path="res://music/Tune of the Kalimba.mp3" id="2_dxysa"]
 [ext_resource type="AudioStream" uid="uid://drf6hwbaxtu7j" path="res://music/first-level-pause.mp3" id="3_64p8j"]
+[ext_resource type="AudioStream" uid="uid://6oo3epj6okg8" path="res://music/Flute-song.mp3" id="3_maigi"]
 
 [node name="music_manager" type="Node3D"]
 process_mode = 3
@@ -12,6 +13,7 @@ script = ExtResource("1_64p8j")
 [node name="normal_world" type="Node3D" parent="."]
 
 [node name="main" type="Node3D" parent="normal_world"]
+process_mode = 1
 
 [node name="layer1" type="AudioStreamPlayer3D" parent="normal_world/main"]
 stream = ExtResource("2_dxysa")
@@ -24,6 +26,13 @@ bus = &"Music"
 
 [node name="layer3" type="AudioStreamPlayer3D" parent="normal_world/main"]
 bus = &"Music"
+
+[node name="pause" type="AudioStreamPlayer3D" parent="normal_world"]
+process_mode = 3
+stream = ExtResource("3_maigi")
+volume_db = -46.533
+bus = &"Music"
+parameters/looping = true
 
 [node name="first_level" type="Node3D" parent="."]
 

@@ -1,6 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://mp5ex2cb7jp8"]
+[gd_scene load_steps=25 format=4 uid="uid://mp5ex2cb7jp8"]
 
 [ext_resource type="PackedScene" uid="uid://db0lwma6jvdse" path="res://3d_models/placeholders/enemies/octopus.glb" id="1_7y2e8"]
+[ext_resource type="PackedScene" uid="uid://cr0e53pn36y2t" path="res://3d_models/placeholders/enemies/high_drum.glb" id="2_6ri7e"]
+[ext_resource type="PackedScene" uid="uid://b3lv7xlcmf45e" path="res://3d_models/placeholders/enemies/low_drum.glb" id="3_c7erx"]
+[ext_resource type="PackedScene" uid="uid://d33lrnrixbipn" path="res://3d_models/placeholders/enemies/plates.glb" id="4_8khcd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ri7e"]
 diffuse_mode = 3
@@ -153,6 +156,12 @@ albedo_color = Color(0.628025, 0.427082, 0.267347, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_8khcd"]
 size = Vector3(0.09, 2, 0.09)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8khcd"]
+albedo_color = Color(0.274795, 0.215385, 0.302104, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajl7f"]
+albedo_color = Color(0.95158, 0.95158, 0.95158, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2agm2"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_q0wbv"]
@@ -280,21 +289,20 @@ _data = {
 &"idle": SubResource("Animation_7y2e8")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8khcd"]
-albedo_color = Color(0.274795, 0.215385, 0.302104, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b241"]
+albedo_color = Color(0.464295, 0.163522, 0.263406, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajl7f"]
-albedo_color = Color(0.95158, 0.95158, 0.95158, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pq5f4"]
+albedo_color = Color(0.62525, 0.259491, 0.312083, 1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_7y2e8"]
-top_radius = 1.0
-bottom_radius = 1.0
-height = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2xyf"]
+albedo_color = Color(0.650128, 0.650128, 0.650128, 1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_6ri7e"]
-top_radius = 1.0
-bottom_radius = 1.0
-height = 1.5
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_berd0"]
+albedo_color = Color(0.945494, 0.656137, 0.146919, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pbog"]
+albedo_color = Color(0.945494, 0.656137, 0.146919, 1)
 
 [node name="octopus_model" type="Node3D"]
 
@@ -327,6 +335,21 @@ autoplay = "idle"
 transform = Transform3D(0.93923, -0.287719, -0.187259, 0.332665, 0.897486, 0.289574, 0.0847463, -0.334271, 0.938659, -2.21565, -0.317473, -0.0975128)
 material_override = SubResource("StandardMaterial3D_c7erx")
 mesh = SubResource("BoxMesh_8khcd")
+
+[node name="Cylinder" parent="octopus" index="4"]
+material_override = SubResource("StandardMaterial3D_8khcd")
+
+[node name="Cone" parent="octopus" index="5"]
+material_override = SubResource("StandardMaterial3D_ajl7f")
+
+[node name="Cone_001" parent="octopus" index="6"]
+material_override = SubResource("StandardMaterial3D_ajl7f")
+
+[node name="Cone_002" parent="octopus" index="7"]
+material_override = SubResource("StandardMaterial3D_ajl7f")
+
+[node name="Cone_003" parent="octopus" index="8"]
+material_override = SubResource("StandardMaterial3D_ajl7f")
 
 [node name="Armature2" type="Node3D" parent="octopus"]
 transform = Transform3D(-0.997381, 0, -0.072333, 0, 1, 0, 0.072333, 0, -0.997381, 0.450093, 0.125367, 0)
@@ -679,35 +702,111 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="Cylinder" parent="octopus" index="10"]
-material_override = SubResource("StandardMaterial3D_8khcd")
+[node name="high_drum" parent="." instance=ExtResource("2_6ri7e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45006, -1.03227, -2.49671)
 
-[node name="Cone" parent="octopus" index="11"]
-material_override = SubResource("StandardMaterial3D_ajl7f")
+[node name="Cylinder_002" parent="high_drum" index="0"]
+material_override = SubResource("StandardMaterial3D_4b241")
 
-[node name="Cone_001" parent="octopus" index="12"]
-material_override = SubResource("StandardMaterial3D_ajl7f")
+[node name="Cylinder_001" parent="high_drum" index="1"]
+material_override = SubResource("StandardMaterial3D_4b241")
 
-[node name="Cone_002" parent="octopus" index="13"]
-material_override = SubResource("StandardMaterial3D_ajl7f")
+[node name="Cylinder" parent="high_drum" index="2"]
+material_override = SubResource("StandardMaterial3D_pq5f4")
 
-[node name="Cone_003" parent="octopus" index="14"]
-material_override = SubResource("StandardMaterial3D_ajl7f")
+[node name="Cube" parent="high_drum" index="3"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85623, -0.659827, 0)
-mesh = SubResource("CylinderMesh_7y2e8")
+[node name="Cube_001" parent="high_drum" index="4"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.09983, -0.826106, -0.964659)
-mesh = SubResource("CylinderMesh_7y2e8")
+[node name="Cube_002" parent="high_drum" index="5"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09182, -0.358724, -3.26579)
-mesh = SubResource("CylinderMesh_6ri7e")
+[node name="Cube_003" parent="high_drum" index="6"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.736378, -0.553408, -2.99624)
-mesh = SubResource("CylinderMesh_6ri7e")
+[node name="low_drum" parent="." instance=ExtResource("3_c7erx")]
+transform = Transform3D(0.745856, 0, 0, 0, 0.745856, 0, 0, 0, 0.745856, -0.440117, -1.16015, -3.1304)
+
+[node name="Cylinder" parent="low_drum" index="0"]
+material_override = SubResource("StandardMaterial3D_pq5f4")
+
+[node name="Cylinder_001" parent="low_drum" index="1"]
+material_override = SubResource("StandardMaterial3D_4b241")
+
+[node name="Cylinder_002" parent="low_drum" index="2"]
+material_override = SubResource("StandardMaterial3D_4b241")
+
+[node name="low_drum2" parent="." instance=ExtResource("3_c7erx")]
+transform = Transform3D(0.745856, 0, 0, 0, 0.745856, 0, 0, 0, 0.745856, -3.07723, -1.28228, -0.906661)
+
+[node name="Cylinder" parent="low_drum2" index="0"]
+material_override = SubResource("StandardMaterial3D_pq5f4")
+
+[node name="Cylinder_001" parent="low_drum2" index="1"]
+material_override = SubResource("StandardMaterial3D_4b241")
+
+[node name="Cylinder_002" parent="low_drum2" index="2"]
+material_override = SubResource("StandardMaterial3D_4b241")
+
+[node name="plates" parent="." instance=ExtResource("4_8khcd")]
+transform = Transform3D(0.891545, 0, 0.452933, 0, 1, 0, -0.452933, 0, 0.891545, 3.72631, -0.235163, 0.287188)
+
+[node name="Cube_003" parent="plates" index="0"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_002" parent="plates" index="1"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_001" parent="plates" index="2"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube" parent="plates" index="3"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_004" parent="plates" index="4"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_005" parent="plates" index="5"]
+material_override = SubResource("StandardMaterial3D_berd0")
+
+[node name="Cube_006" parent="plates" index="6"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_007" parent="plates" index="7"]
+material_override = SubResource("StandardMaterial3D_1pbog")
+
+[node name="plates2" parent="." instance=ExtResource("4_8khcd")]
+transform = Transform3D(0.824452, 0, 0.565931, 0, 1, 0, -0.565931, 0, 0.824452, -2.5617, -0.76077, -2.71739)
+
+[node name="Cube_003" parent="plates2" index="0"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_002" parent="plates2" index="1"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_001" parent="plates2" index="2"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube" parent="plates2" index="3"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_004" parent="plates2" index="4"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_005" parent="plates2" index="5"]
+material_override = SubResource("StandardMaterial3D_berd0")
+
+[node name="Cube_006" parent="plates2" index="6"]
+material_override = SubResource("StandardMaterial3D_x2xyf")
+
+[node name="Cube_007" parent="plates2" index="7"]
+material_override = SubResource("StandardMaterial3D_1pbog")
 
 [editable path="octopus"]
+[editable path="high_drum"]
+[editable path="low_drum"]
+[editable path="low_drum2"]
+[editable path="plates"]
+[editable path="plates2"]

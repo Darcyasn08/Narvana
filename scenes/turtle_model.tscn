@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dchjhtknwjuh8"]
+[gd_scene load_steps=28 format=4 uid="uid://boxmd6ady4xvf"]
 
 [ext_resource type="PackedScene" uid="uid://buvv843slkhqe" path="res://3d_models/placeholders/enemies/turtle.glb" id="1_2upk1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icrkm"]
-albedo_color = Color(0.343912, 0.280357, 0.128574, 1)
+albedo_color = Color(0.241259, 0.319492, 0.122805, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_024mk"]
 albedo_color = Color(0.426163, 0.54646, 0.311892, 1)
@@ -13,6 +13,390 @@ albedo_color = Color(0.446703, 0.203552, 0.599033, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13mka"]
 albedo_color = Color(0.359234, 0.154234, 0.486652, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehfp"]
+albedo_color = Color(0.220995, 0.0707349, 0.23389, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsenj"]
+albedo_color = Color(0.926368, 0.797408, 7.70092e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y0ttr"]
+material = SubResource("StandardMaterial3D_vsenj")
+size = Vector3(0.03, 0.03, 0.07)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0ttr"]
+albedo_color = Color(0.877163, 0.902047, 0.892727, 1)
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.52
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gg4y2"]
+albedo_color = Color(0.788308, 0.829079, 0.813937, 1)
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.52
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20w1d"]
+albedo_color = Color(0.788308, 0.829079, 0.813937, 1)
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.52
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20ypu"]
+albedo_color = Color(0.788308, 0.829079, 0.813937, 1)
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.52
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7fs5o"]
+albedo_color = Color(0.788308, 0.829079, 0.813937, 1)
+metallic = 1.0
+metallic_specular = 0.25
+roughness = 0.52
+
+[sub_resource type="Animation" id="Animation_icrkm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turtle/Cube_002:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.232971, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("turtle/Cube_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.11024, 0.513813, -0.0620111)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("turtle/Cube_003:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.50309, 1.18261, -2.70349)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("turtle/Cube_002:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.64027, -2.42434)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turtle:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("turtle/Cube_005:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.20131, 1.04313, 1.12519)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("turtle/Cube_005:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0720142, 0.95133, 0.100559)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("turtle/Cube_004:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.78539, 1.01299, 1.36778)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("turtle/Cube_004:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.053778, 2.01888, 0.111358)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("turtle/Cube_006:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.66296, 0.573593, -2.55843)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turtle/Cube_006:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.642954, -0.709487, 0.23463)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("guitar:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turtle/CPUParticles3D:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turtle/CPUParticles3D2:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_20w1d"]
+resource_name = "attack"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turtle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.333333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(3.04277, 0, 0), Vector3(3.04211, -0.47473, 0), Vector3(3.04211, -5.41052, 0), Vector3(3.04211, -6.28319, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("turtle/Cube_005:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.44008, 0.71221, 1.51865)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("turtle/Cube_005:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.632335, 0.987749, -0.076801)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("turtle/Cube_004:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.81415, 0.315326, 1.69671)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turtle/Cube_004:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.630899, 2.06158, 0.0783186)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("turtle/Cube_002:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.669884, -3.17128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("turtle/Cube_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.794714, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("turtle/Cube_006:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.66296, 0.573593, -2.55843)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("turtle/Cube_006:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.642954, -0.709487, 0.23463)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("guitar:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turtle/Cube_003:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.54284, 0.766052, -2.36193)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("turtle/Cube_003:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.541752, 0.704902, -0.0434033)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turtle/CPUParticles3D:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turtle/CPUParticles3D2:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2upk1"]
 resource_name = "idle"
@@ -66,67 +450,334 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 1.64027, -2.42434), Vector3(0, 1.685, -2.3), Vector3(0, 1.64027, -2.42434)]
 }
-
-[sub_resource type="Animation" id="Animation_icrkm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("turtle/Cube_002:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turtle/CPUParticles3D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("turtle/CPUParticles3D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("guitar:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("turtle:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.232971, 0, 0)]
+"values": [Vector3(0, -6.21512, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gg4y2"]
+resource_name = "pre-attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("turtle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.04277, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("turtle/Cube_003:rotation")
+tracks/1/path = NodePath("turtle/Cube_005:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.618509),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-0.11024, 0.513813, -0.0620111)]
+"values": [Vector3(1.20131, 1.04313, 1.12519), Vector3(1.44008, 0.71221, 1.51865)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("turtle/Cube_003:position")
+tracks/2/path = NodePath("turtle/Cube_005:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.618509),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.50309, 1.18261, -2.70349)]
+"values": [Vector3(0.0720142, 0.95133, 0.100559), Vector3(0.632335, 0.987749, -0.076801)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("turtle/Cube_002:position")
+tracks/3/path = NodePath("turtle/Cube_004:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.600414),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.78539, 1.01299, 1.36778), Vector3(-1.81415, 0.315326, 1.69671)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turtle/Cube_004:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.600414),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.053778, 2.01888, 0.111358), Vector3(-0.630899, 2.06158, 0.0783186)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("turtle/Cube_002:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.64027, -2.42434), Vector3(0, 0.669884, -3.17128)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("turtle/Cube_002:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.232971, 0, 0), Vector3(-0.794714, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("turtle/Cube_006:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.618509),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.68027, 0.74345, -2.64548), Vector3(1.66296, 0.573593, -2.55843)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("turtle/Cube_006:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.618509),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.437997, -0.655946, 0.206931), Vector3(-0.642954, -0.709487, 0.23463)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("guitar:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.296149),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turtle/Cube_003:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.50309, 1.18261, -2.70349), Vector3(-1.54284, 0.766052, -2.36193)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("turtle/Cube_003:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.11024, 0.513813, -0.0620111), Vector3(-0.541752, 0.704902, -0.0434033)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turtle/CPUParticles3D:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.64027, -2.42434)]
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turtle/CPUParticles3D2:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_024mk"]
 _data = {
 &"RESET": SubResource("Animation_icrkm"),
-&"idle": SubResource("Animation_2upk1")
+&"attack": SubResource("Animation_20w1d"),
+&"idle": SubResource("Animation_2upk1"),
+&"pre-attack": SubResource("Animation_gg4y2")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5yk6"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yeiqg"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kx6ry"]
+resource_name = "turtle_Cube_008"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_t5yk6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yeiqg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00drw"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_twayk"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5wswt"]
+resource_name = "turtle_Cube_010"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_00drw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_twayk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2omv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n5l7s"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uevgh"]
+resource_name = "turtle_Cube_012"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_d2omv"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n5l7s")
 
 [node name="turtle_model" type="Node3D"]
 
 [node name="turtle" parent="." instance=ExtResource("1_2upk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Cube_001" parent="turtle" index="0"]
 material_override = SubResource("StandardMaterial3D_icrkm")
@@ -136,31 +787,110 @@ transform = Transform3D(0.403876, 0, 0, 0, 0.972985, -0.219097, 0, 0.230869, 0.9
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_003" parent="turtle" index="2"]
-transform = Transform3D(0.295344, 1.86265e-08, 0.463608, -0.0208489, 0.992019, 0.104407, -0.164035, -0.126086, 0.821454, -1.50309, 1.18261, -2.70349)
+transform = Transform3D(0.295344, -8.94069e-08, 0.463608, -0.0208489, 0.992019, 0.104407, -0.164035, -0.126086, 0.821454, -1.50309, 1.18261, -2.70349)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_004" parent="turtle" index="3"]
+transform = Transform3D(-0.147557, -5.73694e-07, 0.854086, 0.0375604, 0.992369, 0.0510112, -0.302301, 0.123301, -0.410554, -1.78539, 1.01299, 1.36778)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_005" parent="turtle" index="4"]
+transform = Transform3D(0.19752, 2.30968e-07, 0.77067, 0.0338919, 0.992369, -0.0682831, -0.272776, 0.1233, 0.549567, 1.20131, 1.04313, 1.12519)
+material_override = SubResource("StandardMaterial3D_024mk")
+
+[node name="Cube_007" parent="turtle" index="5"]
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube" parent="turtle" index="6"]
+visible = false
 material_override = SubResource("StandardMaterial3D_2upk1")
 
 [node name="Cube_008" parent="turtle" index="7"]
+visible = false
 material_override = SubResource("StandardMaterial3D_13mka")
 
 [node name="Cube_006" parent="turtle" index="8"]
+transform = Transform3D(0.280504, 0.203496, -0.494784, 0.0629789, 0.7784, 0.56899, 0.178665, -0.593872, 0.576244, 1.66296, 0.573593, -2.55843)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_009" parent="turtle" index="9"]
+visible = false
 material_override = SubResource("StandardMaterial3D_2upk1")
+
+[node name="Plane" parent="turtle" index="10"]
+material_override = SubResource("StandardMaterial3D_cehfp")
+
+[node name="Cube_010" parent="turtle" index="11"]
+material_override = SubResource("StandardMaterial3D_cehfp")
+
+[node name="Cube_011" parent="turtle" index="12"]
+material_override = SubResource("StandardMaterial3D_cehfp")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="turtle"]
+transform = Transform3D(-0.196534, 0, -0.57781, 0, 0.610318, 0, 0.57781, 0, -0.196534, -0.901959, 1.57305, -0.572532)
+emitting = false
+amount = 9
+lifetime = 0.9
+explosiveness = 0.16
+mesh = SubResource("BoxMesh_y0ttr")
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(-3.895, 2.79, 0)
+radial_accel_max = 2.0
+scale_amount_max = 3.0
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="turtle"]
+transform = Transform3D(0.389664, 0, -0.469736, 0, 0.610318, 0, 0.469736, 0, 0.389664, 1.25473, 1.57305, -0.572532)
+emitting = false
+amount = 9
+lifetime = 0.9
+explosiveness = 0.16
+mesh = SubResource("BoxMesh_y0ttr")
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(3.385, 3.855, 0)
+radial_accel_max = 2.0
+scale_amount_max = 3.0
+
+[node name="Cone" parent="turtle" index="15"]
+material_override = SubResource("StandardMaterial3D_y0ttr")
+
+[node name="Cone_001" parent="turtle" index="16"]
+material_override = SubResource("StandardMaterial3D_gg4y2")
+
+[node name="Cone_002" parent="turtle" index="17"]
+material_override = SubResource("StandardMaterial3D_20w1d")
+
+[node name="Cone_003" parent="turtle" index="18"]
+material_override = SubResource("StandardMaterial3D_20ypu")
+
+[node name="Cone_004" parent="turtle" index="19"]
+material_override = SubResource("StandardMaterial3D_7fs5o")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_024mk")
 }
 autoplay = "idle"
+
+[node name="guitar" type="Node3D" parent="."]
+
+[node name="Cube" type="MeshInstance3D" parent="guitar"]
+transform = Transform3D(0.728091, 0, 0, 0, 0.0725499, 0.286005, 0, -0.0586136, 0.354007, -0.881454, 0.211017, -2.69065)
+material_override = SubResource("StandardMaterial3D_2upk1")
+mesh = SubResource("ArrayMesh_kx6ry")
+skeleton = NodePath("")
+
+[node name="Cube_008" type="MeshInstance3D" parent="guitar"]
+transform = Transform3D(1.17696, 0, 0, 0, 0.0403699, 0.0988099, 0, -0.0326151, 0.122303, 0.533744, 0.211017, -2.69065)
+material_override = SubResource("StandardMaterial3D_13mka")
+mesh = SubResource("ArrayMesh_5wswt")
+skeleton = NodePath("")
+
+[node name="Cube_009" type="MeshInstance3D" parent="guitar"]
+transform = Transform3D(0.32747, 0, 0, 0, 0.0522923, 0.127992, 0, -0.0422474, 0.158423, 1.94118, 0.211017, -2.69065)
+material_override = SubResource("StandardMaterial3D_2upk1")
+mesh = SubResource("ArrayMesh_uevgh")
+skeleton = NodePath("")
 
 [editable path="turtle"]

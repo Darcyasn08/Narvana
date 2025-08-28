@@ -284,7 +284,7 @@ material_override = SubResource("StandardMaterial3D_85rfp")
 [node name="Cube_016" parent="house_model" index="23"]
 material_override = SubResource("StandardMaterial3D_85rfp")
 
-[node name="Cube_018" parent="house_model" index="26"]
+[node name="Cube_018" parent="house_model" index="28"]
 transform = Transform3D(0.46801, -0.142784, 0, 0.0675163, 0.989754, 0, 0, 0, 0.531744, 11.6101, 0.939677, 12.1702)
 
 [node name="player" parent="." instance=ExtResource("3_6f60q")]

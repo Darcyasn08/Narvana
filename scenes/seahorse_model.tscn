@@ -1,18 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://diw5if6u5s55c"]
+[gd_scene load_steps=11 format=3 uid="uid://diw5if6u5s55c"]
 
 [ext_resource type="PackedScene" uid="uid://mmg2yte11g4h" path="res://3d_models/placeholders/enemies/seahorse.glb" id="1_wgrna"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgrna"]
 albedo_color = Color(0.728381, 0.435333, 0.199688, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nte1d"]
-albedo_color = Color(0.752882, 0.403141, 0.156305, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wm72"]
 albedo_color = Color(0.205713, 0.499947, 0.535851, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nte1d"]
+albedo_color = Color(0.141745, 0.267198, 0.376376, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf44h"]
 albedo_color = Color(0.941052, 0.720357, 0.535204, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6nop"]
+albedo_color = Color(0.886769, 0.542435, 0.273858, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lc12"]
+albedo_color = Color(0.886769, 0.542435, 0.273858, 1)
 
 [sub_resource type="Animation" id="Animation_j6nop"]
 length = 0.001
@@ -105,6 +111,20 @@ tracks/11/path = NodePath("seahorse/Armature/Skeleton3D:Bone.008_leaf")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 1.26472e-06, -0.0672092, 0.997739, 8.51959e-08)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("seahorse/Armature_002/Skeleton3D:Bone_3")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 2.40994e-08, -1.97918e-08, -0.0110454, 0.999939)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("seahorse/Armature_002/Skeleton3D:Bone_leaf_2")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -0.707064, -0.00781023, 0.00781026, 0.707064)
 
 [sub_resource type="Animation" id="Animation_kf44h"]
 resource_name = "idle"
@@ -198,6 +218,20 @@ tracks/11/path = NodePath("seahorse/Armature/Skeleton3D:Bone.008_leaf")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 1.26472e-06, -0.0672092, 0.997739, 8.51959e-08, 0.52, 1, 1.26472e-06, -0.0672092, 0.997739, 8.51959e-08, 0.93, 1, 1.26472e-06, -0.0672092, 0.997739, 8.51959e-08)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("seahorse/Armature_002/Skeleton3D:Bone_3")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 2.40994e-08, -1.97918e-08, -0.0110454, 0.999939, 0.35, 1, 0.16989, 0.257115, -0.0490757, 0.950064)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("seahorse/Armature_002/Skeleton3D:Bone_leaf_2")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, -0.707064, -0.00781023, 0.00781026, 0.707064, 0.35, 1, -0.707064, -0.00781023, 0.00781026, 0.707064)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0lc12"]
 _data = {
@@ -212,25 +246,41 @@ _data = {
 [node name="Plane" parent="seahorse" index="0"]
 material_override = SubResource("StandardMaterial3D_wgrna")
 
-[node name="Plane_001" parent="seahorse" index="1"]
-material_override = SubResource("StandardMaterial3D_nte1d")
-
-[node name="Plane_002" parent="seahorse" index="2"]
-material_override = SubResource("StandardMaterial3D_nte1d")
-
-[node name="Cube_003" parent="seahorse" index="3"]
+[node name="Cube_003" parent="seahorse" index="1"]
 material_override = SubResource("StandardMaterial3D_5wm72")
 
-[node name="Cube_004" parent="seahorse" index="4"]
+[node name="Cube_004" parent="seahorse" index="2"]
 material_override = SubResource("StandardMaterial3D_5wm72")
 
-[node name="Skeleton3D" parent="seahorse/Armature" index="0"]
-bones/1/rotation = Quaternion(-0.0094771, 3.21806e-15, 2.25952e-09, 0.999955)
-bones/3/rotation = Quaternion(-0.0474729, -3.89017e-15, 1.13184e-08, 0.998873)
-bones/6/rotation = Quaternion(-0.629228, 7.67936e-13, 1.35018e-06, 0.77722)
+[node name="Cube_001" parent="seahorse/Armature" index="0"]
+material_override = SubResource("StandardMaterial3D_nte1d")
+
+[node name="Skeleton3D" parent="seahorse/Armature" index="1"]
+bones/0/rotation = Quaternion(0.997239, 8.85249e-09, -1.1888e-07, -0.0742601)
+bones/1/rotation = Quaternion(-0.0094771, 3.21803e-15, 2.25952e-09, 0.999955)
+bones/2/rotation = Quaternion(-0.0415054, -7.50422e-15, 9.89565e-09, 0.999138)
+bones/3/rotation = Quaternion(-0.0474729, -3.93061e-15, 1.13184e-08, 0.998873)
+bones/4/rotation = Quaternion(-0.175654, -3.52067e-07, 1.04698e-07, 0.984452)
+bones/5/rotation = Quaternion(-0.466443, -5.27235e-07, 7.22857e-07, 0.884551)
+bones/6/rotation = Quaternion(-0.629228, 7.93528e-13, 1.35018e-06, 0.77722)
+bones/7/rotation = Quaternion(-0.390928, 3.54171e-14, 8.38841e-07, 0.920421)
+bones/8/rotation = Quaternion(-0.5547, 8.92693e-07, 5.95129e-07, 0.83205)
+bones/9/rotation = Quaternion(9.54538e-07, 0.657984, 0.753032, 8.34054e-07)
+bones/10/rotation = Quaternion(1.26472e-06, -0.0672092, 0.997739, 8.51959e-08)
 
 [node name="Cube" parent="seahorse/Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_kf44h")
+
+[node name="Plane_002" parent="seahorse/Armature_001/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_j6nop")
+
+[node name="Skeleton3D" parent="seahorse/Armature_002" index="0"]
+transform = Transform3D(0.994795, 0.0827379, 0.0594732, -0.0786385, 0.994564, -0.0682487, -0.0647965, 0.0632166, 0.995894, 0, 0, 0)
+bones/0/position = Vector3(3.57628e-07, -1.78814e-07, -3.57628e-07)
+bones/0/scale = Vector3(1, 1, 1)
+
+[node name="Plane_001" parent="seahorse/Armature_002/Skeleton3D" index="0"]
+material_override = SubResource("StandardMaterial3D_0lc12")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
