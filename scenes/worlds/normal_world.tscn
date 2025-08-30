@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://c1db4w3dsb4tq" path="res://scenes/objects/light_pole.tscn" id="17_f4vow"]
 [ext_resource type="PackedScene" uid="uid://c1ipqtr2ifnvw" path="res://3d_models/placeholders/giant_boulder.glb" id="18_fr0nj"]
 [ext_resource type="PackedScene" uid="uid://ck0g2dnevpq5k" path="res://scenes/objects/big_rock.tscn" id="18_ge66w"]
-[ext_resource type="PackedScene" uid="uid://otbch3rh6pyo" path="res://3d_models/placeholders/village-plateau.glb" id="18_jptho"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="19_ektfp"]
 [ext_resource type="PackedScene" uid="uid://dys58dchdp2po" path="res://scenes/buildings/village_entrance_gate.tscn" id="19_jptho"]
+[ext_resource type="PackedScene" uid="uid://dcjwq0ra6fk6g" path="res://scenes/buildings/plateau.tscn" id="19_ljwqo"]
 [ext_resource type="PackedScene" uid="uid://d35rab8iwrhju" path="res://scenes/buildings/small_house.tscn" id="19_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://c1aoegujykbb" path="res://scenes/buildings/low_house.tscn" id="20_jptho"]
 
@@ -31,12 +31,12 @@ sky_material = SubResource("ProceduralSkyMaterial_d5nc6")
 
 [sub_resource type="Environment" id="Environment_8qtj8"]
 background_mode = 1
-background_color = Color(0.249773, 0.354109, 0.404721, 1)
+background_color = Color(0.137171, 0.249641, 0.52421, 1)
 background_energy_multiplier = 2.03
 sky = SubResource("Sky_p2tsv")
 ambient_light_source = 2
-ambient_light_color = Color(0.770193, 0.332097, 0.295849, 1)
-ambient_light_energy = 2.0
+ambient_light_color = Color(0.946508, 0.497257, 0.652001, 1)
+ambient_light_energy = 1.8
 glow_enabled = true
 glow_levels/1 = 8.3
 glow_levels/2 = 11.87
@@ -46,9 +46,10 @@ glow_levels/5 = 7.12
 glow_levels/6 = 8.91
 glow_levels/7 = 3.4
 fog_enabled = true
-fog_light_color = Color(0.177608, 0.463114, 0.712765, 1)
-fog_light_energy = 0.3
-fog_sun_scatter = 0.16
+fog_light_color = Color(0.515597, 0.357238, 0.695805, 1)
+fog_light_energy = 0.6
+fog_sun_scatter = 0.11
+fog_density = 0.015
 fog_sky_affect = 0.6
 volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.98046, 0.715333, 0.639702, 1)
@@ -69,7 +70,7 @@ albedo_color = Color(0.873318, 0.717799, 0.567844, 1)
 size = Vector3(200, 50, 400)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jebyo"]
-albedo_color = Color(0.5927, 0.619253, 0.480752, 1)
+albedo_color = Color(0.706802, 0.715215, 0.549361, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p2tsv"]
 size = Vector3(50, 0.3, 80)
@@ -115,7 +116,7 @@ script = ExtResource("1_eqvwj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.86835, 0.371635, -0.328415, 0.272318, 0.19616, 0.942, 0.414502, -0.907419, 0.0691329, 0.656735, 18.7075, -1.13749)
-light_color = Color(0.83168, 0.92532, 0.873422, 1)
+light_color = Color(0.569821, 0.891263, 0.86705, 1)
 light_bake_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -193,13 +194,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0787277, 6.90889, -21.5694)
 size = Vector3(29.7678, 12.7889, 19.1462)
 
 [node name="village_entrance_sign" parent="." instance=ExtResource("8_5xlhr")]
-transform = Transform3D(-0.626985, 0, -0.779032, 0, 1, 0, 0.779032, 0, -0.626985, 6.57518, 0, 2.60908)
+transform = Transform3D(-0.22034, 0, -0.975424, 0, 1, 0, 0.975424, 0, -0.22034, 4.30715, 0, -8.2682)
 
 [node name="village_marketplace" parent="." instance=ExtResource("8_wcbeh")]
 transform = Transform3D(0.885766, 0, 0.464132, 0, 1, 0, -0.464132, 0, 0.885766, -66.5645, -0.110433, 73.7814)
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7468, -0.00977638, 73.3617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7468, -0.0471776, 73.3617)
 mesh = SubResource("BoxMesh_x68fd")
 
 [node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
@@ -214,6 +215,10 @@ mesh = SubResource("BoxMesh_x68fd")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -67.5352, -0.0316594, 101.44)
 mesh = SubResource("BoxMesh_x68fd")
 
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999319, 0, 0.0369054, 0, 1, 0, -0.0369054, 0, 0.999319, -94.31, -0.0316604, 73.6038)
+mesh = SubResource("BoxMesh_x68fd")
+
 [node name="stone9" parent="." instance=ExtResource("13_bun2p")]
 transform = Transform3D(0.997418, 0, -0.0718108, 0, 1, 0, 0.0718108, 0, 0.997418, 41.1028, 8.9407e-08, 41.1611)
 
@@ -221,7 +226,16 @@ transform = Transform3D(0.997418, 0, -0.0718108, 0, 1, 0, 0.0718108, 0, 0.997418
 transform = Transform3D(0.512867, 0, 0.858468, 0, 1, 0, -0.858468, 0, 0.512867, -16.5234, 9.53674e-07, 50.5886)
 
 [node name="light_pole2" parent="light_poles" instance=ExtResource("17_f4vow")]
-transform = Transform3D(0.0828075, 0, -0.996566, 0, 1, 0, 0.996566, 0, 0.0828075, -7.45056, 0, 2.42915)
+transform = Transform3D(-0.87457, 0, -0.484901, 0, 1, 0, 0.484901, 0, -0.87457, 34.4467, 0, -10.0967)
+
+[node name="light_pole5" parent="light_poles" instance=ExtResource("17_f4vow")]
+transform = Transform3D(-0.861231, 0, -0.508215, 0, 1, 0, 0.508215, 0, -0.861231, 22.5872, 0, -3.29821)
+
+[node name="light_pole6" parent="light_poles" instance=ExtResource("17_f4vow")]
+transform = Transform3D(-0.861231, 0, -0.508215, 0, 1, 0, 0.508215, 0, -0.861231, 10.8373, 0, 3.6354)
+
+[node name="light_pole8" parent="light_poles" instance=ExtResource("17_f4vow")]
+transform = Transform3D(-0.861231, 0, -0.508215, 0, 1, 0, 0.508215, 0, -0.861231, 44.2238, -9.53674e-07, 0.65606)
 
 [node name="light_pole7" parent="light_poles" instance=ExtResource("17_f4vow")]
 transform = Transform3D(-0.974843, 0, -0.222892, 0, 1, 0, 0.222892, 0, -0.974843, -16.5529, 0, 23.1578)
@@ -243,8 +257,20 @@ transform = Transform3D(0.584917, 0, 0.14905, 0, 0.603609, 0, -0.14905, 0, 0.584
 [node name="big_rock7" parent="big_rocks" instance=ExtResource("18_ge66w")]
 transform = Transform3D(0.99695, 0, 0.0780415, 0, 1, 0, -0.0780415, 0, 0.99695, -20.3238, 1.90735e-06, 6.26524)
 
+[node name="big_rock10" parent="big_rocks" instance=ExtResource("18_ge66w")]
+transform = Transform3D(0.99695, 0, 0.0780415, 0, 1, 0, -0.0780415, 0, 0.99695, -99.8097, 1.90735e-06, 5.45513)
+
+[node name="big_rock12" parent="big_rocks" instance=ExtResource("18_ge66w")]
+transform = Transform3D(1.1174, 0, 0.0874707, 0, 1.12082, 0, -0.0874707, 0, 1.1174, -110.227, 1.90735e-06, 4.45748)
+
+[node name="big_rock11" parent="big_rocks" instance=ExtResource("18_ge66w")]
+transform = Transform3D(0.689118, 0, -0.472609, 0, 0.83561, 0, 0.472609, 0, 0.689118, -104.581, 1.90735e-06, 4.04868)
+
 [node name="big_rock8" parent="big_rocks" instance=ExtResource("18_ge66w")]
 transform = Transform3D(0.499387, 0, 0.339052, 0, 0.603609, 0, -0.339052, 0, 0.499387, -24.8876, 1.43051e-06, 7.20433)
+
+[node name="big_rock9" parent="big_rocks" instance=ExtResource("18_ge66w")]
+transform = Transform3D(0.499387, 0, 0.339052, 0, 0.603609, 0, -0.339052, 0, 0.499387, -8.98085, -4.76838e-07, 27.6178)
 
 [node name="big_rock3" parent="big_rocks" instance=ExtResource("18_ge66w")]
 transform = Transform3D(0.386456, 0, -0.248672, 0, 0.45955, 0, 0.248672, 0, 0.386456, 18.9773, -9.53674e-07, 47.471)
@@ -338,6 +364,15 @@ shape = SubResource("ConcavePolygonShape3D_peaqf")
 [node name="small_house" parent="." instance=ExtResource("19_wcbeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0015, 9.53674e-07, 82.4134)
 
+[node name="small_house2" parent="." instance=ExtResource("19_wcbeh")]
+transform = Transform3D(-0.822015, 0, 0.569466, 0, 1, 0, -0.569466, 0, -0.822015, -52.6392, 9.53674e-07, 50.2817)
+
+[node name="small_house9" parent="." instance=ExtResource("19_wcbeh")]
+transform = Transform3D(-0.315964, 0, -0.948771, 0, 1, 0, 0.948771, 0, -0.315964, -118.015, 4.1985, 58.2239)
+
+[node name="small_house10" parent="." instance=ExtResource("19_wcbeh")]
+transform = Transform3D(0.986245, 0, 0.165289, 0, 1, 0, -0.165289, 0, 0.986245, -115.246, 4.1985, 87.1628)
+
 [node name="small_house3" parent="." instance=ExtResource("19_wcbeh")]
 transform = Transform3D(-0.994828, 0, -0.101577, 0, 1, 0, 0.101577, 0, -0.994828, 13.8837, 9.53674e-07, 21.052)
 
@@ -381,16 +416,13 @@ transform = Transform3D(-0.176346, 0, 0.984328, 0, 1, 0, -0.984328, 0, -0.176346
 transform = Transform3D(0.744929, 0, -0.667144, 0, 1, 0, 0.667144, 0, 0.744929, 83.4311, 0.3028, 5.08803)
 
 [node name="player" parent="." instance=ExtResource("1_d5nc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.4792)
 
 [node name="village_entrance_gate" parent="." instance=ExtResource("19_jptho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105333, 0.110535, 6.94757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105333, 0.110535, 5.36001)
 
 [node name="stone10" parent="." instance=ExtResource("13_bun2p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6114, 4.76837e-07, 9.99247)
-
-[node name="village-plateau" parent="." instance=ExtResource("18_jptho")]
-transform = Transform3D(-0.0176094, 0, -0.999845, 0, 1, 0, 0.999845, 0, -0.0176094, -100.873, 0, 63.0173)
-visible = false
 
 [node name="grandma" parent="." instance=ExtResource("18_wcbeh")]
 transform = Transform3D(0.837366, 0, 0.546643, 0, 1, 0, -0.546643, 0, 0.837366, -37.1547, 1.33304, 59.59)
@@ -561,3 +593,6 @@ transform = Transform3D(-0.672977, 0, -0.192617, 0, 0.7, 0, 0.192617, 0, -0.6729
 
 [node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
 transform = Transform3D(-0.999767, 0, -0.0216054, 0, 1, 0, 0.0216054, 0, -0.999767, -61.979, 0.0204333, 88.9328)
+
+[node name="plateau" parent="." instance=ExtResource("19_ljwqo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5635, 0, 154.406)

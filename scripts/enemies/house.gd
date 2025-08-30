@@ -10,31 +10,35 @@ var knocker: int = 0
 var player_near: bool = false
 
 @onready var player = $"../player"
+@onready var walls_holder = $"house_model/walls_holder"
 
 func _ready() -> void:
+	print($house_model/walls_holder/collision_das_paredes/CollisionShape3D8.disabled)
 	#inicializar_lista()
 	life = Global.house_health #precisa disso pra quando voltar na cena dela por fora vai passar o dano por dentro
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa
+		print("e pressed")
 		Global.house_health = life
 		Global.player_health = player.health
-		get_tree().change_scene_to_file("res://scenes/inside_house.tscn")
-	
+		get_tree().change_scene_to_file("res://scenes/enemies/inside_house.tscn")
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if state == "shooting" and %walls_holder.position.y < -0.2: # erque as paredes até certo ponto
-		%walls_holder.position.y += 0.03
-	if state == "death_ray" and %walls_holder.position.y > -8: #desce as paredes até certo ponto
-		%walls_holder.position.y -= 0.03
+	if state == "shooting" and walls_holder.position.y < -0.2: # erque as paredes até certo ponto
+		walls_holder.position.y += 0.03
+	if state == "death_ray" and walls_holder.position.y > -8: #desce as paredes até certo ponto
+		walls_holder.position.y -= 0.03
 	if state == "death_ray": #ativa a funçao que faz o holofote olhar pro player todo frame
 		look_to_player(delta) #essa aqui
 		#look_to_player()
 		if life < knocker: # funcao pra deixar ela nocauteada e abrira porta da casa
 			state = "knocked"
+			print("IT IS ENABLED!!!")
 			$door/door_collision.disabled = false
 			$holo_holder/laser_area/hurtbox.disabled = true
 			$holo_holder/laser_holofote.hide()

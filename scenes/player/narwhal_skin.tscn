@@ -42,7 +42,7 @@ bind/1/bone = -1
 bind/1/pose = Transform3D(-3.10076, 12.9089, 1.73443e-06, 12.9089, 3.10076, 2.20038e-06, 1.73443e-06, 2.20038e-06, -13.2761, -0.55918, -6.68425, -3.33908e-06)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_audoe"]
-height = 2.36649
+height = 2.14859
 radius = 0.380371
 
 [sub_resource type="Animation" id="Animation_h17s1"]
@@ -299,14 +299,14 @@ mesh = SubResource("ArrayMesh_yb3wd")
 skin = SubResource("Skin_k7kmy")
 
 [node name="bat" parent="narval_model/Armature_002/Skeleton3D" instance=ExtResource("4_audoe")]
-transform = Transform3D(0.825654, -2.34541, 1.02285, -2.45344, -0.860552, 0.0130129, 0.242771, -0.720072, -3.34718, 0.671884, 0.979378, -1.559)
+transform = Transform3D(0.825653, -2.34541, 1.11053, -2.45344, -0.860551, 0.0141279, 0.242771, -0.720072, -3.63408, 0.63991, 0.978971, -1.45437)
 
 [node name="Area3D" type="Area3D" parent="narval_model/Armature_002/Skeleton3D/bat" groups=["weapon"]]
 transform = Transform3D(1, 0, 0, 0, -0.0205236, 0.999789, 0, -0.999789, -0.0205236, 6.10948e-05, -0.0508818, -0.782373)
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="narval_model/Armature_002/Skeleton3D/bat/Area3D"]
-transform = Transform3D(0.64764, -2.90573e-07, -0.761945, 3.8743e-07, 0.999996, -2.83122e-07, 0.761945, -4.76837e-07, 0.647641, 0.0268073, 0.156998, 0.0315386)
+transform = Transform3D(0.647641, -1.29826e-06, -0.761946, 8.9407e-08, 1, -2.83122e-07, 0.761945, -3.27826e-07, 0.647641, 0.0268071, 0.0480509, 0.0315387)
 shape = SubResource("CylinderShape3D_audoe")
 disabled = true
 debug_color = Color(0.738708, 0.33321, 0.13141, 0.42)
@@ -346,5 +346,6 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_1hi58")
 }
+speed_scale = 1.1
 
 [editable path="narval_model"]

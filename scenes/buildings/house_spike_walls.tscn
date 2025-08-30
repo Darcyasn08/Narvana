@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2jfubyw2x0p0"]
+
+[ext_resource type="PackedScene" uid="uid://crcajocvnqeva" path="res://3d_models/placeholders/enemies/house_spike_walls.glb" id="1_cvjur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utnpm"]
+transparency = 1
+albedo_color = Color(0.372549, 0.827451, 0.905882, 0.847059)
+metallic = 0.2
+metallic_specular = 0.46
+roughness = 0.4
+
+[node name="house_spike_walls" type="Node3D"]
+
+[node name="house_spike_walls" parent="." instance=ExtResource("1_cvjur")]
+
+[node name="Cube_049" parent="house_spike_walls" index="0"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_048" parent="house_spike_walls" index="1"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_047" parent="house_spike_walls" index="2"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_046" parent="house_spike_walls" index="3"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_040" parent="house_spike_walls" index="4"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_039" parent="house_spike_walls" index="5"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_038" parent="house_spike_walls" index="6"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_037" parent="house_spike_walls" index="7"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_036" parent="house_spike_walls" index="8"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_035" parent="house_spike_walls" index="9"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_034" parent="house_spike_walls" index="10"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_033" parent="house_spike_walls" index="11"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_032" parent="house_spike_walls" index="12"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_031" parent="house_spike_walls" index="13"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_030" parent="house_spike_walls" index="14"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_029" parent="house_spike_walls" index="15"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_028" parent="house_spike_walls" index="16"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_027" parent="house_spike_walls" index="17"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_026" parent="house_spike_walls" index="18"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_025" parent="house_spike_walls" index="19"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_024" parent="house_spike_walls" index="20"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_023" parent="house_spike_walls" index="21"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_022" parent="house_spike_walls" index="22"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_021" parent="house_spike_walls" index="23"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_020" parent="house_spike_walls" index="24"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_019" parent="house_spike_walls" index="25"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[node name="Cube_018" parent="house_spike_walls" index="26"]
+material_override = SubResource("StandardMaterial3D_utnpm")
+
+[editable path="house_spike_walls"]

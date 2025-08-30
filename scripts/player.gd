@@ -11,7 +11,7 @@ var rotation_speed: float = 10.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
 var ground_speed: float
-var magic_selec : int = 2 #temporario
+var magic_selec : int = 1 #temporario
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
@@ -19,7 +19,6 @@ var dashed: bool = false
 var knockbacked: bool = false
 var stunned: bool = false
 var immune: bool = false
-var sens: float = 0.07
 var immune_time: float = 2.5
 
 # VARIÁVEIS DE IMPRTAÇÃO
@@ -31,6 +30,7 @@ var immune_time: float = 2.5
 
 func _ready() -> void:
 	Global.current_weapon = 1
+	SignalBus.on_changed_mouse_sens.connect(change_mouse_sens)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	change_current_weapon(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -101,7 +101,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 	)
 	if is_camera_motion:
-		camera_input_direction = event.relative * sens
+		camera_input_direction = event.relative * mouse_sens
 
 
 func _input(event: InputEvent) -> void:
@@ -216,6 +216,8 @@ func get_immune(immune_time:= 5.0) -> void:
 	$torus_mesh.hide()
 	immune = false
 
+func change_mouse_sens(sens: float) -> void:
+	mouse_sens = sens
 
 func _on_player_hitbox_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies"):
@@ -232,14 +234,15 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 func magic() -> void:
 	if is_on_floor() and magic_selec == 1:
 		$magics.rotation.y = skin.rotation.y
-		stunned= true
-		velocity = Vector3(0,0,0) #impede o player de se mover enquanto faz a magia
+		stunned = true
+		velocity = Vector3(0,0,0) 
+		Global.player_can_move = false #impede o player de se mover enquanto faz a magia
 		$magics/CSGCombiner3D.show()
-		await(get_tree().create_timer(1).timeout)
-		$magics/dust_magic/CollisionShape3D.disabled = false 
-		print($magics/dust_magic.monitorable)
-		await(get_tree().create_timer(1).timeout)
-		$magics/dust_magic/CollisionShape3D.disabled = true
+		await(get_tree().create_timer(.6).timeout)
+		$magics/dust_magic/CollisionShape3D.set_deferred("disabled",false)
+		await(get_tree().create_timer(.8).timeout)
+		Global.player_can_move = true
+		$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
 		$magics/CSGCombiner3D.hide()
 		stunned = false
 	if is_on_floor() and magic_selec == 2:
@@ -252,7 +255,7 @@ func magic() -> void:
 		$magics/mandala.hide()
 		await(get_tree().create_timer(5).timeout)
 		Global.player_damage = pre_boost
-		print(Global.player_damage)
+		#print(Global.player_damage)
 	if is_on_floor() and magic_selec == 3:
 		$magics.rotation.y = skin.rotation.y
 		get_immune(3.0)

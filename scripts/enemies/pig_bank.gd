@@ -12,10 +12,9 @@ var coinins = preload("res://scenes/enemies/coin.tscn")
 @onready var player = $"../player"
 
 func _ready() -> void:
-	pass
+	print("im the new pig")
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
@@ -30,10 +29,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 	
 	var ground_speed := velocity.length()
-	#if ground_speed > 0.0:
-		#$"piggy-bank-enemy/AnimationPlayer".play("walk")
-	#elif ground_speed <= 0.0:
-		#$"piggy-bank-enemy/AnimationPlayer".stop()
+	if ground_speed > 0.0:
+		$"piggy-bank-enemy/AnimationPlayer".play("walk")
+	elif ground_speed <= 0.0:
+		$"piggy-bank-enemy/AnimationPlayer".stop()
 	
 	move_and_slide()
 
@@ -70,7 +69,7 @@ func unique_die() -> void:
 	get_parent().add_child(coin1) #spawna a moeda
 	get_parent().add_child(coin2)
 	get_parent().add_child(coin3)
-	print("im deaaaddd noooooo")
+	print(get_parent().get_children())
 
 func look_to_player(delta: float) -> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)

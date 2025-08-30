@@ -18,3 +18,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		$damage_label.hide()
 		if health <= 0:
 			queue_free()
+	if area.is_in_group("damage_magic"):
+		health -= Global.dust_damage
+		if health <= 0:
+			queue_free()

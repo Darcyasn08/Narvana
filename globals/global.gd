@@ -40,6 +40,7 @@ var coins: int = 100
 var dust_damage: float= 1500.0
 var house_health: int = 5000
 
+var mouse_sens: float = .11
 
 #world positions
 var player_base_pos: Vector3 = Vector3(0,5,0)

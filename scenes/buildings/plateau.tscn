@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcjwq0ra6fk6g"]
+
+[ext_resource type="PackedScene" uid="uid://bqgcxfed7ehdp" path="res://3d_models/plateau.glb" id="1_s8f2v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8f2v"]
+albedo_color = Color(0.70647, 0.551974, 0.565059, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8f2v"]
+size = Vector3(39.1969, 5.1095, 99.241)
+
+[node name="plateau" type="Node3D"]
+
+[node name="plateau" parent="." instance=ExtResource("1_s8f2v")]
+
+[node name="Cube" parent="plateau" index="0"]
+material_override = SubResource("StandardMaterial3D_s8f2v")
+
+[node name="Cube_001" parent="plateau" index="1"]
+material_override = SubResource("StandardMaterial3D_s8f2v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.993126, 0, -0.117052, 0, 1, 0, 0.117052, 0, 0.993126, -94.1293, 2.05474, -100.919)
+shape = SubResource("BoxShape3D_s8f2v")
+debug_color = Color(0.734151, 0.94601, 1, 0.42)
+
+[editable path="plateau"]

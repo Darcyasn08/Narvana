@@ -11,8 +11,8 @@ func _ready() -> void:
 	for i in range(0,4):
 		var temple_pillar_mesh: Object = temple_pillar_mesh_inst.instantiate()
 		temple_pillar_mesh.position = pos[i]
-		print(pos[i])
-		print(i)
+		#print(pos[i])
+		#print(i)
 		add_child(temple_pillar_mesh)
 	$MeshInstance3D.hide()
 	$MeshInstance3D2.hide()

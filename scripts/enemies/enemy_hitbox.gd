@@ -36,10 +36,9 @@ func take_damage(area, damage, defense := 1.0) -> void:
 		#print("parent life: ",parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre
-		#drop_coins(parent.enemy_min_coins, parent.enemy_max_coins)
 		await parent.unique_die()
-		print("parent died")
-		await get_tree().create_timer(1).timeout
+		#print("parent died")
+		await get_tree().create_timer(.1).timeout
 		parent.queue_free()
 
 

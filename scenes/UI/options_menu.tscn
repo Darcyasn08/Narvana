@@ -50,7 +50,7 @@ corner_radius_bottom_left = 10
 
 [node name="options_menu" type="CanvasLayer"]
 process_mode = 3
-layer = 2
+layer = 4
 script = ExtResource("1_3t8k5")
 
 [node name="base_screen" type="Control" parent="."]
@@ -156,7 +156,6 @@ offset_right = 361.0
 offset_bottom = 74.0
 
 [node name="controls_screen" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -272,7 +271,7 @@ offset_bottom = 79.0
 text = "Use [Espaço] para pular]"
 label_settings = SubResource("LabelSettings_ijsq6")
 
-[node name="Label" type="Label" parent="controls_screen"]
+[node name="sensibility" type="Label" parent="controls_screen"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 420.0
@@ -280,21 +279,25 @@ offset_right = 120.0
 offset_bottom = 443.0
 text = "SENSIBILIDADE DA CÂMERA"
 
-[node name="HScrollBar" type="HScrollBar" parent="controls_screen/Label"]
+[node name="sensibility_scroll" type="HScrollBar" parent="controls_screen/sensibility"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -1.0
 offset_top = 35.0
-offset_right = 466.0
-offset_bottom = 54.0
+offset_right = 459.0
+offset_bottom = 58.0
 theme_override_styles/scroll = SubResource("StyleBoxFlat_ijsq6")
+min_value = 1.0
+step = 1.0
 value = 50.0
 
-[node name="Label3" type="Label" parent="controls_screen/Label"]
+[node name="sensibility_value" type="Label" parent="controls_screen/sensibility"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 483.0
-offset_top = 34.0
-offset_right = 502.0
-offset_bottom = 57.0
+offset_left = 473.0
+offset_top = 35.0
+offset_right = 492.0
+offset_bottom = 58.0
 text = "50"
 
 [node name="Label2" type="Label" parent="controls_screen"]
@@ -315,3 +318,4 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
 
 [connection signal="pressed" from="base_screen/VBoxContainer/control_settings_button" to="." method="_on_control_settings_button_pressed"]
 [connection signal="pressed" from="base_screen/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="scrolling" from="controls_screen/sensibility/sensibility_scroll" to="." method="_on_sensibility_scroll_scrolling"]

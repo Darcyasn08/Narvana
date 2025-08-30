@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=19 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -22,6 +22,9 @@ albedo_color = Color(0.914648, 0.90449, 7.70092e-07, 1)
 
 [sub_resource type="TorusMesh" id="TorusMesh_5gtgg"]
 outer_radius = 0.84
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_75vfm"]
+size = Vector3(3.02588, 2.61572, 2.97473)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p47bc"]
 size = Vector2(4, 4)
@@ -115,6 +118,26 @@ material_override = SubResource("StandardMaterial3D_qek5x")
 mesh = SubResource("TorusMesh_5gtgg")
 
 [node name="magics" type="Node3D" parent="."]
+
+[node name="dust_magic" type="Area3D" parent="magics" groups=["damage_magic"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.465672)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="magics/dust_magic" groups=["damage_magic"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19263, 2.55156)
+shape = SubResource("BoxShape3D_75vfm")
+disabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="magics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.395125)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="magics/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0397136, 2.54569)
+size = Vector3(2.8, 0.3, 2.8)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="magics/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.53518)
+size = Vector3(3, 0.2, 3)
 
 [node name="mandala" type="MeshInstance3D" parent="magics"]
 visible = false

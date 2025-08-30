@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b6he2j4ixhwk8"]
+[gd_scene load_steps=14 format=4 uid="uid://b6he2j4ixhwk8"]
 
 [ext_resource type="PackedScene" uid="uid://fnkudfo2e07e" path="res://scenes/objects/village_tent.tscn" id="1_xmxjs"]
 [ext_resource type="PackedScene" uid="uid://c1db4w3dsb4tq" path="res://scenes/objects/light_pole.tscn" id="2_5a6mm"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="5_yebb3"]
 [ext_resource type="PackedScene" uid="uid://cw3bywfskij7i" path="res://3d_models/placeholders/marketplace_floor.glb" id="6_7xm76"]
 [ext_resource type="PackedScene" uid="uid://dq20xfygww1g1" path="res://scenes/objects/water_fountain.tscn" id="7_mx2sk"]
+[ext_resource type="PackedScene" uid="uid://dwdrwq364ltc7" path="res://scenes/objects/jellyfish_light.tscn" id="8_yebb3"]
+
+[sub_resource type="Environment" id="Environment_7xm76"]
+background_mode = 1
+background_color = Color(0.20739, 0.516441, 0.528787, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lfl5"]
 albedo_color = Color(0.823609, 0.760784, 0.684329, 1)
@@ -48,6 +53,9 @@ shadow_mesh = SubResource("ArrayMesh_pr1yi")
 [node name="village_marketplace" type="Node3D"]
 transform = Transform3D(0.506004, 0, -0.862531, 0, 1, 0, 0.862531, 0, 0.506004, 0, 0, 0)
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7xm76")
+
 [node name="village_tent" parent="." instance=ExtResource("1_xmxjs")]
 transform = Transform3D(0.951568, 0, 0.30744, 0, 1, 0, -0.30744, 0, 0.951568, -12.8544, 0, 5.23704)
 
@@ -58,16 +66,16 @@ transform = Transform3D(0.182699, 0, 0.983169, 0, 1, 0, -0.983169, 0, 0.182699, 
 transform = Transform3D(-0.524283, 0, 0.851544, 0, 1, 0, -0.851544, 0, -0.524283, 5.39908, 0, 14.1372)
 
 [node name="village_tent4" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(-0.941435, 0, -0.337194, 0, 1, 0, 0.337194, 0, -0.941435, 9.83969, 0, -11.9291)
+transform = Transform3D(-0.810972, 0, -0.585085, 0, 1, 0, 0.585085, 0, -0.810972, 11.6208, 0, -10.1497)
 
 [node name="village_tent5" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(-0.0726991, 0, -0.997354, 0, 1, 0, 0.997354, 0, -0.0726991, 3.71569, 0, -15.6918)
+transform = Transform3D(-0.0726991, 0, -0.997354, 0, 1, 0, 0.997354, 0, -0.0726991, 3.59769, 0, -14.073)
 
 [node name="light_pole" parent="." instance=ExtResource("2_5a6mm")]
 transform = Transform3D(-0.480943, 0, 0.876752, 0, 1, 0, -0.876752, 0, -0.480943, -9.80896, -0.407523, 10.4172)
 
 [node name="light_pole2" parent="." instance=ExtResource("2_5a6mm")]
-transform = Transform3D(-0.617146, 0, 0.786849, 0, 1, 0, -0.786849, 0, -0.617146, 16.8588, -0.407523, 0.320834)
+transform = Transform3D(-0.704733, 0, 0.709472, 0, 1, 0, -0.709472, 0, -0.704733, 11.7367, -0.407523, -3.47325)
 
 [node name="stone3" parent="." instance=ExtResource("3_1lfl5")]
 transform = Transform3D(0.688722, 0, 0.725025, 0, 1, 0, -0.725025, 0, 0.688722, 0.82552, 8.9407e-08, -15.0972)
@@ -79,13 +87,13 @@ transform = Transform3D(0.419693, 0, 0.441816, 0, 0.609379, 0, -0.441816, 0, 0.4
 transform = Transform3D(0.419693, 0, 0.441816, 0, 0.609379, 0, -0.441816, 0, 0.419693, -0.119166, 8.9407e-08, 14.0121)
 
 [node name="barrel" parent="." instance=ExtResource("4_mx2sk")]
-transform = Transform3D(0.893747, 0, -0.44857, 0, 1, 0, 0.44857, 0, 0.893747, 4.83494, -0.199667, -15.1705)
+transform = Transform3D(0.893747, 0, -0.44857, 0, 1, 0, 0.44857, 0, 0.893747, 5.15916, 0.0765487, -14.9254)
 
 [node name="barrel2" parent="." instance=ExtResource("4_mx2sk")]
-transform = Transform3D(0.999579, -0.0289857, 1.26702e-09, -1.44884e-15, -4.37114e-08, -1, 0.0289857, 0.999579, -4.3693e-08, 6.14912, 0.277208, -16.2969)
+transform = Transform3D(-0.998339, -0.0289857, 0.0497701, 0.049791, -4.37722e-08, 0.99876, -0.0289497, 0.999579, 0.00144327, 6.39945, 0.613381, -15.2042)
 
 [node name="jellyfish_npc2" parent="." instance=ExtResource("5_yebb3")]
-transform = Transform3D(-0.12038, 0, -0.992728, 0, 1, 0, 0.992728, 0, -0.12038, 3.83182, 0.133238, -15.2507)
+transform = Transform3D(-0.12038, 0, -0.992728, 0, 1, 0, 0.992728, 0, -0.12038, 3.6481, 0.133238, -13.7357)
 current_color = 2
 
 [node name="jellyfish_npc3" parent="." instance=ExtResource("5_yebb3")]
@@ -103,5 +111,14 @@ visible = false
 
 [node name="water_fountain" parent="." instance=ExtResource("7_mx2sk")]
 transform = Transform3D(0.607205, 0, 1.03504, 0, 1.2, 0, -1.03504, 0, 0.607205, 0.315577, 0, -0.066442)
+
+[node name="jellyfish_light" parent="." instance=ExtResource("8_yebb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90671, 6.55308, -12.3185)
+
+[node name="jellyfish_light2" parent="." instance=ExtResource("8_yebb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.63476, 6.5013, 7.8743)
+
+[node name="jellyfish_light3" parent="." instance=ExtResource("8_yebb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41552, 9.20124, 1.94507)
 
 [editable path="marketplace_floor"]

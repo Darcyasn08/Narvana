@@ -1,22 +1,13 @@
-[gd_scene load_steps=25 format=4 uid="uid://mp5ex2cb7jp8"]
+[gd_scene load_steps=26 format=4 uid="uid://mp5ex2cb7jp8"]
 
 [ext_resource type="PackedScene" uid="uid://db0lwma6jvdse" path="res://3d_models/placeholders/enemies/octopus.glb" id="1_7y2e8"]
 [ext_resource type="PackedScene" uid="uid://cr0e53pn36y2t" path="res://3d_models/placeholders/enemies/high_drum.glb" id="2_6ri7e"]
+[ext_resource type="Texture2D" uid="uid://m4glt410y7ur" path="res://3d_models/placeholders/enemies/octopus_octopus-head.png" id="2_ajl7f"]
 [ext_resource type="PackedScene" uid="uid://b3lv7xlcmf45e" path="res://3d_models/placeholders/enemies/low_drum.glb" id="3_c7erx"]
 [ext_resource type="PackedScene" uid="uid://d33lrnrixbipn" path="res://3d_models/placeholders/enemies/plates.glb" id="4_8khcd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ri7e"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.153271, 0.429761, 0.606726, 1)
-roughness = 0.12
-subsurf_scatter_enabled = true
-subsurf_scatter_strength = 1.0
-backlight_enabled = true
-backlight = Color(0.39345, 0.451931, 0.79827, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7y2e8"]
-albedo_color = Color(0.288784, 0.491114, 0.708662, 1)
+albedo_color = Color(0.197491, 0.365371, 0.544287, 1)
 
 [sub_resource type="Animation" id="Animation_8khcd"]
 length = 0.001
@@ -161,6 +152,9 @@ albedo_color = Color(0.274795, 0.215385, 0.302104, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajl7f"]
 albedo_color = Color(0.95158, 0.95158, 0.95158, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5lpu"]
+albedo_texture = ExtResource("2_ajl7f")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2agm2"]
 
@@ -308,10 +302,7 @@ albedo_color = Color(0.945494, 0.656137, 0.146919, 1)
 
 [node name="octopus" parent="." instance=ExtResource("1_7y2e8")]
 
-[node name="Cube_001" parent="octopus" index="0"]
-material_override = SubResource("StandardMaterial3D_6ri7e")
-
-[node name="Armature" parent="octopus" index="1"]
+[node name="Armature" parent="octopus" index="0"]
 transform = Transform3D(0.941364, 0.224985, -0.251428, -0.217366, 0.974362, 0.0580559, 0.258043, 0, 0.966133, -0.623424, 0.22927, -0.339864)
 
 [node name="Skeleton3D" parent="octopus/Armature" index="0"]
@@ -336,20 +327,23 @@ transform = Transform3D(0.93923, -0.287719, -0.187259, 0.332665, 0.897486, 0.289
 material_override = SubResource("StandardMaterial3D_c7erx")
 mesh = SubResource("BoxMesh_8khcd")
 
-[node name="Cylinder" parent="octopus" index="4"]
+[node name="Cylinder" parent="octopus" index="1"]
 material_override = SubResource("StandardMaterial3D_8khcd")
 
-[node name="Cone" parent="octopus" index="5"]
+[node name="Cone" parent="octopus" index="2"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
 
-[node name="Cone_001" parent="octopus" index="6"]
+[node name="Cone_001" parent="octopus" index="3"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
 
-[node name="Cone_002" parent="octopus" index="7"]
+[node name="Cone_002" parent="octopus" index="4"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
 
-[node name="Cone_003" parent="octopus" index="8"]
+[node name="Cone_003" parent="octopus" index="5"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
+
+[node name="Plane_002" parent="octopus" index="6"]
+material_override = SubResource("StandardMaterial3D_p5lpu")
 
 [node name="Armature2" type="Node3D" parent="octopus"]
 transform = Transform3D(-0.997381, 0, -0.072333, 0, 1, 0, 0.072333, 0, -0.997381, 0.450093, 0.125367, 0)

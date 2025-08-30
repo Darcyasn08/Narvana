@@ -18,4 +18,4 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_timer_timeout() -> void:
 	print("change world")
-	#get_tree().change_scene_to_file("res://scenes/player/test_world.tscn")
+	get_tree().change_scene_to_file("res://scenes/worlds/first_level.tscn")

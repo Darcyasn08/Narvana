@@ -3,6 +3,8 @@ extends Node
 signal on_dialog_activated()
 signal on_dialog_area_leave()
 
+signal on_changed_mouse_sens()
+
 #signal on_ignite_cutscene()
 
 signal on_first_level_entered()

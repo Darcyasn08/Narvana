@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=81 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
@@ -40,6 +40,13 @@ size = Vector3(42, 9, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4c4wp"]
 data = PackedVector3Array(-21.2, 4.5, 0.5, 21.2, 4.5, 0.5, -21.2, -4.5, 0.5, 21.2, 4.5, 0.5, 21.2, -4.5, 0.5, -21.2, -4.5, 0.5, 21.2, 4.5, -0.5, -21.2, 4.5, -0.5, 21.2, -4.5, -0.5, -21.2, 4.5, -0.5, -21.2, -4.5, -0.5, 21.2, -4.5, -0.5, 21.2, 4.5, 0.5, 21.2, 4.5, -0.5, 21.2, -4.5, 0.5, 21.2, 4.5, -0.5, 21.2, -4.5, -0.5, 21.2, -4.5, 0.5, -21.2, 4.5, -0.5, -21.2, 4.5, 0.5, -21.2, -4.5, -0.5, -21.2, 4.5, 0.5, -21.2, -4.5, 0.5, -21.2, -4.5, -0.5, 21.2, 4.5, 0.5, -21.2, 4.5, 0.5, 21.2, 4.5, -0.5, -21.2, 4.5, 0.5, -21.2, 4.5, -0.5, 21.2, 4.5, -0.5, -21.2, -4.5, 0.5, 21.2, -4.5, 0.5, -21.2, -4.5, -0.5, 21.2, -4.5, 0.5, 21.2, -4.5, -0.5, -21.2, -4.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4c4wp"]
+material = ExtResource("2_385i6")
+size = Vector3(10, 3, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8pan6"]
+data = PackedVector3Array(-5, 1.5, 0.5, 5, 1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, -0.5, 5, -1.5, -0.5, -5, 1.5, -0.5, -5, -1.5, -0.5, 5, -1.5, -0.5, 5, 1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, 0.5, 5, 1.5, -0.5, 5, -1.5, -0.5, 5, -1.5, 0.5, -5, 1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, -0.5, -5, 1.5, 0.5, -5, -1.5, 0.5, -5, -1.5, -0.5, 5, 1.5, 0.5, -5, 1.5, 0.5, 5, 1.5, -0.5, -5, 1.5, 0.5, -5, 1.5, -0.5, 5, 1.5, -0.5, -5, -1.5, 0.5, 5, -1.5, 0.5, -5, -1.5, -0.5, 5, -1.5, 0.5, 5, -1.5, -0.5, -5, -1.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_b30th"]
 material = ExtResource("2_385i6")
@@ -293,6 +300,24 @@ mesh = SubResource("BoxMesh_3641t")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room_start/MeshInstance3D9/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4c4wp")
 
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="temple_room_start"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91223, 8.64484, 0)
+mesh = SubResource("BoxMesh_4c4wp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room_start/MeshInstance3D11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room_start/MeshInstance3D11/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8pan6")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="temple_room_start"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91223, 8.64484, -29.5364)
+mesh = SubResource("BoxMesh_4c4wp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room_start/MeshInstance3D12"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room_start/MeshInstance3D12/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8pan6")
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="temple_room_start"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4067, 5.66109, 0)
 mesh = SubResource("BoxMesh_b30th")
@@ -528,7 +553,7 @@ debug_color = Color(0, 0, 0, 0.784314)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.601, 2.00769, 22.864)
 
 [node name="multi_pillar2" parent="temple_room1" instance=ExtResource("6_g7jmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.76139, 2.01142, -5.5934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.62015, 2.01142, -5.5934)
 
 [node name="first_level_door2" parent="temple_room1" instance=ExtResource("8_kalee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.08542, 2.03972, 0.0148754)
@@ -557,6 +582,15 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 8.04986, 7.94067, 23.65
 
 [node name="jellyfish_light2" parent="temple_room1" instance=ExtResource("18_phf25")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 11.3576, 6.27168, 7.28719)
+
+[node name="jellyfish_light4" parent="temple_room1" instance=ExtResource("18_phf25")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 12.2838, 6.27168, -11.0662)
+
+[node name="jellyfish_light5" parent="temple_room1" instance=ExtResource("18_phf25")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -6.74452, 8.01209, -17.4075)
+
+[node name="jellyfish_light6" parent="temple_room1" instance=ExtResource("18_phf25")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -4.55046, 7.01486, -6.14855)
 
 [node name="temple_room2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.8986)
@@ -985,6 +1019,18 @@ mesh = SubResource("BoxMesh_235iq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room6/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_vu6qs")
 
+[node name="jellyfish_light" parent="temple_room6" instance=ExtResource("18_phf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3262, 10.0706, -39.144)
+
+[node name="jellyfish_light2" parent="temple_room6" instance=ExtResource("18_phf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5215, 10.0706, -75.8754)
+
+[node name="jellyfish_light3" parent="temple_room6" instance=ExtResource("18_phf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5048, 8.72108, -46.9955)
+
+[node name="jellyfish_light4" parent="temple_room6" instance=ExtResource("18_phf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0829, 10.2375, -73.2732)
+
 [node name="spawner" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, 3.62426, 6.94019)
 room_number = 1
@@ -1004,7 +1050,7 @@ transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 
 room_number = 4
 
 [node name="spawner9" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 9.75177, 4.61663, -240.852)
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 9.75686, 3.99875, -239.247)
 enemy_number = 4
 room_number = 6
 
@@ -1066,7 +1112,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, 43.0771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, 14.165)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 3.55758, -62.7769)
