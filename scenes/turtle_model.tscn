@@ -1,9 +1,14 @@
-[gd_scene load_steps=28 format=4 uid="uid://boxmd6ady4xvf"]
+[gd_scene load_steps=31 format=4 uid="uid://boxmd6ady4xvf"]
 
 [ext_resource type="PackedScene" uid="uid://buvv843slkhqe" path="res://3d_models/placeholders/enemies/turtle.glb" id="1_2upk1"]
+[ext_resource type="Texture2D" uid="uid://cphw2ri6e5b16" path="res://3d_models/placeholders/enemies/turtle-head.png" id="2_024mk"]
+[ext_resource type="Texture2D" uid="uid://bp38pmjnsa0xb" path="res://3d_models/placeholders/enemies/turtle-hand.png" id="3_13mka"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icrkm"]
 albedo_color = Color(0.241259, 0.319492, 0.122805, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehfp"]
+albedo_texture = ExtResource("2_024mk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_024mk"]
 albedo_color = Color(0.426163, 0.54646, 0.311892, 1)
@@ -14,8 +19,8 @@ albedo_color = Color(0.446703, 0.203552, 0.599033, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13mka"]
 albedo_color = Color(0.359234, 0.154234, 0.486652, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cehfp"]
-albedo_color = Color(0.220995, 0.0707349, 0.23389, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpu4y"]
+albedo_texture = ExtResource("3_13mka")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0ttr"]
 albedo_color = Color(0.877163, 0.902047, 0.892727, 1)
@@ -616,7 +621,7 @@ tracks/9/path = NodePath("guitar:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.296149),
+"times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -783,7 +788,7 @@ material_override = SubResource("StandardMaterial3D_icrkm")
 
 [node name="Cube_002" parent="turtle" index="1"]
 transform = Transform3D(0.403876, 0, 0, 0, 0.972985, -0.219097, 0, 0.230869, 0.923372, 0, 1.64027, -2.42434)
-material_override = SubResource("StandardMaterial3D_024mk")
+material_override = SubResource("StandardMaterial3D_cehfp")
 
 [node name="Cube_003" parent="turtle" index="2"]
 transform = Transform3D(0.295344, -8.94069e-08, 0.463608, -0.0208489, 0.992019, 0.104407, -0.164035, -0.126086, 0.821454, -1.50309, 1.18261, -2.70349)
@@ -810,34 +815,25 @@ material_override = SubResource("StandardMaterial3D_13mka")
 
 [node name="Cube_006" parent="turtle" index="8"]
 transform = Transform3D(0.280504, 0.203496, -0.494784, 0.0629789, 0.7784, 0.56899, 0.178665, -0.593872, 0.576244, 1.66296, 0.573593, -2.55843)
-material_override = SubResource("StandardMaterial3D_024mk")
+material_override = SubResource("StandardMaterial3D_xpu4y")
 
 [node name="Cube_009" parent="turtle" index="9"]
 visible = false
 material_override = SubResource("StandardMaterial3D_2upk1")
 
-[node name="Plane" parent="turtle" index="10"]
-material_override = SubResource("StandardMaterial3D_cehfp")
-
-[node name="Cube_010" parent="turtle" index="11"]
-material_override = SubResource("StandardMaterial3D_cehfp")
-
-[node name="Cube_011" parent="turtle" index="12"]
-material_override = SubResource("StandardMaterial3D_cehfp")
-
-[node name="Cone" parent="turtle" index="13"]
+[node name="Cone" parent="turtle" index="10"]
 material_override = SubResource("StandardMaterial3D_y0ttr")
 
-[node name="Cone_001" parent="turtle" index="14"]
+[node name="Cone_001" parent="turtle" index="11"]
 material_override = SubResource("StandardMaterial3D_gg4y2")
 
-[node name="Cone_002" parent="turtle" index="15"]
+[node name="Cone_002" parent="turtle" index="12"]
 material_override = SubResource("StandardMaterial3D_20w1d")
 
-[node name="Cone_003" parent="turtle" index="16"]
+[node name="Cone_003" parent="turtle" index="13"]
 material_override = SubResource("StandardMaterial3D_20ypu")
 
-[node name="Cone_004" parent="turtle" index="17"]
+[node name="Cone_004" parent="turtle" index="14"]
 material_override = SubResource("StandardMaterial3D_7fs5o")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="turtle"]

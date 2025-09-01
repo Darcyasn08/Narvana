@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=4 uid="uid://mp5ex2cb7jp8"]
+[gd_scene load_steps=27 format=4 uid="uid://mp5ex2cb7jp8"]
 
 [ext_resource type="PackedScene" uid="uid://db0lwma6jvdse" path="res://3d_models/placeholders/enemies/octopus.glb" id="1_7y2e8"]
+[ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_4b241"]
 [ext_resource type="PackedScene" uid="uid://cr0e53pn36y2t" path="res://3d_models/placeholders/enemies/high_drum.glb" id="2_6ri7e"]
 [ext_resource type="Texture2D" uid="uid://m4glt410y7ur" path="res://3d_models/placeholders/enemies/octopus_octopus-head.png" id="2_ajl7f"]
 [ext_resource type="PackedScene" uid="uid://b3lv7xlcmf45e" path="res://3d_models/placeholders/enemies/low_drum.glb" id="3_c7erx"]
@@ -14,62 +15,45 @@ length = 0.001
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("octopus/Armature/Skeleton3D:Bone")
+tracks/0/path = NodePath("octopus/Armature5/Skeleton3D:Bone")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -1.38122e-05, -1.62366e-07, 1, -7.0989e-05)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("octopus/Armature/Skeleton3D:Bone.001")
+tracks/1/path = NodePath("octopus/Armature5/Skeleton3D:Bone.001")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 7.36195e-06, 1.41472e-07, -0.257749, 0.966212)
+tracks/1/keys = PackedFloat32Array(0, 1, 4.44487e-07, 1.19475e-07, -0.00814242, 0.999967)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("octopus/Armature/Skeleton3D:Bone.002")
+tracks/2/path = NodePath("octopus/Armature5/Skeleton3D:Bone.002")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 3.06108e-06, -3.35634e-08, -0.111929, 0.993716)
+tracks/2/keys = PackedFloat32Array(0, 1, -2.79427e-07, -2.65718e-08, 0.00807141, 0.999967)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("octopus/Armature/Skeleton3D:Bone.003")
+tracks/3/path = NodePath("octopus/Armature5/Skeleton3D:Bone.003")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 6.9951e-06, -1.23748e-09, -0.251554, 0.967843)
+tracks/3/keys = PackedFloat32Array(0, 1, 1.06216e-16, -1.81899e-12, -7.7895e-12, 1)
 tracks/4/type = "rotation_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("octopus/Armature/Skeleton3D:Bone.004")
+tracks/4/path = NodePath("octopus/Armature5/Skeleton3D:Bone.004")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 1.27767e-06, -2.23275e-10, -0.045947, 0.998944)
-tracks/5/type = "value"
+tracks/4/keys = PackedFloat32Array(0, 1, -1.1039e-16, 1.81899e-12, 9.92345e-19, 1)
+tracks/5/type = "rotation_3d"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("octopus/Armature/stick:position")
+tracks/5/path = NodePath("octopus/Armature5/Skeleton3D:Bone.004_leaf")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.21565, -0.317473, -0.0975128)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("octopus/Armature/stick:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.293782, -0.196911, 0.354963)]
-}
+tracks/5/keys = PackedFloat32Array(0, 1, -9.83147e-06, -0.707107, 0.707107, -9.83147e-06)
 
 [sub_resource type="Animation" id="Animation_c7erx"]
 resource_name = "idle"
@@ -78,62 +62,45 @@ loop_mode = 1
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("octopus/Armature/Skeleton3D:Bone")
+tracks/0/path = NodePath("octopus/Armature5/Skeleton3D:Bone")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -1.38122e-05, -1.62366e-07, 1, -7.0989e-05, 0.7, 1, -1.38122e-05, -1.62366e-07, 1, -7.0989e-05, 1.31, 1, -1.38122e-05, -1.62366e-07, 1, -7.0989e-05)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("octopus/Armature/Skeleton3D:Bone.001")
+tracks/1/path = NodePath("octopus/Armature5/Skeleton3D:Bone.001")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 7.36195e-06, 1.41472e-07, -0.257749, 0.966212, 0.7, 1, 4.47204e-06, 1.33207e-07, -0.153409, 0.988163, 1.31, 1, 6.43833e-06, 1.3898e-07, -0.224392, 0.974499)
 tracks/2/type = "rotation_3d"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("octopus/Armature/Skeleton3D:Bone.002")
+tracks/2/path = NodePath("octopus/Armature5/Skeleton3D:Bone.002")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 3.06108e-06, -3.35634e-08, -0.111929, 0.993716, 0.7, 1, -1.022e-06, -2.49665e-08, 0.0347507, 0.999396, 1.31, 1, 1.7484e-06, -3.08636e-08, -0.0647773, 0.9979)
 tracks/3/type = "rotation_3d"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("octopus/Armature/Skeleton3D:Bone.003")
+tracks/3/path = NodePath("octopus/Armature5/Skeleton3D:Bone.003")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 6.9951e-06, -1.23748e-09, -0.251554, 0.967843, 0.7, 1, 6.9951e-06, -1.23748e-09, -0.251554, 0.967843, 1.31, 1, 3.14115e-06, -5.5858e-10, -0.11296, 0.993599)
 tracks/4/type = "rotation_3d"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("octopus/Armature/Skeleton3D:Bone.004")
+tracks/4/path = NodePath("octopus/Armature5/Skeleton3D:Bone.004")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = PackedFloat32Array(0, 1, 1.27767e-06, -2.23275e-10, -0.045947, 0.998944, 0.7, 1, 1.27767e-06, -2.23275e-10, -0.045947, 0.998944, 1.31, 1, 1.27767e-06, -2.23275e-10, -0.045947, 0.998944)
-tracks/5/type = "value"
+tracks/5/type = "rotation_3d"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("octopus/Armature/stick:position")
+tracks/5/path = NodePath("octopus/Armature5/Skeleton3D:Bone.004_leaf")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.69),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-2.21565, -0.317473, -0.0975128), Vector3(-1.61241, -0.953492, -0.159775)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("octopus/Armature/stick:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.69),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.293782, -0.196911, 0.354963), Vector3(-0.179034, -0.249515, 0.578312)]
-}
+tracks/5/keys = PackedFloat32Array(0, 1, -9.83147e-06, -0.707107, 0.707107, -9.83147e-06)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ajl7f"]
 _data = {
@@ -329,21 +296,27 @@ mesh = SubResource("BoxMesh_8khcd")
 
 [node name="Cylinder" parent="octopus" index="1"]
 material_override = SubResource("StandardMaterial3D_8khcd")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Cone" parent="octopus" index="2"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Cone_001" parent="octopus" index="3"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Cone_002" parent="octopus" index="4"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Cone_003" parent="octopus" index="5"]
 material_override = SubResource("StandardMaterial3D_ajl7f")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Plane_002" parent="octopus" index="6"]
 material_override = SubResource("StandardMaterial3D_p5lpu")
+material_overlay = ExtResource("2_4b241")
 
 [node name="Armature2" type="Node3D" parent="octopus"]
 transform = Transform3D(-0.997381, 0, -0.072333, 0, 1, 0, 0.072333, 0, -0.997381, 0.450093, 0.125367, 0)
@@ -463,7 +436,6 @@ autoplay = "idle"
 
 [node name="Armature3" type="Node3D" parent="octopus"]
 transform = Transform3D(-0.197948, 0, -0.980213, -0.0750645, 0.997063, 0.0151588, 0.977334, 0.0765798, -0.197367, -0.265947, 0.459743, -0.744231)
-visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="octopus/Armature3"]
 bones/0/name = "Bone"
@@ -601,7 +573,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(0.99987, -0.0161423, -5.76525e-08, 0.0161423, 0.99987, 5.58406e-07, 4.86311e-08, -5.59264e-07, 1, -4.93557e-08, 0.675486, -2.03215e-12)
 bones/2/enabled = true
 bones/2/position = Vector3(-4.93557e-08, 0.675486, -2.03215e-12)
-bones/2/rotation = Quaternion(-2.79427e-07, -2.65718e-08, 0.00807141, 0.999967)
+bones/2/rotation = Quaternion(-2.79427e-07, -2.65718e-08, 0.00807141, 0.999968)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.003"
 bones/3/parent = 2
@@ -653,28 +625,28 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(0.999867, 0.0162843, 2.31704e-07, -0.0162843, 0.999867, -8.9089e-07, -2.46181e-07, 8.86999e-07, 1, 3.56295e-08, 0.820085, 2.98428e-13)
 bones/1/enabled = true
 bones/1/position = Vector3(3.56295e-08, 0.820085, 2.98428e-13)
-bones/1/rotation = Quaternion(4.44487e-07, 1.19475e-07, -0.00814242, 0.999967)
+bones/1/rotation = Quaternion(6.25477e-06, 1.38468e-07, -0.217764, 0.976002)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Bone.002"
 bones/2/parent = 1
 bones/2/rest = Transform3D(0.99987, -0.0161423, -5.76525e-08, 0.0161423, 0.99987, 5.58406e-07, 4.86311e-08, -5.59264e-07, 1, -4.93557e-08, 0.675486, -2.03215e-12)
 bones/2/enabled = true
 bones/2/position = Vector3(-4.93557e-08, 0.675486, -2.03215e-12)
-bones/2/rotation = Quaternion(-2.79427e-07, -2.65718e-08, 0.00807141, 0.999967)
+bones/2/rotation = Quaternion(2.24388e-06, -3.18898e-08, -0.0825756, 0.996585)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Bone.003"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 1.5579e-11, -3.63798e-12, -1.5579e-11, 1, -2.12433e-16, 3.63798e-12, 2.12433e-16, 1, 1.03316e-11, 0.732364, 1.13853e-13)
 bones/3/enabled = true
 bones/3/position = Vector3(1.03316e-11, 0.732364, 1.13853e-13)
-bones/3/rotation = Quaternion(1.06216e-16, -1.81899e-12, -7.7895e-12, 1)
+bones/3/rotation = Quaternion(6.59271e-06, -1.1666e-09, -0.237084, 0.971489)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Bone.004"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, -1.98469e-18, 3.63798e-12, 1.98469e-18, 1, 2.2078e-16, -3.63798e-12, -2.2078e-16, 1, 4.36762e-12, 0.729408, 1.02318e-12)
 bones/4/enabled = true
 bones/4/position = Vector3(4.36762e-12, 0.729408, 1.02318e-12)
-bones/4/rotation = Quaternion(-1.1039e-16, 1.81899e-12, 9.92345e-19, 1)
+bones/4/rotation = Quaternion(1.27767e-06, -2.23275e-10, -0.045947, 0.998944)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone.004_leaf"
 bones/5/parent = 4

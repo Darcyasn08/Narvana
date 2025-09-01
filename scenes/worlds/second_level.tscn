@@ -13,10 +13,10 @@
 [sub_resource type="Environment" id="Environment_hfe2k"]
 background_color = Color(0.164141, 0.213622, 0.368994, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.580731, 0.535478, 0.896843, 1)
+ambient_light_color = Color(0.745719, 0.721729, 0.957495, 1)
 ambient_light_energy = 0.6
 fog_enabled = true
-fog_light_color = Color(0.283365, 0.281006, 0.602214, 1)
+fog_light_color = Color(0.500948, 0.180516, 0.651513, 1)
 fog_density = 0.02
 volumetric_fog_albedo = Color(0.41598, 0.41598, 0.41598, 1)
 volumetric_fog_emission = Color(0.117169, 0.217023, 0.358556, 1)
@@ -57,7 +57,7 @@ environment = SubResource("Environment_hfe2k")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.143553, -0.939437, 0.31121, 0.133079, 0.329935, 0.934576, -0.980654, -0.0927457, 0.172383, 0, 4.16648, 0)
 light_color = Color(0.923916, 0.669086, 0.629509, 1)
-light_energy = 1.444
+light_energy = 2.147
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -172,5 +172,11 @@ transform = Transform3D(-0.750111, 0, 0.661312, 0, 1, 0, -0.661312, 0, -0.750111
 
 [node name="turtle_model" parent="stage_band" instance=ExtResource("10_s3ee0")]
 transform = Transform3D(0.6865, 0.0758005, 0.723168, 0.0242426, 0.991613, -0.126952, -0.726726, 0.104684, 0.678904, 5.09568, 1.5619, -1.92704)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330598, 2.26258, -39.4496)
+light_color = Color(1, 0.539435, 0.608798, 1)
+light_energy = 11.052
+omni_range = 7.046
 
 [editable path="stage_band"]

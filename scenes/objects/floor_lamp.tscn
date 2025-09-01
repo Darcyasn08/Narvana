@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn8kupvmhir1u"]
+
+[ext_resource type="PackedScene" uid="uid://dduu217sf3x7s" path="res://3d_models/placeholders/lamp.glb" id="1_ie31o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ie31o"]
+albedo_color = Color(0.705922, 0.951073, 0.933731, 1)
+emission_enabled = true
+emission = Color(0.424584, 0.8476, 0.881032, 1)
+emission_energy_multiplier = 4.14
+
+[node name="floor_lamp" type="Node3D"]
+
+[node name="lamp" parent="." instance=ExtResource("1_ie31o")]
+transform = Transform3D(1.41826, 0, 0, 0, 1.41826, 0, 0, 0, 1.41826, 0, 0, 0)
+
+[node name="Sphere" parent="lamp" index="1"]
+material_override = SubResource("StandardMaterial3D_ie31o")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974087, 0)
+light_color = Color(0.503802, 0.884688, 0.96375, 1)
+omni_range = 3.0
+
+[editable path="lamp"]

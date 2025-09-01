@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var current_npc: String
 var npc_name: String = "master"
 var portal_inst: Object = preload("res://scenes/first_level_portal.tscn")
 
