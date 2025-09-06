@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc7turudgrccy"]
+[gd_scene load_steps=10 format=3 uid="uid://cc7turudgrccy"]
 
 [ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
+[ext_resource type="Texture2D" uid="uid://hb48uqcnov17" path="res://art/narvana-logo - Copia.png" id="3_201h0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
 bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
@@ -63,21 +64,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
 text = "JOGAR"
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -541.0
-offset_top = -215.0
-offset_right = -252.0
-offset_bottom = -132.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 60
-text = "NARVANA"
 
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 3
@@ -181,6 +167,11 @@ offset_top = 24.0
 offset_right = 1088.0
 offset_bottom = 67.0
 text = "x"
+
+[node name="Narvana-logo-Copia" type="Sprite2D" parent="."]
+position = Vector2(295, 188)
+scale = Vector2(0.618, 0.618)
+texture = ExtResource("3_201h0")
 
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="save_screen/HBoxContainer/0/start_save" to="." method="_on_start_save_pressed"]
