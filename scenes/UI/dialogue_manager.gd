@@ -167,7 +167,7 @@ func check_pressed_option() -> void:
 	elif npc_dialog["options"][pressed_option]["ignite"] == "function":
 		print("alguma função tem que ser acionada aqui")
 		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
-		SignalBus.on_start_dialog_function.emit(cur_npc)
+		SignalBus.on_start_dialog_function.emit(cur_npc, Global.dialogs[cur_npc]["dialog_tree"]["function"]["id"])
 	
 	has_option = false
 

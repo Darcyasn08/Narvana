@@ -12,11 +12,11 @@ content_margin_left = 20.0
 content_margin_top = 10.0
 content_margin_right = 20.0
 content_margin_bottom = 10.0
-bg_color = Color(0.400358, 0.650285, 0.778217, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.518545, 0.612154, 0.87117, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_bpkul"]
 font_size = 27
@@ -53,17 +53,25 @@ scale = Vector2(0.992554, 0.992554)
 texture = ExtResource("2_jcvkx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 121.0
-offset_top = 559.0
-offset_right = 254.0
-offset_bottom = 621.0
+offset_left = 65.0
+offset_top = 516.0
+offset_right = 198.0
+offset_bottom = 578.0
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
 text = "JOGAR"
+
+[node name="options_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
+text = "OPÇÕES"
 
 [node name="Label2" type="Label" parent="."]
 anchors_preset = 3

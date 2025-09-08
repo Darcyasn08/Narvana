@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://45m2rb81gimd"]
+[gd_scene load_steps=26 format=3 uid="uid://45m2rb81gimd"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
 [ext_resource type="Script" uid="uid://cog8qajqsgdme" path="res://scripts/second_level.gd" id="1_pfrex"]
@@ -8,16 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://by6ejqq7ger37" path="res://3d_models/placeholders/enemies/stage_band.glb" id="7_2bkyy"]
 [ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="8_ruiny"]
 [ext_resource type="PackedScene" uid="uid://diw5if6u5s55c" path="res://scenes/seahorse_model.tscn" id="9_xnph4"]
+[ext_resource type="PackedScene" uid="uid://bn8kupvmhir1u" path="res://scenes/objects/floor_lamp.tscn" id="10_2bkyy"]
 [ext_resource type="PackedScene" uid="uid://boxmd6ady4xvf" path="res://scenes/turtle_model.tscn" id="10_s3ee0"]
+[ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="11_ruiny"]
+[ext_resource type="PackedScene" uid="uid://c60x0jfkdac5l" path="res://scenes/particles/second_level_collision_particle.tscn" id="12_xnph4"]
 
 [sub_resource type="Environment" id="Environment_hfe2k"]
 background_color = Color(0.164141, 0.213622, 0.368994, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.745719, 0.721729, 0.957495, 1)
+ambient_light_color = Color(0.73299, 0.706945, 0.954954, 1)
 ambient_light_energy = 0.6
 fog_enabled = true
-fog_light_color = Color(0.500948, 0.180516, 0.651513, 1)
-fog_density = 0.02
+fog_light_color = Color(0.291555, 0.123492, 0.456965, 1)
+fog_density = 0.073
 volumetric_fog_albedo = Color(0.41598, 0.41598, 0.41598, 1)
 volumetric_fog_emission = Color(0.117169, 0.217023, 0.358556, 1)
 
@@ -36,8 +39,17 @@ size = Vector3(10, 15, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8wih"]
 size = Vector3(28.093, 12.2286, 38.6467)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruiny"]
+size = Vector3(4.41956, 13.386, 40.7906)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vnacj"]
-size = Vector3(40.9419, 12.2286, 38.6467)
+size = Vector3(40.9419, 12.2286, 31.8697)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xnph4"]
+size = Vector3(4.41956, 13.386, 43.2353)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3ee0"]
+size = Vector3(4.41956, 13.386, 42.1783)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7wo7l"]
 size = Vector3(96.9718, 26.1964, 10)
@@ -57,7 +69,7 @@ environment = SubResource("Environment_hfe2k")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.143553, -0.939437, 0.31121, 0.133079, 0.329935, 0.934576, -0.980654, -0.0927457, 0.172383, 0, 4.16648, 0)
 light_color = Color(0.923916, 0.669086, 0.629509, 1)
-light_energy = 2.147
+light_energy = 0.769
 shadow_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -121,6 +133,51 @@ area_node = NodePath("Area3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2825, 4.47079, 4.13116)
 shape = SubResource("BoxShape3D_u8wih")
+debug_color = Color(0.498511, 0.903536, 1, 0.42)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2776, 6.19299, 4.84241)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8176, 6.19299, 4.84241)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.08637, 6.19299, 25.7232)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.08637, 6.19299, -17.206)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="particles" type="Node3D" parent="spawner_manager"]
+
+[node name="second_level_collision_particle" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10224, 0.003934, -16.6852)
+emitting = false
+
+[node name="second_level_collision_particle2" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10224, 0.003934, 25.0336)
+emitting = false
+
+[node name="second_level_collision_particle3" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 14.0554, 0.003934, 12.8546)
+emitting = false
+
+[node name="second_level_collision_particle4" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 14.0554, 0.003934, -5.82735)
+emitting = false
+
+[node name="second_level_collision_particle5" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.3784, 0.003934, -5.82735)
+emitting = false
+
+[node name="second_level_collision_particle6" parent="spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.3784, 0.003934, 14.9983)
+emitting = false
 
 [node name="spawner_manager2" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, 0, 0, 28.4602)
@@ -129,8 +186,63 @@ area_node = NodePath("Area3D")
 [node name="Area3D" type="Area3D" parent="spawner_manager2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager2/Area3D"]
-transform = Transform3D(1.00001, 0, -1.86265e-08, 0, 1, 0, 1.86265e-08, 0, 1.00001, 0.224548, 4.47079, 4.13116)
+transform = Transform3D(1.00001, 0, -1.86265e-08, 0, 1, 0, 1.86265e-08, 0, 1.00001, 0.224548, 4.47079, 7.51968)
 shape = SubResource("BoxShape3D_vnacj")
+debug_color = Color(0.481079, 0.900778, 1, 0.42)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager2"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager2/StaticBody3D"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 20.7733, 6.19299, 4.88026)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3215, 6.19299, 4.81927)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager2/StaticBody3D"]
+transform = Transform3D(-3.72529e-08, 0, 0.999999, 0, 1, 0, -0.999999, 0, -3.72529e-08, -0.649637, 6.19299, 24.6642)
+shape = SubResource("BoxShape3D_xnph4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager2/StaticBody3D"]
+transform = Transform3D(-2.79397e-08, 0, 0.999997, 0, 1, 0, -0.999997, 0, -2.79397e-08, -1.32704, 6.19299, -10.7103)
+shape = SubResource("BoxShape3D_s3ee0")
+
+[node name="particles" type="Node3D" parent="spawner_manager2"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -8.62312, 0.003934, -15.3041)
+emitting = false
+
+[node name="second_level_collision_particle7" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
+emitting = false
+
+[node name="second_level_collision_particle2" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+emitting = false
+
+[node name="second_level_collision_particle8" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.43854, 0.003934, 23.2528)
+emitting = false
+
+[node name="second_level_collision_particle3" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+emitting = false
+
+[node name="second_level_collision_particle4" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+emitting = false
+
+[node name="second_level_collision_particle5" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -18.1402, 0.003934, -5.83667)
+emitting = false
+
+[node name="second_level_collision_particle6" parent="spawner_manager2/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -18.1402, 0.003934, 14.989)
+emitting = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -159,7 +271,7 @@ transform = Transform3D(0.0226001, 0, -0.999745, 0, 1, 0, 0.999745, 0, 0.0226001
 transform = Transform3D(0.00918037, 0, 0.999958, 0, 1, 0, -0.999958, 0, 0.00918037, 17.0904, 0.0568009, -27.4456)
 
 [node name="stage_band" parent="." instance=ExtResource("7_2bkyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231296, 0, -36.6376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35482, 1.90735e-06, 66.7683)
 
 [node name="Cylinder" parent="stage_band" index="0"]
 material_override = SubResource("StandardMaterial3D_s15vj")
@@ -173,10 +285,29 @@ transform = Transform3D(-0.750111, 0, 0.661312, 0, 1, 0, -0.661312, 0, -0.750111
 [node name="turtle_model" parent="stage_band" instance=ExtResource("10_s3ee0")]
 transform = Transform3D(0.6865, 0.0758005, 0.723168, 0.0242426, 0.991613, -0.126952, -0.726726, 0.104684, 0.678904, 5.09568, 1.5619, -1.92704)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.330598, 2.26258, -39.4496)
-light_color = Color(1, 0.539435, 0.608798, 1)
-light_energy = 11.052
-omni_range = 7.046
+[node name="floor_lamp" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0174, -0.00192046, -21.2841)
+
+[node name="floor_lamp2" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6608, -0.00192142, -4.83075)
+
+[node name="floor_lamp3" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1466, -0.00192142, 5.82987)
+
+[node name="floor_lamp4" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6094, -0.00192142, 22.2528)
+
+[node name="floor_lamp5" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38445, 0.807708, 59.5611)
+
+[node name="floor_lamp6" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4238, 0.807708, 58.5455)
+
+[node name="floor_lamp7" parent="." instance=ExtResource("10_2bkyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449209, 0.807708, 59.6513)
+
+[node name="spawner" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.735847, 0.116435, 0.179565)
+level_number = 1
 
 [editable path="stage_band"]

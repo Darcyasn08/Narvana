@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxja8fhpxhuv4"]
+[gd_scene load_steps=16 format=3 uid="uid://bxja8fhpxhuv4"]
 
 [ext_resource type="Script" uid="uid://dnnhmlextr6qi" path="res://scripts/objects/light_pole.gd" id="1_opxjy"]
 [ext_resource type="PackedScene" uid="uid://2k4gteefurk1" path="res://3d_models/placeholders/health_center.glb" id="1_u6tqe"]
@@ -35,6 +35,9 @@ size = Vector3(0.2, 3, 2)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_opxjy"]
 data = PackedVector3Array(-0.1, 1.5, 1, 0.1, 1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, -1, 0.1, -1.5, -1, -0.1, 1.5, -1, -0.1, -1.5, -1, 0.1, -1.5, -1, 0.1, 1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, -1, 0.1, -1.5, 1, -0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, 1.5, 1, -0.1, 1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, 1.5, -1, 0.1, 1.5, -1, -0.1, -1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, -1.5, 1, 0.1, -1.5, -1, -0.1, -1.5, -1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mun5i"]
+size = Vector3(8.70001, 1, 8.21478)
 
 [sub_resource type="MultiMesh" id="MultiMesh_u6tqe"]
 transform_format = 1
@@ -203,6 +206,10 @@ mesh = SubResource("BoxMesh_opxjy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_opxjy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62445, 3.12359, 1.9501)
+shape = SubResource("BoxShape3D_mun5i")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_u6tqe")

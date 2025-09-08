@@ -106,7 +106,7 @@ func _on_timer_timeout() -> void:
 			$Timer.start()
 			
 
-func teleporting2() -> void:
+func teleporting() -> void:
 	var old_rotation = rotation.y
 	var old_state = state
 	state = "teleporting"
@@ -129,17 +129,18 @@ func teleporting2() -> void:
 	show()
 
 
-func teleporting() -> void:
+func teleporting2() -> void:
 	var old_rotation = rotation.y
 	#var old_state = state
 	#state = "tenna"
 	$teleport.rotation.y = deg_to_rad(float(randi_range(-180,180)))
+	#print("nova rotação do teleporte: ",$teleport.rotation.y)
 	#print(rad_to_deg($tele_pilot.rotation.y))
 	if $teleport.get_collider() != null:
 		var limit = $teleport.get_collision_point()
-		print("------")
-		print("limit is: ",limit)
-		print("prev global pos: ",global_position)
+		#print("------")
+		#print("limit is: ",limit)
+		#print("prev global pos: ",global_position)
 		#print($tele_pilot/teleport.global_position.z)
 		
 		var rand_posz = check_pos_difference(limit)
@@ -173,15 +174,15 @@ func teleporting() -> void:
 		var rand_posz = randf_range($teleport.position.z + 2,limit.z + 20)
 		if rad_to_deg($teleport.rotation.y) < -90 or rad_to_deg($teleport.rotation.y) > 90:
 			global_rotation.y = $teleport.rotation.y
-			print(rand_posz)
+			#print(rand_posz)
 			rand_posz = -(rand_posz)
-			print(rand_posz)
+			#print(rand_posz)
 		else:
 			global_rotation.y = $teleport.rotation.y
 			await(get_tree().create_timer(1).timeout)
 			var mult = rand_posz/global_basis.z.z
 			global_position = ($teleport.global_basis.z * mult) + global_position
-			print(global_position)
+			#print(global_position)
 			rotation.y = old_rotation
 
 func check_pos_difference(limit):
@@ -189,8 +190,9 @@ func check_pos_difference(limit):
 	for i in 10:
 		var rand_posz = randf_range(global_position.z, limit.z)
 		if abs(abs(rand_posz)-abs(global_position.z)) > 2:
-			print("diferente!!!!")
-			print("rand: ",rand_posz)
+			print(abs(abs(rand_posz)-abs(global_position.z)))
+			#print("diferente!!!!")
+			#print("rand: ",rand_posz)
 			return rand_posz
 		#else:
 			#print("não é diferente...")

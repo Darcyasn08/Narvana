@@ -152,6 +152,7 @@ visibility_range_end = 110.0
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70106, 5.31716, -0.0168253)
 light_color = Color(0.960277, 0.9729, 0.918149, 1)
+light_energy = 1.5
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0
@@ -159,6 +160,7 @@ omni_range = 4.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0038, 5.31716, -0.0168253)
+light_energy = 1.5
 distance_fade_enabled = true
 distance_fade_begin = 70.0
 distance_fade_length = 5.0

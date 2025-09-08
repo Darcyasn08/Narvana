@@ -1,0 +1,570 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3hewjvsc0xlt"]
+
+[ext_resource type="PackedScene" uid="uid://cdkf4u8f6ug21" path="res://3d_models/placeholders/stone-floor.glb" id="1_7cpwf"]
+
+[node name="village_path" type="Node3D"]
+transform = Transform3D(2.661, 0, 0, 0, 2.661, 0, 0, 0, 2.661, 0, 0, 0)
+
+[node name="stone-floor" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462816, 0, 0)
+
+[node name="stone-floor2" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.66077, 0, 0.352255, 0, 0.559047, 0.531394, 0, 0.445808)
+
+[node name="stone-floor3" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.51047, 0, 0.785113)
+
+[node name="stone-floor4" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, -0.112415, 0, 1.23092)
+
+[node name="stone-floor5" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.627897, 0, 1.98863)
+
+[node name="stone-floor6" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.36032, 0, 2.44757)
+
+[node name="stone-floor7" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.791882, 0, 2.99105)
+
+[node name="stone-floor8" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.705378, 0, 4.50032)
+
+[node name="stone-floor15" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, -0.26644, 0, 3.99937)
+
+[node name="stone-floor9" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.462816, 0, 5.57284)
+
+[node name="stone-floor31" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.361342, 0, 0.55261, 0, 0.660262, 0, -0.55261, 0, -0.361342, -2.30976, 0, 6.4851)
+
+[node name="stone-floor10" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.531394, 0, 6.01864)
+
+[node name="stone-floor11" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.627897, 0, 7.56147)
+
+[node name="stone-floor12" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.608109, 0, 8.02041)
+
+[node name="stone-floor129" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.678069, 0, -0.439906, 0, 0.808266, 0, 0.439906, 0, 0.678069, 1.79682, 0, 5.33375)
+
+[node name="stone-floor130" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00684191, 0, -0.808238, 0, 0.808266, 0, 0.808238, 0, -0.00684191, 2.07572, 0, 6.99292)
+
+[node name="stone-floor131" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.683837, 0, -0.430885, 0, 0.808266, 0, 0.430885, 0, 0.683837, 1.93509, 0, 8.22012)
+
+[node name="stone-floor132" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.678069, 0, -0.439906, 0, 0.808266, 0, 0.439906, 0, 0.678069, 1.9971, 0, 9.83808)
+
+[node name="stone-floor133" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.624118, 0, -0.513587, 0, 0.808266, 0, 0.513587, 0, 0.624118, -2.68841, 0, 16.6352)
+
+[node name="stone-floor134" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.097971, 0, -0.802307, 0, 0.808266, 0, 0.802307, 0, -0.097971, -2.59846, 0, 18.3152)
+
+[node name="stone-floor135" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.630866, 0, -0.505275, 0, 0.808267, 0, 0.505275, 0, 0.630866, -2.87662, 0, 19.5187)
+
+[node name="stone-floor136" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.624118, 0, -0.513587, 0, 0.808266, 0, 0.513587, 0, 0.624118, -2.99752, 0, 21.1334)
+
+[node name="stone-floor137" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.624118, 0, -0.513587, 0, 0.808266, 0, 0.513587, 0, 0.624118, 2.21599, 0, 41.6253)
+
+[node name="stone-floor138" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.097971, 0, -0.802307, 0, 0.808266, 0, 0.802307, 0, -0.097971, 2.30594, 0, 43.3054)
+
+[node name="stone-floor139" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.630866, 0, -0.505275, 0, 0.808267, 0, 0.505275, 0, 0.630866, 2.02778, 0, 44.5089)
+
+[node name="stone-floor140" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.624118, 0, -0.513587, 0, 0.808266, 0, 0.513587, 0, 0.624118, 1.90688, 0, 46.1235)
+
+[node name="stone-floor13" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.45195, 0, 8.56389)
+
+[node name="stone-floor14" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, -0.26644, 0, 9.94026)
+
+[node name="stone-floor16" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462816, 0, 11.1915)
+
+[node name="stone-floor17" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.660771, 0, 0.352255, 0, 0.559047, 0.531394, 0, 11.6373)
+
+[node name="stone-floor18" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.51047, 0, 11.9766)
+
+[node name="stone-floor19" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, -0.112415, 0, 12.4224)
+
+[node name="stone-floor20" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.627897, 0, 13.1801)
+
+[node name="stone-floor21" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.36032, 0, 13.6391)
+
+[node name="stone-floor22" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.791882, 0, 14.1826)
+
+[node name="stone-floor23" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.705378, 0, 15.6918)
+
+[node name="stone-floor32" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.770549, 0, -0.298923, 0, 0.826499, 0, 0.298923, 0, -0.770549, 1.5225, 0, 13.9918)
+
+[node name="stone-floor24" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, -0.26644, 0, 15.1909)
+
+[node name="stone-floor25" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.462816, 0, 16.7643)
+
+[node name="stone-floor26" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.531394, 0, 17.2102)
+
+[node name="stone-floor27" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.627897, 0, 18.753)
+
+[node name="stone-floor28" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.608109, 0, 19.2119)
+
+[node name="stone-floor29" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.45195, 0, 19.7554)
+
+[node name="stone-floor30" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, -0.26644, 0, 21.1318)
+
+[node name="stone-floor33" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 23.0837)
+
+[node name="stone-floor34" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.66077, 0, 0.352255, 0, 0.559047, 0.81675, 0, 23.5295)
+
+[node name="stone-floor35" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.22511, 0, 23.8688)
+
+[node name="stone-floor36" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.172942, 0, 24.3146)
+
+[node name="stone-floor37" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.34254, 0, 25.0723)
+
+[node name="stone-floor38" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.645676, 0, 25.5312)
+
+[node name="stone-floor39" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.506525, 0, 26.0747)
+
+[node name="stone-floor40" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 27.584)
+
+[node name="stone-floor41" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, 0.0189163, 0, 27.083)
+
+[node name="stone-floor42" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 28.6565)
+
+[node name="stone-floor43" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.361342, 0, 0.55261, 0, 0.660262, 0, -0.55261, 0, -0.361342, -2.02441, 0, 29.5688)
+
+[node name="stone-floor44" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.81675, 0, 29.1023)
+
+[node name="stone-floor45" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 30.6451)
+
+[node name="stone-floor46" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 31.1041)
+
+[node name="stone-floor47" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.16659, 0, 31.6475)
+
+[node name="stone-floor48" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.0189163, 0, 33.0239)
+
+[node name="stone-floor49" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 34.2752)
+
+[node name="stone-floor50" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.660771, 0, 0.352255, 0, 0.559047, 0.81675, 0, 34.721)
+
+[node name="stone-floor51" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.22511, 0, 35.0603)
+
+[node name="stone-floor52" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.172942, 0, 35.5061)
+
+[node name="stone-floor53" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.34254, 0, 36.2638)
+
+[node name="stone-floor54" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.645676, 0, 36.7227)
+
+[node name="stone-floor55" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.506525, 0, 37.2662)
+
+[node name="stone-floor56" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 38.7755)
+
+[node name="stone-floor57" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.770549, 0, -0.298923, 0, 0.826499, 0, 0.298923, 0, -0.770549, 1.80785, 0, 37.0754)
+
+[node name="stone-floor58" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, 0.0189163, 0, 38.2745)
+
+[node name="stone-floor59" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 39.848)
+
+[node name="stone-floor60" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.81675, 0, 40.2938)
+
+[node name="stone-floor61" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 41.8366)
+
+[node name="stone-floor62" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 42.2956)
+
+[node name="stone-floor63" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.16659, 0, 42.839)
+
+[node name="stone-floor64" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.0189163, 0, 44.2154)
+
+[node name="stone-floor65" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462816, 0, 46.4498)
+
+[node name="stone-floor66" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.66077, 0, 0.352255, 0, 0.559047, 0.531394, 0, 46.8956)
+
+[node name="stone-floor67" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.51047, 0, 47.2349)
+
+[node name="stone-floor68" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, -0.112415, 0, 47.6807)
+
+[node name="stone-floor69" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.627897, 0, 48.4384)
+
+[node name="stone-floor70" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.36032, 0, 48.8973)
+
+[node name="stone-floor71" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.791882, 0, 49.4408)
+
+[node name="stone-floor72" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.705378, 0, 50.9501)
+
+[node name="stone-floor73" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, -0.26644, 0, 50.4491)
+
+[node name="stone-floor74" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.462816, 0, 52.0226)
+
+[node name="stone-floor75" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.361342, 0, 0.55261, 0, 0.660262, 0, -0.55261, 0, -0.361342, -2.30976, 0, 52.9349)
+
+[node name="stone-floor76" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.531394, 0, 52.4684)
+
+[node name="stone-floor77" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.627897, 0, 54.0112)
+
+[node name="stone-floor78" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.608109, 0, 54.4702)
+
+[node name="stone-floor79" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.45195, 0, 55.0137)
+
+[node name="stone-floor80" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, -0.26644, 0, 56.39)
+
+[node name="stone-floor81" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.462816, 0, 57.6413)
+
+[node name="stone-floor82" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.660771, 0, 0.352255, 0, 0.559047, 0.531394, 0, 58.0871)
+
+[node name="stone-floor83" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.51047, 0, 58.4264)
+
+[node name="stone-floor84" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, -0.112415, 0, 58.8722)
+
+[node name="stone-floor85" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.627897, 0, 59.6299)
+
+[node name="stone-floor86" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.36032, 0, 60.0889)
+
+[node name="stone-floor87" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.791882, 0, 60.6323)
+
+[node name="stone-floor88" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.705378, 0, 62.1416)
+
+[node name="stone-floor89" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.770549, 0, -0.298923, 0, 0.826499, 0, 0.298923, 0, -0.770549, 1.5225, 0, 60.4415)
+
+[node name="stone-floor90" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, -0.26644, 0, 61.6406)
+
+[node name="stone-floor91" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.462816, 0, 63.2141)
+
+[node name="stone-floor92" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.531394, 0, 63.6599)
+
+[node name="stone-floor93" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.627897, 0, 65.2027)
+
+[node name="stone-floor94" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.608109, 0, 65.6617)
+
+[node name="stone-floor95" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.45195, 0, 66.2052)
+
+[node name="stone-floor96" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, -0.26644, 0, 67.5815)
+
+[node name="stone-floor97" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 69.5334)
+
+[node name="stone-floor98" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.66077, 0, 0.352255, 0, 0.559047, 0.816751, 0, 69.9792)
+
+[node name="stone-floor99" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.22511, 0, 70.3185)
+
+[node name="stone-floor100" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.172942, 0, 70.7643)
+
+[node name="stone-floor101" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.34254, 0, 71.522)
+
+[node name="stone-floor102" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.645676, 0, 71.981)
+
+[node name="stone-floor103" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.506525, 0, 72.5245)
+
+[node name="stone-floor104" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 74.0337)
+
+[node name="stone-floor105" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, 0.0189163, 0, 73.5328)
+
+[node name="stone-floor106" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 75.1063)
+
+[node name="stone-floor107" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.361342, 0, 0.55261, 0, 0.660262, 0, -0.55261, 0, -0.361342, -2.02441, 0, 76.0185)
+
+[node name="stone-floor108" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.816751, 0, 75.5521)
+
+[node name="stone-floor109" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 77.0949)
+
+[node name="stone-floor110" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 77.5538)
+
+[node name="stone-floor111" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.16659, 0, 78.0973)
+
+[node name="stone-floor112" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.0189163, 0, 79.4737)
+
+[node name="stone-floor113" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 80.7249)
+
+[node name="stone-floor114" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.660771, 0, 0.352255, 0, 0.559047, 0.816751, 0, 81.1707)
+
+[node name="stone-floor115" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.22511, 0, 81.51)
+
+[node name="stone-floor116" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.172942, 0, 81.9559)
+
+[node name="stone-floor117" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.34254, 0, 82.7136)
+
+[node name="stone-floor118" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.645676, 0, 83.1725)
+
+[node name="stone-floor119" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.506525, 0, 83.716)
+
+[node name="stone-floor120" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 85.2253)
+
+[node name="stone-floor121" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.770549, 0, -0.298923, 0, 0.826499, 0, 0.298923, 0, -0.770549, 1.80785, 0, 83.5252)
+
+[node name="stone-floor122" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, 0.0189163, 0, 84.7243)
+
+[node name="stone-floor123" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 86.2978)
+
+[node name="stone-floor124" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.816751, 0, 86.7436)
+
+[node name="stone-floor125" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 88.2864)
+
+[node name="stone-floor126" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 88.7453)
+
+[node name="stone-floor127" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.16659, 0, 89.2888)
+
+[node name="stone-floor128" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.0189163, 0, 90.6652)
+
+[node name="stone-floor141" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 91.3207)
+
+[node name="stone-floor142" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 92.3932)
+
+[node name="stone-floor143" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.361342, 0, 0.55261, 0, 0.660262, 0, -0.55261, 0, -0.361342, -2.02441, 0, 93.3054)
+
+[node name="stone-floor144" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.816751, 0, 92.839)
+
+[node name="stone-floor145" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 94.3818)
+
+[node name="stone-floor146" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 94.8407)
+
+[node name="stone-floor147" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.16659, 0, 95.3842)
+
+[node name="stone-floor148" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.0189163, 0, 96.7606)
+
+[node name="stone-floor149" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.177459, 0, 98.0118)
+
+[node name="stone-floor150" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.559047, 0, -0.352255, 0, 0.660771, 0, 0.352255, 0, 0.559047, 0.816751, 0, 98.4577)
+
+[node name="stone-floor151" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.181463, 0, 0.983398, 0, 1, 0, -0.983398, 0, -0.181463, -1.22511, 0, 98.797)
+
+[node name="stone-floor152" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.172942, 0, 99.2428)
+
+[node name="stone-floor153" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.227821, 0, -0.67528, 0, 0.712675, 0, 0.67528, 0, 0.227821, -0.34254, 0, 100)
+
+[node name="stone-floor154" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.645676, 0, 100.459)
+
+[node name="stone-floor155" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -0.506525, 0, 101.003)
+
+[node name="stone-floor156" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00846492, 0, -0.999964, 0, 1, 0, 0.999964, 0, -0.00846492, 0.990735, 0, 102.512)
+
+[node name="stone-floor157" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.770549, 0, -0.298923, 0, 0.826499, 0, 0.298923, 0, -0.770549, 1.80785, 0, 100.812)
+
+[node name="stone-floor158" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.00413814, 0, -0.488839, 0, 0.488857, 0, 0.488839, 0, -0.00413814, 0.0189163, 0, 102.011)
+
+[node name="stone-floor159" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.393429, 0, 0.919355, 0, 1, 0, -0.919355, 0, 0.393429, -0.177459, 0, 103.585)
+
+[node name="stone-floor160" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.846054, 0, -0.533098, 0, 1, 0, 0.533098, 0, 0.846054, 0.816751, 0, 104.03)
+
+[node name="stone-floor161" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.664739, 0, -0.00880634, 0, 0.664797, 0, 0.00880634, 0, 0.664739, -0.34254, 0, 105.573)
+
+[node name="stone-floor162" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, 0.893466, 0, 106.032)
+
+[node name="stone-floor163" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.999912, 0, -0.0132467, 0, 1, 0, 0.0132467, 0, 0.999912, -1.70751, 0, 106.576)
+
+[node name="stone-floor164" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.838918, 0, -0.544258, 0, 1, 0, 0.544258, 0, 0.838918, -0.522004, 0, 107.952)
+
+[node name="stone-floor165" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.874188, 0, 0.485588, 0, 1, 0, -0.485588, 0, 0.874188, 0.752388, 1.43356e-06, 107.555)
+
+[node name="stone-floor166" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.659763, 0, -0.0364707, 0, 0.660771, 0, 0.0364707, 0, 0.659763, 1.838, 1.43356e-06, 108.215)
+
+[node name="stone-floor167" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.636159, 0, 0.771558, 0, 1, 0, -0.771558, 0, -0.636159, 0.217781, 1.43356e-06, 109.503)
+
+[node name="stone-floor168" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.998476, 0, -0.0551943, 0, 1, 0, 0.0551943, 0, 0.998476, 1.65643, 1.43356e-06, 109.214)
+
+[node name="stone-floor169" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.527066, 0, -0.479694, 0, 0.712675, 0, 0.479694, 0, 0.527066, 0.154361, 1.43356e-06, 111.04)
+
+[node name="stone-floor170" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.997657, 0, -0.0684159, 0, 1, 0, 0.0684159, 0, 0.997657, 1.6424, 1.43356e-06, 110.961)
+
+[node name="stone-floor171" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.880544, 0, 0.473965, 0, 1, 0, -0.473965, 0, 0.880544, 1.43998, 1.43356e-06, 111.995)
+
+[node name="stone-floor172" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.478171, 0, -0.878267, 0, 1, 0, 0.878267, 0, 0.478171, 3.48176, 1.43356e-06, 112.588)
+
+[node name="stone-floor173" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.528452, 0, -0.635484, 0, 0.826499, 0, 0.635484, 0, -0.528452, 2.82962, 1.43356e-06, 110.705)
+
+[node name="stone-floor174" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.233757, 0, -0.429347, 0, 0.488857, 0, 0.429347, 0, 0.233757, 2.38895, 1.43356e-06, 112.622)
+
+[node name="stone-floor175" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.102497, 0, 0.994733, 0, 1, 0, -0.994733, 0, -0.102497, 2.98134, 1.43356e-06, 114.093)
+
+[node name="stone-floor176" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.998476, 0, -0.0551943, 0, 1, 0, 0.0551943, 0, 0.998476, 5.08502, 1.43356e-06, 113.087)
+
+[node name="stone-floor177" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.585383, 0, 0.315091, 0, 0.664797, 0, -0.315091, 0, 0.585383, 4.82077, 1.43356e-06, 114.998)
+
+[node name="stone-floor178" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.997657, 0, -0.0684159, 0, 1, 0, 0.0684159, 0, 0.997657, 6.12411, 1.43356e-06, 114.799)
+
+[node name="stone-floor179" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.880544, 0, 0.473965, 0, 1, 0, -0.473965, 0, 0.880544, 4.58714, 1.43356e-06, 116.275)
+
+[node name="stone-floor180" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.997657, 0, -0.0684159, 0, 1, 0, 0.0684159, 0, 0.997657, 6.29185, 1.43356e-06, 116.902)
+
+[node name="stone-floor181" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.943489, 0, -0.331404, 0, 1, 0, 0.331404, 0, 0.943489, 8.26387, 1.43356e-06, 118.218)
+
+[node name="stone-floor182" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.461231, 0, -0.162009, 0, 0.488857, 0, 0.162009, 0, 0.461231, 7.47555, 1.43356e-06, 118.976)
+
+[node name="stone-floor183" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(-0.742713, 0, 0.66961, 0, 1, 0, -0.66961, 0, -0.742713, 8.90096, 1.43356e-06, 119.67)
+
+[node name="stone-floor184" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.778068, 0, 0.62818, 0, 1, 0, -0.62818, 0, 0.778068, 9.78813, 1.43356e-06, 117.514)
+
+[node name="stone-floor185" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.223313, 0, 0.626168, 0, 0.664797, 0, -0.626168, 0, 0.223313, 10.8731, 1.43356e-06, 119.11)
+
+[node name="stone-floor186" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.786321, 0, 0.617818, 0, 1, 0, -0.617818, 0, 0.786321, 11.7071, 1.43356e-06, 118.089)
+
+[node name="stone-floor187" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.335912, 0, 0.941894, 0, 1, 0, -0.941894, 0, 0.335912, 11.5552, 1.43356e-06, 120.214)
+
+[node name="stone-floor188" parent="." instance=ExtResource("1_7cpwf")]
+transform = Transform3D(0.786321, 0, 0.617818, 0, 1, 0, -0.617818, 0, 0.786321, 13.241, 1.43356e-06, 119.537)

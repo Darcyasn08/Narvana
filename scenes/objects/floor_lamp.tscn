@@ -19,6 +19,7 @@ material_override = SubResource("StandardMaterial3D_ie31o")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.974087, 0)
 light_color = Color(0.503802, 0.884688, 0.96375, 1)
+light_energy = 1.8
 omni_range = 3.0
 
 [editable path="lamp"]

@@ -37,15 +37,15 @@ var max_player_health: int
 var coins: int = 100
 
 #enemies
-var dust_damage: float= 1500.0
+var dust_damage: float= 1000.0
 var house_health: int = 5000
 
 var mouse_sens: float = .11
 
 #world positions
 var player_base_pos: Vector3 = Vector3(0,5,0)
-var player_normal_pos: Vector3 = Vector3(0,5,0)
-var player_first_level_pos: Vector3
+var player_normal_pos: Vector3 = Vector3(0,0,-26)
+var player_first_level_pos: Vector3 = Vector3(1.3,2.7,40.5)
 
 var worlds_files: Dictionary = {
 	"normal_world": "res://scenes/worlds/normal_world.tscn",
@@ -54,7 +54,7 @@ var worlds_files: Dictionary = {
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn"], #uma fase
-	[],
+	["res://scenes/enemies/ex_gf.tscn"],
 	[]
 ]
 
@@ -354,6 +354,64 @@ var dialogs: Dictionary = {
 				"text": "(clica [e] pra continuar, não pensei nesse dialogo ainda)",
 				"id": "open_first_level_portal",
 				"options": {},
+			}
+		}
+	},
+	
+	"second_master": {
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Espero que tenha passado na loja antes para comprar coisas para usar aqui",
+					"options": {},
+				},
+				1: {
+					"text": "Dessa vez, irá lutar contra suas relações passadas",
+					"options": {},
+				},
+				2: {
+					"text": "Sabe? Seus pais, sua ex namorada, suas relações de trabalho, e sua antiga banda",
+					"options": {},
+				},
+				3: {
+					"text": "Quer entrar agora?",
+					"options": {
+						0: {
+							"text": "Sim",
+							"ignite": "function",
+						},
+						1: {
+							"text": "Não, preciso me preparar mais",
+							"ignite": "exit",
+						},
+					},
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "Quer entrar agora? Esperarei você do outro lado",
+					"options": {
+						0: {
+							"text": "Sim",
+							"ignite": "function"
+						},
+						1: {
+							"text": "Não",
+							"ignite": "exit"
+						}
+					},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "Espero que esteja pronto",
+				"id": "open_second_level_portal",
+				"options": {},
+			},
+			"exit": {
+				"text": "Tudo bem, volte aqui quando precisar",
+				"options": {}
 			}
 		}
 	},

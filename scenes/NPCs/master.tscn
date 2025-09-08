@@ -78,7 +78,7 @@ script = ExtResource("1_h2qy3")
 [node name="body" parent="master_model" index="0"]
 material_override = SubResource("StandardMaterial3D_jooxx")
 material_overlay = ExtResource("2_rnotf")
-lod_bias = 0.01
+lod_bias = 0.05
 visibility_range_end = 80.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="master_model/body" index="0"]

@@ -23,16 +23,14 @@ func open_exit_portal() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and player_near:
-		print("clicking")
 		if Global.current_world == Global.worlds.NORMAL:
 			Global.player_can_attack = true
-			Global.current_world = Global.worlds.FIRST_LEVEL
+			Global.current_world = Global.worlds.SECOND_LEVEL
 			Global.player_first_level_pos = Vector3(1.3,2.7,40.5)
 			print("teleportando..")
-			Global.next_scene = "res://scenes/worlds/first_level.tscn"
+			Global.next_scene = "res://scenes/worlds/second_level.tscn"
 			get_tree().change_scene_to_packed(Global.loading_screen)
-		elif Global.current_world == Global.worlds.FIRST_LEVEL and !portal_closed:
-			Global.completed_levels["first_level"] = true
+		elif Global.current_world == Global.worlds.SECOND_LEVEL and !portal_closed:
 			Global.player_can_attack = true
 			Global.player_normal_pos = Vector3(90,2,113)
 			Global.current_world = Global.worlds.NORMAL

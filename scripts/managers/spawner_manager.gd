@@ -5,6 +5,7 @@ extends Node3D
 @export var door: MeshInstance3D
 
 var player_left: bool = false
+var is_second_level: bool = false
 
 var spawner_list: Array
 
@@ -17,17 +18,25 @@ func _ready() -> void:
 		for room in Global.dead_enemies_first_level:
 			rooms += 1
 			rooms_to_add = (current_room+1) - rooms
-			#print("rooms to add: ",rooms_to_add)
 		for i in rooms_to_add:
 			Global.dead_enemies_first_level.append([0, 0])
-	#print(Global.dead_enemies_first_level)
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
 	area_node.area_entered.connect(_on_area_3d_area_entered)
 	area_node.body_entered.connect(_on_area_3d_body_entered)
 	area_node.body_exited.connect(_on_area_3d_body_exited)
 	#print(current_room, " ",Global.dead_enemies_first_level)
 	Global.dead_enemies_first_level[current_room][0] = 0
 	Global.dead_enemies_first_level[current_room][1] = 0
+	await get_tree().create_timer(1).timeout
+	if Global.current_world == Global.worlds.SECOND_LEVEL:
+		is_second_level = true
+		if $StaticBody3D:
+			for child in $StaticBody3D.get_children():
+				print(child)
+				child.set_deferred("disabled", true)
+		if $particles:
+			for particle in $particles.get_children():
+				particle.emitting = false
 
 func update_enemy_deaths():
 	enemy_death_count += 1
@@ -39,9 +48,23 @@ func update_enemy_deaths():
 	print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 	if enemy_death_count >= Global.dead_enemies_first_level[current_room][1]:
 		SignalBus.on_room_completed.emit(current_room)
+		if is_second_level:
+			if $StaticBody3D:
+				for child in $StaticBody3D.get_children():
+					child.set_deferred("disabled", true)
+			if $particles:
+				for particle in $particles.get_children():
+					particle.emitting = false
 
 func start_room(current_room):
 	SignalBus.on_start_room.emit(current_room)
+	if is_second_level:
+		if $StaticBody3D:
+			for child in $StaticBody3D.get_children():
+				child.set_deferred("disabled", false)
+		if $particles:
+			for particle in $particles.get_children():
+				particle.emitting = true
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
@@ -57,7 +80,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		player_left = true
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print("boddy entered")
 	if body.is_in_group("enemies"):
 		Global.dead_enemies_first_level[current_room][1] += 1
 		print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
