@@ -37,6 +37,8 @@ func _ready() -> void:
 		if $particles:
 			for particle in $particles.get_children():
 				particle.emitting = false
+	if area_node:
+		area_node.add_to_group("spawners")
 
 func update_enemy_deaths():
 	enemy_death_count += 1

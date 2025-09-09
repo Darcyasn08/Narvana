@@ -11,6 +11,8 @@ var player_can_move: bool = true
 var player_can_attack: bool = true
 var current_weapon: int
 var n: int = 0
+var rotation_mouse_axis_y: int = 1
+var rotation_mouse_axis_x: int = 1
 
 enum weapons {NONE, BAT, TONFA, MANGUAL}
 var unlocked_weapons: Dictionary = {
@@ -97,7 +99,7 @@ var shop_items: Dictionary = {
 }
 
 var completed_levels: Dictionary = {
-	"first_level": false,
+	"first_level": true,
 	"second_level": false,
 	"third_level": false
 }

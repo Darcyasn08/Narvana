@@ -7,9 +7,10 @@ var life : int = 500
 var damage : int = 1
 var acceleration : float = 15.0
 var fall_time: float
+var can_move: bool = true
 
-@export var enemy_min_coins: int = 2
-@export var enemy_max_coins: int = 3
+@export var min_coins: int = 2
+@export var max_coins: int = 3
 
 @onready var player = $"../player"
 @onready var collision: CollisionShape3D = $collision
@@ -26,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if on_ground == false and is_on_floor():
+	if on_ground == false and is_on_floor() and can_move:
 		look_to_player(delta)#muda a rotação do bixo pra ficar de frente com o player
 		rotation.x = 0
 		var forward := global_basis.z #determina oq é a frente 
@@ -39,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func unique_take_damage(area) -> void:
-	print("i was hit by a weapon!!",life)
+	#print("i was hit by a weapon!!",life)
 	on_ground = true
 	fall()
 	calculate_knockback(area)
@@ -56,6 +57,8 @@ func damage_player(area) -> void:
 
 func unique_die() -> void:
 	print("im dead dude...")
+	can_move = false
+	#hide() #colocar a animação de morte aqui depois
 
 func fall() -> void:
 	fall_time = randf_range(2,3.5)
@@ -78,7 +81,7 @@ func calculate_knockback(area: Area3D) -> void:
 	var body_collision = (global_position - area.global_position)
 	body_collision.y = 0.0
 	var force = body_collision
-	force = force * 2.0
+	force = force * 5.0
 	knockback(force, body_collision)
 	await(get_tree().create_timer(.3).timeout)
 	velocity = velocity * 0

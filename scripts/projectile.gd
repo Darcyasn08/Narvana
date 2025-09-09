@@ -35,9 +35,10 @@ func _on_hurtbox_area_entered(area: Area3D) -> void:
 		if blush == false:
 			get_tree().call_group("player","hurt",damage)
 			queue_free()
-	if area.name != "player_hitbox" and !area.is_in_group("enemies"):
+	if area.name != "player_hitbox" and !area.is_in_group("enemies") and !area.is_in_group("spawners"):
 		queue_free()
 
 
 func _on_hurtbox_body_entered(body: Node3D) -> void:
-	queue_free()
+	if !body.is_in_group("enemies") and !body.is_in_group("spawners"):
+		queue_free()

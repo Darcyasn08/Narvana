@@ -308,7 +308,23 @@ offset_right = 292.0
 offset_bottom = 547.0
 text = "INVERTER MOVIMENTAÇÃO DA CÂMERA EM Y"
 
-[node name="CheckButton" type="CheckButton" parent="controls_screen/Label2"]
+[node name="mouse_y_invert" type="CheckButton" parent="controls_screen/Label2"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 33.0
+offset_right = 38.0
+offset_bottom = 57.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
+
+[node name="Label3" type="Label" parent="controls_screen"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 590.0
+offset_right = 428.0
+offset_bottom = 613.0
+text = "INVERTER MOVIMENTAÇÃO DA CÂMERA EM Y"
+
+[node name="mouse_x_invert" type="CheckButton" parent="controls_screen/Label3"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 33.0
@@ -319,3 +335,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
 [connection signal="pressed" from="base_screen/VBoxContainer/control_settings_button" to="." method="_on_control_settings_button_pressed"]
 [connection signal="pressed" from="base_screen/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="scrolling" from="controls_screen/sensibility/sensibility_scroll" to="." method="_on_sensibility_scroll_scrolling"]
+[connection signal="pressed" from="controls_screen/Label2/mouse_y_invert" to="." method="_on_mouse_y_invert_pressed"]
+[connection signal="pressed" from="controls_screen/Label3/mouse_x_invert" to="." method="_on_mouse_x_invert_pressed"]

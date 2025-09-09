@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cexua4one0xip"]
+[gd_scene load_steps=16 format=3 uid="uid://cexua4one0xip"]
 
 [ext_resource type="Script" uid="uid://d1xj13tku3knt" path="res://scripts/level_door.gd" id="1_st38b"]
 [ext_resource type="PackedScene" uid="uid://cniyires1knml" path="res://3d_models/placeholders/temple_door_normal.glb" id="2_gpdqj"]
@@ -6,7 +6,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpdqj"]
 diffuse_mode = 3
 specular_mode = 1
-albedo_color = Color(0.311833, 0.132251, 0.0157811, 1)
+albedo_color = Color(0.317188, 0.134983, 0.0163365, 1)
 roughness = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p7bhj"]
@@ -15,7 +15,10 @@ albedo_color = Color(0.859922, 0.637533, 0.651644, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_st38b"]
 albedo_color = Color(0.702416, 0.334254, 0.24369, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kevib"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_gpdqj"]
+material = SubResource("StandardMaterial3D_kevib")
 size = Vector3(5, 4, 1.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_st38b"]
@@ -109,7 +112,18 @@ _data = {
 &"door_open": SubResource("Animation_gpdqj")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_gpdqj"]
+radius = 4.83763
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uq7k"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3uq7k"]
+material = SubResource("StandardMaterial3D_3uq7k")
+size = Vector3(4, 5, 0.3)
+
 [node name="first_level_door" type="StaticBody3D"]
+collision_mask = 5
 script = ExtResource("1_st38b")
 
 [node name="temple_door_normal" parent="." instance=ExtResource("2_gpdqj")]
@@ -144,6 +158,18 @@ shape = SubResource("BoxShape3D_st38b")
 libraries = {
 &"": SubResource("AnimationLibrary_kevib")
 }
+speed_scale = 1.2
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59044, 0)
+shape = SubResource("SphereShape3D_gpdqj")
+
+[node name="bg_effect" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50091, -0.0405667)
+mesh = SubResource("BoxMesh_3uq7k")
 
 [editable path="temple_door_normal"]
 [editable path="temple_door_normal2"]

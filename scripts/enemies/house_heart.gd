@@ -18,5 +18,5 @@ func _on_area_entered(area: Area3D) -> void:
 
 func _on_timer_timeout() -> void:
 	print("change world")
-	Global.player_first_level_pos = Vector3(10,2.7,-230)
+	Global.player_first_level_pos = Vector3(10,2.0,-230)
 	get_tree().change_scene_to_file("res://scenes/worlds/first_level.tscn")

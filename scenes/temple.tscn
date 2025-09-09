@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=4 uid="uid://bqcvfpirtiax4"]
+[gd_scene load_steps=62 format=4 uid="uid://bqcvfpirtiax4"]
 
 [ext_resource type="PackedScene" uid="uid://c604eidrq5pn2" path="res://3d_models/placeholders/temple.glb" id="1_0u0yr"]
+[ext_resource type="Script" uid="uid://dmr2xfuco0n51" path="res://scripts/temple.gd" id="1_vh502"]
 [ext_resource type="ArrayMesh" uid="uid://c6wsqvho3vpbx" path="res://3d_models/placeholders/temple-fence.obj" id="5_7p6xb"]
 [ext_resource type="Script" uid="uid://cox5hu7ho8b6a" path="res://scripts/temple_muitimesh.gd" id="5_40f1g"]
 [ext_resource type="PackedScene" uid="uid://bfpc1iyyab0bn" path="res://3d_models/placeholders/temple-entrance.glb" id="5_jsg4b"]
@@ -621,6 +622,7 @@ material = SubResource("StandardMaterial3D_mfoso")
 size = Vector3(10, 0.1, 10)
 
 [node name="temple" type="Node3D"]
+script = ExtResource("1_vh502")
 
 [node name="temple_model" parent="." instance=ExtResource("1_0u0yr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.4132)
@@ -654,6 +656,7 @@ transform = Transform3D(1, 0, 0, 0, -0.338557, 0, 0, 0, 1, 0.177755, 10.292, 6.8
 
 [node name="CSGBox3D23_003" parent="temple_model" index="9"]
 transform = Transform3D(1, 0, 0, 0, 0.489197, 0, 0, 0, 1, 0.177755, 8.06278, 6.75605)
+visible = false
 
 [node name="CSGBox3D23_004" parent="temple_model" index="10"]
 transform = Transform3D(1, 0, 0, 0, 0.489197, 0, 0, 0, 1, 0.177755, 8.06278, -9.6453)
@@ -1056,7 +1059,7 @@ mesh = SubResource("BoxMesh_xp7k0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.364536, 0, 17.145)
 
 [node name="weapon_station" parent="." instance=ExtResource("11_xp7k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.54645, 2.48964, -29.1043)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23667, 2.48964, -29.1043)
 
 [node name="temple_pillar_mesh" parent="." instance=ExtResource("12_n3poh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1008, 1.91973, -18.0115)
@@ -1065,10 +1068,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1008, 1.91973, -18.0115)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35858, 1.91973, -18.0115)
 
 [node name="temple_pillar_mesh3" parent="." instance=ExtResource("12_n3poh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204199, 1.91973, -18.0115)
-
-[node name="temple_pillar_mesh4" parent="." instance=ExtResource("12_n3poh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204199, 1.91973, -25.5277)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204199, 1.91973, -21.2275)
 
 [node name="temple_pillar_mesh6" parent="." instance=ExtResource("12_n3poh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89632, 1.91973, -25.5277)
