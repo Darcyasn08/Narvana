@@ -4,25 +4,33 @@ extends Node
 var save_path: String = "user://narvana_save.json"
 
 var save_content: Dictionary = {
-	"health": Global.player_health,
-	"has_started_game": Global.has_started_game,
-	"current_world": Global.current_world,
-	"inventory": Global.inventory,
+	0: {
+	},
+	1: {
+	},
+	2: {
+		
+	}
 }
 
 func _ready() -> void:
-	delete_save()
 	load_save()
-	if save_content.has_started_game:
-		print("game has started!")
-	else:
-		print("game hasnt started yet... show start cutscene")
+	#if save_content.has_started_game:
+		#print("game has started!")
+	#else:
+		#print("game hasnt started yet... show start cutscene")
 
 func save() -> void:
 	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
+	#SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
+	#SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
+	#SaveLoad.save_content[Global.current_save]["inventory"] = Global.inventory
+	#Global.has_started_game = true
+	#SaveLoad.save_content[Global.current_save]["has_started_game"] = Global.has_started_game
 	file.store_var(save_content.duplicate())
 	file.close()
 	print("jogo salvo!")
+	#print(save_content)
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):
@@ -32,18 +40,20 @@ func load_save() -> void:
 		file.close()
 		
 		var save_data = data.duplicate()
-		
-		save_content.health = save_data.health
-		Global.player_health = save_content.health
-		save_content.current_world = save_data.current_world
-		save_content.inventory = save_data.inventory
-		Global.inventory = save_content.inventory
+		save_content = save_data
+		#save_content.health = save_data.health
+		#Global.player_health = save_content.health
+		#save_content.current_world = save_data.current_world
+		#save_content.inventory = save_data.inventory
+		#Global.inventory = save_content.inventory
 		#print(save_data.inventory)
+		print(save_data)
 		#for i: int in save_data:
 			#pass
 
 func delete_save() -> void:
 	if FileAccess.file_exists(save_path):
+		print("deleted!")
 		DirAccess.remove_absolute(save_path)
 		save_content.current_world = Global.current_world
 		save_content.health = Global.player_health

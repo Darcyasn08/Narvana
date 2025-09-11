@@ -1,6 +1,7 @@
 extends Node
 
 #game
+var current_save: int = 0
 var has_started_game: bool = false
 var game_paused: bool = false
 var next_scene: String = "res://scenes/worlds/normal_world.tscn"
@@ -55,7 +56,7 @@ var worlds_files: Dictionary = {
 }
 
 var enemies: Array = [
-	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn"], #uma fase
+	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
 	["res://scenes/enemies/ex_gf.tscn"],
 	[]
 ]

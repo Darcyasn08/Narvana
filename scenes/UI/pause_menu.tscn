@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0l4begr7id8h"]
+[gd_scene load_steps=16 format=3 uid="uid://d0l4begr7id8h"]
 
 [ext_resource type="Script" uid="uid://cljn2vudist6q" path="res://scripts/pause_menu.gd" id="1_mko1u"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
 [ext_resource type="PackedScene" uid="uid://bcwkhk5uegqo" path="res://scenes/UI/options_menu.tscn" id="2_feath"]
 [ext_resource type="Texture2D" uid="uid://bo0yes7q65kd3" path="res://UI/pause_screen.webp" id="4_feath"]
 [ext_resource type="PackedScene" uid="uid://ddw77aywbgkt1" path="res://scenes/UI/inventory_menu.tscn" id="5_w67w4"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="6_eir0s"]
 [ext_resource type="AudioStream" uid="uid://dmbtpb0yei5xm" path="res://music/button_click.mp3" id="6_sipkl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
@@ -99,19 +100,19 @@ text = "jogo pausado"
 label_settings = SubResource("LabelSettings_mko1u")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 269.0
-offset_top = 479.0
-offset_right = 497.0
-offset_bottom = 554.0
+offset_left = 561.0
+offset_top = 633.0
+offset_right = 789.0
+offset_bottom = 708.0
 text = "caros testers, não cliquem
 no botão de sair na versão de
 web, vai travar tudo!"
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 516.0
-offset_top = 495.0
-offset_right = 541.0
-offset_bottom = 518.0
+offset_left = 808.0
+offset_top = 649.0
+offset_right = 833.0
+offset_bottom = 672.0
 text = "--->"
 
 [node name="inventory_menu" parent="." instance=ExtResource("5_w67w4")]
@@ -142,9 +143,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -161.0
-offset_top = 34.0
+offset_top = 58.0
 offset_right = 161.0
-offset_bottom = 100.0
+offset_bottom = 124.0
 grow_horizontal = 2
 
 [node name="inventory_button" type="Button" parent="menu_selection"]
@@ -181,37 +182,42 @@ grow_vertical = 2
 [node name="back_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
 text = "Continuar"
 
 [node name="config_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
 text = "Configurações"
 
 [node name="reset_health_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
 text = "Resetar vida"
 
 [node name="save_button2" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
 text = "Salvar"
 
 [node name="quit_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
-text = "Salvar e sair"
+text = "Voltar início"
 
 [node name="click_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sipkl")

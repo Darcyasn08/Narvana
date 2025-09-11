@@ -43,9 +43,10 @@ func _on_config_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	click_sfx.play()
-	save()
-	await get_tree().create_timer(1).timeout
-	get_tree().quit()
+	await get_tree().create_timer(.3).timeout
+	Global.next_scene = "res://scenes/UI/start_menu.tscn"
+	get_tree().change_scene_to_packed(Global.loading_screen)
+	#get_tree().quit()
 
 func _on_save_button_pressed() -> void:
 	click_sfx.play()
@@ -58,10 +59,10 @@ func _on_reset_health_button_pressed() -> void:
 	#print(Global.max_player_health)
 
 func save() -> void:
-	SaveLoad.save_content.current_world = Global.current_world
-	SaveLoad.save_content.health = Global.player_health
-	SaveLoad.save_content.inventory = Global.inventory
-	#print(Global.inventory)
-	Global.has_started_game = true
-	SaveLoad.save_content.has_started_game = Global.has_started_game
+	#SaveLoad.save_content.current_world = Global.current_world
+	#SaveLoad.save_content.health = Global.player_health
+	#SaveLoad.save_content.inventory = Global.inventory
+	##print(Global.inventory)
+	#Global.has_started_game = true
+	#SaveLoad.save_content.has_started_game = Global.has_started_game
 	SaveLoad.save()

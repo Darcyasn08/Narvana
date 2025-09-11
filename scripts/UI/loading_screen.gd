@@ -7,7 +7,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var progress: Array = []
 	ResourceLoader.load_threaded_get_status(Global.next_scene, progress)
-	$ProgressBar.value = progress[0]*100
+	$Control/ProgressBar.value = progress[0]*100
 	
 	if progress[0] == 1:
 		#await get_tree().create_timer(1).timeout

@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bme2ibv0u6u3e"]
+[gd_scene load_steps=5 format=3 uid="uid://bme2ibv0u6u3e"]
 
 [ext_resource type="Script" uid="uid://ctmepyurh4wor" path="res://scripts/UI/loading_screen.gd" id="1_35dpi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7gmj"]
-bg_color = Color(0.197447, 0.167183, 0.118067, 1)
+bg_color = Color(0.136381, 0.178093, 0.207853, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35dpi"]
+bg_color = Color(0.377411, 0.486952, 0.59406, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
 
 [sub_resource type="LabelSettings" id="LabelSettings_35dpi"]
 font_size = 24
@@ -30,17 +37,32 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l7gmj")
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 1171.0
-offset_top = 698.0
-offset_right = 1323.0
-offset_bottom = 732.0
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -551.0
+offset_top = -99.0
+offset_right = 424.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_35dpi")
+
+[node name="Label" type="Label" parent="Control/ProgressBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 526.0
+offset_top = -34.0
+offset_right = 678.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "carregando..."
 label_settings = SubResource("LabelSettings_35dpi")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 172.0
-offset_top = 704.0
-offset_right = 1141.0
-offset_bottom = 731.0
