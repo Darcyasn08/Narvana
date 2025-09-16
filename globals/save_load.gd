@@ -14,6 +14,7 @@ var save_content: Dictionary = {
 }
 
 func _ready() -> void:
+	save()
 	load_save()
 	#if save_content.has_started_game:
 		#print("game has started!")
