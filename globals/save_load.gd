@@ -14,7 +14,6 @@ var save_content: Dictionary = {
 }
 
 func _ready() -> void:
-	save()
 	load_save()
 	#if save_content.has_started_game:
 		#print("game has started!")
@@ -31,7 +30,7 @@ func save() -> void:
 	file.store_var(save_content.duplicate())
 	file.close()
 	print("jogo salvo!")
-	#print(save_content)
+	print(save_content)
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):
@@ -48,7 +47,7 @@ func load_save() -> void:
 		#save_content.inventory = save_data.inventory
 		#Global.inventory = save_content.inventory
 		#print(save_data.inventory)
-		print(save_data)
+		print('SAVE DATA: ',save_data)
 		#for i: int in save_data:
 			#pass
 

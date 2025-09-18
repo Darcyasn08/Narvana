@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://hb48uqcnov17" path="res://art/narvana-logo - Copia.png" id="3_201h0"]
-[ext_resource type="FontFile" uid="uid://dakykoyuk21wd" path="res://UI/fonts/hogback/Hogback Demo Version.otf" id="4_1y4tv"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_1y4tv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
 bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
@@ -20,10 +20,11 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="LabelSettings" id="LabelSettings_bpkul"]
-font_size = 35
+font = ExtResource("4_1y4tv")
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_201h0"]
-bg_color = Color(0.202429, 0.366415, 0.427796, 1)
+bg_color = Color(0.63640827, 0.79854035, 0.9251717, 1)
 
 [sub_resource type="Animation" id="Animation_1y4tv"]
 length = 0.001
@@ -117,10 +118,10 @@ texture = ExtResource("3_201h0")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 113.0
-offset_top = -208.0
-offset_right = 271.0
-offset_bottom = -78.0
+offset_left = 103.0
+offset_top = -235.0
+offset_right = 291.0
+offset_bottom = -101.0
 grow_vertical = 0
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
@@ -128,7 +129,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_1y4tv")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
 text = "JOGAR"
 flat = true
@@ -149,16 +150,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -131.0
-offset_top = -70.0
-offset_right = -33.0
-offset_bottom = -21.0
+offset_left = -142.0
+offset_top = -76.0
+offset_right = -44.0
+offset_bottom = -27.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "v0.0.1"
 label_settings = SubResource("LabelSettings_bpkul")
 
 [node name="save_screen" type="Control" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 z_index = 1
@@ -186,10 +188,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -724.0
-offset_top = -349.0
-offset_right = 2352.0
-offset_bottom = 349.0
+offset_left = -695.0
+offset_top = -343.0
+offset_right = 2381.0
+offset_bottom = 355.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50

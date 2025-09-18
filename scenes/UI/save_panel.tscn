@@ -1,25 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0uap4n3ddqto"]
+[gd_scene load_steps=11 format=3 uid="uid://c0uap4n3ddqto"]
 
 [ext_resource type="Script" uid="uid://bfe37u62bneoc" path="res://scripts/UI/save_panel.gd" id="1_go1do"]
+[ext_resource type="Texture2D" uid="uid://cn4bxpo22nugw" path="res://UI/save-panel.png" id="2_0qva7"]
 [ext_resource type="FontFile" uid="uid://dakykoyuk21wd" path="res://UI/fonts/hogback/Hogback Demo Version.otf" id="2_76xi8"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="3_0qva7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rxcr"]
-bg_color = Color(0.464519, 0.616662, 0.778946, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+[ext_resource type="Texture2D" uid="uid://chnue7x5dqbq2" path="res://UI/save-panel-small.png" id="5_yh0yd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_go1do"]
-font_size = 50
-outline_size = 12
+font = ExtResource("3_0qva7")
+font_size = 52
 outline_color = Color(0.232144, 0.34193, 0.582903, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_76xi8"]
 font_size = 40
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1do"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh0yd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wre1k"]
 content_margin_left = 3.0
@@ -32,6 +27,8 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1do"]
+
 [node name="save_panel" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -43,83 +40,123 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_go1do")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0rxcr")
-
-[node name="title_label" type="Label" parent="."]
-layout_mode = 1
-offset_left = 18.0
-offset_top = 18.0
-offset_right = 91.0
-offset_bottom = 49.0
-theme_override_fonts/font = ExtResource("2_76xi8")
-text = "SAVE X"
-label_settings = SubResource("LabelSettings_go1do")
-
-[node name="info_label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 89.0
-offset_right = 169.0
-offset_bottom = 170.0
-theme_override_fonts/font = ExtResource("3_0qva7")
-text = "Fase atual
-Vidas: xxxx
-Moedas: 45"
-label_settings = SubResource("LabelSettings_76xi8")
-
-[node name="new_save_button" type="Button" parent="."]
+[node name="sprite_created" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.5
-offset_top = -31.0
-offset_right = 92.5
-offset_bottom = 31.0
+offset_left = -225.0
+offset_top = -360.0
+offset_right = 225.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_76xi8")
-theme_override_font_sizes/font_size = 40
-text = "NOVO SAVE"
+texture = ExtResource("2_0qva7")
 
-[node name="open_save_button" type="Button" parent="."]
+[node name="sprite_not_created" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -360.0
+offset_right = 225.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_yh0yd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -290.0
+offset_right = 169.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title_label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 169.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_76xi8")
+text = "SAVE X"
+label_settings = SubResource("LabelSettings_go1do")
+
+[node name="info_label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 40.0
+offset_top = 83.0
+offset_right = 228.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("3_0qva7")
+text = "Fase atual
+Vidas: xxxx
+Moedas: 45"
+label_settings = SubResource("LabelSettings_76xi8")
+
+[node name="new_save_button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -21.5
+offset_right = 94.5
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0qva7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yh0yd")
+text = "NOVO SAVE"
+flat = true
+
+[node name="open_save_button" type="Button" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -78.5
-offset_top = -81.0
-offset_right = 78.5
-offset_bottom = -28.0
+offset_left = -89.25
+offset_top = -84.0
+offset_right = 89.25
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("2_76xi8")
+theme_override_fonts/font = ExtResource("3_0qva7")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_go1do")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wre1k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_go1do")
 text = "ABRIR SAVE"
 
-[node name="delete_save_button" type="Button" parent="."]
+[node name="delete_save_button" type="Button" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -74.0
-offset_top = 9.0
-offset_right = -10.0
-offset_bottom = 40.0
+offset_left = -114.0
+offset_bottom = 49.0
 grow_horizontal = 0
-theme_override_fonts/font = ExtResource("2_76xi8")
+theme_override_fonts/font = ExtResource("3_0qva7")
 theme_override_font_sizes/font_size = 40
 text = "deletar"

@@ -8,34 +8,40 @@ extends Control
 
 func _ready() -> void:
 	if is_created:
-		$title_label.text = title
-		$info_label.text = info
-		$title_label.show()
-		$info_label.show()
-		$new_save_button.hide()
-		$open_save_button.show()
-		$delete_save_button.show()
+		%title_label.text = title
+		%info_label.text = info
+		%sprite_created.show()
+		%sprite_not_created.hide()
+		%title_label.show()
+		%info_label.show()
+		%new_save_button.hide()
+		%open_save_button.show()
+		%delete_save_button.show()
 	else:
-		$title_label.hide()
-		$info_label.hide()
-		$new_save_button.show()
-		$open_save_button.hide()
-		$delete_save_button.hide()
+		%sprite_created.hide()
+		%sprite_not_created.show()
+		%title_label.hide()
+		%info_label.hide()
+		%new_save_button.show()
+		%open_save_button.hide()
+		%delete_save_button.hide()
 	custom_minimum_size.x = 450
-	$new_save_button.pressed.connect(new_save_button_pressed)
-	$open_save_button.pressed.connect(open_save_button_pressed)
-	$delete_save_button.pressed.connect(delete_save_button_pressed)
+	%new_save_button.pressed.connect(new_save_button_pressed)
+	%open_save_button.pressed.connect(open_save_button_pressed)
+	%delete_save_button.pressed.connect(delete_save_button_pressed)
 
 func new_save_button_pressed() -> void:
 	if SaveLoad.save_content[id] == {}:
-		$new_save_button.hide()
-		$open_save_button.show()
-		$delete_save_button.show()
-		$title_label.show()
-		$info_label.show()
-		$title_label.text = str("Save ",id+1)
+		%new_save_button.hide()
+		%open_save_button.show()
+		%delete_save_button.show()
+		%title_label.show()
+		%info_label.show()
+		%sprite_created.show()
+		%sprite_not_created.hide()
+		%title_label.text = str("Save ",id+1)
 		SaveLoad.save_content[id]["current_world"] = 0
-		$info_label.text = str("Mundo atual: ",SaveLoad.save_content[id]["current_world"])
+		%info_label.text = str("Mundo atual: ",SaveLoad.save_content[id]["current_world"])
 		is_created = true
 		SaveLoad.save_content[id]["is_created"] = is_created
 		#print(SaveLoad.save_content)
@@ -56,8 +62,11 @@ func open_save_button_pressed() -> void:
 
 func delete_save_button_pressed() -> void:
 	SaveLoad.save_content[id] = {}
-	$title_label.hide()
-	$info_label.hide()
-	$new_save_button.show()
-	$open_save_button.hide()
-	$delete_save_button.hide()
+	SaveLoad.save()
+	%title_label.hide()
+	%info_label.hide()
+	%new_save_button.show()
+	%open_save_button.hide()
+	%delete_save_button.hide()
+	%sprite_created.hide()
+	%sprite_not_created.show()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=53 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cwjwm7q1w4i6w" path="res://3d_models/placeholders/coral-rock.glb" id="29_ppn7s"]
 [ext_resource type="PackedScene" uid="uid://4ea2kbl7af8u" path="res://3d_models/placeholders/sand-floor.glb" id="29_tet57"]
 [ext_resource type="PackedScene" uid="uid://c3hewjvsc0xlt" path="res://scenes/objects/village_path.tscn" id="30_tet57"]
+[ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="31_46g8v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d5nc6"]
 sky_top_color = Color(0.936386, 0.697044, 0.692253, 1)
@@ -801,6 +802,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94959, -1.90735e-06, 69.601
 
 [node name="bubble_particle8" parent="." instance=ExtResource("19_ektfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00663, 9.53674e-07, 1.97736)
+
+[node name="octopus_model" parent="." instance=ExtResource("31_46g8v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8165493, 2.032622, -15.821968)
 
 [editable path="weird-big-rock"]
 [editable path="big_coral_rocks/coral-rock"]

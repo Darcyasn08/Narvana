@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=88 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://bj8516q6m0hvg" path="res://scenes/enemies/dummy.tscn" id="16_ngmfm"]
 [ext_resource type="PackedScene" uid="uid://dwdrwq364ltc7" path="res://scenes/objects/jellyfish_light.tscn" id="18_phf25"]
 [ext_resource type="PackedScene" uid="uid://dos6p8ge7u8oc" path="res://scenes/objects/temple_pillar_mesh.tscn" id="19_4c4wp"]
+[ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="20_kg2vu"]
+[ext_resource type="PackedScene" uid="uid://4ea2kbl7af8u" path="res://3d_models/placeholders/sand-floor.glb" id="21_gmcgx"]
+[ext_resource type="PackedScene" uid="uid://dq20xfygww1g1" path="res://scenes/objects/water_fountain.tscn" id="22_gmcgx"]
 
 [sub_resource type="Environment" id="Environment_snglc"]
 background_mode = 1
@@ -144,7 +147,7 @@ add_uv2 = true
 size = Vector3(72, 1, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kalee"]
-size = Vector3(33.1598, 10.4901, 27.6615)
+size = Vector3(17.9483, 10.4901, 27.6615)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pkb0d"]
 size = Vector3(19.939, 8.95902, 27.8556)
@@ -193,7 +196,7 @@ mesh = SubResource("CylinderMesh_38i4m")
 buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kg2vu"]
-size = Vector3(33.3183, 10.6015, 27.6615)
+size = Vector3(33.7289, 10.6015, 28.3609)
 
 [sub_resource type="BoxMesh" id="BoxMesh_u5f21"]
 material = ExtResource("2_385i6")
@@ -201,6 +204,10 @@ size = Vector3(35, 9, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g7jmv"]
 data = PackedVector3Array(-17.5, 4.5, 0.5, 17.5, 4.5, 0.5, -17.5, -4.5, 0.5, 17.5, 4.5, 0.5, 17.5, -4.5, 0.5, -17.5, -4.5, 0.5, 17.5, 4.5, -0.5, -17.5, 4.5, -0.5, 17.5, -4.5, -0.5, -17.5, 4.5, -0.5, -17.5, -4.5, -0.5, 17.5, -4.5, -0.5, 17.5, 4.5, 0.5, 17.5, 4.5, -0.5, 17.5, -4.5, 0.5, 17.5, 4.5, -0.5, 17.5, -4.5, -0.5, 17.5, -4.5, 0.5, -17.5, 4.5, -0.5, -17.5, 4.5, 0.5, -17.5, -4.5, -0.5, -17.5, 4.5, 0.5, -17.5, -4.5, 0.5, -17.5, -4.5, -0.5, 17.5, 4.5, 0.5, -17.5, 4.5, 0.5, 17.5, 4.5, -0.5, -17.5, 4.5, 0.5, -17.5, 4.5, -0.5, 17.5, 4.5, -0.5, -17.5, -4.5, 0.5, 17.5, -4.5, 0.5, -17.5, -4.5, -0.5, 17.5, -4.5, 0.5, 17.5, -4.5, -0.5, -17.5, -4.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7coi1"]
+material = ExtResource("2_385i6")
+size = Vector3(10, 3.4, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_posuy"]
 data = PackedVector3Array(-41, 0.5, 31, 41, 0.5, 31, -41, -0.5, 31, 41, 0.5, 31, 41, -0.5, 31, -41, -0.5, 31, 41, 0.5, -31, -41, 0.5, -31, 41, -0.5, -31, -41, 0.5, -31, -41, -0.5, -31, 41, -0.5, -31, 41, 0.5, 31, 41, 0.5, -31, 41, -0.5, 31, 41, 0.5, -31, 41, -0.5, -31, 41, -0.5, 31, -41, 0.5, -31, -41, 0.5, 31, -41, -0.5, -31, -41, 0.5, 31, -41, -0.5, 31, -41, -0.5, -31, 41, 0.5, 31, -41, 0.5, 31, 41, 0.5, -31, -41, 0.5, 31, -41, 0.5, -31, 41, 0.5, -31, -41, -0.5, 31, 41, -0.5, 31, -41, -0.5, -31, 41, -0.5, 31, 41, -0.5, -31, -41, -0.5, -31)
@@ -259,7 +266,7 @@ material = SubResource("StandardMaterial3D_kalee")
 size = Vector3(130, 1, 400)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3641t"]
-size = Vector3(7.20193, 10.9077, 45.489)
+size = Vector3(16.8104, 10.9077, 45.489)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4c4wp"]
 size = Vector3(7.20193, 10.9077, 60.2999)
@@ -270,6 +277,9 @@ instance_count = 8
 visible_instance_count = 8
 mesh = ExtResource("10_m5da8")
 buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pi7aj"]
+size = Vector3(5.94721, 1, 4.40967)
 
 [node name="first_level" type="Node3D"]
 script = ExtResource("1_qndhv")
@@ -592,7 +602,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.230
 room2 = 1
 
 [node name="first_level_door3" parent="temple_room1" instance=ExtResource("8_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.17079, 2.03972, -29.6934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.679373, 2.03972, -29.6934)
 room1 = 2
 room2 = 3
 
@@ -891,7 +901,7 @@ current_room = 4
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/spawner_manager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0759907, 1.53972, -0.21991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.52975, 1.53972, -0.21991)
 shape = SubResource("BoxShape3D_kalee")
 debug_color = Color(0, 0, 0, 0.784314)
 
@@ -904,9 +914,9 @@ current_room = 5
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/spawner_manager2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083643, 1.48403, -0.0640869)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0901508, 1.48403, -0.0100861)
 shape = SubResource("BoxShape3D_kg2vu")
-debug_color = Color(0, 0, 0, 0.784314)
+debug_color = Color(1, 1, 1, 0.784314)
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="temple_room4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6394, 6.47243, -29.7044)
@@ -925,6 +935,15 @@ mesh = SubResource("BoxMesh_u5f21")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D12/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_g7jmv")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.91223, 8.75992, 29.4499)
+mesh = SubResource("BoxMesh_7coi1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="temple_room4/MeshInstance3D18"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D18/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8pan6")
 
 [node name="temple_room5" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, -0.373157, -177.696)
@@ -1054,7 +1073,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.5048, 8.72108, -46.9955)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0829, 10.2375, -73.2732)
 
 [node name="spawner" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, 3.62426, 6.94019)
+transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 7.3456, 3.62426, 7.72019)
+room_number = 1
+
+[node name="spawner3" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05659, 3.62426, 1.60064)
 room_number = 1
 
 [node name="spawner2" parent="." instance=ExtResource("7_kalee")]
@@ -1067,8 +1090,21 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.1507
 enemy_number = 2
 room_number = 3
 
+[node name="spawner11" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.905695, 0, -0.423931, 0, 1, 0, 0.423931, 0, 0.905695, 17.1247, 4.61663, -62.8557)
+room_number = 3
+
+[node name="spawner12" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.911439, 0, 0.411435, 0, 1, 0, -0.411435, 0, 0.911439, -2.90844, 4.61663, -67.5424)
+room_number = 3
+
 [node name="spawner7" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -6.60052, 4.61663, -106.488)
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -6.60052, 3.42575, -106.488)
+enemy_number = 1
+room_number = 4
+
+[node name="spawner16" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -5.47809, 3.42575, -100.974)
 room_number = 4
 
 [node name="spawner9" parent="." instance=ExtResource("7_kalee")]
@@ -1085,6 +1121,11 @@ room_number = 4
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -29.9286, 4.61663, -32.3277)
 room_number = 7
 
+[node name="spawner15" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.5996, 2.0357, -38.5969)
+enemy_number = 5
+room_number = 7
+
 [node name="spawner6" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -27.4298, 4.61663, -21.341)
 room_number = 7
@@ -1098,7 +1139,7 @@ shape = SubResource("BoxShape3D_m5da8")
 debug_color = Color(0.270102, 0.136775, 0.052403, 0.42)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0626144, -3.8147e-06, -111.748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.143795, -3.8147e-06, -111.714)
 mesh = SubResource("BoxMesh_vtkm1")
 skeleton = NodePath("../temple_room3")
 
@@ -1106,11 +1147,11 @@ skeleton = NodePath("../temple_room3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95637, -66.7225)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="outside_collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7478, 3.23648, 1.30346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.5505, 3.23648, 1.30346)
 shape = SubResource("BoxShape3D_3641t")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="outside_collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2212, 3.59024, 3.10045)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6143, 3.59024, 3.10045)
 shape = SubResource("BoxShape3D_3641t")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="outside_collision"]
@@ -1122,12 +1163,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7127, 3.59024, -110.39)
 shape = SubResource("BoxShape3D_4c4wp")
 
 [node name="temple_fences" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.5673, -0.177227, -47.6001)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.026, -0.177227, -47.6001)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="temple_fences2" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.0994, -0.177227, -47.6001)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.9409, -0.177227, -47.6001)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
@@ -1142,7 +1183,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, 40.2272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33727, 2.77125, -55.7483)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.893579, 3.55758, -62.7769)
@@ -1160,7 +1201,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2636, 2.28796, -194.729)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9336, 2.28796, -162.134)
 
 [node name="bubble_particle6" parent="." instance=ExtResource("12_3641t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1273, 2.28796, -177.898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.82148, 2.28796, -177.898)
 
 [node name="stone_path2" type="Node3D" parent="."]
 transform = Transform3D(0.954963, 0, -0.296725, 0, 1, 0, 0.296725, 0, 0.954963, 5.25945, -0.862809, -152.199)
@@ -1252,6 +1293,51 @@ transform = Transform3D(0.943879, 0, -1.1658, 0, 1.5, 0, 1.1658, 0, 0.943879, 0.
 [node name="stone-floor3" parent="stone_path3" instance=ExtResource("14_1kpyw")]
 transform = Transform3D(-0.363822, 0, -1.45521, 0, 1.5, 0, 1.45521, 0, -0.363822, -0.620964, 1.53972, 2.20045)
 
+[node name="stone_path4" type="Node3D" parent="."]
+transform = Transform3D(0.990915, 0, 0.134488, 0, 1, 0, -0.134488, 0, 0.990915, 6.15667, -1.09321, -52.3904)
+
+[node name="stone-floor" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.5, 0, 8.9407e-08, 0, 1.5, 0, -8.9407e-08, 0, 1.5, 0, 1.53972, 0)
+
+[node name="stone-floor4" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.41442, 0, -0.499427, 0, 1.5, 0, 0.499427, 0, 1.41442, 1.30422, 1.53972, -8.22574)
+
+[node name="stone-floor5" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.41442, 0, -0.499427, 0, 1.5, 0, 0.499427, 0, 1.41442, 0.475292, 1.53972, -9.90292)
+
+[node name="stone-floor7" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.16604, 0, 0.283453, 0, 1.2, 0, -0.283453, 0, 1.16604, 1.4449, 1.53972, -9.4756)
+
+[node name="stone-floor12" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.16604, 0, 0.283453, 0, 1.2, 0, -0.283453, 0, 1.16604, 1.00416, 1.53972, -6.11003)
+
+[node name="stone-floor9" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(0.971702, 0, 0.236211, 0, 1, 0, -0.236211, 0, 0.971702, 1.08998, 1.53972, -2.41328)
+
+[node name="stone-floor10" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(-0.253015, 0, 0.967462, 0, 1, 0, -0.967462, 0, -0.253015, 0.892372, 1.53972, -3.12169)
+
+[node name="stone-floor11" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(0.883692, 0, 0.468069, 0, 1, 0, -0.468069, 0, 0.883692, 0.302406, 1.53972, -6.48177)
+
+[node name="stone-floor8" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.16604, 0, 0.283453, 0, 1.2, 0, -0.283453, 0, 1.16604, 2.0455, 1.53972, -16.1134)
+
+[node name="stone-floor6" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(1.49539, 0, 0.117558, 0, 1.5, 0, -0.117558, 0, 1.49539, 3.12654, 1.53972, -17.1883)
+
+[node name="stone-floor13" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(0.946054, 0, -1.16404, 0, 1.5, 0, 1.16404, 0, 0.946054, 2.50115, 1.53972, -23.0649)
+
+[node name="stone-floor14" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(0.88669, 0, 1.20987, 0, 1.5, 0, -1.20987, 0, 0.88669, 1.89579, 1.53972, -24.3559)
+
+[node name="stone-floor2" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(0.943879, 0, -1.1658, 0, 1.5, 0, 1.1658, 0, 0.943879, 0.846394, 1.53972, 0.768295)
+
+[node name="stone-floor3" parent="stone_path4" instance=ExtResource("14_1kpyw")]
+transform = Transform3D(-0.363822, 0, -1.45521, 0, 1.5, 0, 1.45521, 0, -0.363822, -0.620964, 1.53972, 2.20045)
+
 [node name="first_level_portal" parent="." instance=ExtResource("7_u5f21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56617, 1.61605, -266.126)
 portal_type = 1
@@ -1272,3 +1358,62 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7937, 2, -142.574)
 
 [node name="temple_pillar_mesh4" parent="." instance=ExtResource("19_4c4wp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7937, 2, -120.966)
+
+[node name="jellyfish_light" parent="." instance=ExtResource("18_phf25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.1466, 6.39628, -17.7627)
+
+[node name="jellyfish_light2" parent="." instance=ExtResource("18_phf25")]
+transform = Transform3D(-0.204035, 0, -0.978964, 0, 1, 0, 0.978964, 0, -0.204035, -22.2932, 6.39628, -34.6071)
+
+[node name="spawner10" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.914084, 0, -0.405524, 0, 1, 0, 0.405524, 0, 0.914084, 9.64931, 2.1125, -24.468)
+enemy_number = 5
+room_number = 2
+
+[node name="spawner13" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5179, 2.1125, -142.214)
+enemy_number = 1
+room_number = 5
+
+[node name="spawner14" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.69092, 0, -0.722931, 0, 1, 0, 0.722931, 0, 0.69092, 10.8668, 2.1125, -132.885)
+enemy_number = 5
+room_number = 5
+
+[node name="tree" parent="." instance=ExtResource("20_kg2vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7253, 0.683865, -51.6818)
+
+[node name="tree2" parent="." instance=ExtResource("20_kg2vu")]
+transform = Transform3D(-0.943286, 0, -0.33198, 0, 1, 0, 0.33198, 0, -0.943286, 31.2228, 0.683867, -80.9995)
+
+[node name="sand-floor" parent="." instance=ExtResource("21_gmcgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3298, 0.688198, -81.3576)
+
+[node name="sand-floor2" parent="." instance=ExtResource("21_gmcgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1025, 0.688198, -49.6932)
+
+[node name="sand-floor4" parent="." instance=ExtResource("21_gmcgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06291, 1.03202, -87.4439)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sand-floor4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.401317, 1.59855, 1.8475)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sand-floor4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9349, 0.354911, 0, -0.354911, 0.9349, -0.265156, -1.81527, -0.718033)
+shape = SubResource("BoxShape3D_pi7aj")
+
+[node name="sand-floor5" parent="." instance=ExtResource("21_gmcgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4178, 0.943412, -40.874)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sand-floor5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59855, -2.47079)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sand-floor5/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9349, 0.354911, 0, -0.354911, 0.9349, -0.265156, -1.81527, -0.718033)
+shape = SubResource("BoxShape3D_pi7aj")
+
+[node name="sand-floor3" parent="." instance=ExtResource("21_gmcgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9531, 0.141473, -50.3096)
+
+[node name="water_fountain" parent="." instance=ExtResource("22_gmcgx")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 6.2032, 0.796346, -178.364)
