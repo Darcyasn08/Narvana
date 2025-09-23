@@ -12,6 +12,7 @@ func _ready() -> void:
 	SignalBus.on_buy_shop_item.connect(add_shop_item)
 	SignalBus.on_item_selected.connect(select_shop_item)
 	update_items()
+	$money_label.text = str(Global.coins)
 
 func set_items() -> void:
 	pass

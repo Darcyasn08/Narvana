@@ -10,7 +10,7 @@ var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
 #player
 var player_can_move: bool = true
 var player_can_attack: bool = true
-var current_weapon: int
+var current_weapon: int = 1
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1
@@ -100,7 +100,7 @@ var shop_items: Dictionary = {
 }
 
 var completed_levels: Dictionary = {
-	"first_level": true,
+	"first_level": false,
 	"second_level": false,
 	"third_level": false
 }
@@ -114,7 +114,7 @@ var inventory: Dictionary = {
 			"name": "Foto da banda",
 			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
 			"buff": {
-				"damage": 10,
+				"damage": 20,
 				"health": 0,
 				"speed": 0,
 			},
@@ -139,6 +139,17 @@ var inventory: Dictionary = {
 				"damage": 0,
 				"health": 0,
 				"speed": 2,
+			},
+		},
+		"car_keys": {
+			"player_has": true,
+			"icon": "res://UI/inventory/coffee-cup.png",
+			"name": "Chaves do carro",
+			"desc": "Um carrinho pra ir trabalhar (+velocidade)",
+			"buff": {
+				"damage": 0,
+				"health": 0,
+				"speed": 1,
 			},
 		}
 	},
@@ -165,6 +176,7 @@ var npc_manager: Dictionary = {
 
 var dialogs: Dictionary = {
 	"crab": {
+		"name": "Caranguejo",
 		"is_first_time": true,
 		"dialog_tree": {
 			"first_dialog": {
@@ -237,6 +249,7 @@ var dialogs: Dictionary = {
 		}
 	},
 	"jellyfish": {
+		"name": "Anderson",
 		"is_first_time": true,
 		"dialog_tree": {
 			"first_dialog": {
@@ -278,6 +291,7 @@ var dialogs: Dictionary = {
 	},
 		
 	"grandma": {
+		"name": "Vovó",
 		"dialog_tree": {
 			"is_first_time": true,
 			"first_dialog": {
@@ -313,6 +327,7 @@ var dialogs: Dictionary = {
 	},
 	
 	"master": {
+		"name": "Master",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {
@@ -362,6 +377,7 @@ var dialogs: Dictionary = {
 	},
 	
 	"second_master": {
+		"name": "Master",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {
@@ -420,6 +436,7 @@ var dialogs: Dictionary = {
 	},
 	
 	"master_first_level": {
+		"name": "Master",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {

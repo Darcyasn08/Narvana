@@ -1,9 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcwkhk5uegqo"]
+[gd_scene load_steps=13 format=3 uid="uid://bcwkhk5uegqo"]
 
 [ext_resource type="Script" uid="uid://rsoqnta267iu" path="res://scripts/options_menu.gd" id="1_3t8k5"]
+[ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="2_ijsq6"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_qgort"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t8k5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijsq6"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgort"]
 content_margin_left = 10.0
@@ -12,11 +17,7 @@ content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0.286266, 0.323243, 0.392259, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijsq6"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3t8k5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl585"]
 atlas = ExtResource("2_qgort")
@@ -68,16 +69,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0372205, 0.0769108, 0.113894, 1)
+color = Color(0.09770303, 0.17031479, 0.22960305, 1)
 
 [node name="ColorRect" type="ColorRect" parent="base_screen"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -361.0
+offset_top = -544.0
 offset_right = 376.0
-offset_bottom = 655.0
+offset_bottom = 992.63904
 grow_vertical = 2
 scale = Vector2(0.713245, 0.713245)
 color = Color(0.0676492, 0.120297, 0.169335, 1)
@@ -95,9 +96,9 @@ scale = Vector2(0.713245, 0.713245)
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
 text = "TELA"
 alignment = 0
 
@@ -105,9 +106,9 @@ alignment = 0
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
 text = "ÁUDIO"
 alignment = 0
 
@@ -115,9 +116,9 @@ alignment = 0
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
 text = "CONTROLES"
 alignment = 0
 
@@ -125,21 +126,20 @@ alignment = 0
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijsq6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qgort")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3t8k5")
 text = "SAIR"
 alignment = 0
 
-[node name="back_button" type="Button" parent="base_screen"]
+[node name="back_button" type="TextureButton" parent="base_screen"]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 38.0
 offset_right = 74.0
 offset_bottom = 115.0
 scale = Vector2(0.713245, 0.713245)
-theme_override_font_sizes/font_size = 50
-text = "<"
+texture_normal = ExtResource("2_ijsq6")
 
 [node name="Telas" type="Sprite2D" parent="base_screen"]
 visible = false

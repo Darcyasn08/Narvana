@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cc7turudgrccy"]
+[gd_scene load_steps=20 format=3 uid="uid://cc7turudgrccy"]
 
 [ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://hb48uqcnov17" path="res://art/narvana-logo - Copia.png" id="3_201h0"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_1y4tv"]
+[ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="5_4fmqt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
 bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
@@ -87,6 +88,68 @@ _data = {
 &"show_save_screen": SubResource("Animation_201h0")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4tv"]
+bg_color = Color(0.3399341, 0.5773297, 0.71294236, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_1y4tv"]
+font = ExtResource("4_1y4tv")
+font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fmqt"]
+bg_color = Color(0.21671104, 0.3579457, 0.48469675, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swjo3"]
+bg_color = Color(0.1464243, 0.25498042, 0.35424882, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="Animation" id="Animation_4fmqt"]
+resource_name = "show_confirm_delete"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_swjo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uyt88"]
+_data = {
+&"RESET": SubResource("Animation_swjo3"),
+&"show_confirm_delete": SubResource("Animation_4fmqt")
+}
+
 [node name="start_menu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_jcvkx")
@@ -160,7 +223,6 @@ text = "v0.0.1"
 label_settings = SubResource("LabelSettings_bpkul")
 
 [node name="save_screen" type="Control" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 z_index = 1
@@ -196,19 +258,107 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="close_save_screen_button" type="Button" parent="save_screen"]
+[node name="close_save_screen_button" type="TextureButton" parent="save_screen"]
 layout_mode = 1
 offset_left = 26.0
 offset_top = 22.0
 offset_right = 119.0
 offset_bottom = 112.0
-theme_override_font_sizes/font_size = 40
-text = "<-"
+texture_normal = ExtResource("5_4fmqt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="save_screen"]
 libraries = {
 &"": SubResource("AnimationLibrary_4fmqt")
 }
 
+[node name="confirm_delete_save" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="confirm_delete_save"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="confirm_delete_save"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1y4tv")
+
+[node name="Label" type="Label" parent="confirm_delete_save/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -404.5
+offset_top = 52.0
+offset_right = 404.5
+offset_bottom = 107.0
+grow_horizontal = 2
+text = "Tem certeza que deseja deletar o mundo?"
+label_settings = SubResource("LabelSettings_1y4tv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="confirm_delete_save/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.75
+offset_top = -86.5
+offset_right = 216.75
+offset_bottom = 86.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 13
+
+[node name="delete_save_button" type="Button" parent="confirm_delete_save/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("4_1y4tv")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_swjo3")
+text = "Sim"
+
+[node name="back_delete_button" type="Button" parent="confirm_delete_save/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_fonts/font = ExtResource("4_1y4tv")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_swjo3")
+text = "Não"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="confirm_delete_save"]
+libraries = {
+&"": SubResource("AnimationLibrary_uyt88")
+}
+
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="save_screen/close_save_screen_button" to="." method="_on_close_save_screen_button_pressed"]
+[connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/delete_save_button" to="." method="_on_delete_save_button_pressed"]
+[connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/back_delete_button" to="." method="_on_back_delete_button_pressed"]

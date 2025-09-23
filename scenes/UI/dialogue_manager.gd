@@ -60,6 +60,7 @@ func check_done_dialog() -> void:
 func start_dialogue(npc: String) -> void:
 	#garante que o [e] não seja clicado de novo no meio do dialogo
 	if !has_started_diag:
+		$dialog_box/dialog_text.text = ""
 		Global.player_can_move = false
 		#print("start diag")
 		talk_speed = normal_talk_speed

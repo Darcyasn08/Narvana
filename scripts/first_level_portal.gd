@@ -33,6 +33,7 @@ func _input(_event: InputEvent) -> void:
 			get_tree().change_scene_to_packed(Global.loading_screen)
 		elif Global.current_world == Global.worlds.FIRST_LEVEL and !portal_closed:
 			Global.completed_levels["first_level"] = true
+			SaveLoad.save_content[Global.current_save]["completed_levels"]["first_level"] = true
 			Global.player_can_attack = true
 			Global.player_normal_pos = Vector3(90,2,113)
 			Global.current_world = Global.worlds.NORMAL

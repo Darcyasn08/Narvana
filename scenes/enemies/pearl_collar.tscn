@@ -8,13 +8,13 @@ radius = 0.190688
 height = 1.07904
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2kp1w"]
-size = Vector3(0.511475, 0.456818, 0.876709)
+size = Vector3(0.5581056, 0.456818, 1.6867981)
 
 [node name="pearl_collar" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_8t814")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1.4, 0, -2.1139412e-07, 0, 1.4, 0, 2.1139412e-07, 0, -1.4, 0, 0.25209624, 0)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
 radius = 0.2
@@ -39,7 +39,7 @@ radius = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.447, -1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260837, -0.165915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5483352, -0.0011683553)
 shape = SubResource("CapsuleShape3D_f22wo")
 
 [node name="Timer" type="Timer" parent="."]
@@ -48,10 +48,11 @@ one_shot = true
 autostart = true
 
 [node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("2_f22wo")]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0.0013900029, 0.16330831, -4.2020663e-05)
 hitbox_collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(-1.10254, -0.00449599, -0.00951294, -0.00938438, 0.871012, 0.675985, 0.00475849, 0.676035, -0.87101, -0.00402435, 0.329735, -0.282163)
+transform = Transform3D(-1.1025256, -0.002823046, -0.010136088, -0.009384256, 0.7441943, 0.8135051, 0.0047584167, 0.81355476, -0.7441845, -0.0028224636, 0.56572264, -0.4426965)
 shape = SubResource("BoxShape3D_2kp1w")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

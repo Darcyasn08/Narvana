@@ -6,6 +6,7 @@ func _ready() -> void:
 	hide()
 	SaveLoad.load_save()
 	SignalBus.on_player_health_changed.emit(Global.player_health)
+	$inventory_selected.hide()
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -16,11 +17,14 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = true
 		Global.game_paused = true
 		show()
+		$AnimationPlayer.play("fade_in")
 		SignalBus.on_game_paused.emit(Global.game_paused)
 
 func _on_options_button_pressed() -> void:
 	$button_container.show()
 	$inventory_menu.hide()
+	$inventory_selected.hide()
+	$options_selected.show()
 	#$options_menu.show()
 	#print("open options")
 
@@ -36,6 +40,8 @@ func _on_back_button_pressed() -> void:
 func _on_inventory_button_pressed() -> void:
 	$inventory_menu.show()
 	$button_container.hide()
+	$inventory_selected.show()
+	$options_selected.hide()
 
 func _on_config_button_pressed() -> void:
 	click_sfx.play()
@@ -59,10 +65,6 @@ func _on_reset_health_button_pressed() -> void:
 	#print(Global.max_player_health)
 
 func save() -> void:
-	#SaveLoad.save_content.current_world = Global.current_world
-	#SaveLoad.save_content.health = Global.player_health
 	#SaveLoad.save_content.inventory = Global.inventory
-	##print(Global.inventory)
-	#Global.has_started_game = true
-	#SaveLoad.save_content.has_started_game = Global.has_started_game
+	SaveLoad.save_to_file()
 	SaveLoad.save()

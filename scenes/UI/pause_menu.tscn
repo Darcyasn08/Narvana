@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0l4begr7id8h"]
+[gd_scene load_steps=22 format=3 uid="uid://d0l4begr7id8h"]
 
 [ext_resource type="Script" uid="uid://cljn2vudist6q" path="res://scripts/pause_menu.gd" id="1_mko1u"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="1_qo2fb"]
@@ -7,22 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://ddw77aywbgkt1" path="res://scenes/UI/inventory_menu.tscn" id="5_w67w4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="6_eir0s"]
 [ext_resource type="AudioStream" uid="uid://dmbtpb0yei5xm" path="res://music/button_click.mp3" id="6_sipkl"]
+[ext_resource type="Texture2D" uid="uid://b7kuv7itnmie3" path="res://UI/menu/pause-buttons-container.png" id="8_3pfkw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mko1u"]
-font_size = 26
+font = ExtResource("6_eir0s")
+font_size = 35
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mko1u"]
 atlas = ExtResource("1_qo2fb")
 region = Rect2(442.215, 51.343, 266.996, 170.471)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sipkl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pfkw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w67w4"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.37553, 0.379763, 0.456985, 1)
+bg_color = Color(0.44099, 0.549534, 0.617895, 1)
 skew = Vector2(0.2, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -41,17 +41,19 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w67w4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pfkw"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.44099, 0.549534, 0.617895, 1)
+bg_color = Color(0.37553, 0.379763, 0.456985, 1)
 skew = Vector2(0.2, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sipkl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w67w4"]
 
@@ -60,11 +62,80 @@ content_margin_left = 20.0
 content_margin_top = 5.0
 content_margin_right = 20.0
 content_margin_bottom = 5.0
-bg_color = Color(0.370005, 0.418123, 0.472564, 1)
+bg_color = Color(0.47211415, 0.3069816, 0.7142676, 0.7058824)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xovtl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pfkw"]
+
+[sub_resource type="Animation" id="Animation_3pfkw"]
+resource_name = "fade_in"
+length = 0.23
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22333331),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("button_container:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2233),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xovtl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("button_container:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_feba6"]
+_data = {
+&"RESET": SubResource("Animation_xovtl"),
+&"fade_in": SubResource("Animation_3pfkw")
+}
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
@@ -77,7 +148,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0352941, 0.0196078, 0.0745098, 0.654902)
+color = Color(0.035399072, 0.066209175, 0.17917112, 0.77254903)
 
 [node name="options_menu" parent="." instance=ExtResource("2_feath")]
 visible = false
@@ -89,31 +160,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.5
-offset_top = -52.0
-offset_right = 83.5
-offset_bottom = -16.0
+offset_left = -87.0
+offset_top = -61.0
+offset_right = 87.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 text = "jogo pausado"
 label_settings = SubResource("LabelSettings_mko1u")
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 561.0
-offset_top = 633.0
-offset_right = 789.0
-offset_bottom = 708.0
-text = "caros testers, não cliquem
-no botão de sair na versão de
-web, vai travar tudo!"
-
-[node name="Label3" type="Label" parent="."]
-offset_left = 808.0
-offset_top = 649.0
-offset_right = 833.0
-offset_bottom = 672.0
-text = "--->"
 
 [node name="inventory_menu" parent="." instance=ExtResource("5_w67w4")]
 visible = false
@@ -139,6 +194,7 @@ texture = SubResource("AtlasTexture_mko1u")
 texture = ExtResource("4_feath")
 
 [node name="menu_selection" type="HBoxContainer" parent="."]
+z_index = 2
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -150,21 +206,54 @@ grow_horizontal = 2
 
 [node name="inventory_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sipkl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3093923, 0.48613518, 0.75955075, 1)
+theme_override_colors/font_hover_color = Color(0.489451, 0.77989507, 0.8265063, 1)
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_w67w4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sipkl")
 text = "INVENTÁRIO"
+flat = true
 
 [node name="options_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w67w4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.3093923, 0.48613518, 0.75955075, 1)
+theme_override_colors/font_hover_color = Color(0.489451, 0.77989507, 0.8265063, 1)
+theme_override_fonts/font = ExtResource("6_eir0s")
+theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_w67w4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w67w4")
 text = "OPÇÕES"
+flat = true
+
+[node name="Polygon2D" type="Polygon2D" parent="menu_selection"]
+position = Vector2(-813.5, -58)
+polygon = PackedVector2Array(805, 81, 805, 97, 793, 89)
+
+[node name="Polygon2D2" type="Polygon2D" parent="menu_selection"]
+position = Vector2(-425.5, -56)
+polygon = PackedVector2Array(803, 89, 792, 97, 792, 82)
+
+[node name="PauseButtonsContainer" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.0
+offset_top = -222.0
+offset_right = 235.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0680851, 1.0604167)
+texture = ExtResource("8_3pfkw")
 
 [node name="button_container" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -172,57 +261,131 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -54.0
-offset_right = 86.0
-offset_bottom = 54.0
+offset_left = -138.0
+offset_top = -124.0
+offset_right = 138.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="back_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.33645973, 0.5908849, 0.7650101, 1)
+theme_override_colors/font_hover_color = Color(0.5725662, 0.81563556, 0.89016783, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Continuar"
+flat = true
 
 [node name="config_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.33645973, 0.5908849, 0.7650101, 1)
+theme_override_colors/font_hover_color = Color(0.5725662, 0.81563556, 0.89016783, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Configurações"
+flat = true
 
 [node name="reset_health_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.33645973, 0.5908849, 0.7650101, 1)
+theme_override_colors/font_hover_color = Color(0.5725662, 0.81563556, 0.89016783, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Resetar vida"
+flat = true
 
 [node name="save_button2" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.33645973, 0.5908849, 0.7650101, 1)
+theme_override_colors/font_hover_color = Color(0.5725662, 0.81563556, 0.89016783, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
-text = "Salvar"
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
+text = "Salvar jogo"
+flat = true
 
 [node name="quit_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.33645973, 0.5908849, 0.7650101, 1)
+theme_override_colors/font_hover_color = Color(0.5725662, 0.81563556, 0.89016783, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Voltar início"
+flat = true
 
 [node name="click_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sipkl")
 volume_db = 5.0
 bus = &"Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_feba6")
+}
+
+[node name="options_selected" type="Control" parent="."]
+z_index = 3
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 47.0
+offset_top = 103.0
+offset_right = 157.0
+offset_bottom = 111.0
+grow_horizontal = 2
+
+[node name="Polygon2D3" type="Polygon2D" parent="options_selected"]
+position = Vector2(-284.271, -25.753868)
+scale = Vector2(0.35514018, 0.33846164)
+polygon = PackedVector2Array(899, 82, 899, 90.86364, 792, 90.86364, 792, 82)
+
+[node name="Polygon2D4" type="Polygon2D" parent="options_selected"]
+position = Vector2(-445.64813, -25.753853)
+scale = Vector2(0.62363535, 0.33846164)
+polygon = PackedVector2Array(899, 82, 899, 90.86364, 792, 90.86364, 792, 82)
+
+[node name="inventory_selected" type="Control" parent="."]
+z_index = 3
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 102.0
+offset_right = 14.0
+offset_bottom = 119.0
+grow_horizontal = 2
+
+[node name="Polygon2D5" type="Polygon2D" parent="inventory_selected"]
+position = Vector2(-1368, -24.000015)
+scale = Vector2(1.7289709, 0.33846164)
+polygon = PackedVector2Array(899, 82, 899, 90.86364, 792, 90.86364, 792, 82)
 
 [connection signal="pressed" from="menu_selection/inventory_button" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="menu_selection/options_button" to="." method="_on_options_button_pressed"]

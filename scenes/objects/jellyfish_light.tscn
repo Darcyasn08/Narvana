@@ -8,7 +8,9 @@ transparency = 1
 albedo_color = Color(0.705486, 0.596818, 0.331543, 0.839216)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmkl0"]
-albedo_color = Color(0.608765, 0.793458, 0.854813, 1)
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.81928915, 0.70205665, 0.92072034, 0.29411766)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4foa"]
 emission_enabled = true

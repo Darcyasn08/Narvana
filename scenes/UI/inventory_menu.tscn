@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddw77aywbgkt1"]
+[gd_scene load_steps=13 format=3 uid="uid://ddw77aywbgkt1"]
 
 [ext_resource type="Script" uid="uid://qfijfq46qev1" path="res://scripts/UI/inventory_menu.gd" id="1_qtyf2"]
+[ext_resource type="Texture2D" uid="uid://bkq4ovlce3mt2" path="res://UI/inventory_background.png" id="2_5bih5"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_j6bxq"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_ivdwf"]
+[ext_resource type="Texture2D" uid="uid://bm3j21ucbw45v" path="res://UI/narvana-fire.png" id="5_ivdwf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
 bg_color = Color(0.145098, 0.172549, 0.227451, 0.988235)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6bxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgxa"]
 bg_color = Color(0.278734, 0.472982, 0.557744, 1)
@@ -15,12 +16,32 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6bxq"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6bxq"]
 bg_color = Color(0.394165, 0.432446, 0.475894, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm714"]
+font = ExtResource("4_ivdwf")
+font_size = 45
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4yxnc"]
+bg_color = Color(1, 0.59473836, 0.9243156, 1)
+corner_radius_top_left = 78
+corner_radius_top_right = 78
+corner_radius_bottom_right = 78
+corner_radius_bottom_left = 78
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bih5"]
+bg_color = Color(1, 0.59473836, 0.9243156, 1)
+corner_radius_top_left = 222
+corner_radius_top_right = 222
+corner_radius_bottom_right = 222
+corner_radius_bottom_left = 222
 
 [node name="inventory_menu" type="Control"]
 layout_mode = 3
@@ -32,16 +53,33 @@ grow_vertical = 2
 script = ExtResource("1_qtyf2")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -597.0
+offset_top = -813.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fnxws")
+
+[node name="InventoryBackground" type="TextureRect" parent="."]
+modulate = Color(0.34901962, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -188.99998
+offset_top = -1747.0
+offset_right = -79.588135
+offset_bottom = 82.97461
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.1333333, 1.0787035)
+texture = ExtResource("2_5bih5")
 
 [node name="item_list" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -50,10 +88,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -475.5
-offset_top = -119.0
-offset_right = 475.5
-offset_bottom = 119.0
+offset_left = -904.0
+offset_top = -177.0
+offset_right = -93.0
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -85,15 +123,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -68.0
-offset_right = -21.0
-offset_bottom = -18.0
+offset_left = -598.0
+offset_top = -509.0
+offset_right = -315.0
+offset_bottom = -459.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j6bxq")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lfgxa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j6bxq")
 text = "SELECIONAR ITEM DA LOJA"
 
 [node name="shop_items_container" type="Panel" parent="."]
@@ -104,16 +142,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -246.0
-offset_top = -349.0
-offset_right = -27.0
-offset_bottom = -87.0
+offset_left = -840.0
+offset_top = -709.0
+offset_right = -621.0
+offset_bottom = -447.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j6bxq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="shop_items_container"]
-layout_mode = 2
+layout_mode = 0
 offset_left = 9.0
 offset_top = 12.0
 offset_right = 209.0
@@ -121,27 +159,99 @@ offset_bottom = 254.0
 
 [node name="selected_item_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 924.0
-offset_top = 620.0
-offset_right = 964.0
-offset_bottom = 643.0
+offset_left = 1527.0
+offset_top = 380.0
+offset_right = 1567.0
+offset_bottom = 403.0
 text = "-"
 
 [node name="label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 780.0
-offset_top = 620.0
-offset_right = 916.0
-offset_bottom = 643.0
+offset_left = 1380.0
+offset_top = 381.0
+offset_right = 1516.0
+offset_bottom = 404.0
 text = "item selecionado:"
 
 [node name="selected_item_stats" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 782.0
-offset_top = 647.0
-offset_right = 948.0
-offset_bottom = 721.0
+offset_left = 1382.0
+offset_top = 408.0
+offset_right = 1548.0
+offset_bottom = 482.0
 text = "item selecionado:"
+
+[node name="money_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1507.0
+offset_top = 268.0
+offset_right = 1853.0
+offset_bottom = 328.0
+text = "297"
+label_settings = SubResource("LabelSettings_jm714")
+horizontal_alignment = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1864.0
+offset_top = 271.0
+offset_right = 1899.0
+offset_bottom = 306.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4yxnc")
+
+[node name="magics" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -652.0
+offset_top = -411.0
+offset_right = -43.0
+offset_bottom = 17.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Panel3" type="Panel" parent="magics"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 40.0
+offset_right = 251.0
+offset_bottom = 245.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5bih5")
+
+[node name="Panel4" type="Panel" parent="magics"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 166.0
+offset_right = 460.0
+offset_bottom = 362.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5bih5")
+
+[node name="Panel5" type="Panel" parent="magics"]
+layout_mode = 0
+offset_left = 373.0
+offset_top = -20.0
+offset_right = 574.0
+offset_bottom = 181.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5bih5")
+
+[node name="NarvanaFire" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -346.99994
+offset_right = 181.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7956493, 0.7942238)
+texture = ExtResource("5_ivdwf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="open_item_select" to="." method="_on_open_item_select_pressed"]

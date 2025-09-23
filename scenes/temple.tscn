@@ -1059,7 +1059,7 @@ mesh = SubResource("BoxMesh_xp7k0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.364536, 0, 17.145)
 
 [node name="weapon_station" parent="." instance=ExtResource("11_xp7k0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23667, 2.48964, -29.1043)
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 12.977094, 2.48964, -21.409462)
 
 [node name="temple_pillar_mesh" parent="." instance=ExtResource("12_n3poh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1008, 1.91973, -18.0115)
@@ -1068,7 +1068,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1008, 1.91973, -18.0115)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35858, 1.91973, -18.0115)
 
 [node name="temple_pillar_mesh3" parent="." instance=ExtResource("12_n3poh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204199, 1.91973, -21.2275)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.204199, 1.91973, -18.019352)
 
 [node name="temple_pillar_mesh6" parent="." instance=ExtResource("12_n3poh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.89632, 1.91973, -25.5277)

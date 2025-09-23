@@ -1,36 +1,30 @@
 [gd_scene load_steps=7 format=3 uid="uid://dei3a3xrdp3f0"]
 
 [ext_resource type="Script" uid="uid://c726ymnqq4fig" path="res://scenes/UI/dialogue_manager.gd" id="1_jyfl6"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_hvep2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqhs2"]
-bg_color = Color(0.146538, 0.192096, 0.2944, 1)
+bg_color = Color(0.13310674, 0.25277933, 0.4212684, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okyy2"]
-bg_color = Color(0.199831, 0.25658, 0.383825, 1)
+bg_color = Color(0.21950835, 0.36910284, 0.4805379, 1)
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyfl6"]
-font_size = 20
+font = ExtResource("2_hvep2")
+font_size = 35
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyfl6"]
 content_margin_left = 10.0
-bg_color = Color(0.269183, 0.345908, 0.477687, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvep2"]
-content_margin_left = 10.0
-bg_color = Color(0.269183, 0.345908, 0.477687, 1)
+bg_color = Color(0.08076724, 0.2557908, 0.35431927, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -47,42 +41,47 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -301.0
-offset_top = -175.0
+offset_top = -212.0
 offset_right = 301.0
-offset_bottom = -25.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Panel2" type="Panel" parent="dialog_box"]
 layout_mode = 0
-offset_top = -1.0
+offset_left = -59.0
+offset_top = -19.0
 offset_right = 194.0
 offset_bottom = 53.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uqhs2")
 
 [node name="Panel" type="Panel" parent="dialog_box"]
 layout_mode = 0
-offset_top = 31.0
-offset_right = 597.0
-offset_bottom = 148.0
+offset_left = -59.0
+offset_top = 21.0
+offset_right = 666.0
+offset_bottom = 184.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_okyy2")
 
 [node name="dialog_text" type="RichTextLabel" parent="dialog_box"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 46.0
-offset_right = 554.0
-offset_bottom = 140.0
+offset_left = -31.0
+offset_top = 36.0
+offset_right = 621.0
+offset_bottom = 166.0
+theme_override_fonts/normal_font = ExtResource("2_hvep2")
+theme_override_font_sizes/normal_font_size = 36
 theme_override_font_sizes/bold_italics_font_size = 1
-theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "faserdf"
 scroll_active = false
 
 [node name="name_label" type="Label" parent="dialog_box"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 1.0
-offset_right = 74.0
-offset_bottom = 31.0
+offset_left = -45.0
+offset_top = -17.0
+offset_right = 21.0
+offset_bottom = 18.0
 text = "name"
 label_settings = SubResource("LabelSettings_jyfl6")
 
@@ -92,22 +91,26 @@ root_node = NodePath("../..")
 [node name="dialog_options" type="VBoxContainer" parent="dialog_box"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 28.0
-offset_top = 77.0
-offset_right = 434.0
-offset_bottom = 130.0
+offset_left = 365.0
+offset_top = 103.0
+offset_right = 636.0
+offset_bottom = 168.0
 
 [node name="diag_option1" type="Button" parent="dialog_box/dialog_options"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("2_hvep2")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_jyfl6")
 text = "option1"
 alignment = 0
 
 [node name="diag_option2" type="Button" parent="dialog_box/dialog_options"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_font_sizes/font_size = 17
-theme_override_styles/normal = SubResource("StyleBoxFlat_hvep2")
+theme_override_fonts/font = ExtResource("2_hvep2")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_jyfl6")
 text = "option2"
 alignment = 0
 

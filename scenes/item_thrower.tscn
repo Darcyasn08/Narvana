@@ -1,28 +1,189 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw01vvimnw8u4"]
+[gd_scene load_steps=13 format=3 uid="uid://cw01vvimnw8u4"]
+
+[ext_resource type="Script" uid="uid://cyvhgykgo4myv" path="res://scripts/item_thrower.gd" id="1_4xtiv"]
+[ext_resource type="PackedScene" uid="uid://b83e0181tmysa" path="res://scenes/UI/item_thrower_menu.tscn" id="2_copec"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4xtiv"]
+radius = 1.7599604
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yy7y"]
-albedo_color = Color(0.639367, 0.627649, 0.660004, 1)
+transparency = 1
+albedo_color = Color(1, 0.49011028, 0.829714, 0.7019608)
+emission_enabled = true
+emission = Color(0.5977349, 0.30890402, 0.58479476, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4xtiv"]
-material = SubResource("StandardMaterial3D_3yy7y")
-size = Vector3(1, 0.8, 0.5)
+[sub_resource type="SphereMesh" id="SphereMesh_4xtiv"]
+radius = 0.7
+height = 1.4
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3yy7y"]
-size = Vector3(1.50076, 1.15735, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_copec"]
+transparency = 1
+albedo_color = Color(0.7272084, 0.6063881, 0.9999419, 0.7411765)
+emission_enabled = true
+emission = Color(0.02992183, 0.6185499, 0.8089654, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgiro"]
+transparency = 1
+albedo_color = Color(1, 0.7588887, 0.44723433, 0.7607843)
+emission_enabled = true
+emission = Color(0.96531636, 0.7214861, 0.44980437, 1)
+
+[sub_resource type="Animation" id="Animation_4xtiv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.44095027, 0.61820495, -0.3490014)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/MeshInstance3D/MeshInstance3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.19036055, 0.07458854, -0.031251192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/MeshInstance3D/MeshInstance3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.11783576, -0.018157482, -0.17927432)]
+}
+
+[sub_resource type="Animation" id="Animation_3yy7y"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.44095027, 0.61820495, -0.3490014), Vector3(-0.44095027, 0.89107645, -0.3490014)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/MeshInstance3D/MeshInstance3D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.77, 1.67),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.19036055, 0.07458854, -0.031251192), Vector3(-0.19036055, 0.18137383, -0.031251192), Vector3(-0.19036055, -0.06054288, -0.031251192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/MeshInstance3D/MeshInstance3D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.78, 1.9333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.11783576, -0.018157482, -0.17927432), Vector3(0.118, -0.23, -0.179), Vector3(0.118, 0.09, -0.179)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_copec"]
+_data = {
+&"RESET": SubResource("Animation_4xtiv"),
+&"idle": SubResource("Animation_3yy7y")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xtiv"]
+albedo_color = Color(0.8609363, 0.58425814, 0.8503992, 1)
+emission_enabled = true
+emission = Color(0.6859842, 0.33937716, 0.9497424, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_copec"]
+material = SubResource("StandardMaterial3D_4xtiv")
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="item_thrower" type="Node3D" groups=["item_thrower"]]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
-mesh = SubResource("BoxMesh_4xtiv")
+script = ExtResource("1_4xtiv")
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.73212, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10962, 0)
+visible = false
 text = "clique e para jogar algum item
 do seu inventário"
 
 [node name="Area3D" type="Area3D" parent="." groups=["item_throwers"]]
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00852966, 0.473088, 0)
-shape = SubResource("BoxShape3D_3yy7y")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16974542, 0.68643606, 0.08792877)
+shape = SubResource("SphereShape3D_4xtiv")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57856345, 0, 0.46197796)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44095027, 0.61820495, -0.3490014)
+material_override = SubResource("StandardMaterial3D_3yy7y")
+mesh = SubResource("SphereMesh_4xtiv")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/MeshInstance3D"]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -0.19036055, 0.07458854, -0.031251192)
+material_override = SubResource("StandardMaterial3D_copec")
+mesh = SubResource("SphereMesh_4xtiv")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D/MeshInstance3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.11783576, -0.018157482, -0.17927432)
+material_override = SubResource("StandardMaterial3D_rgiro")
+mesh = SubResource("SphereMesh_4xtiv")
+skeleton = NodePath("../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_copec")
+}
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(-0.21856263, -0.03948973, -0.9750237, 0.97159046, -0.10176825, -0.21367131, -0.09078862, -0.9940241, 0.0606106, 0.09030509, 0.4739902, 0)
+emitting = false
+amount = 12
+lifetime = 0.7
+mesh = SubResource("BoxMesh_copec")
+emission_shape = 4
+emission_points = PackedVector3Array(0, 0, 0, 0, 3, 0)
+spread = 92.71
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 4.0
+angle_min = -260.2
+angle_max = 416.4
+scale_amount_min = 0.6
+scale_amount_max = 1.6
+
+[node name="item_thrower_menu" parent="." instance=ExtResource("2_copec")]
+visible = false
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

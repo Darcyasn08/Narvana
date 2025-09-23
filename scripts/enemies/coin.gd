@@ -61,7 +61,7 @@ func unique_die() -> void:
 	#hide() #colocar a animação de morte aqui depois
 
 func fall() -> void:
-	fall_time = randf_range(2,3.5)
+	fall_time = randf_range(1.3,2.8)
 	$uped.hide()
 	$falled.show()
 	$enemy_hitbox.monitoring = false

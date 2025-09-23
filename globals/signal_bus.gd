@@ -22,6 +22,9 @@ signal on_start_dialog_function()
 signal on_game_paused()
 signal on_show_loading_screen()
 
+signal on_send_delete_request()
+signal on_delete_confirmed()
+
 signal on_buy_shop_item()
 
 signal on_player_health_changed()

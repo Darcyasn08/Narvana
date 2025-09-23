@@ -29,7 +29,8 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	Global.current_weapon = 1
+	#Global.current_weapon = 1
+	print("current_weapon: ",Global.current_weapon)
 	SignalBus.on_changed_mouse_sens.connect(change_mouse_sens)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	change_current_weapon(Global.current_weapon)
@@ -124,13 +125,18 @@ func _input(event: InputEvent) -> void:
 			actual_target = target3
 		if actual_target != null and actual_target.is_in_group("item_throwers"):
 			print("its an item_thrower!!")
-			SignalBus.on_item_removed.emit("teddy")
+			#Global.player_can_move = false
+			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			#$"player_hud/item_thrower_menu".show()
 	
 	if event.is_action_pressed("r"):
 		magic()
 	
 	if event.is_action_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dash()
+		$narwhal_skin/dash_bubble_particle.emitting = true
+		await get_tree().create_timer(2).timeout
+		$narwhal_skin/dash_bubble_particle.emitting = false
 	#para o ataque
 	#if event.is_action_pressed("e") and Global.player_can_attack:
 		#attack()

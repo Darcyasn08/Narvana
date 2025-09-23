@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=11 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ngs"]
 bg_color = Color(0.566484, 0.704534, 0.801609, 1)
@@ -24,7 +25,8 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_umbc4"]
-font_size = 22
+font = ExtResource("2_r6s25")
+font_size = 40
 font_color = Color(0.770781, 0.943237, 0.662571, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
@@ -132,11 +134,16 @@ offset_right = 50.0
 offset_bottom = 33.0
 
 [node name="removed_item_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 136.0
-offset_right = 62.0
-offset_bottom = 159.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.5
+offset_top = 123.0
+offset_right = 182.5
+offset_bottom = 163.0
+grow_horizontal = 2
 label_settings = SubResource("LabelSettings_umbc4")
+horizontal_alignment = 1
 
 [node name="commands" type="Control" parent="."]
 layout_mode = 3

@@ -22,15 +22,24 @@ func _ready() -> void:
 
 func save() -> void:
 	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
-	#SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
-	#SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
-	#SaveLoad.save_content[Global.current_save]["inventory"] = Global.inventory
-	#Global.has_started_game = true
-	#SaveLoad.save_content[Global.current_save]["has_started_game"] = Global.has_started_game
 	file.store_var(save_content.duplicate())
 	file.close()
 	print("jogo salvo!")
 	print(save_content)
+
+func load_to_global() -> void:
+	#salvar no global as variáveis básicas
+	Global.completed_levels = save_content[Global.current_save]["completed_levels"]
+	Global.player_health = SaveLoad.save_content[Global.current_save]["health"]
+	Global.current_world = SaveLoad.save_content[Global.current_save]["current_world"]
+	Global.current_weapon = SaveLoad.save_content[Global.current_save]["current_weapon"]
+
+func save_to_file() -> void:
+	SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
+	SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
+	SaveLoad.save_content[Global.current_save]["completed_levels"] = Global.completed_levels
+	SaveLoad.save_content[Global.current_save]["current_weapon"] = Global.current_weapon
+	SaveLoad.save()
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):

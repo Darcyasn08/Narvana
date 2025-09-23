@@ -101,7 +101,6 @@ transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.3
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]
-visible = false
 
 [node name="dialogue_system" parent="." instance=ExtResource("8_qek5x")]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0uap4n3ddqto"]
+[gd_scene load_steps=10 format=3 uid="uid://c0uap4n3ddqto"]
 
 [ext_resource type="Script" uid="uid://bfe37u62bneoc" path="res://scripts/UI/save_panel.gd" id="1_go1do"]
 [ext_resource type="Texture2D" uid="uid://cn4bxpo22nugw" path="res://UI/save-panel.png" id="2_0qva7"]
@@ -10,11 +10,6 @@
 font = ExtResource("3_0qva7")
 font_size = 52
 outline_color = Color(0.232144, 0.34193, 0.582903, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_76xi8"]
-font_size = 40
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh0yd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wre1k"]
 content_margin_left = 3.0
@@ -28,6 +23,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh0yd"]
 
 [node name="save_panel" type="Control"]
 layout_mode = 3
@@ -95,38 +92,18 @@ theme_override_fonts/font = ExtResource("2_76xi8")
 text = "SAVE X"
 label_settings = SubResource("LabelSettings_go1do")
 
-[node name="info_label" type="Label" parent="Control"]
+[node name="info_label" type="RichTextLabel" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 40.0
+offset_left = 25.0
 offset_top = 83.0
-offset_right = 228.0
-offset_bottom = 209.0
-theme_override_fonts/font = ExtResource("3_0qva7")
+offset_right = 317.0
+offset_bottom = 359.0
+theme_override_fonts/normal_font = ExtResource("3_0qva7")
+theme_override_font_sizes/normal_font_size = 35
 text = "Fase atual
 Vidas: xxxx
 Moedas: 45"
-label_settings = SubResource("LabelSettings_76xi8")
-
-[node name="new_save_button" type="Button" parent="Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -115.5
-offset_top = -21.5
-offset_right = 94.5
-offset_bottom = 40.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_0qva7")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yh0yd")
-text = "NOVO SAVE"
-flat = true
 
 [node name="open_save_button" type="Button" parent="Control"]
 unique_name_in_owner = true
@@ -160,3 +137,23 @@ grow_horizontal = 0
 theme_override_fonts/font = ExtResource("3_0qva7")
 theme_override_font_sizes/font_size = 40
 text = "deletar"
+
+[node name="new_save_button" type="Button" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -49.5
+offset_right = 164.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_0qva7")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yh0yd")
+text = "NOVO SAVE"
+flat = true

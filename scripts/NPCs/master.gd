@@ -2,6 +2,7 @@ extends Node3D
 
 @export var npc_name: String = "master"
 var portal_inst: Object = preload("res://scenes/first_level_portal.tscn")
+var item_thrower_inst: Object = preload("res://scenes/item_thrower.tscn")
 var second_portal_inst: Object = preload("res://scenes/second_level_portal.tscn")
 
 func _ready() -> void:
@@ -32,11 +33,15 @@ func _ready() -> void:
 func open_portal(emmited_name: String, func_id: String) -> void:
 	if emmited_name == npc_name:
 		if func_id == "open_first_level_portal":
-			var first_level_portal: Object = portal_inst.instantiate()
-			first_level_portal.position = $portal_pos.position
-			#Global.current_weapon = Global.weapons.BAT
+			var item_thrower: Object = item_thrower_inst.instantiate()
+			item_thrower.position = position + $portal_pos.position
+			get_parent().add_child(item_thrower)
+			print("added child")
+			#var first_level_portal: Object = portal_inst.instantiate()
+			#first_level_portal.position = $portal_pos.position
+			Global.current_weapon = Global.weapons.BAT
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
-			add_child(first_level_portal)
+			#add_child(first_level_portal)
 		if func_id == "open_second_level_portal":
 			var second_level_portal: Object = second_portal_inst.instantiate()
 			second_level_portal.position = $portal_pos.position

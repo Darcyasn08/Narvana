@@ -7,9 +7,13 @@ var save_qtd: int = 0
 @onready var loading_screen: Object = loading_screen_inst.instantiate()
 var save_panel_inst: Object = preload("res://scenes/UI/save_panel.tscn")
 
+var delete_panel: int = -1
+
 func _ready() -> void:
 	await SaveLoad.load_save()
 	$save_screen.hide()
+	$confirm_delete_save.hide()
+	SignalBus.on_send_delete_request.connect(show_confirm_delete_save)
 	
 	for save in SaveLoad.save_content:
 		print("theres a save: ",save)
@@ -19,7 +23,8 @@ func _ready() -> void:
 			print(SaveLoad.save_content[save])
 		save_panel.id = save_qtd
 		save_panel.title = str("Save ",save_qtd+1)
-		save_panel.info += str("\n",Global.player_health)
+		#save_panel.info += str("\n",Global.player_health)
+		save_panel.info = str(SaveLoad.save_content[save])
 		$save_screen/HBoxContainer.add_child(save_panel)
 		save_qtd += 1
 	
@@ -52,3 +57,17 @@ func _on_start_save_pressed() -> void:
 func _on_close_save_screen_button_pressed() -> void:
 	$save_screen/AnimationPlayer.play("RESET")
 	$save_screen.hide()
+
+func show_confirm_delete_save(id: int) -> void:
+	delete_panel = id
+	$confirm_delete_save.show()
+	$confirm_delete_save/AnimationPlayer.play("show_confirm_delete")
+
+func _on_delete_save_button_pressed() -> void:
+	SignalBus.on_delete_confirmed.emit(delete_panel)
+	delete_panel = -1
+	$confirm_delete_save.hide()
+
+func _on_back_delete_button_pressed() -> void:
+	$confirm_delete_save.hide()
+	delete_panel = -1
