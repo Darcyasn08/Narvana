@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func check_done_dialog() -> void:
-	if !Global.dialogs[cur_npc]["is_first_time"]:
+	if !Global.npc_manager[cur_npc]["is_first_time"]:
 		print("vish, aquele dialogo já rolou...")
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"][cur_text]
 		npc_dialog_tree = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"]
@@ -130,8 +130,8 @@ func progress_dialog() -> void:
 	cur_text += 1
 	if cur_text >= npc_dialog_tree.size():
 		await get_tree().create_timer(.06).timeout #tempo pro dialogo não começar automaticamente
-		if Global.dialogs[cur_npc]["is_first_time"]:
-			Global.dialogs[cur_npc]["is_first_time"] = false
+		if Global.npc_manager[cur_npc]["is_first_time"]:
+			Global.npc_manager[cur_npc]["is_first_time"] = false
 		end_dialog()
 	else:
 		#print("next")

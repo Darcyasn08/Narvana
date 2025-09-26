@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://b22ndftmpantp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hcco"]
+transparency = 1
+albedo_color = Color(0.4, 0.717647, 0.776471, 0.368627)
+metallic = 0.42
+metallic_specular = 0.23
+roughness = 0.53
+
+[sub_resource type="SphereMesh" id="SphereMesh_yfbkh"]
+
+[node name="npc_interact_sign" type="Node3D"]
+
+[node name="name_label" type="Label3D" parent="."]
+transform = Transform3D(-0.999936, 0, 0.0112745, 0, 1, 0, -0.0112745, 0, -0.999936, 0, 2.50171, 0)
+text = "[E]"
+font_size = 73
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999936, 0, 0.0112745, 0, 1, 0, -0.0112745, 0, -0.999936, 0, 2.45947, 0)
+material_override = SubResource("StandardMaterial3D_6hcco")
+mesh = SubResource("SphereMesh_yfbkh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.406403, 0, 0.00458228, 0, 0.406429, 0, -0.00458228, 0, -0.406403, 0.519251, 2.92589, -0.232081)
+material_override = SubResource("StandardMaterial3D_6hcco")
+mesh = SubResource("SphereMesh_yfbkh")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.278796, 0, 0.00314349, 0, 0.278814, 0, -0.00314349, 0, -0.278796, -0.537739, 2.11736, 0.087523)
+material_override = SubResource("StandardMaterial3D_6hcco")
+mesh = SubResource("SphereMesh_yfbkh")

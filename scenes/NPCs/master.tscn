@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cehotwhkrkbkq"]
+[gd_scene load_steps=15 format=3 uid="uid://cehotwhkrkbkq"]
 
 [ext_resource type="Script" uid="uid://0o75wa888xm4" path="res://scripts/NPCs/master.gd" id="1_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://daidw401j2ftw" path="res://3d_models/placeholders/master.glb" id="1_jooxx"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_rnotf"]
 [ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="4_q3f5g"]
 [ext_resource type="PackedScene" uid="uid://caothemudeyai" path="res://globals/npc_manager.tscn" id="5_q3f5g"]
+[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="6_yfbkh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jooxx"]
 diffuse_mode = 3
@@ -30,7 +31,7 @@ albedo_color = Color(0.697626, 0.335568, 0.180609, 1)
 roughness = 0.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h2qy3"]
-radius = 3.736933
+radius = 3.73693
 
 [sub_resource type="Animation" id="Animation_q3f5g"]
 length = 0.001
@@ -129,12 +130,6 @@ area_collision = NodePath("CollisionShape3D")
 shape = SubResource("SphereShape3D_h2qy3")
 debug_color = Color(0.784679, 0.151575, 0.463059, 0.42)
 
-[node name="name_label" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35931, 0)
-visible = false
-text = "???"
-font_size = 60
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2o3k7")
@@ -145,6 +140,8 @@ autoplay = "idle"
 current_npc = "master"
 
 [node name="portal_pos" type="Node3D" parent="."]
-transform = Transform3D(0.94775176, 0, -0.31900895, 0, 1, 0, 0.31900895, 0, 0.94775176, 5.9940658, 0, 1.658287)
+transform = Transform3D(0.947752, 0, -0.319009, 0, 1, 0, 0.319009, 0, 0.947752, 5.99407, 0, 1.65829)
+
+[node name="npc_interact_sign" parent="." instance=ExtResource("6_yfbkh")]
 
 [editable path="master_model"]

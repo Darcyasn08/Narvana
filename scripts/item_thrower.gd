@@ -11,8 +11,7 @@ func _ready() -> void:
 func create_portal(item: String) -> void:
 	$CPUParticles3D.emitting = true
 	var portal: Object = portal_inst.instantiate()
-	portal.position = Vector3(position.x,0,position.z-3.5
-	)
+	portal.position = Vector3(position.x,1,position.z-3.5)
 	print("portal is here!")
 	get_parent().add_child(portal)
 	await get_tree().create_timer(1).timeout

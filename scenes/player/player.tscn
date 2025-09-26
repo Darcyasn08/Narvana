@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=22 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -45,6 +45,14 @@ height = 3.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
 transparency = 1
 albedo_color = Color(1, 1, 0, 0.498039)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
+size = Vector3(2.04321, 1.84058, 0.337708)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0owmy"]
+size = Vector3(2.04321, 1.84058, 0.337708)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p47bc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_75vfm"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -160,6 +168,32 @@ transform = Transform3D(0.999986, 0, 0.00532323, 0, 1, 0, -0.00532323, 0, 0.9999
 mesh = SubResource("SphereMesh_75vfm")
 surface_material_override/0 = SubResource("StandardMaterial3D_0owmy")
 
+[node name="shield_holder" type="StaticBody3D" parent="magics"]
+
+[node name="shelld" type="CollisionShape3D" parent="magics/shield_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00134277, 0.948996, 1.79382)
+shape = SubResource("BoxShape3D_p47bc")
+disabled = true
+
+[node name="shield_detection" type="Area3D" parent="magics/shield_holder" groups=["weapon"]]
+
+[node name="shelld" type="CollisionShape3D" parent="magics/shield_holder/shield_detection"]
+transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.05, -0.00134277, 0.948996, 1.79382)
+shape = SubResource("BoxShape3D_0owmy")
+disabled = true
+
+[node name="weapons_special" type="Area3D" parent="." groups=["weapon"]]
+
+[node name="mangual" type="CollisionShape3D" parent="weapons_special"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.829748, 2.66459)
+shape = SubResource("SphereShape3D_p47bc")
+disabled = true
+
+[node name="bambu_point" type="CollisionShape3D" parent="weapons_special"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0224457, 0.814046, 2.25671)
+shape = SubResource("BoxShape3D_75vfm")
+disabled = true
+
 [node name="music_manager" parent="." instance=ExtResource("6_75vfm")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -167,6 +201,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78216, 0)
 visible = false
 mesh = SubResource("BoxMesh_75vfm")
 
+[node name="combo_attack_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="magics/shield_holder/shield_detection" to="." method="_on_shield_detection_area_entered"]
+[connection signal="timeout" from="combo_attack_timer" to="." method="_on_combo_attack_timer_timeout"]

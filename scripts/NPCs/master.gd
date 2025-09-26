@@ -30,15 +30,16 @@ func _ready() -> void:
 			$master_model/body/StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
 			show()
 
+func _physics_process(delta: float) -> void:
+	pass
+	#look_at_player(delta)
+
 func open_portal(emmited_name: String, func_id: String) -> void:
 	if emmited_name == npc_name:
 		if func_id == "open_first_level_portal":
 			var item_thrower: Object = item_thrower_inst.instantiate()
 			item_thrower.position = position + $portal_pos.position
 			get_parent().add_child(item_thrower)
-			print("added child")
-			#var first_level_portal: Object = portal_inst.instantiate()
-			#first_level_portal.position = $portal_pos.position
 			Global.current_weapon = Global.weapons.BAT
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 			#add_child(first_level_portal)

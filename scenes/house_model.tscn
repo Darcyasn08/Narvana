@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c05fwr0udet8m"]
+[gd_scene load_steps=21 format=3 uid="uid://c05fwr0udet8m"]
 
 [ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="1_e1y3w"]
 [ext_resource type="PackedScene" uid="uid://d2jfubyw2x0p0" path="res://scenes/buildings/house_spike_walls.tscn" id="2_6f60q"]
@@ -57,6 +57,15 @@ albedo_color = Color(0.395297, 0.395795, 0.541855, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb63u"]
 albedo_color = Color(0.587744, 0.37088, 0.323153, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f60q"]
+emission_enabled = true
+emission = Color(0.4465751, 0.38868195, 0.9520859, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_3wy8i"]
+material = SubResource("StandardMaterial3D_6f60q")
+size = Vector3(3, 3.1, 1)
+
 [node name="house_model" type="Node3D"]
 
 [node name="molde_principal" type="CSGCombiner3D" parent="."]
@@ -78,41 +87,42 @@ size = Vector3(3.71033, 3.37061, 2.96338)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
 size = Vector3(3.71033, 3.37061, 2.96338)
 
-[node name="walls_holder" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 2.25305)
-
-[node name="collision_das_paredes" type="StaticBody3D" parent="walls_holder"]
+[node name="collision_das_paredes" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00217104, 1.84908, 2.27099)
 collision_layer = 7
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.412, 1.5, 10.975)
 shape = SubResource("BoxShape3D_g5ubp")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.5, 24.763)
 shape = SubResource("BoxShape3D_g5ubp")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365, 1.5, 10.975)
 shape = SubResource("BoxShape3D_g5ubp")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.88095, 1.34249, 23.3742)
 shape = SubResource("BoxShape3D_hfkix")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88811, 1.33687, -1.12138)
 shape = SubResource("BoxShape3D_metfq")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87599, 1.32416, -1.25257)
 shape = SubResource("BoxShape3D_6syyc")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="collision_das_paredes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89019, 1.31531, 23.2593)
 shape = SubResource("BoxShape3D_o1325")
+
+[node name="walls_holder" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 2.25305)
 
 [node name="saidas" type="Node3D" parent="walls_holder"]
 
@@ -252,5 +262,9 @@ light_color = Color(0.566279, 0.793919, 0.988186, 1)
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51844, 3.14255, 1.60293)
 light_color = Color(0.566279, 0.793919, 0.988186, 1)
+
+[node name="door_sign" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5544493, 1.0215809, 2.378547)
+mesh = SubResource("BoxMesh_3wy8i")
 
 [editable path="house_model"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgkvbcn4gwfui"]
+[gd_scene load_steps=15 format=3 uid="uid://cgkvbcn4gwfui"]
 
 [ext_resource type="Script" uid="uid://dup3kl0m5qpl8" path="res://scripts/first_level_portal.gd" id="1_l7h6p"]
 [ext_resource type="Texture2D" uid="uid://cjs00e6sncidg" path="res://art/portal.png" id="2_prr58"]
+[ext_resource type="PackedScene" uid="uid://cniyires1knml" path="res://3d_models/placeholders/temple_door_normal.glb" id="3_kxfh5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu1gx"]
-radius = 3.52674
+radius = 3.6747
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prr58"]
 albedo_color = Color(0.400117, 0.173141, 0.146734, 1)
@@ -12,6 +13,110 @@ albedo_color = Color(0.400117, 0.173141, 0.146734, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_prr58"]
 material = SubResource("StandardMaterial3D_prr58")
 size = Vector3(4, 3, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v18u8"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.317188, 0.134983, 0.0163365, 1)
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ln3s"]
+albedo_color = Color(0.859922, 0.637533, 0.651644, 1)
+
+[sub_resource type="Animation" id="Animation_p7bhj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.27915, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.16388, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kevib"]
+resource_name = "door_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3, 0, 0), Vector3(-1.2665, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3, 0, 0), Vector3(1.30647, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gpdqj"]
+resource_name = "door_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temple_door_normal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.27915, 0, 0), Vector3(-3, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temple_door_normal2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.16388, 0, 0), Vector3(3, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kevib"]
+_data = {
+&"RESET": SubResource("Animation_p7bhj"),
+&"door_close": SubResource("Animation_kevib"),
+&"door_open": SubResource("Animation_gpdqj")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3uq7k"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kxfh5"]
+material = SubResource("StandardMaterial3D_3uq7k")
+size = Vector3(4, 5, 0.3)
 
 [node name="first_level_portal" type="Area3D"]
 collision_mask = 5
@@ -27,7 +132,39 @@ texture = ExtResource("2_prr58")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46147, 0)
+visible = false
 mesh = SubResource("BoxMesh_prr58")
+
+[node name="temple_door_normal" parent="." instance=ExtResource("3_kxfh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27915, 0, 0)
+
+[node name="Cube" parent="temple_door_normal" index="0"]
+material_override = SubResource("StandardMaterial3D_v18u8")
+
+[node name="Cube_002" parent="temple_door_normal" index="1"]
+material_override = SubResource("StandardMaterial3D_2ln3s")
+
+[node name="temple_door_normal2" parent="." instance=ExtResource("3_kxfh5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16388, 0, 0)
+
+[node name="Cube" parent="temple_door_normal2" index="0"]
+material_override = SubResource("StandardMaterial3D_v18u8")
+
+[node name="Cube_002" parent="temple_door_normal2" index="1"]
+material_override = SubResource("StandardMaterial3D_2ln3s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kevib")
+}
+speed_scale = 1.2
+
+[node name="bg_effect" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50091, -0.0405667)
+mesh = SubResource("BoxMesh_kxfh5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="temple_door_normal"]
+[editable path="temple_door_normal2"]

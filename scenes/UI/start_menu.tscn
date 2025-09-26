@@ -25,7 +25,7 @@ font = ExtResource("4_1y4tv")
 font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_201h0"]
-bg_color = Color(0.63640827, 0.79854035, 0.9251717, 1)
+bg_color = Color(0.636408, 0.79854, 0.925172, 1)
 
 [sub_resource type="Animation" id="Animation_1y4tv"]
 length = 0.001
@@ -89,7 +89,7 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y4tv"]
-bg_color = Color(0.3399341, 0.5773297, 0.71294236, 1)
+bg_color = Color(0.339934, 0.57733, 0.712942, 1)
 corner_radius_top_left = 7
 corner_radius_top_right = 7
 corner_radius_bottom_right = 7
@@ -99,19 +99,34 @@ corner_radius_bottom_left = 7
 font = ExtResource("4_1y4tv")
 font_size = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fmqt"]
-bg_color = Color(0.21671104, 0.3579457, 0.48469675, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swjo3"]
+bg_color = Color(0.146424, 0.25498, 0.354249, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swjo3"]
-bg_color = Color(0.1464243, 0.25498042, 0.35424882, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fmqt"]
+bg_color = Color(0.216711, 0.357946, 0.484697, 1)
 corner_radius_top_left = 9
 corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
+
+[sub_resource type="Animation" id="Animation_swjo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4fmqt"]
 resource_name = "show_confirm_delete"
@@ -127,21 +142,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_swjo3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uyt88"]
@@ -339,8 +339,8 @@ layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_fonts/font = ExtResource("4_1y4tv")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_swjo3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
 text = "Sim"
 
 [node name="back_delete_button" type="Button" parent="confirm_delete_save/Panel/VBoxContainer"]
@@ -349,8 +349,8 @@ layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_fonts/font = ExtResource("4_1y4tv")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_swjo3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4fmqt")
 text = "Não"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="confirm_delete_save"]

@@ -13,10 +13,12 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = true
+		$AnimationPlayer.play("door_open")
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = false
+		$AnimationPlayer.play("door_close")
 
 func open_exit_portal() -> void:
 	portal_closed = false
@@ -25,6 +27,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and player_near:
 		print("clicking")
 		if Global.current_world == Global.worlds.NORMAL:
+			SignalBus.on_game_saved.emit()
 			Global.player_can_attack = true
 			Global.current_world = Global.worlds.FIRST_LEVEL
 			Global.player_first_level_pos = Vector3(1.3,2.7,40.5)
@@ -33,6 +36,7 @@ func _input(_event: InputEvent) -> void:
 			get_tree().change_scene_to_packed(Global.loading_screen)
 		elif Global.current_world == Global.worlds.FIRST_LEVEL and !portal_closed:
 			Global.completed_levels["first_level"] = true
+			print("save load --- ",SaveLoad.save_content)
 			SaveLoad.save_content[Global.current_save]["completed_levels"]["first_level"] = true
 			Global.player_can_attack = true
 			Global.player_normal_pos = Vector3(90,2,113)

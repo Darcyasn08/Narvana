@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cbmvifyq76o3c"]
+[gd_scene load_steps=31 format=4 uid="uid://cbmvifyq76o3c"]
 
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
 [ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://3uoc66t42d1e" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
 [ext_resource type="PackedScene" uid="uid://c05fwr0udet8m" path="res://scenes/house_model.tscn" id="5_4pusr"]
 [ext_resource type="PackedScene" uid="uid://nb23rrkkueon" path="res://3d_models/placeholders/enemies/house_laser_beam.glb" id="5_bgf8x"]
+[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="7_a3hrb"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
 size = Vector3(5, 3, 11)
@@ -397,6 +398,9 @@ light_color = Color(0, 0.98003, 0.991327, 1)
 light_energy = 8.33
 spot_range = 31.4265
 spot_angle = 33.8241
+
+[node name="npc_interact_sign" parent="." instance=ExtResource("7_a3hrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47939634, -1.0208051, 4.532459)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="holo_holder/laser_area" to="." method="_on_laser_area_area_entered"]

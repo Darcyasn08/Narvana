@@ -73,6 +73,7 @@ var dead_enemies_first_level: Array = [
 var current_room: int = 0
 var current_world: int = 0
 enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
+var last_saved_pos: Vector3 = Vector3(0,0,0)
 
 var shop_items: Dictionary = {
 	0: {
@@ -161,17 +162,23 @@ enum npcs {crab, master}
 
 var npc_manager: Dictionary = {
 	"crab": {
-		"has_talked_to": false,
+		"is_first_time": true,
 	},
 	"jellyfish": {
-		"has_talked_to": false,
+		"is_first_time": true,
 	},
 	"grandma": {
-		"has_talked_to": false,
+		"is_first_time": true,
 	},
 	"master": {
-		"has_talked_to": false
-	}
+		"is_first_time": true
+	},
+	"second_master": {
+		"is_first_time": true
+	},
+	"master_first_level": {
+		"is_first_time": true
+	},
 }
 
 var dialogs: Dictionary = {

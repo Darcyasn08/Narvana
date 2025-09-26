@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://utkg066kgy3y"]
+[gd_scene load_steps=29 format=4 uid="uid://utkg066kgy3y"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_ngfep"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_tcxjl"]
@@ -229,6 +229,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_002/Skeleton3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0442953, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1hi58"]
 resource_name = "bat_attack"
@@ -268,6 +292,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.379836, 0), Vector3(0, -0.436332, 0), Vector3(0, -0.0872665, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tcxjl"]
@@ -309,11 +345,146 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.872665, 0), Vector3(0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h238m"]
+resource_name = "bat_first_attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_002/Skeleton3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.108210415, 0.26005405, 0.09773844), Vector3(0.4143959, 0.7659579, 0.09729299)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.12775813, 0), Vector3(0, -0.37873644, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_chc6g"]
+resource_name = "bat_second_attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_002/Skeleton3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.25762558, 0.3112976),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.4143959, 0.7659579, 0.09729299), Vector3(0.46634638, 0.4281439, 0.16312018), Vector3(0.5971095, 0.024116479, 0.17794243), Vector3(0.48001832, -0.18323897, 0.17909075)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g6ta3"]
+resource_name = "bat_third_attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_002/Skeleton3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18578628, 0.40792203),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.48001832, -0.18323897, 0.17909075), Vector3(1.1196593, 0.10126416, 0.2901917), Vector3(0.089396276, 0.45371965, -0.24503258)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2382911),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.14974926, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05654365, 0.21809693),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0442953, 0), Vector3(0, 0.21033202, 0), Vector3(0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1hi58"]
 _data = {
 &"RESET": SubResource("Animation_audoe"),
 &"bat_attack": SubResource("Animation_1hi58"),
+&"bat_first_attack": SubResource("Animation_h238m"),
+&"bat_second_attack": SubResource("Animation_chc6g"),
+&"bat_third_attack": SubResource("Animation_g6ta3"),
 &"tonfa_attack": SubResource("Animation_tcxjl")
 }
 
@@ -370,17 +541,17 @@ mesh = SubResource("ArrayMesh_h238m")
 visible = false
 
 [node name="Armature_002" type="Node3D" parent="narval_model"]
-transform = Transform3D(-0.24762003, 0.31413996, 0, -0.31413996, -0.24762003, 0, 0, 0, 0.4, 0.793962, 0.685295, -0.110497)
+transform = Transform3D(-0.34428585, 0.1966928, -0.052713558, -0.20143664, -0.34413236, 0.03155671, -0.029833645, 0.05370745, 0.3952537, 0.79396254, 0.685295, -0.110497035)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_002"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.9999989, 0, 0, 0)
+transform = Transform3D(1.0000011, 0, 0, 0, 0.9999996, 0, 0, 0, 0.99999934, 0, 0, 0)
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -2.98023e-08, 3.55271e-15, 2.98023e-08, 1, 7.10543e-15, -3.55271e-15, -7.10543e-15, 1, 3.37508e-14, 1.19209e-07, -1.42109e-14)
 bones/0/enabled = true
 bones/0/position = Vector3(3.37508e-14, 1.19209e-07, -1.42109e-14)
 bones/0/rotation = Quaternion(-3.552715e-15, 1.7763549e-15, 1.490115e-08, 1)
-bones/0/scale = Vector3(1, 1, 1)
+bones/0/scale = Vector3(0.9999998, 0.9999998, 0.9999999)
 bones/1/name = "Bone_leaf"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 1.77636e-14, -2.98023e-08, 2.98023e-08, 0, 1, 1.77636e-14, -1, 0, -1.19209e-07, 1, -5.68434e-14)

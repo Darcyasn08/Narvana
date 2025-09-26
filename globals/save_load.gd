@@ -33,12 +33,19 @@ func load_to_global() -> void:
 	Global.player_health = SaveLoad.save_content[Global.current_save]["health"]
 	Global.current_world = SaveLoad.save_content[Global.current_save]["current_world"]
 	Global.current_weapon = SaveLoad.save_content[Global.current_save]["current_weapon"]
+	Global.last_saved_pos = SaveLoad.save_content[Global.current_save]["last_saved_pos"]
+	Global.npc_manager = SaveLoad.save_content[Global.current_save]["npc_manager"]
 
 func save_to_file() -> void:
+	SignalBus.on_game_saved.emit()
+	await get_tree().create_timer(.2)
 	SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
 	SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
 	SaveLoad.save_content[Global.current_save]["completed_levels"] = Global.completed_levels
 	SaveLoad.save_content[Global.current_save]["current_weapon"] = Global.current_weapon
+	SaveLoad.save_content[Global.current_save]["last_saved_pos"] = Global.last_saved_pos 
+	SaveLoad.save_content[Global.current_save]["npc_manager"] = Global.npc_manager
+	#fazer isso realmente funcionar ^^^
 	SaveLoad.save()
 
 func load_save() -> void:

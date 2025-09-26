@@ -12,6 +12,14 @@ var jump_impulse: float = 12.0
 var gravity: float = -30.0
 var ground_speed: float
 var magic_selec : int = 1 #temporario
+var magic_time : float = 25.0
+var magic_col : bool = false
+var special_col : bool = false
+var special_time : float = 25.0
+var bubbles_rmn : int = 0
+var attack_combo_time: float = .8
+var combo_attack_count: int = 0
+var state : String = ""
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
@@ -33,6 +41,7 @@ func _ready() -> void:
 	print("current_weapon: ",Global.current_weapon)
 	SignalBus.on_changed_mouse_sens.connect(change_mouse_sens)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
+	SignalBus.on_game_saved.connect(update_current_pos)
 	change_current_weapon(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
@@ -93,6 +102,9 @@ func _physics_process(delta: float) -> void:
 	if is_starting_jump:
 		velocity.y += jump_impulse
 	
+	if state == "spinning":
+		$weapons_special.rotation.y += 0.07
+	
 	move_and_slide()
 
 
@@ -107,10 +119,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and Global.player_can_attack:
+		match combo_attack_count:
+			0:
+				combo_attack_count = 1
+			1:
+				combo_attack_count = 2
+			2:
+				combo_attack_count = 3
+			3:
+				combo_attack_count = 0
 		attack()
+		print("combo attack count: ",combo_attack_count)
 	
-	#if event.is_action_pressed("left_click"):
-		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("left_click") and Global.player_can_move:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if event.is_action_pressed("e"):
 		var actual_target
@@ -137,6 +159,17 @@ func _input(event: InputEvent) -> void:
 		$narwhal_skin/dash_bubble_particle.emitting = true
 		await get_tree().create_timer(2).timeout
 		$narwhal_skin/dash_bubble_particle.emitting = false
+	
+	if event.is_action_pressed("q") and state =="shield" and is_on_floor():
+		$magics.rotation = skin.rotation
+		$magics/shield_holder/shelld.disabled = false
+		$magics/shield_holder/shield_detection/shelld.disabled = false
+		Global.player_can_move = false
+		Global.player_can_attack = false
+		velocity = Vector3.ZERO
+	
+	if event.is_action_released("q") and state =="shield":
+		deactivate_shield()
 	#para o ataque
 	#if event.is_action_pressed("e") and Global.player_can_attack:
 		#attack()
@@ -204,10 +237,28 @@ func attack() -> void:
 		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
 		await $narwhal_skin/narval_model/attack_player.animation_finished
 		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", false)
+		if bubbles_rmn > 0:
+			bubbles_rmn -= 1
+			if bubbles_rmn == 0:
+				Global.knock_multi = 5.0
 	elif Global.current_weapon == Global.weapons.BAT:
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", false)
-		$narwhal_skin/narval_model/attack_player.play("bat_attack")
+		#combo_attack_count += 1
+		match combo_attack_count:
+			1:
+				$narwhal_skin/narval_model/attack_player.play("bat_first_attack")
+			2:
+				$narwhal_skin/narval_model/attack_player.play("bat_second_attack")
+			3:
+				$narwhal_skin/narval_model/attack_player.play("bat_third_attack")
 		await $narwhal_skin/narval_model/attack_player.animation_finished
+		$combo_attack_timer.start()
+		print("time left: ",$combo_attack_timer.time_left)
+		#if Input.is_action_just_pressed("attack") and combo_attack_count!=0:
+			#$narwhal_skin/narval_model/attack_player.play("bat_second_attack")
+			#$combo_attack_timer.start()
+		#else:
+			#pass
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", true)
 	else:
 		print("sem nenhuma arma equipada")
@@ -236,37 +287,121 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
 		stunned = false
-	
+
+
+func update_current_pos() -> void:
+	#ele irá salvar a última posição apenas quando estiver na vila
+	if Global.current_world == Global.worlds.NORMAL:
+		Global.last_saved_pos = position
+
+
 func magic() -> void:
-	if is_on_floor() and magic_selec == 1:
-		$magics.rotation.y = skin.rotation.y
-		stunned = true
-		velocity = Vector3(0,0,0) 
-		Global.player_can_move = false #impede o player de se mover enquanto faz a magia
-		$magics/CSGCombiner3D.show()
-		await(get_tree().create_timer(.6).timeout)
-		$magics/dust_magic/CollisionShape3D.set_deferred("disabled",false)
-		await(get_tree().create_timer(.8).timeout)
-		Global.player_can_move = true
-		$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
-		$magics/CSGCombiner3D.hide()
-		stunned = false
-	if is_on_floor() and magic_selec == 2:
-		$magics/mandala.show()
-		stunned= true
-		await(get_tree().create_timer(1).timeout)
-		var pre_boost = Global.player_damage
-		Global.player_damage = Global.player_damage + (Global.player_damage/3)
-		stunned = false 
-		$magics/mandala.hide()
-		await(get_tree().create_timer(5).timeout)
-		Global.player_damage = pre_boost
-		#print(Global.player_damage)
-	if is_on_floor() and magic_selec == 3:
-		$magics.rotation.y = skin.rotation.y
-		get_immune(3.0)
-		$magics/crab.show()
-		stunned= true
-		await(get_tree().create_timer(3).timeout)
-		stunned = false 
-		$magics/crab.hide()
+	if is_on_floor() and magic_col == false:
+		magic_col = true
+		if magic_selec == 1:
+			$magics.rotation.y = skin.rotation.y
+			stunned = true
+			velocity = Vector3(0,0,0) 
+			Global.player_can_move = false #impede o player de se mover enquanto faz a magia
+			$magics/CSGCombiner3D.show()
+			await(get_tree().create_timer(.6).timeout)
+			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",false)
+			await(get_tree().create_timer(.8).timeout)
+			Global.player_can_move = true
+			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
+			$magics/CSGCombiner3D.hide()
+			stunned = false
+		
+		if magic_selec == 2:
+			$magics/mandala.show()
+			stunned = true
+			await(get_tree().create_timer(1).timeout)
+			Global.player_damage = Global.player_damage + (Global.player_damage/3)
+			stunned = false 
+			$magics/mandala.hide()
+			await(get_tree().create_timer(5).timeout)
+			Global.player_damage = Global.player_damage - (Global.player_damage/4)
+			#print(Global.player_damage)
+			
+		if magic_selec == 3:
+			$magics.rotation.y = skin.rotation.y
+			get_immune(3.0)
+			$magics/crab.show()
+			stunned = true
+			await(get_tree().create_timer(3).timeout)
+			stunned = false 
+			$magics/crab.hide()
+	await(get_tree().create_timer(magic_time).timeout)
+	magic_col = false 
+
+func stunned_by_enemy(stun_time) -> void:
+	Global.player_can_move = false
+	print(stun_time)
+	velocity = Vector3(0,0,0)
+	await(get_tree().create_timer(stun_time).timeout)
+	Global.player_can_move = true
+
+func special_attack()->void:
+	if is_on_floor() and special_col == false:
+		special_col = true
+		if Global.current_weapon == 1:
+			Global.player_can_move = false
+			Global.player_can_attack = false
+			velocity = Vector3.ZERO
+			Global.player_damage = Global.player_damage/4
+			for i in 8:
+				$weapons_special/bambu_point.disabled = false
+				await(get_tree().create_timer(.1).timeout)
+				$weapons_special/bambu_point.disabled = true
+				await(get_tree().create_timer(.2).timeout)
+			Global.player_can_move = true
+			Global.player_can_attack = true
+			Global.player_damage = Global.player_damage*4
+		if Global.current_weapon == 2:
+			#var what_special : int = randi_range(1,3)
+			var what_special : int = 3
+			if what_special == 1:
+				Global.player_damage = Global.player_damage * 2
+				await(get_tree().create_timer(5.0).timeout)
+				Global.player_damage = Global.player_damage / 2
+			if what_special == 2:
+				Global.knock_multi = 8.0
+				bubbles_rmn = 2
+			if what_special == 3:
+				state = "shield"
+		if Global.current_weapon == 3:
+			state = "spinning"
+			$weapons_special/mangual.disabled = false
+			$weapons_special.rotation = skin.rotation
+			move_speed = 2.0
+			Global.player_can_attack = false
+			Global.player_damage = Global.player_damage / 2
+			velocity = Vector3.ZERO
+			await(get_tree().create_timer(5.0).timeout)
+			move_speed = 8.0
+			Global.player_damage = Global.player_damage * 2
+			Global.player_can_attack = true
+			$weapons_special/mangual.disabled = true
+			state = ""
+			
+		await(get_tree().create_timer(special_time).timeout)
+		deactivate_shield()
+		state = ""
+		special_col = false
+
+func deactivate_shield() -> void:
+	$magics.rotation = skin.rotation
+	$magics/shield_holder/shelld.disabled = true
+	$magics/shield_holder/shield_detection/shelld.disabled = true
+	Global.player_can_move = true
+	Global.player_can_attack = true
+
+func _on_shield_detection_area_entered(area: Area3D) -> void:
+	if area.is_in_group("enemies") or area.is_in_group("multi_enemies"):
+		deactivate_shield()
+		state = ""
+
+func _on_combo_attack_timer_timeout() -> void:
+	combo_attack_count = 0
+	print("reset combo attack count")
+	$narwhal_skin/narval_model/attack_player.play("RESET")
