@@ -7,7 +7,7 @@ var last_movement_direction := Vector3.BACK
 var mouse_sens: float = .11
 var move_speed: float = 8.0
 var acceleration: float = 15.0
-var rotation_speed: float = 10.0
+var rotation_speed: float = 20.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
 var ground_speed: float
@@ -49,10 +49,6 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 
 func _physics_process(delta: float) -> void:
-	if $narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D.monitorable:
-		$MeshInstance3D.mesh.size.y = 1
-	else:
-		$MeshInstance3D.mesh.size.y = .2
 	#se o player cair, ele pelo menos volta pra plataforma (vou arrumar isso depois)
 	if position.y < -50:
 		position = Global.player_base_pos
@@ -69,15 +65,15 @@ func _physics_process(delta: float) -> void:
 		var forward := camera.global_basis.z
 		var right := camera.global_basis.x
 		
-		var move_direction := (forward * raw_input.y + right * raw_input.x)*delta #combina os valores de x e z
+		var move_direction := forward * raw_input.y + right * raw_input.x #combina os valores de x e z
 		move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
 		move_direction = move_direction.normalized()
 	
-		if move_direction.length() > 0.1:
+		if move_direction.length() > 0.2:
 			last_movement_direction = move_direction
 		
 		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
-		skin.global_rotation.y = lerp_angle(skin.rotation.y,target_angle,rotation_speed *delta)
+		skin.global_rotation.y = lerp_angle(skin.global_rotation.y,target_angle,rotation_speed *delta)
 		$CollisionShape3D.global_rotation.y = lerp_angle($CollisionShape3D.global_rotation.y,target_angle,rotation_speed *delta)
 		$player_hitbox.global_rotation.y = lerp_angle($player_hitbox.global_rotation.y,target_angle,rotation_speed *delta)
 		
@@ -104,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	
 	if state == "spinning":
 		$weapons_special.rotation.y += 0.07
-	
+	$combo_timer_label.text = str(snapped($combo_attack_timer.time_left, 0.1))
 	move_and_slide()
 
 
@@ -128,7 +124,9 @@ func _input(event: InputEvent) -> void:
 				combo_attack_count = 3
 			3:
 				combo_attack_count = 0
+				$narwhal_skin/narval_model/attack_player.play("RESET")
 		attack()
+		$attack_sfx.play()
 		print("combo attack count: ",combo_attack_count)
 	
 	if event.is_action_pressed("left_click") and Global.player_can_move:
@@ -244,6 +242,7 @@ func attack() -> void:
 	elif Global.current_weapon == Global.weapons.BAT:
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", false)
 		#combo_attack_count += 1
+		Global.player_can_attack = false
 		match combo_attack_count:
 			1:
 				$narwhal_skin/narval_model/attack_player.play("bat_first_attack")
@@ -251,14 +250,10 @@ func attack() -> void:
 				$narwhal_skin/narval_model/attack_player.play("bat_second_attack")
 			3:
 				$narwhal_skin/narval_model/attack_player.play("bat_third_attack")
-		await $narwhal_skin/narval_model/attack_player.animation_finished
+		await get_tree().create_timer(.22).timeout
 		$combo_attack_timer.start()
-		print("time left: ",$combo_attack_timer.time_left)
-		#if Input.is_action_just_pressed("attack") and combo_attack_count!=0:
-			#$narwhal_skin/narval_model/attack_player.play("bat_second_attack")
-			#$combo_attack_timer.start()
-		#else:
-			#pass
+		Global.player_can_attack = true
+		await $narwhal_skin/narval_model/attack_player.animation_finished
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", true)
 	else:
 		print("sem nenhuma arma equipada")

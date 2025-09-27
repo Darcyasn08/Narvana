@@ -37,7 +37,7 @@ func update_items() -> void:
 			item_label.text = str(Global.inventory["items"][item]["name"])
 			item_label.desc = Global.inventory["items"][item]["desc"]
 			item_label.icon_path = Global.inventory["items"][item]["icon"]
-			item_label.custom_minimum_size.x = 240
+			item_label.custom_minimum_size = Vector2(240,260)
 			
 			if item_buff["damage"] != 0:
 				Global.plus_player_damage += item_buff["damage"]
@@ -91,13 +91,13 @@ func adjust_plus_values() -> void:
 
 func add_plus_values() -> void:
 	Global.max_player_health = Global.base_player_health + Global.plus_player_health
-	#Global.player_health = Global.base_player_health + Global.plus_player_health
+	Global.player_health = Global.base_player_health + Global.plus_player_health
 	Global.player_damage = Global.base_player_damage + Global.plus_player_damage
 	Global.player_speed = Global.base_player_speed + Global.plus_player_speed
 	
 	if Global.player_health > Global.max_player_health:
 		Global.player_health = Global.max_player_health
-	
+	print("health summed:",Global.player_health)
 	SignalBus.on_player_health_changed.emit(Global.player_health)
 	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
@@ -107,7 +107,7 @@ func add_shop_item() -> void:
 		next_index += 1
 	next_index -= 1 #para manter dentro dos padrões do index
 	var item_label: Label = Label.new()
-	item_label.custom_minimum_size.y = 50 
+	item_label.custom_minimum_size.y = 80 
 	item_label.text = str(Global.inventory["shop_items"][next_index]["name"])
 	#$VBoxContainer.add_child(item_label)
 	var item_button: Object = item_button_inst.instantiate()

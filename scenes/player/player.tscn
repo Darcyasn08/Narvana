@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=24 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
 [ext_resource type="PackedScene" uid="uid://vssohrk800fr" path="res://scenes/UI/player_hud.tscn" id="6_0owmy"]
 [ext_resource type="PackedScene" uid="uid://c3ou3gw8hkytg" path="res://scenes/managers/music_manager.tscn" id="6_75vfm"]
+[ext_resource type="PackedScene" uid="uid://bngpynw8vjxay" path="res://scenes/UI/cutscene_system.tscn" id="7_0owmy"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
+[ext_resource type="AudioStream" uid="uid://c46swphrvq7e7" path="res://music/sfx/attack-sfx.mp3" id="8_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
@@ -90,7 +92,7 @@ transform = Transform3D(0.332233, 0, -0.298431, 0, 0.446587, 0, 0.298431, 0, 0.3
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49131, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.49131, 0)
 
 [node name="SpringArm3D" type="SpringArm3D" parent="camera_pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.974956, 0.222399, 0, -0.222399, 0.974956, 0, 0, 0)
@@ -203,6 +205,18 @@ mesh = SubResource("BoxMesh_75vfm")
 
 [node name="combo_attack_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="combo_timer_label" type="Label3D" parent="."]
+transform = Transform3D(0.999977, 0, -0.00675437, 0, 1, 0, 0.00675437, 0, 0.999977, 0, 2.55313, 0)
+visible = false
+text = "0.0"
+
+[node name="cutscene_system" parent="." instance=ExtResource("7_0owmy")]
+
+[node name="attack_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_5gtgg")
+volume_db = 15.0
+max_distance = 10.0
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]

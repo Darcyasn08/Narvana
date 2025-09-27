@@ -24,19 +24,19 @@ func _ready() -> void:
 	var item_name_label: Label = Label.new()
 	var item_desc_label: RichTextLabel = RichTextLabel.new()
 	
-	item_name_settings.font_size = 19
+	item_name_settings.font_size = 23
 	panel.add_theme_stylebox_override("panel", item_stylebox)
 	mouse_hover_panel.add_theme_stylebox_override("panel", hover_panel_stylebox)
 	panel.size = Vector2(100,100)
-	mouse_hover_panel.size = Vector2(250,140)
-	item_desc_label.size = Vector2(200,200)
-	item_desc_label.add_theme_font_size_override("normal_font_size", 15)
+	mouse_hover_panel.size = Vector2(255,180)
+	item_desc_label.size = Vector2(230,230)
+	item_desc_label.add_theme_font_size_override("normal_font_size", 20)
 	label.text = text
 	item_name_label.text = text
 	item_desc_label.text = desc
 	item_icon.texture = load(icon_path)
 	item_name_label.label_settings = item_name_settings
-	item_icon.scale = Vector2(.26,.26)
+	item_icon.scale = Vector2(.4,.4)
 	item_icon.position = Vector2(47,45)
 	
 	#sinais
@@ -51,7 +51,7 @@ func _ready() -> void:
 	item_name_label.position = Vector2(10,10)
 	mouse_hover_panel.add_child(item_name_label)
 	
-	item_desc_label.position = item_name_label.position + Vector2(0,25)
+	item_desc_label.position = item_name_label.position + Vector2(0,30)
 	mouse_hover_panel.add_child(item_desc_label)
 	#print(item_desc_label)
 	

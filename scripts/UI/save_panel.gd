@@ -51,14 +51,17 @@ func new_save_button_pressed() -> void:
 		is_created = true
 		SaveLoad.save_content[id]["is_created"] = is_created
 		SaveLoad.save_content[id]["health"] = Global.player_health
-		SaveLoad.save_content[id]["last_saved_pos"] = Vector3(0,0,0)
+		SaveLoad.save_content[id]["last_saved_pos"] = Global.last_saved_pos
 		SaveLoad.save_content[id]["npc_manager"] = Global.npc_manager
+		SaveLoad.save_content[id]["cutscenes"] = Global.cutscenes
+		add_var_to_save()
 		# ^^^ dar um jeito de resetar o global do dialogo a cada save criado, sem sair do jogo
 		#tipo, criar uma variável apenas salvando quem vc falou ou algo assim
 		%info_label.text = str(SaveLoad.save_content[id])
 		SaveLoad.save()
 
 func open_save_button_pressed() -> void:
+	add_var_to_save()
 	Global.completed_levels = SaveLoad.save_content[id]["completed_levels"]
 	Global.last_saved_pos = SaveLoad.save_content[id]["last_saved_pos"]
 	Global.npc_manager = SaveLoad.save_content[id]["npc_manager"]
@@ -91,3 +94,8 @@ func delete_save(delete_panel: int) -> void:
 		%delete_save_button.hide()
 		%sprite_created.hide()
 		%sprite_not_created.show()
+
+#variáveis adicionadas depois
+func add_var_to_save() -> void:
+	SaveLoad.save_content[id]["inventory"] = Global.inventory
+	SaveLoad.save()

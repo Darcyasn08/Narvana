@@ -56,8 +56,10 @@ func damage_player(area) -> void:
 	on_ground = false
 
 func unique_die() -> void:
+	$AnimationPlayer.play("death")
 	print("im dead dude...")
 	can_move = false
+	await $AnimationPlayer.animation_finished
 	#hide() #colocar a animação de morte aqui depois
 
 func fall() -> void:

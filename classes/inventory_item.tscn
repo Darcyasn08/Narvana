@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://3uf3l8ridahk"]
+[gd_scene load_steps=4 format=3 uid="uid://3uf3l8ridahk"]
 
 [ext_resource type="Script" uid="uid://cjj54xe5wbpdq" path="res://classes/inventory_item.gd" id="1_ut6bi"]
 [ext_resource type="StyleBox" uid="uid://m4gxmfaa6kbp" path="res://shaders/item_stylebox.tres" id="2_jeuma"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jeuma"]
+font_size = 21
 
 [node name="inventory_item" type="Control"]
 z_index = 1
@@ -18,14 +21,23 @@ script = ExtResource("1_ut6bi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 111.0
-offset_bottom = 102.0
+offset_right = 200.0
+offset_bottom = 200.0
 theme_override_styles/panel = ExtResource("2_jeuma")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 102.0
-offset_bottom = 130.0
-theme_override_font_sizes/normal_font_size = 40
+offset_left = 2.0
+offset_top = 49.0
+offset_right = 104.0
+offset_bottom = 179.0
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "asdfe"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "nome do item"
+label_settings = SubResource("LabelSettings_jeuma")

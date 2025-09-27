@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
+[ext_resource type="Texture2D" uid="uid://yv1omvw2kc0b" path="res://UI/inventory/blush-effect.png" id="3_r6s25"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ngs"]
 bg_color = Color(0.566484, 0.704534, 0.801609, 1)
@@ -26,10 +27,10 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_umbc4"]
 font = ExtResource("2_r6s25")
-font_size = 40
-font_color = Color(0.770781, 0.943237, 0.662571, 1)
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
+font_size = 50
+font_color = Color(0.4639002, 0.99091583, 0.87707216, 1)
+outline_size = 15
+outline_color = Color(0.25050303, 0.13351026, 0.3809898, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umbc4"]
 bg_color = Color(0.566484, 0.704534, 0.801609, 1)
@@ -40,12 +41,6 @@ corner_radius_bottom_left = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_xffaj"]
 font_size = 60
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_fdwu4"]
-font_size = 60
-font_color = Color(1, 0, 1, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
@@ -69,10 +64,10 @@ offset_bottom = 79.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -122.0
-offset_top = 15.0
-offset_right = -79.0
-offset_bottom = 49.0
+offset_left = -120.0
+offset_top = 19.0
+offset_right = -77.0
+offset_bottom = 53.0
 grow_horizontal = 0
 text = "FPS"
 label_settings = SubResource("LabelSettings_q0ngs")
@@ -137,11 +132,25 @@ offset_bottom = 33.0
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -182.5
-offset_top = 123.0
-offset_right = 182.5
-offset_bottom = 163.0
+offset_left = -349.0
+offset_top = 109.0
+offset_right = 349.0
+offset_bottom = 169.0
 grow_horizontal = 2
+label_settings = SubResource("LabelSettings_umbc4")
+horizontal_alignment = 1
+
+[node name="thermal_water_label" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -349.0
+offset_top = 109.0
+offset_right = 349.0
+offset_bottom = 169.0
+grow_horizontal = 2
+text = "Vida recuperada!"
 label_settings = SubResource("LabelSettings_umbc4")
 horizontal_alignment = 1
 
@@ -158,6 +167,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Panel2" type="Panel" parent="commands"]
+visible = false
 layout_mode = 0
 offset_left = 166.0
 offset_top = 131.0
@@ -185,11 +195,12 @@ text = "interagir"
 label_settings = SubResource("LabelSettings_xffaj")
 
 [node name="Panel3" type="Panel" parent="commands"]
+visible = false
 layout_mode = 0
 offset_left = 13.0
-offset_top = 77.0
+offset_top = 122.0
 offset_right = 663.0
-offset_bottom = 234.0
+offset_bottom = 279.0
 scale = Vector2(0.308422, 0.308422)
 theme_override_styles/panel = SubResource("StyleBoxFlat_umbc4")
 
@@ -212,6 +223,7 @@ text = "atacar"
 label_settings = SubResource("LabelSettings_xffaj")
 
 [node name="Panel4" type="Panel" parent="commands"]
+visible = false
 layout_mode = 0
 offset_left = 164.0
 offset_top = 21.0
@@ -238,18 +250,11 @@ offset_bottom = 121.123
 text = "magia"
 label_settings = SubResource("LabelSettings_xffaj")
 
-[node name="blush" type="Label" parent="."]
+[node name="blush" type="TextureRect" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -566.0
-offset_top = -41.0
-offset_right = 567.0
-offset_bottom = 42.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "vc esta com o efeito de blush na cara :0"
-label_settings = SubResource("LabelSettings_fdwu4")
+texture = ExtResource("3_r6s25")

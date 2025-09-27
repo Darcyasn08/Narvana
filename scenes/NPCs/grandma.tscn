@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://p0sgx84xx5b5"]
+[gd_scene load_steps=11 format=4 uid="uid://p0sgx84xx5b5"]
 
 [ext_resource type="PackedScene" uid="uid://b8wkprpsyjmnk" path="res://3d_models/placeholders/grandma.glb" id="1_u83jt"]
 [ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="2_7mxpi"]
+[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="3_u4rl5"]
+[ext_resource type="PackedScene" uid="uid://caothemudeyai" path="res://globals/npc_manager.tscn" id="4_6y23y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mxpi"]
 albedo_color = Color(0.17298019, 0.3854735, 0.40652195, 1)
@@ -22,6 +24,44 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_7mxpi"]
 radius = 3.87633
 
+[sub_resource type="Animation" id="Animation_6y23y"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("grandma:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 2.2666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.25, 0), Vector3(0, -0.09, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ptkwp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("grandma:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wo61t"]
+_data = {
+&"RESET": SubResource("Animation_ptkwp"),
+&"idle": SubResource("Animation_6y23y")
+}
+
 [node name="grandma" type="Node3D" groups=["npcs"]]
 
 [node name="grandma" parent="." instance=ExtResource("1_u83jt")]
@@ -31,11 +71,26 @@ transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 
 material_override = SubResource("StandardMaterial3D_7mxpi")
 mesh = SubResource("ArrayMesh_6y23y")
 
-[node name="npc_dialogue_area" parent="." groups=["npcs"] instance=ExtResource("2_7mxpi")]
+[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager", "area_collision") groups=["npcs"] instance=ExtResource("2_7mxpi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316911, 0)
+npc_manager = NodePath("../npc_manager")
+area_collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="npc_dialogue_area"]
 shape = SubResource("SphereShape3D_7mxpi")
 debug_color = Color(0.882353, 0.403922, 0.596078, 0.756863)
+
+[node name="npc_manager" parent="." instance=ExtResource("4_6y23y")]
+current_npc = "grandma"
+
+[node name="npc_interact_sign" parent="." instance=ExtResource("3_u4rl5")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.33596528, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wo61t")
+}
+autoplay = "idle"
 
 [editable path="grandma"]

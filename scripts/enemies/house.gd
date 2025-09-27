@@ -13,14 +13,14 @@ var player_near: bool = false
 @onready var walls_holder = $"house_model/walls_holder"
 
 func _ready() -> void:
-	print($house_model/walls_holder/collision_das_paredes/CollisionShape3D8.disabled)
+	#print($house_model/walls_holder/collision_das_paredes/CollisionShape3D8.disabled)
 	#inicializar_lista()
 	life = Global.house_health #precisa disso pra quando voltar na cena dela por fora vai passar o dano por dentro
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa
-		print("e pressed")
+		#print("e pressed")
 		Global.house_health = life
 		Global.player_health = player.health
 		get_tree().change_scene_to_file("res://scenes/enemies/inside_house.tscn")
@@ -38,9 +38,10 @@ func _physics_process(delta: float) -> void:
 		#look_to_player()
 		if life < knocker: # funcao pra deixar ela nocauteada e abrira porta da casa
 			state = "knocked"
-			print("IT IS ENABLED!!!")
+			#print("IT IS ENABLED!!!")
 			$door/door_collision.disabled = false
 			$holo_holder/laser_area/hurtbox.disabled = true
+			$door/door_closed.hide()
 			$holo_holder/laser_holofote.hide()
 			$holo_holder.hide()
 			knocker = 0
@@ -103,6 +104,7 @@ func look_to_player(delta) -> void: #voce não quer tentar compreender essa fun�
 	
 func _on_timer_timeout() -> void:
 	if state == "shooting": # coisas que serão feitas quando começar o ataque dos tiros das paredes
+		$door/door_closed.show()
 		inicializar_lista()
 		for i in range(1,10):
 			sorteia_numero()
@@ -112,6 +114,7 @@ func _on_timer_timeout() -> void:
 		$Timer.wait_time = 5
 		$Timer.start()
 	if state == "death_ray": # coisas que serão feitas quando começar o ataque do holofote
+		$door/door_closed.show()
 		$holo_holder.show()
 		await(get_tree().create_timer(3).timeout)
 		knocker = life - 500
@@ -152,8 +155,9 @@ func damage_player(area) -> void:
 func _on_door_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		player_near = true
-
+		$door/npc_interact_sign.show()
 
 func _on_door_area_exited(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		player_near = false
+		$door/npc_interact_sign.hide()

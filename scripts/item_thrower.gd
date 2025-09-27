@@ -11,12 +11,13 @@ func _ready() -> void:
 func create_portal(item: String) -> void:
 	$CPUParticles3D.emitting = true
 	var portal: Object = portal_inst.instantiate()
-	portal.position = Vector3(position.x,1,position.z-3.5)
+	portal.position = Vector3(position.x,1.92,position.z-5.4)
 	print("portal is here!")
 	get_parent().add_child(portal)
+	$Area3D/CollisionShape3D.set_deferred("disabled", true)
 	await get_tree().create_timer(1).timeout
 	$CPUParticles3D.emitting = false
-	await get_tree().create_timer(.4).timeout
+	await get_tree().create_timer(.2).timeout
 	#queue_free()
 	hide()
 

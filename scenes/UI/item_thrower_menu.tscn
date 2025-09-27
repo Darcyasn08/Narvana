@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b83e0181tmysa"]
+[gd_scene load_steps=8 format=3 uid="uid://b83e0181tmysa"]
 
 [ext_resource type="Script" uid="uid://deny7qetalx0x" path="res://scripts/UI/item_thrower_menu.gd" id="1_4fxbg"]
 [ext_resource type="Texture2D" uid="uid://dqgi303awgppg" path="res://UI/menu/item-thrower-screen.png" id="1_7b318"]
+[ext_resource type="Texture2D" uid="uid://bgwt56p57lulv" path="res://UI/inventory/car-keys.png" id="3_r2dm2"]
+[ext_resource type="Texture2D" uid="uid://ch0lsf6imx7bn" path="res://UI/inventory/teddy-bear.png" id="4_57prj"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_hfb4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6s25"]
 bg_color = Color(0.16888526, 0.20093396, 0.38701218, 0.4392157)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fxbg"]
+[sub_resource type="LabelSettings" id="LabelSettings_i8h7k"]
+font = ExtResource("4_hfb4j")
+font_size = 80
+shadow_size = 30
+shadow_color = Color(0.49803922, 0.21568628, 0.3647059, 0.27058825)
 
 [node name="item_thrower_menu" type="Control"]
 process_mode = 3
@@ -42,36 +49,52 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7b318")
 
-[node name="item1_button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 696.0
-offset_top = 436.0
-offset_right = 968.0
-offset_bottom = 672.0
-theme_override_colors/font_color = Color(0.6278547, 0.2583384, 0.15142545, 1)
-theme_override_colors/font_pressed_color = Color(0.8139759, 0.4397579, 0.17316017, 1)
-theme_override_colors/font_hover_color = Color(0.17473838, 0.074699275, 0.061122686, 1)
-theme_override_font_sizes/font_size = 45
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4fxbg")
-text = "foto
-banda
-(-20 dano)"
-flat = true
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -347.0
+offset_top = -147.0
+offset_right = 225.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="item2_button" type="Button" parent="."]
+[node name="item1_button" type="TextureButton" parent="Control"]
 layout_mode = 0
-offset_left = 1002.0
-offset_top = 461.0
-offset_right = 1224.0
-offset_bottom = 623.0
-theme_override_colors/font_color = Color(0.6278547, 0.2583384, 0.15142545, 1)
-theme_override_colors/font_pressed_color = Color(0.8139759, 0.4397579, 0.17316017, 1)
-theme_override_colors/font_hover_color = Color(0.17473838, 0.074699275, 0.061122686, 1)
-theme_override_font_sizes/font_size = 45
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4fxbg")
-text = "teddy
-(-1 vida)"
-flat = true
+offset_right = 700.00006
+offset_bottom = 700.0
+scale = Vector2(0.43540666, 0.43540666)
+texture_normal = ExtResource("3_r2dm2")
 
-[connection signal="pressed" from="item1_button" to="." method="_on_item_1_button_pressed"]
-[connection signal="pressed" from="item2_button" to="." method="_on_item_2_button_pressed"]
+[node name="Label" type="Label" parent="Control/item1_button"]
+layout_mode = 0
+offset_left = 254.93411
+offset_top = 666.044
+offset_right = 588.9341
+offset_bottom = 776.044
+text = "-20 dano"
+label_settings = SubResource("LabelSettings_i8h7k")
+
+[node name="item2_button" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 307.99997
+offset_right = 808.0
+offset_bottom = 500.0
+scale = Vector2(0.45032734, 0.45032734)
+texture_normal = ExtResource("4_57prj")
+
+[node name="Label" type="Label" parent="Control/item2_button"]
+layout_mode = 0
+offset_left = 254.93411
+offset_top = 666.044
+offset_right = 588.9341
+offset_bottom = 776.044
+text = "-1 vida"
+label_settings = SubResource("LabelSettings_i8h7k")
+
+[connection signal="pressed" from="Control/item1_button" to="." method="_on_item_1_button_pressed"]
+[connection signal="pressed" from="Control/item2_button" to="." method="_on_item_2_button_pressed"]

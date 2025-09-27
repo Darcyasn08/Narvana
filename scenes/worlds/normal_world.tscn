@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=60 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://cwjwm7q1w4i6w" path="res://3d_models/placeholders/coral-rock.glb" id="29_ppn7s"]
 [ext_resource type="PackedScene" uid="uid://4ea2kbl7af8u" path="res://3d_models/placeholders/sand-floor.glb" id="29_tet57"]
 [ext_resource type="PackedScene" uid="uid://c3hewjvsc0xlt" path="res://scenes/objects/village_path.tscn" id="30_tet57"]
-[ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="31_46g8v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_d5nc6"]
 sky_top_color = Color(0.936386, 0.697044, 0.692253, 1)
@@ -124,8 +123,17 @@ albedo_color = Color(0.866054, 0.585394, 0.525557, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbk2w"]
 albedo_color = Color(0.494118, 0.8, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tet57"]
+size = Vector3(5.55645, 4.6904297, 5.35791)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s78ee"]
+size = Vector3(4.9559937, 4.6904297, 5.2813187)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw61t"]
+size = Vector3(6.7079124, 4.6904297, 7.6774063)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46g8v"]
-bg_color = Color(0.097503744, 0.12835437, 0.22109982, 1)
+bg_color = Color(0.0975037, 0.128354, 0.2211, 1)
 
 [sub_resource type="Animation" id="Animation_nw61t"]
 length = 0.001
@@ -163,6 +171,9 @@ _data = {
 &"RESET": SubResource("Animation_nw61t"),
 &"fade_loading": SubResource("Animation_s78ee")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46g8v"]
+size = Vector3(19.2479, 6.1073, 36.836742)
 
 [node name="normal_world" type="Node3D"]
 script = ExtResource("1_eqvwj")
@@ -424,7 +435,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105333, 0.110535, 5.36001)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6114, 4.76837e-07, 9.99247)
 
 [node name="grandma" parent="." instance=ExtResource("18_wcbeh")]
-transform = Transform3D(0.837366, 0, 0.546643, 0, 1, 0, -0.546643, 0, 0.837366, -37.1547, 1.33304, 59.59)
+transform = Transform3D(-0.7557623, 0, 0.6548463, 0, 1, 0, -0.6548463, 0, -0.7557623, -3.535904, 0.39259803, 26.767315)
 
 [node name="small_rock" parent="." instance=ExtResource("10_ge66w")]
 transform = Transform3D(0.699114, 0, 0.71501, 0, 1, 0, -0.71501, 0, 0.699114, -9.50301, 4.76837e-07, 77.1208)
@@ -804,6 +815,20 @@ transform = Transform3D(-0.719638, 0, 0.465733, 0, 0.857196, 0, -0.465733, 0, -0
 [node name="sand-floor5" parent="big_coral_rocks" instance=ExtResource("29_tet57")]
 transform = Transform3D(0.637024, 0, 0.177633, 0, 0.661327, 0, -0.177633, 0, 0.637024, 1.22891, 0.00643391, -0.0539331)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="big_coral_rocks"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="big_coral_rocks/StaticBody3D"]
+transform = Transform3D(0.9770605, 0, 0.21296161, 0, 1, 0, -0.21296161, 0, 0.9770605, -2.5703163, 1.8452148, 0.46636963)
+shape = SubResource("BoxShape3D_tet57")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="big_coral_rocks/StaticBody3D"]
+transform = Transform3D(0.99655116, 0, 0.08298132, 0, 1, 0, -0.08298132, 0, 0.99655116, -6.0256004, 1.8452148, 3.5187063)
+shape = SubResource("BoxShape3D_s78ee")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="big_coral_rocks/StaticBody3D"]
+transform = Transform3D(0.9933847, 0, -0.11483404, 0, 1, 0, 0.11483404, 0, 0.9933847, -1.0673885, 1.8452148, 5.321246)
+shape = SubResource("BoxShape3D_nw61t")
+
 [node name="sand-floor" parent="." instance=ExtResource("29_tet57")]
 transform = Transform3D(0.857266, 0, -0.514874, 0, 1, 0, 0.514874, 0, 0.857266, -7.97211, -0.21565, 30.461)
 
@@ -843,11 +868,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94959, -1.90735e-06, 69.601
 [node name="bubble_particle8" parent="." instance=ExtResource("19_ektfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.00663, 9.53674e-07, 1.97736)
 
-[node name="octopus_model" parent="." instance=ExtResource("31_46g8v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8165493, 2.032622, -15.821968)
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.51757336, 0.10541367, -0.8491207, 0.07956258, 0.99401164, 0.07490449, 0.8519318, -0.028789666, -0.52286094, 5.896084, 17.871622, 84.18742)
+transform = Transform3D(-0.517573, 0.105414, -0.849121, 0.0795626, 0.994012, 0.0749045, 0.851932, -0.0287897, -0.522861, 5.89608, 17.8716, 84.1874)
 current = true
 
 [node name="loading_panel" type="CanvasLayer" parent="."]
@@ -866,6 +888,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_46g8v")
 libraries = {
 &"": SubResource("AnimationLibrary_iqw61")
 }
+
+[node name="cutscene_area" type="Area3D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cutscene_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63129, 2.55365, -19.006361)
+shape = SubResource("BoxShape3D_46g8v")
+debug_color = Color(0.9075345, 0.98089653, 1, 0.42)
+
+[connection signal="body_entered" from="cutscene_area" to="." method="_on_cutscene_area_body_entered"]
 
 [editable path="weird-big-rock"]
 [editable path="big_coral_rocks/coral-rock"]

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c6vh5whn5c54y" path="res://music/Material Combat.mp3" id="1_fp10t"]
 [ext_resource type="AudioStream" uid="uid://ts35pdocjbbb" path="res://music/Tune of the Kalimba.mp3" id="2_dxysa"]
 [ext_resource type="AudioStream" uid="uid://drf6hwbaxtu7j" path="res://music/first-level-pause.mp3" id="3_64p8j"]
-[ext_resource type="AudioStream" uid="uid://6oo3epj6okg8" path="res://music/Flute-song.mp3" id="3_maigi"]
+[ext_resource type="AudioStream" uid="uid://dlq36dkg2uocx" path="res://music/pause-menu-melody.mp3" id="3_maigi"]
 
 [node name="music_manager" type="Node3D"]
 process_mode = 3
@@ -15,22 +15,22 @@ script = ExtResource("1_64p8j")
 [node name="main" type="Node3D" parent="normal_world"]
 process_mode = 1
 
-[node name="layer1" type="AudioStreamPlayer3D" parent="normal_world/main"]
+[node name="layer1" type="AudioStreamPlayer2D" parent="normal_world/main"]
 stream = ExtResource("2_dxysa")
-volume_db = -20.0
+volume_db = 7.0
 bus = &"Music"
 parameters/looping = true
 
-[node name="layer2" type="AudioStreamPlayer3D" parent="normal_world/main"]
+[node name="layer2" type="AudioStreamPlayer2D" parent="normal_world/main"]
 bus = &"Music"
 
-[node name="layer3" type="AudioStreamPlayer3D" parent="normal_world/main"]
+[node name="layer3" type="AudioStreamPlayer2D" parent="normal_world/main"]
 bus = &"Music"
 
-[node name="pause" type="AudioStreamPlayer3D" parent="normal_world"]
+[node name="pause" type="AudioStreamPlayer2D" parent="normal_world"]
 process_mode = 3
 stream = ExtResource("3_maigi")
-volume_db = -46.533
+volume_db = 2.0
 bus = &"Music"
 parameters/looping = true
 
@@ -39,23 +39,23 @@ parameters/looping = true
 [node name="main" type="Node3D" parent="first_level"]
 process_mode = 1
 
-[node name="layer1" type="AudioStreamPlayer3D" parent="first_level/main"]
+[node name="layer1" type="AudioStreamPlayer2D" parent="first_level/main"]
 stream = ExtResource("1_fp10t")
-volume_db = -10.0
+volume_db = 7.0
 bus = &"Music"
 parameters/looping = true
 
-[node name="layer2" type="AudioStreamPlayer3D" parent="first_level/main"]
+[node name="layer2" type="AudioStreamPlayer2D" parent="first_level/main"]
 volume_db = -10.0
 bus = &"Music"
 
-[node name="layer3" type="AudioStreamPlayer3D" parent="first_level/main"]
+[node name="layer3" type="AudioStreamPlayer2D" parent="first_level/main"]
 bus = &"Music"
 
-[node name="pause" type="AudioStreamPlayer3D" parent="first_level"]
+[node name="pause" type="AudioStreamPlayer2D" parent="first_level"]
 process_mode = 3
 stream = ExtResource("3_64p8j")
-volume_db = -9.0
+volume_db = 4.0
 bus = &"Music"
 parameters/looping = true
 
@@ -63,18 +63,19 @@ parameters/looping = true
 
 [node name="main" type="Node3D" parent="second_level"]
 
-[node name="layer1" type="AudioStreamPlayer3D" parent="second_level/main"]
+[node name="layer1" type="AudioStreamPlayer2D" parent="second_level/main"]
 stream = ExtResource("1_fp10t")
 bus = &"Music"
 parameters/looping = true
 
-[node name="layer2" type="AudioStreamPlayer3D" parent="second_level/main"]
+[node name="layer2" type="AudioStreamPlayer2D" parent="second_level/main"]
 stream = ExtResource("1_fp10t")
 bus = &"Music"
 parameters/looping = true
 
-[node name="layer3" type="AudioStreamPlayer3D" parent="second_level/main"]
+[node name="layer3" type="AudioStreamPlayer2D" parent="second_level/main"]
 stream = ExtResource("1_fp10t")
+max_distance = 10.0
 bus = &"Music"
 parameters/looping = true
 

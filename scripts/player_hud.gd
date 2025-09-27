@@ -8,6 +8,8 @@ func _ready() -> void:
 	SignalBus.on_blush_hit.connect(blushed)
 	SignalBus.on_player_health_changed.connect(change_player_health_status)
 	SignalBus.on_item_removed.connect(show_removed_item)
+	SignalBus.on_thermal_water_used.connect(show_max_health_label)
+	
 	for life in Global.player_health:
 		var hud_life: Object = hud_life_inst.instantiate()
 		health_container.add_child(hud_life)
@@ -21,6 +23,11 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("e"):
 		pass
 		#change_player_health_status(0)
+
+func show_max_health_label() -> void:
+	$thermal_water_label.show()
+	await get_tree().create_timer(3).timeout
+	$thermal_water_label.hide()
 
 func change_player_health_status(health: int) -> void:
 	for child in health_container.get_children():
@@ -39,8 +46,8 @@ func change_player_health_status(health: int) -> void:
 		#hearts_list[0].visible = false
 
 func show_removed_item(item: String) -> void:
-	$removed_item_label.text = str("O item [",item,"] foi removido!")
-	await get_tree().create_timer(3).timeout
+	$removed_item_label.text = str("Você desapegou do item: ",Global.inventory["items"][item]["name"])
+	await get_tree().create_timer(4).timeout
 	$removed_item_label.text = ""
 
 func blushed() -> void:

@@ -73,7 +73,7 @@ var dead_enemies_first_level: Array = [
 var current_room: int = 0
 var current_world: int = 0
 enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
-var last_saved_pos: Vector3 = Vector3(0,0,0)
+var last_saved_pos: Vector3 = Vector3(0,0,-16)
 
 var shop_items: Dictionary = {
 	0: {
@@ -109,6 +109,28 @@ var completed_levels: Dictionary = {
 var inventory: Dictionary = {
 	"current_spell": "",
 	"items": {
+		"car_keys": {
+			"player_has": true,
+			"icon": "res://UI/inventory/car-keys.png",
+			"name": "Chaves do carro",
+			"desc": "Um carrinho pra ir trabalhar (+dano)",
+			"buff": {
+				"damage": 20,
+				"health": 0,
+				"speed": 0,
+			},
+		},
+		"jewel": {
+			"player_has": true,
+			"icon": "res://UI/inventory/coffee-cup.png",
+			"name": "Jóias",
+			"desc": "Um carrinho pra ir trabalhar (+velocidade)",
+			"buff": {
+				"damage": 0,
+				"health": 0,
+				"speed": 1,
+			},
+		},
 		"photo": {
 			"player_has": true,
 			"icon": "res://icon.svg",
@@ -120,10 +142,10 @@ var inventory: Dictionary = {
 				"speed": 0,
 			},
 		},
-		"teddy": {
+		"plush": {
 			"player_has": true,
 			"icon": "res://UI/inventory/teddy-bear.png",
-			"name": "Ursinho de pelúcia antigo",
+			"name": "Pelúcia antiga",
 			"desc": "Algo dele te traz um conforto muito grande (+vida)",
 			"buff": {
 				"damage": 0,
@@ -142,17 +164,6 @@ var inventory: Dictionary = {
 				"speed": 2,
 			},
 		},
-		"car_keys": {
-			"player_has": true,
-			"icon": "res://UI/inventory/coffee-cup.png",
-			"name": "Chaves do carro",
-			"desc": "Um carrinho pra ir trabalhar (+velocidade)",
-			"buff": {
-				"damage": 0,
-				"health": 0,
-				"speed": 1,
-			},
-		}
 	},
 	"shop_items": {}
 }
@@ -307,15 +318,15 @@ var dialogs: Dictionary = {
 			},
 			"middle": {
 				0: {
-					"text": "Oi, eu sou o Anderson",
+					"text": "Oi pequenino",
 					"options": {}
 				},
 				1: {
-					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
+					"text": "Ouvi dizer que lá naquele templo tem umas plantas muito bonitas", 
 					"options": {}
 				},
 				2: {
-					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
+					"text": "Acho que você deveria olhar elas alguma hora",
 					"options": {}
 				},
 			},
@@ -487,9 +498,11 @@ var dialogs: Dictionary = {
 		}
 	},
 	"second_level_master": {
+		"name": "Master",
 		"is_first_time": true,
 	},
 	"third_level_master": {
+		"name": "Master",
 		"is_first_time": true,
 	},
 }

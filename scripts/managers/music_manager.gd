@@ -6,8 +6,8 @@ var second_level_array: Array = []
 
 var song_index: int = 0
 
-@onready var first_level_pause: AudioStreamPlayer3D = $first_level/pause
-@onready var normal_world_pause: AudioStreamPlayer3D = $normal_world/pause
+@onready var first_level_pause: AudioStreamPlayer2D = $first_level/pause
+@onready var normal_world_pause: AudioStreamPlayer2D = $normal_world/pause
 
 func _ready() -> void:
 	SignalBus.on_game_paused.connect(start_pause_song)

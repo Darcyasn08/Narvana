@@ -62,15 +62,13 @@ func start_dialogue(npc: String) -> void:
 	if !has_started_diag:
 		$dialog_box/dialog_text.text = ""
 		Global.player_can_move = false
-		#print("start diag")
 		talk_speed = normal_talk_speed
 		has_started_diag = true
 		cur_npc = npc
-		#print("started")
 		cur_text = 0
 		await check_done_dialog()
 		check_options()
-		name_label.text = cur_npc
+		name_label.text = Global.dialogs[cur_npc]["name"]
 		show()
 		for letter in npc_dialog["text"]:
 			can_progress = false

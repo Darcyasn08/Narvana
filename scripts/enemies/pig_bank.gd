@@ -45,6 +45,7 @@ func calculate_knockback(area: Area3D) -> void:
 	var body_collision = (global_position - area.global_position)
 	body_collision.y = 0.0
 	var force = body_collision
+	force = force * 1.0
 	knockback(force, body_collision)
 	await(get_tree().create_timer(.3).timeout)
 	velocity = velocity * 0

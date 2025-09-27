@@ -10,7 +10,7 @@ var player = null
 
 func _physics_process(delta: float) -> void:
 	activate_dialogue()
-	if player != null:
+	if player != null and get_parent().get_node_or_null("npc_interact_sign") != null:
 		get_parent().get_node("npc_interact_sign").look_at(player.get_node("camera_pivot/SpringArm3D/Camera3D").global_position)
 
 func get_npc_data():

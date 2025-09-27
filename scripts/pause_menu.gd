@@ -49,6 +49,7 @@ func _on_config_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	click_sfx.play()
+	get_tree().paused = false
 	await get_tree().create_timer(.3).timeout
 	Global.next_scene = "res://scenes/UI/start_menu.tscn"
 	get_tree().change_scene_to_packed(Global.loading_screen)

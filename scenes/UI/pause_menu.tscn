@@ -17,14 +17,12 @@ font_size = 35
 atlas = ExtResource("1_qo2fb")
 region = Rect2(442.215, 51.343, 266.996, 170.471)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sipkl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pfkw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w67w4"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.37553, 0.379763, 0.456985, 1)
+bg_color = Color(0.44099, 0.549534, 0.617895, 1)
 skew = Vector2(0.2, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -43,27 +41,21 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w67w4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pfkw"]
 content_margin_left = 10.0
 content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
-bg_color = Color(0.44099, 0.549534, 0.617895, 1)
+bg_color = Color(0.37553, 0.379763, 0.456985, 1)
 skew = Vector2(0.2, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sipkl"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w67w4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pfkw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xovtl"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sipkl"]
 content_margin_left = 20.0
@@ -75,6 +67,14 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xovtl"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pfkw"]
 
 [sub_resource type="Animation" id="Animation_xovtl"]
 length = 0.001
@@ -206,29 +206,29 @@ grow_horizontal = 2
 
 [node name="inventory_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.489451, 0.779895, 0.826506, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.309392, 0.486135, 0.759551, 1)
+theme_override_colors/font_hover_color = Color(0.489451, 0.779895, 0.826506, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sipkl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w67w4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sipkl")
 text = "INVENTÁRIO"
 flat = true
 
 [node name="options_button" type="Button" parent="menu_selection"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.489451, 0.779895, 0.826506, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.309392, 0.486135, 0.759551, 1)
+theme_override_colors/font_hover_color = Color(0.489451, 0.779895, 0.826506, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w67w4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_w67w4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eir0s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3pfkw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w67w4")
 text = "OPÇÕES"
 flat = true
 
@@ -271,76 +271,77 @@ grow_vertical = 2
 [node name="back_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.33646, 0.590885, 0.76501, 1)
+theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Continuar"
 flat = true
 
 [node name="config_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.33646, 0.590885, 0.76501, 1)
+theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Configurações"
 flat = true
 
 [node name="reset_health_button" type="Button" parent="button_container"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.33646, 0.590885, 0.76501, 1)
+theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Resetar vida"
 flat = true
 
 [node name="save_button2" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.33646, 0.590885, 0.76501, 1)
+theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Salvar jogo"
 flat = true
 
 [node name="quit_button" type="Button" parent="button_container"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.33646, 0.590885, 0.76501, 1)
+theme_override_colors/font_hover_color = Color(0.572566, 0.815636, 0.890168, 1)
 theme_override_fonts/font = ExtResource("6_eir0s")
 theme_override_font_sizes/font_size = 55
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sipkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xovtl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3pfkw")
 text = "Voltar início"
 flat = true
 
 [node name="click_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sipkl")
-volume_db = 5.0
+volume_db = 17.0
 bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

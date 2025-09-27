@@ -35,16 +35,20 @@ func load_to_global() -> void:
 	Global.current_weapon = SaveLoad.save_content[Global.current_save]["current_weapon"]
 	Global.last_saved_pos = SaveLoad.save_content[Global.current_save]["last_saved_pos"]
 	Global.npc_manager = SaveLoad.save_content[Global.current_save]["npc_manager"]
+	Global.cutscenes = SaveLoad.save_content[Global.current_save]["cutscenes"]
+	Global.inventory = SaveLoad.save_content[Global.current_save]["inventory"]
 
 func save_to_file() -> void:
 	SignalBus.on_game_saved.emit()
-	await get_tree().create_timer(.2)
+	await get_tree().create_timer(.2).timeout
 	SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
 	SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
 	SaveLoad.save_content[Global.current_save]["completed_levels"] = Global.completed_levels
 	SaveLoad.save_content[Global.current_save]["current_weapon"] = Global.current_weapon
 	SaveLoad.save_content[Global.current_save]["last_saved_pos"] = Global.last_saved_pos 
 	SaveLoad.save_content[Global.current_save]["npc_manager"] = Global.npc_manager
+	SaveLoad.save_content[Global.current_save]["cutscenes"] = Global.cutscenes
+	SaveLoad.save_content[Global.current_save]["inventory"] = Global.inventory
 	#fazer isso realmente funcionar ^^^
 	SaveLoad.save()
 
@@ -57,12 +61,6 @@ func load_save() -> void:
 		
 		var save_data = data.duplicate()
 		save_content = save_data
-		#save_content.health = save_data.health
-		#Global.player_health = save_content.health
-		#save_content.current_world = save_data.current_world
-		#save_content.inventory = save_data.inventory
-		#Global.inventory = save_content.inventory
-		#print(save_data.inventory)
 		print('SAVE DATA: ',save_data)
 		#for i: int in save_data:
 			#pass

@@ -143,5 +143,6 @@ current_npc = "master"
 transform = Transform3D(0.947752, 0, -0.319009, 0, 1, 0, 0.319009, 0, 0.947752, 5.99407, 0, 1.65829)
 
 [node name="npc_interact_sign" parent="." instance=ExtResource("6_yfbkh")]
+visible = false
 
 [editable path="master_model"]

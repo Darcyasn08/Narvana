@@ -41,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 
 
 #função iniciada pelo sinal para iniciar o dialogo
-func start_dialogue(npc) -> void:
+func start_dialogue(npc):
 	#caso "e" tenha sido clicado de novo, e o dialogo já tiver começado, não começar
 	if !has_started_diag:
 		#print("start diag")
@@ -63,7 +63,7 @@ func start_dialogue(npc) -> void:
 		talk_speed = normal_talk_speed #garante que a velocidade continue normal
 
 
-func end_dialog() -> void:
+func end_dialog():
 	cur_text = 0
 	cur_npc = ""
 	$dialogue_text.text = ""
@@ -76,7 +76,7 @@ func end_dialog() -> void:
 	return
 
 
-func progress_dialogue() -> void:
+func progress_dialogue():
 	if Input.is_action_just_pressed("e") and can_progress and has_started_diag:
 		$dialogue_text.text = "" #reseta o dialogo
 		cur_text += 1

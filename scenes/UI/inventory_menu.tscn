@@ -37,7 +37,7 @@ corner_radius_bottom_right = 78
 corner_radius_bottom_left = 78
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bih5"]
-bg_color = Color(1, 0.59473836, 0.9243156, 1)
+bg_color = Color(0.22178587, 0.19456616, 0.40208083, 1)
 corner_radius_top_left = 222
 corner_radius_top_right = 222
 corner_radius_bottom_right = 222
@@ -81,7 +81,7 @@ grow_vertical = 0
 scale = Vector2(1.1333333, 1.0787035)
 texture = ExtResource("2_5bih5")
 
-[node name="item_list" type="HBoxContainer" parent="."]
+[node name="item_list" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,11 +89,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -904.0
-offset_top = -177.0
-offset_right = -93.0
-offset_bottom = 61.0
+offset_top = -235.0
+offset_right = -177.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
+columns = 3
 
 [node name="Telas" type="Sprite2D" parent="."]
 visible = false
