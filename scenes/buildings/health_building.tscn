@@ -37,7 +37,7 @@ size = Vector3(0.2, 3, 2)
 data = PackedVector3Array(-0.1, 1.5, 1, 0.1, 1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, -1, 0.1, -1.5, -1, -0.1, 1.5, -1, -0.1, -1.5, -1, 0.1, -1.5, -1, 0.1, 1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, 1, 0.1, 1.5, -1, 0.1, -1.5, -1, 0.1, -1.5, 1, -0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, -1, -0.1, 1.5, 1, -0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, 1.5, 1, -0.1, 1.5, 1, 0.1, 1.5, -1, -0.1, 1.5, 1, -0.1, 1.5, -1, 0.1, 1.5, -1, -0.1, -1.5, 1, 0.1, -1.5, 1, -0.1, -1.5, -1, 0.1, -1.5, 1, 0.1, -1.5, -1, -0.1, -1.5, -1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mun5i"]
-size = Vector3(8.70001, 1, 8.21478)
+size = Vector3(9.20784, 5.4918823, 9.004134)
 
 [sub_resource type="MultiMesh" id="MultiMesh_u6tqe"]
 transform_format = 1
@@ -208,7 +208,7 @@ mesh = SubResource("BoxMesh_opxjy")
 shape = SubResource("ConcavePolygonShape3D_opxjy")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="door/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62445, 3.12359, 1.9501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6445537, 5.3695316, 2.0373878)
 shape = SubResource("BoxShape3D_mun5i")
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]

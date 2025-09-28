@@ -1,20 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgbkj0s64h0nv"]
+[gd_scene load_steps=10 format=3 uid="uid://cgbkj0s64h0nv"]
 
 [ext_resource type="Script" uid="uid://cg6qy8sdeyuxu" path="res://scripts/enemies/pearl_collar.gd" id="1_8t814"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_f22wo"]
+[ext_resource type="PackedScene" uid="uid://b6dj408e3hxqv" path="res://3d_models/enemies/dragãoperola.glb" id="3_hyujg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f22wo"]
-radius = 0.190688
-height = 1.07904
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyujg"]
+radius = 0.69189453
+height = 8.59494
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2kp1w"]
-size = Vector3(0.5581056, 0.456818, 1.6867981)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyujg"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.4846205, 0.77647513, 0.92414844, 1)
+metallic = 0.25
+metallic_specular = 0.86
+roughness = 0.03
+
+[sub_resource type="Animation" id="Animation_ljom1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragãoperola:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.047119673, 0.5715475, -2.8356106)]
+}
+
+[sub_resource type="Animation" id="Animation_hyujg"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragãoperola:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.59, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.047119673, 0.5715475, -2.8356106), Vector3(-0.04707218, 0.6594269, -2.8327525), Vector3(-0.047, 0.37, -2.833)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ffvie"]
+_data = {
+&"RESET": SubResource("Animation_ljom1"),
+&"idle": SubResource("Animation_hyujg")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ljom1"]
+radius = 0.60302734
+height = 7.1416206
 
 [node name="pearl_collar" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_8t814")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(-1.4, 0, -2.1139412e-07, 0, 1.4, 0, 2.1139412e-07, 0, -1.4, 0, 0.25209624, 0)
+visible = false
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGCombiner3D"]
 radius = 0.2
@@ -36,11 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195953, 0.206549)
 radius = 0.2
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.447, -1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5483352, -0.0011683553)
-shape = SubResource("CapsuleShape3D_f22wo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22375706, -4.4303894)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -51,8 +96,74 @@ autostart = true
 transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0.0013900029, 0.16330831, -4.2020663e-05)
 hitbox_collision = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(-1.1025256, -0.002823046, -0.010136088, -0.009384256, 0.7441943, 0.8135051, 0.0047584167, 0.81355476, -0.7441845, -0.0028224636, 0.56572264, -0.4426965)
-shape = SubResource("BoxShape3D_2kp1w")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox" groups=["enemies"]]
+transform = Transform3D(-0.99989706, -0.004216358, 0.00856091, -0.008510727, -0.011662646, -0.9998533, 0.004315481, -0.9999233, 0.011626251, -6.679754e-05, 0.40104324, -0.12898734)
+shape = SubResource("CapsuleShape3D_hyujg")
+
+[node name="dragãoperola" parent="." instance=ExtResource("3_hyujg")]
+transform = Transform3D(0.016606038, 0.0005401438, -0.99986196, -0.032509755, 0.9994714, 0, 0.99933344, 0.03250527, 0.01661482, -0.047119673, 0.5715475, -2.8356106)
+
+[node name="Plano" parent="dragãoperola" index="0"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV" parent="dragãoperola" index="2"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_001" parent="dragãoperola" index="3"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_002" parent="dragãoperola" index="4"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_003" parent="dragãoperola" index="5"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_004" parent="dragãoperola" index="6"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_005" parent="dragãoperola" index="7"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_006" parent="dragãoperola" index="8"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_007" parent="dragãoperola" index="9"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_008" parent="dragãoperola" index="10"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Esfera UV_009" parent="dragãoperola" index="11"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Cone" parent="dragãoperola" index="12"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Plano_001" parent="dragãoperola" index="13"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Plano_002" parent="dragãoperola" index="14"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Toróide_001" parent="dragãoperola" index="15"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Cone_001" parent="dragãoperola" index="16"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="Cone_002" parent="dragãoperola" index="17"]
+material_override = SubResource("StandardMaterial3D_hyujg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ffvie")
+}
+autoplay = "idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.999925, -0.004216358, 0.0085609, -0.008510968, -0.011662646, -0.99987406, 0.0043156114, -0.9999233, 0.011626255, -3.3658172e-05, 0.40113562, -0.12112829)
+shape = SubResource("CapsuleShape3D_ljom1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="dragãoperola"]

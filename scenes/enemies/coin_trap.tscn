@@ -1,29 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://fti7eumun2t0"]
+[gd_scene load_steps=9 format=3 uid="uid://fti7eumun2t0"]
 
 [ext_resource type="Script" uid="uid://b7xb2wow3hx13" path="res://scripts/enemies/coin_trap.gd" id="1_ufq6v"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_waxui"]
-albedo_color = Color(1, 0.701961, 0.0196078, 1)
+[ext_resource type="PackedScene" uid="uid://fhhhgrvak41d" path="res://3d_models/enemies/true_bait.glb" id="2_jtssb"]
+[ext_resource type="PackedScene" uid="uid://bqryni7t37ua6" path="res://3d_models/enemies/head_top.glb" id="3_7jvvm"]
+[ext_resource type="PackedScene" uid="uid://dos5m7855qlfy" path="res://3d_models/enemies/head_bottom.glb" id="4_tc3uk"]
+[ext_resource type="PackedScene" uid="uid://bj16wesv337em" path="res://3d_models/enemies/headless_body.glb" id="5_laxxc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqnro"]
-size = Vector3(1.23837, 1.25244, 0.407715)
+size = Vector3(1.7877308, 1.25244, 0.84866333)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1lujl"]
-size = Vector3(2.8855, 2.11922, 1.92468)
+[sub_resource type="SphereShape3D" id="SphereShape3D_7jvvm"]
+radius = 1.7542626
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jvvm"]
+albedo_color = Color(0.59439486, 0.1976774, 0.4792928, 1)
+emission_enabled = true
+emission = Color(0.97091967, 0.36738327, 0.5772008, 1)
+emission_energy_multiplier = 2.0
 
 [node name="coin_trap" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_ufq6v")
 
-[node name="coin" type="CSGCylinder3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.361981, 0)
-radius = 0.654297
-height = 0.187073
-material = SubResource("StandardMaterial3D_waxui")
-
 [node name="hitbox" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00160217, 0.381049, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17462295, 0.381049, 0.060256958)
 shape = SubResource("BoxShape3D_xqnro")
 
 [node name="hurtbox" type="Area3D" parent="."]
@@ -31,8 +32,8 @@ disable_mode = 1
 monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.559947, -0.017)
-shape = SubResource("BoxShape3D_1lujl")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41594505, -0.017)
+shape = SubResource("SphereShape3D_7jvvm")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0.267238, 0.96363, 0, 0.96363, -0.267238, -1, -1.16814e-08, -4.21216e-08, 1.07944, 0.414787, 0.022737)
@@ -49,6 +50,33 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="coin" parent="." instance=ExtResource("2_jtssb")]
+transform = Transform3D(1.881968, -0.26114458, 0, 0.26114425, 1.8819648, 0.0033161237, -0.00045578313, -0.0032846516, 1.899997, 0.29386973, 0.07835609, 0.03628981)
+
+[node name="Cube_002" parent="coin" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_7jvvm")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="coin"]
+transform = Transform3D(0.5263158, -1.270169e-08, -5.820766e-11, 2.1994708e-09, 0.52631587, -1.7462298e-10, 5.820766e-11, 2.3283064e-10, 0.5263158, 0.45435244, 0.24008095, 0.0005240366)
+light_color = Color(0.97236997, 0.7188957, 0.8852501, 1)
+light_energy = 3.796
+omni_range = 1.825
+omni_attenuation = 0.0
+
+[node name="head_top" parent="." instance=ExtResource("3_7jvvm")]
+transform = Transform3D(0.4385751, -0.89869463, 0, 0.89869463, 0.4385751, 0, 0, 0, 1, -0.9246446, -0.015643716, 0.093211174)
+visible = false
+
+[node name="head_bottom" parent="." instance=ExtResource("4_tc3uk")]
+transform = Transform3D(0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0, 1, 0.2532078, -0.11208618, -0.20663714)
+visible = false
+
+[node name="headless_body" parent="." instance=ExtResource("5_laxxc")]
+transform = Transform3D(0.5838672, -0.8118493, 0, 0.8118493, 0.5838672, 0, 0, 0, 1, -1.0050747, -0.13330513, -0.017317295)
+visible = false
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="coin"]

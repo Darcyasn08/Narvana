@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://45m2rb81gimd"]
+[gd_scene load_steps=26 format=3 uid="uid://45m2rb81gimd"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
 [ext_resource type="Script" uid="uid://cog8qajqsgdme" path="res://scripts/second_level.gd" id="1_pfrex"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://boxmd6ady4xvf" path="res://scenes/turtle_model.tscn" id="10_s3ee0"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="11_ruiny"]
 [ext_resource type="PackedScene" uid="uid://c60x0jfkdac5l" path="res://scenes/particles/second_level_collision_particle.tscn" id="12_xnph4"]
-[ext_resource type="PackedScene" uid="uid://cbmvifyq76o3c" path="res://scenes/enemies/house.tscn" id="13_s3ee0"]
 
 [sub_resource type="Environment" id="Environment_hfe2k"]
 background_color = Color(0.164141, 0.213622, 0.368994, 1)
@@ -310,8 +309,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449209, 0.807708, 59.6513)
 [node name="spawner" parent="." instance=ExtResource("11_ruiny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.735847, 0.116435, 0.179565)
 level_number = 1
-
-[node name="house" parent="." instance=ExtResource("13_s3ee0")]
-transform = Transform3D(-0.013903022, 0, -1.399931, 0, 1.4, 0, 1.399931, 0, -0.013903022, 24.523373, 0, -52.741756)
 
 [editable path="stage_band"]

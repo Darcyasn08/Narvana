@@ -13,12 +13,19 @@ func _physics_process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc") or event.is_action_pressed("tab"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_tree().paused = true
-		Global.game_paused = true
-		show()
-		$AnimationPlayer.play("fade_in")
-		SignalBus.on_game_paused.emit(Global.game_paused)
+		if !visible:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			get_tree().paused = true
+			Global.game_paused = true
+			show()
+			$AnimationPlayer.play("fade_in")
+			SignalBus.on_game_paused.emit(Global.game_paused)
+		else:
+			hide()
+			get_tree().paused = false
+			Global.game_paused = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			SignalBus.on_game_paused.emit(Global.game_paused)
 
 func _on_options_button_pressed() -> void:
 	$button_container.show()
@@ -31,7 +38,6 @@ func _on_options_button_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	click_sfx.play()
 	hide()
-	print("pause menu: ",visible)
 	get_tree().paused = false
 	Global.game_paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

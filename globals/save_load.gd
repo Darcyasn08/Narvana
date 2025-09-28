@@ -5,11 +5,40 @@ var save_path: String = "user://narvana_save.json"
 
 var save_content: Dictionary = {
 	0: {
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
 	},
 	1: {
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
 	},
 	2: {
-		
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
+	}
+}
+
+var reset_save_content: Dictionary = {
+	0: {
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26)
+	},
+	1: {
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26)
+	},
+	2: {
+		"current_world": 0,
+		"current_weapon": 1,
+		"last_saved_pos": Vector3(0,0,-26)
 	}
 }
 
@@ -37,6 +66,9 @@ func load_to_global() -> void:
 	Global.npc_manager = SaveLoad.save_content[Global.current_save]["npc_manager"]
 	Global.cutscenes = SaveLoad.save_content[Global.current_save]["cutscenes"]
 	Global.inventory = SaveLoad.save_content[Global.current_save]["inventory"]
+	Global.mouse_sens = SaveLoad.save_content[Global.current_save]["mouse_sens"]
+	Global.rotation_mouse_axis_x = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"]
+	Global.rotation_mouse_axis_y = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"]
 
 func save_to_file() -> void:
 	SignalBus.on_game_saved.emit()
@@ -49,6 +81,9 @@ func save_to_file() -> void:
 	SaveLoad.save_content[Global.current_save]["npc_manager"] = Global.npc_manager
 	SaveLoad.save_content[Global.current_save]["cutscenes"] = Global.cutscenes
 	SaveLoad.save_content[Global.current_save]["inventory"] = Global.inventory
+	SaveLoad.save_content[Global.current_save]["mouse_sens"] = Global.mouse_sens
+	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
+	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
 	#fazer isso realmente funcionar ^^^
 	SaveLoad.save()
 
@@ -69,9 +104,6 @@ func delete_save() -> void:
 	if FileAccess.file_exists(save_path):
 		print("deleted!")
 		DirAccess.remove_absolute(save_path)
-		save_content.current_world = Global.current_world
-		save_content.health = Global.player_health
-		save_content.inventory = Global.inventory
-		Global.has_started_game = false
-		save_content.has_started_game = Global.has_started_game
+		save_content = reset_save_content
 		save()
+		get_tree().reload_current_scene()

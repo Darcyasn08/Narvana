@@ -122,9 +122,9 @@ var inventory: Dictionary = {
 		},
 		"jewel": {
 			"player_has": true,
-			"icon": "res://UI/inventory/coffee-cup.png",
+			"icon": "res://UI/inventory/jewel.png",
 			"name": "Jóias",
-			"desc": "Um carrinho pra ir trabalhar (+velocidade)",
+			"desc": "Caras e lindas (+velocidade)",
 			"buff": {
 				"damage": 0,
 				"health": 0,
@@ -267,47 +267,70 @@ var dialogs: Dictionary = {
 		}
 	},
 	"jellyfish": {
+		"name": "Água-viva",
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Olá, como vai?",
+					"options": {}
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "Já não te disse oi antes?...",
+					"options": {},
+				},
+			},
+		}
+	},
+	"anderson": {
 		"name": "Anderson",
 		"is_first_time": true,
 		"dialog_tree": {
-			"first_dialog": {
-				"text": "hi",
-				"options": {}
-			},
 			"middle": {
 				0: {
 					"text": "Oi, eu sou o Anderson",
 					"options": {}
 				},
 				1: {
-					"text": "Dizem que eu sou o cara mais maneiro daqui... Você acredita nisso? :D", 
-					"options": {}
+					"text": "Dizem que eu sou o cara mais maneiro daqui", 
+					"options": {
+						0: {
+							"text": "O que é esse disfarce seu?",
+							"ignite": "ask_mask",
+						},
+						1: {
+							"text": "*não comentar sobre o disfarce*",
+							"ignite": "dont_ask",
+						}
+					}
 				},
 				2: {
 					"text": "Bom, eu tenho negócios a fazer, te vejo alguma hora",
 					"options": {}
 				},
 			},
-			"quest": {
-				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
-				"status": "none",
-				"id": "secret_stash",
-				"text": "(fazer um texto aqui alguma hora)",
-				"options": {}
+			#fazer com que esses ignites tenham suas vertentes dentro deles
+			"ask_mask": {
+				"text": "Que disfarce? Não tô usando disfarce nenhum... (droga, ele percebeu)",
+			},
+			"dont_ask": {
+				"text": "(ótimo, ele não suspeitou de nada)",
 			},
 			"exit": {
-				"text": "Te vejo mais tarde",
+				"text": "...tenha um bom dia",
 				"options": {}
 			},
 			"middle_done": {
 				0: {
-					"text": "Oi?",
+					"text": "*se disfançando*",
 					"options": {},
 				},
 			},
 		}
 	},
-		
+	
 	"grandma": {
 		"name": "Vovó",
 		"dialog_tree": {

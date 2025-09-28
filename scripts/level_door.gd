@@ -23,19 +23,19 @@ func open(current_room):
 	if current_room == room1 or current_room == room2:
 		#print("door is open")
 		door_collision.set_deferred("disabled", true)
-		$AnimationPlayer.play("door_open")
 		if $MeshInstance3D:
 			$MeshInstance3D.hide()
 			$CollisionShape3D.set_deferred("disabled", true)
+		$AnimationPlayer.play("door_open")
 
 func close(current_room):
 	if current_room == room1 or current_room == room2:
 		#print("door is closed")
 		door_collision.set_deferred("disabled", false)
-		$AnimationPlayer.play("door_close")
 		if $MeshInstance3D:
 			$MeshInstance3D.show()
 			$CollisionShape3D.set_deferred("disabled", false)
+		$AnimationPlayer.play("door_close")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near:

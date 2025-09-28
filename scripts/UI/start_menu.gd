@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-@onready var current_world_label: Label = $"save_screen/HBoxContainer/0/current_world_label"
 var cur_world: int
 var loading_screen_inst: Object = preload("res://scenes/UI/loading_screen.tscn")
 var save_qtd: int = 0
@@ -37,8 +36,8 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	$save_screen.show()
-	$save_screen/AnimationPlayer.play("show_save_screen")
+	Global.next_scene = "res://scenes/worlds/normal_world.tscn"
+	get_tree().change_scene_to_packed(Global.loading_screen)
 
 
 func _on_start_save_pressed() -> void:
@@ -71,3 +70,10 @@ func _on_delete_save_button_pressed() -> void:
 func _on_back_delete_button_pressed() -> void:
 	$confirm_delete_save.hide()
 	delete_panel = -1
+
+func _on_open_save_screen_button_pressed() -> void:
+	$save_screen.show()
+	$save_screen/AnimationPlayer.play("show_save_screen")
+
+func _on_options_button_pressed() -> void:
+	$options_menu.show()

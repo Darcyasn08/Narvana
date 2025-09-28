@@ -56,26 +56,14 @@ transform = Transform3D(0.506004, 0, -0.862531, 0, 1, 0, 0.862531, 0, 0.506004, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7xm76")
 
-[node name="village_tent" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(0.951568, 0, 0.30744, 0, 1, 0, -0.30744, 0, 0.951568, -12.8544, 0, 5.23704)
-
 [node name="village_tent2" parent="." instance=ExtResource("1_xmxjs")]
 transform = Transform3D(0.182699, 0, 0.983169, 0, 1, 0, -0.983169, 0, 0.182699, -2.06089, 0, 15.4488)
-
-[node name="village_tent3" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(-0.524283, 0, 0.851544, 0, 1, 0, -0.851544, 0, -0.524283, 5.39908, 0, 14.1372)
-
-[node name="village_tent4" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(-0.810972, 0, -0.585085, 0, 1, 0, 0.585085, 0, -0.810972, 11.6208, 0, -10.1497)
-
-[node name="village_tent5" parent="." instance=ExtResource("1_xmxjs")]
-transform = Transform3D(-0.0726991, 0, -0.997354, 0, 1, 0, 0.997354, 0, -0.0726991, 3.59769, 0, -14.073)
 
 [node name="light_pole" parent="." instance=ExtResource("2_5a6mm")]
 transform = Transform3D(-0.480943, 0, 0.876752, 0, 1, 0, -0.876752, 0, -0.480943, -9.80896, -0.407523, 10.4172)
 
 [node name="light_pole2" parent="." instance=ExtResource("2_5a6mm")]
-transform = Transform3D(-0.704733, 0, 0.709472, 0, 1, 0, -0.709472, 0, -0.704733, 11.7367, -0.407523, -3.47325)
+transform = Transform3D(-0.704733, 0, 0.709472, 0, 1, 0, -0.709472, 0, -0.704733, 15.638498, -0.40752205, -6.3790445)
 
 [node name="stone3" parent="." instance=ExtResource("3_1lfl5")]
 transform = Transform3D(0.688722, 0, 0.725025, 0, 1, 0, -0.725025, 0, 0.688722, 0.82552, 8.9407e-08, -15.0972)
@@ -97,7 +85,7 @@ transform = Transform3D(-0.12038, 0, -0.992728, 0, 1, 0, 0.992728, 0, -0.12038, 
 current_color = 2
 
 [node name="jellyfish_npc3" parent="." instance=ExtResource("5_yebb3")]
-transform = Transform3D(-0.0875375, 0, 0.996161, 0, 1, 0, -0.996161, 0, -0.0875375, 4.70849, 0.133238, 14.336)
+transform = Transform3D(-0.0875375, 0, 0.996161, 0, 1, 0, -0.996161, 0, -0.0875375, 14.930457, 0.133238, 1.0549302)
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(10.1201, 0, 17.2506, 0, 1, 0, -17.2506, 0, 10.1201, 0, 0.2, 0)

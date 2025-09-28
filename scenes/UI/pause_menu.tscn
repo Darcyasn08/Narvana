@@ -341,7 +341,7 @@ flat = true
 
 [node name="click_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_sipkl")
-volume_db = 17.0
+volume_db = -2.0
 bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

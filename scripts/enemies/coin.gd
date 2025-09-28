@@ -56,6 +56,7 @@ func damage_player(area) -> void:
 	on_ground = false
 
 func unique_die() -> void:
+	$enemy_hitbox/collision3.set_deferred("disabled",true)
 	$AnimationPlayer.play("death")
 	print("im dead dude...")
 	can_move = false

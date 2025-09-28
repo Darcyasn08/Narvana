@@ -7,7 +7,7 @@ var previous_selected_item: int = -1
 @onready var item_button_inst: Object = preload("res://scenes/UI/inventory_shop_item.tscn")
 
 func _ready() -> void:
-	$shop_items_container.hide()
+	%shop_items_dropbox.hide()
 	SignalBus.on_item_removed.connect(remove_item)
 	SignalBus.on_buy_shop_item.connect(add_shop_item)
 	SignalBus.on_item_selected.connect(select_shop_item)
@@ -114,7 +114,7 @@ func add_shop_item() -> void:
 	item_button.text_name = str(Global.inventory["shop_items"][next_index]["name"])
 	item_button.id = next_index
 	item_button.size = Vector2(50,40)
-	$shop_items_container/VBoxContainer.add_child(item_button)
+	%shop_items_dropbox/VBoxContainer.add_child(item_button)
 
 func select_shop_item(index: int) -> void:
 	#print("item index: ", index)
@@ -137,8 +137,8 @@ func select_shop_item(index: int) -> void:
 	add_plus_values()
 	$selected_item_label.text = Global.inventory["shop_items"][index]["name"]
 	$selected_item_stats.text = str("vida: ",Global.inventory["shop_items"][index]["buff"]["health"], "\ndano: ",Global.inventory["shop_items"][index]["buff"]["damage"], "\nvelocidade: ",Global.inventory["shop_items"][index]["buff"]["speed"])
-	$shop_items_container.hide()
+	%shop_items_dropbox.hide()
 	previous_selected_item = index
 
 func _on_open_item_select_pressed() -> void:
-	$shop_items_container.show()
+	%shop_items_dropbox.show()

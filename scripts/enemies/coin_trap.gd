@@ -14,11 +14,12 @@ func _on_hitbox_area_entered(area: Area3D) -> void:
 		queue_free()
 
 func activate() -> void:
-	print("activate")
-	$CSGBox3D.show() #substituir pela animação dele mordendo
-	$CSGBox3D2.show()
+	#print("activate")
+	$head_top.show()
+	$head_bottom.show()
+	$headless_body.show()
 	$hurtbox.monitoring = true #temp, depois tem que deixar os collision junto com os bone debaixo da terra 
-	await(get_tree().create_timer(3).timeout)
+	await(get_tree().create_timer(2.5).timeout)
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	print("area entered!!!")

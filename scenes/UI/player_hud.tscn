@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=14 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
 [ext_resource type="Texture2D" uid="uid://yv1omvw2kc0b" path="res://UI/inventory/blush-effect.png" id="3_r6s25"]
+[ext_resource type="Texture2D" uid="uid://b84xvkh3w8sjd" path="res://UI/magics/dust-magic-icon.png" id="4_xffaj"]
+[ext_resource type="Texture2D" uid="uid://bg5p8dymit33r" path="res://UI/magics/player-hud-details.png" id="5_fdwu4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ngs"]
 bg_color = Color(0.566484, 0.704534, 0.801609, 1)
@@ -44,8 +46,27 @@ font_size = 60
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fdwu4"]
+font = ExtResource("2_r6s25")
+font_size = 50
+outline_size = 10
+outline_color = Color(0.3896487, 0.15143526, 0.35901102, 1)
+
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.6963206, 0.5171755, 0.5999798, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -26.0
+offset_right = 157.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_fdwu4")
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = -54.0
@@ -64,10 +85,10 @@ offset_bottom = 79.0
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -120.0
-offset_top = 19.0
-offset_right = -77.0
-offset_bottom = 53.0
+offset_left = -139.0
+offset_top = 23.0
+offset_right = -96.0
+offset_bottom = 57.0
 grow_horizontal = 0
 text = "FPS"
 label_settings = SubResource("LabelSettings_q0ngs")
@@ -76,10 +97,10 @@ label_settings = SubResource("LabelSettings_q0ngs")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -67.0
-offset_top = 15.0
-offset_right = -13.0
-offset_bottom = 52.0
+offset_left = -86.0
+offset_top = 19.0
+offset_right = -32.0
+offset_bottom = 56.0
 grow_horizontal = 0
 text = "00.0"
 label_settings = SubResource("LabelSettings_r6s25")
@@ -258,3 +279,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_r6s25")
+
+[node name="magics" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -759.0
+offset_top = -729.0
+offset_right = -15.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="dust_magic" type="TextureRect" parent="magics"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -231.0
+offset_right = 469.0
+offset_bottom = 469.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3294273, 0.3294273)
+texture = ExtResource("4_xffaj")
+
+[node name="magics_timer" type="Timer" parent="magics"]
+wait_time = 25.0
+one_shot = true
+
+[node name="magic_time_label" type="Label" parent="magics"]
+visible = false
+layout_mode = 0
+offset_left = 590.0
+offset_top = 587.0
+offset_right = 669.0
+offset_bottom = 637.0
+text = "25"
+label_settings = SubResource("LabelSettings_fdwu4")
+horizontal_alignment = 1
+
+[connection signal="timeout" from="magics/magics_timer" to="." method="_on_magics_timer_timeout"]

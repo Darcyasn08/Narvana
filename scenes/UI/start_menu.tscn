@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cc7turudgrccy"]
+[gd_scene load_steps=22 format=3 uid="uid://cc7turudgrccy"]
 
 [ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
 [ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_1y4tv"]
 [ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="5_4fmqt"]
 [ext_resource type="AudioStream" uid="uid://6oo3epj6okg8" path="res://music/Flute-song.mp3" id="6_swjo3"]
+[ext_resource type="PackedScene" uid="uid://bcwkhk5uegqo" path="res://scenes/UI/options_menu.tscn" id="7_uyt88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
 bg_color = Color(0.00784314, 0.00784314, 0.160784, 1)
@@ -40,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -52,7 +53,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_201h0"]
@@ -189,6 +190,17 @@ offset_bottom = -101.0
 grow_vertical = 0
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_1y4tv")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
+text = "NOVO JOGO"
+flat = true
+
+[node name="open_save_screen_button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -214,18 +226,17 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -76.0
-offset_right = -44.0
-offset_bottom = -27.0
+offset_left = -143.0
+offset_top = -68.0
+offset_right = -35.0
+offset_bottom = -19.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "v0.0.1"
 label_settings = SubResource("LabelSettings_bpkul")
 
 [node name="save_screen" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -364,7 +375,12 @@ stream = ExtResource("6_swjo3")
 autoplay = true
 parameters/looping = true
 
+[node name="options_menu" parent="." instance=ExtResource("7_uyt88")]
+visible = false
+
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/open_save_screen_button" to="." method="_on_open_save_screen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="save_screen/close_save_screen_button" to="." method="_on_close_save_screen_button_pressed"]
 [connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/delete_save_button" to="." method="_on_delete_save_button_pressed"]
 [connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/back_delete_button" to="." method="_on_back_delete_button_pressed"]

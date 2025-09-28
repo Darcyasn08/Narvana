@@ -46,14 +46,7 @@ func new_save_button_pressed() -> void:
 		for level in Global.completed_levels:
 			SaveLoad.save_content[id]["completed_levels"][level] = false
 			Global.completed_levels[id] = false
-		SaveLoad.save_content[id]["current_weapon"] = 1 #bat
-		Global.current_weapon = SaveLoad.save_content[id]["current_weapon"]
-		is_created = true
-		SaveLoad.save_content[id]["is_created"] = is_created
-		SaveLoad.save_content[id]["health"] = Global.player_health
-		SaveLoad.save_content[id]["last_saved_pos"] = Global.last_saved_pos
-		SaveLoad.save_content[id]["npc_manager"] = Global.npc_manager
-		SaveLoad.save_content[id]["cutscenes"] = Global.cutscenes
+		add_var_to_new_save()
 		add_var_to_save()
 		# ^^^ dar um jeito de resetar o global do dialogo a cada save criado, sem sair do jogo
 		#tipo, criar uma variável apenas salvando quem vc falou ou algo assim
@@ -63,8 +56,6 @@ func new_save_button_pressed() -> void:
 func open_save_button_pressed() -> void:
 	add_var_to_save()
 	Global.completed_levels = SaveLoad.save_content[id]["completed_levels"]
-	Global.last_saved_pos = SaveLoad.save_content[id]["last_saved_pos"]
-	Global.npc_manager = SaveLoad.save_content[id]["npc_manager"]
 	Global.current_save = id
 	SaveLoad.load_to_global()
 	if SaveLoad.save_content[id]["current_world"] != null:
@@ -95,7 +86,23 @@ func delete_save(delete_panel: int) -> void:
 		%sprite_created.hide()
 		%sprite_not_created.show()
 
+func add_var_to_new_save() -> void:
+	SaveLoad.save_content[id]["current_weapon"] = 1 #bat
+	Global.current_weapon = SaveLoad.save_content[id]["current_weapon"]
+	is_created = true
+	SaveLoad.save_content[id]["is_created"] = is_created
+	SaveLoad.save_content[id]["health"] = Global.player_health
+	SaveLoad.save_content[id]["last_saved_pos"] = Vector3(0,0,-26)
+	SaveLoad.save_content[id]["npc_manager"] = Global.npc_manager
+	SaveLoad.save_content[id]["cutscenes"] = Global.cutscenes
+	SaveLoad.save_content[id]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
+	SaveLoad.save_content[id]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
+
 #variáveis adicionadas depois
 func add_var_to_save() -> void:
-	SaveLoad.save_content[id]["inventory"] = Global.inventory
+	if SaveLoad.save_content[id].get("inventory") == null:
+		SaveLoad.save_content[id]["inventory"] = Global.inventory
+		SaveLoad.save_content[id]["mouse_sens"] = Global.mouse_sens
+		SaveLoad.save_content[id]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
+		SaveLoad.save_content[id]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
 	SaveLoad.save()

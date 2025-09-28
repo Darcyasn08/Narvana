@@ -1,0 +1,51 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://11omh52um1e5"]
+
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="1_yej4y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yej4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y7b2"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.44404978, 0.65568006, 0.7568627, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brfgq"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.23217979, 0.5027338, 0.5598674, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yej4y"]
+bg_color = Color(0.16630566, 0.28687972, 0.43413866, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource("1_yej4y")
+default_font_size = 27
+CheckBox/colors/checkbox_unchecked_color = Color(0.06402029, 0.13241121, 0.4726556, 1)
+CheckBox/colors/icon_hover_color = Color(0.88744587, 0.5995597, 0.73505133, 1)
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_yej4y")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_0y7b2")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_brfgq")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_0y7b2")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_yej4y")

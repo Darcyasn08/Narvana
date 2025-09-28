@@ -17,6 +17,7 @@ signal on_item_list_updated()
 signal on_item_removed()
 signal on_item_selected()
 signal on_change_player_weapon()
+signal on_use_magic()
 
 signal on_start_dialog_function()
 signal on_game_paused()

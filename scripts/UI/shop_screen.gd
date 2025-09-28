@@ -10,7 +10,7 @@ var selected_index: int = 0
 var price_list: Array = []
 
 func _ready() -> void:
-	$coins_label.text = str("$",Global.coins)
+	$coins_label.text = str(Global.coins)
 	item_panel_pos = shop_item_pos_node
 	create_items()
 
@@ -52,9 +52,12 @@ func change_selected_item(index: int) -> void:
 
 func buy_item() -> void:
 	#fazer ele pegar o id do item que foi clicado com o botão, de alguma forma
-	Global.coins -= Global.shop_items[selected_index]["price"]
-	print("Compra efetuada! Dinheiro restante: ", Global.coins)
-	$coins_label.text = str("$",Global.coins)
+	if Global.coins < Global.shop_items[selected_index]["price"]:
+		print("dinheiro insuficiente!")
+	else:
+		Global.coins -= Global.shop_items[selected_index]["price"]
+		print("Compra efetuada! Dinheiro restante: ", Global.coins)
+		$coins_label.text = str(Global.coins)
 	
 	var n: int = 0
 	for shop_item: int in Global.inventory["shop_items"]:

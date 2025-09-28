@@ -1,20 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://b22ndftmpantp"]
+[gd_scene load_steps=5 format=3 uid="uid://b22ndftmpantp"]
+
+[ext_resource type="Script" uid="uid://bettaslaweqvy" path="res://scripts/NPCs/npc_interact_sign.gd" id="1_4bgow"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_xucls"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hcco"]
 transparency = 1
-albedo_color = Color(0.4, 0.717647, 0.776471, 0.368627)
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.28538013, 0.7208366, 0.9628044, 0.36862746)
 metallic = 0.42
 metallic_specular = 0.23
-roughness = 0.53
+roughness = 0.06
 
 [sub_resource type="SphereMesh" id="SphereMesh_yfbkh"]
 
 [node name="npc_interact_sign" type="Node3D"]
+script = ExtResource("1_4bgow")
 
 [node name="name_label" type="Label3D" parent="."]
-transform = Transform3D(-0.999936, 0, 0.0112745, 0, 1, 0, -0.0112745, 0, -0.999936, 0, 2.50171, 0)
-text = "[E]"
-font_size = 73
+transform = Transform3D(-0.999936, 0, 0.0112745, 0, 1, 0, -0.0112745, 0, -0.999936, 0, 2.4547074, 0)
+text = "E"
+font = ExtResource("2_xucls")
+font_size = 100
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.999936, 0, 0.0112745, 0, 1, 0, -0.0112745, 0, -0.999936, 0, 2.45947, 0)

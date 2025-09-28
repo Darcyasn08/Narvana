@@ -4,20 +4,29 @@ extends Area3D
 enum portal_types {ENTER, EXIT}
 @export var portal_closed: bool = false
 var player_near: bool = false
+var player
 
 func _ready() -> void:
 	if portal_type == portal_types.EXIT:
 		SignalBus.on_boss_defeated.connect(open_exit_portal)
 		portal_closed = true
 
+func _physics_process(_delta: float) -> void:
+	if player != null and get_node_or_null("npc_interact_sign") != null:
+		get_node("npc_interact_sign").look_at(player.get_node("camera_pivot/SpringArm3D/Camera3D").global_position)
+
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = true
+		player = body
+		$npc_interact_sign.show()
 		$AnimationPlayer.play("door_open")
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.name == "player":
 		player_near = false
+		player = null
+		$npc_interact_sign.hide()
 		$AnimationPlayer.play("door_close")
 
 func open_exit_portal() -> void:

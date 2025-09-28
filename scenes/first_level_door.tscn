@@ -22,7 +22,7 @@ material = SubResource("StandardMaterial3D_kevib")
 size = Vector3(5, 4, 1.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_st38b"]
-size = Vector3(4.82324, 3.70142, 1)
+size = Vector3(4.82324, 4.508791, 1)
 
 [sub_resource type="Animation" id="Animation_p7bhj"]
 length = 0.001
@@ -151,7 +151,7 @@ material_override = SubResource("StandardMaterial3D_st38b")
 mesh = SubResource("BoxMesh_gpdqj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207, 2.05149, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012207, 2.4551756, 0)
 shape = SubResource("BoxShape3D_st38b")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

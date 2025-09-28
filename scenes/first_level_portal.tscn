@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgkvbcn4gwfui"]
+[gd_scene load_steps=16 format=3 uid="uid://cgkvbcn4gwfui"]
 
 [ext_resource type="Script" uid="uid://dup3kl0m5qpl8" path="res://scripts/first_level_portal.gd" id="1_l7h6p"]
 [ext_resource type="Texture2D" uid="uid://cjs00e6sncidg" path="res://art/portal.png" id="2_prr58"]
 [ext_resource type="PackedScene" uid="uid://cniyires1knml" path="res://3d_models/placeholders/temple_door_normal.glb" id="3_kxfh5"]
+[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="4_v18u8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hu1gx"]
 radius = 3.6747
@@ -123,7 +124,7 @@ collision_mask = 5
 script = ExtResource("1_l7h6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4583, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4583, 0.18984604)
 shape = SubResource("SphereShape3D_hu1gx")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -162,6 +163,10 @@ speed_scale = 1.2
 [node name="bg_effect" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50091, -0.0405667)
 mesh = SubResource("BoxMesh_kxfh5")
+
+[node name="npc_interact_sign" parent="." instance=ExtResource("4_v18u8")]
+transform = Transform3D(-0.99899733, 0, 0.044770204, 0, 1, 0, -0.044770204, 0, -0.99899733, 0, 0.49715757, 2.3140297)
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

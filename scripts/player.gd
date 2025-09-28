@@ -54,9 +54,9 @@ func _physics_process(delta: float) -> void:
 		position = Global.player_base_pos
 	
 	# MOVIMENTO DA CÂMERA
-	camera_pivot.rotation.x += camera_input_direction.y * delta
+	camera_pivot.rotation.x += (camera_input_direction.y * delta)*Global.rotation_mouse_axis_x
 	camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -PI/6, PI/4) #limitar a rotação
-	camera_pivot.rotation.y += -camera_input_direction.x * delta
+	camera_pivot.rotation.y += (-camera_input_direction.x * delta)*Global.rotation_mouse_axis_y
 	
 	camera_input_direction = Vector2.ZERO #a cada frame resetar, pra não rodar pra sempre
 	
@@ -198,12 +198,15 @@ func die() -> void:
 
 func dash() -> void:
 	dashed = true
-	move_speed += 300
-	acceleration += 300
-	await(get_tree().create_timer(.05).timeout)
-	move_speed -= 300
-	acceleration -= 300
-	await(get_tree().create_timer(1).timeout)
+	move_speed += 125
+	acceleration += 150
+	await(get_tree().create_timer(.2).timeout)
+	move_speed -= 125
+	await(get_tree().create_timer(.2).timeout)
+	acceleration -= 110
+	await(get_tree().create_timer(.1).timeout)
+	acceleration -= 40
+	await(get_tree().create_timer(.8).timeout)
 	dashed = false
 
 
@@ -306,6 +309,7 @@ func magic() -> void:
 			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
 			$magics/CSGCombiner3D.hide()
 			stunned = false
+			SignalBus.on_use_magic.emit()
 		
 		if magic_selec == 2:
 			$magics/mandala.show()
@@ -316,6 +320,7 @@ func magic() -> void:
 			$magics/mandala.hide()
 			await(get_tree().create_timer(5).timeout)
 			Global.player_damage = Global.player_damage - (Global.player_damage/4)
+			SignalBus.on_use_magic.emit()
 			#print(Global.player_damage)
 			
 		if magic_selec == 3:
@@ -326,6 +331,7 @@ func magic() -> void:
 			await(get_tree().create_timer(3).timeout)
 			stunned = false 
 			$magics/crab.hide()
+			SignalBus.on_use_magic.emit()
 	await(get_tree().create_timer(magic_time).timeout)
 	magic_col = false 
 
