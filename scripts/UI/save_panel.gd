@@ -8,7 +8,7 @@ extends Control
 
 func _ready() -> void:
 	SignalBus.on_delete_confirmed.connect(delete_save)
-	if is_created:
+	if SaveLoad.save_content[id]["was_opened"]:
 		%title_label.text = title
 		%info_label.text = str(SaveLoad.save_content[id])
 		%sprite_created.show()
@@ -32,31 +32,40 @@ func _ready() -> void:
 	%delete_save_button.pressed.connect(delete_save_button_pressed)
 
 func new_save_button_pressed() -> void:
-	if SaveLoad.save_content[id] == {}:
-		%new_save_button.hide()
-		%open_save_button.show()
-		%delete_save_button.show()
-		%title_label.show()
-		%info_label.show()
-		%sprite_created.show()
-		%sprite_not_created.hide()
-		%title_label.text = str("Save ",id+1)
-		SaveLoad.save_content[id]["current_world"] = 0
-		SaveLoad.save_content[id]["completed_levels"] = {}
-		for level in Global.completed_levels:
-			SaveLoad.save_content[id]["completed_levels"][level] = false
-			Global.completed_levels[id] = false
-		add_var_to_new_save()
-		add_var_to_save()
-		# ^^^ dar um jeito de resetar o global do dialogo a cada save criado, sem sair do jogo
-		#tipo, criar uma variável apenas salvando quem vc falou ou algo assim
-		%info_label.text = str(SaveLoad.save_content[id])
-		SaveLoad.save()
+	#print("here: ",SaveLoad.save_content[id])
+	%new_save_button.hide()
+	%open_save_button.show()
+	%delete_save_button.show()
+	%title_label.show()
+	%info_label.show()
+	%sprite_created.show()
+	%sprite_not_created.hide()
+	%title_label.text = str("Save ",id+1)
+	SaveLoad.save_content[id]["current_world"] = 0
+	SaveLoad.save_content[id]["health"] = Global.player_health
+	SaveLoad.save_content[Global.current_save]["current_weapon"] = Global.current_weapon
+	SaveLoad.save_content[Global.current_save]["last_saved_pos"] = Global.last_saved_pos 
+	SaveLoad.save_content[Global.current_save]["npc_manager"] = Global.npc_manager
+	SaveLoad.save_content[Global.current_save]["cutscenes"] = Global.cutscenes
+	SaveLoad.save_content[Global.current_save]["inventory"] = Global.inventory
+	SaveLoad.save_content[Global.current_save]["mouse_sens"] = Global.mouse_sens
+	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
+	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
+	SaveLoad.save_content[id]["completed_levels"] = {}
+	for level in Global.completed_levels:
+		SaveLoad.save_content[id]["completed_levels"][level] = false
+		Global.completed_levels[id] = false
+	# ^^^ dar um jeito de resetar o global do dialogo a cada save criado, sem sair do jogo
+	#tipo, criar uma variável apenas salvando quem vc falou ou algo assim
+	%info_label.text = str(SaveLoad.save_content[id])
+	SaveLoad.save()
 
 func open_save_button_pressed() -> void:
-	add_var_to_save()
 	Global.completed_levels = SaveLoad.save_content[id]["completed_levels"]
+	SaveLoad.save_content[id]["was_opened"] = true
+	SaveLoad.save()
 	Global.current_save = id
+	#print("var until now: ",SaveLoad.save_content[id])
 	SaveLoad.load_to_global()
 	if SaveLoad.save_content[id]["current_world"] != null:
 		match SaveLoad.save_content[id]["current_world"]:
@@ -74,8 +83,8 @@ func delete_save_button_pressed() -> void:
 	SignalBus.on_send_delete_request.emit(id)
 
 func delete_save(delete_panel: int) -> void:
-	SaveLoad.save_content[delete_panel] = {}
-	print("delete panel: ",delete_panel)
+	SaveLoad.save_content[delete_panel] = SaveLoad.reset_save_content[delete_panel]
+	#print("delete panel: ",SaveLoad.save_content[delete_panel])
 	SaveLoad.save()
 	if id == delete_panel:
 		%title_label.hide()
@@ -85,6 +94,7 @@ func delete_save(delete_panel: int) -> void:
 		%delete_save_button.hide()
 		%sprite_created.hide()
 		%sprite_not_created.show()
+	is_created = false
 
 func add_var_to_new_save() -> void:
 	SaveLoad.save_content[id]["current_weapon"] = 1 #bat

@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 
-var speed : float = 5.0
-var on_ground : bool = false
-var life : int = 500
-var damage : int = 1
-var acceleration : float = 15.0
+var speed: float = 5.0
+var on_ground: bool = false
+var life: int = 450
+var damage: int = 1
+var acceleration: float = 15.0
 var fall_time: float
 var can_move: bool = true
 

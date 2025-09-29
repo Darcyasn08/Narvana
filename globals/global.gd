@@ -28,7 +28,7 @@ var base_player_damage: float = 200.0
 var base_player_speed: float = 8.0
 
 var player_health: int = 6
-var player_damage: float = 100.0
+var player_damage: float = 180.0
 var player_speed: float = 8.0
 
 var plus_player_health: int
@@ -41,7 +41,7 @@ var coins: int = 100
 
 #enemies
 var dust_damage: float= 1000.0
-var house_health: int = 5000
+var house_health: int = 8000
 
 var mouse_sens: float = .11
 
@@ -161,7 +161,7 @@ var inventory: Dictionary = {
 			"buff": {
 				"damage": 0,
 				"health": 0,
-				"speed": 2,
+				"speed": 1,
 			},
 		},
 	},
@@ -203,19 +203,23 @@ var dialogs: Dictionary = {
 			},
 			"middle": {
 				0: {
-					"text": "Ah, olá",
+					"text": "Opa, mais um turista",
 					"options": {}
 				},
 				1: {
-					"text": "Você parece ser novo por aqui", 
+					"text": "Mas você não parece com aquelas sardinhas que normalmente vêm aqui", 
 					"options": {}
 				},
 				2: {
-					"text": "Eu sou o caranguejo, caso precise de algo pra comer, minha loja sempre está aberta",
+					"text": "Elas me matam de trabalhar",
 					"options": {}
 				},
 				3: {
-					"text": "Quer olhar o cardápio?",
+					"text": "Bom, se você por acaso quiser comer nos dias que passar aqui, eu estarei disponível",
+					"options": {}
+				},
+				4: {
+					"text": "Gostaria de pedir algo?",
 					"options": {
 						0: {
 							"text": "Sim",
@@ -227,7 +231,7 @@ var dialogs: Dictionary = {
 						},
 					}
 				},
-				4: {
+				5: {
 					"text": "Até logo!",
 					"options": {}
 				}
@@ -241,7 +245,7 @@ var dialogs: Dictionary = {
 			},
 			"function": {
 				"status": "none",
-				"text": "Aqui está!",
+				"text": "No capricho! Se quiser mais alguma coisa é só falar",
 				"id": "open_shop_screen",
 				"options": {},
 			},
@@ -353,6 +357,12 @@ var dialogs: Dictionary = {
 					"options": {}
 				},
 			},
+			"middle_done": {
+				0: {
+					"text": "Você já viu os corais do templo?",
+					"options": {},
+				},
+			},
 			"quest": {
 				#none/ongoing/done - vai checar qual tá cada vez que o dialogo for acionado
 				"status": "none",
@@ -373,19 +383,47 @@ var dialogs: Dictionary = {
 		"dialog_tree": {
 			"middle": {
 				0: {
-					"text": "Olá garoto, vejo que você é bem jovem",
+					"text": "Olá garoto, parece que você veio conhecer a incrível arte do Baiacunismo, não é?",
 					"options": {},
 				},
 				1: {
-					"text": "E pelas suas vestimentas, é de fora, não é?",
+					"text": "Para isso, você terá que passar por algumas provações",
 					"options": {},
 				},
 				2: {
-					"text": "Hmm... também tem um ar de tristeza envolta de ti",
+					"text": "Só depois de se desapegar do que te segura neste mundo terreno…",
 					"options": {},
 				},
 				3: {
-					"text": "Venha, posso ajudar a sua jovem alma a curar todas as suas tristezas",
+					"text": "Talvez...",
+					"options": {},
+				},
+				4: {
+					"text": "...você consiga atingir o narvana...",
+					"options": {},
+				},
+				5: {
+					"text": "Ah, o que é o narvana?",
+					"options": {},
+				},
+				6: {
+					"text": "É tipo.... hmmm...",
+					"options": {},
+				},
+				7: {
+					"text": "...é tipo quando você chega em casa depois de um dia cansativo...",
+					"options": {},
+				},
+				8: {
+					"text": "...e troca pro pijama",
+					"options": {},
+				},
+				9: {
+					"text": "Difícil explicar, vamos pro que importa",
+					"options": {},
+				},
+				10: {
+					"text": "Primeiro você terá que se desfazer de algum de seus itens que você carrega",
 					"options": {
 						0: {
 							"text": "Ok",
@@ -397,20 +435,20 @@ var dialogs: Dictionary = {
 						},
 					},
 				},
-				4: {
-					"text": "Após se aproximar no portal, entre nele usando [e] e vou te ajudar nessa jornada",
+				11: {
+					"text": "Depois, é só atravessar a porta que irá surgir, que eu vou te ensinar tudo",
 					"options": {},
 				},
 			},
 			"middle_done": {
 				0: {
-					"text": "Estarei te esperando do outro lado da porta para te dar as instruções",
+					"text": "É só atravessar a porta, não tem segredo",
 					"options": {},
 				},
 			},
 			"function": {
 				"status": "none",
-				"text": "(clica [e] pra continuar, não pensei nesse dialogo ainda)",
+				"text": "Do outro lado da porta, terá seu desafio",
 				"id": "open_first_level_portal",
 				"options": {},
 			}
@@ -482,33 +520,37 @@ var dialogs: Dictionary = {
 		"dialog_tree": {
 			"middle": {
 				0: {
-					"text": "Para enfrentar essas coisas que existem dentro de você, é necessário lutar contra elas",
+					"text": "Você tem que bater nos seus apegos materiais assim como um padeiro sova uma massa",
 					"options": {},
 				},
 				1: {
-					"text": "Começaremos com sua parte mais... supérflua",
+					"text": "Você pode começar testando naquele saco de batata no canto",
 					"options": {},
 				},
 				2: {
-					"text": "Como primeira tentativa, tente usar o bastão para bater naquele boneco ali",
+					"text": "Quando você conseguir destruir ele, a porta vai abrir, e você vai enfrentar o desafio de verdade",
 					"options": {},
 				},
 				3: {
-					"text": "Dê a quantidade suficiente de dano para ele ser destruido, assim como aquilo que te incomoda",
+					"text": "Mas lembre-se, você não deve descontar suas mágoas nesses apegos",
 					"options": {},
 				},
 				4: {
-					"text": "Após isso, a porta abrirá, e você poderá prosseguir para o desafio de verdade",
+					"text": "Você tem que retirá-los da sua vida, esquecê-los para não te afetarem mais",
 					"options": {},
 				},
 				5: {
-					"text": "Boa sorte, jovem. Estarei no final disso tudo te esperando",
+					"text": "Boa sorte, jovem. Vou estar te esperando para o próximo desafio",
+					"options": {},
+				},
+				6: {
+					"text": "*some*",
 					"options": {},
 				},
 			},
 			"middle_done": {
 				0: {
-					"text": "Derrote o boneco do seu lado, e você pode prosseguir com o seu desafio. Te esperarei no final da fase",
+					"text": "*está sumido*",
 					"options": {},
 				},
 			},

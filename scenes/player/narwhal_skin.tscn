@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://utkg066kgy3y"]
+[gd_scene load_steps=39 format=4 uid="uid://utkg066kgy3y"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_ngfep"]
 [ext_resource type="Material" uid="uid://u6je17pyrspp" path="res://shaders/outline_shader_material.tres" id="2_tcxjl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="4_audoe"]
 [ext_resource type="Material" uid="uid://bt0ha3vmysor7" path="res://shaders/black_contour.tres" id="4_h238m"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="5_1hi58"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="7_chc6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h238m"]
 diffuse_mode = 3
@@ -316,6 +317,54 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("arm_001:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("arm_001:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../StaticBody3D/bat_attack_effect:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.4, 0.4, 0.4)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../StaticBody3D/bat_attack_effect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1hi58"]
 resource_name = "bat_attack"
@@ -463,7 +512,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_g6ta3"]
 resource_name = "bat_third_attack"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -471,7 +520,7 @@ tracks/0/path = NodePath("Armature_002/Skeleton3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.185786, 0.407922),
+"times": PackedFloat32Array(0, 0.16666667, 0.36666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.480018, -0.183239, 0.179091), Vector3(1.11966, 0.101264, 0.290192), Vector3(0.0893963, 0.45372, -0.245033)]
@@ -483,10 +532,10 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.238291),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.21917167, 0.58),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.149749, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.149749, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -495,7 +544,7 @@ tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.23333333),
+"times": PackedFloat32Array(0, 0.1, 0.21421401),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0.395, 0), Vector3(0, 0, 0)]
@@ -507,10 +556,98 @@ tracks/3/path = NodePath("../StaticBody3D/bat_attack_col:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.34),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.34, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../StaticBody3D/bat_attack_effect:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.43333334, 0.4966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.4, 0.4, 0.4), Vector3(2.4, 2.4, 2.4), Vector3(2.4, 2.4, 2.4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../StaticBody3D/bat_attack_effect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.29264185, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_y12c8"]
+resource_name = "dust_magic"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_002/Skeleton3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21283044, 1.1666666, 1.4791715),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.7475552, -0.47465056, -0.067124665), Vector3(0.7475552, -0.47465056, -0.067124665), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.21283044, 1.1666666, 1.4791715),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.54252344, -0.87076646, -0.25730464), Vector3(0.54252344, -0.87076646, -0.25730464), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arm_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.21283044, 1.1666666, 1.4791715),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975), Vector3(-1.1821328, 0.6634012, -0.6047831), Vector3(-1.1821328, 0.6634012, -0.6047831), Vector3(0.6341798, -0.0065962104, 0.094297975)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("arm_001:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.21283044, 1.1666666, 1.4791715),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701), Vector3(-0.96195, 0.7133178, -0.0967701), Vector3(-0.96195, 0.7133178, -0.0967701), Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 1.0138153, 1.2589943),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.29670596, 0, 0), Vector3(-0.29670596, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_tcxjl"]
@@ -572,11 +709,20 @@ _data = {
 &"bat_first_attack": SubResource("Animation_h238m"),
 &"bat_second_attack": SubResource("Animation_chc6g"),
 &"bat_third_attack": SubResource("Animation_g6ta3"),
+&"dust_magic": SubResource("Animation_y12c8"),
 &"tonfa_attack": SubResource("Animation_tcxjl")
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h238m"]
-radius = 1.3036871
+radius = 1.4871715
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y12c8"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.93942297, 0.39496687, 0.65243584, 0.26666668)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xqqyf"]
 
 [node name="narwhal_skin" type="Node3D"]
 
@@ -584,10 +730,11 @@ radius = 1.3036871
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
 
 [node name="arm_001" parent="narval_model" index="0"]
-transform = Transform3D(0.290122, -0.0571675, -0.00154904, 0.0221126, 0.467604, -0.172737, 0.0181787, 0.34357, 0.23484, -0.96195, 0.535333, -0.0967701)
+transform = Transform3D(0.290122, -0.05716765, -0.0015490762, 0.022112599, 0.4676039, -0.17273702, 0.018178701, 0.34356996, 0.23483996, -0.96195, 0.535333, -0.0967701)
 material_override = SubResource("StandardMaterial3D_h238m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="narval_model/arm_001" index="0"]
+transform = Transform3D(0.97621036, 0.07612354, 0.20302318, -0.07414372, 0.99709666, -0.017350972, -0.20375453, 0.0018852949, 0.9790201, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_g6ta3")
 mesh = SubResource("ArrayMesh_y12c8")
 
@@ -608,11 +755,11 @@ material_overlay = ExtResource("2_tcxjl")
 material_overlay = ExtResource("2_tcxjl")
 
 [node name="Armature_001" parent="narval_model" index="6"]
-transform = Transform3D(-0.18571556, 0.23560505, 0, -0.23560505, -0.18571556, 0, 0, 0, 0.3, 0.877745, 0.743121, 0)
+transform = Transform3D(-0.18571435, 0.23560596, 0, -0.23560596, -0.18571435, 0, 0, 0, 0.29999998, 0.877745, 0.743121, 0)
 visible = false
 
 [node name="Skeleton3D" parent="narval_model/Armature_001" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
 
 [node name="arm" parent="narval_model/Armature_001/Skeleton3D" index="0"]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
@@ -644,7 +791,7 @@ visible = false
 transform = Transform3D(-0.34428602, 0.19669299, -0.052713607, -0.20143701, -0.34413204, 0.031556804, -0.0298336, 0.0537075, 0.395254, 0.86031646, 0.685295, -0.110497)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_002"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999991, 0, 0, 0)
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, -2.98023e-08, 3.55271e-15, 2.98023e-08, 1, 7.10543e-15, -3.55271e-15, -7.10543e-15, 1, 3.37508e-14, 1.19209e-07, -1.42109e-14)
@@ -741,12 +888,20 @@ emitting = false
 amount = 25
 scale_amount_max = 1.4
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="Area3D" parent="."]
 
 [node name="bat_attack_col" type="CollisionShape3D" parent="StaticBody3D" groups=["weapon"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.249744)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.3933697)
 shape = SubResource("SphereShape3D_h238m")
 disabled = true
+
+[node name="bat_attack_effect" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.0063385963, 2.3995047)
+visible = false
+material_override = SubResource("StandardMaterial3D_y12c8")
+mesh = SubResource("SphereMesh_xqqyf")
+
+[node name="npc_dialogue_area" parent="." instance=ExtResource("7_chc6g")]
 
 [editable path="narval_model"]
 [editable path="narval_model/Armature_002/Skeleton3D/bat"]

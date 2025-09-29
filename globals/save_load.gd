@@ -5,40 +5,91 @@ var save_path: String = "user://narvana_save.json"
 
 var save_content: Dictionary = {
 	0: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
 		"npc_manager": Global.npc_manager,
+		"health": Global.player_health,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	},
 	1: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
 		"npc_manager": Global.npc_manager,
+		"health": Global.player_health,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	},
 	2: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
 		"npc_manager": Global.npc_manager,
+		"health": Global.player_health,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	}
 }
 
 var reset_save_content: Dictionary = {
 	0: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26)
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
+		"health": 7,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	},
 	1: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26)
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
+		"health": 7,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	},
 	2: {
+		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26)
+		"last_saved_pos": Vector3(0,0,-26),
+		"npc_manager": Global.npc_manager,
+		"health": 7,
+		"completed_levels": Global.completed_levels,
+		"cutscenes": Global.cutscenes,
+		"inventory": Global.inventory,
+		"mouse_sens": Global.mouse_sens,
+		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
+		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
 	}
 }
 
@@ -54,7 +105,7 @@ func save() -> void:
 	file.store_var(save_content.duplicate())
 	file.close()
 	print("jogo salvo!")
-	print(save_content)
+	#print(save_content)
 
 func load_to_global() -> void:
 	#salvar no global as variáveis básicas
@@ -96,11 +147,17 @@ func load_save() -> void:
 		
 		var save_data = data.duplicate()
 		save_content = save_data
-		print('SAVE DATA: ',save_data)
-		#for i: int in save_data:
-			#pass
+		#print('SAVE DATA: ',save_data)
 
-func delete_save() -> void:
+func delete_save(id: int) -> void:
+	if FileAccess.file_exists(save_path):
+		print("deleted!")
+		DirAccess.remove_absolute(save_path)
+		save_content[id] = reset_save_content[id]
+		save()
+		get_tree().reload_current_scene()
+
+func delete_all_saves() -> void:
 	if FileAccess.file_exists(save_path):
 		print("deleted!")
 		DirAccess.remove_absolute(save_path)

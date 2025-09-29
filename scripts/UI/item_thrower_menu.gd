@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 func _on_item_1_button_pressed() -> void:

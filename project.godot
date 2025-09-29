@@ -13,6 +13,8 @@ config_version=5
 config/name="Narvana"
 run/main_scene="uid://cc7turudgrccy"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(0.21553433, 0.3821367, 0.5528174, 1)
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]

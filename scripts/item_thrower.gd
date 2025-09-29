@@ -26,6 +26,7 @@ func _input(event: InputEvent) -> void:
 		#$item_thrower_menu.show()
 		print(get_children())
 		if $item_thrower_menu:
+			Global.player_can_move = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			$item_thrower_menu.show()
 

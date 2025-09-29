@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://hb48uqcnov17" path="res://art/narvana-logo - Copia.png" id="3_201h0"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_1y4tv"]
 [ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="5_4fmqt"]
-[ext_resource type="AudioStream" uid="uid://6oo3epj6okg8" path="res://music/Flute-song.mp3" id="6_swjo3"]
+[ext_resource type="AudioStream" uid="uid://dlq36dkg2uocx" path="res://music/pause-menu-melody.mp3" id="6_uyt88"]
 [ext_resource type="PackedScene" uid="uid://bcwkhk5uegqo" path="res://scenes/UI/options_menu.tscn" id="7_uyt88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpkul"]
@@ -371,7 +371,8 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_swjo3")
+stream = ExtResource("6_uyt88")
+volume_db = 1.0
 autoplay = true
 parameters/looping = true
 

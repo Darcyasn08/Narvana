@@ -1298,7 +1298,7 @@ transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 
 room_number = 4
 
 [node name="spawner9" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 9.75686, 3.52868, -243.1368)
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, 9.75686, 3.52868, -246.12784)
 enemy_number = 4
 room_number = 6
 
@@ -1350,12 +1350,12 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="temple_fences3" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.788174, -0.17721938, -150.01251)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -28.788174, -0.17721938, -146.85574)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="temple_fences5" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 38.92765, -0.17721938, -148.55539)
+transform = Transform3D(-0.014468319, 0, 0.99989533, 0, 1, 0, -0.99989533, 0, -0.014468319, 40.67299, -0.17721938, -146.02611)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
@@ -1365,7 +1365,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(-0.9995699, 0, -0.029317357, 0, 1, 0, 0.029317357, 0, -0.9995699, 1.5867033, 3.557, 41.698097)
+transform = Transform3D(-0.9995699, 0, -0.029317357, 0, 1, 0, 0.029317357, 0, -0.9995699, 1.5867033, 3.3161364, 41.36114)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.99089646, 0, -0.13462612, 0, 1, 0, 0.13462612, 0, -0.99089646, -1.6400914, 6.5072956, -132.527)

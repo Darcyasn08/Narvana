@@ -127,7 +127,7 @@ func _input(event: InputEvent) -> void:
 				$narwhal_skin/narval_model/attack_player.play("RESET")
 		attack()
 		$attack_sfx.play()
-		print("combo attack count: ",combo_attack_count)
+		#print("combo attack count: ",combo_attack_count)
 	
 	if event.is_action_pressed("left_click") and Global.player_can_move:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -155,7 +155,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift") and dashed == false and is_on_floor(): #tem o is on floor pra nao dar dash no ar
 		dash()
 		$narwhal_skin/dash_bubble_particle.emitting = true
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
 		$narwhal_skin/dash_bubble_particle.emitting = false
 	
 	if event.is_action_pressed("q") and state =="shield" and is_on_floor():
@@ -255,6 +255,7 @@ func attack() -> void:
 				$narwhal_skin/narval_model/attack_player.play("bat_third_attack")
 		await get_tree().create_timer(.22).timeout
 		$combo_attack_timer.start()
+		await get_tree().create_timer(.1).timeout
 		Global.player_can_attack = true
 		await $narwhal_skin/narval_model/attack_player.animation_finished
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", true)
@@ -297,17 +298,19 @@ func magic() -> void:
 	if is_on_floor() and magic_col == false:
 		magic_col = true
 		if magic_selec == 1:
+			$narwhal_skin/narval_model/attack_player.play("dust_magic")
 			$magics.rotation.y = skin.rotation.y
 			stunned = true
 			velocity = Vector3(0,0,0) 
 			Global.player_can_move = false #impede o player de se mover enquanto faz a magia
-			$magics/CSGCombiner3D.show()
+			$magics/sandbox_magic.show()
+			$magics/sandbox_magic/bubble_particle.emitting = true
 			await(get_tree().create_timer(.6).timeout)
 			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",false)
 			await(get_tree().create_timer(.8).timeout)
 			Global.player_can_move = true
 			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
-			$magics/CSGCombiner3D.hide()
+			$magics/sandbox_magic.hide()
 			stunned = false
 			SignalBus.on_use_magic.emit()
 		

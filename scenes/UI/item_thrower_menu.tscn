@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b83e0181tmysa"]
+[gd_scene load_steps=10 format=3 uid="uid://b83e0181tmysa"]
 
 [ext_resource type="Script" uid="uid://deny7qetalx0x" path="res://scripts/UI/item_thrower_menu.gd" id="1_4fxbg"]
 [ext_resource type="Texture2D" uid="uid://dqgi303awgppg" path="res://UI/menu/item-thrower-screen.png" id="1_7b318"]
@@ -9,24 +9,26 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6s25"]
 bg_color = Color(0.16888526, 0.20093396, 0.38701218, 0.4392157)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_57prj"]
+atlas = ExtResource("3_r2dm2")
+region = Rect2(30.102417, 39.17994, 627.487, 631.6661)
+
 [sub_resource type="LabelSettings" id="LabelSettings_i8h7k"]
 font = ExtResource("4_hfb4j")
 font_size = 80
 shadow_size = 30
 shadow_color = Color(0.49803922, 0.21568628, 0.3647059, 0.27058825)
 
-[node name="item_thrower_menu" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfb4j"]
+atlas = ExtResource("4_57prj")
+region = Rect2(12.871582, 23.590195, 670.3588, 654.7691)
+
+[node name="item_thrower_menu" type="CanvasLayer"]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layer = 3
 script = ExtResource("1_4fxbg")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,7 +37,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_r6s25")
 
 [node name="ItemThrowerScreen" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -50,7 +51,7 @@ grow_vertical = 2
 texture = ExtResource("1_7b318")
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,7 +59,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -347.0
 offset_top = -147.0
-offset_right = 225.0
+offset_right = 285.0
 offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -69,6 +70,7 @@ offset_right = 700.00006
 offset_bottom = 700.0
 scale = Vector2(0.43540666, 0.43540666)
 texture_normal = ExtResource("3_r2dm2")
+texture_hover = SubResource("AtlasTexture_57prj")
 
 [node name="Label" type="Label" parent="Control/item1_button"]
 layout_mode = 0
@@ -86,6 +88,7 @@ offset_right = 808.0
 offset_bottom = 500.0
 scale = Vector2(0.45032734, 0.45032734)
 texture_normal = ExtResource("4_57prj")
+texture_hover = SubResource("AtlasTexture_hfb4j")
 
 [node name="Label" type="Label" parent="Control/item2_button"]
 layout_mode = 0

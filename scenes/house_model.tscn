@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://c05fwr0udet8m"]
+[gd_scene load_steps=33 format=4 uid="uid://c05fwr0udet8m"]
 
 [ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="1_e1y3w"]
 [ext_resource type="PackedScene" uid="uid://d2jfubyw2x0p0" path="res://scenes/buildings/house_spike_walls.tscn" id="2_6f60q"]
@@ -6,6 +6,16 @@
 
 [sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
 size = Vector3(5, 3, 11)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 20.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6syyc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 25.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5ubp"]
 size = Vector3(4.49379, 6.06525, 26.327095)
@@ -25,15 +35,8 @@ size = Vector3(5.762473, 4.37659, 3.9398882)
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
 size = Vector3(4.00152, 4.46899, 5.0526)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 20.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_6syyc"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 25.0
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pb63u"]
+data = PackedVector3Array(0, 3.75, 11, -2.5, -3.75, 11, -2.5, -3.75, -11, -2.5, -3.75, 11, 2.5, -3.75, 11, -2.5, -3.75, -11, 0, 3.75, -11, 0, 3.75, 11, -2.5, -3.75, -11, 2.5, -3.75, 11, 2.5, -3.75, -11, -2.5, -3.75, -11, 0, 3.75, -11, -2.5, -3.75, -11, 2.5, -3.75, -11, 0, 3.75, -11, 2.5, -3.75, -11, 2.5, -3.75, 11, 0, 3.75, 11, 2.5, -3.75, 11, -2.5, -3.75, 11, 0, 3.75, 11, 0, 3.75, -11, 2.5, -3.75, 11)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wy8i"]
 albedo_color = Color(0.693244, 0.869655, 0.881001, 1)
@@ -212,39 +215,6 @@ size = Vector3(3.71033, 3.37061, 2.96338)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
 size = Vector3(3.71033, 3.37061, 2.96338)
 
-[node name="collision_das_paredes" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00217104, 1.648109, 2.27099)
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.412, 1.5000001, 9.673704)
-shape = SubResource("BoxShape3D_g5ubp")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.3748726e-08, 1.5, 22.387001)
-shape = SubResource("BoxShape3D_pb63u")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365, 1.5, 10.975)
-shape = SubResource("BoxShape3D_g5ubp")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(0.76761276, 0, 0.64091396, 0, 1, 0, -0.64091396, 0, 0.76761276, 9.668689, 1.3424898, 21.049103)
-shape = SubResource("BoxShape3D_hfkix")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.621338, 1.3368697, -2.1840696)
-shape = SubResource("BoxShape3D_metfq")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.04923, 1.3241601, -2.6846914)
-shape = SubResource("BoxShape3D_6syyc")
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="collision_das_paredes"]
-transform = Transform3D(0.58176816, 0, 0.8133547, 0, 1, 0, -0.8133547, 0, 0.58176816, -9.416806, 1.31531, 21.196892)
-shape = SubResource("BoxShape3D_o1325")
-
 [node name="walls_holder" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 2.25305)
@@ -343,6 +313,61 @@ surface_material_override/0 = ExtResource("1_e1y3w")
 
 [node name="house_spike_walls2" parent="walls_holder" instance=ExtResource("2_6f60q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.41404, 0)
+
+[node name="collision_das_paredes" type="StaticBody3D" parent="walls_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00217104, -0.03021431, 0.017939806)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.412, 1.5000001, 9.673704)
+visible = false
+shape = SubResource("BoxShape3D_g5ubp")
+disabled = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.3748726e-08, 1.5, 22.387001)
+visible = false
+shape = SubResource("BoxShape3D_pb63u")
+disabled = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.365, 1.5, 10.975)
+visible = false
+shape = SubResource("BoxShape3D_g5ubp")
+disabled = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(0.76761276, 0, 0.64091396, 0, 1, 0, -0.64091396, 0, 0.76761276, 9.668689, 1.3424898, 21.049103)
+visible = false
+shape = SubResource("BoxShape3D_hfkix")
+disabled = true
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.621338, 1.3368697, -2.1840696)
+shape = SubResource("BoxShape3D_metfq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.04923, 1.3241601, -2.6846914)
+shape = SubResource("BoxShape3D_6syyc")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(0.58176816, 0, 0.8133547, 0, 1, 0, -0.8133547, 0, 0.58176816, -9.416806, 1.31531, 21.196892)
+visible = false
+shape = SubResource("BoxShape3D_o1325")
+disabled = true
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3, 11.093614, 2.28963, 11.257099)
+shape = SubResource("ConcavePolygonShape3D_pb63u")
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3, -12.073836, 2.28963, 11.257099)
+shape = SubResource("ConcavePolygonShape3D_pb63u")
+
+[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.371139e-08, 0, 1.3, 0, 1, 0, -1, 0, -5.6824803e-08, -0.5373807, 2.28963, 22.806744)
+shape = SubResource("ConcavePolygonShape3D_pb63u")
 
 [node name="house_model" parent="." instance=ExtResource("2_pb63u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532767, 0, -0.392386)

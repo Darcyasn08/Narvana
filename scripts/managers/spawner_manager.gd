@@ -40,10 +40,10 @@ func _ready() -> void:
 	if area_node:
 		area_node.add_to_group("spawners")
 
-func update_enemy_deaths():
+func update_enemy_deaths() -> void:
 	enemy_death_count += 1
 	Global.dead_enemies_first_level[current_room][0] = enemy_death_count
-	#print("current enemy deaths: ",enemy_death_count)
+	print("current enemy deaths: ",enemy_death_count)
 	
 	await get_tree().create_timer(.3).timeout #dá o tempo para caso mais algum inimigo apareça (tipo do porquinho)
 	#vê se o valor é maior ou igual ao objetivo global
@@ -58,7 +58,7 @@ func update_enemy_deaths():
 				for particle in $particles.get_children():
 					particle.emitting = false
 
-func start_room(current_room):
+func start_room(current_room) -> void:
 	SignalBus.on_start_room.emit(current_room)
 	if is_second_level:
 		if $StaticBody3D:

@@ -173,6 +173,7 @@ material = SubResource("StandardMaterial3D_4xtiv")
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="item_thrower" type="Node3D" groups=["item_thrower"]]
+process_mode = 3
 script = ExtResource("1_4xtiv")
 
 [node name="Area3D" type="Area3D" parent="." groups=["item_throwers"]]

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var state : String = "waiting"
 var speed : float = 3.0
-var life : int = 500
+var life : int = 850
 var damage : int = 1
 var acceleration : float = 15.0
 var time_dashing : float = 2.0

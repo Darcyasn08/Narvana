@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var life: int = 5000
+var life: int = 8000
 var damage: int = 1
 var bullet_inst: Object = preload("res://scenes/projectile.tscn")
 var bullet_speed: float = 35.0
@@ -13,16 +13,20 @@ var player_near: bool = false
 @onready var walls_holder = $"house_model/walls_holder"
 
 func _ready() -> void:
-	#print($house_model/walls_holder/collision_das_paredes/CollisionShape3D8.disabled)
-	#inicializar_lista()
 	life = Global.house_health #precisa disso pra quando voltar na cena dela por fora vai passar o dano por dentro
+	var original_resource = load("res://shaders/house_damage.tres")
+	var unique_resource = original_resource.duplicate()
+	$house_model/house_model/Cube_001.material_overlay = unique_resource
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa
 		#print("e pressed")
+		$fade_to_inside.show()
+		$fade_to_inside/AnimationPlayer.play("fade_in")
 		Global.house_health = life
 		Global.player_health = player.health
+		await $fade_to_inside/AnimationPlayer.animation_finished
 		get_tree().change_scene_to_file("res://scenes/enemies/inside_house.tscn")
 
 
@@ -60,8 +64,8 @@ func inicializar_lista() -> void:
 
 func sorteia_numero() -> void:
 	if saidas_disponiveis.is_empty(): # detecta se todos os numeros ja foram para 
-		print("Todos os números já foram sorteados.")
-		
+		pass
+		#print("Todos os números já foram sorteados.")
 	else: 
 		var indice := randi() % saidas_disponiveis.size() # sorteia um numero aleatório da lista
 		var saida_sorteada : int 
@@ -69,8 +73,6 @@ func sorteia_numero() -> void:
 		saidas_disponiveis.remove_at(indice) #tira o numero ja sorteado da lista
 		shoot(saida_sorteada)
 		await(get_tree().create_timer(1).timeout)
-		
-		
 
 func shoot(saida: int) -> void:
 	var node = get_node("house_model/walls_holder/saidas/exit"+str(saida))
@@ -93,15 +95,12 @@ func look_to_player(delta) -> void: #voce não quer tentar compreender essa fun�
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
 	var target_angle = -(pos2d - targetpos2d)
 	$holo_holder.rotation.y = lerp_angle($holo_holder.rotation.y,atan2(target_angle.x, target_angle.y),delta / 2)
-	#print(atan2(target_angle.x, target_angle.y))
-	#print($holo_holder.rotation.y)
 	var pos2d2 = Vector2($holo_holder.global_position.y, $holo_holder.global_position.z)
 	var targetpos2d2 = Vector2(player.global_position.y, player.global_position.z)
 	var target_angle2 = -(pos2d2 - targetpos2d2)
 	$holo_holder.global_rotation.x = lerp_angle($holo_holder.rotation.x,-(atan2(target_angle2.x, target_angle2.y)),delta / 2)
-	#print(atan2(target_angle2.x, target_angle2.y))
-	#print($holo_holder.rotation.x)
-	
+
+
 func _on_timer_timeout() -> void:
 	if state == "shooting": # coisas que serão feitas quando começar o ataque dos tiros das paredes
 		$door/door_closed.show()
@@ -140,17 +139,19 @@ func _on_timer_timeout() -> void:
 func _on_laser_area_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		get_tree().call_group("player","hurt",damage)
-		
+
+
 func unique_take_damage(area) -> void:
-	pass
-	
+	print("damage")
+	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("e8a6e0ff")
+	await get_tree().create_timer(.3).timeout
+	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("#b1dee1")
 
 func unique_die() -> void:
 	SignalBus.on_boss_defeated.emit()
 
 func damage_player(area) -> void:
 	pass
-
 
 func _on_door_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":

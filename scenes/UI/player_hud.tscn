@@ -56,14 +56,14 @@ outline_color = Color(0.3896487, 0.15143526, 0.35901102, 1)
 script = ExtResource("1_umbc4")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.6963206, 0.5171755, 0.5999798, 1)
+modulate = Color(0.72840744, 0.40279904, 0.48537827, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -38.0
 offset_top = -26.0
-offset_right = 157.0
-offset_bottom = 126.0
+offset_right = 126.0
+offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_fdwu4")

@@ -40,7 +40,7 @@ func _on_mouse_x_invert_pressed() -> void:
 			Global.rotation_mouse_axis_x = 1
 
 func _on_delete_saves_button_pressed() -> void:
-	SaveLoad.delete_save()
+	SaveLoad.delete_all_saves()
 
 func _on_master_volume_scroll_scrolling() -> void:
 	print(%master_volume_value.text)

@@ -1,24 +1,52 @@
-[gd_scene load_steps=32 format=4 uid="uid://cbmvifyq76o3c"]
+[gd_scene load_steps=28 format=4 uid="uid://xxs1h25mce27"]
 
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
 [ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
 [ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="2_6syyc"]
 [ext_resource type="Script" uid="uid://3uoc66t42d1e" path="res://scripts/enemies/laser_holofote.gd" id="4_o1325"]
-[ext_resource type="PackedScene" uid="uid://c05fwr0udet8m" path="res://scenes/house_model.tscn" id="5_4pusr"]
-[ext_resource type="PackedScene" uid="uid://nb23rrkkueon" path="res://3d_models/placeholders/enemies/house_laser_beam.glb" id="5_bgf8x"]
-[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="6_a3hrb"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
+size = Vector3(5, 3, 11)
+
+[sub_resource type="PrismMesh" id="PrismMesh_hfkix"]
+size = Vector3(5, 3, 21)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfkix"]
+size = Vector3(5.06287, 4.33057, 4.0173)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_metfq"]
+size = Vector3(4.05014, 4.33057, 4.95892)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6syyc"]
+size = Vector3(4.0477, 4.37659, 5.06628)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
+size = Vector3(4.00152, 4.46899, 5.0526)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_edarn"]
+data = PackedVector3Array(0, 3.75, 11, -2.5, -3.75, 11, -2.5, -3.75, -11, -2.5, -3.75, 11, 2.5, -3.75, 11, -2.5, -3.75, -11, 0, 3.75, -11, 0, 3.75, 11, -2.5, -3.75, -11, 2.5, -3.75, 11, 2.5, -3.75, -11, -2.5, -3.75, -11, 0, 3.75, -11, -2.5, -3.75, -11, 2.5, -3.75, -11, 0, 3.75, -11, 2.5, -3.75, -11, 2.5, -3.75, 11, 0, 3.75, 11, 2.5, -3.75, 11, -2.5, -3.75, 11, 0, 3.75, 11, 0, 3.75, -11, 2.5, -3.75, 11)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 20.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6syyc"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 25.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bgf8x"]
-size = Vector3(13.496111, 7.24175, 5.910343)
+size = Vector3(11.8675, 7.24175, 5.78968)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vy7fe"]
-size = Vector3(4.008683, 3.17648, 2.5747843)
+size = Vector3(3.67995, 3.17648, 2.6236)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10qhy"]
-size = Vector3(11.599951, 6.571327, 5.09649)
+size = Vector3(10.7623, 6.51886, 5.09649)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4pusr"]
-size = Vector3(2.937891, 2.8798351, 2.3136272)
+size = Vector3(3.51993, 2.84927, 2.32452)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy7fe"]
 transparency = 1
@@ -33,21 +61,12 @@ height = 0.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o1325"]
 height = 50.0
-radius = 0.42871094
+radius = 0.316895
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_edarn"]
-top_radius = 0.1
-bottom_radius = 0.1
+top_radius = 0.08
+bottom_radius = 0.08
 height = 46.428
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3hrb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttyie"]
-next_pass = SubResource("StandardMaterial3D_a3hrb")
-cull_mode = 1
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro7ii"]
 
@@ -83,102 +102,233 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ehikn")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pr62"]
-albedo_color = Color(0.13746846, 0.20980462, 0.3678418, 1)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_fkhxy"]
-_surfaces = [{
-"aabb": AABB(-1.0519615, -1.0519615, -1.0519615, 2.103923, 2.103923, 2.103923),
-"attribute_data": PackedByteArray("wP6/PgAAgD+g/x8/wP8/P6D/Hz8AAIA/wP6/PsD/Pz/A/r8+wP8/P6D/Hz8A//8+oP8fP8D/Pz/A/r8+AP//PsD+vz4A//8+oP8fPwD9fz6g/x8/AP//PsD+vz4A/X8+wP6/PgD9fz6g/x8/AAAAAKD/Hz8A/X8+wP6/PgAAAAAA+f89AP//PsD+vz4A/X8+wP6/PgD//z4A+f89AP1/PqD/Hz8A//8+4P9fPwD9fz7g/18/AP//PqD/Hz8A/X8+"),
-"format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("AAACAAEAAAABAAMABAAGAAUABAAFAAcACAAKAAkACAAJAAsADAAOAA0ADAANAA8AEAASABEAEAARABMAFAAWABUAFAAVABcA"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("raaGv62mhr+tpoY/raaGv62mhj+tpoa/raaGv62mhj+tpoY/raaGv62mhr+tpoa/raaGv62mhr+tpoa/raaGP62mhj+tpoa/raaGv62mhj+tpoa/raaGP62mhr+tpoa/raaGP62mhr+tpoa/raaGP62mhj+tpoY/raaGP62mhj+tpoa/raaGP62mhr+tpoY/raaGP62mhr+tpoY/raaGv62mhj+tpoY/raaGP62mhj+tpoY/raaGv62mhr+tpoY/raaGv62mhr+tpoa/raaGP62mhr+tpoY/raaGP62mhr+tpoa/raaGv62mhr+tpoY/raaGP62mhj+tpoa/raaGv62mhj+tpoY/raaGv62mhj+tpoa/raaGP62mhj+tpoY/AgAEgAGA/P8CAASAAYD8/wIABIABgPz/AgAEgAGA/P/+//7//3/+//7//v//f/7//v/+//9//v/+//7//3/+//r/AID+f/7/+v8AgP5//v/6/wCA/n/+//r/AID+f/7//3//fwCA/v//f/9/AID+//9//38AgP7//3//fwCA/v8AgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/")
-}]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_obbqb"]
-size = Vector3(5.11122, 3.81848, 4.9542284)
+size = Vector3(2.89917, 3.40039, 4.36893)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edarn"]
-albedo_color = Color(0.113991, 0.0699603, 0.174345, 1)
+albedo_color = Color(0.389984, 0.258355, 0.313964, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4pusr"]
 material = SubResource("StandardMaterial3D_edarn")
-size = Vector3(3, 3, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6f60q"]
-emission_enabled = true
-emission = Color(0.446575, 0.388682, 0.952086, 1)
-emission_energy_multiplier = 2.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_bgf8x"]
-material = SubResource("StandardMaterial3D_6f60q")
-size = Vector3(3, 3.1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3hrb"]
-bg_color = Color(0.093606494, 0.14894056, 0.23376673, 1)
-
-[sub_resource type="Animation" id="Animation_5pr62"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_ttyie"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.8666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.68235296), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkhxy"]
-_data = {
-&"RESET": SubResource("Animation_5pr62"),
-&"fade_in": SubResource("Animation_ttyie")
-}
+size = Vector3(3, 2.4, 1)
 
 [node name="house" type="CharacterBody3D"]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_metfq")
+
+[node name="house_model1" type="Node3D" parent="."]
+
+[node name="molde_principal" type="CSGCombiner3D" parent="house_model1"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="house_model1/molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67575, -1.55259)
+size = Vector3(10, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="house_model1/molde_principal"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0595918, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_g5ubp")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="house_model1/molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48536, 0.828836, -1.37848)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="house_model1/molde_principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
+size = Vector3(3.71033, 3.37061, 2.96338)
+
+[node name="walls_holder" type="Node3D" parent="house_model1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 0)
+
+[node name="parede2" type="CSGCombiner3D" parent="house_model1/walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.931, 0, 14.3948)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="house_model1/walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="house_model1/walls_holder/parede2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="house_model1/walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="house_model1/walls_holder/parede2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="parede3" type="CSGCombiner3D" parent="house_model1/walls_holder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06762, 0, 26.2211)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="house_model1/walls_holder/parede3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="house_model1/walls_holder/parede3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="collision_das_paredes" type="StaticBody3D" parent="house_model1/walls_holder"]
+collision_layer = 5
+collision_mask = 4
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.88095, 1.34249, 23.3742)
+shape = SubResource("BoxShape3D_hfkix")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.88811, 1.33687, -1.12138)
+shape = SubResource("BoxShape3D_metfq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.87599, 1.32416, -1.25257)
+shape = SubResource("BoxShape3D_6syyc")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.89019, 1.31531, 23.2593)
+shape = SubResource("BoxShape3D_o1325")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3, 11.3801, 2.28963, 11.2571)
+shape = SubResource("ConcavePolygonShape3D_edarn")
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3, -11.365, 2.21511, 10.975)
+shape = SubResource("ConcavePolygonShape3D_edarn")
+
+[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="house_model1/walls_holder/collision_das_paredes"]
+transform = Transform3D(-4.37114e-08, 0, 1.1, 0, 1, 0, -1, 0, -4.80825e-08, 0, 2.27618, 24.763)
+shape = SubResource("ConcavePolygonShape3D_edarn")
+
+[node name="saidas" type="Node3D" parent="house_model1/walls_holder"]
+
+[node name="exit1" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.34593, 1.222, 4)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit1"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 4.76837e-07, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit2" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 8)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit2"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit3" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 12)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit3"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit4" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 16)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit4"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit5" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.346, 1.222, 20)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit5"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, -0.222, -8.51)
+visible = false
+mesh = SubResource("CylinderMesh_metfq")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit6" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit6"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.89501)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit7" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit7"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 10.7895)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit8" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 1.222, 21.7)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit8"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -1.90735e-06, -0.222, 9.51116)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="exit9" type="Node3D" parent="house_model1/walls_holder/saidas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 1.222, 0.870655)
+
+[node name="laser" type="MeshInstance3D" parent="house_model1/walls_holder/saidas/exit9"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.222, -11.287)
+visible = false
+mesh = SubResource("CylinderMesh_6syyc")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_6syyc")
+
+[node name="parede1" type="CSGCombiner3D" parent="house_model1/walls_holder"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.9315, 0, 7.70123)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="house_model1/walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.77904, 1.67575, -1.68717)
+size = Vector3(20, 5, 4)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="house_model1/walls_holder/parede1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.38189, 5.31394, -1.55119)
+mesh = SubResource("PrismMesh_hfkix")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="house_model1/walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84467, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="house_model1/walls_holder/parede1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6584, 1.33687, -3.05567)
+size = Vector3(5.02887, 4.38635, 4.00403)
 
 [node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_hfkix")]
 hitbox_collision = NodePath("hitbox")
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.10248, -0.009382724, 0.004760981, 0.009383936, 1.1024764, -0.000283699, -0.0047581303, 0.00032419362, 1.10258, -0.70210195, 4.0207853, -1.331814)
+transform = Transform3D(1.10248, -0.00938275, 0.00476098, 0.00938383, 1.10249, -0.000283699, -0.00475813, 0.000324194, 1.10258, -0.594581, 4.02172, -1.3988)
 shape = SubResource("BoxShape3D_bgf8x")
 
 [node name="hitbox2" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.10247, -0.009382668, 0.004760981, 0.009383741, 1.1024699, -0.000283696, -0.00475808, 0.0003241911, 1.10258, -0.64013153, 1.7256944, 2.7318885)
+transform = Transform3D(1.10247, -0.00938269, 0.00476098, 0.00938374, 1.10248, -0.000283696, -0.00475808, 0.000324191, 1.10258, -0.651611, 1.72559, 2.75885)
 shape = SubResource("BoxShape3D_vy7fe")
 
 [node name="colisao_principal" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.1025482, -0.009621792, 0, 0.0096217925, 1.1025481, 0, 0, 0, 1.1025902, -0.64556736, 3.5615458, -1.3522549)
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.532372, 3.59143, -1.35287)
 shape = SubResource("BoxShape3D_10qhy")
 
 [node name="colisao_principal2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.51919687, 1.5857434, 2.1065693)
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.505191, 1.56901, 2.11251)
 shape = SubResource("BoxShape3D_4pusr")
 
 [node name="Timer" type="Timer" parent="."]
@@ -203,7 +353,7 @@ mesh = SubResource("CylinderMesh_10qhy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.01356)
 
 [node name="hurtbox" type="CollisionShape3D" parent="holo_holder/laser_area"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 24.268997)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 24.269)
 shape = SubResource("CylinderShape3D_o1325")
 disabled = true
 
@@ -215,43 +365,45 @@ surface_material_override/0 = ExtResource("2_6syyc")
 
 [node name="Cube_050" type="MeshInstance3D" parent="holo_holder/laser_area"]
 transform = Transform3D(0.147566, 0, 0, 0, 0.156066, -0.0162353, 0, 0.0184023, 0.137688, -0.0418825, 0.105188, 0.366778)
-material_override = SubResource("StandardMaterial3D_ttyie")
 mesh = SubResource("ArrayMesh_nsxsi")
 skeleton = NodePath("")
 
-[node name="house_laser_beam" parent="holo_holder" instance=ExtResource("5_bgf8x")]
+[node name="house_laser_beam" parent="holo_holder"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.05393, 0.848487)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="holo_holder/house_laser_beam/Cube_052" index="0"]
-transform = Transform3D(1.537413, 0, 0, 0, 0.9999997, 0, 0, 0, 1.1787336, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_5pr62")
-mesh = SubResource("ArrayMesh_fkhxy")
-
-[node name="Cube_050" parent="holo_holder/house_laser_beam" index="1"]
-visible = false
+script = null
 
 [node name="door" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554577, 0.848334, 2.4053)
 
 [node name="door_collision" type="CollisionShape3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041275024, 0.6206669, 1.0421755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.411621, 0.749527)
 shape = SubResource("BoxShape3D_obbqb")
 disabled = true
 
-[node name="door_closed" type="MeshInstance3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03366983, 0.16025501, 0.14245534)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.457118)
 mesh = SubResource("BoxMesh_4pusr")
 
-[node name="door_open" type="MeshInstance3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022994637, 0.097702324, 0.13832712)
-mesh = SubResource("BoxMesh_bgf8x")
-
-[node name="npc_interact_sign" parent="door" instance=ExtResource("6_a3hrb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53772, 2.02325)
-visible = false
-
-[node name="house_model" parent="." instance=ExtResource("5_4pusr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023463795, -0.011333738, -0.055934362)
+[node name="house_model" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.687037, 0.726623, 0, -0.726623, -0.687037, -0.189648, 10.0956, 0.186694)
@@ -260,36 +412,20 @@ light_energy = 8.33
 spot_range = 31.4265
 spot_angle = 33.8241
 
-[node name="fade_to_inside" type="CanvasLayer" parent="."]
-layer = 3
-visible = false
-
-[node name="Control" type="Control" parent="fade_to_inside"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="fade_to_inside/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_a3hrb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="fade_to_inside"]
-libraries = {
-&"": SubResource("AnimationLibrary_fkhxy")
-}
+[node name="npc_interact_sign" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.479396, -1.02081, 4.53246)
+script = null
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="holo_holder/laser_area" to="." method="_on_laser_area_area_entered"]
 [connection signal="area_entered" from="door" to="." method="_on_door_area_entered"]
 [connection signal="area_exited" from="door" to="." method="_on_door_area_exited"]
-
-[editable path="holo_holder/house_laser_beam"]
