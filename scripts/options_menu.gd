@@ -46,3 +46,6 @@ func _on_master_volume_scroll_scrolling() -> void:
 	print(%master_volume_value.text)
 	$%master_volume_value.text = str(snapped(%master_volume_scroll.value,0.1))
 	AudioServer.set_bus_volume_db(0, linear_to_db(int(%master_volume_scroll.value)))
+
+func _on_credits_button_pressed() -> void:
+	pass # Replace with function body.

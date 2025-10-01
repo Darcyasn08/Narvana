@@ -262,13 +262,13 @@ shape = SubResource("BoxShape3D_i3ahe")
 transform = Transform3D(0.0196337, 0, 0.999807, 0, 1, 0, -0.999807, 0, 0.0196337, 12.418528, 0, -29.32118)
 
 [node name="light_pole2" parent="." instance=ExtResource("5_u8wih")]
-transform = Transform3D(0.144218, 0, 0.989546, 0, 1, 0, -0.989546, 0, 0.144218, -15.0584, 0, -12.8717)
+transform = Transform3D(0.144218, 0, 0.989546, 0, 1, 0, -0.989546, 0, 0.144218, -18.161697, 0, -12.8717)
 
 [node name="small_house" parent="." instance=ExtResource("6_vnacj")]
 transform = Transform3D(0.0226001, 0, -0.999745, 0, 1, 0, 0.999745, 0, 0.0226001, -19.9571, 0.0568009, -33.8251)
 
 [node name="small_house2" parent="." instance=ExtResource("6_vnacj")]
-transform = Transform3D(0.00918037, 0, 0.999958, 0, 1, 0, -0.999958, 0, 0.00918037, 17.0904, 0.0568009, -27.4456)
+transform = Transform3D(0.00918037, 0, 0.999958, 0, 1, 0, -0.999958, 0, 0.00918037, 17.46026, 0.0568009, -27.4456)
 
 [node name="stage_band" parent="." instance=ExtResource("7_2bkyy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35482, 1.90735e-06, 66.7683)

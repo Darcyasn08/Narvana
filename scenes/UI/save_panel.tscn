@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0uap4n3ddqto"]
+[gd_scene load_steps=12 format=3 uid="uid://c0uap4n3ddqto"]
 
 [ext_resource type="Script" uid="uid://bfe37u62bneoc" path="res://scripts/UI/save_panel.gd" id="1_go1do"]
 [ext_resource type="Texture2D" uid="uid://cn4bxpo22nugw" path="res://UI/save-panel.png" id="2_0qva7"]
@@ -8,8 +8,15 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_go1do"]
 font = ExtResource("3_0qva7")
-font_size = 52
-outline_color = Color(0.232144, 0.34193, 0.582903, 1)
+font_size = 55
+outline_size = 15
+outline_color = Color(0.35276613, 0.23182052, 0.5223428, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yh0yd"]
+font = ExtResource("3_0qva7")
+font_size = 35
+outline_size = 8
+outline_color = Color(0.3951061, 0.1807985, 0.41672555, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wre1k"]
 content_margin_left = 3.0
@@ -23,6 +30,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2h8sw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh0yd"]
 
@@ -86,19 +95,41 @@ grow_vertical = 2
 [node name="title_label" type="Label" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 169.0
+offset_left = 11.0
+offset_right = 180.0
 offset_bottom = 53.0
 theme_override_fonts/font = ExtResource("2_76xi8")
 text = "SAVE X"
 label_settings = SubResource("LabelSettings_go1do")
 
+[node name="time_label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 34.0
+offset_top = 82.0
+offset_right = 177.0
+offset_bottom = 117.0
+text = "Tempo: 0:00"
+label_settings = SubResource("LabelSettings_yh0yd")
+
+[node name="health_label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 34.0
+offset_top = 130.0
+offset_right = 177.0
+offset_bottom = 165.0
+text = "Vidas:"
+label_settings = SubResource("LabelSettings_yh0yd")
+
 [node name="info_label" type="RichTextLabel" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
-offset_left = 25.0
-offset_top = 83.0
+offset_left = 36.0
+offset_top = 189.0
 offset_right = 317.0
-offset_bottom = 359.0
+offset_bottom = 439.0
 theme_override_fonts/normal_font = ExtResource("3_0qva7")
 theme_override_font_sizes/normal_font_size = 35
 text = "Fase atual
@@ -119,11 +150,16 @@ offset_right = 89.25
 offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_hover_color = Color(0.97634906, 0.7545508, 0.79441035, 1)
+theme_override_colors/font_outline_color = Color(0.31989738, 0.12286552, 0.4276045, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_0qva7")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_wre1k")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_go1do")
-text = "ABRIR SAVE"
+text = "JOGAR"
+flat = true
 
 [node name="delete_save_button" type="Button" parent="Control"]
 unique_name_in_owner = true
@@ -131,12 +167,19 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -114.0
+offset_left = -53.0
+offset_top = -29.0
+offset_right = 9.0
 offset_bottom = 49.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0.6839749, 0.11149553, 0.34526268, 1)
+theme_override_colors/font_hover_color = Color(0.5440668, 0.08217261, 0.3514181, 1)
+theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("3_0qva7")
-theme_override_font_sizes/font_size = 40
-text = "deletar"
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2h8sw")
+text = "x"
+flat = true
 
 [node name="new_save_button" type="Button" parent="Control"]
 unique_name_in_owner = true
@@ -157,3 +200,12 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yh0yd")
 text = "NOVO SAVE"
 flat = true
+
+[node name="health" type="HBoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 30.0
+offset_top = 180.0
+offset_right = 306.0
+offset_bottom = 217.0

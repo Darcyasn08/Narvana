@@ -145,9 +145,6 @@ func _input(event: InputEvent) -> void:
 			actual_target = target3
 		if actual_target != null and actual_target.is_in_group("item_throwers"):
 			print("its an item_thrower!!")
-			#Global.player_can_move = false
-			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			#$"player_hud/item_thrower_menu".show()
 	
 	if event.is_action_pressed("r"):
 		magic()

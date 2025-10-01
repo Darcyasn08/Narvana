@@ -15,14 +15,12 @@ func _ready() -> void:
 	SignalBus.on_send_delete_request.connect(show_confirm_delete_save)
 	
 	for save in SaveLoad.save_content:
-		print("theres a save: ",save)
 		var save_panel: Object = save_panel_inst.instantiate()
 		if SaveLoad.save_content[save] != {}:
 			save_panel.is_created = true
-			print(SaveLoad.save_content[save])
+			#print(SaveLoad.save_content[save])
 		save_panel.id = save_qtd
-		save_panel.title = str("Save ",save_qtd+1)
-		#save_panel.info += str("\n",Global.player_health)
+		save_panel.title = str("Jogo ",save_qtd+1)
 		save_panel.info = str(SaveLoad.save_content[save])
 		$save_screen/HBoxContainer.add_child(save_panel)
 		save_qtd += 1
@@ -30,9 +28,7 @@ func _ready() -> void:
 	if save_qtd == 0:
 		var save_panel: Object = save_panel_inst.instantiate()
 		save_panel.id = save_qtd
-		print("save id: ",save_qtd)
 		$save_screen/HBoxContainer.add_child(save_panel)
-	#$"save_screen/HBoxContainer/0/Label3".text = str("Vida atual: ",Global.player_health)
 
 
 func _on_start_button_pressed() -> void:
@@ -77,3 +73,6 @@ func _on_open_save_screen_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	$options_menu.show()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

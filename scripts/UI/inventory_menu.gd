@@ -90,14 +90,19 @@ func adjust_plus_values() -> void:
 		Global.plus_player_health = 0
 
 func add_plus_values() -> void:
+	if Global.player_health != Global.max_player_health:
+		pass
+	else:
+		Global.player_health = Global.base_player_health + Global.plus_player_health
+	
 	Global.max_player_health = Global.base_player_health + Global.plus_player_health
-	Global.player_health = Global.base_player_health + Global.plus_player_health
+	#print("1. ",Global.base_player_health, "--",Global.plus_player_health)
 	Global.player_damage = Global.base_player_damage + Global.plus_player_damage
 	Global.player_speed = Global.base_player_speed + Global.plus_player_speed
-	
+	#print("2. ",Global.base_player_health, "--",Global.plus_player_health)
 	if Global.player_health > Global.max_player_health:
 		Global.player_health = Global.max_player_health
-	print("health summed:",Global.player_health)
+	print("player health summing: ",Global.player_health, "---",Global.max_player_health)
 	SignalBus.on_player_health_changed.emit(Global.player_health)
 	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
@@ -132,11 +137,14 @@ func select_shop_item(index: int) -> void:
 	if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
 		Global.plus_player_speed += Global.inventory["shop_items"][index]["buff"]["speed"]
 	if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
-		Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
+		#Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
+		print("plus before: ", Global.plus_player_health)
 		Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
+		print("plus after: ", Global.plus_player_health)
 	add_plus_values()
-	$selected_item_label.text = Global.inventory["shop_items"][index]["name"]
-	$selected_item_stats.text = str("vida: ",Global.inventory["shop_items"][index]["buff"]["health"], "\ndano: ",Global.inventory["shop_items"][index]["buff"]["damage"], "\nvelocidade: ",Global.inventory["shop_items"][index]["buff"]["speed"])
+	SignalBus.on_player_health_changed.emit(Global.player_health)
+	$shop_item_container/label.text = Global.inventory["shop_items"][index]["name"]
+	$shop_item_container/selected_item_stats.text = str("vida: ",Global.inventory["shop_items"][index]["buff"]["health"], "\ndano: ",Global.inventory["shop_items"][index]["buff"]["damage"], "\nvelocidade: ",Global.inventory["shop_items"][index]["buff"]["speed"])
 	%shop_items_dropbox.hide()
 	previous_selected_item = index
 

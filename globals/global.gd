@@ -6,6 +6,7 @@ var has_started_game: bool = false
 var game_paused: bool = false
 var next_scene: String = "res://scenes/worlds/normal_world.tscn"
 var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
+var time_lapsed: int = 0
 
 #player
 var player_can_move: bool = true
@@ -64,10 +65,14 @@ var enemies: Array = [
 #levels
 var dead_enemies_first_level: Array = [
 	[0, 0], #inimigos derrotados/objetivo
-	#[0, 0],
-	#[0, 0],
-	#[0, 0],
-	#[0, 0],
+]
+
+var dead_enemies_second_level: Array = [
+	[0, 0], #inimigos derrotados/objetivo
+]
+
+var dead_enemies_third_level: Array = [
+	[0, 0], #inimigos derrotados/objetivo
 ]
 
 var current_room: int = 0
@@ -101,6 +106,12 @@ var shop_items: Dictionary = {
 }
 
 var completed_levels: Dictionary = {
+	"first_level": false,
+	"second_level": false,
+	"third_level": false
+}
+
+var reset_completed_levels: Dictionary = {
 	"first_level": false,
 	"second_level": false,
 	"third_level": false
@@ -168,10 +179,93 @@ var inventory: Dictionary = {
 	"shop_items": {}
 }
 
+var reset_inventory: Dictionary = {
+	"current_spell": "",
+	"items": {
+		"car_keys": {
+			"player_has": true,
+			"icon": "res://UI/inventory/car-keys.png",
+			"name": "Chaves do carro",
+			"desc": "Um carrinho pra ir trabalhar (+dano)",
+			"buff": {
+				"damage": 20,
+				"health": 0,
+				"speed": 0,
+			},
+		},
+		"jewel": {
+			"player_has": true,
+			"icon": "res://UI/inventory/jewel.png",
+			"name": "Jóias",
+			"desc": "Caras e lindas (+velocidade)",
+			"buff": {
+				"damage": 0,
+				"health": 0,
+				"speed": 1,
+			},
+		},
+		"photo": {
+			"player_has": true,
+			"icon": "res://icon.svg",
+			"name": "Foto da banda",
+			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
+			"buff": {
+				"damage": 20,
+				"health": 0,
+				"speed": 0,
+			},
+		},
+		"plush": {
+			"player_has": true,
+			"icon": "res://UI/inventory/teddy-bear.png",
+			"name": "Pelúcia antiga",
+			"desc": "Algo dele te traz um conforto muito grande (+vida)",
+			"buff": {
+				"damage": 0,
+				"health": 1,
+				"speed": 0,
+			},
+		},
+		"coffee": {
+			"player_has": true,
+			"icon": "res://UI/inventory/coffee-cup.png",
+			"name": "Copo de café",
+			"desc": "É sempre bom um café pela manhã (+velocidade)",
+			"buff": {
+				"damage": 0,
+				"health": 0,
+				"speed": 1,
+			},
+		},
+	},
+	"shop_items": {}
+}
+
 
 enum npcs {crab, master}
 
 var npc_manager: Dictionary = {
+	"crab": {
+		"is_first_time": true,
+	},
+	"jellyfish": {
+		"is_first_time": true,
+	},
+	"grandma": {
+		"is_first_time": true,
+	},
+	"master": {
+		"is_first_time": true
+	},
+	"second_master": {
+		"is_first_time": true
+	},
+	"master_first_level": {
+		"is_first_time": true
+	},
+}
+
+var reset_npc_manager: Dictionary = {
 	"crab": {
 		"is_first_time": true,
 	},
@@ -562,6 +656,84 @@ var dialogs: Dictionary = {
 			}
 		}
 	},
+	
+	"gardener": {
+		"name": "Master",
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Olá garoto, parece que você veio conhecer a incrível arte do Baiacunismo, não é?",
+					"options": {},
+				},
+				1: {
+					"text": "Para isso, você terá que passar por algumas provações",
+					"options": {},
+				},
+				2: {
+					"text": "Só depois de se desapegar do que te segura neste mundo terreno…",
+					"options": {},
+				},
+				3: {
+					"text": "Talvez...",
+					"options": {},
+				},
+				4: {
+					"text": "...você consiga atingir o narvana...",
+					"options": {},
+				},
+				5: {
+					"text": "Ah, o que é o narvana?",
+					"options": {},
+				},
+				6: {
+					"text": "É tipo.... hmmm...",
+					"options": {},
+				},
+				7: {
+					"text": "...é tipo quando você chega em casa depois de um dia cansativo...",
+					"options": {},
+				},
+				8: {
+					"text": "...e troca pro pijama",
+					"options": {},
+				},
+				9: {
+					"text": "Difícil explicar, vamos pro que importa",
+					"options": {},
+				},
+				10: {
+					"text": "Primeiro você terá que se desfazer de algum de seus itens que você carrega",
+					"options": {
+						0: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+						1: {
+							"text": "Ok",
+							"ignite": "function",
+						},
+					},
+				},
+				11: {
+					"text": "Depois, é só atravessar a porta que irá surgir, que eu vou te ensinar tudo",
+					"options": {},
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "É só atravessar a porta, não tem segredo",
+					"options": {},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "Do outro lado da porta, terá seu desafio",
+				"id": "open_first_level_portal",
+				"options": {},
+			}
+		}
+	},
 	"second_level_master": {
 		"name": "Master",
 		"is_first_time": true,
@@ -574,6 +746,11 @@ var dialogs: Dictionary = {
 
 
 var cutscenes: Dictionary = {
+	"start": false,
+	"final": false
+}
+
+var reset_cutscenes: Dictionary = {
 	"start": false,
 	"final": false
 }

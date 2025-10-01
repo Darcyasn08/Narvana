@@ -17,6 +17,7 @@ var save_content: Dictionary = {
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	},
 	1: {
 		"was_opened": false,
@@ -31,6 +32,7 @@ var save_content: Dictionary = {
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	},
 	2: {
 		"was_opened": false,
@@ -45,6 +47,7 @@ var save_content: Dictionary = {
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	}
 }
 
@@ -54,58 +57,55 @@ var reset_save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
-		"npc_manager": Global.npc_manager,
+		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
-		"completed_levels": Global.completed_levels,
-		"cutscenes": Global.cutscenes,
-		"inventory": Global.inventory,
+		"completed_levels": Global.reset_completed_levels,
+		"cutscenes": Global.reset_cutscenes,
+		"inventory": Global.reset_inventory,
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	},
 	1: {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
-		"npc_manager": Global.npc_manager,
+		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
-		"completed_levels": Global.completed_levels,
-		"cutscenes": Global.cutscenes,
-		"inventory": Global.inventory,
+		"completed_levels": Global.reset_completed_levels,
+		"cutscenes": Global.reset_cutscenes,
+		"inventory": Global.reset_inventory,
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	},
 	2: {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-26),
-		"npc_manager": Global.npc_manager,
+		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
-		"completed_levels": Global.completed_levels,
-		"cutscenes": Global.cutscenes,
-		"inventory": Global.inventory,
+		"completed_levels": Global.reset_completed_levels,
+		"cutscenes": Global.reset_cutscenes,
+		"inventory": Global.reset_inventory,
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
+		"time_lapsed": 0,
 	}
 }
 
 func _ready() -> void:
 	load_save()
-	#if save_content.has_started_game:
-		#print("game has started!")
-	#else:
-		#print("game hasnt started yet... show start cutscene")
 
 func save() -> void:
 	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
 	file.store_var(save_content.duplicate())
 	file.close()
-	print("jogo salvo!")
-	#print(save_content)
 
 func load_to_global() -> void:
 	#salvar no global as variáveis básicas
@@ -120,6 +120,7 @@ func load_to_global() -> void:
 	Global.mouse_sens = SaveLoad.save_content[Global.current_save]["mouse_sens"]
 	Global.rotation_mouse_axis_x = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"]
 	Global.rotation_mouse_axis_y = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"]
+	Global.time_lapsed = SaveLoad.save_content[Global.current_save]["time_lapsed"]
 
 func save_to_file() -> void:
 	SignalBus.on_game_saved.emit()
@@ -135,23 +136,21 @@ func save_to_file() -> void:
 	SaveLoad.save_content[Global.current_save]["mouse_sens"] = Global.mouse_sens
 	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
 	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
+	SaveLoad.save_content[Global.current_save]["time_lapsed"] = Global.time_lapsed
 	#fazer isso realmente funcionar ^^^
 	SaveLoad.save()
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):
-		#print("save exists")
 		var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ, "narval")
 		var data = file.get_var()
 		file.close()
 		
 		var save_data = data.duplicate()
 		save_content = save_data
-		#print('SAVE DATA: ',save_data)
 
 func delete_save(id: int) -> void:
 	if FileAccess.file_exists(save_path):
-		print("deleted!")
 		DirAccess.remove_absolute(save_path)
 		save_content[id] = reset_save_content[id]
 		save()
@@ -159,7 +158,6 @@ func delete_save(id: int) -> void:
 
 func delete_all_saves() -> void:
 	if FileAccess.file_exists(save_path):
-		print("deleted!")
 		DirAccess.remove_absolute(save_path)
 		save_content = reset_save_content
 		save()

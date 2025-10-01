@@ -388,6 +388,13 @@ position = Vector2(-1368, -24)
 scale = Vector2(1.72897, 0.338462)
 polygon = PackedVector2Array(899, 82, 899, 90.8636, 792, 90.8636, 792, 82)
 
+[node name="time_lapsed_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="autosave_timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="pressed" from="menu_selection/inventory_button" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="menu_selection/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="button_container/back_button" to="." method="_on_back_button_pressed"]
@@ -395,3 +402,5 @@ polygon = PackedVector2Array(899, 82, 899, 90.8636, 792, 90.8636, 792, 82)
 [connection signal="pressed" from="button_container/reset_health_button" to="." method="_on_reset_health_button_pressed"]
 [connection signal="pressed" from="button_container/save_button2" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="button_container/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="time_lapsed_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="autosave_timer" to="." method="_on_autosave_timer_timeout"]

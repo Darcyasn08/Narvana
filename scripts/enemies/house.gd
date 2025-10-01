@@ -8,16 +8,14 @@ var saidas_disponiveis: Array = []
 var state: String = "shooting"
 var knocker: int = 0
 var player_near: bool = false
+var original_resource = load("res://shaders/house_damage.tres")
+var unique_resource = original_resource.duplicate()
 
 @onready var player = $"../player"
 @onready var walls_holder = $"house_model/walls_holder"
 
 func _ready() -> void:
 	life = Global.house_health #precisa disso pra quando voltar na cena dela por fora vai passar o dano por dentro
-	var original_resource = load("res://shaders/house_damage.tres")
-	var unique_resource = original_resource.duplicate()
-	$house_model/house_model/Cube_001.material_overlay = unique_resource
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa
@@ -26,6 +24,7 @@ func _input(event: InputEvent) -> void:
 		$fade_to_inside/AnimationPlayer.play("fade_in")
 		Global.house_health = life
 		Global.player_health = player.health
+		print(Global.player_health)
 		await $fade_to_inside/AnimationPlayer.animation_finished
 		get_tree().change_scene_to_file("res://scenes/enemies/inside_house.tscn")
 
@@ -116,7 +115,7 @@ func _on_timer_timeout() -> void:
 		$door/door_closed.show()
 		$holo_holder.show()
 		await(get_tree().create_timer(3).timeout)
-		knocker = life - 500
+		knocker = life - 800
 		$holo_holder/laser_holofote.show()
 		$holo_holder/laser_area/hurtbox.disabled = false
 		await(get_tree().create_timer(15).timeout)
@@ -143,11 +142,16 @@ func _on_laser_area_area_entered(area: Area3D) -> void:
 
 func unique_take_damage(area) -> void:
 	print("damage")
-	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("e8a6e0ff")
+	
+	$house_model/house_model/Cube_001.material_overlay = unique_resource
+	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("f599ccff")
 	await get_tree().create_timer(.3).timeout
 	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("#b1dee1")
 
 func unique_die() -> void:
+	$door.hide()
+	$house_model/AnimationPlayer.play("death")
+	await $house_model/AnimationPlayer.animation_finished
 	SignalBus.on_boss_defeated.emit()
 
 func damage_player(area) -> void:

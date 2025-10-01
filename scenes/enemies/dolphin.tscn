@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckx0a2s4ctqco"]
+
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_qbumi"]
+[ext_resource type="Script" uid="uid://c5qwx5klxhgt2" path="res://scripts/enemies/dolphin.gd" id="1_tdyk7"]
+[ext_resource type="PackedScene" uid="uid://dkthw2yc7smfe" path="res://3d_models/enemies/chefe.glb" id="3_o0fsm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tdyk7"]
+size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0fsm"]
+size = Vector3(1.1, 1.1, 2.2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6poy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0qphl"]
+radius = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_tdyk7"]
+radius = 0.3
+height = 0.6
+radial_segments = 10
+rings = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o0fsm"]
+albedo_color = Color(0.382137, 0.134085, 0.406309, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tdyk7"]
+radius = 2.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tdyk7"]
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6poy"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.733333)
+
+[node name="dolphin" type="CharacterBody3D" groups=["enemies"]]
+collision_layer = 4
+script = ExtResource("1_tdyk7")
+
+[node name="model" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+visible = false
+mesh = SubResource("BoxMesh_tdyk7")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="shooter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.115442)
+
+[node name="enemy_hitbox" parent="." instance=ExtResource("1_qbumi")]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0, 1)
+
+[node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
+shape = SubResource("BoxShape3D_o0fsm")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("CapsuleShape3D_e6poy")
+
+[node name="player_detection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="area" type="CollisionShape3D" parent="player_detection"]
+shape = SubResource("SphereShape3D_0qphl")
+
+[node name="smoke" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978, 1)
+visible = false
+mesh = SubResource("SphereMesh_tdyk7")
+material = SubResource("StandardMaterial3D_o0fsm")
+
+[node name="impact_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262936, 1)
+
+[node name="impact" type="CollisionShape3D" parent="impact_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.220075, 0)
+shape = SubResource("CylinderShape3D_tdyk7")
+disabled = true
+
+[node name="warning" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.879611, 0)
+visible = false
+mesh = SubResource("CylinderMesh_tdyk7")
+material = SubResource("StandardMaterial3D_e6poy")
+
+[node name="chefe" parent="." instance=ExtResource("3_o0fsm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3633914, 0, 1.6733953)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="player_detection" to="." method="_on_player_detection_area_entered"]
+[connection signal="area_entered" from="impact_area" to="." method="_on_impact_area_area_entered"]

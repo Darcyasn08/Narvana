@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
-var life: int = 700
+var life: int = 1500
 var damage: int = 1
 var bullet_speed: float = 20.0
 var level: int = 2
 var state: String = "dragons"
-var speed: float = 10.0
+var speed: float = 12.0
 
 var dragonins: Object = preload("res://scenes/enemies/pearl_collar.tscn")
 var pearlins: Object = preload("res://scenes/projectile.tscn")
@@ -42,6 +42,8 @@ func calculate_knockback(area: Area3D)-> void:
 
 func unique_take_damage(area)-> void:
 	calculate_knockback(area)
+	await(get_tree().create_timer(.5).timeout)
+	teleporting()
 	
 func unique_die()-> void:
 	pass
@@ -68,9 +70,9 @@ func shoot() -> void:
 func _on_timer_timeout() -> void:
 	if state != "blush":
 		shoot()
-		await(get_tree().create_timer(3).timeout)
+		await(get_tree().create_timer(2).timeout)
 		shoot()
-		await(get_tree().create_timer(3).timeout)
+		await(get_tree().create_timer(2).timeout)
 	if state == "blush":
 		shoot()
 		await(get_tree().create_timer(1).timeout)
@@ -79,7 +81,7 @@ func _on_timer_timeout() -> void:
 		shoot()
 		await teleporting()
 		state = "shooting"
-		$Timer.wait_time = 2
+		$Timer.wait_time = 1
 		$Timer.start()
 	elif state == "dragons":
 		var dragon1 = dragonins.instantiate()
@@ -96,7 +98,7 @@ func _on_timer_timeout() -> void:
 			state = "shooting"
 		await(get_tree().create_timer(1).timeout)
 		await teleporting()
-		$Timer.wait_time = 2
+		$Timer.wait_time = 1
 		$Timer.start()
 	elif state == "shooting":
 			shoot()

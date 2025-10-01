@@ -183,9 +183,9 @@ texture = ExtResource("3_201h0")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 103.0
-offset_top = -235.0
-offset_right = 291.0
+offset_left = 118.0
+offset_top = -319.0
+offset_right = 334.0
 offset_bottom = -101.0
 grow_vertical = 0
 
@@ -205,7 +205,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_1y4tv")
-theme_override_font_sizes/font_size = 46
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
 text = "JOGAR"
 flat = true
@@ -215,9 +215,19 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_1y4tv")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
 text = "OPÇÕES"
+flat = true
+
+[node name="quit_button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_1y4tv")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_jcvkx")
+text = "SAIR"
 flat = true
 
 [node name="Label2" type="Label" parent="."]
@@ -382,6 +392,7 @@ visible = false
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/open_save_screen_button" to="." method="_on_open_save_screen_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="save_screen/close_save_screen_button" to="." method="_on_close_save_screen_button_pressed"]
 [connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/delete_save_button" to="." method="_on_delete_save_button_pressed"]
 [connection signal="pressed" from="confirm_delete_save/Panel/VBoxContainer/back_delete_button" to="." method="_on_back_delete_button_pressed"]

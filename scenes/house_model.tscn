@@ -1,11 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://c05fwr0udet8m"]
+[gd_scene load_steps=38 format=4 uid="uid://c05fwr0udet8m"]
 
 [ext_resource type="Material" uid="uid://d4ikhnvve76yu" path="res://shaders/red_laser.tres" id="1_e1y3w"]
 [ext_resource type="PackedScene" uid="uid://d2jfubyw2x0p0" path="res://scenes/buildings/house_spike_walls.tscn" id="2_6f60q"]
 [ext_resource type="PackedScene" uid="uid://6ds2uxjtlw1" path="res://3d_models/placeholders/house_model.glb" id="2_pb63u"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_g5ubp"]
-size = Vector3(5, 3, 11)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_metfq"]
 top_radius = 0.05
@@ -27,10 +24,10 @@ size = Vector3(3.4094927, 6.06525, 26.327095)
 size = Vector3(5.06287, 4.33057, 4.0173)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_metfq"]
-size = Vector3(6.998556, 4.33057, 2.833541)
+size = Vector3(6.352422, 4.33057, 2.833541)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6syyc"]
-size = Vector3(5.762473, 4.37659, 3.9398882)
+size = Vector3(5.1744857, 4.37659, 3.9398882)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1325"]
 size = Vector3(4.00152, 4.46899, 5.0526)
@@ -194,26 +191,321 @@ _surfaces = [{
 "vertex_data": PackedByteArray("uw+NvxP3gr8IuYM/bQx5v193jz+n9rC/bQx5v193jz+YaF8/uw+NvxP3gr8g+sS/uw+NvxP3gr8g+sS/APjkPl93jz8e+rC/bQx5v193jz+n9rC/qpATPxP3gr+X/cS/qpATPxP3gr+X/cS/2QXlPl93jz+YaF8/APjkPl93jz8e+rC/lpcTPxP3gr8IuYM/lpcTPxP3gr8IuYM/bQx5v193jz+YaF8/2QXlPl93jz+YaF8/uw+NvxP3gr8IuYM/uw+NvxP3gr8g+sS/lpcTPxP3gr8IuYM/qpATPxP3gr+X/cS/uw+NvxP3gr8IuYM/APjkPl93jz8e+rC/bQx5v193jz+YaF8/bQx5v193jz+n9rC/2QXlPl93jz+YaF8/bwduh6yHSfxvB26HXofJ+24HcIdVj4X8bgdwh/CGUvga9/7/H36t+hv3/v8wgf/6Gvf+/+6GUvgb9/7/DnlS+I74bYeVeCf8i/huh5V3T/yK+G2HDXlS+I34boencIX8/3/fiKCKDf8BgN+IBHZn//9/34ircIf8AYDfiFaPhfwAgAEA/v//vwCAAQD+//+/AIABAP7//78AgAEA/v//v/5//v8AAP6//n/+/wAA/r/+f/7/AAD+v/5//v8AAP6/")
 }]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27e7g"]
+transparency = 1
+albedo_color = Color(0.69803923, 0.69803923, 0.69803923, 0.5372549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s3iw4"]
+material = SubResource("StandardMaterial3D_27e7g")
+
+[sub_resource type="Animation" id="Animation_6f60q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("house_model/Cube_003:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.3271136, 1.1872681, 0.17738359)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("house_model/Cube_004:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.3271136, 1.2802441, 0.17738359)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("house_model/Cube_015:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.486341, 2.613396, 1.7570934)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("house_model/Cube_016:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.233068, 3.018765, 1.7570934)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("house_model/Cube_003:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("house_model/Cube_004:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("house_model:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5999791, 0, -0.392386)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("house_model:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("house_model:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.99999994, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("house_model/bubble_particle:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("house_model/bubble_particle2:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("house_model/bubble_particle3:emitting")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3wy8i"]
+resource_name = "death"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("house_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.113254234, 0.23333333, 0.33333334, 0.43333334, 0.5093922, 0.6, 0.6832566, 0.8333333, 1.2666667, 2.3666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.5999791, 0, -0.392386), Vector3(-0.44529265, 0, -0.392386), Vector3(-0.7182637, 0, -0.392386), Vector3(-0.44529265, 0, -0.392386), Vector3(-0.7182637, 0, -0.392386), Vector3(-0.5999791, 0, -0.392386), Vector3(-0.7182637, 0, -0.392386), Vector3(-0.5999791, 0, -0.392386), Vector3(-0.5999791, 0, -0.392386), Vector3(-0.5999791, -1.0115492, -0.392386), Vector3(-0.6, -8.977, -0.392)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("house_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8342331, 1.2666667, 1.6666665, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.0577704), Vector3(0, 0, -0.18849556), Vector3(0, 0, -0.2932153)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("house_model:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8342331, 1.201997, 2.3666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.99999994, 0.99999994, 1), Vector3(1, 0.9, 1), Vector3(1, 0.7, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("house_model/bubble_particle:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("house_model/bubble_particle2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("house_model/bubble_particle3:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_pb63u"]
+resource_name = "idle"
+length = 1.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("house_model/Cube_003:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.3271136, 1.1872681, 0.17738359), Vector3(1.3271136, 1, 0.17738359), Vector3(1.3271136, 1.1872681, 0.17738359)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("house_model/Cube_004:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.3271136, 1.2802441, 0.17738359), Vector3(1.3271136, 1, 0.17738359), Vector3(1.3271136, 1.2802441, 0.17738359)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("house_model/Cube_015:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.486341, 2.613396, 1.7570934), Vector3(-3.6762688, 2.613396, 1.7570934), Vector3(-3.2915413, 2.613396, 1.7570934)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("house_model/Cube_016:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(3.233068, 3.018765, 1.7570934), Vector3(3.04314, 3.018765, 1.7570934), Vector3(3.4278677, 3.018765, 1.7570934)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("house_model/Cube_003:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.138998)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("house_model/Cube_004:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.16919222)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3wy8i"]
+_data = {
+&"RESET": SubResource("Animation_6f60q"),
+&"death": SubResource("Animation_3wy8i"),
+&"idle": SubResource("Animation_pb63u")
+}
+
 [node name="house_model" type="Node3D"]
-
-[node name="molde_principal" type="CSGCombiner3D" parent="."]
-visible = false
-
-[node name="CSGBox3D" type="CSGBox3D" parent="molde_principal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67575, -1.55259)
-size = Vector3(10, 5, 4)
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="molde_principal"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0595918, 5.31394, -1.55119)
-mesh = SubResource("PrismMesh_g5ubp")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="molde_principal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.48536, 0.828836, -1.37848)
-size = Vector3(3.71033, 3.37061, 2.96338)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="molde_principal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.485, 0.829, -1.378)
-size = Vector3(3.71033, 3.37061, 2.96338)
 
 [node name="walls_holder" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -344,11 +636,11 @@ shape = SubResource("BoxShape3D_hfkix")
 disabled = true
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.621338, 1.3368697, -2.1840696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.944405, 1.3368697, -2.1840696)
 shape = SubResource("BoxShape3D_metfq")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.04923, 1.3241601, -2.6846914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.343224, 1.3241601, -2.6846914)
 shape = SubResource("BoxShape3D_6syyc")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="walls_holder/collision_das_paredes"]
@@ -370,7 +662,7 @@ transform = Transform3D(-4.371139e-08, 0, 1.3, 0, 1, 0, -1, 0, -5.6824803e-08, -
 shape = SubResource("ConcavePolygonShape3D_pb63u")
 
 [node name="house_model" parent="." instance=ExtResource("2_pb63u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532767, 0, -0.392386)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.5999791, 0, -0.392386)
 
 [node name="Cube_001" parent="house_model" index="0"]
 material_override = SubResource("StandardMaterial3D_3wy8i")
@@ -385,6 +677,9 @@ material_override = SubResource("StandardMaterial3D_s0g5w")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="house_model/Cube_002" index="0"]
 material_override = SubResource("StandardMaterial3D_6f60q")
 mesh = SubResource("ArrayMesh_s0g5w")
+
+[node name="Cube_003" parent="house_model" index="2"]
+transform = Transform3D(1.3271136, 0, 0, 0, 1.1872681, 0, 0, 0, 0.17738359, -3.750007, 2.8148136, 1.837017)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="house_model/Cube_005" index="0"]
 material_override = SubResource("StandardMaterial3D_6f60q")
@@ -446,12 +741,67 @@ material_override = SubResource("StandardMaterial3D_s0g5w")
 material_override = SubResource("StandardMaterial3D_6f60q")
 mesh = SubResource("ArrayMesh_13acg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24889, 3.62048, 1.60293)
+[node name="OmniLight3D" type="OmniLight3D" parent="house_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.848869, 3.62048, 1.9953159)
 light_color = Color(0.566279, 0.793919, 0.988186, 1)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51844, 3.14255, 1.60293)
+[node name="OmniLight3D2" type="OmniLight3D" parent="house_model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9184608, 3.14255, 1.9953159)
 light_color = Color(0.566279, 0.793919, 0.988186, 1)
+
+[node name="bubble_particle" type="CPUParticles3D" parent="house_model"]
+transform = Transform3D(0.43352622, -0.059306744, -0.9074025, -0.05877465, 1.3957348, -0.2546621, 0.9016638, 0.0476685, 0.44081572, -7.651415, 0.21118535, 0.392)
+emitting = false
+lifetime = 2.5
+explosiveness = 0.11
+randomness = 0.57
+mesh = SubResource("BoxMesh_s3iw4")
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+scale_amount_min = 0.3
+scale_amount_max = 1.2
+hue_variation_max = 0.56
+
+[node name="bubble_particle2" type="CPUParticles3D" parent="house_model"]
+transform = Transform3D(0.43352613, -0.059306733, -0.90740234, -0.05877464, 1.3957344, -0.254662, 0.9016638, 0.0476685, 0.44081572, 6.914138, 0.2111853, -1.1757553)
+emitting = false
+lifetime = 2.5
+explosiveness = 0.11
+randomness = 0.57
+mesh = SubResource("BoxMesh_s3iw4")
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+scale_amount_min = 0.3
+scale_amount_max = 1.2
+hue_variation_max = 0.56
+
+[node name="bubble_particle3" type="CPUParticles3D" parent="house_model"]
+transform = Transform3D(0.43352598, -0.059306715, -0.90740204, -0.05877462, 1.3957338, -0.25466186, 0.9016638, 0.0476685, 0.44081572, 2.1896787, 0.21118523, 1.7957127)
+emitting = false
+lifetime = 2.5
+explosiveness = 0.11
+randomness = 0.57
+mesh = SubResource("BoxMesh_s3iw4")
+emission_shape = 1
+emission_sphere_radius = 1.4
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 1.0
+scale_amount_min = 0.3
+scale_amount_max = 0.9
+hue_variation_max = 0.56
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3wy8i")
+}
+autoplay = "idle"
+speed_scale = 0.7
 
 [editable path="house_model"]

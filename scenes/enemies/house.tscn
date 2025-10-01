@@ -231,7 +231,7 @@ mesh = SubResource("ArrayMesh_fkhxy")
 visible = false
 
 [node name="door" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554577, 0.848334, 2.4053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6169238, 0.848334, 2.4053)
 
 [node name="door_collision" type="CollisionShape3D" parent="door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041275024, 0.6206669, 1.0421755)

@@ -75,3 +75,12 @@ func save() -> void:
 	#SaveLoad.save_content.inventory = Global.inventory
 	SaveLoad.save_to_file()
 	SaveLoad.save()
+
+func _on_timer_timeout() -> void:
+	if !get_tree().paused:
+		Global.time_lapsed += 1
+
+func _on_autosave_timer_timeout() -> void:
+	print("autosave")
+	print(Global.time_lapsed)
+	save()

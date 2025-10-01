@@ -6,10 +6,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ucpc2"]
 font_size = 35
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4w52"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrt7s"]
 bg_color = Color(0.372101, 0.430404, 0.498262, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4w52"]
 
 [sub_resource type="Animation" id="Animation_2n4oe"]
 length = 0.001
@@ -110,8 +110,8 @@ offset_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_g4w52")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qrt7s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4w52")
 text = "try again"
 
 [node name="ColorRect2" type="ColorRect" parent="collection"]
