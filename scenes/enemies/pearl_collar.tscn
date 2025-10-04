@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyujg"]
 radius = 0.578125
-height = 6.0464134
+height = 6.2365856
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyujg"]
 diffuse_mode = 3
@@ -229,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195953, 0.206549)
 radius = 0.2
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22375706, -4.4303894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41609278, -4.2226458)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -241,7 +241,7 @@ transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922,
 hitbox_collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox" groups=["enemies"]]
-transform = Transform3D(-0.92702836, -0.008785589, -0.37470526, 0.3747797, -0.010794071, -0.9269828, 0.0040994505, -0.9999033, 0.013299956, -0.0012827364, 0.39906764, -0.30598685)
+transform = Transform3D(-0.92702836, -0.008785589, -0.3747053, 0.3747797, -0.010794071, -0.9269779, 0.0040994505, -0.9999033, 0.0132999495, -0.0021181249, 0.39804125, -0.40106374)
 shape = SubResource("CapsuleShape3D_hyujg")
 
 [node name="dragãoperola" parent="." instance=ExtResource("3_hyujg")]

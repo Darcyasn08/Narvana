@@ -43,6 +43,7 @@ var coins: int = 100
 #enemies
 var dust_damage: float= 1000.0
 var house_health: int = 8000
+var knock_multi: float = 5.0
 
 var mouse_sens: float = .11
 
@@ -58,7 +59,7 @@ var worlds_files: Dictionary = {
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
-	["res://scenes/enemies/ex_gf.tscn"],
+	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn"],
 	[]
 ]
 
@@ -472,7 +473,7 @@ var dialogs: Dictionary = {
 	},
 	
 	"master": {
-		"name": "Master",
+		"name": "Mestre",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {

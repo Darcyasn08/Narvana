@@ -28,6 +28,7 @@ var knockbacked: bool = false
 var stunned: bool = false
 var immune: bool = false
 var immune_time: float = 2.5
+var is_attacking: bool = false
 
 # VARIÁVEIS DE IMPRTAÇÃO
 @onready var camera_pivot: Node3D = $camera_pivot
@@ -37,11 +38,10 @@ var immune_time: float = 2.5
 
 
 func _ready() -> void:
-	#Global.current_weapon = 1
-	print("current_weapon: ",Global.current_weapon)
 	SignalBus.on_changed_mouse_sens.connect(change_mouse_sens)
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	SignalBus.on_game_saved.connect(update_current_pos)
+	SignalBus.on_stun_hit.connect(stunned_by_enemy)
 	change_current_weapon(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
@@ -73,7 +73,8 @@ func _physics_process(delta: float) -> void:
 			last_movement_direction = move_direction
 		
 		var target_angle := Vector3.BACK.signed_angle_to(last_movement_direction, Vector3.UP)
-		skin.global_rotation.y = lerp_angle(skin.global_rotation.y,target_angle,rotation_speed *delta)
+		if !is_attacking:
+			skin.global_rotation.y = lerp_angle(skin.global_rotation.y,target_angle,rotation_speed *delta)
 		$CollisionShape3D.global_rotation.y = lerp_angle($CollisionShape3D.global_rotation.y,target_angle,rotation_speed *delta)
 		$player_hitbox.global_rotation.y = lerp_angle($player_hitbox.global_rotation.y,target_angle,rotation_speed *delta)
 		
@@ -115,6 +116,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack") and Global.player_can_attack:
+		is_attacking = true
 		match combo_attack_count:
 			0:
 				combo_attack_count = 1
@@ -125,9 +127,9 @@ func _input(event: InputEvent) -> void:
 			3:
 				combo_attack_count = 0
 				$narwhal_skin/narval_model/attack_player.play("RESET")
+		skin.global_rotation.y = camera_pivot.rotation.y + deg_to_rad(180)
 		attack()
 		$attack_sfx.play()
-		#print("combo attack count: ",combo_attack_count)
 	
 	if event.is_action_pressed("left_click") and Global.player_can_move:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -184,6 +186,7 @@ func hurt(damage) -> void:
 	if health == 0:
 		SignalBus.on_player_health_changed.emit(health)
 		die()
+	$camera_pivot/SpringArm3D/Camera3D.add_trauma(.7)
 
 
 # próxima atualização: fazer tela de morte
@@ -209,6 +212,9 @@ func dash() -> void:
 
 func knockback(force: Vector3, _impact_point: Vector3) -> void:
 	velocity = force.limit_length(15.0)
+
+func shake_camera() -> void:
+	pass
 
 func change_current_weapon(weapon: int):
 	print("received weapon: ",weapon)
@@ -406,3 +412,4 @@ func _on_combo_attack_timer_timeout() -> void:
 	combo_attack_count = 0
 	print("reset combo attack count")
 	$narwhal_skin/narval_model/attack_player.play("RESET")
+	is_attacking = false

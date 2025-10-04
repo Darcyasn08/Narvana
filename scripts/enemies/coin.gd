@@ -67,6 +67,7 @@ func fall() -> void:
 	fall_time = randf_range(1.3,2.8)
 	$uped.hide()
 	$falled.show()
+	set_collision_mask_value(2, false)
 	$enemy_hitbox.monitoring = false
 	collision.set_deferred("disabled", true)
 	$enemy_hitbox.set_deferred("monitoring", false)

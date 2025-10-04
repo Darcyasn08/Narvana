@@ -38,16 +38,15 @@ font_size = 20
 [sub_resource type="LabelSettings" id="LabelSettings_ijsq6"]
 font_size = 14
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mmsa"]
+bg_color = Color(0.60458827, 0.66251916, 0.8604169, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tpni"]
 bg_color = Color(0.11690276, 0.17772809, 0.24818254, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bj8r8"]
 font = ExtResource("5_6mmsa")
 font_size = 60
-
-[sub_resource type="LabelSettings" id="LabelSettings_pyo8y"]
-font = ExtResource("5_6mmsa")
-font_size = 50
 
 [node name="options_menu" type="CanvasLayer"]
 process_mode = 3
@@ -409,6 +408,23 @@ theme_override_colors/font_color = Color(0.6951987, 0.14622092, 0.2796674, 1)
 theme_override_font_sizes/font_size = 24
 text = "Deletar saves"
 
+[node name="open_second_level" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -317.0
+offset_top = -94.0
+offset_right = -48.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.33207086, 0.27387822, 0.5405638, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
+text = "Ir para segunda fase"
+
 [node name="credits_button" type="Button" parent="."]
 visible = false
 offset_left = 368.0
@@ -424,6 +440,7 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 614.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -449,24 +466,41 @@ grow_horizontal = 2
 text = "CRÉDITOS"
 label_settings = SubResource("LabelSettings_bj8r8")
 
-[node name="Label2" type="Label" parent="credits_menu"]
+[node name="Label2" type="RichTextLabel" parent="credits_menu"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.5
-offset_top = -88.5
-offset_right = 120.5
-offset_bottom = 88.5
+offset_left = -241.75
+offset_top = 222.0
+offset_right = 241.75
+offset_bottom = 1327.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Isabele Camargo
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 40
+text = "Modelagem 3D
+Isabele Camargo
 Júlia Rodrigues
 Luan Carvalho
-Lucas Salmazzo"
-label_settings = SubResource("LabelSettings_pyo8y")
+
+Arte
+Júlia Rodrigues
+Luan Carvalho
+
+Programação
+Júlia Rodrigues
+Lucas Salmazzo
+
+Música e sfx
+Júlia Rodrigues
+
+UI
+Júlia Rodrigues
+
+
+
+
+PIRARUCU GAMES"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="base_screen/VBoxContainer/control_settings_button" to="." method="_on_control_settings_button_pressed"]
@@ -476,4 +510,5 @@ horizontal_alignment = 1
 [connection signal="pressed" from="controls_screen/Label2/mouse_y_invert" to="." method="_on_mouse_y_invert_pressed"]
 [connection signal="pressed" from="controls_screen/Label3/mouse_x_invert" to="." method="_on_mouse_x_invert_pressed"]
 [connection signal="pressed" from="delete_saves_button" to="." method="_on_delete_saves_button_pressed"]
+[connection signal="pressed" from="open_second_level" to="." method="_on_open_second_level_pressed"]
 [connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]

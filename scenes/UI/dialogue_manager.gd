@@ -48,11 +48,9 @@ func _physics_process(_delta: float) -> void:
 
 func check_done_dialog() -> void:
 	if !Global.npc_manager[cur_npc]["is_first_time"]:
-		print("vish, aquele dialogo já rolou...")
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"][cur_text]
 		npc_dialog_tree = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"]
 	else:
-		print("aquele dialogo ainda não aconteceu")
 		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
 		npc_dialog_tree = Global.dialogs[cur_npc]["dialog_tree"]["middle"]
 
@@ -89,7 +87,6 @@ func end_dialog() -> void:
 	dialog_text.text = ""
 	dialog_options.hide()
 	talk_speed = normal_talk_speed #reseta pra velociade normal, pra ter certeza
-	#print("limit")
 	hide()
 	can_progress = false
 	await get_tree().create_timer(.06).timeout
@@ -102,23 +99,20 @@ func check_options() -> void:
 	if npc_dialog["options"] == {}:
 		pass #sem opções
 	else: #se tiver opções, esse roda
-		print("there is an option")
+		#print("there is an option")
 		can_progress = false
 		has_option = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		#print(npc_dialog["options"])
 		diag_option_1.text = npc_dialog["options"][0]["text"]
 		diag_option_2.text = npc_dialog["options"][1]["text"]
 		dialog_options.show()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("e") and has_option:
-		print("too fast when there is an option")
 		can_progress = false
 	if event.is_action_pressed("e") and can_progress and has_started_diag:
 		progress_dialog() #se [e] for clicado, isso roda
 	elif event.is_action_pressed("e") and !can_progress and has_started_diag and !has_option:
-		#print("too fast")
 		dialog_text.text = npc_dialog_tree[cur_text]["text"]
 		can_progress = true
 

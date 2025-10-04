@@ -35,3 +35,5 @@ signal on_player_health_changed()
 signal on_thermal_water_used()
 
 signal on_blush_hit()
+signal on_ex_crying()
+signal on_stun_hit()

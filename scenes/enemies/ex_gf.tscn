@@ -13,7 +13,7 @@ size = Vector3(1.0197875, 1.9799805, 2.9833221)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jigo"]
 size = Vector3(0.5270194, 1.3801574, 1.5781105)
 
-[node name="ex_gf" type="CharacterBody3D"]
+[node name="ex_gf" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_bsjvi")
@@ -34,10 +34,10 @@ transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -
 shape = SubResource("BoxShape3D_0jigo")
 
 [node name="invocation_point1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13966, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7050024, 0, 0)
 
 [node name="invocation_point2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8552802, 0, 0)
 
 [node name="shoot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.55639)
@@ -52,6 +52,14 @@ one_shot = true
 target_position = Vector3(0, 0, 40)
 
 [node name="ex_model" parent="." instance=ExtResource("3_mc0wb")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.4403548, 0.601053, -0.7498368)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4644628, 0.49764752, 0.31584227)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.258286, -1.6645306)
+light_color = Color(0.9225349, 0.51193154, 0.8273218, 1)
+light_energy = 0.5
+light_size = 0.9
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="ex_model"]

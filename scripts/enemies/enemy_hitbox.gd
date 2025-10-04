@@ -7,6 +7,7 @@ extends Area3D
 @export var hitbox_collision: CollisionShape3D
 
 func _ready() -> void:
+	parent.set_collision_layer_value(1, false)
 	parent.set_collision_layer_value(2, true)
 	parent.set_collision_mask_value(1, true)
 	parent.set_collision_mask_value(2, true)

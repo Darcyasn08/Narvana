@@ -55,6 +55,7 @@ func _on_close_save_screen_button_pressed() -> void:
 
 func show_confirm_delete_save(id: int) -> void:
 	delete_panel = id
+	print(delete_panel)
 	$confirm_delete_save.show()
 	$confirm_delete_save/AnimationPlayer.play("show_confirm_delete")
 

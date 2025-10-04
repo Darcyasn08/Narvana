@@ -49,3 +49,7 @@ func _on_master_volume_scroll_scrolling() -> void:
 
 func _on_credits_button_pressed() -> void:
 	pass # Replace with function body.
+
+func _on_open_second_level_pressed() -> void:
+	Global.next_scene = "res://scenes/worlds/second_level.tscn"
+	get_tree().change_scene_to_packed(Global.loading_screen)

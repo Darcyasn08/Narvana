@@ -23,12 +23,9 @@ func activate() -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	print("area entered!!!")
-	print($hurtbox/CollisionShape3D.disabled)
 	if area.name == "player_hitbox":
-		print("dude")
 		get_tree().call_group("player","hurt",damage)
 
-
 func _on_timer_timeout() -> void:
+	pass
 	#$hurtbox/CollisionShape3D.disabled = true
-	print("timer off")

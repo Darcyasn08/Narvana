@@ -4,7 +4,6 @@ extends CanvasLayer
 # ou montar um array que tenha cada frame integrado nele
 
 var is_ending: bool = false
-@onready var frames_node: Node2D = $CanvasLayer/start_cutscene/frames
 
 func _ready() -> void:
 	SignalBus.on_ignite_cutscene.connect(start_cutscene)
@@ -26,8 +25,8 @@ func _on_skip_cutscene_pressed() -> void:
 
 func end_cutscene() -> void:
 	is_ending = true
-	Global.cutscenes["start"] = true
 	$AnimationPlayer.play("fade_out")
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = false
+	Global.cutscenes["start"] = true
 	hide()

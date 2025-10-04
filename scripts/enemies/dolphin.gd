@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var life: int = 700
+var life: int = 2000
 var damage: int = 1
 var bullet_speed: float = 20.0
 var level: int = 2
@@ -60,21 +60,17 @@ func calculate_knockback(area: Area3D)-> void:
 	await(get_tree().create_timer(.3).timeout)
 	velocity = velocity * 0
 
-
 func unique_take_damage(area)-> void:
 	calculate_knockback(area)
 
-
 func unique_die()-> void:
 	pass
-
 
 func look_to_player()-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
 	var target_angle = pos2d - targetpos2d
 	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), .1)
-
 
 func _on_timer_timeout() -> void:
 	if state == "papers":
@@ -90,7 +86,6 @@ func _on_timer_timeout() -> void:
 		await(get_tree().create_timer(10).timeout)
 		$smoke.hide()
 		damage = 1
-		
 
 
 func _on_player_detection_area_entered(area: Area3D) -> void:
@@ -122,8 +117,8 @@ func _on_player_detection_area_entered(area: Area3D) -> void:
 		state = "going"
 
 
-func shoot():
-	var paper = paperins.instantiate()
+func shoot() -> void:
+	var paper: Object = paperins.instantiate()
 	paper.pos = $shooter.global_position
 	paper.rot = rotation
 	paper.follow = false
@@ -161,7 +156,6 @@ func office_jump() -> void:
 	$collision.disabled = false
 	speed = speed*2
 	state = "going"
-	
 
 
 func _on_impact_area_area_entered(area: Area3D) -> void:

@@ -3,6 +3,7 @@ extends CanvasLayer
 func _ready() -> void:
 	await get_tree().create_timer(.1).timeout
 	ResourceLoader.load_threaded_request(Global.next_scene)
+	get_tree().paused = false #resetar caso o jogo tenha sido pausado antes
 
 func _process(_delta: float) -> void:
 	var progress: Array = []

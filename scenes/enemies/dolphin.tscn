@@ -8,16 +8,14 @@
 size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o0fsm"]
-size = Vector3(1.1, 1.1, 2.2)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6poy"]
+size = Vector3(1.1, 1.1, 4.664014)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qphl"]
-radius = 3.0
+radius = 3.3458455
 
 [sub_resource type="SphereMesh" id="SphereMesh_tdyk7"]
-radius = 0.3
-height = 0.6
+radius = 0.4
+height = 0.8
 radial_segments = 10
 rings = 10
 
@@ -34,46 +32,51 @@ height = 0.01
 transparency = 1
 albedo_color = Color(1, 0, 0, 0.733333)
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e6poy"]
+radius = 0.54296875
+height = 2.6367188
+
 [node name="dolphin" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 4
 script = ExtResource("1_tdyk7")
 
 [node name="model" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21621156, 1)
 visible = false
 mesh = SubResource("BoxMesh_tdyk7")
+
+[node name="chefe" parent="." instance=ExtResource("3_o0fsm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0.06204149, 0.9980736, 2.7119198e-09, -0.9980736, 0.06204149, -4.3627182e-08, -0.2815659, 0.31848562, 1.6733953)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [node name="shooter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.115442)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2534021, -0.8871462)
 
 [node name="enemy_hitbox" parent="." instance=ExtResource("1_qbumi")]
-transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0, 1)
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0.57343066, 1)
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
+transform = Transform3D(0.9999984, -8.323923e-09, 0, 7.412268e-09, 0.99999285, 0, 2.3283064e-09, -1.4551915e-10, 1, 1.1641532e-09, -8.940697e-08, 0.68698716)
 shape = SubResource("BoxShape3D_o0fsm")
 
-[node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
-shape = SubResource("CapsuleShape3D_e6poy")
-
 [node name="player_detection" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9870528, 1)
 
 [node name="area" type="CollisionShape3D" parent="player_detection"]
+transform = Transform3D(0.5451659, 0, 0.8383282, 0, 1, 0, -0.8383282, 0, 0.5451659, 0, 0, 0.07520437)
 shape = SubResource("SphereShape3D_0qphl")
 
 [node name="smoke" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4359496, 1)
 visible = false
 mesh = SubResource("SphereMesh_tdyk7")
 material = SubResource("StandardMaterial3D_o0fsm")
 
 [node name="impact_area" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262936, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4609028, 1)
 
 [node name="impact" type="CollisionShape3D" parent="impact_area"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.220075, 0)
@@ -81,13 +84,14 @@ shape = SubResource("CylinderShape3D_tdyk7")
 disabled = true
 
 [node name="warning" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.879611, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66339946, 0)
 visible = false
 mesh = SubResource("CylinderMesh_tdyk7")
 material = SubResource("StandardMaterial3D_e6poy")
 
-[node name="chefe" parent="." instance=ExtResource("3_o0fsm")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3633914, 0, 1.6733953)
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00204201, 0.9999979, 0, -0.9999979, 0.00204201, 0, 0.5631742, 1.3183587)
+shape = SubResource("CapsuleShape3D_e6poy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="player_detection" to="." method="_on_player_detection_area_entered"]

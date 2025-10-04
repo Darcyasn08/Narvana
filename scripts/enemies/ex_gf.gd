@@ -1,11 +1,13 @@
 extends CharacterBody3D
 
-var life: int = 1500
+var life: int = 1200
 var damage: int = 1
 var bullet_speed: float = 20.0
 var level: int = 2
 var state: String = "dragons"
 var speed: float = 12.0
+var local_spawn : Vector3
+var is_dying: bool = false
 
 var dragonins: Object = preload("res://scenes/enemies/pearl_collar.tscn")
 var pearlins: Object = preload("res://scenes/projectile.tscn")
@@ -15,13 +17,15 @@ var blushins: int = 1
 
 
 func _ready() -> void:
+	print("on scene")
+	local_spawn = global_position
 	$Timer.start()
 
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if state != "teleporting":
+	if !is_dying:
 		look_to_player(delta)
 	move_and_slide()
 
@@ -46,7 +50,11 @@ func unique_take_damage(area)-> void:
 	teleporting()
 	
 func unique_die()-> void:
-	pass
+	is_dying = true
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
+	$ex_model/AnimationPlayer.play("ex_escape")
+	await $ex_model/AnimationPlayer.animation_finished
 
 func look_to_player(delta : float)-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
@@ -55,7 +63,7 @@ func look_to_player(delta : float)-> void:
 	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), delta * 1.5)
 
 func shoot() -> void:
-	var pearl = pearlins.instantiate()
+	var pearl: Object = pearlins.instantiate()
 	pearl.pos = $shoot.global_position
 	pearl.rot = rotation
 	pearl.follow = false
@@ -94,7 +102,7 @@ func _on_timer_timeout() -> void:
 		get_parent().add_child(dragon2)
 		if level >= 2:
 			state = "blush"
-		else : 
+		else: 
 			state = "shooting"
 		await(get_tree().create_timer(1).timeout)
 		await teleporting()
@@ -109,6 +117,14 @@ func _on_timer_timeout() -> void:
 			
 
 func teleporting() -> void:
+	var xp : float = randf_range(local_spawn.x - 9,local_spawn.x + 9)
+	var zp : float = randf_range(local_spawn.z - 9,local_spawn.z + 9)
+	global_position = Vector3(xp,local_spawn.y,zp)
+	$ex_model/ex_arm1.hide()
+	$ex_model/ex_arm2.hide()
+	$ex_model/ex_body.hide()
+
+func teleporting2() -> void:
 	var old_rotation = rotation.y
 	var old_state = state
 	state = "teleporting"
@@ -129,76 +145,3 @@ func teleporting() -> void:
 	state = old_state
 	rotation.y = old_rotation
 	show()
-
-
-func teleporting2() -> void:
-	var old_rotation = rotation.y
-	#var old_state = state
-	#state = "tenna"
-	$teleport.rotation.y = deg_to_rad(float(randi_range(-180,180)))
-	#print("nova rotação do teleporte: ",$teleport.rotation.y)
-	#print(rad_to_deg($tele_pilot.rotation.y))
-	if $teleport.get_collider() != null:
-		var limit = $teleport.get_collision_point()
-		#print("------")
-		#print("limit is: ",limit)
-		#print("prev global pos: ",global_position)
-		#print($tele_pilot/teleport.global_position.z)
-		
-		var rand_posz = check_pos_difference(limit)
-		if rand_posz == null:
-			teleporting()
-			return
-		
-		if rad_to_deg($teleport.rotation.y) < -90 or rad_to_deg($teleport.rotation.y) > 90:
-			print("first one")
-			#global_rotation.y = $RayCast3D.rotation.y
-			#rand_posz = (rand_posz)
-		else:
-			print("second one")
-			#rand_posz = randf_range(global_position.z, limit.z - 3)
-			#global_rotation.y = $RayCast3D.rotation.y
-		await(get_tree().create_timer(1).timeout)
-		#print("aaa ", global_position.z, "aaaa ",rand_posz)
-		var mult = abs(abs(global_position.z)-abs(rand_posz))/global_basis.z.z
-		#print("mult: ",mult, " --- distance: ", abs(global_position.z-rand_posz), "/global_basis.z.z: ",global_basis.z.z)
-		#print("diff pos: ",(rand_posz-global_position.z))
-		global_position = ($teleport.global_basis.z * mult) + global_position
-		#print("global_basis: ",global_basis.z)
-		#print("rand_posz: ",rand_posz)
-		#print("current_global_pos: ",global_position)
-		#print("------")
-		rotation.y = old_rotation
-	
-	else:
-		var limit = $teleport.get_collision_point()
-		#print($tele_pilot/teleport.global_position.z)
-		var rand_posz = randf_range($teleport.position.z + 2,limit.z + 20)
-		if rad_to_deg($teleport.rotation.y) < -90 or rad_to_deg($teleport.rotation.y) > 90:
-			global_rotation.y = $teleport.rotation.y
-			#print(rand_posz)
-			rand_posz = -(rand_posz)
-			#print(rand_posz)
-		else:
-			global_rotation.y = $teleport.rotation.y
-			await(get_tree().create_timer(1).timeout)
-			var mult = rand_posz/global_basis.z.z
-			global_position = ($teleport.global_basis.z * mult) + global_position
-			#print(global_position)
-			rotation.y = old_rotation
-
-func check_pos_difference(limit):
-#tenta 10 vezes algum valor que seja pelo menos 2 metros longe do player
-	for i in 10:
-		var rand_posz = randf_range(global_position.z, limit.z)
-		if abs(abs(rand_posz)-abs(global_position.z)) > 2:
-			print(abs(abs(rand_posz)-abs(global_position.z)))
-			#print("diferente!!!!")
-			#print("rand: ",rand_posz)
-			return rand_posz
-		#else:
-			#print("não é diferente...")
-	var rand_posz = randf_range(global_position.z, limit.z)
-	#se depois das 10 tentivas, ainda não der certo..
-	if abs(abs(rand_posz)-abs(global_position.z)) < 2:
-		pass #...fazer algo pra recalcular a rotação
