@@ -9,12 +9,12 @@ var save_panel_inst: Object = preload("res://scenes/UI/save_panel.tscn")
 var delete_panel: int = -1
 
 func _ready() -> void:
-	await SaveLoad.load_save()
+	SaveLoad.load_save()
 	$save_screen.hide()
 	$confirm_delete_save.hide()
 	SignalBus.on_send_delete_request.connect(show_confirm_delete_save)
 	
-	for save in SaveLoad.save_content:
+	for save: int in SaveLoad.save_content:
 		var save_panel: Object = save_panel_inst.instantiate()
 		if SaveLoad.save_content[save] != {}:
 			save_panel.is_created = true

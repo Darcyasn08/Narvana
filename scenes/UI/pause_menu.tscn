@@ -396,7 +396,7 @@ polygon = PackedVector2Array(899, 82, 899, 90.8636, 792, 90.8636, 792, 82)
 autostart = true
 
 [node name="autosave_timer" type="Timer" parent="."]
-wait_time = 25.0
+wait_time = 30.0
 autostart = true
 
 [node name="save_label" type="Label" parent="."]

@@ -1397,7 +1397,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(-0.9995699, 0, -0.029317357, 0, 1, 0, 0.029317357, 0, -0.9995699, 1.5867033, 3.3161364, 41.36114)
+transform = Transform3D(-0.9999997, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.9999997, 1.5867033, 3.3161364, 39.877445)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.99089646, 0, -0.13462612, 0, 1, 0, 0.13462612, 0, -0.99089646, -1.6400914, 6.5072956, -132.527)

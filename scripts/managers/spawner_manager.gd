@@ -17,6 +17,7 @@ func _ready() -> void:
 	await get_tree().create_timer(.1).timeout
 	match Global.current_world:
 		Global.worlds.FIRST_LEVEL:
+			print("is on first level")
 			if Global.dead_enemies_first_level.size() <= current_room:
 				for room: Array in Global.dead_enemies_first_level:
 					rooms += 1
@@ -48,6 +49,7 @@ func _ready() -> void:
 		$Area3D.set_collision_mask_value(1, false)
 		$Area3D.set_collision_mask_value(2, true)
 		$Area3D.set_collision_mask_value(3, true)
+		$Area3D.add_to_group("spawners")
 	await get_tree().create_timer(1).timeout
 	
 	if area_node:
@@ -60,21 +62,22 @@ func update_enemy_deaths() -> void:
 			Global.dead_enemies_first_level[current_room][0] = enemy_death_count
 			await get_tree().create_timer(.3).timeout #dá o tempo para caso mais algum inimigo apareça (tipo do porquinho)
 			#vê se o valor é maior ou igual ao objetivo global
-			#print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
+			print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 			#print("current enemy deaths: ",enemy_death_count)
 			if enemy_death_count >= Global.dead_enemies_first_level[current_room][1]:
 				SignalBus.on_room_completed.emit(current_room)
 		Global.worlds.SECOND_LEVEL:
 			Global.dead_enemies_second_level[current_room][0] = enemy_death_count
 			await get_tree().create_timer(.3).timeout
+			print("OBJETIVO DA SALA: ",Global.dead_enemies_second_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 			if enemy_death_count >= Global.dead_enemies_second_level[current_room][1]:
 				SignalBus.on_room_completed.emit(current_room)
-			if $StaticBody3D:
-				for child in $StaticBody3D.get_children():
-					child.set_deferred("disabled", true)
-			if $particles:
-				for particle in $particles.get_children():
-					particle.emitting = false
+				if $StaticBody3D:
+					for child in $StaticBody3D.get_children():
+						child.set_deferred("disabled", true)
+				if $particles:
+					for particle in $particles.get_children():
+						particle.emitting = false
 		#Global.worlds.THIRD_LEVEL:
 
 func start_room(current_room: int) -> void:
@@ -90,7 +93,7 @@ func start_room(current_room: int) -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		if !player_left:
-			#print("player entered!! and current wave: ",current_room)
+			print("player entered!! and current wave: ",current_room)
 			await get_tree().create_timer(.4).timeout
 			start_room(current_room)
 
@@ -107,6 +110,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				Global.dead_enemies_first_level[current_room][1] += 1
 			Global.worlds.SECOND_LEVEL:
 				Global.dead_enemies_second_level[current_room][1] += 1
-		#print("OBJETIVO DA SALA: ",Global.dead_enemies_first_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
+				print("OBJETIVO DA SALA: ",Global.dead_enemies_second_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 	if body.name == "player":
 		pass

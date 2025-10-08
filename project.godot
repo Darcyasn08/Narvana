@@ -66,6 +66,7 @@ spawners=""
 npcs=""
 damage_magic=""
 item_throwers=""
+enemy_other=""
 
 [input]
 

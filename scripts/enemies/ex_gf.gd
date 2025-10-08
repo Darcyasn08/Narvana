@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var life: int = 1200
+var life: int = 1950
 var damage: int = 1
 var bullet_speed: float = 20.0
 var level: int = 2
@@ -10,10 +10,10 @@ var local_spawn : Vector3
 var is_dying: bool = false
 
 var dragonins: Object = preload("res://scenes/enemies/pearl_collar.tscn")
-var pearlins: Object = preload("res://scenes/projectile.tscn")
+var pearlins: Object = preload("res://scenes/weapon/projectile.tscn")
 var blushins: int = 1
 
-@onready var player = $"../player"
+@onready var player: CharacterBody3D = $"../player"
 
 
 func _ready() -> void:
@@ -87,15 +87,15 @@ func _on_timer_timeout() -> void:
 		shoot()
 		await(get_tree().create_timer(1).timeout)
 		shoot()
-		await teleporting()
+		teleporting()
 		state = "shooting"
 		$Timer.wait_time = 1
 		$Timer.start()
 	elif state == "dragons":
-		var dragon1 = dragonins.instantiate()
+		var dragon1: Object = dragonins.instantiate()
 		dragon1.global_rotation = $invocation_point1.global_rotation
 		dragon1.global_position = $invocation_point1.global_position
-		var dragon2 = dragonins.instantiate()
+		var dragon2: Object = dragonins.instantiate()
 		dragon2.global_rotation = $invocation_point2.global_rotation
 		dragon2.global_position = $invocation_point2.global_position
 		get_parent().add_child(dragon1)
@@ -105,7 +105,7 @@ func _on_timer_timeout() -> void:
 		else: 
 			state = "shooting"
 		await(get_tree().create_timer(1).timeout)
-		await teleporting()
+		teleporting()
 		$Timer.wait_time = 1
 		$Timer.start()
 	elif state == "shooting":

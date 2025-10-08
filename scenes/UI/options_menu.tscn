@@ -347,6 +347,7 @@ offset_right = 459.0
 offset_bottom = 58.0
 theme = ExtResource("4_ijsq6")
 min_value = 1.0
+max_value = 150.0
 step = 1.0
 value = 50.0
 

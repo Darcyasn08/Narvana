@@ -49,7 +49,7 @@ var mouse_sens: float = .11
 
 #world positions
 var player_base_pos: Vector3 = Vector3(0,5,0)
-var player_normal_pos: Vector3 = Vector3(0,0,-26)
+var player_normal_pos: Vector3 = Vector3(0,0, -45)
 var player_first_level_pos: Vector3 = Vector3(1.3,2.7,40.5)
 
 var worlds_files: Dictionary = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=31 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 [ext_resource type="AudioStream" uid="uid://c46swphrvq7e7" path="res://music/sfx/attack-sfx.mp3" id="8_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
+[ext_resource type="AudioStream" uid="uid://d2ssgjdgrfcih" path="res://music/sfx/hit-sfx.mp3" id="11_je7p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
 radius = 2.02097
@@ -256,10 +257,13 @@ text = "0.0"
 
 [node name="cutscene_system" parent="." instance=ExtResource("7_0owmy")]
 
+[node name="hurt_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_je7p5")
+volume_db = -4.0
+bus = &"Sfx"
+
 [node name="attack_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_5gtgg")
-volume_db = 15.0
-max_distance = 10.0
 
 [connection signal="area_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_entered"]
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]

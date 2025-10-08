@@ -1,14 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckx0a2s4ctqco"]
+[gd_scene load_steps=14 format=3 uid="uid://ckx0a2s4ctqco"]
 
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_qbumi"]
 [ext_resource type="Script" uid="uid://c5qwx5klxhgt2" path="res://scripts/enemies/dolphin.gd" id="1_tdyk7"]
+[ext_resource type="Material" uid="uid://b32oadj6y7464" path="res://shaders/dolphin_skin.tres" id="3_e6poy"]
 [ext_resource type="PackedScene" uid="uid://dkthw2yc7smfe" path="res://3d_models/enemies/chefe.glb" id="3_o0fsm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tdyk7"]
 size = Vector3(1, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o0fsm"]
-size = Vector3(1.1, 1.1, 4.664014)
+size = Vector3(1.1, 1.3887451, 4.588843)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0qphl"]
 radius = 3.3458455
@@ -48,21 +49,24 @@ mesh = SubResource("BoxMesh_tdyk7")
 [node name="chefe" parent="." instance=ExtResource("3_o0fsm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0.06204149, 0.9980736, 2.7119198e-09, -0.9980736, 0.06204149, -4.3627182e-08, -0.2815659, 0.31848562, 1.6733953)
 
+[node name="Circle" parent="chefe/Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_e6poy")
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
 [node name="shooter" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2534021, -0.8871462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3493693, -0.89095986)
 
 [node name="enemy_hitbox" parent="." instance=ExtResource("1_qbumi")]
 transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0.57343066, 1)
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(0.9999984, -8.323923e-09, 0, 7.412268e-09, 0.99999285, 0, 2.3283064e-09, -1.4551915e-10, 1, 1.1641532e-09, -8.940697e-08, 0.68698716)
+transform = Transform3D(0.9999984, -1.2974851e-08, 0, 7.412268e-09, 0.99998796, 0, 2.3283064e-09, -8.731149e-11, 1, 4.656613e-10, 0.14437145, 0.7245724)
 shape = SubResource("BoxShape3D_o0fsm")
 
-[node name="player_detection" type="Area3D" parent="."]
+[node name="player_detection" type="Area3D" parent="." groups=["enemy_other"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9870528, 1)
 
 [node name="area" type="CollisionShape3D" parent="player_detection"]
@@ -75,7 +79,7 @@ visible = false
 mesh = SubResource("SphereMesh_tdyk7")
 material = SubResource("StandardMaterial3D_o0fsm")
 
-[node name="impact_area" type="Area3D" parent="."]
+[node name="impact_area" type="Area3D" parent="." groups=["enemy_other"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4609028, 1)
 
 [node name="impact" type="CollisionShape3D" parent="impact_area"]
@@ -96,3 +100,5 @@ shape = SubResource("CapsuleShape3D_e6poy")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="player_detection" to="." method="_on_player_detection_area_entered"]
 [connection signal="area_entered" from="impact_area" to="." method="_on_impact_area_area_entered"]
+
+[editable path="chefe"]

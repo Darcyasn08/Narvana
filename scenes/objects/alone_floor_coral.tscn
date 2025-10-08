@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cotat05hpdjjt"]
+
+[ext_resource type="PackedScene" uid="uid://nh631s0ay8uq" path="res://3d_models/objects/alone-coral.glb" id="1_u8esn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8esn"]
+albedo_color = Color(0.7434356, 0.39652666, 0.6793795, 1)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_oo21s"]
+size = Vector3(0.5525272, 1.3187824, 0.584045)
+
+[node name="alone_floor_coral" type="Node3D"]
+
+[node name="alone-coral" parent="." instance=ExtResource("1_u8esn")]
+
+[node name="Cube" parent="alone-coral" index="0"]
+material_override = SubResource("StandardMaterial3D_u8esn")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025479794, 0.64014024, 0)
+occluder = SubResource("BoxOccluder3D_oo21s")
+
+[editable path="alone-coral"]

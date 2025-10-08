@@ -16,7 +16,7 @@ func start_cutscene() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	$control/start_cutscene/start_cutscene_anim.play("start_cutscene")
 
-func _on_start_cutscene_anim_animation_finished(anim_name: StringName) -> void:
+func _on_start_cutscene_anim_animation_finished(_anim_name: StringName) -> void:
 	if !is_ending:
 		end_cutscene()
 

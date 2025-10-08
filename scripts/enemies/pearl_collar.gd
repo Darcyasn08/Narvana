@@ -73,9 +73,8 @@ func unique_take_damage(area) -> void:
 func unique_die() -> void:
 	pass
 	
-func damage_player(area) -> void:
+func damage_player(_area) -> void:
 	pass
-
 
 #func _on_hitbox_area_entered(area: Area3D) -> void:
 	#if area.is_in_group("weapon"):

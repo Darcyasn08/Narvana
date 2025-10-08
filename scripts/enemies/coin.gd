@@ -12,7 +12,7 @@ var can_move: bool = true
 @export var min_coins: int = 2
 @export var max_coins: int = 3
 
-@onready var player = $"../player"
+@onready var player: CharacterBody3D = $"../player"
 @onready var collision: CollisionShape3D = $collision
 @onready var collision_2: CollisionShape3D = $collision2
 
@@ -57,6 +57,7 @@ func damage_player(area) -> void:
 
 func unique_die() -> void:
 	$enemy_hitbox/collision3.set_deferred("disabled",true)
+	can_move = false
 	$AnimationPlayer.play("death")
 	print("im dead dude...")
 	can_move = false

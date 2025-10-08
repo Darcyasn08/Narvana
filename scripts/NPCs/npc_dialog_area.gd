@@ -6,14 +6,14 @@ var npc_name: String = ""
 @export var area_collision: CollisionShape3D
 
 var player_near: bool = false
-var player = null
+var player: CharacterBody3D = null
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	activate_dialogue()
 	if player != null and get_parent().get_node_or_null("npc_interact_sign") != null:
 		get_parent().get_node("npc_interact_sign").look_at(player.get_node("camera_pivot/SpringArm3D/Camera3D").global_position)
 
-func get_npc_data():
+func get_npc_data() -> void:
 	if npc_manager == null:
 		print("ops, não tem node3d aqui, arruma depois isso hein")
 	else:
@@ -39,6 +39,6 @@ func _on_body_exited(body: Node3D) -> void:
 		player = null
 		SignalBus.on_dialog_area_leave.emit()
 
-func activate_dialogue():
+func activate_dialogue() -> void:
 	if player_near and Input.is_action_just_pressed("e"):
 		get_npc_data()

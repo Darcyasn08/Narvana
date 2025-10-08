@@ -8,7 +8,7 @@ var save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.npc_manager,
 		"health": Global.player_health,
 		"completed_levels": Global.completed_levels,
@@ -23,7 +23,7 @@ var save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.npc_manager,
 		"health": Global.player_health,
 		"completed_levels": Global.completed_levels,
@@ -38,7 +38,7 @@ var save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.npc_manager,
 		"health": Global.player_health,
 		"completed_levels": Global.completed_levels,
@@ -56,7 +56,7 @@ var reset_save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
 		"completed_levels": Global.reset_completed_levels,
@@ -71,7 +71,7 @@ var reset_save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
 		"completed_levels": Global.reset_completed_levels,
@@ -86,7 +86,7 @@ var reset_save_content: Dictionary = {
 		"was_opened": false,
 		"current_world": 0,
 		"current_weapon": 1,
-		"last_saved_pos": Vector3(0,0,-26),
+		"last_saved_pos": Vector3(0,0,-45),
 		"npc_manager": Global.reset_npc_manager,
 		"health": 7,
 		"completed_levels": Global.reset_completed_levels,
@@ -103,7 +103,7 @@ func _ready() -> void:
 	load_save()
 
 func save() -> void:
-	var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
+	var file: Object = FileAccess.open_encrypted_with_pass(save_path, FileAccess.WRITE, "narval")
 	file.store_var(save_content.duplicate())
 	file.close()
 
@@ -142,11 +142,11 @@ func save_to_file() -> void:
 
 func load_save() -> void:
 	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ, "narval")
-		var data = file.get_var()
+		var file: Object = FileAccess.open_encrypted_with_pass(save_path, FileAccess.READ, "narval")
+		var data: Dictionary = file.get_var()
 		file.close()
 		
-		var save_data = data.duplicate()
+		var save_data: Dictionary = data.duplicate()
 		save_content = save_data
 
 func delete_save(id: int) -> void:

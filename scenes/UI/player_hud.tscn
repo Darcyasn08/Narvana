@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=15 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
@@ -51,6 +51,12 @@ font = ExtResource("2_r6s25")
 font_size = 50
 outline_size = 10
 outline_color = Color(0.3896487, 0.15143526, 0.35901102, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gie0l"]
+font = ExtResource("2_r6s25")
+font_size = 45
+outline_size = 8
+outline_color = Color(0.18310934, 0.13896397, 0.35787523, 1)
 
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
@@ -324,5 +330,18 @@ offset_bottom = 637.0
 text = "25"
 label_settings = SubResource("LabelSettings_fdwu4")
 horizontal_alignment = 1
+
+[node name="save_label" type="Label" parent="."]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -70.0
+offset_right = 213.0
+offset_bottom = -25.0
+grow_vertical = 0
+text = "salvando..."
+label_settings = SubResource("LabelSettings_gie0l")
 
 [connection signal="timeout" from="magics/magics_timer" to="." method="_on_magics_timer_timeout"]

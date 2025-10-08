@@ -12,5 +12,5 @@ func _process(_delta: float) -> void:
 	
 	if progress[0] == 1:
 		#await get_tree().create_timer(1).timeout
-		var packed_scene = ResourceLoader.load_threaded_get(Global.next_scene)
+		var packed_scene: Object = ResourceLoader.load_threaded_get(Global.next_scene)
 		get_tree().change_scene_to_packed(packed_scene)

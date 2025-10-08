@@ -12,10 +12,10 @@ func _ready() -> void:
 	$Label3D.hide()
 	$MeshInstance3D.hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
-func spawn_enemies(room) -> void:
+func spawn_enemies(room: int) -> void:
 	if room == room_number:
 		var enemy: Object = enemy_path.instantiate()
 		

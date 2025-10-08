@@ -10,7 +10,7 @@ var time: float = 0.0
 var trauma: float = 0.0
 
 @export var noise: NoiseTexture2D
-var noise_speed: float = 50.0
+var noise_speed: float = 60.0
 
 var is_shaking: bool = false
 
@@ -28,7 +28,6 @@ func add_trauma(trauma_amount: float) -> void:
 
 func get_shake_intensity() -> float:
 	return trauma * trauma
-	print(trauma)
 
 func shake_camera() -> void:
 	is_shaking = true
@@ -36,6 +35,6 @@ func shake_camera() -> void:
 	await get_tree().create_timer(.4).timeout
 	is_shaking = false
 
-func get_noise_from_seed(seed: int) -> float:
-	noise.noise.seed = seed
+func get_noise_from_seed(graph_seed: int) -> float:
+	noise.noise.seed = graph_seed
 	return noise.noise.get_noise_1d(time * noise_speed)

@@ -16,10 +16,9 @@ var stun_time : float
 func _ready() -> void:
 	global_position = pos
 	rotation = rot
-	if size != null:
+	if size != 0.0:
 		scale = Vector3(size,size,size)
-
-
+	
 func _physics_process(_delta: float) -> void:
 	var forward: Vector3 = global_basis.z #determina oq é a frente 
 	var move_direction: Vector3 = forward 
@@ -31,17 +30,21 @@ func _physics_process(_delta: float) -> void:
 		look_at(player.global_position)
 	move_and_slide()
 
+
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		if blush:
 			SignalBus.on_blush_hit.emit()
 			queue_free()
-		if stunner:
-			SignalBus.on_stun_hit.emit(stun_time)
+		if blush == false:
+			get_tree().call_group("player","hurt",damage)
 			queue_free()
 		if blush == false and stunner == false:
 			get_tree().call_group("player","hurt",damage)
 			queue_free()
+	if area.name != "player_hitbox" and !area.is_in_group("enemies") and !area.is_in_group("spawners") and !area.is_in_group("enemy_other"):
+		queue_free()
 
-func _on_hurtbox_body_entered(_body: Node3D) -> void:
-	queue_free()
+func _on_hurtbox_body_entered(body: Node3D) -> void:
+	if !body.is_in_group("enemies") and !body.is_in_group("spawners"):
+		queue_free()

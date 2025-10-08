@@ -32,13 +32,14 @@ func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 
 func take_damage(area, damage, defense := 1.0) -> void:
 	if parent.life > int(round(damage * defense)):
+		$attack_sfx.play()
 		parent.life -= int(round(damage * defense))
 		print(parent.life)
 		#print("parent life: ",parent.life)
 		parent.unique_take_damage(area)
 	else: #quando ele morre
+		$attack_sfx.play()
 		await parent.unique_die()
-		#print("parent died")
 		#if parent.min_coins: #fazer outro jeito de ver se o inimigo tem a var de moedas
 			#await drop_coins(parent.min_coins, parent.max_coins)
 		#await get_tree().create_timer(.1).timeout
@@ -49,10 +50,10 @@ func damage_player(area) -> void:
 	parent.damage_player(area)
 
 #isso vai estar no enemy_hitbox
-func drop_coins(enemy_min_coins, enemy_max_coins) -> void:
+func drop_coins(enemy_min_coins: int, enemy_max_coins: int) -> void:
 	var coin: Object = coin_inst.instantiate()
 	var coins: int = randi_range(enemy_min_coins, enemy_max_coins)
-	for i in range(coins):
+	for i: int in range(coins):
 		#print("coin is: ",coin)
 		print(get_parent().name)
 		coin.position = parent.position

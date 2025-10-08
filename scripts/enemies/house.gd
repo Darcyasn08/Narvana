@@ -8,14 +8,15 @@ var saidas_disponiveis: Array = []
 var state: String = "shooting"
 var knocker: int = 0
 var player_near: bool = false
-var original_resource = load("res://shaders/house_damage.tres")
-var unique_resource = original_resource.duplicate()
+var original_resource: Object = load("res://shaders/house_damage.tres")
+var unique_resource: Object = original_resource.duplicate()
 
-@onready var player = $"../player"
+@onready var player: CharacterBody3D = $"../player"
 @onready var walls_holder = $"house_model/walls_holder"
 
 func _ready() -> void:
 	life = Global.house_health #precisa disso pra quando voltar na cena dela por fora vai passar o dano por dentro
+	$door/npc_interact_sign.player = player
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player_near: #funcao de entrar na casa

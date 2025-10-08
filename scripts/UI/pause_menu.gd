@@ -73,6 +73,7 @@ func _on_reset_health_button_pressed() -> void:
 	#print(Global.max_player_health)
 
 func save() -> void:
+	SignalBus.on_game_saved.emit()
 	$save_label.show()
 	SaveLoad.save_to_file()
 	SaveLoad.save()

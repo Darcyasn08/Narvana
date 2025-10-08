@@ -29,9 +29,9 @@ func _ready() -> void:
 				%time_label.text = str("Tempo: ",time_in_minutes,":0",time_in_seconds,"m")
 			else:
 				%time_label.text = str("Tempo: ",time_in_minutes,":",time_in_seconds,"m")
-		for child in %health.get_children():
+		for child: TextureRect in %health.get_children():
 			child.queue_free()
-		for heart in SaveLoad.save_content[id]["health"]:
+		for heart: int in SaveLoad.save_content[id]["health"]:
 			var hud_life: Object = hud_life_inst.instantiate()
 			$Control/health.add_child(hud_life)
 		%time_label.show()
@@ -73,7 +73,7 @@ func new_save_button_pressed() -> void:
 			%time_label.text = str("Tempo: ",time_in_minutes,":0",time_in_seconds,"m")
 		else:
 			%time_label.text = str("Tempo: ",time_in_minutes,":",time_in_seconds,"m")
-	for heart in SaveLoad.save_content[id]["health"]:
+	for heart: int in SaveLoad.save_content[id]["health"]:
 		#print("health")
 		var hud_life: Object = hud_life_inst.instantiate()
 		$Control/health.add_child(hud_life)
@@ -84,7 +84,7 @@ func new_save_button_pressed() -> void:
 	SaveLoad.save_content[id]["health"] = 7
 	SaveLoad.save_content[id]["was_opened"] = false
 	SaveLoad.save_content[id]["current_weapon"] = 1
-	SaveLoad.save_content[id]["last_saved_pos"] = Vector3(0,0,-26)
+	SaveLoad.save_content[id]["last_saved_pos"] = Vector3(0,0,-45)
 	SaveLoad.save_content[id]["npc_manager"] = Global.reset_npc_manager.duplicate()
 	SaveLoad.save_content[id]["cutscenes"] = Global.reset_cutscenes.duplicate()
 	SaveLoad.save_content[id]["inventory"] = Global.reset_inventory.duplicate()
@@ -138,7 +138,7 @@ func delete_save(delete_panel: int) -> void:
 		%time_label.hide()
 		%health_label.hide()
 		#%health.hide()
-		for child in %health.get_children():
+		for child: TextureRect in %health.get_children():
 			child.queue_free()
 		%open_save_button.hide()
 		%delete_save_button.hide()

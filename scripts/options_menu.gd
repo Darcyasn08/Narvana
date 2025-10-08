@@ -11,7 +11,8 @@ func _ready() -> void:
 			$controls_screen/Label3/mouse_x_invert.button_pressed = false
 		-1:
 			$controls_screen/Label3/mouse_x_invert.button_pressed = true
-	%sensibility_scroll.value = Global.mouse_sens
+	%sensibility_scroll.value = Global.mouse_sens * 700
+	%sensibility_value.text = str(snapped(%sensibility_scroll.value,1))
 
 func _on_back_button_pressed() -> void:
 	hide()

@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
-var life: int = 2000
+var life: int = 2650
 var damage: int = 1
-var bullet_speed: float = 20.0
+var bullet_speed: float = 23.0
 var level: int = 2
 var state : String = "going"
 var speed : float = 10.0
@@ -11,9 +11,11 @@ var beating_number : int = 1
 var target_angle : float 
 var spaw_point : Vector3
 
-var paperins = preload("res://scenes/projectile.tscn")
+var paperins: Object = preload("res://scenes/weapon/projectile.tscn")
+@onready var skin_material: Object = load("res://shaders/dolphin_skin.tres")
+@onready var prev_skin_color: Color = skin_material.albedo_color
 
-@onready var player = $"../player"
+@onready var player: CharacterBody3D = $"../player"
 
 func _ready() -> void:
 	spaw_point = global_position
@@ -28,8 +30,8 @@ func _physics_process(delta: float) -> void:
 		
 	if state == "going":
 		rotation.x = 0
-		var forward := global_basis.z #determina oq é a frente 
-		var move_direction := forward 
+		var forward: Vector3 = global_basis.z #determina oq é a frente 
+		var move_direction: Vector3 = forward 
 		move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
 		move_direction = move_direction.normalized() #nao sei oq isso faz
 		velocity = velocity.move_toward(move_direction * -speed, acceleration * delta) #move pra frente
@@ -61,7 +63,10 @@ func calculate_knockback(area: Area3D)-> void:
 	velocity = velocity * 0
 
 func unique_take_damage(area)-> void:
+	skin_material.albedo_color = Color(0.438, 0.254, 0.416, 1.0)
 	calculate_knockback(area)
+	await get_tree().create_timer(.2).timeout
+	skin_material.albedo_color = prev_skin_color
 
 func unique_die()-> void:
 	pass

@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdxop4socjcll"]
+[gd_scene load_steps=4 format=3 uid="uid://ds7rditn506fd"]
 
 [ext_resource type="Script" uid="uid://j8w5dob30igb" path="res://scripts/projectile.gd" id="1_c8fcr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c8fcr"]
+albedo_color = Color(0.9352872, 0.9917163, 0.9937429, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6aapk"]
 radius = 0.206488
@@ -9,11 +12,18 @@ radius = 0.206488
 script = ExtResource("1_c8fcr")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 radius = 0.2
+radial_segments = 11
+rings = 8
+material = SubResource("StandardMaterial3D_c8fcr")
 
 [node name="hurtbox" type="Area3D" parent="." groups=["enemies"]]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_6aapk")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
