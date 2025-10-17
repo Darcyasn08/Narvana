@@ -3,19 +3,12 @@
 [ext_resource type="Script" uid="uid://cg6qy8sdeyuxu" path="res://scripts/enemies/pearl_collar.gd" id="1_8t814"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="2_f22wo"]
 [ext_resource type="PackedScene" uid="uid://b6dj408e3hxqv" path="res://3d_models/enemies/dragãoperola.glb" id="3_hyujg"]
+[ext_resource type="Material" uid="uid://dqubx1nismie1" path="res://shaders/pearl_skin.tres" id="4_ffvie"]
 [ext_resource type="Material" uid="uid://bt0ha3vmysor7" path="res://shaders/black_contour.tres" id="4_ljom1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hyujg"]
 radius = 0.578125
 height = 6.2365856
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hyujg"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.4846205, 0.77647513, 0.92414844, 1)
-metallic = 0.25
-metallic_specular = 0.86
-roughness = 0.03
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ffvie"]
 _surfaces = [{
@@ -248,99 +241,99 @@ shape = SubResource("CapsuleShape3D_hyujg")
 transform = Transform3D(0.011624226, 0.00037810067, -0.69990337, -0.022756832, 0.69962996, 0, 0.6995334, 0.02275369, 0.011630374, -0.047119673, 0.5715475, -2.8356106)
 
 [node name="Plano" parent="dragãoperola" index="0"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Plano" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_ffvie")
 
 [node name="Esfera UV" parent="dragãoperola" index="2"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_rj15r")
 
 [node name="Esfera UV_001" parent="dragãoperola" index="3"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_001" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_drjan")
 
 [node name="Esfera UV_002" parent="dragãoperola" index="4"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_002" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_y7f82")
 
 [node name="Esfera UV_003" parent="dragãoperola" index="5"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_003" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_0ybvu")
 
 [node name="Esfera UV_004" parent="dragãoperola" index="6"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_004" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_b377y")
 
 [node name="Esfera UV_005" parent="dragãoperola" index="7"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_005" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_edop0")
 
 [node name="Esfera UV_006" parent="dragãoperola" index="8"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_006" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_iqh4d")
 
 [node name="Esfera UV_007" parent="dragãoperola" index="9"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_007" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_e442w")
 
 [node name="Esfera UV_008" parent="dragãoperola" index="10"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_008" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_pnylm")
 
 [node name="Esfera UV_009" parent="dragãoperola" index="11"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="dragãoperola/Esfera UV_009" index="0"]
 material_override = ExtResource("4_ljom1")
 mesh = SubResource("ArrayMesh_4l8jv")
 
 [node name="Cone" parent="dragãoperola" index="12"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="Plano_001" parent="dragãoperola" index="13"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="Plano_002" parent="dragãoperola" index="14"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="Toróide_001" parent="dragãoperola" index="15"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="Cone_001" parent="dragãoperola" index="16"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="Cone_002" parent="dragãoperola" index="17"]
-material_override = SubResource("StandardMaterial3D_hyujg")
+material_override = ExtResource("4_ffvie")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

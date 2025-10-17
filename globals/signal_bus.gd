@@ -7,6 +7,8 @@ signal on_changed_mouse_sens()
 
 #signal on_ignite_cutscene()
 
+signal on_narval_next_to_wall()
+
 signal on_first_level_entered()
 signal on_boss_defeated()
 #signal on_enemy_death()

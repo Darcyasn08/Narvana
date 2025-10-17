@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cyvlopbr6ibdo"]
+[gd_scene load_steps=10 format=3 uid="uid://cyvlopbr6ibdo"]
 
 [ext_resource type="PackedScene" uid="uid://bgmnijnm2xpml" path="res://3d_models/enemies/ex_arm1.glb" id="1_xvgsr"]
 [ext_resource type="PackedScene" uid="uid://csru5kdip78t3" path="res://3d_models/enemies/ex_arm2.glb" id="2_oqwcg"]
 [ext_resource type="PackedScene" uid="uid://dbo6nu5sjsvbs" path="res://3d_models/enemies/ex_body.glb" id="3_a6664"]
 [ext_resource type="PackedScene" uid="uid://dimehl1pjighu" path="res://3d_models/enemies/ex_tail.glb" id="4_10v3s"]
+[ext_resource type="Material" uid="uid://2vdu8jo4axxq" path="res://shaders/ex_skin.tres" id="5_hvtp6"]
 [ext_resource type="PackedScene" uid="uid://tsr8aqa4kr6q" path="res://3d_models/enemies/mirror.glb" id="5_oqwcg"]
 
 [sub_resource type="Animation" id="Animation_b2yaj"]
@@ -350,5 +351,10 @@ transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.58757, 0, 1.45049
 [node name="ex_tail" parent="." instance=ExtResource("4_10v3s")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.17638, 0, 1.45049)
 
+[node name="Cube_003" parent="ex_tail" index="3"]
+material_override = ExtResource("5_hvtp6")
+
 [node name="mirror" parent="." instance=ExtResource("5_oqwcg")]
 transform = Transform3D(-0.999882, 0, -0.0153408, 0, 1, 0, 0.0153408, 0, -0.999882, 2.98851, 0, 5.928583)
+
+[editable path="ex_tail"]

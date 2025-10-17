@@ -10,7 +10,17 @@ var random: int
 var swimming: bool = false
 var shots: int = 5
 
-@onready var player = $"../player"
+var original_resource: StandardMaterial3D = load("res://shaders/pearl_skin.tres")
+var unique_resource: Object = original_resource.duplicate()
+
+@onready var player: CharacterBody3D = $"../player"
+
+func _ready() -> void:
+	unique_resource.albedo_color = Color("7cc6ec")
+	$"dragãoperola/Plano".material_overlay = unique_resource
+	for child in $"dragãoperola".get_children():
+		if "Esfera UV" in child.name:
+			child.material_overlay = unique_resource
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -68,7 +78,10 @@ func calculate_knockback(area: Area3D) -> void:
 	
 	
 func unique_take_damage(area) -> void:
+	unique_resource.albedo_color = Color("d674c3ff")
 	calculate_knockback(area)
+	await get_tree().create_timer(.3).timeout
+	unique_resource.albedo_color = Color("7cc6ec")
 	
 func unique_die() -> void:
 	pass

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmb3oothu0jba"]
+
+[ext_resource type="Script" uid="uid://ckkxel4kfy334" path="res://scripts/enemies/ceo_wall.gd" id="1_1l5la"]
+
+[node name="ceo_wall" type="Area3D"]
+script = ExtResource("1_1l5la")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

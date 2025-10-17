@@ -13,10 +13,15 @@ var dragonins: Object = preload("res://scenes/enemies/pearl_collar.tscn")
 var pearlins: Object = preload("res://scenes/weapon/projectile.tscn")
 var blushins: int = 1
 
+var original_resource: StandardMaterial3D = load("res://shaders/ex_skin.tres")
+var unique_resource: Object = original_resource.duplicate()
+
 @onready var player: CharacterBody3D = $"../player"
 
 
 func _ready() -> void:
+	$ex_model/ex_tail/Cube_003.material_overlay = unique_resource
+	unique_resource.albedo_color = Color("#b95287")
 	print("on scene")
 	local_spawn = global_position
 	$Timer.start()
@@ -45,8 +50,10 @@ func calculate_knockback(area: Area3D)-> void:
 	velocity = velocity * 0
 
 func unique_take_damage(area)-> void:
+	unique_resource.albedo_color = Color("a81745ff")
 	calculate_knockback(area)
 	await(get_tree().create_timer(.5).timeout)
+	unique_resource.albedo_color = Color("#b95287")
 	teleporting()
 	
 func unique_die()-> void:

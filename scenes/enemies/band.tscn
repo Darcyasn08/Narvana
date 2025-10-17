@@ -1,0 +1,154 @@
+[gd_scene load_steps=19 format=3 uid="uid://c6r7yuhp7jhe3"]
+
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_oe3sy"]
+[ext_resource type="Script" uid="uid://2ecfbrhl0ffq" path="res://scripts/enemies/band.gd" id="1_yy6y2"]
+[ext_resource type="PackedScene" uid="uid://boxmd6ady4xvf" path="res://scenes/turtle_model.tscn" id="3_ay6h0"]
+[ext_resource type="PackedScene" uid="uid://diw5if6u5s55c" path="res://scenes/seahorse_model.tscn" id="3_mnnoo"]
+[ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="4_mnnoo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yy6y2"]
+radius = 0.50341797
+height = 2.8979492
+
+[sub_resource type="BoxMesh" id="BoxMesh_fws80"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ay6h0"]
+radius = 0.7753906
+height = 3.355957
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oe3sy"]
+radius = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yy6y2"]
+height = 0.9635919
+radius = 1.33887
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e68ae"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 1.0
+radial_segments = 10
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oo74c"]
+height = 0.7441406
+radius = 2.0942383
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fws80"]
+height = 1.16927
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hcxet"]
+radius = 0.8618164
+height = 4.519043
+
+[sub_resource type="SphereMesh" id="SphereMesh_28q61"]
+radius = 0.7
+height = 1.4
+radial_segments = 15
+rings = 15
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oe3sy"]
+radius = 2.0966797
+height = 6.284768
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yy6y2"]
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fws80"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.733333)
+
+[node name="band" type="Node3D" groups=["multi_enemies"]]
+script = ExtResource("1_yy6y2")
+
+[node name="sea_horse" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(-0.89724296, 0, -0.44153714, 0, 1, 0, 0.44153714, 0, -0.89724296, 6.611732, 0.77311087, -3.6811981)
+collision_layer = 2
+collision_mask = 3
+
+[node name="collision" type="CollisionShape3D" parent="sea_horse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044467926, 0.6792333, 0.09036279)
+shape = SubResource("CapsuleShape3D_yy6y2")
+
+[node name="molde" type="CSGMesh3D" parent="sea_horse"]
+visible = false
+mesh = SubResource("BoxMesh_fws80")
+
+[node name="enemy_hitbox" parent="sea_horse" instance=ExtResource("1_oe3sy")]
+
+[node name="hitbox" type="CollisionShape3D" parent="sea_horse/enemy_hitbox"]
+transform = Transform3D(1, 8.3236955e-08, 0, 7.5786375e-08, 1, 1.8859282e-08, 0, -2.561137e-09, 1, -0.05463791, 0.83747506, 0.109502316)
+shape = SubResource("CapsuleShape3D_ay6h0")
+
+[node name="guitar_explosion" type="Area3D" parent="sea_horse"]
+
+[node name="explosion" type="CollisionShape3D" parent="sea_horse/guitar_explosion"]
+shape = SubResource("SphereShape3D_oe3sy")
+disabled = true
+
+[node name="seahorse_model" parent="sea_horse" instance=ExtResource("3_mnnoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08861494, -0.5527692, -0.27374792)
+
+[node name="turtle" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(0.8917896, 0, -0.45245028, 0, 1, 0, 0.45245028, 0, 0.8917896, -7.246443, 0.77311134, -3.976737)
+collision_layer = 2
+collision_mask = 3
+
+[node name="collision" type="CollisionShape3D" parent="turtle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5173787, 0)
+shape = SubResource("CylinderShape3D_yy6y2")
+
+[node name="molde" type="CSGMesh3D" parent="turtle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.102787, 0)
+visible = false
+mesh = SubResource("CylinderMesh_e68ae")
+
+[node name="enemy_hitbox" parent="turtle" instance=ExtResource("1_oe3sy")]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, -0.103, 0)
+
+[node name="hitbox" type="CollisionShape3D" parent="turtle/enemy_hitbox"]
+transform = Transform3D(1.0000002, -3.1432137e-09, 1.9967556e-06, 3.4924597e-10, 1.0000074, 1.2805685e-08, 0, 0, 1.0000077, -0.0064697266, 0.88755906, 0.00022339821)
+shape = SubResource("CylinderShape3D_oo74c")
+
+[node name="collision2" type="CollisionShape3D" parent="turtle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3014176, 0)
+shape = SubResource("CapsuleShape3D_fws80")
+
+[node name="turtle_model" parent="turtle" instance=ExtResource("3_ay6h0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06362772, 0, 0.4344368)
+
+[node name="octopus" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.77311134, 0)
+collision_layer = 2
+collision_mask = 3
+
+[node name="collision" type="CollisionShape3D" parent="octopus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5188823, 0)
+shape = SubResource("CapsuleShape3D_hcxet")
+
+[node name="molde" type="CSGMesh3D" parent="octopus"]
+visible = false
+mesh = SubResource("SphereMesh_28q61")
+
+[node name="enemy_hitbox" parent="octopus" instance=ExtResource("1_oe3sy")]
+transform = Transform3D(0.906914, 0.007719286, -0.0039141024, -0.00771821, 0.906922, 0.00026668044, 0.00391623, -0.00023335902, 0.906947, 0, 0, 0)
+
+[node name="hitbox" type="CollisionShape3D" parent="octopus/enemy_hitbox"]
+transform = Transform3D(0.9999984, -8.283109e-08, 0, 8.432039e-09, 0.9999821, 0, 2.3283064e-09, -2.7066562e-09, 1, -0.0031835814, 2.2755127, -0.26474783)
+shape = SubResource("CapsuleShape3D_oe3sy")
+
+[node name="octopus_model" parent="octopus" instance=ExtResource("4_mnnoo")]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="warning" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.952, -0.879611, 0)
+visible = false
+mesh = SubResource("CylinderMesh_yy6y2")
+material = SubResource("StandardMaterial3D_fws80")
+
+[connection signal="area_entered" from="sea_horse/guitar_explosion" to="." method="_on_guitar_explosion_area_entered"]
+[connection signal="area_entered" from="turtle/enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

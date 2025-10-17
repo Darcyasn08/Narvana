@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 		#print("velocity: ", velocity, "... ground_speed: ", ground_speed)
 		#print("you cant just move mate")
 
-	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false
+	var is_starting_jump := Input.is_action_pressed("space") and is_on_floor() and stunned == false and acceleration < 20.0
 	if is_starting_jump:
 		velocity.y += jump_impulse
 	

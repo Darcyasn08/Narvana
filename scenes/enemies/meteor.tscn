@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bha3gjsn5i36y"]
+
+[ext_resource type="Script" uid="uid://cy50d78t2g4or" path="res://scripts/meteor.gd" id="1_tcwo0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pxso2"]
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83eji"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.733333)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tfog"]
+size = Vector3(1, 0.462891, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhxke"]
+size = Vector3(0.7, 1, 0.7)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wfndj"]
+top_radius = 0.35
+bottom_radius = 0.35
+height = 1.0
+
+[node name="meteor" type="Node3D"]
+script = ExtResource("1_tcwo0")
+
+[node name="floor" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.956503, 0)
+
+[node name="warning" type="CSGMesh3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.879611, 0)
+mesh = SubResource("CylinderMesh_pxso2")
+material = SubResource("StandardMaterial3D_83eji")
+
+[node name="over_detection" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.850666, 0)
+shape = SubResource("BoxShape3D_8tfog")
+
+[node name="falling_obj" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3437, 0)
+
+[node name="obj" type="CollisionShape3D" parent="falling_obj"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00479126, 1.22328, 0)
+shape = SubResource("BoxShape3D_lhxke")
+
+[node name="molde" type="CSGMesh3D" parent="falling_obj"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22314, 0)
+mesh = SubResource("CylinderMesh_wfndj")
+
+[connection signal="area_entered" from="floor" to="." method="_on_floor_area_entered"]
+[connection signal="area_entered" from="falling_obj" to="." method="_on_falling_obj_area_entered"]

@@ -1,17 +1,20 @@
 extends Area3D
 
 @onready var parent = get_parent()
-@onready var life = parent.life
 @onready var coin_inst: Object = preload("res://scenes/money.tscn")
 
 @export var hitbox_collision: CollisionShape3D
 
 func _ready() -> void:
-	parent.set_collision_layer_value(1, false)
-	parent.set_collision_layer_value(2, true)
-	parent.set_collision_mask_value(1, true)
-	parent.set_collision_mask_value(2, true)
-
+	if parent.is_in_group("multi_enemies"):
+		parent = parent.get_parent()
+	else:
+		parent.set_collision_layer_value(1, false)
+		parent.set_collision_layer_value(2, true)
+		parent.set_collision_mask_value(1, true)
+		parent.set_collision_mask_value(2, true)
+	var life: int = parent.life
+	
 func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 	if area.is_in_group("weapon"):
 		if parent.name == "car":

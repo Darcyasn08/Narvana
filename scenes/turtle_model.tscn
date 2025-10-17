@@ -229,6 +229,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("turtle:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_20w1d"]
 resource_name = "attack"
@@ -402,6 +414,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("turtle:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.4451475, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_2upk1"]
 resource_name = "idle"
@@ -502,6 +526,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -6.21512, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("turtle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gg4y2"]
@@ -674,6 +710,18 @@ tracks/13/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("turtle:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.3395262, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_024mk"]
 _data = {
@@ -787,19 +835,19 @@ shadow_mesh = SubResource("ArrayMesh_n5l7s")
 material_override = SubResource("StandardMaterial3D_icrkm")
 
 [node name="Cube_002" parent="turtle" index="1"]
-transform = Transform3D(0.403876, 0, 0, 0, 0.972985, -0.219097, 0, 0.230869, 0.923372, 0, 1.64027, -2.42434)
+transform = Transform3D(0.403876, 0, 0, 0, 0.9729849, -0.21909717, 0, 0.23086931, 0.9233719, 0, 1.64027, -2.42434)
 material_override = SubResource("StandardMaterial3D_cehfp")
 
 [node name="Cube_003" parent="turtle" index="2"]
-transform = Transform3D(0.295344, -8.94069e-08, 0.463608, -0.0208489, 0.992019, 0.104407, -0.164035, -0.126086, 0.821454, -1.50309, 1.18261, -2.70349)
+transform = Transform3D(0.295344, -8.9406946e-08, 0.46360835, -0.020848874, 0.9920191, 0.10440707, -0.16403499, -0.12608595, 0.82145375, -1.50309, 1.18261, -2.70349)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_004" parent="turtle" index="3"]
-transform = Transform3D(-0.147557, -5.73694e-07, 0.854086, 0.0375604, 0.992369, 0.0510113, -0.302301, 0.123301, -0.410554, -1.78539, 1.01299, 1.36778)
+transform = Transform3D(-0.1475574, -5.736945e-07, 0.85408604, 0.03756039, 0.99236894, 0.051011253, -0.30230078, 0.123300545, -0.41055372, -1.78539, 1.01299, 1.36778)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_005" parent="turtle" index="4"]
-transform = Transform3D(0.19752, 2.30968e-07, 0.77067, 0.0338919, 0.992369, -0.0682831, -0.272776, 0.1233, 0.549567, 1.20131, 1.04313, 1.12519)
+transform = Transform3D(0.1975203, 2.3096788e-07, 0.7706697, 0.033891927, 0.99236894, -0.06828309, -0.27277577, 0.12330033, 0.5495674, 1.20131, 1.04313, 1.12519)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_007" parent="turtle" index="5"]
@@ -814,7 +862,7 @@ visible = false
 material_override = SubResource("StandardMaterial3D_13mka")
 
 [node name="Cube_006" parent="turtle" index="8"]
-transform = Transform3D(0.280504, 0.203496, -0.494784, 0.0629789, 0.7784, 0.56899, 0.178665, -0.593872, 0.576244, 1.66296, 0.573593, -2.55843)
+transform = Transform3D(0.28050396, 0.20349589, -0.49478433, 0.06297889, 0.77839994, 0.56898993, 0.178665, -0.59387213, 0.5762438, 1.66296, 0.573593, -2.55843)
 material_override = SubResource("StandardMaterial3D_xpu4y")
 
 [node name="Cube_009" parent="turtle" index="9"]

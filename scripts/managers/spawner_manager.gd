@@ -109,6 +109,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			Global.worlds.FIRST_LEVEL:
 				Global.dead_enemies_first_level[current_room][1] += 1
 			Global.worlds.SECOND_LEVEL:
+				print(body.name)
 				Global.dead_enemies_second_level[current_room][1] += 1
 				print("OBJETIVO DA SALA: ",Global.dead_enemies_second_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
 	if body.name == "player":
