@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bha3gjsn5i36y"]
 
-[ext_resource type="Script" uid="uid://cy50d78t2g4or" path="res://scripts/meteor.gd" id="1_tcwo0"]
+[ext_resource type="Script" uid="uid://dci5au3tw62sl" path="res://scripts/enemies/meteor.gd" id="1_tcwo0"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pxso2"]
 height = 0.01

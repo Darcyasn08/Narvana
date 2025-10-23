@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=14 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
 [ext_resource type="PackedScene" uid="uid://b5l6p3vjx5d2r" path="res://scenes/worlds/village_model.tscn" id="2_si0xe"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
+[ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="8_cui3h"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="19_ektfp"]
 [ext_resource type="PackedScene" uid="uid://cehotwhkrkbkq" path="res://scenes/NPCs/master.tscn" id="24_nuhyk"]
@@ -110,5 +111,17 @@ collision_mask = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63129, 2.55365, -26.47425)
 shape = SubResource("BoxShape3D_46g8v")
 debug_color = Color(0.9075345, 0.98089653, 1, 0.42)
+
+[node name="jellyfish_npc" parent="." instance=ExtResource("8_cui3h")]
+transform = Transform3D(0.77102476, 0, 0.6368052, 0, 1, 0, -0.6368052, 0, 0.77102476, 48.06794, 0, 41.741173)
+current_color = 1
+
+[node name="jellyfish_npc3" parent="." instance=ExtResource("8_cui3h")]
+transform = Transform3D(0.89904636, 0, -0.43785346, 0, 1, 0, 0.43785346, 0, 0.89904636, -14.175619, 4.7683716e-07, 60.665066)
+current_color = 1
+
+[node name="jellyfish_npc2" parent="." instance=ExtResource("8_cui3h")]
+transform = Transform3D(-0.99820346, 0, 0.05991605, 0, 1, 0, -0.05991605, 0, -0.99820346, 53.520336, 0, 40.641384)
+current_color = 2
 
 [connection signal="body_entered" from="cutscene_area" to="." method="_on_cutscene_area_body_entered"]

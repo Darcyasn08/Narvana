@@ -1690,4 +1690,8 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -
 [node name="temple_pillar_mesh10" parent="." instance=ExtResource("19_4c4wp")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -235.88516)
 
+[node name="master" parent="." instance=ExtResource("15_u5f21")]
+transform = Transform3D(0.92686313, 0, 0.3753994, 0, 1, 0, -0.3753994, 0, 0.92686313, 4.4534087, 2.592441, -260.33716)
+npc_name = "master_end_first_level"
+
 [connection signal="body_entered" from="temple_room_start/thermal_water" to="." method="_on_thermal_water_body_entered"]

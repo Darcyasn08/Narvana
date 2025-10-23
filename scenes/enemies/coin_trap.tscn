@@ -19,6 +19,7 @@ emission = Color(0.97091967, 0.36738327, 0.5772008, 1)
 emission_energy_multiplier = 2.0
 
 [node name="coin_trap" type="CharacterBody3D" groups=["enemies"]]
+collision_mask = 7
 script = ExtResource("1_ufq6v")
 
 [node name="hitbox" type="Area3D" parent="."]

@@ -258,6 +258,12 @@ var npc_manager: Dictionary = {
 	"master": {
 		"is_first_time": true
 	},
+	"gardener": {
+		"is_first_time": true
+	},
+	"master_end_first_level": {
+		"is_first_time": true
+	},
 	"second_master": {
 		"is_first_time": true
 	},
@@ -550,8 +556,49 @@ var dialogs: Dictionary = {
 		}
 	},
 	
+	"master_end_first_level": {
+		"name": "Mestre",
+		"is_first_time": true,
+		"dialog_tree": {
+			"middle": {
+				0: {
+					"text": "Parabéns, você conseguiu terminar seu primeiro desafio",
+					"options": {},
+				},
+				1: {
+					"text": "Seu próximo objetivo, é lutar contra seus apegos emocionais",
+					"options": {},
+				},
+				2: {
+					"text": "No canto de uma das paredes do templo, você poderá trocar entre uma arma nova",
+					"options": {},
+				},
+				3: {
+					"text": "E depois, me encontre em algum lugar da vila, onde você terá seu segundo desafio",
+					"options": {},
+				},
+				4: {
+					"text": "Estarei te esperando",
+					"options": {},
+				},
+			},
+			"middle_done": {
+				0: {
+					"text": "A porta está logo ali, para você continaur sua jornada",
+					"options": {},
+				},
+			},
+			"function": {
+				"status": "none",
+				"text": "Espero que esteja pronto",
+				"id": "open_second_level_portal",
+				"options": {},
+			},
+		}
+	},
+	
 	"second_master": {
-		"name": "Master",
+		"name": "Mestre",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {
@@ -610,7 +657,7 @@ var dialogs: Dictionary = {
 	},
 	
 	"master_first_level": {
-		"name": "Master",
+		"name": "Mestre",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {
@@ -659,80 +706,37 @@ var dialogs: Dictionary = {
 	},
 	
 	"gardener": {
-		"name": "Master",
+		"name": "Jardineiro",
 		"is_first_time": true,
 		"dialog_tree": {
 			"middle": {
 				0: {
-					"text": "Olá garoto, parece que você veio conhecer a incrível arte do Baiacunismo, não é?",
+					"text": "A minha família tem cuidado desse templo por eras",
 					"options": {},
 				},
 				1: {
-					"text": "Para isso, você terá que passar por algumas provações",
+					"text": "Às vezes, as pessoas me questionam",
 					"options": {},
 				},
 				2: {
-					"text": "Só depois de se desapegar do que te segura neste mundo terreno…",
+					"text": "'Ai, mas por que você continua cuidando daquele templo velho?'",
 					"options": {},
 				},
 				3: {
-					"text": "Talvez...",
+					"text": "Mas eu até que gosto",
 					"options": {},
 				},
 				4: {
-					"text": "...você consiga atingir o narvana...",
-					"options": {},
-				},
-				5: {
-					"text": "Ah, o que é o narvana?",
-					"options": {},
-				},
-				6: {
-					"text": "É tipo.... hmmm...",
-					"options": {},
-				},
-				7: {
-					"text": "...é tipo quando você chega em casa depois de um dia cansativo...",
-					"options": {},
-				},
-				8: {
-					"text": "...e troca pro pijama",
-					"options": {},
-				},
-				9: {
-					"text": "Difícil explicar, vamos pro que importa",
-					"options": {},
-				},
-				10: {
-					"text": "Primeiro você terá que se desfazer de algum de seus itens que você carrega",
-					"options": {
-						0: {
-							"text": "Ok",
-							"ignite": "function",
-						},
-						1: {
-							"text": "Ok",
-							"ignite": "function",
-						},
-					},
-				},
-				11: {
-					"text": "Depois, é só atravessar a porta que irá surgir, que eu vou te ensinar tudo",
+					"text": "As plantas são minha parte favorita de cuidar",
 					"options": {},
 				},
 			},
 			"middle_done": {
 				0: {
-					"text": "É só atravessar a porta, não tem segredo",
+					"text": "Você também acha as plantas do templo bonitas?",
 					"options": {},
 				},
 			},
-			"function": {
-				"status": "none",
-				"text": "Do outro lado da porta, terá seu desafio",
-				"id": "open_first_level_portal",
-				"options": {},
-			}
 		}
 	},
 	"second_level_master": {

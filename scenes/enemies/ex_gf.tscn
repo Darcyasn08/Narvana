@@ -36,9 +36,6 @@ shape = SubResource("BoxShape3D_0jigo")
 [node name="invocation_point1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7050024, 0, 0)
 
-[node name="invocation_point2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8552802, 0, 0)
-
 [node name="shoot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40514904, -2.461771)
 
@@ -63,3 +60,4 @@ light_size = 0.9
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="ex_model"]
+[editable path="ex_model/ex_tail"]

@@ -53,9 +53,11 @@ func _physics_process(delta: float) -> void:
 			horse.velocity = Vector3.ZERO
 			$sea_horse/guitar_explosion/explosion.disabled = false
 			$warning.hide()
+			horse.get_node("seahorse_model").set_state("attack")
 			await(get_tree().create_timer(2).timeout)
 			$sea_horse/guitar_explosion/explosion.disabled = true
 			await(get_tree().create_timer(1).timeout)
+			horse.get_node("seahorse_model").set_state("idle")
 			horse.look_at(horse_place)
 			$warning.global_position = horse_place
 			horse_state = "running"
@@ -120,8 +122,13 @@ func turtle_attack() -> void:
 	$turtle/enemy_hitbox/hitbox.disabled = false
 	cur_member = $turtle
 	turtle_state = "spinning"
+	turtle.get_node("turtle_model").set_state("pre-attack")
+	await(get_tree().create_timer(.7).timeout)
+	turtle.get_node("turtle_model").set_state("attack")
 	await(get_tree().create_timer(10).timeout)
 	turtle_state = "knocked"
+	#colocar a futura animação de knocked aqui
+	turtle.get_node("turtle_model").set_state("idle")
 	turtle.velocity = Vector3(0,0,0)
 	await(get_tree().create_timer(5).timeout)
 	$turtle/enemy_hitbox/hitbox.disabled = true
@@ -129,6 +136,7 @@ func turtle_attack() -> void:
 func horse_attack() -> void:
 	horse_place = horse.global_position
 	var target : Vector3 = player.global_position
+	horse.get_node("seahorse_model").set_state("pre-attack")
 	horse.look_at(target)
 	$warning.global_position = player.global_position
 	$warning.show()

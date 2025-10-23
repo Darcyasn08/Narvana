@@ -11,8 +11,9 @@ material = SubResource("StandardMaterial3D_88b04")
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="second_level_collision_particle" type="CPUParticles3D"]
-amount = 24
-lifetime = 1.7
+emitting = false
+amount = 22
+lifetime = 1.2
 mesh = SubResource("PrismMesh_kc0rm")
 emission_shape = 3
 emission_box_extents = Vector3(11, 0.3, 0.5)

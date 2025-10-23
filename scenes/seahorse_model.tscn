@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=4 uid="uid://diw5if6u5s55c"]
+[gd_scene load_steps=24 format=4 uid="uid://diw5if6u5s55c"]
 
+[ext_resource type="Script" uid="uid://d0yssqhdgy5yr" path="res://scripts/managers/enemy_anim_manager.gd" id="1_nte1d"]
 [ext_resource type="PackedScene" uid="uid://mmg2yte11g4h" path="res://3d_models/placeholders/enemies/seahorse.glb" id="1_wgrna"]
 [ext_resource type="Texture2D" uid="uid://o7f021js22gh" path="res://3d_models/placeholders/enemies/seahorse-skin.png" id="2_5wm72"]
 
@@ -773,13 +774,15 @@ albedo_color = Color(0.951035, 0.767119, 0.266792, 1)
 material = SubResource("StandardMaterial3D_mp1yg")
 size = Vector3(0.06, 0.06, 0.06)
 
-[node name="seahorse_model" type="Node3D"]
+[node name="seahorse_model" type="Node3D" node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_nte1d")
+anim_player = NodePath("AnimationPlayer")
 
 [node name="seahorse" parent="." instance=ExtResource("1_wgrna")]
-transform = Transform3D(1, 0, 0, 0, 0.832235, -0.554423, 0, 0.554423, 0.832235, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.8322347, -0.5544234, 0, 0.5544234, 0.8322347, 0, 0, 0)
 
 [node name="Plane" parent="seahorse" index="0"]
-transform = Transform3D(-5.08677e-06, 1, 0, -1.40519, -3.61999e-06, 0, 0, 0, 0.577349, 0, 1.33035, -0.684995)
+transform = Transform3D(-5.086774e-06, 1, 0, -1.40519, -3.6199901e-06, 0, 0, 0, 0.577349, 0, 1.33035, -0.684995)
 material_override = SubResource("StandardMaterial3D_wgrna")
 
 [node name="Cube_003" parent="seahorse" index="1"]
@@ -794,15 +797,15 @@ material_override = SubResource("StandardMaterial3D_5wm72")
 material_override = SubResource("StandardMaterial3D_nte1d")
 
 [node name="Skeleton3D" parent="seahorse/Armature" index="1"]
-bones/0/rotation = Quaternion(0.997239, 8.85249e-09, -1.1888e-07, -0.0742601)
-bones/1/rotation = Quaternion(-0.0094771, 3.21803e-15, 2.25952e-09, 0.999955)
-bones/2/rotation = Quaternion(-0.0415054, -7.50422e-15, 9.89565e-09, 0.999138)
-bones/3/rotation = Quaternion(-0.0474729, -3.93061e-15, 1.13184e-08, 0.998873)
-bones/4/rotation = Quaternion(-0.175654, -3.52067e-07, 1.04698e-07, 0.984452)
-bones/5/rotation = Quaternion(-0.466443, -5.27235e-07, 7.22857e-07, 0.884551)
-bones/6/rotation = Quaternion(-0.629228, 7.93528e-13, 1.35018e-06, 0.77722)
-bones/7/rotation = Quaternion(-0.390928, 3.54171e-14, 8.38841e-07, 0.920421)
-bones/8/rotation = Quaternion(9.54538e-07, 0.657984, 0.753032, 8.34054e-07)
+bones/0/rotation = Quaternion(0.99723893, 8.852489e-09, -1.18879996e-07, -0.07426009)
+bones/1/rotation = Quaternion(-0.009477102, 3.218029e-15, 2.2595203e-09, 0.9999552)
+bones/2/rotation = Quaternion(-0.041505415, -7.504224e-15, 9.895653e-09, 0.99913836)
+bones/3/rotation = Quaternion(-0.04747288, -3.9306073e-15, 1.1318395e-08, 0.9988725)
+bones/4/rotation = Quaternion(-0.175654, -3.52067e-07, 1.04697996e-07, 0.984452)
+bones/5/rotation = Quaternion(-0.46644318, -5.272352e-07, 7.228573e-07, 0.8845512)
+bones/6/rotation = Quaternion(-0.6292284, 7.935278e-13, 1.3501808e-06, 0.7772204)
+bones/7/rotation = Quaternion(-0.39092812, 3.541711e-14, 8.388413e-07, 0.9204213)
+bones/8/rotation = Quaternion(9.54538e-07, 0.65798396, 0.75303197, 8.340539e-07)
 
 [node name="Cube" parent="seahorse/Armature/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_fkh8q")
@@ -811,14 +814,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_kf44h")
 [node name="Skeleton3D" parent="seahorse/Armature_001" index="0"]
 transform = Transform3D(0.734892, -0.0614325, -0.675396, -0.160477, 0.951854, -0.261192, 0.658924, 0.300333, 0.689651, 0, 0, 0)
 bones/0/position = Vector3(-0.00420451, -0.0147535, 0.023428)
-bones/0/rotation = Quaternion(-0.0262605, 0.000341482, 0.00911358, 0.999614)
+bones/0/rotation = Quaternion(-0.026260488, 0.00034148182, 0.009113575, 0.9996135)
 bones/0/scale = Vector3(1, 1, 1)
 
 [node name="Plane_002" parent="seahorse/Armature_001/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_j6nop")
 
 [node name="Skeleton3D" parent="seahorse/Armature_002" index="0"]
-bones/0/rotation = Quaternion(2.40994e-08, -1.97918e-08, -0.0110454, 0.999939)
+bones/0/rotation = Quaternion(2.40994e-08, -1.9791802e-08, -0.0110454, 0.999939)
 
 [node name="Plane_001" parent="seahorse/Armature_002/Skeleton3D" index="0"]
 material_override = SubResource("StandardMaterial3D_0lc12")

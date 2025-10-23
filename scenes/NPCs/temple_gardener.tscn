@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsrgh2oi4i880"]
+
+[ext_resource type="PackedScene" uid="uid://tjhejc6qv0pl" path="res://3d_models/NPCs/gardener.glb" id="1_dao8k"]
+[ext_resource type="Script" uid="uid://c3a3ynvccld6g" path="res://scripts/NPCs/temple_gardener.gd" id="1_nfv4l"]
+[ext_resource type="PackedScene" uid="uid://caothemudeyai" path="res://globals/npc_manager.tscn" id="2_wgs8c"]
+[ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="3_nfv4l"]
+[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="4_bsac0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ap0a6"]
+radius = 0.79541016
+height = 2.210205
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vxyd0"]
+radius = 3.0452466
+
+[node name="temple_gardener" type="Node3D"]
+script = ExtResource("1_nfv4l")
+
+[node name="gardener" parent="." instance=ExtResource("1_dao8k")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.64949536, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7406376, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.3711402e-08, -0.9999996, 0, 1.0000004, -4.371137e-08, 0, 0, 0, 0.99999994, 0.18782806, -0.03060484, 0.025922775)
+shape = SubResource("CapsuleShape3D_ap0a6")
+
+[node name="npc_manager" parent="." instance=ExtResource("2_wgs8c")]
+current_npc = "gardener"
+
+[node name="npc_interact_sign" parent="." instance=ExtResource("3_nfv4l")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.32966882, 0)
+
+[node name="npc_dialogue_area" parent="." node_paths=PackedStringArray("npc_manager", "area_collision") instance=ExtResource("4_bsac0")]
+npc_manager = NodePath("../npc_manager")
+area_collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="npc_dialogue_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52881193, 0)
+shape = SubResource("SphereShape3D_vxyd0")

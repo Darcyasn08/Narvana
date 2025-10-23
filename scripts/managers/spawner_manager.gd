@@ -94,8 +94,10 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		if !player_left:
 			print("player entered!! and current wave: ",current_room)
-			await get_tree().create_timer(.4).timeout
+			await get_tree().create_timer(.3).timeout
 			start_room(current_room)
+			if $player_pos_node:
+				SignalBus.on_set_player_pos.emit($player_pos_node.global_position, $player_pos_node.global_rotation)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("enemies"):

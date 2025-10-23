@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b5l6p3vjx5d2r"]
+[gd_scene load_steps=51 format=3 uid="uid://b5l6p3vjx5d2r"]
 
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="1_8nofl"]
 [ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="2_qvsrs"]
@@ -25,8 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://d1tytyctx2luy" path="res://3d_models/placeholders/corals.glb" id="25_o2d15"]
 [ext_resource type="PackedScene" uid="uid://cwjwm7q1w4i6w" path="res://3d_models/placeholders/coral-rock.glb" id="26_swtwg"]
 [ext_resource type="PackedScene" uid="uid://4ea2kbl7af8u" path="res://3d_models/placeholders/sand-floor.glb" id="27_awdpf"]
+[ext_resource type="PackedScene" uid="uid://dfgm00icj4ey7" path="res://scenes/objects/giant_boulder.tscn" id="28_g1px4"]
 [ext_resource type="PackedScene" uid="uid://c3hewjvsc0xlt" path="res://scenes/objects/village_path.tscn" id="28_ux1f0"]
 [ext_resource type="PackedScene" uid="uid://1jmwwlwlowdt" path="res://scenes/objects/coral_floor.tscn" id="29_4fq1v"]
+[ext_resource type="PackedScene" uid="uid://b5hehbu5jnh23" path="res://scenes/buildings/coral_house.tscn" id="29_8nofl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oyxpi"]
 sky_top_color = Color(0.936386, 0.697044, 0.692253, 1)
@@ -63,6 +65,9 @@ fog_sky_affect = 0.6
 volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.98046, 0.715333, 0.639702, 1)
 volumetric_fog_sky_affect = 0.839
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_q0uks"]
 lightmap_size_hint = Vector2i(3754, 2106)
@@ -298,29 +303,17 @@ skeleton = NodePath("")
 [node name="small_house" parent="." instance=ExtResource("8_dnw11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0015, 9.53674e-07, 82.4134)
 
-[node name="small_house2" parent="." instance=ExtResource("8_dnw11")]
-transform = Transform3D(-0.92789483, 0, 0.3728419, 0, 1, 0, -0.3728419, 0, -0.92789483, -55.877613, 9.53674e-07, 48.98422)
-
 [node name="small_house11" parent="." instance=ExtResource("8_dnw11")]
 transform = Transform3D(0.8671715, 0.008189881, 0.4979422, -0.015680177, 0.999818, 0.01086273, -0.49776256, -0.017227668, 0.8671422, -53.110836, 3.8146968e-06, 98.46433)
 
 [node name="small_house9" parent="." instance=ExtResource("8_dnw11")]
 transform = Transform3D(-0.315964, 0, -0.948771, 0, 1, 0, 0.948771, 0, -0.315964, -118.015, 4.51226, 58.2239)
 
-[node name="small_house10" parent="." instance=ExtResource("8_dnw11")]
-transform = Transform3D(0.999982, 0, 0.0059869, 0, 1, 0, -0.0059869, 0, 0.999982, -117.996, 4.56811, 87.1628)
-
 [node name="small_house3" parent="." instance=ExtResource("8_dnw11")]
 transform = Transform3D(-0.994828, 0, -0.101577, 0, 1, 0, 0.101577, 0, -0.994828, 13.8837, 9.53674e-07, 21.052)
 
-[node name="small_house4" parent="." instance=ExtResource("8_dnw11")]
-transform = Transform3D(0.991903, 0, 0.126995, 0, 1, 0, -0.126995, 0, 0.991903, 35.6829, 0.0149412, 46.914)
-
 [node name="small_house6" parent="." instance=ExtResource("8_dnw11")]
-transform = Transform3D(-0.967214, 0, -0.25396, 0, 1, 0, 0.25396, 0, -0.967214, 74.9348, 0.0149412, 19.5404)
-
-[node name="small_house12" parent="." instance=ExtResource("8_dnw11")]
-transform = Transform3D(-0.99998915, 0, -0.0045025945, 0, 1, 0, 0.0045025945, 0, -0.99998915, 52.2532, 0.0149412, 22.325722)
+transform = Transform3D(-0.967214, 0, -0.25396, 0, 1, 0, 0.25396, 0, -0.967214, 66.10985, 0.0149412, 20.406336)
 
 [node name="small_house7" parent="." instance=ExtResource("8_dnw11")]
 transform = Transform3D(0.968696, 0, -0.24825, 0, 1, 0, 0.24825, 0, 0.968696, 92.5859, 0.0149412, 49.0017)
@@ -350,7 +343,7 @@ transform = Transform3D(-0.0100006, 0, -0.99995, 0, 1, 0, 0.99995, 0, -0.0100006
 transform = Transform3D(-0.176346, 0, 0.984328, 0, 1, 0, -0.984328, 0, -0.176346, 76.5242, 0.302796, 49.7625)
 
 [node name="health_building5" parent="." instance=ExtResource("10_ah0n8")]
-transform = Transform3D(0.744929, 0, -0.667144, 0, 1, 0, 0.667144, 0, 0.744929, 83.4311, 0.3028, 5.08803)
+transform = Transform3D(0.78500354, 0, -0.6194916, 0, 1, 0, 0.6194916, 0, 0.78500354, 76.822975, 0.3028, 9.561857)
 
 [node name="village_entrance_gate" parent="." instance=ExtResource("11_m10dk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105333, 0.110535, 5.36001)
@@ -597,7 +590,7 @@ transform = Transform3D(-0.103209, 0, -0.99466, 0, 1, 0, 0.99466, 0, -0.103209, 
 transform = Transform3D(0.952241, 0, 0.305346, 0, 1, 0, -0.305346, 0, 0.952241, 45.1738, 0.08299, 46.5824)
 
 [node name="tree5" parent="." instance=ExtResource("20_ejfqt")]
-transform = Transform3D(-0.545458, 0, -0.838137, 0, 1, 0, 0.838137, 0, -0.545458, 66.4973, 0.0829881, 26.2521)
+transform = Transform3D(-0.545458, 0, -0.838137, 0, 1, 0, 0.838137, 0, -0.545458, 58.401596, 0.0829881, 26.669039)
 
 [node name="tree4" parent="." instance=ExtResource("20_ejfqt")]
 transform = Transform3D(0.952241, 0, 0.305346, 0, 1, 0, -0.305346, 0, 0.952241, -6.34682, 0.08299, 42.2135)
@@ -991,6 +984,39 @@ coral_count_y = 20
 transform = Transform3D(0.4315034, 0, -0.90211123, 0, 1, 0, 0.90211123, 0, 0.4315034, -33.588676, -0.10000191, 129.78163)
 coral_count_x = 18
 coral_count_y = 10
+
+[node name="giant_boulder" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.8284175, 0, 0.35174468, 0, 0.8999999, 0, -0.35174468, 0, 0.8284175, 79.420296, 0, -2.223465)
+
+[node name="giant_boulder2" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.89943403, 0, -0.03191191, 0, 0.9, 0, 0.03191191, 0, 0.89943403, 79.39257, -2.687893, -14.002216)
+
+[node name="giant_boulder6" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.89943403, 0, -0.03191191, 0, 0.9, 0, 0.03191191, 0, 0.89943403, 70.13727, -10.910561, -14.002216)
+
+[node name="giant_boulder7" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.5933357, 0, -0.37141997, 0, 0.7, 0, 0.37141997, 0, 0.5933357, 67.27976, -8.281357, -31.279192)
+
+[node name="giant_boulder3" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.9696037, 0, 0.2446813, 0, 1, 0, -0.2446813, 0, 0.9696037, 76.707726, -2.103632, -27.217125)
+
+[node name="giant_boulder4" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.53819, 0, -0.721354, 0, 0.8999999, 0, 0.721354, 0, 0.53819, 82.0903, -2.6807938, -41.384003)
+
+[node name="giant_boulder5" parent="." instance=ExtResource("28_g1px4")]
+transform = Transform3D(0.2694745, 0, -0.96300757, 0, 1, 0, 0.96300757, 0, 0.2694745, 93.853455, -2.6807938, -52.20352)
+
+[node name="coral_house" parent="." instance=ExtResource("29_8nofl")]
+transform = Transform3D(0.028410144, 0, 0.99959636, 0, 1, 0, -0.99959636, 0, 0.028410144, 49.423843, -0.015850306, 20.861326)
+
+[node name="coral_house4" parent="." instance=ExtResource("29_8nofl")]
+transform = Transform3D(-0.041369893, 0, -0.9991439, 0, 1, 0, 0.9991439, 0, -0.041369893, 33.82994, -0.015850306, 48.401314)
+
+[node name="coral_house2" parent="." instance=ExtResource("29_8nofl")]
+transform = Transform3D(0.35130247, 0, 0.9362621, 0, 1, 0, -0.9362621, 0, 0.35130247, -55.272816, -0.015848398, 48.473206)
+
+[node name="coral_house3" parent="." instance=ExtResource("29_8nofl")]
+transform = Transform3D(-0.72063583, 0, -0.69331384, 0, 1, 0, 0.69331384, 0, -0.72063583, -119.736946, 4.8766994, 87.58954)
 
 [editable path="weird-big-rock"]
 [editable path="big_coral_rocks/coral-rock"]

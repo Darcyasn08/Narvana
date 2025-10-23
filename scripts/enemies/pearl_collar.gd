@@ -20,6 +20,7 @@ func _ready() -> void:
 	$"dragãoperola/Plano".material_overlay = unique_resource
 	for child in $"dragãoperola".get_children():
 		if "Esfera UV" in child.name:
+			print("there is a sphere")
 			child.material_overlay = unique_resource
 
 func _physics_process(delta: float) -> void:
@@ -78,10 +79,10 @@ func calculate_knockback(area: Area3D) -> void:
 	
 	
 func unique_take_damage(area) -> void:
-	unique_resource.albedo_color = Color("d674c3ff")
+	unique_resource.albedo_color = Color("e54fb5ff")
 	calculate_knockback(area)
 	await get_tree().create_timer(.3).timeout
-	unique_resource.albedo_color = Color("7cc6ec")
+	unique_resource.albedo_color = Color("7bc6ec")
 	
 func unique_die() -> void:
 	pass

@@ -5036,7 +5036,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_4g5xm")
 
 [node name="Plane_008" type="MeshInstance3D" parent="casadecha"]
-transform = Transform3D(-5.807663, -0.001747326, 0, 0.008016279, -1.2659091, 0, 0, 0, 8.324846, -11.183584, 4.321115, -8.684675)
+transform = Transform3D(-5.807663, -0.001747326, 0, 0.008016279, -1.2659091, 0, 0, 0, 8.324846, -11.183584, 4.321115, -9.07515)
 mesh = SubResource("ArrayMesh_1xnuv")
 skeleton = NodePath("")
 
@@ -5046,7 +5046,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_36xl2")
 
 [node name="Plane_009" type="MeshInstance3D" parent="casadecha"]
-transform = Transform3D(-5.807663, -0.0017471154, 1.2577666e-08, -0.008015264, 1.2659011, -0.029451601, 2.8347766e-05, -0.004478527, -8.324795, -11.177478, -0.19122332, -0.44215095)
+transform = Transform3D(-5.807663, -0.0017471154, 1.2577666e-08, -0.008015264, 1.2659011, -0.029451601, 2.8347766e-05, -0.004478527, -8.324795, -11.177478, -0.1899109, -0.07118252)
 mesh = SubResource("ArrayMesh_a3gqa")
 skeleton = NodePath("")
 
@@ -5056,7 +5056,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_15xf6")
 
 [node name="Plane_011" type="MeshInstance3D" parent="casadecha"]
-transform = Transform3D(-5.807663, -0.0017471154, 1.2577666e-08, -0.008015264, 1.2659011, -0.029451601, 2.8347766e-05, -0.004478527, -8.324795, 0.14052786, -0.17080228, 8.771384)
+transform = Transform3D(-5.807663, -0.0017471154, 1.2577666e-08, -0.008015264, 1.2659011, -0.029451601, 2.8347766e-05, -0.004478527, -8.324795, 0.14052786, -0.16944285, 9.1556425)
 mesh = SubResource("ArrayMesh_ms1or")
 skeleton = NodePath("")
 
@@ -5066,7 +5066,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_7f0cm")
 
 [node name="Plane_013" type="MeshInstance3D" parent="casadecha"]
-transform = Transform3D(-5.807663, -0.001747326, 0, 0.008016279, -1.2659091, 0, 0, 0, 8.324846, -0.15738581, 4.2909694, 0.84527844)
+transform = Transform3D(-5.807663, -0.001747326, 0, 0.008016279, -1.2659091, 0, 0, 0, 8.324846, -0.15738581, 4.2909694, 0.5359211)
 mesh = SubResource("ArrayMesh_wpswu")
 skeleton = NodePath("")
 

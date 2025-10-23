@@ -45,6 +45,7 @@ func _ready() -> void:
 	SignalBus.on_change_player_weapon.connect(change_current_weapon)
 	SignalBus.on_game_saved.connect(update_current_pos)
 	SignalBus.on_stun_hit.connect(stunned_by_enemy)
+	SignalBus.on_set_player_pos.connect(set_player_pos)
 	change_current_weapon(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
@@ -279,6 +280,15 @@ func get_immune(time: float = 5.0) -> void:
 	set_collision_mask_value(2, true)
 	$torus_mesh.hide()
 	immune = false
+
+func set_player_pos(pos: Vector3, rot: Vector3) -> void:
+	$fade_canvas.show()
+	$fade_canvas/AnimationPlayer.play("fade_in_out")
+	await get_tree().create_timer(.02).timeout
+	position = pos
+	rotation = rot
+	await $fade_canvas/AnimationPlayer.animation_finished
+	$fade_canvas.hide()
 
 func change_mouse_sens(sens: float) -> void:
 	mouse_sens = sens

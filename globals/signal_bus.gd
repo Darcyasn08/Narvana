@@ -35,6 +35,7 @@ signal on_buy_shop_item()
 
 signal on_player_health_changed()
 signal on_thermal_water_used()
+signal on_set_player_pos()
 
 signal on_blush_hit()
 signal on_ex_crying()

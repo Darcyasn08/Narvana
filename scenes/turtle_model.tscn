@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=4 uid="uid://boxmd6ady4xvf"]
+[gd_scene load_steps=32 format=4 uid="uid://boxmd6ady4xvf"]
 
 [ext_resource type="PackedScene" uid="uid://buvv843slkhqe" path="res://3d_models/placeholders/enemies/turtle.glb" id="1_2upk1"]
+[ext_resource type="Script" uid="uid://d0yssqhdgy5yr" path="res://scripts/managers/enemy_anim_manager.gd" id="1_13mka"]
 [ext_resource type="Texture2D" uid="uid://cphw2ri6e5b16" path="res://3d_models/placeholders/enemies/turtle-head.png" id="2_024mk"]
 [ext_resource type="Texture2D" uid="uid://bp38pmjnsa0xb" path="res://3d_models/placeholders/enemies/turtle-hand.png" id="3_13mka"]
 
@@ -827,7 +828,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n5l7s")
 
-[node name="turtle_model" type="Node3D"]
+[node name="turtle_model" type="Node3D" node_paths=PackedStringArray("anim_player")]
+script = ExtResource("1_13mka")
+state = "idle"
+anim_player = NodePath("AnimationPlayer")
 
 [node name="turtle" parent="." instance=ExtResource("1_2upk1")]
 
@@ -839,11 +843,11 @@ transform = Transform3D(0.403876, 0, 0, 0, 0.9729849, -0.21909717, 0, 0.23086931
 material_override = SubResource("StandardMaterial3D_cehfp")
 
 [node name="Cube_003" parent="turtle" index="2"]
-transform = Transform3D(0.295344, -8.9406946e-08, 0.46360835, -0.020848874, 0.9920191, 0.10440707, -0.16403499, -0.12608595, 0.82145375, -1.50309, 1.18261, -2.70349)
+transform = Transform3D(0.295344, -8.940695e-08, 0.46360835, -0.020848874, 0.9920192, 0.10440707, -0.16403499, -0.12608595, 0.82145375, -1.50309, 1.18261, -2.70349)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_004" parent="turtle" index="3"]
-transform = Transform3D(-0.1475574, -5.736945e-07, 0.85408604, 0.03756039, 0.99236894, 0.051011253, -0.30230078, 0.123300545, -0.41055372, -1.78539, 1.01299, 1.36778)
+transform = Transform3D(-0.1475574, -5.736944e-07, 0.85408604, 0.03756039, 0.9923689, 0.051011253, -0.30230078, 0.12330054, -0.41055372, -1.78539, 1.01299, 1.36778)
 material_override = SubResource("StandardMaterial3D_024mk")
 
 [node name="Cube_005" parent="turtle" index="4"]

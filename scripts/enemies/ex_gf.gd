@@ -102,11 +102,7 @@ func _on_timer_timeout() -> void:
 		var dragon1: Object = dragonins.instantiate()
 		dragon1.global_rotation = $invocation_point1.global_rotation
 		dragon1.global_position = $invocation_point1.global_position
-		var dragon2: Object = dragonins.instantiate()
-		dragon2.global_rotation = $invocation_point2.global_rotation
-		dragon2.global_position = $invocation_point2.global_position
 		get_parent().add_child(dragon1)
-		get_parent().add_child(dragon2)
 		if level >= 2:
 			state = "blush"
 		else: 
