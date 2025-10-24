@@ -46,8 +46,8 @@ background_color = Color(0.137171, 0.249641, 0.52421, 1)
 background_energy_multiplier = 1.7
 sky = SubResource("Sky_p2tsv")
 ambient_light_source = 2
-ambient_light_color = Color(0.850285, 0.219076, 0.673617, 1)
-ambient_light_energy = 1.7
+ambient_light_color = Color(0.94112885, 0.12146907, 0.40876883, 1)
+ambient_light_energy = 1.5
 glow_enabled = true
 glow_levels/1 = 8.3
 glow_levels/2 = 11.87
@@ -57,11 +57,11 @@ glow_levels/5 = 7.12
 glow_levels/6 = 8.91
 glow_levels/7 = 3.4
 fog_enabled = true
-fog_light_color = Color(0.46923137, 0.26910812, 0.73853946, 1)
+fog_light_color = Color(0.5636348, 0.19349444, 0.7078939, 1)
 fog_light_energy = 0.7
 fog_sun_scatter = 0.11
 fog_density = 0.015
-fog_sky_affect = 0.6
+fog_sky_affect = 0.655
 volumetric_fog_density = 0.03
 volumetric_fog_albedo = Color(0.98046, 0.715333, 0.639702, 1)
 volumetric_fog_sky_affect = 0.839
@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0787277, 6.90889, -21.5694)
 size = Vector3(29.7678, 12.7889, 19.1462)
 
 [node name="village_entrance_sign" parent="." instance=ExtResource("2_qvsrs")]
-transform = Transform3D(-0.855048, 0, -0.51855, 0, 1, 0, 0.51855, 0, -0.855048, 5.52573, 9.53674e-07, -1.62001)
+transform = Transform3D(-0.18722682, 0, -0.9823173, 0, 1, 0, 0.9823173, 0, -0.18722682, 3.9471865, 9.53674e-07, 60.20389)
 
 [node name="village_marketplace" parent="." instance=ExtResource("3_uvcl0")]
 transform = Transform3D(0.885766, 0, 0.464132, 0, 1, 0, -0.464132, 0, 0.885766, -66.5645, -0.110433, 73.7814)

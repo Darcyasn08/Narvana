@@ -150,6 +150,7 @@ func unique_take_damage(area) -> void:
 	$house_model/house_model/Cube_001.material_overlay.albedo_color = Color("#b1dee1")
 
 func unique_die() -> void:
+	Global.completed_levels["first_level"] = true
 	$door.hide()
 	$house_model/AnimationPlayer.play("death")
 	await $house_model/AnimationPlayer.animation_finished

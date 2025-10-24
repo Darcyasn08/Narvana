@@ -19,6 +19,11 @@ func _ready() -> void:
 			$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", false)
 			$master_model/body/StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
 			show()
+	if Global.completed_levels["first_level"] and npc_name == "master":
+		hide()
+	if Global.completed_levels["second_level"]:
+		hide()
+		#simular que o mestre morreu, fazendo todos os outros sumirem
 
 func _physics_process(_delta: float) -> void:
 	if end_of_level:

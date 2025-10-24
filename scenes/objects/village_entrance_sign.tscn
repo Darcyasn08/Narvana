@@ -15,10 +15,8 @@ albedo_color = Color(0.755837, 0.495812, 0.392926, 1)
 roughness = 0.0
 
 [node name="village_entrance_sign" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="village_entrance_sign_model" parent="." instance=ExtResource("1_n27lm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="pole" parent="village_entrance_sign_model" index="0"]
 material_override = SubResource("StandardMaterial3D_62fys")
@@ -34,10 +32,10 @@ material_override = SubResource("StandardMaterial3D_wmtyf")
 
 [node name="Label3D" type="Label3D" parent="village_entrance_sign_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.565342, 2.81628, 0.0623218)
-text = "Village"
+text = "Templo"
 
 [node name="Label3D2" type="Label3D" parent="village_entrance_sign_model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.575493, 1.86218, 0.0623218)
-text = "City"
+text = "Vila"
 
 [editable path="village_entrance_sign_model"]

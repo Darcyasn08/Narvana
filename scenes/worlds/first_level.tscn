@@ -1248,6 +1248,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73547, 7.79394, -59.6152)
 area_node = NodePath("Area3D")
 current_room = 6
 
+[node name="player_pos_node" type="Node3D" parent="temple_room6/spawner_manager6"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.64837456, -3.6359935, 19.426605)
+
 [node name="Area3D" type="Area3D" parent="temple_room6/spawner_manager6"]
 collision_mask = 5
 
@@ -1397,7 +1400,7 @@ multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("11_3641t")
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(-0.9999997, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.9999997, 1.5867033, 3.3161364, 39.877445)
+transform = Transform3D(-0.9999997, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.9999997, 1.5867033, 3.3161364, -224.72131)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.99089646, 0, -0.13462612, 0, 1, 0, 0.13462612, 0, -0.99089646, -1.6400914, 6.5072956, -132.527)
@@ -1691,7 +1694,8 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -235.88516)
 
 [node name="master" parent="." instance=ExtResource("15_u5f21")]
-transform = Transform3D(0.92686313, 0, 0.3753994, 0, 1, 0, -0.3753994, 0, 0.92686313, 4.4534087, 2.592441, -260.33716)
+transform = Transform3D(0.86395854, 0, 0.5035629, 0, 1, 0, -0.5035629, 0, 0.86395854, 3.961577, 2.5924413, -259.88602)
 npc_name = "master_end_first_level"
+end_of_level = true
 
 [connection signal="body_entered" from="temple_room_start/thermal_water" to="." method="_on_thermal_water_body_entered"]

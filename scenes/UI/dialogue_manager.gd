@@ -48,11 +48,11 @@ func _physics_process(_delta: float) -> void:
 
 func check_done_dialog() -> void:
 	if !Global.npc_manager[cur_npc]["is_first_time"]:
-		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"][cur_text]
-		npc_dialog_tree = Global.dialogs[cur_npc]["dialog_tree"]["middle_done"]
+		npc_dialog = Dialogues.dialogs[cur_npc]["dialog_tree"]["middle_done"][cur_text]
+		npc_dialog_tree = Dialogues.dialogs[cur_npc]["dialog_tree"]["middle_done"]
 	else:
-		npc_dialog = Global.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
-		npc_dialog_tree = Global.dialogs[cur_npc]["dialog_tree"]["middle"]
+		npc_dialog = Dialogues.dialogs[cur_npc]["dialog_tree"]["middle"][cur_text]
+		npc_dialog_tree = Dialogues.dialogs[cur_npc]["dialog_tree"]["middle"]
 
 #função iniciada pelo sinal para iniciar o dialogo
 func start_dialogue(npc: String) -> void:
@@ -66,7 +66,7 @@ func start_dialogue(npc: String) -> void:
 		cur_text = 0
 		await check_done_dialog()
 		check_options()
-		name_label.text = Global.dialogs[cur_npc]["name"]
+		name_label.text = Dialogues.dialogs[cur_npc]["name"]
 		show()
 		for letter in npc_dialog["text"]:
 			can_progress = false
@@ -146,12 +146,12 @@ func progress_dialog() -> void:
 func check_pressed_option() -> void:
 	dialog_text.text = ""
 	if npc_dialog["options"][pressed_option]["ignite"] == "quest":
-		print("And the quest is: ",Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"])
-		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
+		print("And the quest is: ",Dialogues.dialogs[cur_npc]["dialog_tree"]["quest"]["text"])
+		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "exit":
 		#print("exit please ma'am")
-		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["exit"]["text"]
+		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["exit"]["text"]
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "continue":
 		#print("continue with normal dialog")
@@ -159,8 +159,8 @@ func check_pressed_option() -> void:
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "function":
 		print("alguma função tem que ser acionada aqui")
-		dialog_text.text = Global.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
-		SignalBus.on_start_dialog_function.emit(cur_npc, Global.dialogs[cur_npc]["dialog_tree"]["function"]["id"])
+		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
+		SignalBus.on_start_dialog_function.emit(cur_npc, Dialogues.dialogs[cur_npc]["dialog_tree"]["function"]["id"])
 	
 	has_option = false
 
