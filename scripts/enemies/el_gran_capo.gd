@@ -48,8 +48,10 @@ func _physics_process(delta: float) -> void:
 		$enemy_hitbox/hitbox.disabled = true
 		#$collision.disabled = true
 		$molde.hide()
+		$gran_capo_model.set_state("start_circling")
+		await get_tree().create_timer(1).timeout
 		$swirl_col.disabled = false
-		$swirl_molde.show()
+		$gran_capo_model.set_state("big_circling")
 		$Timer.wait_time = 9.0
 		$Timer.start()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://45m2rb81gimd"]
+[gd_scene load_steps=37 format=3 uid="uid://45m2rb81gimd"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
 [ext_resource type="Script" uid="uid://cog8qajqsgdme" path="res://scripts/second_level.gd" id="1_pfrex"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="12_s3ee0"]
 [ext_resource type="PackedScene" uid="uid://c60x0jfkdac5l" path="res://scenes/particles/second_level_collision_particle.tscn" id="12_xnph4"]
 [ext_resource type="PackedScene" uid="uid://6w2iiwjwu6sg" path="res://scenes/second_level_portal.tscn" id="13_s3ee0"]
-[ext_resource type="PackedScene" uid="uid://cgbkj0s64h0nv" path="res://scenes/enemies/pearl_collar.tscn" id="14_s15vj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8wih"]
 size = Vector3(28.093, 12.2286, 38.6467)
@@ -40,10 +39,19 @@ size = Vector3(2.2808385, 13.386, 52.342964)
 size = Vector3(1.975405, 13.386, 42.1783)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6q6ri"]
-size = Vector3(46.946175, 13.072937, 59.706055)
+size = Vector3(67.20892, 13.072937, 59.706055)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q60ar"]
+size = Vector3(4.41956, 13.386, 60.79587)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjyvj"]
+size = Vector3(4.41956, 13.386, 59.52958)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qflks"]
-size = Vector3(37.267822, 8.746826, 6.6049194)
+size = Vector3(65.277405, 8.746826, 6.6049194)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hk8sr"]
+size = Vector3(54.63011, 13.072937, 59.706055)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xufcb"]
 size = Vector3(5.2024555, 13.386, 57.16655)
@@ -85,7 +93,7 @@ script = ExtResource("1_pfrex")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038585663, 0.025382996, -0.05682373)
 
 [node name="player" parent="." instance=ExtResource("1_k6ckt")]
-transform = Transform3D(0.047333147, 0, -0.99887913, 0, 1, 0, 0.99887913, 0, 0.047333147, -59.75032, 0.24365, 108.411415)
+transform = Transform3D(0.9988317, 0, 0.048326857, 0, 1, 0, -0.048326857, 0, 0.9988317, -1.8713579, 0.24365, -45.035675)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -48)
@@ -273,7 +281,7 @@ current_room = 3
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/Area3D"]
-transform = Transform3D(0.99998707, 0, 2.142042e-08, 0, 1, 0, -2.142042e-08, 0, 0.99998707, 0.548222, 6.0364685, 11.177155)
+transform = Transform3D(0.9999842, 0, 2.7939677e-08, 0, 1, 0, -2.7939677e-08, 0, 0.9999842, -9.583015, 6.0364685, 11.177147)
 shape = SubResource("BoxShape3D_6q6ri")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager4"]
@@ -284,16 +292,16 @@ transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 20.7733,
 shape = SubResource("BoxShape3D_ruiny")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(0.99999875, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.99999875, -21.3215, 6.19299, 6.4590225)
+transform = Transform3D(0.9999986, 0, -9.313226e-09, 0, 1, 0, 9.313226e-09, 0, 0.9999986, -40.539684, 6.19299, 6.302025)
 shape = SubResource("BoxShape3D_ruiny")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
-shape = SubResource("BoxShape3D_xnph4")
+transform = Transform3D(-1.9557774e-08, 0, 0.99999624, 0, 1, 0, -0.99999624, 0, -1.9557774e-08, -9.466045, 6.19299, 29.087212)
+shape = SubResource("BoxShape3D_q60ar")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(-2.79397e-08, 0, 0.999997, 0, 1, 0, -0.999997, 0, -2.79397e-08, -1.32704, 6.19299, -10.7103)
-shape = SubResource("BoxShape3D_s3ee0")
+transform = Transform3D(-1.21071935e-08, 0, 0.99999446, 0, 1, 0, -0.99999446, 0, -1.21071935e-08, -10.002636, 6.19299, -10.710297)
+shape = SubResource("BoxShape3D_qjyvj")
 
 [node name="particles" type="Node3D" parent="spawner_manager4"]
 transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
@@ -326,21 +334,21 @@ transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00
 transform = Transform3D(0.9999662, 0, -0.008168044, 0, 1, 0, 0.008168044, 0, 0.9999662, 2.5096245, 1.0652757, 27.00521)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2901535, 3.873413, 2.3771057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.602623, 3.873413, 2.3771057)
 shape = SubResource("BoxShape3D_qflks")
 
 [node name="ceo_wall2" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
 transform = Transform3D(0.99996614, 0, -0.008168043, 0, 1, 0, 0.008168043, 0, 0.99996614, 2.8219109, 1.0652757, -11.226334)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2901535, 3.873413, 2.3771057)
+transform = Transform3D(0.9999973, 0, -2.4424907e-15, 0, 1, 0, 2.4424907e-15, 0, 0.9999973, -11.982475, 3.873413, 2.3771057)
 shape = SubResource("BoxShape3D_qflks")
 
 [node name="ceo_wall3" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
 transform = Transform3D(-4.284084e-08, 0, 0.99999934, 0, 1, 0, -0.99999934, 0, -4.284084e-08, -22.341473, 1.0652757, 5.9838257)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2901535, 3.873413, 2.3771057)
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -3.1344833, 3.873413, -16.68077)
 shape = SubResource("BoxShape3D_qflks")
 
 [node name="ceo_wall4" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
@@ -354,7 +362,7 @@ shape = SubResource("BoxShape3D_qflks")
 transform = Transform3D(0.038021803, 0, -0.99927676, 0, 1, 0, 0.99927676, 0, 0.038021803, 12.133627, 0.66692734, 8.378774)
 
 [node name="spawner_manager5" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
-transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, 51.00712, 0, 110.38219)
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, 51.90814, 0, -4.674796)
 area_node = NodePath("Area3D")
 current_room = 4
 
@@ -362,8 +370,8 @@ current_room = 4
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager5/Area3D"]
-transform = Transform3D(0.99997646, 0, 4.377216e-08, 0, 1, 0, -4.377216e-08, 0, 0.99997646, 1.5173721, 6.0364685, 19.942772)
-shape = SubResource("BoxShape3D_6q6ri")
+transform = Transform3D(0.99997115, 0, 5.5879354e-08, 0, 1, 0, -5.5879354e-08, 0, 0.99997115, 2.710823, 6.0364685, 19.942764)
+shape = SubResource("BoxShape3D_hk8sr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager5"]
 transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
@@ -447,19 +455,20 @@ enemy_number = 2
 room_number = 2
 
 [node name="spawner5" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.751186, 1.027992, 136.8632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.751186, 1.027992, 7.100624)
 level_number = 1
 enemy_number = 1
 room_number = 4
 
 [node name="spawner6" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.822556, 1.0279925, 138.98509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.822556, 1.0279925, 13.198412)
 level_number = 1
 room_number = 4
 
 [node name="spawner4" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -64.53128, 3.6828945, 116.671295)
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -70.66513, 3.6828945, 112.71183)
 level_number = 1
+enemy_number = 3
 room_number = 3
 
 [node name="second_level_portal" parent="." instance=ExtResource("13_s3ee0")]
@@ -504,8 +513,5 @@ mesh = SubResource("BoxMesh_qflks")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="thermal_water"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.15171242, 0.108704805, -7.768345)
 mesh = SubResource("BoxMesh_qflks")
-
-[node name="pearl_collar" parent="." instance=ExtResource("14_s15vj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.337265, 0, 121.64557)
 
 [editable path="stage_band"]

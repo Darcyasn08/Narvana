@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs2g61d7wvii2"]
+
+[ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="1_kmwj5"]
+[ext_resource type="PackedScene" uid="uid://cueqkm0xd0vm7" path="res://scenes/worlds/abism_model.tscn" id="2_33ar6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nvibc"]
+sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
+sky_horizon_color = Color(0.794826, 0.848696, 0.931927, 1)
+ground_bottom_color = Color(0.303577, 0.451742, 0.581673, 1)
+ground_horizon_color = Color(0.794826, 0.848696, 0.931927, 1)
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky_7ssvg"]
+sky_material = SubResource("ProceduralSkyMaterial_nvibc")
+
+[sub_resource type="Environment" id="Environment_e587m"]
+background_mode = 2
+sky = SubResource("Sky_7ssvg")
+tonemap_mode = 2
+fog_enabled = true
+fog_light_color = Color(0.3150818, 0.3078611, 0.6260412, 1)
+fog_density = 0.02
+
+[node name="third_level_entrance_model" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(1, 0.983194, 0.381281, 1)
+light_energy = 0.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_e587m")
+
+[node name="village_entrance_sign" parent="." instance=ExtResource("1_kmwj5")]
+transform = Transform3D(0.887357, 0, 0.461083, 0, 1, 0, -0.461083, 0, 0.887357, -5.49676, 0.003934, -29.6524)
+
+[node name="abism_model" parent="." instance=ExtResource("2_33ar6")]

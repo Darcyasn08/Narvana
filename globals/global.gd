@@ -60,7 +60,7 @@ var worlds_files: Dictionary = {
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
 	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn", "res://scenes/enemies/band.tscn", "res://scenes/enemies/el_gran_capo.tscn"],
-	[]
+	["res://scenes/enemies/coin.tscn"]
 ]
 
 #levels
@@ -270,6 +270,12 @@ var npc_manager: Dictionary = {
 	"master_first_level": {
 		"is_first_time": true
 	},
+	"random_jellyfish1": {
+		"is_first_time": true
+	},
+	"random_jellyfish2": {
+		"is_first_time": true
+	},
 }
 
 var reset_npc_manager: Dictionary = {
@@ -285,10 +291,19 @@ var reset_npc_manager: Dictionary = {
 	"master": {
 		"is_first_time": true
 	},
+	"gardener": {
+		"is_first_time": true
+	},
 	"second_master": {
 		"is_first_time": true
 	},
 	"master_first_level": {
+		"is_first_time": true
+	},
+	"random_jellyfish1": {
+		"is_first_time": true
+	},
+	"random_jellyfish2": {
 		"is_first_time": true
 	},
 }

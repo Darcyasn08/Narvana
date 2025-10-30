@@ -56,6 +56,7 @@ size = Vector3(19.2479, 6.1073, 62.1363)
 script = ExtResource("1_eqvwj")
 
 [node name="village_model" parent="." instance=ExtResource("2_si0xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027374268, 0.11322975, -0.012557983)
 
 [node name="player" parent="." instance=ExtResource("1_d5nc6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45.193596)
@@ -114,14 +115,17 @@ debug_color = Color(0.9075345, 0.98089653, 1, 0.42)
 
 [node name="jellyfish_npc" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(0.77102476, 0, 0.6368052, 0, 1, 0, -0.6368052, 0, 0.77102476, 48.06794, 0, 41.741173)
+npc_name = "random_jellyfish1"
 current_color = 1
 
 [node name="jellyfish_npc3" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(0.89904636, 0, -0.43785346, 0, 1, 0, 0.43785346, 0, 0.89904636, -14.175619, 4.7683716e-07, 60.665066)
+npc_name = "random_jellyfish2"
 current_color = 1
 
 [node name="jellyfish_npc2" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(-0.99820346, 0, 0.05991605, 0, 1, 0, -0.05991605, 0, -0.99820346, 53.520336, 0, 40.641384)
+npc_name = "random_jellyfish2"
 current_color = 2
 
 [connection signal="body_entered" from="cutscene_area" to="." method="_on_cutscene_area_body_entered"]

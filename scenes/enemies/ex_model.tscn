@@ -1,20 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyvlopbr6ibdo"]
+[gd_scene load_steps=2 format=3 uid="uid://cyvlopbr6ibdo"]
 
-[ext_resource type="PackedScene" uid="uid://dv060w15wdnwb" path="res://3d_models/enemies/ex_ani.glb" id="2_ael5t"]
-[ext_resource type="PackedScene" uid="uid://tsr8aqa4kr6q" path="res://3d_models/enemies/mirror.glb" id="5_oqwcg"]
+[ext_resource type="PackedScene" uid="uid://bbbh4b07h0ena" path="res://scenes/enemies/ex_new_anim.tscn" id="1_y5rd2"]
 
 [node name="ex_model" type="Node3D"]
 
-[node name="mirror" parent="." instance=ExtResource("5_oqwcg")]
-transform = Transform3D(-0.999882, 0, -0.0153408, 0, 1, 0, 0.0153408, 0, -0.999882, 2.98851, 0, 5.928583)
-visible = false
-
-[node name="ex_ani" parent="." instance=ExtResource("2_ael5t")]
-
-[node name="Cone" parent="ex_ani" index="0"]
-transform = Transform3D(1, 2.5648681e-08, -8.495932e-08, -6.1922606e-08, 0.8874312, -0.46094018, 6.357304e-08, 0.46094018, 0.8874312, 0, -0.16645198, -0.504927)
-
-[node name="Cone_003" parent="ex_ani" index="2"]
-transform = Transform3D(-1, 2.6458338e-08, 1.339984e-07, -3.8285282e-08, 0.88743126, -0.46094012, -1.3111007e-07, -0.46094012, -0.88743126, 0, -0.16645198, 0.50492704)
-
-[editable path="ex_ani"]
+[node name="ex_new_anim" parent="." instance=ExtResource("1_y5rd2")]

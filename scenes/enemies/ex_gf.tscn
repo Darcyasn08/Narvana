@@ -8,10 +8,10 @@
 size = Vector3(0.5, 1, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eaht2"]
-size = Vector3(1.0197875, 1.9799805, 2.9833221)
+size = Vector3(1.0197875, 1.9041748, 3.1186142)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0jigo"]
-size = Vector3(0.5270194, 1.3801574, 1.5781105)
+size = Vector3(0.47835344, 1.3801574, 2.1392787)
 
 [node name="ex_gf" type="CharacterBody3D" groups=["enemies"]]
 collision_layer = 2
@@ -26,11 +26,11 @@ mesh = SubResource("BoxMesh_lrtep")
 hitbox_collision = NodePath("hitbox")
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.1025101, -0.00938291, 0.004760979, 0.009384126, 1.1025201, -0.0002837096, -0.0047582537, 0.00032419924, 1.1025797, 0.0130245965, 0.5404614, -0.27952906)
+transform = Transform3D(1.102507, -0.009382904, 0.004760979, 0.0093840975, 1.102517, -0.00028370868, -0.0047582407, 0.0003241987, 1.1025797, 0.013702285, 0.49865347, -0.2049562)
 shape = SubResource("BoxShape3D_eaht2")
 
 [node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.01142757, 0.30058903, -0.14918062)
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, 0.014704538, 0.30085883, -0.31047276)
 shape = SubResource("BoxShape3D_0jigo")
 
 [node name="invocation_point1" type="Node3D" parent="."]
@@ -49,7 +49,7 @@ one_shot = true
 target_position = Vector3(0, 0, 40)
 
 [node name="ex_model" parent="." instance=ExtResource("3_mc0wb")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.4644628, 0.49764752, 0.31584227)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.035297275, -0.5867461, 0.07079327)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.258286, -1.6645306)
@@ -60,4 +60,3 @@ light_size = 0.9
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="ex_model"]
-[editable path="ex_model/ex_tail"]
