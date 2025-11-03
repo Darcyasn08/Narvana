@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="2_bsvhe"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="3_exxl8"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_bsvhe"]
-[ext_resource type="Script" uid="uid://bxqcrxiih350e" path="res://scripts/third_level_choice_area.gd" id="4_exxl8"]
+[ext_resource type="Script" uid="uid://yll0h8if6wfq" path="res://scripts/third_level_choice_area.gd" id="4_exxl8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28w3a"]
 size = Vector3(23.800598, 13.911804, 32.05237)

@@ -41,6 +41,7 @@ func _ready() -> void:
 					child.set_deferred("disabled", true)
 			if $particles:
 				for particle in $particles.get_children():
+					particle.get_node("size_indicator").hide()
 					particle.emitting = false
 	area_node.area_entered.connect(_on_area_3d_area_entered)
 	area_node.body_entered.connect(_on_area_3d_body_entered)

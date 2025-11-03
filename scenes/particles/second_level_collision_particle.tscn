@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c60x0jfkdac5l"]
+[gd_scene load_steps=4 format=3 uid="uid://c60x0jfkdac5l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88b04"]
 albedo_color = Color(0.75271195, 0.16186187, 0.7112236, 1)
@@ -9,6 +9,9 @@ emission_energy_multiplier = 9.98
 [sub_resource type="PrismMesh" id="PrismMesh_kc0rm"]
 material = SubResource("StandardMaterial3D_88b04")
 size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_88b04"]
+size = Vector3(22, 0.8, 1)
 
 [node name="second_level_collision_particle" type="CPUParticles3D"]
 emitting = false
@@ -22,3 +25,6 @@ gravity = Vector3(0, 6, 0)
 initial_velocity_max = 0.2
 scale_amount_min = 0.6
 scale_amount_max = 1.3
+
+[node name="size_indicator" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_88b04")

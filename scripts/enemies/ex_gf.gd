@@ -20,9 +20,9 @@ var unique_resource: Object = original_resource.duplicate()
 
 
 func _ready() -> void:
-	$ex_model/ex_new_anim/body.material_overlay = unique_resource
+	$ex_model/body.material_overlay = unique_resource
 	unique_resource.albedo_color = Color("e3405cff")
-	$ex_model/ex_new_anim/body.material_overlay = null
+	$ex_model/body.material_overlay = null
 	print("on scene")
 	local_spawn = global_position
 	$Timer.start()
@@ -51,18 +51,18 @@ func calculate_knockback(area: Area3D)-> void:
 	velocity = velocity * 0
 
 func unique_take_damage(area)-> void:
-	$ex_model/ex_new_anim/body.material_overlay = unique_resource
+	$ex_model/body.material_overlay = unique_resource
 	calculate_knockback(area)
 	await(get_tree().create_timer(.4).timeout)
-	$ex_model/ex_new_anim/body.material_overlay = null
+	$ex_model/body.material_overlay = null
 	teleporting()
 	
 func unique_die()-> void:
 	is_dying = true
 	set_collision_mask_value(2, false)
 	set_collision_mask_value(3, false)
-	$ex_model/AnimationPlayer.play("ex_escape")
-	await $ex_model/AnimationPlayer.animation_finished
+	$ex_model.set_state("ex_escape")
+	await(get_tree().create_timer(1).timeout)
 
 func look_to_player(delta : float)-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
@@ -72,28 +72,30 @@ func look_to_player(delta : float)-> void:
 
 func shoot() -> void:
 	var pearl: Object = pearlins.instantiate()
+	if state == "blush":
+		pearl.blush = true
+		$ex_model.set_state("blush")
+		await(get_tree().create_timer(.4).timeout)
+	elif state != "blush":
+		$ex_model.set_state("blush_throw")
+		await(get_tree().create_timer(.4).timeout)
 	pearl.pos = $shoot.global_position
 	pearl.rot = rotation
 	pearl.follow = false
 	pearl.speed = bullet_speed
 	pearl.damage = damage
 	#futuramente determinar o molde do projetil
-	if state == "blush":
-		pearl.blush = true
 	get_parent().add_child(pearl)
+	$ex_model.set_state("idle")
 
 
 func _on_timer_timeout() -> void:
 	if state != "blush":
-		$ex_model/ex_new_anim.set_state("blush_throw")
-		await(get_tree().create_timer(.2).timeout)
 		shoot()
 		await(get_tree().create_timer(2).timeout)
 		shoot()
 		await(get_tree().create_timer(2).timeout)
 	if state == "blush":
-		$ex_model/ex_new_anim.set_state("blush")
-		await(get_tree().create_timer(.2).timeout)
 		shoot()
 		await(get_tree().create_timer(1).timeout)
 		shoot()
@@ -104,7 +106,8 @@ func _on_timer_timeout() -> void:
 		$Timer.wait_time = 1
 		$Timer.start()
 	elif state == "dragons":
-		$ex_model/ex_new_anim.set_state("summon")
+		$ex_model.set_state("summon")
+		await(get_tree().create_timer(.5).timeout)
 		var dragon1: Object = dragonins.instantiate()
 		dragon1.global_rotation = $invocation_point1.global_rotation
 		dragon1.global_position = $invocation_point1.global_position
@@ -114,6 +117,7 @@ func _on_timer_timeout() -> void:
 		else: 
 			state = "shooting"
 		await(get_tree().create_timer(1.2).timeout)
+		$ex_model.set_state("idle")
 		teleporting()
 		$Timer.wait_time = 1
 		$Timer.start()
@@ -123,7 +127,6 @@ func _on_timer_timeout() -> void:
 		await teleporting()
 		$Timer.wait_time = 2
 		$Timer.start()
-			
 
 func teleporting() -> void:
 	var xp : float = randf_range(local_spawn.x - 9,local_spawn.x + 9)

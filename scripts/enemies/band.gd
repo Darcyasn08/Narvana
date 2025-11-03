@@ -1,6 +1,6 @@
 extends Node3D
 
-var life: int = 1400
+var life: int = 5000
 var damage: int = 1
 var state: String = "turtle_turn"
 var cur_member: CharacterBody3D
@@ -11,6 +11,7 @@ var speed : float = 3.0
 var acceleration : float = 15.0
 var horse_place : Vector3
 var jump_impulse: float = 12.0
+var horse_exploded: bool = false
 
 var holofoteins: Object = preload("res://scenes/enemies/meteor.tscn")
 
@@ -21,7 +22,6 @@ var holofoteins: Object = preload("res://scenes/enemies/meteor.tscn")
 
 func _ready() -> void:
 	cur_member = $turtle
-
 
 func _physics_process(delta: float) -> void:
 	if not horse.is_on_floor():
@@ -49,18 +49,23 @@ func _physics_process(delta: float) -> void:
 		move_direction = move_direction.normalized() #nao sei oq isso faz
 		horse.velocity = horse.velocity.move_toward(move_direction * (-speed*4) , acceleration * delta)
 		if horse.global_position.x < $warning.global_position.x + 1 and  horse.global_position.x > $warning.global_position.x - 1 and  horse.global_position.z < $warning.global_position.z + 1 and horse.global_position.z > $warning.global_position.z - 1:
+			horse.get_node("seahorse_model").set_state("attack-explosion")
+			await(get_tree().create_timer(.3).timeout)
 			horse_state = "exploding"
 			horse.velocity = Vector3.ZERO
 			$sea_horse/guitar_explosion/explosion.disabled = false
 			$warning.hide()
-			horse.get_node("seahorse_model").set_state("attack")
 			await(get_tree().create_timer(2).timeout)
 			$sea_horse/guitar_explosion/explosion.disabled = true
 			await(get_tree().create_timer(1).timeout)
-			horse.get_node("seahorse_model").set_state("idle")
 			horse.look_at(horse_place)
 			$warning.global_position = horse_place
 			horse_state = "running"
+			horse.get_node("seahorse_model").set_state("idle")
+		if horse.global_position.x < $warning.global_position.x + 1 and  horse.global_position.x > $warning.global_position.x - 1 and  horse.global_position.z < $warning.global_position.z + 1 and horse.global_position.z > $warning.global_position.z - 1 and horse_exploded :
+			horse_state = ""
+			horse.velocity = Vector3.ZERO
+			horse.get_node("seahorse_model").set_state("idle")
 	octopus.move_and_slide()
 	turtle.move_and_slide()
 	horse.move_and_slide()
@@ -142,16 +147,18 @@ func horse_attack() -> void:
 	$warning.show()
 	await(get_tree().create_timer(.5).timeout)
 	horse_state = "running"
+	horse.get_node("seahorse_model").set_state("attack-loop")
 
 func oct_attack() -> void :
-	for i in 8:
+	#animaçao do polvo batendo na bateria
+	for i:int in 8:
 		var holofote = holofoteins.instantiate()
 		holofote.pos.y = $octopus.global_position.y
-		holofote.pos.z = randf_range( $octopus.global_position.z , $octopus.global_position.z - 20 )
-		holofote.pos.x = randf_range( $octopus.global_position.x - 10, $octopus.global_position.x + 10 )
+		holofote.pos.z = randf_range( $octopus.position.z - 1.5 , $octopus.position.z - 20 )
+		holofote.pos.x = randf_range( $octopus.position.x - 10, $octopus.position.x + 10 )
 		holofote.damage = damage
 		holofote.time = 2.0
-		get_parent().add_child(holofote)
+		add_child(holofote)
 
 func _on_enemy_hitbox_area_entered(area: Area3D) -> void:
 	if turtle_state == "spinning" and area.name == "player_hitbox":
