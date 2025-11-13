@@ -85,14 +85,13 @@ func new_save_button_pressed() -> void:
 	SaveLoad.save_content[id]["was_opened"] = false
 	SaveLoad.save_content[id]["current_weapon"] = 1
 	SaveLoad.save_content[id]["last_saved_pos"] = Vector3(0,0,-45)
-	SaveLoad.save_content[id]["npc_manager"] = Global.reset_npc_manager.duplicate()
-	SaveLoad.save_content[id]["cutscenes"] = Global.reset_cutscenes.duplicate()
-	SaveLoad.save_content[id]["inventory"] = Global.reset_inventory.duplicate()
+	SaveLoad.save_content[id]["npc_manager"] = Global.reset_npc_manager.duplicate(true)
+	SaveLoad.save_content[id]["cutscenes"] = Global.reset_cutscenes.duplicate(true)
+	SaveLoad.save_content[id]["inventory"] = Global.reset_inventory.duplicate(true)
 	SaveLoad.save_content[id]["mouse_sens"] = Global.mouse_sens
 	SaveLoad.save_content[id]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
 	SaveLoad.save_content[id]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
-	SaveLoad.save_content[id]["completed_levels"] = Global.reset_completed_levels.duplicate()
-	SaveLoad.save_content[id]["time_lapsed"] = 0
+	SaveLoad.save_content[id]["completed_levels"] = Global.reset_completed_levels.duplicate(true)
 	# ^^^ dar um jeito de resetar o global do dialogo a cada save criado, sem sair do jogo
 	#tipo, criar uma variável apenas salvando quem vc falou ou algo assim
 	%info_label.text = str(SaveLoad.save_content[id])
@@ -100,9 +99,7 @@ func new_save_button_pressed() -> void:
 
 func open_save_button_pressed() -> void:
 	Global.current_save = id
-	print("open save:",Global.cutscenes, "--- reset: ",Global.reset_cutscenes)
 	Global.player_can_move = true
-	print(SaveLoad.save_content[id]["last_saved_pos"])
 	Global.completed_levels = SaveLoad.save_content[id]["completed_levels"]
 	SaveLoad.save_content[id]["was_opened"] = true
 	SaveLoad.save()
@@ -129,9 +126,7 @@ func delete_save(delete_panel: int) -> void:
 	#print("delete panel: ",SaveLoad.save_content[delete_panel])
 	SaveLoad.save()
 	if id == delete_panel:
-		print("before delete:",Global.cutscenes, "--- reset: ",Global.reset_cutscenes)
 		SaveLoad.save_content[delete_panel] = SaveLoad.reset_save_content[delete_panel]
-		print("after delete:",Global.cutscenes, "--- reset: ",Global.reset_cutscenes)
 		%title_label.hide()
 		%info_label.hide()
 		%new_save_button.show()

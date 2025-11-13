@@ -1,16 +1,17 @@
-[gd_scene load_steps=28 format=3 uid="uid://ffjrswqwb134"]
+[gd_scene load_steps=31 format=3 uid="uid://ffjrswqwb134"]
 
 [ext_resource type="Script" uid="uid://cmfilbue6eadk" path="res://scripts/UI/shop_screen.gd" id="1_h33vf"]
-[ext_resource type="Texture2D" uid="uid://cvr58ioampw4g" path="res://UI/shop_screen.webp" id="1_y6ot4"]
 [ext_resource type="Texture2D" uid="uid://m5mats7y5ajb" path="res://UI/inventory/coffee-cup.png" id="3_dqfv6"]
+[ext_resource type="Texture2D" uid="uid://76iywxd07bf0" path="res://UI/shop/item-shadow.png" id="4_c2f03"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_dqfv6"]
 [ext_resource type="Texture2D" uid="uid://ddbiu7e4rj0d5" path="res://UI/money.png" id="5_c2f03"]
+[ext_resource type="Texture2D" uid="uid://dj8thxbo4vnh8" path="res://UI/shop/crab-icon.png" id="7_5cbke"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4aa2i"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 0.670588)
+bg_color = Color(0.13854557, 0.15212154, 0.19103563, 0.8039216)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6ot4"]
-bg_color = Color(0.34902, 0.188235, 0.0509804, 1)
+bg_color = Color(0.25644845, 0.2660458, 0.4586838, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -20,59 +21,29 @@ shadow_size = 7
 shadow_offset = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h33vf"]
-bg_color = Color(0.238651, 0.1563, 0.0835014, 1)
+bg_color = Color(0.18184069, 0.1910496, 0.33115038, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0drm"]
+bg_color = Color(0.5076891, 0.593993, 0.8259245, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daxxb"]
+bg_color = Color(0.5076891, 0.593993, 0.8259245, 1)
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="LabelSettings" id="LabelSettings_c2f03"]
 font = ExtResource("4_dqfv6")
 font_size = 31
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6ot4"]
-atlas = ExtResource("1_y6ot4")
-region = Rect2(84.4526, 53.7239, 1062.94, 621.657)
-
 [sub_resource type="LabelSettings" id="LabelSettings_dqfv6"]
 font = ExtResource("4_dqfv6")
 font_size = 38
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aq7s"]
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tycs"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uf0yp"]
-font = ExtResource("4_dqfv6")
-font_size = 39
-font_color = Color(0.12559, 0.0567729, 0.0227351, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ry6x"]
-bg_color = Color(0.382958, 0.493253, 0.250542, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqfv6"]
-bg_color = Color(0.631978, 0.777788, 0.465521, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvn71"]
-bg_color = Color(0.241438, 0.318015, 0.148674, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h33vf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2f03"]
 bg_color = Color(0.524922, 0.280172, 0.164141, 1)
@@ -96,6 +67,56 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd5d6"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gm3ne"]
+bg_color = Color(0.40025154, 0.3682963, 0.8293252, 1)
+corner_radius_top_right = 3000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aq7s"]
+bg_color = Color(0.6690605, 0.7875164, 0.89451015, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tycs"]
+bg_color = Color(0.67058825, 0.7882353, 0.89411765, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf0yp"]
+font = ExtResource("4_dqfv6")
+font_size = 39
+font_color = Color(0.6445919, 0.27718458, 0.57321763, 1)
+outline_size = 10
+outline_color = Color(0.9936883, 0.9957809, 0.9993164, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ry6x"]
+bg_color = Color(0.35879806, 0.6282958, 0.7242008, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5316796, 0.23127481, 0.8156056, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvx2v"]
+bg_color = Color(0.16245335, 0.31417316, 0.4370098, 1)
+border_color = Color(0.09239706, 0.09239709, 0.09239695, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h33vf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5cbke"]
+font = ExtResource("4_dqfv6")
+font_size = 55
+font_color = Color(0.65424913, 0.25532877, 0.60148764, 1)
+outline_size = 13
+outline_color = Color(0.20439896, 0.09621262, 0.23324478, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_h33vf"]
 font = ExtResource("4_dqfv6")
@@ -124,9 +145,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4aa2i")
 process_mode = 3
 z_index = 1
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="shop_item_pos_node" type="Control" parent="item_list"]
 unique_name_in_owner = true
@@ -146,17 +169,10 @@ offset_bottom = 190.0
 
 [node name="Panel" type="Panel" parent="item_list"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 35.9999
-offset_top = 56.9999
-offset_right = 1724.9757
-offset_bottom = 960.94403
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 59.999992
+offset_top = 68.99999
+offset_right = 1748.9756
+offset_bottom = 972.9442
 scale = Vector2(0.95028, 0.95028)
 theme_override_styles/panel = SubResource("StyleBoxFlat_y6ot4")
 
@@ -179,6 +195,7 @@ offset_top = 143.6419
 offset_right = 285.17914
 offset_bottom = 210.99048
 scale = Vector2(0.5928382, 0.5928382)
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0drm")
 
 [node name="Polygon2D" type="Polygon2D" parent="item_list/Panel/Panel3/Panel"]
 position = Vector2(60.3519, 39.051277)
@@ -193,6 +210,7 @@ offset_top = 189.94409
 offset_right = 285.17914
 offset_bottom = 257.2927
 scale = Vector2(0.59283835, 0.59283835)
+theme_override_styles/panel = SubResource("StyleBoxFlat_daxxb")
 
 [node name="Polygon2D2" type="Polygon2D" parent="item_list/Panel/Panel3/Panel2"]
 position = Vector2(65.67707, 28.400917)
@@ -225,11 +243,6 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h33vf")
 
-[node name="Sprite2D" type="Sprite2D" parent="item_list"]
-visible = false
-scale = Vector2(0.888369, 0.888369)
-texture = SubResource("AtlasTexture_y6ot4")
-
 [node name="Label" type="Label" parent="item_list"]
 layout_mode = 0
 offset_left = 98.0
@@ -240,79 +253,6 @@ text = "LOJA DO
 CARANGUEJO"
 label_settings = SubResource("LabelSettings_dqfv6")
 
-[node name="dialog" type="Panel" parent="item_list"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 375.0
-offset_top = 809.0
-offset_right = 953.0
-offset_bottom = 954.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.217489, 1.217489)
-theme_override_styles/panel = SubResource("StyleBoxFlat_7aq7s")
-
-[node name="Panel8" type="Panel" parent="item_list/dialog"]
-layout_mode = 0
-offset_left = -23.0
-offset_top = 31.0
-offset_right = 66.0
-offset_bottom = 140.0
-rotation = -0.286123
-theme_override_styles/panel = SubResource("StyleBoxFlat_2tycs")
-
-[node name="Label" type="Label" parent="item_list/dialog"]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 21.0
-offset_right = 416.0
-offset_bottom = 60.0
-text = "Deseja confirmar a compra?"
-label_settings = SubResource("LabelSettings_uf0yp")
-
-[node name="buy_button" type="Button" parent="item_list/dialog"]
-layout_mode = 0
-offset_left = 506.0
-offset_top = 101.0
-offset_right = 590.0
-offset_bottom = 155.0
-theme_override_fonts/font = ExtResource("4_dqfv6")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ry6x")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_dqfv6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_gvn71")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dqfv6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_dqfv6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_h33vf")
-text = "SIM"
-
-[node name="selected_item_icon" type="Control" parent="item_list"]
-anchors_preset = 0
-offset_left = 1687.0
-offset_top = 416.0
-offset_right = 1887.0
-offset_bottom = 627.0
-
-[node name="Panel2" type="Panel" parent="item_list/selected_item_icon"]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 23.0
-offset_right = 204.0
-offset_bottom = 214.0
-
-[node name="item_icon" type="TextureRect" parent="item_list/selected_item_icon"]
-layout_mode = 0
-offset_left = -59.0
-offset_top = -83.0
-offset_right = 249.0
-offset_bottom = 202.0
-texture = ExtResource("3_dqfv6")
-expand_mode = 1
-
 [node name="crab_icon" type="Control" parent="item_list"]
 z_index = 1
 anchors_preset = 0
@@ -322,6 +262,7 @@ offset_right = 140.0
 offset_bottom = 386.0
 
 [node name="Panel11" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,6 +276,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c2f03")
 
 [node name="Panel2" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -348,6 +290,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5cbke")
 
 [node name="Panel9" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -361,6 +304,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
 
 [node name="Panel10" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -374,6 +318,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_myp1c")
 
 [node name="Panel12" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -387,6 +332,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gsweg")
 
 [node name="Panel14" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -400,6 +346,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
 
 [node name="Panel15" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -413,6 +360,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sf0no")
 
 [node name="Panel13" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -426,6 +374,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
 [node name="Panel16" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -439,6 +388,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
 [node name="Panel17" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -452,6 +402,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
 [node name="Panel18" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -465,6 +416,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivtsw")
 
 [node name="Panel7" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -478,6 +430,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
 
 [node name="Panel8" type="Panel" parent="item_list/crab_icon"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -490,9 +443,98 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xd5d6")
 
+[node name="shadow" type="Panel" parent="item_list/crab_icon"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = 316.0
+offset_right = 187.77034
+offset_bottom = 508.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gm3ne")
+
+[node name="icon" type="TextureRect" parent="item_list/crab_icon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25
+anchor_top = 13.85
+anchor_right = -0.25
+anchor_bottom = 13.85
+offset_left = -1.0
+offset_top = -326.49997
+offset_right = 811.65814
+offset_bottom = 486.1582
+grow_vertical = 0
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("7_5cbke")
+
+[node name="dialog" type="Panel" parent="item_list/crab_icon"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 471.0
+offset_right = 778.0
+offset_bottom = 616.0
+grow_vertical = 0
+scale = Vector2(1.217489, 1.217489)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7aq7s")
+
+[node name="Panel8" type="Panel" parent="item_list/crab_icon/dialog"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 31.0
+offset_right = 66.0
+offset_bottom = 140.0
+rotation = -0.286123
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tycs")
+
+[node name="Label" type="Label" parent="item_list/crab_icon/dialog"]
+layout_mode = 0
+offset_left = 26.283607
+offset_top = 17.248623
+offset_right = 452.2836
+offset_bottom = 57.248623
+text = "Deseja confirmar a compra?"
+label_settings = SubResource("LabelSettings_uf0yp")
+
+[node name="buy_button" type="Button" parent="item_list/crab_icon/dialog"]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 101.0
+offset_right = 590.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("4_dqfv6")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ry6x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4ry6x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pvx2v")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h33vf")
+text = "SIM"
+
 [node name="Polygon2D" type="Polygon2D" parent="item_list"]
-position = Vector2(395, 205)
+position = Vector2(391, 241)
+scale = Vector2(1.8321464, 1.8321464)
 polygon = PackedVector2Array(-1, -10, -1, 12, 9, 2)
+
+[node name="alert_text" type="Label" parent="item_list"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 35.0
+offset_right = 301.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "DINHEIRO INSUFICIENTE!"
+label_settings = SubResource("LabelSettings_5cbke")
 
 [node name="coins_label" type="Label" parent="."]
 anchors_preset = 1
@@ -522,22 +564,65 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -310.0
-offset_top = -105.0
-offset_right = -36.0
-offset_bottom = -30.0
+offset_left = -336.0
+offset_top = -93.0
+offset_right = -7.0
+offset_bottom = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_dqfv6")
-theme_override_font_sizes/font_size = 55
+theme_override_font_sizes/font_size = 45
 theme_override_styles/normal = SubResource("StyleBoxFlat_uf0yp")
-text = "sair da loja"
+text = "SAIR DA LOJA"
 flat = true
+
+[node name="selected_item_icon" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -105.5
+offset_right = -71.0
+offset_bottom = 105.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ItemShadow" type="TextureRect" parent="selected_item_icon"]
+modulate = Color(0.76059955, 0.8614844, 0.8782914, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -262.99985
+offset_top = -104.499985
+offset_right = 516.4518
+offset_bottom = 606.45886
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("4_c2f03")
+
+[node name="item_icon" type="TextureRect" parent="selected_item_icon"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -59.0
+offset_top = -83.0
+offset_right = 249.0
+offset_bottom = 202.0
+texture = ExtResource("3_dqfv6")
+expand_mode = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
 autostart = true
 
-[connection signal="pressed" from="item_list/dialog/buy_button" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="item_list/crab_icon/dialog/buy_button" to="." method="_on_buy_button_pressed"]
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

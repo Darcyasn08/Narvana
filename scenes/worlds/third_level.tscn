@@ -6,47 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="4_28w3a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l66sv"]
-size = Vector3(40, 15.630798, 50)
+size = Vector3(40, 15.630798, 52.98645)
 
 [node name="third_level" type="Node3D"]
 
 [node name="third_level_model" parent="." instance=ExtResource("2_7ssvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3417263, -0.5118561, 0)
 
 [node name="player" parent="." instance=ExtResource("1_nvibc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8979387, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4757915, -14.981331)
 
 [node name="spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("3_e587m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.13634)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 44.601444)
 area_node = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="spawner_manager"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.679121, 0)
-shape = SubResource("BoxShape3D_l66sv")
-
-[node name="spawner_manager2" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("3_e587m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 104.429)
-area_node = NodePath("Area3D")
-current_room = 1
-
-[node name="Area3D" type="Area3D" parent="spawner_manager2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager2/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.679121, 0)
-shape = SubResource("BoxShape3D_l66sv")
-
-[node name="spawner_manager3" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("3_e587m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 176.31857)
-area_node = NodePath("Area3D")
-current_room = 2
-
-[node name="Area3D" type="Area3D" parent="spawner_manager3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.679121, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.679121, 1.4932251)
 shape = SubResource("BoxShape3D_l66sv")
 
 [node name="spawner" parent="." instance=ExtResource("4_28w3a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.778614, 35.24037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8350773, 1.778614, 44.95849)
 level_number = 2

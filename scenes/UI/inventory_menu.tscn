@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddw77aywbgkt1"]
+[gd_scene load_steps=16 format=3 uid="uid://ddw77aywbgkt1"]
 
 [ext_resource type="Script" uid="uid://qfijfq46qev1" path="res://scripts/UI/inventory_menu.gd" id="1_qtyf2"]
 [ext_resource type="Texture2D" uid="uid://bkq4ovlce3mt2" path="res://UI/inventory_background.png" id="2_5bih5"]
@@ -6,25 +6,48 @@
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_ivdwf"]
 [ext_resource type="Texture2D" uid="uid://bm3j21ucbw45v" path="res://UI/narvana-fire.png" id="5_ivdwf"]
 [ext_resource type="Texture2D" uid="uid://ddbiu7e4rj0d5" path="res://UI/money.png" id="5_jm714"]
+[ext_resource type="Texture2D" uid="uid://b1j4ghmd74yi8" path="res://UI/inventory/inventory-item-frame.png" id="5_nmks5"]
+[ext_resource type="FontFile" uid="uid://dakykoyuk21wd" path="res://UI/fonts/hogback/Hogback Demo Version.otf" id="6_nmks5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
 bg_color = Color(0.145098, 0.172549, 0.227451, 0.988235)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6bxq"]
-bg_color = Color(0.394165, 0.432446, 0.475894, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+bg_color = Color(0.22658694, 0.2851269, 0.5127149, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4yxnc"]
+font = ExtResource("4_ivdwf")
+font_size = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfgxa"]
-bg_color = Color(0.278734, 0.472982, 0.557744, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.48055744, 0.1866954, 0.4752009, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33044207, 0.2064639, 0.41889334, 1)
+corner_radius_top_left = 400
+corner_radius_top_right = 400
+corner_radius_bottom_right = 400
+corner_radius_bottom_left = 400
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6bxq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmks5"]
+bg_color = Color(0.28361467, 0.0932013, 0.27671576, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.33044207, 0.2064639, 0.41889334, 1)
+corner_radius_top_left = 400
+corner_radius_top_right = 400
+corner_radius_bottom_right = 400
+corner_radius_bottom_left = 400
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvddd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jm714"]
 font = ExtResource("4_ivdwf")
@@ -119,8 +142,10 @@ grow_horizontal = 0
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
-offset_right = 219.0
-offset_bottom = 262.0
+offset_left = -12.0
+offset_top = 34.0
+offset_right = 207.0
+offset_bottom = 296.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j6bxq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="shop_item_container/shop_items_dropbox"]
@@ -131,6 +156,7 @@ offset_right = 209.0
 offset_bottom = 254.0
 
 [node name="selected_item_label" type="Label" parent="shop_item_container"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -142,27 +168,44 @@ offset_bottom = -50.0
 grow_vertical = 0
 text = "-"
 
-[node name="label" type="Label" parent="shop_item_container"]
+[node name="magic_slot4" type="TextureRect" parent="shop_item_container"]
+modulate = Color(0.79607844, 1, 1, 0.5019608)
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -67.0
-offset_right = 136.0
-offset_bottom = -44.0
-grow_vertical = 0
-text = "item selecionado:"
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -272.0
+offset_top = 29.999992
+offset_right = 576.7969
+offset_bottom = 878.7969
+grow_horizontal = 0
+scale = Vector2(0.291, 0.291)
+texture = ExtResource("5_nmks5")
 
-[node name="selected_item_stats" type="RichTextLabel" parent="shop_item_container"]
+[node name="shop_item_icon" type="TextureRect" parent="shop_item_container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.00006
+offset_top = 65.999985
+offset_right = 555.02295
+offset_bottom = 861.02295
+grow_horizontal = 0
+scale = Vector2(0.221, 0.221)
+
+[node name="selected_item_stats" type="Label" parent="shop_item_container"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -42.0
-offset_right = 166.0
-offset_bottom = 32.0
+offset_left = 400.0
+offset_top = -105.0
+offset_right = 743.0
+offset_bottom = -65.0
 grow_vertical = 0
-text = "item selecionado:"
+label_settings = SubResource("LabelSettings_4yxnc")
 
 [node name="open_item_select" type="Button" parent="shop_item_container"]
 layout_mode = 1
@@ -171,28 +214,19 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -283.0
-offset_top = -50.0
+offset_left = -264.0
+offset_top = -124.0
+offset_right = -198.0
+offset_bottom = -54.333313
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("6_nmks5")
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_lfgxa")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j6bxq")
-text = "SELECIONAR ITEM DA LOJA"
-
-[node name="magic_slot4" type="TextureRect" parent="shop_item_container"]
-modulate = Color(0.1254902, 0.17254902, 0.24313726, 0.39215687)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -259.0
-offset_top = 3.0000005
-offset_right = -34.182617
-offset_bottom = 227.81726
-grow_horizontal = 0
-scale = Vector2(1.1256399, 1.1256399)
-texture = ExtResource("5_jm714")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lfgxa")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nmks5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fvddd")
+text = "+"
 
 [node name="money_label" type="Label" parent="."]
 layout_mode = 1
@@ -232,7 +266,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="magic_slot" type="TextureRect" parent="magics"]
-modulate = Color(0.1254902, 0.17254902, 0.24313726, 0.39215687)
+modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
 layout_mode = 0
 offset_left = 333.0
 offset_top = -28.0
@@ -242,7 +276,7 @@ scale = Vector2(1.2116431, 1.2116431)
 texture = ExtResource("5_jm714")
 
 [node name="magic_slot2" type="TextureRect" parent="magics"]
-modulate = Color(0.1254902, 0.17254902, 0.24313726, 0.39215687)
+modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
 layout_mode = 0
 offset_left = 467.99997
 offset_top = 195.0
@@ -253,7 +287,7 @@ scale = Vector2(1.2116431, 1.2116431)
 texture = ExtResource("5_jm714")
 
 [node name="magic_slot3" type="TextureRect" parent="magics"]
-modulate = Color(0.1254902, 0.17254902, 0.24313726, 0.39215687)
+modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
 layout_mode = 0
 offset_left = -14.999985
 offset_top = 222.0
@@ -270,10 +304,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -119.0
-offset_top = -346.99994
-offset_right = 181.0
-offset_bottom = 53.0
+offset_left = -181.0
+offset_top = -541.0
+offset_right = 310.03906
+offset_bottom = 113.718994
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.7956493, 0.7942238)

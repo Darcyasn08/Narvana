@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3rpr78xtkjjo"]
+
+[ext_resource type="Script" uid="uid://d1qd1er62q8ex" path="res://scripts/enemies/parents.gd" id="1_iki5j"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_yvd8t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iki5j"]
+radius = 0.576816
+
+[sub_resource type="BoxMesh" id="BoxMesh_cmt7j"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_iki5j"]
+radius = 1.0
+height = 2.0
+radial_segments = 10
+rings = 10
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cmt7j"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.164706)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mpfoe"]
+radius = 0.481804
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ogx3"]
+size = Vector3(1, 1.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mp1gm"]
+size = Vector3(1, 1, 1.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_co5jr"]
+radius = 0.576816
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iki5j"]
+height = 1.0
+radius = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cmt7j"]
+size = Vector3(4, 1, 4)
+
+[node name="parents" type="Node3D"]
+script = ExtResource("1_iki5j")
+
+[node name="mom" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647887, 0, 0)
+
+[node name="enemy_hitbox" parent="mom" node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_yvd8t")]
+hitbox_collision = NodePath("hitbox")
+
+[node name="hitbox" type="CollisionShape3D" parent="mom/enemy_hitbox"]
+shape = SubResource("SphereShape3D_iki5j")
+
+[node name="molde" type="CSGMesh3D" parent="mom"]
+mesh = SubResource("BoxMesh_cmt7j")
+
+[node name="escudo" type="CSGMesh3D" parent="mom"]
+visible = false
+mesh = SubResource("SphereMesh_iki5j")
+material = SubResource("StandardMaterial3D_cmt7j")
+
+[node name="pie_spawner" type="Node3D" parent="mom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.52408)
+
+[node name="collision" type="CollisionShape3D" parent="mom"]
+shape = SubResource("SphereShape3D_mpfoe")
+
+[node name="dad" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649594, 0, 0)
+
+[node name="standing" type="CSGMesh3D" parent="dad"]
+mesh = SubResource("BoxMesh_5ogx3")
+
+[node name="horning" type="CSGMesh3D" parent="dad"]
+visible = false
+mesh = SubResource("BoxMesh_mp1gm")
+
+[node name="enemy_hitbox" parent="dad" node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_yvd8t")]
+hitbox_collision = NodePath("../../mom/enemy_hitbox/hitbox")
+
+[node name="hitbox" type="CollisionShape3D" parent="dad/enemy_hitbox"]
+shape = SubResource("SphereShape3D_co5jr")
+
+[node name="collision" type="CollisionShape3D" parent="dad"]
+shape = SubResource("SphereShape3D_mpfoe")
+
+[node name="escudo" type="CSGMesh3D" parent="dad"]
+visible = false
+mesh = SubResource("SphereMesh_iki5j")
+material = SubResource("StandardMaterial3D_cmt7j")
+
+[node name="hands" type="Area3D" parent="dad"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="hand1" type="CollisionShape3D" parent="dad/hands"]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, -2.442, -7.50879e-08, 2.22523)
+shape = SubResource("CylinderShape3D_iki5j")
+disabled = true
+
+[node name="hand2" type="CollisionShape3D" parent="dad/hands"]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 2.42251, -0.041809, 2.24613)
+shape = SubResource("CylinderShape3D_iki5j")
+disabled = true
+
+[node name="slaping" type="CollisionShape3D" parent="dad/hands"]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 5.96046e-08, -4.65661e-10, 2.16652)
+shape = SubResource("BoxShape3D_cmt7j")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="dad/enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]
+[connection signal="area_entered" from="dad/hands" to="." method="_on_hands_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

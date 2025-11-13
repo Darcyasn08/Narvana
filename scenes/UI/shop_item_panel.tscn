@@ -1,24 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://q3b824gclokt"]
+[gd_scene load_steps=10 format=3 uid="uid://q3b824gclokt"]
 
 [ext_resource type="Script" uid="uid://cna6ydksk78hw" path="res://scripts/UI/shop_item_panel.gd" id="1_1uu53"]
 [ext_resource type="Texture2D" uid="uid://ch0lsf6imx7bn" path="res://UI/inventory/teddy-bear.png" id="1_by4wm"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="3_odd00"]
+[ext_resource type="Texture2D" uid="uid://ddbiu7e4rj0d5" path="res://UI/money.png" id="3_p2wy5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uu53"]
-bg_color = Color(0.416358, 0.315345, 0.263039, 1)
+bg_color = Color(0.24682197, 0.30574834, 0.50308293, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odd00"]
-bg_color = Color(0.204822, 0.140174, 0.131555, 1)
+bg_color = Color(0.11768169, 0.17433545, 0.32810846, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_7aq7s"]
-font_size = 23
+font = ExtResource("3_odd00")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2wy5"]
+font = ExtResource("3_odd00")
+font_size = 24
+font_color = Color(0.7464637, 0.7437675, 0.91301334, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_svwcy"]
+font = ExtResource("3_odd00")
+font_size = 34
 
 [node name="shop_item_panel" type="Control"]
 z_index = 3
@@ -62,6 +74,20 @@ grow_vertical = 2
 texture = ExtResource("1_by4wm")
 expand_mode = 1
 
+[node name="product_icon2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 185.0
+offset_top = 138.0
+offset_right = -375.66666
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_p2wy5")
+expand_mode = 1
+
 [node name="item_name_label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 189.0
@@ -78,12 +104,13 @@ offset_top = 72.0
 offset_right = 329.0
 offset_bottom = 104.0
 text = "desc"
+label_settings = SubResource("LabelSettings_p2wy5")
 
 [node name="item_price_label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 198.0
-offset_top = 152.0
-offset_right = 251.0
-offset_bottom = 184.0
-text = "$100"
-label_settings = SubResource("LabelSettings_7aq7s")
+offset_left = 248.0
+offset_top = 153.0
+offset_right = 379.0
+offset_bottom = 188.0
+text = "100"
+label_settings = SubResource("LabelSettings_svwcy")

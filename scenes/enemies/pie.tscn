@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://buo3ejpwiun80"]
+
+[ext_resource type="Script" uid="uid://dwcuq53xq8mac" path="res://scripts/enemies/pie.gd" id="1_o6muh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0m2ic"]
+size = Vector3(1, 0.3, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o6muh"]
+radius = 0.402928
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6piy0"]
+radius = 0.556742
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cg3m5"]
+radius = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_whcb4"]
+radius = 2.0
+height = 4.0
+radial_segments = 21
+rings = 7
+
+[node name="pie" type="CharacterBody3D"]
+script = ExtResource("1_o6muh")
+
+[node name="molde" type="CSGMesh3D" parent="."]
+mesh = SubResource("BoxMesh_0m2ic")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_o6muh")
+
+[node name="hitbox" type="Area3D" parent="."]
+
+[node name="hitbox" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 0, 0)
+shape = SubResource("SphereShape3D_6piy0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="explosion_area" type="Area3D" parent="."]
+monitoring = false
+
+[node name="explosion" type="CollisionShape3D" parent="explosion_area"]
+shape = SubResource("SphereShape3D_cg3m5")
+
+[node name="explosion_molde" type="CSGMesh3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_whcb4")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="explosion_area" to="." method="_on_explosion_area_area_entered"]

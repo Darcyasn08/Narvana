@@ -29,6 +29,8 @@ func _input(_event: InputEvent) -> void:
 			Global.next_scene = "res://scenes/worlds/second_level.tscn"
 			get_tree().change_scene_to_packed(Global.loading_screen)
 		elif Global.current_world == Global.worlds.SECOND_LEVEL and !portal_closed:
+			if portal_type == portal_types.EXIT:
+				Global.completed_levels["second_level"] = true
 			#Global.last_saved_pos = Vector3(13,1,30)
 			Global.current_world = Global.worlds.NORMAL
 			Global.next_scene = "res://scenes/worlds/normal_world.tscn"

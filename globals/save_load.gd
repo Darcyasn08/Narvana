@@ -9,11 +9,11 @@ var save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.npc_manager,
-		"health": Global.player_health,
-		"completed_levels": Global.completed_levels,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
+		"health": 7,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
 		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.inventory,
+		"inventory": Global.reset_inventory.duplicate(),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -24,11 +24,11 @@ var save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.npc_manager,
-		"health": Global.player_health,
-		"completed_levels": Global.completed_levels,
-		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.inventory,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
+		"health": 7,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
+		"cutscenes": Global.reset_cutscenes.duplicate(true),
+		"inventory": Global.reset_inventory.duplicate(true),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -39,11 +39,11 @@ var save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.npc_manager,
-		"health": Global.player_health,
-		"completed_levels": Global.completed_levels,
-		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.inventory,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
+		"health": 7,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
+		"cutscenes": Global.reset_cutscenes.duplicate(true),
+		"inventory": Global.reset_inventory.duplicate(true),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -57,11 +57,11 @@ var reset_save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.reset_npc_manager,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
 		"health": 7,
-		"completed_levels": Global.reset_completed_levels,
-		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.reset_inventory,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
+		"cutscenes": Global.reset_cutscenes.duplicate(true),
+		"inventory": Global.reset_inventory.duplicate(true),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -72,11 +72,11 @@ var reset_save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.reset_npc_manager,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
 		"health": 7,
-		"completed_levels": Global.reset_completed_levels,
-		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.reset_inventory,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
+		"cutscenes": Global.reset_cutscenes.duplicate(true),
+		"inventory": Global.reset_inventory.duplicate(true),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -87,11 +87,11 @@ var reset_save_content: Dictionary = {
 		"current_world": 0,
 		"current_weapon": 1,
 		"last_saved_pos": Vector3(0,0,-45),
-		"npc_manager": Global.reset_npc_manager,
+		"npc_manager": Global.reset_npc_manager.duplicate(true),
 		"health": 7,
-		"completed_levels": Global.reset_completed_levels,
-		"cutscenes": Global.reset_cutscenes.duplicate(),
-		"inventory": Global.reset_inventory,
+		"completed_levels": Global.reset_completed_levels.duplicate(true),
+		"cutscenes": Global.reset_cutscenes.duplicate(true),
+		"inventory": Global.reset_inventory.duplicate(true),
 		"mouse_sens": Global.mouse_sens,
 		"rotation_mouse_axis_x": Global.rotation_mouse_axis_x,
 		"rotation_mouse_axis_y": Global.rotation_mouse_axis_y,
@@ -121,6 +121,9 @@ func load_to_global() -> void:
 	Global.rotation_mouse_axis_x = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"]
 	Global.rotation_mouse_axis_y = SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"]
 	Global.time_lapsed = SaveLoad.save_content[Global.current_save]["time_lapsed"]
+	if !SaveLoad.save_content[Global.current_save]["inventory"].has("selected_shop_item"):
+		SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"] = -1
+	Global.selected_shop_item = SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"]
 
 func save_to_file() -> void:
 	SignalBus.on_game_saved.emit()
@@ -137,6 +140,7 @@ func save_to_file() -> void:
 	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_x"] = Global.rotation_mouse_axis_x
 	SaveLoad.save_content[Global.current_save]["rotation_mouse_axis_y"] = Global.rotation_mouse_axis_y
 	SaveLoad.save_content[Global.current_save]["time_lapsed"] = Global.time_lapsed
+	SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"] = Global.selected_shop_item
 	#fazer isso realmente funcionar ^^^
 	SaveLoad.save()
 

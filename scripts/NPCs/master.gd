@@ -13,11 +13,11 @@ func _ready() -> void:
 	if npc_name == "second_master":
 		if !Global.completed_levels["first_level"]:
 			$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", true)
-			$master_model/body/StaticBody3D/CollisionShape3D.set_deferred("disabled", true)
+			$StaticBody3D/CollisionShape3D.set_deferred("disabled", true)
 			hide()
 		else:
 			$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", false)
-			$master_model/body/StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
+			$StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
 			show()
 	if Global.completed_levels["first_level"] and npc_name == "master":
 		hide()

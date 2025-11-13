@@ -21,12 +21,13 @@ func create_items() -> void:
 		shop_item_panel.item_name = Global.shop_items[id]["name"]
 		shop_item_panel.item_desc = Global.shop_items[id]["desc"]
 		shop_item_panel.item_price = str(Global.shop_items[id]["price"])
+		shop_item_panel.icon = load(Global.shop_items[id]["icon"])
 		shop_item_panel.id = id
 		add_child(shop_item_panel)
 		item_array.append(shop_item_panel)
 		price_list.append(Global.shop_items[id]["price"])
 		item_panel_pos += Vector2(0,230)
-	$item_list/selected_item_icon/item_icon.texture = load(Global.shop_items[selected_index]["icon"])
+	%item_icon.texture = load(Global.shop_items[selected_index]["icon"])
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("down_arrow"):
@@ -34,26 +35,29 @@ func _input(event: InputEvent) -> void:
 			selected_index = selected_index
 		else:
 			selected_index += 1
-			$item_list/Polygon2D.position += Vector2(0, 230)
+			$item_list/Polygon2D.position += Vector2(0, 240)
 		change_selected_item(selected_index)
 	if event.is_action_pressed("up_arrow"):
 		if selected_index <= 0:
 			selected_index = selected_index
 		else:
 			selected_index -= 1
-			$item_list/Polygon2D.position -= Vector2(0, 230)
+			$item_list/Polygon2D.position -= Vector2(0, 240)
 		change_selected_item(selected_index)
 	
 
 func change_selected_item(index: int) -> void:
 	#mudar a foto gigante do item de acordo com o item selecionado
 	#$item_list/selected_item_icon/item_icon.texture = load(item_array[index]["icon"])
-	$item_list/selected_item_icon/item_icon.texture = load(Global.shop_items[index]["icon"])
+	%item_icon.texture = load(Global.shop_items[index]["icon"])
 
 func buy_item() -> void:
 	#fazer ele pegar o id do item que foi clicado com o botão, de alguma forma
 	if Global.coins < Global.shop_items[selected_index]["price"]:
-		print("dinheiro insuficiente!")
+		print("Dinheiro insuficiente!")
+		$item_list/alert_text.show()
+		await get_tree().create_timer(1.8).timeout
+		$item_list/alert_text.hide()
 	else:
 		Global.coins -= Global.shop_items[selected_index]["price"]
 		print("Compra efetuada! Dinheiro restante: ", Global.coins)
@@ -64,14 +68,10 @@ func buy_item() -> void:
 		n += 1
 	
 	#print(Global.shop_items[selected_index]["name"])
-	Global.inventory["shop_items"][n] = {"name": Global.shop_items[selected_index]["name"], "buff": Global.shop_items[selected_index]["buff"]}
+	Global.inventory["shop_items"][n] = {"name": Global.shop_items[selected_index]["name"],"icon": Global.shop_items[selected_index]["icon"], "buff": Global.shop_items[selected_index]["buff"]}
 	#print(Global.inventory["shop_items"])
 	
 	SignalBus.on_buy_shop_item.emit()
-	
-	#Global.inventory["shop_items"][Global.shop_items[selected_index]]["name"] = Global.shop_items[selected_index]["name"]
-	#Global.inventory["shop_items"][Global.shop_items[selected_index]]["buff"] = Global.shop_items[selected_index]["buff"]
-	#print(Global.inventory["shop_items"][selected_index])
 	#rodar algum tipo de animação ou efeito de compra aqui
 
 func _on_buy_button_pressed() -> void:

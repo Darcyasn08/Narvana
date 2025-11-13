@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="6_yfbkh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g6vco"]
-radius = 0.81884766
-height = 4.614319
+radius = 0.93603516
+height = 4.4219055
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbkh"]
 diffuse_mode = 3
@@ -110,7 +110,7 @@ script = ExtResource("1_h2qy3")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.0761703, 0.14771464)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.87392867, 0.051507965)
 shape = SubResource("CapsuleShape3D_g6vco")
 
 [node name="master_model" parent="." instance=ExtResource("1_jooxx")]

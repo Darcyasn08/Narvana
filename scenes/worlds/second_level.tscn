@@ -1,14 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://45m2rb81gimd"]
+[gd_scene load_steps=42 format=3 uid="uid://45m2rb81gimd"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_k6ckt"]
 [ext_resource type="Script" uid="uid://cog8qajqsgdme" path="res://scripts/second_level.gd" id="1_pfrex"]
 [ext_resource type="PackedScene" uid="uid://ug02byjrmf1d" path="res://scenes/worlds/second_level_model.tscn" id="2_s3ee0"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="4_7wo7l"]
 [ext_resource type="PackedScene" uid="uid://bmb3oothu0jba" path="res://scenes/enemies/ceo_wall.tscn" id="6_s3ee0"]
-[ext_resource type="PackedScene" uid="uid://by6ejqq7ger37" path="res://3d_models/placeholders/enemies/stage_band.glb" id="7_2bkyy"]
-[ext_resource type="PackedScene" uid="uid://mp5ex2cb7jp8" path="res://scenes/octopus_model.tscn" id="8_ruiny"]
-[ext_resource type="PackedScene" uid="uid://diw5if6u5s55c" path="res://scenes/seahorse_model.tscn" id="9_xnph4"]
-[ext_resource type="PackedScene" uid="uid://boxmd6ady4xvf" path="res://scenes/turtle_model.tscn" id="10_s3ee0"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="11_ruiny"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="12_s3ee0"]
 [ext_resource type="PackedScene" uid="uid://c60x0jfkdac5l" path="res://scenes/particles/second_level_collision_particle.tscn" id="12_xnph4"]
@@ -28,6 +24,27 @@ size = Vector3(4.41956, 13.386, 48.585545)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3ee0"]
 size = Vector3(4.41956, 13.386, 42.1783)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lr31c"]
+size = Vector3(43.113052, 13.072937, 56.851685)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xufcb"]
+size = Vector3(5.2024555, 13.386, 57.16655)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t66ba"]
+size = Vector3(4.2301407, 13.386, 57.135033)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i73h7"]
+size = Vector3(3.0852365, 13.386, 48.432777)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hk8sr"]
+size = Vector3(37.31806, 13.072937, 42.0708)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56tc4"]
+size = Vector3(2.827309, 13.386, 44.71694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g55bm"]
+size = Vector3(3.1002512, 13.386, 36.64689)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_03ddv"]
 size = Vector3(39.350163, 12.2286, 32.552895)
@@ -53,8 +70,14 @@ size = Vector3(2.2808385, 13.386, 52.342964)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ag3v1"]
 size = Vector3(1.975405, 13.386, 42.1783)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpsbw"]
+size = Vector3(59.999496, 13.072937, 59.867676)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2bkyy"]
+size = Vector3(5.2024555, 13.386, 65.52761)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_6q6ri"]
-size = Vector3(67.20892, 13.072937, 59.706055)
+size = Vector3(5.2024555, 13.386, 63.836227)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q60ar"]
 size = Vector3(4.41956, 13.386, 60.79587)
@@ -64,30 +87,6 @@ size = Vector3(4.41956, 13.386, 59.52958)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qflks"]
 size = Vector3(65.277405, 8.746826, 6.6049194)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lr31c"]
-size = Vector3(43.113052, 13.072937, 56.851685)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xufcb"]
-size = Vector3(5.2024555, 13.386, 57.16655)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_t66ba"]
-size = Vector3(4.2301407, 13.386, 57.135033)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_i73h7"]
-size = Vector3(3.0852365, 13.386, 48.432777)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_hk8sr"]
-size = Vector3(37.31806, 13.072937, 42.0708)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_56tc4"]
-size = Vector3(2.827309, 13.386, 44.71694)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_g55bm"]
-size = Vector3(3.1002512, 13.386, 36.64689)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s15vj"]
-albedo_color = Color(0.177398, 0.089734, 0.219116, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wgak"]
 albedo_color = Color(0.34331992, 0.60865915, 0.8677265, 1)
@@ -117,7 +116,7 @@ script = ExtResource("1_pfrex")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020363808, 0.012010574, -0.07836342)
 
 [node name="player" parent="." instance=ExtResource("1_k6ckt")]
-transform = Transform3D(0.9988317, 0, 0.048326857, 0, 1, 0, -0.048326857, 0, 0.9988317, 3.4853268, 0.24365, 28.992266)
+transform = Transform3D(0.9988317, 0, 0.048326857, 0, 1, 0, -0.048326857, 0, 0.9988317, -219.02692, 0.24365, 138.80823)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -48)
@@ -239,218 +238,7 @@ transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.002827
 transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -26.211689, 0.003934, 14.966179)
 
 [node name="player_pos_node" type="Node3D" parent="spawner_manager2"]
-transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -0.0992465, 0.66692734, -1.1679685)
-
-[node name="spawner_manager7" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
-transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -55.67655, 0, 30.259245)
-area_node = NodePath("Area3D")
-current_room = 4
-
-[node name="Area3D" type="Area3D" parent="spawner_manager7"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager7/Area3D"]
-transform = Transform3D(1.00001, 0, -1.8626451e-08, 0, 1, 0, 1.8626451e-08, 0, 1.00001, -1.8512878, 4.47079, 5.709469)
-shape = SubResource("BoxShape3D_03ddv")
-debug_color = Color(0.481079, 0.900778, 1, 0.42)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager7"]
-transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
-transform = Transform3D(0.999991, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 0.999991, 17.45362, 6.19299, 5.3323975)
-shape = SubResource("BoxShape3D_n5gdl")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
-transform = Transform3D(0.9999983, 0, -1.21071935e-08, 0, 1, 0, 1.21071935e-08, 0, 0.9999983, -22.715933, 6.19299, 4.819271)
-shape = SubResource("BoxShape3D_ilgn1")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
-transform = Transform3D(-1.8626451e-09, 0, 0.9999933, 0, 1, 0, -0.9999933, 0, -1.8626451e-09, -1.4273682, 6.19299, 21.568752)
-shape = SubResource("BoxShape3D_puvmx")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
-transform = Transform3D(-2.3283064e-08, 0, 0.99999636, 0, 1, 0, -0.99999636, 0, -2.3283064e-08, -1.3270378, 6.19299, -12.905613)
-shape = SubResource("BoxShape3D_bsx46")
-
-[node name="particles" type="Node3D" parent="spawner_manager7"]
-transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
-
-[node name="second_level_collision_particle" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -7.9005017, 0.003934, -15.3041)
-
-[node name="second_level_collision_particle7" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 8.375943, 0.003934, -15.2301)
-
-[node name="second_level_collision_particle2" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 8.080544, 0.003934, 23.333)
-
-[node name="second_level_collision_particle8" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.107248, 0.003934, 23.2528)
-
-[node name="second_level_collision_particle3" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
-
-[node name="second_level_collision_particle4" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
-
-[node name="second_level_collision_particle5" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.79345, 0.003934, -5.832862)
-
-[node name="second_level_collision_particle6" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.79345, 0.003934, 14.992808)
-
-[node name="player_pos_node" type="Node3D" parent="spawner_manager7"]
-transform = Transform3D(-0.9913876, 0, 0.13095872, 0, 1, 0, -0.13095872, 0, -0.9913876, 11.103791, 0.66692543, 10.593245)
-
-[node name="spawner_manager3" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
-transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -53.09469, 0, 94.61728)
-area_node = NodePath("Area3D")
-current_room = 5
-
-[node name="Area3D" type="Area3D" parent="spawner_manager3"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/Area3D"]
-transform = Transform3D(0.9999827, 0, 3.0733645e-08, 0, 1, 0, -3.0733645e-08, 0, 0.9999827, -0.58322126, 6.0364685, 10.309013)
-shape = SubResource("BoxShape3D_s15vj")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager3"]
-transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
-transform = Transform3D(0.99999356, 0, -4.284084e-08, 0, 1, 0, 4.284084e-08, 0, 0.99999356, 20.680033, 6.19299, 10.439262)
-shape = SubResource("BoxShape3D_tnrjt")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
-transform = Transform3D(0.9999987, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.9999987, -23.53923, 6.19299, 6.4409103)
-shape = SubResource("BoxShape3D_ruiny")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
-transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
-shape = SubResource("BoxShape3D_xnph4")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
-transform = Transform3D(-1.3969839e-08, 0, 0.99999475, 0, 1, 0, -0.99999475, 0, -1.3969839e-08, -1.3037102, 6.19299, -12.344337)
-shape = SubResource("BoxShape3D_ag3v1")
-
-[node name="particles" type="Node3D" parent="spawner_manager3"]
-transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
-
-[node name="second_level_collision_particle" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -8.62312, 0.003934, -15.3041)
-
-[node name="second_level_collision_particle7" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
-
-[node name="second_level_collision_particle2" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
-
-[node name="second_level_collision_particle8" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.43854, 0.003934, 23.2528)
-
-[node name="second_level_collision_particle3" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
-
-[node name="second_level_collision_particle4" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
-
-[node name="second_level_collision_particle5" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
-
-[node name="second_level_collision_particle6" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
-
-[node name="player_pos_node" type="Node3D" parent="spawner_manager3"]
-transform = Transform3D(0.7011706, 0, -0.71299326, 0, 1, 0, 0.71299326, 0, 0.7011706, -1.7873511, 0.66692734, 0.49020386)
-
-[node name="spawner_manager4" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
-transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -109.12364, 0, 101.95667)
-area_node = NodePath("Area3D")
-current_room = 6
-
-[node name="Area3D" type="Area3D" parent="spawner_manager4"]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/Area3D"]
-transform = Transform3D(0.9999842, 0, 2.7939677e-08, 0, 1, 0, -2.7939677e-08, 0, 0.9999842, -9.583015, 6.0364685, 11.177147)
-shape = SubResource("BoxShape3D_6q6ri")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager4"]
-transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 20.7733, 6.19299, 4.88026)
-shape = SubResource("BoxShape3D_ruiny")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(0.9999986, 0, -9.313226e-09, 0, 1, 0, 9.313226e-09, 0, 0.9999986, -40.539684, 6.19299, 6.302025)
-shape = SubResource("BoxShape3D_ruiny")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(-1.9557774e-08, 0, 0.99999624, 0, 1, 0, -0.99999624, 0, -1.9557774e-08, -9.466045, 6.19299, 29.087212)
-shape = SubResource("BoxShape3D_q60ar")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager4/StaticBody3D"]
-transform = Transform3D(-1.21071935e-08, 0, 0.99999446, 0, 1, 0, -0.99999446, 0, -1.21071935e-08, -10.002636, 6.19299, -10.710297)
-shape = SubResource("BoxShape3D_qjyvj")
-
-[node name="particles" type="Node3D" parent="spawner_manager4"]
-transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
-
-[node name="second_level_collision_particle" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -8.62312, 0.003934, -15.3041)
-
-[node name="second_level_collision_particle7" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
-
-[node name="second_level_collision_particle2" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
-
-[node name="second_level_collision_particle8" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.43854, 0.003934, 23.2528)
-
-[node name="second_level_collision_particle3" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
-
-[node name="second_level_collision_particle4" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
-
-[node name="second_level_collision_particle5" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
-
-[node name="second_level_collision_particle6" parent="spawner_manager4/particles" instance=ExtResource("12_xnph4")]
-transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
-
-[node name="ceo_wall" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
-transform = Transform3D(0.9999662, 0, -0.008168044, 0, 1, 0, 0.008168044, 0, 0.9999662, 2.5096245, 1.0652757, 27.00521)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.602623, 3.873413, 2.3771057)
-shape = SubResource("BoxShape3D_qflks")
-
-[node name="ceo_wall2" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
-transform = Transform3D(0.99996614, 0, -0.008168043, 0, 1, 0, 0.008168043, 0, 0.99996614, 2.8219109, 1.0652757, -11.226334)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall2"]
-transform = Transform3D(0.9999973, 0, -2.4424907e-15, 0, 1, 0, 2.4424907e-15, 0, 0.9999973, -11.982475, 3.873413, 2.3771057)
-shape = SubResource("BoxShape3D_qflks")
-
-[node name="ceo_wall3" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
-transform = Transform3D(-4.284084e-08, 0, 0.99999934, 0, 1, 0, -0.99999934, 0, -4.284084e-08, -22.341473, 1.0652757, 5.9838257)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall3"]
-transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -3.1344833, 3.873413, -16.68077)
-shape = SubResource("BoxShape3D_qflks")
-
-[node name="ceo_wall4" parent="spawner_manager4" instance=ExtResource("6_s3ee0")]
-transform = Transform3D(-4.0978193e-08, 0, 0.99999917, 0, 1, 0, -0.99999917, 0, -4.0978193e-08, 17.66312, 1.0652757, 6.3105927)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/ceo_wall4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2901535, 3.873413, 2.3771057)
-shape = SubResource("BoxShape3D_qflks")
-
-[node name="player_pos_node" type="Node3D" parent="spawner_manager4"]
-transform = Transform3D(0.038021803, 0, -0.99927676, 0, 1, 0, 0.99927676, 0, 0.038021803, 12.133627, 0.66692734, 8.378774)
+transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, -0.0992465, 0.66692734, -2.5445313)
 
 [node name="spawner_manager5" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, 51.90814, 0, -4.674796)
@@ -517,7 +305,7 @@ transform = Transform3D(0.00282744, 0, 0.9999959, 0, 1, 0, -0.9999959, 0, 0.0028
 transform = Transform3D(0.00282744, 0, 0.9999959, 0, 1, 0, -0.9999959, 0, 0.00282744, -40.594433, 0.003934, 18.981173)
 
 [node name="player_pos_node" type="Node3D" parent="spawner_manager5"]
-transform = Transform3D(0.9251499, 0, -0.37960133, 0, 1, 0, 0.37960133, 0, 0.9251499, -11.038515, 0.66692734, 1.5436692)
+transform = Transform3D(0.9251499, 0, -0.37960133, 0, 1, 0, 0.37960133, 0, 0.9251499, -8.938264, 0.66692734, 2.603701)
 
 [node name="spawner_manager6" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, 60.087406, 0, 93.673164)
@@ -578,23 +366,413 @@ transform = Transform3D(0.00282744, 0, 0.9999959, 0, 1, 0, -0.9999959, 0, 0.0028
 transform = Transform3D(0.00282744, 0, 0.9999959, 0, 1, 0, -0.9999959, 0, 0.00282744, -25.513376, 0.003934, 7.3843617)
 
 [node name="player_pos_node" type="Node3D" parent="spawner_manager6"]
-transform = Transform3D(0.3235046, 0, -0.94622636, 0, 1, 0, 0.94622636, 0, 0.3235046, -12.128651, 0.66692543, -0.18275166)
+transform = Transform3D(0.3235046, 0, -0.94622636, 0, 1, 0, 0.94622636, 0, 0.3235046, -12.787569, 0.66692543, -2.116321)
 
-[node name="stage_band" parent="." instance=ExtResource("7_2bkyy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35482, 1.90735e-06, 66.7683)
-visible = false
+[node name="spawner_manager7" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -55.67655, 0, 30.259245)
+area_node = NodePath("Area3D")
+current_room = 4
 
-[node name="Cylinder" parent="stage_band" index="0"]
-material_override = SubResource("StandardMaterial3D_s15vj")
+[node name="Area3D" type="Area3D" parent="spawner_manager7"]
 
-[node name="octopus_model" parent="stage_band" instance=ExtResource("8_ruiny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470546, 2.81129, 2.9542)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager7/Area3D"]
+transform = Transform3D(1.00001, 0, -1.8626451e-08, 0, 1, 0, 1.8626451e-08, 0, 1.00001, -1.8512878, 4.47079, 5.709469)
+shape = SubResource("BoxShape3D_03ddv")
+debug_color = Color(0.481079, 0.900778, 1, 0.42)
 
-[node name="seahorse_model" parent="stage_band" instance=ExtResource("9_xnph4")]
-transform = Transform3D(-0.750111, 0, 0.661312, 0, 1, 0, -0.661312, 0, -0.750111, -4.7133, 2.11105, -4.74096)
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager7"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
 
-[node name="turtle_model" parent="stage_band" instance=ExtResource("10_s3ee0")]
-transform = Transform3D(0.6865, 0.0758005, 0.723168, 0.0242426, 0.991613, -0.126952, -0.726726, 0.104684, 0.678904, 5.09568, 1.5619, -1.92704)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
+transform = Transform3D(0.999991, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 0.999991, 17.45362, 6.19299, 5.3323975)
+shape = SubResource("BoxShape3D_n5gdl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
+transform = Transform3D(0.9999983, 0, -1.21071935e-08, 0, 1, 0, 1.21071935e-08, 0, 0.9999983, -22.715933, 6.19299, 4.819271)
+shape = SubResource("BoxShape3D_ilgn1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
+transform = Transform3D(-1.8626451e-09, 0, 0.9999933, 0, 1, 0, -0.9999933, 0, -1.8626451e-09, -1.4273682, 6.19299, 21.568752)
+shape = SubResource("BoxShape3D_puvmx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager7/StaticBody3D"]
+transform = Transform3D(-2.3283064e-08, 0, 0.99999636, 0, 1, 0, -0.99999636, 0, -2.3283064e-08, -1.3270378, 6.19299, -12.905613)
+shape = SubResource("BoxShape3D_bsx46")
+
+[node name="particles" type="Node3D" parent="spawner_manager7"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -7.9005017, 0.003934, -15.3041)
+
+[node name="second_level_collision_particle7" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 8.375943, 0.003934, -15.2301)
+
+[node name="second_level_collision_particle2" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 8.080544, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.107248, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+
+[node name="second_level_collision_particle4" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+
+[node name="second_level_collision_particle5" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.79345, 0.003934, -5.832862)
+
+[node name="second_level_collision_particle6" parent="spawner_manager7/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, -16.79345, 0.003934, 14.992808)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager7"]
+transform = Transform3D(-0.9999979, 0, -0.001954794, 0, 1, 0, 0.001954794, 0, -0.9999979, 13.784264, 0.66692543, 11.385589)
+
+[node name="spawner_manager3" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -53.09469, 0, 94.61728)
+area_node = NodePath("Area3D")
+current_room = 5
+
+[node name="Area3D" type="Area3D" parent="spawner_manager3"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/Area3D"]
+transform = Transform3D(0.9999827, 0, 3.0733645e-08, 0, 1, 0, -3.0733645e-08, 0, 0.9999827, -0.58322126, 6.0364685, 10.309013)
+shape = SubResource("BoxShape3D_s15vj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager3"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
+transform = Transform3D(0.99999356, 0, -4.284084e-08, 0, 1, 0, 4.284084e-08, 0, 0.99999356, 20.680033, 6.19299, 10.439262)
+shape = SubResource("BoxShape3D_tnrjt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
+transform = Transform3D(0.9999987, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.9999987, -23.53923, 6.19299, 6.4409103)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
+transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
+shape = SubResource("BoxShape3D_xnph4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager3/StaticBody3D"]
+transform = Transform3D(-1.3969839e-08, 0, 0.99999475, 0, 1, 0, -0.99999475, 0, -1.3969839e-08, -1.3037102, 6.19299, -12.344337)
+shape = SubResource("BoxShape3D_ag3v1")
+
+[node name="particles" type="Node3D" parent="spawner_manager3"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -12.724027, 0.003934, -15.3041)
+
+[node name="second_level_collision_particle7" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
+
+[node name="second_level_collision_particle2" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -9.43854, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+
+[node name="second_level_collision_particle4" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+
+[node name="second_level_collision_particle5" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
+
+[node name="second_level_collision_particle6" parent="spawner_manager3/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager3"]
+transform = Transform3D(0.7011706, 0, -0.71299326, 0, 1, 0, 0.71299326, 0, 0.7011706, 7.783256, 0.6669264, -3.8498025)
+
+[node name="spawner_manager8" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -111.946724, 0, 98.35564)
+area_node = NodePath("Area3D")
+current_room = 5
+
+[node name="Area3D" type="Area3D" parent="spawner_manager8"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager8/Area3D"]
+transform = Transform3D(0.9999827, 0, 3.0733645e-08, 0, 1, 0, -3.0733645e-08, 0, 0.9999827, -0.58322126, 6.0364685, 10.309013)
+shape = SubResource("BoxShape3D_s15vj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager8"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager8/StaticBody3D"]
+transform = Transform3D(0.99999356, 0, -4.284084e-08, 0, 1, 0, 4.284084e-08, 0, 0.99999356, 20.680033, 6.19299, 10.439262)
+shape = SubResource("BoxShape3D_tnrjt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager8/StaticBody3D"]
+transform = Transform3D(0.9999987, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.9999987, -23.53923, 6.19299, 6.4409103)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager8/StaticBody3D"]
+transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
+shape = SubResource("BoxShape3D_xnph4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager8/StaticBody3D"]
+transform = Transform3D(-1.3969839e-08, 0, 0.99999475, 0, 1, 0, -0.99999475, 0, -1.3969839e-08, -1.3037102, 6.19299, -12.344337)
+shape = SubResource("BoxShape3D_ag3v1")
+
+[node name="particles" type="Node3D" parent="spawner_manager8"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -12.724027, 0.003934, -15.3041)
+
+[node name="second_level_collision_particle7" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
+
+[node name="second_level_collision_particle2" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -15.349693, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+
+[node name="second_level_collision_particle4" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+
+[node name="second_level_collision_particle5" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
+
+[node name="second_level_collision_particle6" parent="spawner_manager8/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager8"]
+transform = Transform3D(-0.04456076, 0, -0.9990065, 0, 1, 0, 0.9990065, 0, -0.04456076, 15.516924, 0.66692734, 8.945028)
+
+[node name="spawner_manager9" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -165.52074, 0, 98.79324)
+area_node = NodePath("Area3D")
+current_room = 5
+
+[node name="Area3D" type="Area3D" parent="spawner_manager9"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager9/Area3D"]
+transform = Transform3D(0.9999827, 0, 3.0733645e-08, 0, 1, 0, -3.0733645e-08, 0, 0.9999827, -0.58322126, 6.0364685, 10.309013)
+shape = SubResource("BoxShape3D_s15vj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager9"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager9/StaticBody3D"]
+transform = Transform3D(0.99999356, 0, -4.284084e-08, 0, 1, 0, 4.284084e-08, 0, 0.99999356, 20.680033, 6.19299, 10.439262)
+shape = SubResource("BoxShape3D_tnrjt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager9/StaticBody3D"]
+transform = Transform3D(0.9999987, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.9999987, -23.53923, 6.19299, 6.4409103)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager9/StaticBody3D"]
+transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
+shape = SubResource("BoxShape3D_xnph4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager9/StaticBody3D"]
+transform = Transform3D(-1.3969839e-08, 0, 0.99999475, 0, 1, 0, -0.99999475, 0, -1.3969839e-08, -1.3037102, 6.19299, -12.344337)
+shape = SubResource("BoxShape3D_ag3v1")
+
+[node name="particles" type="Node3D" parent="spawner_manager9"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -12.724027, 0.003934, -15.3041)
+
+[node name="second_level_collision_particle7" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
+
+[node name="second_level_collision_particle2" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -12.2954, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+
+[node name="second_level_collision_particle4" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+
+[node name="second_level_collision_particle5" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
+
+[node name="second_level_collision_particle6" parent="spawner_manager9/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager9"]
+transform = Transform3D(0.7011706, 0, -0.71299326, 0, 1, 0, 0.71299326, 0, 0.7011706, 14.300371, 0.66692734, 7.6070657)
+
+[node name="spawner_manager10" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -221.5419, 0, 99.25084)
+area_node = NodePath("Area3D")
+current_room = 5
+
+[node name="Area3D" type="Area3D" parent="spawner_manager10"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager10/Area3D"]
+transform = Transform3D(0.9999827, 0, 3.0733645e-08, 0, 1, 0, -3.0733645e-08, 0, 0.9999827, -0.58322126, 6.0364685, 10.309013)
+shape = SubResource("BoxShape3D_s15vj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager10"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager10/StaticBody3D"]
+transform = Transform3D(0.99999356, 0, -4.284084e-08, 0, 1, 0, 4.284084e-08, 0, 0.99999356, 20.680033, 6.19299, 10.439262)
+shape = SubResource("BoxShape3D_tnrjt")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager10/StaticBody3D"]
+transform = Transform3D(0.9999987, 0, -8.381903e-09, 0, 1, 0, 8.381903e-09, 0, 0.9999987, -23.53923, 6.19299, 6.4409103)
+shape = SubResource("BoxShape3D_ruiny")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="spawner_manager10/StaticBody3D"]
+transform = Transform3D(-3.632158e-08, 0, 0.9999989, 0, 1, 0, -0.9999989, 0, -3.632158e-08, -0.68576574, 6.19299, 29.087234)
+shape = SubResource("BoxShape3D_xnph4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="spawner_manager10/StaticBody3D"]
+transform = Transform3D(-1.3969839e-08, 0, 0.99999475, 0, 1, 0, -0.99999475, 0, -1.3969839e-08, -1.3037102, 6.19299, -12.344337)
+shape = SubResource("BoxShape3D_ag3v1")
+
+[node name="particles" type="Node3D" parent="spawner_manager10"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 9.31323e-10, 0, 1, 0, -9.31323e-10, 0, 1, -12.724027, 0.003934, -15.3041)
+
+[node name="second_level_collision_particle7" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.37051, 0.003934, -15.2301)
+
+[node name="second_level_collision_particle2" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -12.2954, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, 12.8629)
+
+[node name="second_level_collision_particle4" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.6199, 0.003934, -5.81907)
+
+[node name="second_level_collision_particle5" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, -5.864665)
+
+[node name="second_level_collision_particle6" parent="spawner_manager10/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -23.434021, 0.003934, 14.961003)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager10"]
+transform = Transform3D(0.7011706, 0, -0.71299326, 0, 1, 0, 0.71299326, 0, 0.7011706, 14.997236, 0.66692734, 7.65907)
+
+[node name="boss_spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
+transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -215.41441, 0, 159.94418)
+area_node = NodePath("Area3D")
+current_room = 6
+
+[node name="Area3D" type="Area3D" parent="boss_spawner_manager"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/Area3D"]
+transform = Transform3D(0.9999731, 0, 5.029142e-08, 0, 1, 0, -5.029142e-08, 0, 0.9999731, -10.166168, 6.0364685, 19.371628)
+shape = SubResource("BoxShape3D_gpsbw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="boss_spawner_manager"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.0100625, 0, 1.2319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/StaticBody3D"]
+transform = Transform3D(0.999997, 0, -2.0489097e-08, 0, 1, 0, 2.0489097e-08, 0, 0.999997, 20.773376, 6.19299, 17.993164)
+shape = SubResource("BoxShape3D_2bkyy")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="boss_spawner_manager/StaticBody3D"]
+transform = Transform3D(0.99999565, 0, -2.8871e-08, 0, 1, 0, 2.8871e-08, 0, 0.99999565, -40.53969, 6.19299, 19.647766)
+shape = SubResource("BoxShape3D_6q6ri")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="boss_spawner_manager/StaticBody3D"]
+transform = Transform3D(-1.9557774e-08, 0, 0.99999624, 0, 1, 0, -0.99999624, 0, -1.9557774e-08, -9.466045, 6.19299, 48.49891)
+shape = SubResource("BoxShape3D_q60ar")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="boss_spawner_manager/StaticBody3D"]
+transform = Transform3D(-1.21071935e-08, 0, 0.99999446, 0, 1, 0, -0.99999446, 0, -1.21071935e-08, -10.002636, 6.19299, -11.531095)
+shape = SubResource("BoxShape3D_qjyvj")
+
+[node name="particles" type="Node3D" parent="boss_spawner_manager"]
+transform = Transform3D(0.00287981, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00287981, -4.46086, 0, 6.15558)
+
+[node name="second_level_collision_particle7" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 6.6421585, 0.003934, -33.65708)
+
+[node name="second_level_collision_particle10" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -13.907052, 0.003934, -33.65708)
+
+[node name="second_level_collision_particle11" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -33.195515, 0.003934, -33.65708)
+
+[node name="second_level_collision_particle2" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, 5.73576, 0.003934, 23.333)
+
+[node name="second_level_collision_particle8" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -12.839825, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle14" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(1, 0, 1.39698e-09, 0, 1, 0, -1.39698e-09, 0, 1, -33.59535, 0.003934, 23.2528)
+
+[node name="second_level_collision_particle3" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.616312, 0.003934, 14.131817)
+
+[node name="second_level_collision_particle4" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.677259, 0.003934, -7.423805)
+
+[node name="second_level_collision_particle9" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00282744, 15.73309, 0.003934, -27.169842)
+
+[node name="second_level_collision_particle5" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -43.13557, 0.003934, -23.560575)
+
+[node name="second_level_collision_particle12" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -43.194084, 0.003934, -2.864584)
+
+[node name="second_level_collision_particle13" parent="boss_spawner_manager/particles" instance=ExtResource("12_xnph4")]
+transform = Transform3D(0.00282744, 0, 0.99999595, 0, 1, 0, -0.99999595, 0, 0.00282744, -43.25187, 0.003934, 17.571959)
+
+[node name="ceo_wall" parent="boss_spawner_manager" instance=ExtResource("6_s3ee0")]
+transform = Transform3D(0.9999662, 0, -0.008168044, 0, 1, 0, 0.008168044, 0, 0.9999662, 2.5096245, 1.0652757, 27.00521)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/ceo_wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.602623, 3.873413, 19.908342)
+shape = SubResource("BoxShape3D_qflks")
+
+[node name="ceo_wall2" parent="boss_spawner_manager" instance=ExtResource("6_s3ee0")]
+transform = Transform3D(0.99996614, 0, -0.008168043, 0, 1, 0, 0.008168043, 0, 0.99996614, 2.8124115, 1.0652757, -10.06341)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/ceo_wall2"]
+transform = Transform3D(0.9999973, 0, -2.4424907e-15, 0, 1, 0, 2.4424907e-15, 0, 0.9999973, -11.982475, 3.873413, 2.3771057)
+shape = SubResource("BoxShape3D_qflks")
+
+[node name="ceo_wall3" parent="boss_spawner_manager" instance=ExtResource("6_s3ee0")]
+transform = Transform3D(-4.284084e-08, 0, 0.99999934, 0, 1, 0, -0.99999934, 0, -4.284084e-08, -20.087763, 1.0652757, 5.9838257)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/ceo_wall3"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -14.416981, 3.873413, -16.68077)
+shape = SubResource("BoxShape3D_qflks")
+
+[node name="ceo_wall4" parent="boss_spawner_manager" instance=ExtResource("6_s3ee0")]
+transform = Transform3D(-4.0978193e-08, 0, 0.99999917, 0, 1, 0, -0.99999917, 0, -4.0978193e-08, 16.126406, 1.0652757, 6.3105927)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="boss_spawner_manager/ceo_wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2901535, 3.873413, 2.3771057)
+shape = SubResource("BoxShape3D_qflks")
+
+[node name="player_pos_node" type="Node3D" parent="boss_spawner_manager"]
+transform = Transform3D(-0.03988739, 0, -0.99920404, 0, 1, 0, 0.99920404, 0, -0.03988739, -11.004573, 0.66692734, -0.06174898)
 
 [node name="spawner" parent="." instance=ExtResource("11_ruiny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6506572, 0.8967802, -7.210384)
@@ -606,37 +784,94 @@ level_number = 1
 enemy_number = 2
 room_number = 1
 
-[node name="spawner5" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.751186, 1.027992, 3.2692032)
-level_number = 1
-enemy_number = 1
-room_number = 4
-
 [node name="spawner6" parent="." instance=ExtResource("11_ruiny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.822556, 1.0279925, 13.198412)
 level_number = 1
+enemy_number = 2
 room_number = 4
 
 [node name="spawner7" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.975327, 1.0279925, 105.36216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.409466, 1.0279925, 112.68599)
 level_number = 1
 enemy_number = 1
 room_number = 4
 
 [node name="spawner4" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -70.66513, 3.6828945, 112.71183)
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -52.28579, 2.2936385, 107.7774)
 level_number = 1
-enemy_number = 3
+enemy_number = 2
 room_number = 3
 
 [node name="spawner8" parent="." instance=ExtResource("11_ruiny")]
-transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -63.75536, 3.6828945, 33.40412)
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -56.48656, 2.459111, 30.451351)
 level_number = 1
 enemy_number = 1
 room_number = 3
 
+[node name="spawner9" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -53.399998, 2.1252763, 45.822018)
+room_number = 3
+
+[node name="spawner12" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -63.405224, 2.1252763, 97.25989)
+enemy_number = 3
+room_number = 3
+
+[node name="spawner13" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -112.64987, 2.1252754, 120.74555)
+level_number = 1
+enemy_number = 3
+room_number = 3
+
+[node name="spawner14" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -120.15596, 2.1252773, 109.466)
+enemy_number = 2
+room_number = 3
+
+[node name="spawner16" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -171.58958, 2.1252773, 108.67137)
+level_number = 1
+enemy_number = 2
+room_number = 3
+
+[node name="spawner19" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -219.62189, 2.1252773, 113.21329)
+level_number = 1
+enemy_number = 1
+room_number = 3
+
+[node name="spawner21" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -227.57196, 2.1252773, 182.71733)
+level_number = 1
+enemy_number = 4
+room_number = 3
+
+[node name="spawner20" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -230.97153, 2.1252773, 105.97006)
+level_number = 1
+room_number = 3
+
+[node name="spawner17" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -161.17259, 2.1252782, 120.51333)
+enemy_number = 1
+room_number = 3
+
+[node name="spawner18" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -170.12346, 2.1252782, 95.99691)
+enemy_number = 1
+room_number = 3
+
+[node name="spawner10" parent="." instance=ExtResource("11_ruiny")]
+transform = Transform3D(-0.21582611, 0, 0.9764318, 0, 1, 0, -0.9764318, 0, -0.21582611, -68.365364, 3.0082448, 33.75891)
+room_number = 3
+
 [node name="second_level_portal" parent="." instance=ExtResource("13_s3ee0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -59.88231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.74)
+
+[node name="second_level_portal2" parent="." instance=ExtResource("13_s3ee0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.7578, 0, 221.39589)
+portal_type = 1
+portal_closed = true
 
 [node name="thermal_water" type="Area3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.68731946, -0.12658644, 106.506615)
@@ -677,5 +912,3 @@ mesh = SubResource("BoxMesh_qflks")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="thermal_water"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.15171242, 0.108704805, -7.768345)
 mesh = SubResource("BoxMesh_qflks")
-
-[editable path="stage_band"]

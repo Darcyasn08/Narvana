@@ -16,10 +16,17 @@ var target_angle : float
 var old_velocity : Vector3
 
 var bubbleins: Object = preload("res://scenes/weapon/projectile.tscn")
+var original_resource: StandardMaterial3D = load("res://shaders/el_gran_capo_skin.tres")
+var unique_resource: Object = original_resource.duplicate()
+@onready var body_path = $gran_capo_model/grancapo/Armature/Skeleton3D/Sphere/"surface_material_override/0"
 
 @onready var player: CharacterBody3D = $"../player"
 
 func _ready() -> void:
+	print(typeof(body_path))
+	unique_resource.albedo_color = Color("b67253ff")
+	body_path = null
+	body_path = unique_resource
 	spaw_point = global_position
 	SignalBus.on_narval_next_to_wall.connect(narval_smasher)
 
@@ -47,9 +54,8 @@ func _physics_process(delta: float) -> void:
 		$enemy_hitbox/swirl.disabled = false
 		$enemy_hitbox/hitbox.disabled = true
 		#$collision.disabled = true
-		$molde.hide()
 		$gran_capo_model.set_state("start_circling")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1.2).timeout
 		$swirl_col.disabled = false
 		$gran_capo_model.set_state("big_circling")
 		$Timer.wait_time = 9.0
@@ -77,14 +83,11 @@ func damage_player(area)-> void:
 	if state == "swirl2" or state == "beating2":
 		get_tree().call_group("player","hurt",damage)
 
-
 func unique_take_damage(area)-> void:
-	pass
-
+	body_path = unique_resource
 
 func unique_die()-> void:
-	pass
-
+	Global.completed_levels["second_level"] = true
 
 func look_to_player()-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
@@ -111,9 +114,10 @@ func shoot() -> void:
 	bubble.pos = $shooter.global_position
 	bubble.rot = rotation
 	bubble.follow = false
+	bubble.model = "res://scenes/weapon/bubble_grancapo.tscn"
 	bubble.speed = bullet_speed
 	bubble.damage = damage
-	bubble.size = 12.0
+	bubble.size = 4.0
 	get_parent().add_child(bubble)
 
 
@@ -133,8 +137,8 @@ func cancel_swirl() -> void:
 	$enemy_hitbox/swirl.disabled = true
 	$enemy_hitbox/hitbox.disabled = false
 	#$collision.disabled = true
-	$molde.show()
 	$swirl_col.disabled = true
+	$gran_capo_model.set_state("idle")
 	$swirl_molde.hide()
 	$swirl_col.scale = Vector3(1,1,1)
 	$swirl_molde.scale = Vector3(1,1,1)

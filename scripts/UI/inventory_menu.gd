@@ -14,9 +14,6 @@ func _ready() -> void:
 	update_items()
 	$money_label.text = str(Global.coins)
 
-func set_items() -> void:
-	pass
-
 func update_items() -> void:
 	for child in $item_list.get_children():
 		child.queue_free()
@@ -29,7 +26,6 @@ func update_items() -> void:
 	
 	for item: String in Global.inventory["items"]:
 		item_buff = Global.inventory["items"][item]["buff"]
-		#print("ITEM ATUAL: ",item)
 		
 		#se o player possuir o item
 		if Global.inventory["items"][item]["player_has"]:
@@ -44,33 +40,29 @@ func update_items() -> void:
 			if item_buff["speed"] != 0:
 				Global.plus_player_speed += item_buff["speed"]
 			if item_buff["health"] != 0:
+				print("tem um item pra vida")
 				Global.plus_player_health += item_buff["health"]
+				print("plus com item: ",Global.plus_player_health)
 				Global.max_player_health += item_buff["health"]
 			$item_list.add_child(item_label)
 		
 		#se o player não possuir o item
 		else:
-			#print("player doesnt have this item anymore... ", item)
 			if item_buff["damage"] != 0:
-				#print("dano retirado!!")
 				Global.plus_player_damage -= item_buff["damage"]
 			if item_buff["speed"] != 0:
-				#print("velocidade retirada!!")
 				Global.plus_player_speed -= item_buff["speed"]
 			if item_buff["health"] != 0:
-				#print("vida retirada!!")
-				#print("vida antes: ",Global.plus_player_health)
 				Global.plus_player_health -= item_buff["health"]
-				Global.max_player_health -= item_buff["health"]
-				#print("vida depois: ",Global.plus_player_health)
-	
+				#Global.max_player_health -= item_buff["health"]
+	#refazer o select_shop_item, pro valor dele também entrar
+	add_shop_item()
+	select_shop_item(Global.selected_shop_item)
 	#deixar com que os valores não sejam menores que 0
 	adjust_plus_values()
 	
 	#somar status dos itens com os valores base do player
 	add_plus_values()
-	
-	#print("PLUS HEALTH: ",Global.plus_player_health, ". DAMAGE: ", Global.plus_player_damage,". SPEED: ",Global.plus_player_speed)
 	
 	SignalBus.on_player_health_changed.emit(Global.player_health)
 	await get_tree().create_timer(.2).timeout
@@ -78,7 +70,6 @@ func update_items() -> void:
 
 func remove_item(item: String) -> void:
 	Global.inventory["items"][item]["player_has"] = false
-	SignalBus.on_player_health_changed.emit(Global.player_health)
 	update_items()
 
 func adjust_plus_values() -> void:
@@ -102,51 +93,59 @@ func add_plus_values() -> void:
 	#print("2. ",Global.base_player_health, "--",Global.plus_player_health)
 	if Global.player_health > Global.max_player_health:
 		Global.player_health = Global.max_player_health
-	print("player health summing: ",Global.player_health, "---",Global.max_player_health)
+	#print("player health summing: ",Global.player_health, "---",Global.max_player_health)
 	SignalBus.on_player_health_changed.emit(Global.player_health)
 	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
 func add_shop_item() -> void:
-	var next_index: int = 0
-	for shop_item in Global.inventory["shop_items"]:
-		next_index += 1
-	next_index -= 1 #para manter dentro dos padrões do index
-	var item_label: Label = Label.new()
-	item_label.custom_minimum_size.y = 80 
-	item_label.text = str(Global.inventory["shop_items"][next_index]["name"])
-	#$VBoxContainer.add_child(item_label)
-	var item_button: Object = item_button_inst.instantiate()
-	item_button.text_name = str(Global.inventory["shop_items"][next_index]["name"])
-	item_button.id = next_index
-	item_button.size = Vector2(50,40)
-	%shop_items_dropbox/VBoxContainer.add_child(item_button)
+	if Global.inventory["shop_items"] != {}:
+		var next_index: int = 0
+		for shop_item: int in Global.inventory["shop_items"]:
+			next_index += 1
+		next_index -= 1 #para manter dentro dos padrões do index
+		var item_label: Label = Label.new()
+		item_label.custom_minimum_size.y = 80 
+		item_label.text = str(Global.inventory["shop_items"][next_index]["name"])
+		#$VBoxContainer.add_child(item_label)
+		var item_button: Object = item_button_inst.instantiate()
+		item_button.text_name = str(Global.inventory["shop_items"][next_index]["name"])
+		item_button.id = next_index
+		item_button.size = Vector2(50,40)
+		%shop_items_dropbox/VBoxContainer.add_child(item_button)
 
 func select_shop_item(index: int) -> void:
-	#print("item index: ", index)
-	if previous_selected_item != -1:
+	Global.selected_shop_item = index
+	print("selected shop item: ",Global.selected_shop_item)
+	#caso outro item tenha sido selecionado antes, tirar os buffs dele
+	if previous_selected_item != -1 and index != previous_selected_item:
 		if Global.inventory["shop_items"][previous_selected_item]["buff"]["damage"] != 0:
 			Global.plus_player_damage -= Global.inventory["shop_items"][previous_selected_item]["buff"]["damage"]
 		if Global.inventory["shop_items"][previous_selected_item]["buff"]["speed"] != 0:
 			Global.plus_player_speed -= Global.inventory["shop_items"][previous_selected_item]["buff"]["speed"]
 		if Global.inventory["shop_items"][previous_selected_item]["buff"]["health"] != 0:
-			Global.max_player_health -= Global.inventory["shop_items"][previous_selected_item]["buff"]["health"]
+			#Global.max_player_health -= Global.inventory["shop_items"][previous_selected_item]["buff"]["health"]
 			Global.plus_player_health -= Global.inventory["shop_items"][previous_selected_item]["buff"]["health"]
 	
-	if Global.inventory["shop_items"][index]["buff"]["damage"] != 0:
-		Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["damage"]
-	if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
-		Global.plus_player_speed += Global.inventory["shop_items"][index]["buff"]["speed"]
-	if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
-		#Global.max_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
-		print("plus before: ", Global.plus_player_health)
-		Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
-		print("plus after: ", Global.plus_player_health)
-	add_plus_values()
-	SignalBus.on_player_health_changed.emit(Global.player_health)
-	$shop_item_container/label.text = Global.inventory["shop_items"][index]["name"]
-	$shop_item_container/selected_item_stats.text = str("vida: ",Global.inventory["shop_items"][index]["buff"]["health"], "\ndano: ",Global.inventory["shop_items"][index]["buff"]["damage"], "\nvelocidade: ",Global.inventory["shop_items"][index]["buff"]["speed"])
-	%shop_items_dropbox.hide()
-	previous_selected_item = index
+	#adicionar os buffs do item atual
+	if index != -1: #caso seja realmente um item
+		if Global.inventory["shop_items"][index]["buff"]["damage"] != 0:
+			Global.plus_player_damage += Global.inventory["shop_items"][index]["buff"]["damage"]
+		if Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
+			Global.plus_player_speed += Global.inventory["shop_items"][index]["buff"]["speed"]
+		if Global.inventory["shop_items"][index]["buff"]["health"] != 0:
+			print("add vida de item da loja")
+			Global.plus_player_health += Global.inventory["shop_items"][index]["buff"]["health"]
+			print("plus com item da loja: ",Global.plus_player_health)
+		add_plus_values()
+		%shop_item_icon.texture = load(Global.inventory["shop_items"][index]["icon"])
+		if Global.inventory["shop_items"][index]["buff"]["damage"]:
+			$shop_item_container/selected_item_stats.text = str("+:",Global.inventory["shop_items"][index]["buff"]["damage"], "dano")
+		elif Global.inventory["shop_items"][index]["buff"]["health"] != 0:
+			$shop_item_container/selected_item_stats.text = str("+",Global.inventory["shop_items"][index]["buff"]["health"], " vida")
+		elif Global.inventory["shop_items"][index]["buff"]["speed"] != 0:
+			$shop_item_container/selected_item_stats.text = str("+",Global.inventory["shop_items"][index]["buff"]["speed"], " velocidade")
+		%shop_items_dropbox.hide()
+		previous_selected_item = index
 
 func _on_open_item_select_pressed() -> void:
 	%shop_items_dropbox.show()

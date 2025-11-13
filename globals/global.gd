@@ -59,7 +59,7 @@ var worlds_files: Dictionary = {
 
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
-	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn", "res://scenes/enemies/band.tscn", "res://scenes/enemies/el_gran_capo.tscn"],
+	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn", "res://scenes/enemies/parents.tscn", "res://scenes/enemies/band.tscn", "res://scenes/enemies/el_gran_capo.tscn"],
 	["res://scenes/enemies/coin.tscn"]
 ]
 
@@ -81,6 +81,7 @@ var current_world: int = 0
 enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
 var last_saved_pos: Vector3 = Vector3(0,0,-16)
 
+var selected_shop_item: int = -1
 var shop_items: Dictionary = {
 	0: {
 		"name": "Doce",
@@ -91,7 +92,7 @@ var shop_items: Dictionary = {
 			"health": 0,
 			"speed": 1,
 		},
-		"icon": "res://UI/inventory/teddy-bear.png"
+		"icon": "res://UI/shop/candy.png"
 	},
 	1: {
 		"name": "Chá",
@@ -102,7 +103,7 @@ var shop_items: Dictionary = {
 			"speed": 0,
 		},
 		"price": 20,
-		"icon": "res://UI/inventory/coffee-cup.png"
+		"icon": "res://UI/shop/tea.png"
 	}
 }
 
@@ -119,6 +120,7 @@ var reset_completed_levels: Dictionary = {
 }
 
 var inventory: Dictionary = {
+	"selected_shop_item": -1,
 	"current_spell": "",
 	"items": {
 		"car_keys": {
@@ -181,6 +183,7 @@ var inventory: Dictionary = {
 }
 
 var reset_inventory: Dictionary = {
+	"selected_shop_item": -1,
 	"current_spell": "",
 	"items": {
 		"car_keys": {
@@ -317,42 +320,4 @@ var cutscenes: Dictionary = {
 var reset_cutscenes: Dictionary = {
 	"start": false,
 	"final": false
-}
-
-var quests: Dictionary = {
-	"crab": {
-		"quest_1": {
-			"title": "helping foot",
-			"desc": "give crab a pair of socks",
-			"item_to_give": "socks"
-		}
-	},
-	"grandma": {
-		"quest_1": {
-			"title": "flowers for grandma",
-			"desc": "give grandma some flowers",
-			"item_to_give": "flower bouquet"
-		}
-	}
-}
-
-var crab_diag: Dictionary = {
-	"name": "crab junior",
-	"missions": {
-		0: [
-			"your first missions is..",
-			"give me your phone"
-		]
-	},
-	
-	"daily": {
-		0: [
-			"hey soul sister",
-			"i dont care"
-		],
-		1: [
-			"my godness!",
-			"youre a bitch."
-		]
-	}
 }

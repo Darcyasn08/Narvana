@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=20 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
 [ext_resource type="PackedScene" uid="uid://b5l6p3vjx5d2r" path="res://scenes/worlds/village_model.tscn" id="2_si0xe"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
 [ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="8_cui3h"]
+[ext_resource type="Script" uid="uid://c7fulmdyxadgs" path="res://scripts/portals/third_level_boulder_portal.gd" id="9_kkcbw"]
+[ext_resource type="PackedScene" uid="uid://dpcirx3ugqc27" path="res://3d_models/placeholders/blocking-boulder.glb" id="10_jprao"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="19_ektfp"]
 [ext_resource type="PackedScene" uid="uid://cehotwhkrkbkq" path="res://scenes/NPCs/master.tscn" id="24_nuhyk"]
@@ -51,6 +53,18 @@ _data = {
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_46g8v"]
 size = Vector3(19.2479, 6.1073, 62.1363)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cui3h"]
+radius = 9.464033
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kkcbw"]
+size = Vector3(8.467957, 6.2807617, 15.117065)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jprao"]
+size = Vector3(37.672, 4.90061, 50.6132)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7i1k"]
+albedo_color = Color(0.510644, 0.614563, 0.643374, 1)
 
 [node name="normal_world" type="Node3D"]
 script = ExtResource("1_eqvwj")
@@ -115,17 +129,76 @@ debug_color = Color(0.9075345, 0.98089653, 1, 0.42)
 
 [node name="jellyfish_npc" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(0.77102476, 0, 0.6368052, 0, 1, 0, -0.6368052, 0, 0.77102476, 48.06794, 0, 41.741173)
-npc_name = "random_jellyfish1"
 current_color = 1
 
 [node name="jellyfish_npc3" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(0.89904636, 0, -0.43785346, 0, 1, 0, 0.43785346, 0, 0.89904636, -14.175619, 4.7683716e-07, 60.665066)
-npc_name = "random_jellyfish2"
 current_color = 1
 
 [node name="jellyfish_npc2" parent="." instance=ExtResource("8_cui3h")]
 transform = Transform3D(-0.99820346, 0, 0.05991605, 0, 1, 0, -0.05991605, 0, -0.99820346, 53.520336, 0, 40.641384)
-npc_name = "random_jellyfish2"
 current_color = 2
 
+[node name="third_level_boulder_portal" type="Area3D" parent="."]
+transform = Transform3D(0.8746028, 0, 0.48484012, 0, 1, 0, -0.48484012, 0, 0.8746028, -95.39868, 0, 162.18536)
+collision_mask = 5
+script = ExtResource("9_kkcbw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal"]
+shape = SubResource("SphereShape3D_cui3h")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="third_level_entrance" type="Area3D" parent="third_level_boulder_portal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03542608, 0, -0.21235645)
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal/third_level_entrance"]
+transform = Transform3D(0.99966687, 0, -0.025810553, 0, 1, 0, 0.025810553, 0, 0.99966687, -5.840576, 2.6403809, -0.21879578)
+shape = SubResource("BoxShape3D_kkcbw")
+disabled = true
+
+[node name="boulder_col" type="StaticBody3D" parent="third_level_boulder_portal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal/boulder_col"]
+transform = Transform3D(-0.68925154, 0, 1.3480167, 0, 1.514, 0, -1.3480167, 0, -0.68925154, 13.250488, 2.9527392, 132.05789)
+shape = SubResource("BoxShape3D_jprao")
+debug_color = Color(0.734151, 0.94601, 1, 0.42)
+
+[node name="blocking-boulder" parent="third_level_boulder_portal" instance=ExtResource("10_jprao")]
+transform = Transform3D(-0.016171448, 0, 1.5139196, 0, 1.514, 0, -1.5139196, 0, -0.016171448, -2.9363604, 0, 0.5592604)
+
+[node name="Cube" parent="third_level_boulder_portal/blocking-boulder" index="0"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_001" parent="third_level_boulder_portal/blocking-boulder" index="1"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_002" parent="third_level_boulder_portal/blocking-boulder" index="2"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_003" parent="third_level_boulder_portal/blocking-boulder" index="3"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_004" parent="third_level_boulder_portal/blocking-boulder" index="4"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_005" parent="third_level_boulder_portal/blocking-boulder" index="5"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_006" parent="third_level_boulder_portal/blocking-boulder" index="6"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_007" parent="third_level_boulder_portal/blocking-boulder" index="7"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_008" parent="third_level_boulder_portal/blocking-boulder" index="8"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="Cube_009" parent="third_level_boulder_portal/blocking-boulder" index="9"]
+material_override = SubResource("StandardMaterial3D_d7i1k")
+
 [connection signal="body_entered" from="cutscene_area" to="." method="_on_cutscene_area_body_entered"]
+[connection signal="body_entered" from="third_level_boulder_portal" to="third_level_boulder_portal" method="_on_body_entered"]
+[connection signal="body_entered" from="third_level_boulder_portal/third_level_entrance" to="third_level_boulder_portal" method="_on_third_level_entrance_body_entered"]
+
+[editable path="third_level_boulder_portal/blocking-boulder"]

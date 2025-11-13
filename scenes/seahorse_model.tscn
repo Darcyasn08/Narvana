@@ -240,6 +240,363 @@ tracks/23/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_j6nop"]
+resource_name = "attack-explosion"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.003")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.046050508, 7.0018327e-15, -1.09792975e-08, 0.99893916)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.004")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.083456144, -1.0305514e-14, -1.9897495e-08, 0.99651146)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.005")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.37673864, 2.9444475e-08, -1.01796694e-07, 0.9263196)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.6631706, 0, -2.0027196e-07, 0.7484683)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006_leaf")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.91303027, 6.158994e-08, 1.3786372e-07, -0.40789184)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.6373784, -0.407781, -0.20303273, 0.6214831)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_leaf_2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.7070637, -0.007810232, 0.007810256, 0.7070636)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seahorse/arm_R/Skeleton3D:Bone")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0.02000004, 1, 0.5644654, -0.015725147, 0.16589761, 0.8084612)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("seahorse/arm_R/Skeleton3D:Bone_leaf")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0.02000004, 1, -0.6882646, 0.0062027997, -0.0066857478, 0.7254024)
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("sphere_explosion:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.41, 0.88),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("seahorse/body_armature/Skeleton3D:Bone_3")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.75050455, -4.7268557e-07, -5.368003e-07, 0.66086525)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001_leaf")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.9979892, 4.533603e-08, -7.1381425e-07, 0.06338463)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.002")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0.99937356, -4.218902e-09, 1.19134604e-07, -0.035390723)
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("seahorse/guitar:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.19754061, 1.7129261, 0.6238057)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("seahorse/guitar:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.06809918, -0.573511, 1.2674586)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("seahorse:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.44, 0.69),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.0227629, 0, 0), Vector3(1.3456489, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("seahorse:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.07, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("seahorse:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CPUParticles3D:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("sphere_explosion:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.46, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(4.43, 4.43, 4.43)]
+}
+
+[sub_resource type="Animation" id="Animation_wgrna"]
+resource_name = "attack-loop"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.003")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.046050508, 7.0018327e-15, -1.09792975e-08, 0.99893916)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.004")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.083456144, -1.0305514e-14, -1.9897495e-08, 0.99651146)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.005")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.37673864, 2.9444475e-08, -1.01796694e-07, 0.9263196)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.6631706, 0, -2.0027196e-07, 0.7484683)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006_leaf")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.91303027, 6.158994e-08, 1.3786372e-07, -0.40789184)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.6373784, -0.407781, -0.20303273, 0.6214831)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_leaf_2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.7070637, -0.007810232, 0.007810256, 0.7070636)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("seahorse/arm_R/Skeleton3D:Bone")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0.02000004, 1, 0.5644654, -0.015725147, 0.16589761, 0.8084612)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("seahorse/arm_R/Skeleton3D:Bone_leaf")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0.02000004, 1, -0.6882646, 0.0062027997, -0.0066857478, 0.7254024)
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("sphere_explosion:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("seahorse/body_armature/Skeleton3D:Bone_3")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.75050455, -4.7268557e-07, -5.368003e-07, 0.66086525)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001_leaf")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, 0.9979892, 4.533603e-08, -7.1381425e-07, 0.06338463)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.002")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0.99937356, -4.218902e-09, 1.19134604e-07, -0.035390723)
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("seahorse/guitar:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.19754061, 1.7129261, 0.6238057)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("seahorse/guitar:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.06809918, -0.573511, 1.2674586)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("seahorse:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("seahorse:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.07, 0), Vector3(0, 0.19, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("seahorse:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_5wm72"]
 resource_name = "idle"
 loop_mode = 1
@@ -583,363 +940,6 @@ tracks/18/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_wgrna"]
-resource_name = "attack-loop"
-loop_mode = 1
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.003")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.046050508, 7.0018327e-15, -1.09792975e-08, 0.99893916)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.004")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.083456144, -1.0305514e-14, -1.9897495e-08, 0.99651146)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.005")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.37673864, 2.9444475e-08, -1.01796694e-07, 0.9263196)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.6631706, 0, -2.0027196e-07, 0.7484683)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006_leaf")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0.91303027, 6.158994e-08, 1.3786372e-07, -0.40789184)
-tracks/5/type = "rotation_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_2")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0.6373784, -0.407781, -0.20303273, 0.6214831)
-tracks/6/type = "rotation_3d"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_leaf_2")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, -0.7070637, -0.007810232, 0.007810256, 0.7070636)
-tracks/7/type = "rotation_3d"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("seahorse/arm_R/Skeleton3D:Bone")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0.02000004, 1, 0.5644654, -0.015725147, 0.16589761, 0.8084612)
-tracks/8/type = "rotation_3d"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("seahorse/arm_R/Skeleton3D:Bone_leaf")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array(0.02000004, 1, -0.6882646, 0.0062027997, -0.0066857478, 0.7254024)
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("sphere_explosion:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/10/type = "rotation_3d"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("seahorse/body_armature/Skeleton3D:Bone_3")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/11/type = "rotation_3d"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, 0.75050455, -4.7268557e-07, -5.368003e-07, 0.66086525)
-tracks/12/type = "rotation_3d"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001_leaf")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = PackedFloat32Array(0, 1, 0.9979892, 4.533603e-08, -7.1381425e-07, 0.06338463)
-tracks/13/type = "rotation_3d"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.002")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = PackedFloat32Array(0, 1, 0.99937356, -4.218902e-09, 1.19134604e-07, -0.035390723)
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("seahorse/guitar:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.19754061, 1.7129261, 0.6238057)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("seahorse/guitar:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.06809918, -0.573511, 1.2674586)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("seahorse:rotation")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("seahorse:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.07, 0), Vector3(0, 0.19, 0)]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("seahorse:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_j6nop"]
-resource_name = "attack-explosion"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.003")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -0.046050508, 7.0018327e-15, -1.09792975e-08, 0.99893916)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.004")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.083456144, -1.0305514e-14, -1.9897495e-08, 0.99651146)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.005")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -0.37673864, 2.9444475e-08, -1.01796694e-07, 0.9263196)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.6631706, 0, -2.0027196e-07, 0.7484683)
-tracks/4/type = "rotation_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.006_leaf")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 0.91303027, 6.158994e-08, 1.3786372e-07, -0.40789184)
-tracks/5/type = "rotation_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_2")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, 0.6373784, -0.407781, -0.20303273, 0.6214831)
-tracks/6/type = "rotation_3d"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("seahorse/arm_L/Skeleton3D:Bone_leaf_2")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, -0.7070637, -0.007810232, 0.007810256, 0.7070636)
-tracks/7/type = "rotation_3d"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("seahorse/arm_R/Skeleton3D:Bone")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0.02000004, 1, 0.5644654, -0.015725147, 0.16589761, 0.8084612)
-tracks/8/type = "rotation_3d"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("seahorse/arm_R/Skeleton3D:Bone_leaf")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array(0.02000004, 1, -0.6882646, 0.0062027997, -0.0066857478, 0.7254024)
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("sphere_explosion:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.41, 0.88),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/10/type = "rotation_3d"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("seahorse/body_armature/Skeleton3D:Bone_3")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/11/type = "rotation_3d"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, 0.75050455, -4.7268557e-07, -5.368003e-07, 0.66086525)
-tracks/12/type = "rotation_3d"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.001_leaf")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = PackedFloat32Array(0, 1, 0.9979892, 4.533603e-08, -7.1381425e-07, 0.06338463)
-tracks/13/type = "rotation_3d"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("seahorse/body_armature/Skeleton3D:Bone.002")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = PackedFloat32Array(0, 1, 0.99937356, -4.218902e-09, 1.19134604e-07, -0.035390723)
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("seahorse/guitar:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.19754061, 1.7129261, 0.6238057)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("seahorse/guitar:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.06809918, -0.573511, 1.2674586)]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("seahorse:rotation")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0, 0.44, 0.69),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.0227629, 0, 0), Vector3(1.3456489, 0, 0)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("seahorse:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.07, 0)]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("seahorse:visible")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
-tracks/19/type = "value"
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/path = NodePath("CPUParticles3D:emitting")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = {
-"times": PackedFloat32Array(0, 0.46666667, 0.8333333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/20/type = "value"
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/path = NodePath("sphere_explosion:scale")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/keys = {
-"times": PackedFloat32Array(0, 0.46, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(4.43, 4.43, 4.43)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nte1d"]
 _data = {
 &"RESET": SubResource("Animation_nte1d"),
@@ -1011,7 +1011,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_nte1d")
 }
 autoplay = "idle"
-blend_times = [&"attack_explosion", &"idle", 1.0, &"attack_loop", &"attack_explosion", 0.08, &"pre-attack", &"attack_loop", 0.1, &"pre-attack", &"idle", 0.1, &"pre-attack", &"pre-attack", 0.1]
+blend_times = [&"pre-attack", &"idle", 0.1, &"pre-attack", &"pre-attack", 0.1]
 
 [node name="sphere_explosion" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38974857, 1.4767399)

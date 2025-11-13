@@ -286,7 +286,7 @@ func set_player_pos(pos: Vector3, rot: Vector3) -> void:
 	$fade_canvas/AnimationPlayer.play("fade_in_out")
 	await get_tree().create_timer(.02).timeout
 	position = pos
-	rotation = rot
+	#rotation = rot
 	await $fade_canvas/AnimationPlayer.animation_finished
 	$fade_canvas.hide()
 

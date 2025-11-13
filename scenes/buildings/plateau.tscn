@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcjwq0ra6fk6g"]
+[gd_scene load_steps=8 format=3 uid="uid://dcjwq0ra6fk6g"]
 
 [ext_resource type="PackedScene" uid="uid://bqgcxfed7ehdp" path="res://3d_models/plateau.glb" id="1_s8f2v"]
 [ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="2_ki37c"]
-[ext_resource type="PackedScene" uid="uid://dpcirx3ugqc27" path="res://3d_models/placeholders/blocking-boulder.glb" id="3_y5shl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8f2v"]
 albedo_color = Color(0.70647, 0.551974, 0.565059, 1)
@@ -18,9 +17,6 @@ size = Vector3(37.672, 4.90061, 99.241)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hmoq6"]
 size = Vector3(37.672, 4.90061, 50.6132)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5shl"]
-albedo_color = Color(0.510644, 0.614563, 0.643374, 1)
 
 [node name="plateau" type="Node3D"]
 
@@ -55,11 +51,6 @@ transform = Transform3D(0.895176, 0, 0.445714, 0, 1, 0, -0.445714, 0, 0.895176, 
 shape = SubResource("BoxShape3D_hmoq6")
 debug_color = Color(0.734151, 0.94601, 1, 0.42)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.895176, 0, 0.445714, 0, 1, 0, -0.445714, 0, 0.895176, -86.964, 1.95029, 9.76308)
-shape = SubResource("BoxShape3D_hmoq6")
-debug_color = Color(0.734151, 0.94601, 1, 0.42)
-
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(0.782195, 0, 0.623034, 0, 1, 0, -0.623034, 0, 0.782195, -53.3364, 1.95029, 38.2643)
 shape = SubResource("BoxShape3D_hmoq6")
@@ -85,38 +76,4 @@ transform = Transform3D(-0.730162, 0, 0.683274, 0, 1, 0, -0.683274, 0, -0.730162
 [node name="tree2" parent="." instance=ExtResource("2_ki37c")]
 transform = Transform3D(0.997992, 0, 0.0633479, 0, 1, 0, -0.0633479, 0, 0.997992, -100.778, 4.48359, -78.1981)
 
-[node name="blocking-boulder" parent="." instance=ExtResource("3_y5shl")]
-transform = Transform3D(-0.700471, 0, 1.34222, 0, 1.514, 0, -1.34222, 0, -0.700471, -69.9541, -1.08674, 9.28428)
-
-[node name="Cube" parent="blocking-boulder" index="0"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_001" parent="blocking-boulder" index="1"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_002" parent="blocking-boulder" index="2"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_003" parent="blocking-boulder" index="3"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_004" parent="blocking-boulder" index="4"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_005" parent="blocking-boulder" index="5"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_006" parent="blocking-boulder" index="6"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_007" parent="blocking-boulder" index="7"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_008" parent="blocking-boulder" index="8"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
-[node name="Cube_009" parent="blocking-boulder" index="9"]
-material_override = SubResource("StandardMaterial3D_y5shl")
-
 [editable path="plateau"]
-[editable path="blocking-boulder"]
