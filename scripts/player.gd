@@ -11,7 +11,6 @@ var rotation_speed: float = 20.0
 var jump_impulse: float = 12.0
 var gravity: float = -30.0
 var ground_speed: float
-var magic_selec : int = 1 #temporario
 var magic_time : float = 80.0
 var magic_col : bool = false
 var special_col : bool = false
@@ -315,7 +314,7 @@ func update_current_pos() -> void:
 func magic() -> void:
 	if is_on_floor() and magic_col == false:
 		magic_col = true
-		if magic_selec == 1:
+		if Global.magic_select == 1:
 			$narwhal_skin/narval_model/attack_player.play("dust_magic")
 			$magics.rotation.y = skin.rotation.y
 			stunned = true
@@ -330,29 +329,35 @@ func magic() -> void:
 			$magics/dust_magic/CollisionShape3D.set_deferred("disabled",true)
 			$magics/sandbox_magic.hide()
 			stunned = false
-			SignalBus.on_use_magic.emit(magic_time)
+			magic_time = 75
 		
-		if magic_selec == 2:
-			$magics/mandala.show()
-			stunned = true
-			await(get_tree().create_timer(1).timeout)
-			Global.player_damage = Global.player_damage + (Global.player_damage/3)
-			stunned = false 
-			$magics/mandala.hide()
-			await(get_tree().create_timer(5).timeout)
-			Global.player_damage = Global.player_damage - (Global.player_damage/4)
-			SignalBus.on_use_magic.emit()
-			#print(Global.player_damage)
-			
-		if magic_selec == 3:
+		if Global.magic_select == 2:
 			$magics.rotation.y = skin.rotation.y
+			Global.player_can_move = false
 			get_immune(3.0)
 			$magics/crab.show()
 			stunned = true
 			await(get_tree().create_timer(3).timeout)
+			Global.player_can_move = true
 			stunned = false 
 			$magics/crab.hide()
-			SignalBus.on_use_magic.emit()
+			magic_time = 25
+		
+		if Global.magic_select == 3:
+			$magics/mandala.show()
+			stunned = true
+			Global.player_can_move = false
+			await(get_tree().create_timer(1).timeout)
+			Global.player_damage = Global.player_damage + (Global.player_damage/3)
+			stunned = false 
+			Global.player_can_move = true
+			$magics/mandala.hide()
+			await(get_tree().create_timer(5).timeout)
+			Global.player_damage = Global.player_damage - (Global.player_damage/3)
+			#print(Global.player_damage)
+			magic_time = 50
+	
+	SignalBus.on_use_magic.emit(magic_time)
 	await(get_tree().create_timer(magic_time).timeout)
 	magic_col = false 
 

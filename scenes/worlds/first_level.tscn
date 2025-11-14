@@ -146,6 +146,15 @@ debug_color = Color(0.877616, 0.877616, 0.877616, 0.784314)
 transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 9.617304, 3.62426, -1.6598883)
 room_number = 1
 
+[node name="spawner5" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 26.216482, 3.62426, 3.328915)
+room_number = 1
+
+[node name="spawner6" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 34.33808, 3.6242602, 9.815098)
+enemy_number = 3
+room_number = 1
+
 [node name="spawner3" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(0.83962935, 0, 0.5431598, 0, 1, 0, -0.5431598, 0, 0.83962935, -3.05659, 3.62426, 3.1133547)
 room_number = 1

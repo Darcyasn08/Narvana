@@ -12,6 +12,7 @@ func _ready() -> void:
 	SignalBus.on_item_removed.connect(show_removed_item)
 	SignalBus.on_thermal_water_used.connect(show_max_health_label)
 	SignalBus.on_game_saved.connect(show_saving_game)
+	SignalBus.on_magic_selected.connect(change_magic_icon)
 	
 	for life: int in Global.player_health:
 		var hud_life: Object = hud_life_inst.instantiate()
@@ -58,12 +59,15 @@ func show_saving_game() -> void:
 	await get_tree().create_timer(1.8).timeout
 	$save_label.hide()
 
+func change_magic_icon(magic_selected: int) -> void:
+	$magics/magic_icon.texture = load(Global.magics_icon[magic_selected-1])
+
 func start_magic_timer(time: float) -> void:
 	$magics/magics_timer.wait_time = time
 	$magics/magics_timer.start()
-	$magics/dust_magic.modulate = Color("#5071a1")
+	$magics/magic_icon.modulate = Color("#5071a1")
 	$magics/magic_time_label.show()
 
 func _on_magics_timer_timeout() -> void:
 	$magics/magic_time_label.hide()
-	$magics/dust_magic.modulate = Color("ffffffff")
+	$magics/magic_icon.modulate = Color("ffffffff")

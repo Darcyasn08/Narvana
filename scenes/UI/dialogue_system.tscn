@@ -57,9 +57,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -301.0
-offset_top = -212.0
+offset_top = -223.0
 offset_right = 301.0
-offset_bottom = -29.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -108,10 +108,10 @@ root_node = NodePath("../..")
 [node name="dialog_options" type="VBoxContainer" parent="dialog_box"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 471.0
-offset_top = 121.0
-offset_right = 742.0
-offset_bottom = 195.0
+offset_left = 534.0
+offset_top = 139.0
+offset_right = 805.0
+offset_bottom = 213.0
 
 [node name="diag_option1" type="Button" parent="dialog_box/dialog_options"]
 custom_minimum_size = Vector2(0, 30)

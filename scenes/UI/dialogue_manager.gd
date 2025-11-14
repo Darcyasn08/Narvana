@@ -64,7 +64,7 @@ func start_dialogue(npc: String) -> void:
 		has_started_diag = true
 		cur_npc = npc
 		cur_text = 0
-		await check_done_dialog()
+		check_done_dialog()
 		check_options()
 		name_label.text = Dialogues.dialogs[cur_npc]["name"]
 		show()
@@ -96,16 +96,18 @@ func end_dialog() -> void:
 
 #esse checa se há opções de dialogo
 func check_options() -> void:
-	if npc_dialog["options"] == {}:
-		pass #sem opções
-	else: #se tiver opções, esse roda
-		#print("there is an option")
+	if npc_dialog["options"] != {}:
 		can_progress = false
 		has_option = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		diag_option_1.text = npc_dialog["options"][0]["text"]
-		diag_option_2.text = npc_dialog["options"][1]["text"]
-		dialog_options.show()
+		if npc_dialog["options"].size() > 1:
+			diag_option_1.text = npc_dialog["options"][0]["text"]
+			diag_option_2.text = npc_dialog["options"][1]["text"]
+			dialog_options.show()
+		else:
+			diag_option_1.text = npc_dialog["options"][0]["text"]
+			dialog_options.show()
+			diag_option_2.hide()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("e") and has_option:
@@ -116,7 +118,7 @@ func _input(event: InputEvent) -> void:
 		dialog_text.text = npc_dialog_tree[cur_text]["text"]
 		can_progress = true
 
-#função para progressar dialogo
+#função para prosseguir dialogo
 func progress_dialog() -> void:
 	dialog_text.text = "" #reseta caixa pra garantir
 	cur_text += 1
@@ -150,7 +152,6 @@ func check_pressed_option() -> void:
 		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["quest"]["text"]
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "exit":
-		#print("exit please ma'am")
 		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["exit"]["text"]
 	
 	elif npc_dialog["options"][pressed_option]["ignite"] == "continue":
@@ -161,6 +162,8 @@ func check_pressed_option() -> void:
 		print("alguma função tem que ser acionada aqui")
 		dialog_text.text = Dialogues.dialogs[cur_npc]["dialog_tree"]["function"]["text"]
 		SignalBus.on_start_dialog_function.emit(cur_npc, Dialogues.dialogs[cur_npc]["dialog_tree"]["function"]["id"])
+	
+	diag_option_1.show() #caso tenha sido escondido antes, por ter só uma opção
 	
 	has_option = false
 

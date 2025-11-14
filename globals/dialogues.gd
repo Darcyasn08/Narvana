@@ -237,10 +237,6 @@ var dialogs: Dictionary = {
 							"text": "Ok",
 							"ignite": "function",
 						},
-						1: {
-							"text": "Ok",
-							"ignite": "function",
-						},
 					},
 				},
 				11: {

@@ -124,10 +124,18 @@ func load_to_global() -> void:
 	if !SaveLoad.save_content[Global.current_save]["inventory"].has("selected_shop_item"):
 		SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"] = -1
 	Global.selected_shop_item = SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"]
+	if !SaveLoad.save_content[Global.current_save]["inventory"].has("current_magic"):
+		SaveLoad.save_content[Global.current_save]["inventory"]["current_magic"] = 1
+	Global.magic_select = SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"]
+	#for i in SaveLoad.save_content[Global.current_save]:
+		#print(i)
+		#if !SaveLoad.save_content[Global.current_save].has(i):
+			#SaveLoad.save_content[Global.current_save][i]
 
 func save_to_file() -> void:
 	SignalBus.on_game_saved.emit()
 	await get_tree().create_timer(.2).timeout
+	SaveLoad.save_content[Global.current_save].merge(reset_save_content, false)
 	SaveLoad.save_content[Global.current_save]["current_world"] = Global.current_world
 	SaveLoad.save_content[Global.current_save]["health"] = Global.player_health
 	SaveLoad.save_content[Global.current_save]["completed_levels"] = Global.completed_levels
@@ -142,6 +150,7 @@ func save_to_file() -> void:
 	SaveLoad.save_content[Global.current_save]["time_lapsed"] = Global.time_lapsed
 	SaveLoad.save_content[Global.current_save]["inventory"]["selected_shop_item"] = Global.selected_shop_item
 	#fazer isso realmente funcionar ^^^
+	SaveLoad.save_content[Global.current_save]["inventory"]["current_magic"] = Global.magic_select
 	SaveLoad.save()
 
 func load_save() -> void:

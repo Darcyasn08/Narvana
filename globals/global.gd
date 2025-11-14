@@ -7,14 +7,20 @@ var game_paused: bool = false
 var next_scene: String = "res://scenes/worlds/normal_world.tscn"
 var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
 var time_lapsed: int = 0
+var in_combat: bool = false
+var coins: int = 100
 
 #player
 var player_can_move: bool = true
 var player_can_attack: bool = true
+var magic_select: int = 1
 var current_weapon: int = 1
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1
+var dust_damage: float= 1000.0
+
+var magics_icon: Array = ["res://UI/magics/dust-magic-icon.png", "res://UI/star-life.png"]
 
 enum weapons {NONE, BAT, TONFA, MANGUAL}
 var unlocked_weapons: Dictionary = {
@@ -38,10 +44,8 @@ var plus_player_speed: float
 
 var max_player_health: int
 
-var coins: int = 100
 
 #enemies
-var dust_damage: float= 1000.0
 var house_health: int = 8000
 var knock_multi: float = 5.0
 
@@ -57,6 +61,7 @@ var worlds_files: Dictionary = {
 	"first_level": "res://scenes/worlds/first_level.tscn"
 }
 
+#enemies and levels
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
 	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn", "res://scenes/enemies/parents.tscn", "res://scenes/enemies/band.tscn", "res://scenes/enemies/el_gran_capo.tscn"],
@@ -81,6 +86,20 @@ var current_world: int = 0
 enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
 var last_saved_pos: Vector3 = Vector3(0,0,-16)
 
+var completed_levels: Dictionary = {
+	"first_level": false,
+	"second_level": false,
+	"third_level": false
+}
+
+var reset_completed_levels: Dictionary = {
+	"first_level": false,
+	"second_level": false,
+	"third_level": false
+}
+
+
+#shop and inventory
 var selected_shop_item: int = -1
 var shop_items: Dictionary = {
 	0: {
@@ -107,21 +126,9 @@ var shop_items: Dictionary = {
 	}
 }
 
-var completed_levels: Dictionary = {
-	"first_level": false,
-	"second_level": false,
-	"third_level": false
-}
-
-var reset_completed_levels: Dictionary = {
-	"first_level": false,
-	"second_level": false,
-	"third_level": false
-}
-
 var inventory: Dictionary = {
 	"selected_shop_item": -1,
-	"current_spell": "",
+	"current_magic": 1,
 	"items": {
 		"car_keys": {
 			"player_has": true,
@@ -184,7 +191,7 @@ var inventory: Dictionary = {
 
 var reset_inventory: Dictionary = {
 	"selected_shop_item": -1,
-	"current_spell": "",
+	"current_magic": 1,
 	"items": {
 		"car_keys": {
 			"player_has": true,
@@ -246,8 +253,7 @@ var reset_inventory: Dictionary = {
 }
 
 
-enum npcs {crab, master}
-
+#npcs 
 var npc_manager: Dictionary = {
 	"crab": {
 		"is_first_time": true,
@@ -312,6 +318,7 @@ var reset_npc_manager: Dictionary = {
 }
 
 
+#cutscenes
 var cutscenes: Dictionary = {
 	"start": false,
 	"final": false

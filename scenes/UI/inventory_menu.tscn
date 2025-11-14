@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddw77aywbgkt1"]
+[gd_scene load_steps=19 format=3 uid="uid://ddw77aywbgkt1"]
 
 [ext_resource type="Script" uid="uid://qfijfq46qev1" path="res://scripts/UI/inventory_menu.gd" id="1_qtyf2"]
 [ext_resource type="Texture2D" uid="uid://bkq4ovlce3mt2" path="res://UI/inventory_background.png" id="2_5bih5"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ddbiu7e4rj0d5" path="res://UI/money.png" id="5_jm714"]
 [ext_resource type="Texture2D" uid="uid://b1j4ghmd74yi8" path="res://UI/inventory/inventory-item-frame.png" id="5_nmks5"]
 [ext_resource type="FontFile" uid="uid://dakykoyuk21wd" path="res://UI/fonts/hogback/Hogback Demo Version.otf" id="6_nmks5"]
+[ext_resource type="Texture2D" uid="uid://b84xvkh3w8sjd" path="res://UI/magics/dust-magic-icon.png" id="8_fvddd"]
+[ext_resource type="Texture2D" uid="uid://cc4atunbumc0q" path="res://UI/shop/candy.png" id="9_inbng"]
+[ext_resource type="Texture2D" uid="uid://cyrkd5onfkwkh" path="res://UI/star-life.png" id="10_3kc3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fnxws"]
 bg_color = Color(0.145098, 0.172549, 0.227451, 0.988235)
@@ -265,34 +268,38 @@ offset_bottom = 17.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="magic_slot" type="TextureRect" parent="magics"]
-modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
+[node name="dust_magic_button" type="TextureButton" parent="magics"]
 layout_mode = 0
-offset_left = 333.0
-offset_top = -28.0
-offset_right = 533.0
-offset_bottom = 172.0
-scale = Vector2(1.2116431, 1.2116431)
-texture = ExtResource("5_jm714")
+offset_left = 365.0
+offset_top = 32.0
+offset_right = 585.0
+offset_bottom = 252.0
+texture_normal = ExtResource("8_fvddd")
+texture_pressed = ExtResource("9_inbng")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="magic_slot2" type="TextureRect" parent="magics"]
-modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
+[node name="crab_magic_button" type="TextureButton" parent="magics"]
+modulate = Color(0.37495178, 0.82908565, 0.32150564, 1)
 layout_mode = 0
-offset_left = 467.99997
-offset_top = 195.0
-offset_right = 668.0
-offset_bottom = 395.0
-rotation = 1.990244
-scale = Vector2(1.2116431, 1.2116431)
-texture = ExtResource("5_jm714")
+offset_left = 167.99997
+offset_top = 112.00001
+offset_right = 378.99997
+offset_bottom = 323.0
+texture_normal = ExtResource("8_fvddd")
+texture_pressed = ExtResource("9_inbng")
+texture_hover = ExtResource("10_3kc3t")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="magic_slot3" type="TextureRect" parent="magics"]
+visible = false
 modulate = Color(0.1254902, 0.17254902, 0.49803922, 0.39215687)
 layout_mode = 0
-offset_left = -14.999985
-offset_top = 222.0
-offset_right = 185.00003
-offset_bottom = 422.0
+offset_left = -45.999985
+offset_top = 217.0
+offset_right = 154.00003
+offset_bottom = 417.0
 rotation = 4.922328
 scale = Vector2(1.1256399, 1.1256399)
 texture = ExtResource("5_jm714")
@@ -315,3 +322,5 @@ texture = ExtResource("5_ivdwf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="shop_item_container/open_item_select" to="." method="_on_open_item_select_pressed"]
+[connection signal="pressed" from="magics/dust_magic_button" to="." method="_on_dust_magic_button_pressed"]
+[connection signal="pressed" from="magics/crab_magic_button" to="." method="_on_crab_magic_button_pressed"]
