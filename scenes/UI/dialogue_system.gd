@@ -72,7 +72,6 @@ func end_dialog() -> void:
 	has_started_diag = false
 	hide()
 	can_progress = false
-	SignalBus.on_ignite_cutscene.emit("final")
 	return
 
 

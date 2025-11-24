@@ -152,8 +152,6 @@ func _on_open_item_select_pressed() -> void:
 
 func _on_dust_magic_button_pressed() -> void:
 	Global.magic_select = 1
-	SignalBus.on_magic_selected.emit(Global.magic_select)
 
 func _on_crab_magic_button_pressed() -> void:
 	Global.magic_select = 2
-	SignalBus.on_magic_selected.emit(Global.magic_select)

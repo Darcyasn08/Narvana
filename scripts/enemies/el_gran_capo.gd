@@ -14,6 +14,7 @@ var beatable : bool = true
 var old_state : String
 var target_angle : float
 var old_velocity : Vector3
+var swirl_hits : int = 0
 
 var bubbleins: Object = preload("res://scenes/weapon/projectile.tscn")
 var original_resource: StandardMaterial3D = load("res://shaders/el_gran_capo_skin.tres")
@@ -64,17 +65,9 @@ func _physics_process(delta: float) -> void:
 	if state == "beating" and player_near:
 		activate_smash()
 		
-	
 	if state == "beating2" :
 		global_rotation.y = lerp_angle(global_rotation.y,target_angle,acceleration/6 * delta)
 	
-	if state == "swirl2" and life > target_life:
-		$swirl_col.scale.x -= 0.0009
-		$swirl_col.scale.z -= 0.0009
-		$enemy_hitbox/swirl.scale.x -= 0.001
-		$enemy_hitbox/swirl.scale.z -= 0.001
-		$swirl_molde.scale.x -= 0.001
-		$swirl_molde.scale.z -= 0.001
 	if state == "swirl2" and life < target_life:
 		cancel_swirl()
 	move_and_slide()
@@ -88,13 +81,13 @@ func unique_take_damage(area)-> void:
 
 func unique_die()-> void:
 	Global.completed_levels["second_level"] = true
+	SignalBus.on_ignite_cutscene.emit("final")
 
 func look_to_player()-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)
 	var targetpos2d: Vector2 = Vector2(player.global_position.x, player.global_position.z)
-	var target_angle = pos2d - targetpos2d
+	var target_angle: Vector2 = pos2d - targetpos2d
 	global_rotation.y = lerp_angle(rotation.y,atan2(target_angle.x, target_angle.y), .1)
-
 
 func _on_timer_timeout() -> void:
 	if state == "bubble":
@@ -105,10 +98,16 @@ func _on_timer_timeout() -> void:
 		state = "swirl"
 		#$Timer.wait_time = 2.0
 		#$Timer.start()
+	elif state == "swirl2" and swirl_hits < 3 and player_near:
+		get_tree().call_group("player","hurt",damage)
+		swirl_hits += 1
+		$Timer.wait_time = 1.5
+		$Timer.start()
+		
 	elif state == "swirl2" or state == "between":
 		cancel_swirl()
-	
-	
+
+
 func shoot() -> void:
 	var bubble = bubbleins.instantiate()
 	bubble.pos = $shooter.global_position
@@ -117,17 +116,19 @@ func shoot() -> void:
 	bubble.model = "res://scenes/weapon/bubble_grancapo.tscn"
 	bubble.speed = bullet_speed
 	bubble.damage = damage
-	bubble.size = 4.0
+	bubble.size = 7.0
 	get_parent().add_child(bubble)
 
 
 func _on_player_detection_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		player_near = true
+
 func _on_player_detection_area_exited(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		player_near = false
-		
+
+
 func cancel_swirl() -> void:
 	if state == "between":
 		state = "bubble"
@@ -139,9 +140,6 @@ func cancel_swirl() -> void:
 	#$collision.disabled = true
 	$swirl_col.disabled = true
 	$gran_capo_model.set_state("idle")
-	$swirl_molde.hide()
-	$swirl_col.scale = Vector3(1,1,1)
-	$swirl_molde.scale = Vector3(1,1,1)
 	$enemy_hitbox/swirl.scale = Vector3(1.098,1.098,1.098)
 	$Timer.wait_time = 2.0
 	$Timer.start()

@@ -14,8 +14,9 @@ var ground_speed: float
 var magic_time : float = 80.0
 var magic_col : bool = false
 var special_col : bool = false
-var special_time : float = 25.0
+var special_time : float = 20.0
 var bubbles_rmn : int = 0
+var is_shark_attack: bool = false
 var attack_combo_time: float = .8
 var combo_attack_count: int = 0
 var state : String = ""
@@ -160,19 +161,24 @@ func _input(event: InputEvent) -> void:
 		await get_tree().create_timer(1).timeout
 		$narwhal_skin/dash_bubble_particle.emitting = false
 	
-	if event.is_action_pressed("q") and state =="shield" and is_on_floor():
+	if event.is_action_pressed("q"):
+		special_attack()
+	
+	if event.is_action_pressed("q") and state == "shield" and is_on_floor():
+		$narwhal_skin/narval_model/attack_player.play("tonfa_shield_special")
+		Global.player_can_move = false
+		Global.player_can_attack = false
+		await get_tree().create_timer(.08).timeout
 		$magics.rotation = skin.rotation
 		$magics/shield_holder/shelld.disabled = false
 		$magics/shield_holder/shield_detection/shelld.disabled = false
-		Global.player_can_move = false
-		Global.player_can_attack = false
 		velocity = Vector3.ZERO
 	
-	if event.is_action_released("q") and state =="shield":
+	if event.is_action_released("q") and state == "shield":
+		await get_tree().create_timer(.3).timeout
 		deactivate_shield()
-	#para o ataque
-	#if event.is_action_pressed("e") and Global.player_can_attack:
-		#attack()
+	
+
 
 
 func hurt(damage) -> void:
@@ -234,22 +240,30 @@ func change_current_weapon(weapon: int) -> void:
 			$narwhal_skin/narval_model/Armature_001.hide()
 			$narwhal_skin/narval_model/Armature_002.show()
 			$narwhal_skin/narval_model/Armature_003.hide()
+			Global.player_damage = 220
 		Global.weapons.TONFA:
 			Global.current_weapon = 2
 			$narwhal_skin/narval_model/Armature_001.show()
 			$narwhal_skin/narval_model/Armature_002.hide()
 			$narwhal_skin/narval_model/Armature_003.hide()
+			Global.player_damage = 280
 
 func attack() -> void:
 	if Global.current_weapon == Global.weapons.TONFA:
-		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", true)
-		$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
-		await $narwhal_skin/narval_model/attack_player.animation_finished
 		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", false)
 		if bubbles_rmn > 0:
+			$narwhal_skin/narval_model/attack_player.play("tonfa_bubble_attack")
+		elif is_shark_attack:
+			$narwhal_skin/narval_model/attack_player.play("tonfa_shark_attack")
+		else:
+			$narwhal_skin/narval_model/attack_player.play("tonfa_attack")
+		$combo_attack_timer.start()
+		await $narwhal_skin/narval_model/attack_player.animation_finished
+		$narwhal_skin/narval_model/Armature_001/Skeleton3D/tonfa/area/CollisionShape3D.set_deferred("disabled", true)
+		if bubbles_rmn > 0:
 			bubbles_rmn -= 1
-			if bubbles_rmn == 0:
-				Global.knock_multi = 5.0
+		if bubbles_rmn == 0:
+			Global.knock_multi = 5.0
 	elif Global.current_weapon == Global.weapons.BAT:
 		$narwhal_skin/narval_model/Armature_002/Skeleton3D/bat/Area3D/CollisionShape3D.set_deferred("disabled", false)
 		#combo_attack_count += 1
@@ -333,13 +347,16 @@ func magic() -> void:
 		
 		if Global.magic_select == 2:
 			$magics.rotation.y = skin.rotation.y
-			Global.player_can_move = false
-			get_immune(3.0)
+			$magics/crab/AnimationPlayer.play("fade_in")
+			get_immune(3.5)
 			$magics/crab.show()
 			stunned = true
-			await(get_tree().create_timer(3).timeout)
+			Global.player_can_move = false
+			await(get_tree().create_timer(3.1).timeout)
 			Global.player_can_move = true
 			stunned = false 
+			$magics/crab/AnimationPlayer.play("fade_out")
+			await($magics/crab/AnimationPlayer.animation_finished)
 			$magics/crab.hide()
 			magic_time = 25
 		
@@ -368,7 +385,7 @@ func stunned_by_enemy(stun_time: float) -> void:
 	await(get_tree().create_timer(stun_time).timeout)
 	Global.player_can_move = true
 
-func special_attack()->void:
+func special_attack() -> void:
 	if is_on_floor() and special_col == false:
 		special_col = true
 		if Global.current_weapon == 1:
@@ -386,13 +403,21 @@ func special_attack()->void:
 			Global.player_damage = Global.player_damage*4
 		if Global.current_weapon == 2:
 			#var what_special : int = randi_range(1,3)
-			var what_special : int = 3
+			var what_special: int = 3
 			if what_special == 1:
+				is_shark_attack = true
+				$narwhal_skin/narval_model/attack_player.play("tonfa_shark_special")
+				await(get_tree().create_timer(.2).timeout)
 				Global.player_damage = Global.player_damage * 2
 				await(get_tree().create_timer(5.0).timeout)
 				Global.player_damage = Global.player_damage / 2
+				is_shark_attack = false
 			if what_special == 2:
-				Global.knock_multi = 8.0
+				Global.player_can_attack = false
+				$narwhal_skin/narval_model/attack_player.play("tonfa_bubble_special")
+				await(get_tree().create_timer(.8).timeout)
+				Global.player_can_attack = true
+				Global.knock_multi = 16.0
 				bubbles_rmn = 2
 			if what_special == 3:
 				state = "shield"
@@ -417,6 +442,7 @@ func special_attack()->void:
 		special_col = false
 
 func deactivate_shield() -> void:
+	$narwhal_skin/narval_model/attack_player.play("RESET")
 	$magics.rotation = skin.rotation
 	$magics/shield_holder/shelld.disabled = true
 	$magics/shield_holder/shield_detection/shelld.disabled = true
@@ -430,6 +456,5 @@ func _on_shield_detection_area_entered(area: Area3D) -> void:
 
 func _on_combo_attack_timer_timeout() -> void:
 	combo_attack_count = 0
-	print("reset combo attack count")
 	$narwhal_skin/narval_model/attack_player.play("RESET")
 	is_attacking = false

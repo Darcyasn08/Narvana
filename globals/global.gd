@@ -1,5 +1,35 @@
 extends Node
 
+var current_mission: int = 0
+var missions: Dictionary = {
+	0: {
+		"name": "Ache o templo",
+		"done": false,
+		"text": "Procure a vá até o templo",
+	},
+	1: {
+		"name": "Terminar primeira fase",
+		"done": false,
+		"text": "Derrote seus apegos materiais e termine o primeiro desafio",
+	},
+	2: {
+		"name": "Compre coisas na loja",
+		"done": false,
+		"text": "Procure itens que possam te ajudar na batalha na loja da vila",
+	},
+	3: {
+		"name": "Termine segunda fase",
+		"done": false,
+		"text": "Derrote seus apegos de relacionamentos e termine o segundo desafio",
+	},
+	4: {
+		"name": "Termine a terceira fase",
+		"done": false,
+		"text": "Derrote seus traumas e vícios, e termine o terceiro e último desafio",
+	},
+}
+
+
 #game
 var current_save: int = 0
 var has_started_game: bool = false
@@ -14,7 +44,7 @@ var coins: int = 100
 var player_can_move: bool = true
 var player_can_attack: bool = true
 var magic_select: int = 1
-var current_weapon: int = 1
+var current_weapon: int = 2
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1

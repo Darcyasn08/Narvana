@@ -99,10 +99,16 @@ func _on_timer_timeout() -> void:
 		$Timer.wait_time = 1.0
 		$Timer.start()
 func spaw_pie() -> void:
+	#Animação: summon das tortas da mãe
+	%mommy_model.set_state("bodyAction")
+	await(get_tree().create_timer(1).timeout)
 	var pie = pieins.instantiate()
 	pie.global_position = $mom/pie_spawner.global_position
 	pie.rotation = $mom/pie_spawner.global_rotation
 	get_parent().add_child(pie)
+	%mommy_model.set_state_back("bodyAction")
+	await(get_tree().create_timer(1).timeout)
+	%mommy_model.set_state("mom_idle")
 	
 func get_lombar_pain() -> void:
 	if  state == "moms_turn" or state == "both":
@@ -120,7 +126,9 @@ func dads_dash() ->void:
 		dad_state = "aimming"#sei l se tem animaão dele mirando
 		await(get_tree().create_timer(3).timeout)
 		dad_state = "dadshing"#colocar animção dele girando
+		%daddy_model.set_state("dad_tornado")
 		await(get_tree().create_timer(2).timeout)
+		#iddle
 		dad_state = "aimming"
 		dad.velocity = Vector3(0,0,0)
 		dadshs += 1
@@ -131,6 +139,7 @@ func dads_dash() ->void:
 func moms_cooking() -> void:
 	$mom/escudo.hide()
 	$mom/enemy_hitbox/hitbox.disabled = false
+	
 	#colocar animçao dela conjrando a torta e adaptar os awaits pro tempo da animção
 	spaw_pie()
 	await(get_tree().create_timer(3).timeout)
@@ -138,6 +147,8 @@ func moms_cooking() -> void:
 	await(get_tree().create_timer(3).timeout)
 	spaw_pie()
 	await(get_tree().create_timer(3).timeout)
+	%mommy_model.set_state("mom_idle")
+	
 	if state == "moms_turn":
 		get_lombar_pain()
 		state = "dads_turn"
@@ -154,26 +165,27 @@ func mega_attack() -> void:
 	speed = speed/3
 	#$dad/standing.scale = $dad/standing.scale * 2
 	dad_state = "smashing"
-	for i in 3:
+	for i in 5:
 		await(get_tree().create_timer(1).timeout)
+		%daddy_model.set_state("dad_hammering")
 		$dad/hands/slaping.disabled = true
 		#uma mão batendo
-		$dad/hands/hand1.disabled = false
-		await(get_tree().create_timer(3).timeout)
-		$dad/hands/hand1.disabled = true
-		#outra mão batendo
 		$dad/hands/hand2.disabled = false
-		await(get_tree().create_timer(3).timeout)
+		await(get_tree().create_timer(0.5).timeout)
 		$dad/hands/hand2.disabled = true
+		#outra mão batendo
+		$dad/hands/hand1.disabled = false
+		await(get_tree().create_timer(1).timeout)
+		$dad/hands/hand1.disabled = true
 		#tapão de duas mao
 		$dad/hands/slaping.disabled = false
-		await(get_tree().create_timer(2).timeout)
+		await(get_tree().create_timer(1.56).timeout)
 	$dad/hands/slaping.disabled = true
 	dad_state = ""
 	dad.velocity = Vector3.ZERO
 	#$dad/standing.scale = $dad/standing.scale / 2
-	
-
+	%daddy_model.set_state("idle")
+	await(get_tree().create_timer(0.5).timeout)
 
 func _on_hands_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":

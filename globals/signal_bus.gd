@@ -23,6 +23,7 @@ signal on_buy_shop_item()
 signal on_magic_selected()
 
 #game and save
+signal on_mission_list_updated()
 signal on_game_paused()
 signal on_show_loading_screen()
 signal on_ignite_cutscene()

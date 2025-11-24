@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjdchlemwopfg"]
+[gd_scene load_steps=39 format=3 uid="uid://cjdchlemwopfg"]
 
 [ext_resource type="Script" uid="uid://cnoeqrt4lb18k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://utkg066kgy3y" path="res://scenes/player/narwhal_skin.tscn" id="2_75vfm"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bngpynw8vjxay" path="res://scenes/UI/cutscene_system.tscn" id="7_0owmy"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="7_qek5x"]
 [ext_resource type="AudioStream" uid="uid://c46swphrvq7e7" path="res://music/sfx/attack-sfx.mp3" id="8_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://m6vujvn0dl4i" path="res://3d_models/crab_magic.glb" id="8_gx1jg"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_qek5x"]
+[ext_resource type="Material" uid="uid://b2e4i7u6es0t8" path="res://shaders/crab_magic_skin.tres" id="9_ugbui"]
 [ext_resource type="AudioStream" uid="uid://d2ssgjdgrfcih" path="res://music/sfx/hit-sfx.mp3" id="11_je7p5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qek5x"]
@@ -54,22 +56,70 @@ emission_enabled = true
 emission = Color(1, 0.34902, 0.0156863, 1)
 emission_energy_multiplier = 6.3
 
-[sub_resource type="BoxMesh" id="BoxMesh_p47bc"]
-size = Vector3(5, 3, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_75vfm"]
-radius = 1.5
-height = 3.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0owmy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx1jg"]
 transparency = 1
-albedo_color = Color(1, 1, 0, 0.498039)
+albedo_color = Color(0.8791103, 0.60639113, 0.28509432, 0.39607844)
+emission = Color(0.8336711, 0.62650424, 0.26617348, 1)
+
+[sub_resource type="Animation" id="Animation_fcs02"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9595992, 0.9277942, 0.54682547, 0.39607844)]
+}
+
+[sub_resource type="Animation" id="Animation_ugbui"]
+resource_name = "fade_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9607843, 0.92941177, 0.54509807, 0), Color(0.9607843, 0.92941177, 0.54509807, 0.18431373)]
+}
+
+[sub_resource type="Animation" id="Animation_myrg7"]
+resource_name = "fade_out"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9607843, 0.92941177, 0.54509807, 0.18431373), Color(0.9607843, 0.92941177, 0.54509807, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvlxm"]
+_data = {
+&"RESET": SubResource("Animation_fcs02"),
+&"fade_in": SubResource("Animation_ugbui"),
+&"fade_out": SubResource("Animation_myrg7")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p47bc"]
 size = Vector3(2.04321, 1.84058, 0.337708)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0owmy"]
-size = Vector3(2.04321, 1.84058, 0.337708)
+size = Vector3(2.2731316, 1.84058, 0.337708)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p47bc"]
 
@@ -245,15 +295,26 @@ mesh = SubResource("PlaneMesh_p47bc")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_75vfm")
 
-[node name="crab" type="MeshInstance3D" parent="magics"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.67432, -2.10079)
+[node name="crab" parent="magics" instance=ExtResource("8_gx1jg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.13415647, -2.768672)
 visible = false
-mesh = SubResource("BoxMesh_p47bc")
 
-[node name="bubble" type="MeshInstance3D" parent="magics/crab"]
-transform = Transform3D(0.999986, 0, 0.00532323, 0, 1, 0, -0.00532323, 0, 0.999986, 0, -0.708933, 1.98576)
-mesh = SubResource("SphereMesh_75vfm")
-surface_material_override/0 = SubResource("StandardMaterial3D_0owmy")
+[node name="armL" parent="magics/crab" index="0"]
+material_override = ExtResource("9_ugbui")
+
+[node name="ball" parent="magics/crab" index="1"]
+material_override = SubResource("StandardMaterial3D_gx1jg")
+
+[node name="body" parent="magics/crab" index="2"]
+material_override = ExtResource("9_ugbui")
+
+[node name="armR" parent="magics/crab" index="3"]
+material_override = ExtResource("9_ugbui")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="magics/crab"]
+libraries = {
+&"": SubResource("AnimationLibrary_kvlxm")
+}
 
 [node name="shield_holder" type="StaticBody3D" parent="magics"]
 
@@ -265,7 +326,7 @@ disabled = true
 [node name="shield_detection" type="Area3D" parent="magics/shield_holder" groups=["weapon"]]
 
 [node name="shelld" type="CollisionShape3D" parent="magics/shield_holder/shield_detection"]
-transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.05, -0.00134277, 0.948996, 1.79382)
+transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.05, -0.005020812, 0.948996, 1.79382)
 shape = SubResource("BoxShape3D_0owmy")
 disabled = true
 
@@ -330,3 +391,4 @@ libraries = {
 [connection signal="timeout" from="combo_attack_timer" to="." method="_on_combo_attack_timer_timeout"]
 
 [editable path="magics/sandbox_magic"]
+[editable path="magics/crab"]

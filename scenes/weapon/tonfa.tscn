@@ -12,8 +12,8 @@ albedo_color = Color(0.624463, 0.39049, 0.793943, 1)
 albedo_color = Color(0.396325, 0.457151, 0.77702, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_xegi3"]
-height = 1.00348
-radius = 0.10791
+height = 1.1844826
+radius = 0.13134766
 
 [node name="tonfa" type="Node3D"]
 
@@ -36,10 +36,9 @@ material_override = SubResource("StandardMaterial3D_0vhhs")
 material_override = SubResource("StandardMaterial3D_0vhhs")
 
 [node name="area" type="Area3D" parent="." groups=["weapon"]]
-monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="area"]
-transform = Transform3D(1, 0, 0, 0, 0.875042, 0.484046, 0, -0.484046, 0.875042, 0, 0.446826, -0.254736)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area" groups=["weapon"]]
+transform = Transform3D(1, 0, 0, 0, 0.875042, 0.484046, 0, -0.484046, 0.875042, 0, 0.43249077, -0.2468062)
 shape = SubResource("CylinderShape3D_xegi3")
 debug_color = Color(0.811176, 0.407637, 0.139143, 0.42)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=16 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
@@ -19,13 +19,6 @@ outline_color = Color(0, 0, 0, 1)
 font_size = 27
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xffaj"]
-bg_color = Color(0.40428, 0.466038, 0.567124, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_umbc4"]
 font = ExtResource("2_r6s25")
@@ -59,11 +52,7 @@ outline_size = 8
 outline_color = Color(0.18310934, 0.13896397, 0.35787523, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdwu4"]
-bg_color = Color(0.32156864, 0.43137255, 0.5568628, 0.7294118)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+bg_color = Color(0.32156864, 0.43137255, 0.5568628, 0.6156863)
 border_color = Color(0.17324162, 0.15502769, 0.38303792, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
@@ -73,11 +62,6 @@ corner_radius_bottom_left = 6
 [sub_resource type="LabelSettings" id="LabelSettings_h0vcf"]
 font = ExtResource("2_r6s25")
 font_size = 35
-
-[sub_resource type="LabelSettings" id="LabelSettings_q3qdk"]
-line_spacing = -2.0
-font = ExtResource("2_r6s25")
-font_size = 30
 
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
@@ -146,37 +130,6 @@ offset_bottom = 96.0
 grow_horizontal = 0
 text = "99"
 label_settings = SubResource("LabelSettings_r6s25")
-
-[node name="quests_panel" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -89.5
-offset_right = -18.0
-offset_bottom = 89.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="quests_panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xffaj")
-
-[node name="Label" type="Label" parent="quests_panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 33.0
 
 [node name="removed_item_label" type="Label" parent="."]
 anchors_preset = 5
@@ -367,19 +320,19 @@ grow_vertical = 0
 text = "salvando..."
 label_settings = SubResource("LabelSettings_gie0l")
 
-[node name="Panel2" type="Panel" parent="."]
-visible = false
+[node name="indicator_panel" type="Panel" parent="."]
+unique_name_in_owner = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -275.0
 offset_top = 146.0
 offset_right = -18.0
-offset_bottom = 295.0
+offset_bottom = 319.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdwu4")
 
-[node name="Label" type="Label" parent="Panel2"]
+[node name="Label" type="Label" parent="indicator_panel"]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 16.0
@@ -388,14 +341,16 @@ offset_bottom = 51.0
 text = "OBJETIVO"
 label_settings = SubResource("LabelSettings_h0vcf")
 
-[node name="Label2" type="Label" parent="Panel2"]
+[node name="indicator_label" type="RichTextLabel" parent="indicator_panel"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 24.0
-offset_top = 60.0
+offset_top = 72.0
 offset_right = 232.0
-offset_bottom = 118.0
+offset_bottom = 162.0
+theme_override_fonts/normal_font = ExtResource("2_r6s25")
+theme_override_font_sizes/normal_font_size = 25
 text = "- Procure e vá 
 até o templo"
-label_settings = SubResource("LabelSettings_q3qdk")
 
 [connection signal="timeout" from="magics/magics_timer" to="." method="_on_magics_timer_timeout"]

@@ -12,3 +12,6 @@ func set_state(incoming_state: String) -> void:
 	else:
 		anim_player.play(incoming_state)
 	#fazer um for pegando cada braço do polvo, ou alterar animation player
+
+func set_state_back(incoming_state: String) -> void:
+	anim_player.play_backwards(incoming_state)

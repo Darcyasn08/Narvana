@@ -96,7 +96,6 @@ current_npc = "grandma"
 
 [node name="npc_interact_sign" parent="." instance=ExtResource("3_u4rl5")]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.33596528, 0)
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -12,12 +12,18 @@ func _ready() -> void:
 	SignalBus.on_item_removed.connect(show_removed_item)
 	SignalBus.on_thermal_water_used.connect(show_max_health_label)
 	SignalBus.on_game_saved.connect(show_saving_game)
-	SignalBus.on_magic_selected.connect(change_magic_icon)
+	SignalBus.on_mission_list_updated.connect(update_mission_list)
 	
 	for life: int in Global.player_health:
 		var hud_life: Object = hud_life_inst.instantiate()
 		health_container.add_child(hud_life)
 	$blush.hide()
+	
+	await get_tree().create_timer(.2).timeout
+	if Global.current_world != Global.worlds.NORMAL:
+		%indicator_panel.hide()
+	else:
+		%indicator_panel.show()
 
 func _physics_process(delta: float) -> void:
 	$fps_label.text = str(snapped(Engine.get_frames_per_second(), 0.01))
@@ -30,7 +36,6 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("e"):
 		pass
-		#change_player_health_status(0)
 
 func show_max_health_label() -> void:
 	$thermal_water_label.show()
@@ -59,9 +64,6 @@ func show_saving_game() -> void:
 	await get_tree().create_timer(1.8).timeout
 	$save_label.hide()
 
-func change_magic_icon(magic_selected: int) -> void:
-	$magics/magic_icon.texture = load(Global.magics_icon[magic_selected-1])
-
 func start_magic_timer(time: float) -> void:
 	$magics/magics_timer.wait_time = time
 	$magics/magics_timer.start()
@@ -71,3 +73,10 @@ func start_magic_timer(time: float) -> void:
 func _on_magics_timer_timeout() -> void:
 	$magics/magic_time_label.hide()
 	$magics/magic_icon.modulate = Color("ffffffff")
+
+func update_mission_list(mission: Dictionary) -> void:
+	if mission["done"]:
+		%indicator_panel.hide()
+	else:
+		%indicator_panel.show()
+		%indicator_label.text = str("- ",mission["text"])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0711umgv0lfh"]
+[gd_scene load_steps=9 format=3 uid="uid://d0711umgv0lfh"]
 
 [ext_resource type="Script" uid="uid://bebo8unmaf1yc" path="res://scripts/enemies/el_gran_capo.gd" id="1_dde4s"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hwf0v"]
@@ -13,13 +13,7 @@ data = PackedVector3Array(5.12987, -2.37764, 7.06066, 4.6007, -1.85786, 6.33232,
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_subga"]
 radius = 1.6123047
-height = 22.908447
-
-[sub_resource type="TorusMesh" id="TorusMesh_dde4s"]
-inner_radius = 7.2
-outer_radius = 11.9
-rings = 10
-ring_segments = 15
+height = 22.121292
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dde4s"]
 radius = 6.62358
@@ -44,7 +38,7 @@ shape = SubResource("ConcavePolygonShape3D_hwf0v")
 disabled = true
 
 [node name="collision" type="CollisionShape3D" parent="." groups=["enemy_other"]]
-transform = Transform3D(0.82141805, -2.492977e-08, -0.5703265, -0.5703265, -3.590533e-08, -0.82141805, 0, 1, -4.37114e-08, 0, -1.1230292, 5.0800343)
+transform = Transform3D(0.82141805, -2.492977e-08, -0.5703265, -0.5703265, -3.590533e-08, -0.82141805, 0, 1, -4.37114e-08, -9.8117985e-09, -1.1230292, 5.473612)
 shape = SubResource("CapsuleShape3D_subga")
 
 [node name="Timer" type="Timer" parent="."]
@@ -55,15 +49,10 @@ autostart = true
 [node name="shooter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.93683136, -8.79452)
 
-[node name="swirl_molde" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.58677)
-visible = false
-mesh = SubResource("TorusMesh_dde4s")
-
-[node name="player_detection" type="Area3D" parent="." groups=["enemies"]]
+[node name="player_detection" type="Area3D" parent="." groups=["enemy_other"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.4954395)
 
-[node name="detector" type="CollisionShape3D" parent="player_detection" groups=["enemies"]]
+[node name="detector" type="CollisionShape3D" parent="player_detection" groups=["enemy_other"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.934641)
 shape = SubResource("SphereShape3D_dde4s")
 

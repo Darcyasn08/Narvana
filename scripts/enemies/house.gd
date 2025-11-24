@@ -151,6 +151,8 @@ func unique_take_damage(area) -> void:
 
 func unique_die() -> void:
 	Global.completed_levels["first_level"] = true
+	Global.missions[0]["done"] = true
+	SignalBus.on_mission_list_updated.emit(Global.missions[1]) #referente ao próximo desafio
 	$door.hide()
 	$house_model/AnimationPlayer.play("death")
 	await $house_model/AnimationPlayer.animation_finished

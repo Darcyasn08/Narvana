@@ -1,0 +1,159 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpenk1gdcg45u"]
+
+[sub_resource type="Animation" id="Animation_ua4j6"]
+resource_name = "roll"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scroll_panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2.6, 18.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(418, 0), Vector2(418, 0), Vector2(418, -1248)]
+}
+
+[sub_resource type="Animation" id="Animation_ifrfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scroll_panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(418, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1ob8"]
+_data = {
+&"RESET": SubResource("Animation_ifrfk"),
+&"roll": SubResource("Animation_ua4j6")
+}
+
+[node name="credits_menu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg_panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scroll_panel" type="Panel" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -542.0
+offset_right = 547.0
+offset_bottom = 1488.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.5
+offset_top = 124.0
+offset_right = 38.5
+offset_bottom = 147.0
+grow_horizontal = 2
+text = "CRÉDITOS"
+
+[node name="Label2" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 255.0
+offset_right = 64.0
+offset_bottom = 278.0
+grow_horizontal = 2
+text = "MODELAGEM 3D"
+
+[node name="Label3" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 594.0
+offset_right = 64.0
+offset_bottom = 617.0
+grow_horizontal = 2
+text = "PROGRAMAÇÃO"
+
+[node name="Label4" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 924.0
+offset_right = 64.0
+offset_bottom = 947.0
+grow_horizontal = 2
+text = "MÚSICAS"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.5
+offset_top = 1173.0
+offset_right = 89.5
+offset_bottom = 1196.0
+grow_horizontal = 2
+text = "MATERIAIS ADICIONAIS"
+
+[node name="Label7" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.5
+offset_top = 1436.0
+offset_right = 89.5
+offset_bottom = 1485.0
+grow_horizontal = 2
+text = "Um jogo feito por....
+PIRARUCU GAMES"
+
+[node name="Label6" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.5
+offset_top = 1222.0
+offset_right = 143.5
+offset_bottom = 1271.0
+grow_horizontal = 2
+text = "Six Trillion Years and Overnight Story
+(colocar fonte tbm)q"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t1ob8")
+}
+autoplay = "roll"

@@ -1,48 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bngpynw8vjxay"]
+[gd_scene load_steps=15 format=3 uid="uid://bngpynw8vjxay"]
 
 [ext_resource type="Script" uid="uid://bk888l1j70g6i" path="res://scripts/UI/cutscene_system.gd" id="1_qfkak"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_7gwa3"]
+[ext_resource type="Texture2D" uid="uid://cxbdwcm85xc7t" path="res://UI/3-2.png" id="3_octsf"]
+[ext_resource type="FontFile" uid="uid://cwpmeeyjkmkq1" path="res://UI/fonts/h_houji/hHouji.ttf" id="4_0v5ml"]
+[ext_resource type="AudioStream" uid="uid://d2n8kn5y04ucg" path="res://music/Six Trillion Years and Overnight Story.mp3" id="4_octsf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a1bpe"]
-font_size = 30
-
-[sub_resource type="Animation" id="Animation_1psnl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cutscene_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["
-"]
-}
-
-[sub_resource type="Animation" id="Animation_qfkak"]
-resource_name = "start_cutscene"
-length = 14.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cutscene_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.48, 3.753333, 6.64, 10.233334),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": ["
-", "Depois de dias trabalhando incansávelmente", "Você volta do trabalho e se encontra com algo no seu correio", "É um folheto com 30% de desconto para uma viagem para a China", "Você decide que é hora de férias para seu trabalho, e arruma suas malas..."]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gwa3"]
-_data = {
-&"RESET": SubResource("Animation_1psnl"),
-&"start_cutscene": SubResource("Animation_qfkak")
-}
+font = ExtResource("2_7gwa3")
+font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1bpe"]
 bg_color = Color(0.5372549, 0.6431373, 0.85882354, 0.30980393)
@@ -85,6 +51,99 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_0v5ml"),
 &"fade_out": SubResource("Animation_octsf")
+}
+
+[sub_resource type="Animation" id="Animation_1psnl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cutscene_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../final_cutscene/cutscene_text:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../final_cutscene/final_cutscene_track:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_13gxu"]
+resource_name = "final"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../final_cutscene/cutscene_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 4.4466667, 8, 10.833333, 13.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["
+", "Com o último golpe...", "O CEO cai aos pedaços", "Narval olha feliz para si mesmo no reflexo", "porque...", "...finalmente chegou ao NARVANA"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../final_cutscene/final_cutscene_track:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 16.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_pk56f"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cutscene_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7gwa3"]
+_data = {
+&"RESET": SubResource("Animation_1psnl"),
+&"final": SubResource("Animation_13gxu"),
+&"start": SubResource("Animation_pk56f")
 }
 
 [node name="cutscene_system" type="CanvasLayer"]
@@ -136,18 +195,48 @@ label_settings = SubResource("LabelSettings_a1bpe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="start_cutscene_anim" type="AnimationPlayer" parent="control/start_cutscene"]
-libraries = {
-&"": SubResource("AnimationLibrary_7gwa3")
-}
+[node name="final_cutscene" type="Control" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="final_cutscene" type="Node2D" parent="control"]
-visible = false
+[node name="ColorRect" type="TextureRect" parent="control/final_cutscene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 479.0
+offset_top = 191.0
+offset_right = -483.0
+offset_bottom = -295.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_octsf")
 
-[node name="ColorRect" type="ColorRect" parent="control/final_cutscene"]
-offset_right = 1171.0
-offset_bottom = 660.0
-color = Color(0.101961, 0.0313726, 0.0941176, 0.647059)
+[node name="cutscene_text" type="Label" parent="control/final_cutscene"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -610.5
+offset_top = 354.0
+offset_right = 610.5
+offset_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_a1bpe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="final_cutscene_track" type="AudioStreamPlayer2D" parent="control/final_cutscene"]
+stream = ExtResource("4_octsf")
 
 [node name="skip_cutscene" type="Button" parent="."]
 anchors_preset = 1
@@ -158,7 +247,8 @@ offset_top = 19.0
 offset_right = -28.0
 offset_bottom = 62.0
 grow_horizontal = 0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_0v5ml")
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_a1bpe")
 text = "pular"
 
@@ -167,5 +257,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_13gxu")
 }
 
-[connection signal="animation_finished" from="control/start_cutscene/start_cutscene_anim" to="." method="_on_start_cutscene_anim_animation_finished"]
+[node name="cutscene_player" type="AnimationPlayer" parent="."]
+root_node = NodePath("../control/start_cutscene")
+libraries = {
+&"": SubResource("AnimationLibrary_7gwa3")
+}
+
 [connection signal="pressed" from="skip_cutscene" to="." method="_on_skip_cutscene_pressed"]
+[connection signal="animation_finished" from="cutscene_player" to="." method="_on_start_cutscene_anim_animation_finished"]

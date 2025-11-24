@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://utkg066kgy3y"]
+[gd_scene load_steps=53 format=4 uid="uid://utkg066kgy3y"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_ngfep"]
 [ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="2_g6ta3"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dpk5rmms40bo3" path="res://3d_models/placeholders/bat.glb" id="4_audoe"]
 [ext_resource type="Material" uid="uid://bt0ha3vmysor7" path="res://shaders/black_contour.tres" id="4_h238m"]
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="5_1hi58"]
-[ext_resource type="PackedScene" uid="uid://bu4bh2fvmsqfw" path="res://scenes/NPCs/npc_dialog_area.tscn" id="7_chc6g"]
+[ext_resource type="PackedScene" uid="uid://b1iujhrcdoyya" path="res://3d_models/tonfa_shark.glb" id="6_y12c8"]
+[ext_resource type="Material" uid="uid://qmg2n4yochwu" path="res://shaders/tonfa_shark_skin.tres" id="7_xqqyf"]
+[ext_resource type="PackedScene" uid="uid://bwxly6v0a56h3" path="res://3d_models/player/tonfa_seashell.glb" id="9_xqqyf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6ta3"]
 albedo_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
@@ -65,6 +67,27 @@ bind_count = 1
 bind/0/name = &"Bone"
 bind/0/bone = -1
 bind/0/pose = Transform3D(-1.5409652, -1.9549408, -2.626635e-07, 1.9549408, -1.5409652, -5.4149507e-07, 2.626636e-07, -5.4149496e-07, 2.48925, 2.7889433, -0.31955332, 0.5083461)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_falmy"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.19607843, 0.76862746, 0.8039216, 0.56078434)
+metallic = 0.72
+metallic_specular = 1.0
+roughness = 0.49
+
+[sub_resource type="SphereMesh" id="SphereMesh_oth5e"]
+material = SubResource("StandardMaterial3D_falmy")
+radius = 0.6
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d6vy"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.6627451, 0.37254903, 0.6509804, 0.60784316)
+roughness = 0.49
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h238m"]
 _surfaces = [{
@@ -254,7 +277,6 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_audoe"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -370,6 +392,121 @@ tracks/9/path = NodePath("../Area3D/bat_attack_effect:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Armature_001/Skeleton3D:Bone")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, -4.2351647e-22, -3.5527137e-15, 1.4901159e-08, 1)
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Armature_001:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Armature_001:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.544, 0.544, 0.544)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.019809127, 0.5183716, -0.5068399)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Armature_001/Skeleton3D/tonfa/shark_mesh:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../shark_effect:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("../tonfa_seashell:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Armature_001/Skeleton3D/tonfa/tonfa_seashell:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -670,6 +807,166 @@ tracks/0/path = NodePath("Armature_001/Skeleton3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.649998), Vector3(0.139793, -0.177346, 1.20828), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.5, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.433313), Vector3(-0.515701, 1.87444, 0.93796), Vector3(-0.564585, 1.69622, 1.29577), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166666, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.9599311, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("arm_001:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("arm_001:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature_001/Skeleton3D/tonfa/shark_mesh:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../tonfa_seashell:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Armature_001/Skeleton3D/tonfa/tonfa_seashell:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../shark_effect:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xqqyf"]
+resource_name = "tonfa_bubble_attack"
+length = 0.68
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001/Skeleton3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.333333, 0.666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
@@ -697,7 +994,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.166666, 0.666666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.872665, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -0.9599311, 0), Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -711,6 +1008,491 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("arm_001:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("arm_001:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.68),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.022599936, 0.49490827, -0.5252755), Vector3(-0.03030914, 0.43848342, -0.5455976)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.68),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.41400003, 0.41400003, 0.41400003), Vector3(0.539, 0.53900003, 0.53900003)]
+}
+
+[sub_resource type="Animation" id="Animation_fvkdd"]
+resource_name = "tonfa_bubble_special"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.28),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.28972465, 0, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:Bone")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -4.2351647e-22, -3.5527137e-15, 1.4901159e-08, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.38666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326), Vector3(3.2074244e-08, -0.85929537, -2.238326), Vector3(-0.39632997, -1.0146699, -1.6062924)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0), Vector3(0.36445767, 0.743121, 0.6672597)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("arm_001:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701), Vector3(-0.61974776, 0.48900586, 0.59315735)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("arm_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975), Vector3(0.63417983, 0.86180985, 0.094297945)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.112152815, -0.042555153)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.31, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001/Skeleton3D/tonfa/bubble_mesh:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.43333334, 0.53333336, 0.7, 0.76),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.264, 0.264, 0.264), Vector3(0.264, 0.264, 0.264), Vector3(0.814, 0.814, 0.814), Vector3(1.204, 0.814, 0.814), Vector3(1.624, 0.544, 0.554), Vector3(1.914, -0.776, 0.554)]
+}
+
+[sub_resource type="Animation" id="Animation_oth5e"]
+resource_name = "tonfa_shark_attack"
+length = 0.68
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001/Skeleton3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.333333, 0.666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.649998), Vector3(0.139793, -0.177346, 1.20828), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 0.5, 0.666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.433313), Vector3(-0.515701, 1.87444, 0.93796), Vector3(-0.564585, 1.69622, 1.29577), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166666, 0.666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.9599311, 0), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature_001:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("arm_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("arm_001:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature_001:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001/Skeleton3D/tonfa/shark_mesh:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../shark_effect:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_falmy"]
+resource_name = "tonfa_shark_special"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0), Vector3(0.73, 0.767, 0.401)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326), Vector3(0.012217305, -0.7661995, -2.1816616)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.34906584, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001/Skeleton3D/tonfa/shark_mesh:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../shark_effect:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jcqk8"]
+resource_name = "tonfa_shield_special"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.28972465, 0, 0)]
+}
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature_001/Skeleton3D:Bone")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -4.2351647e-22, -3.5527137e-15, 1.4901159e-08, 1)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08666668, 0.20666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.238326), Vector3(3.2074244e-08, -0.85929537, -2.238326), Vector3(-0.39632997, -1.0146699, -1.6062924)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature_001:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.08666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.877745, 0.743121, 0), Vector3(0.36445767, 0.743121, 0.6672597)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("arm_001:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701), Vector3(-0.61974776, 0.48900586, 0.59315735)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("arm_001:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.15666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.6341798, -0.0065962104, 0.094297975), Vector3(0.63417983, 0.86180985, 0.094297945)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.059999995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.112152815, -0.042555153)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../tonfa_seashell:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature_001/Skeleton3D/tonfa/tonfa_seashell:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1hi58"]
 _data = {
@@ -720,8 +1502,22 @@ _data = {
 &"bat_second_attack": SubResource("Animation_chc6g"),
 &"bat_third_attack": SubResource("Animation_g6ta3"),
 &"dust_magic": SubResource("Animation_y12c8"),
-&"tonfa_attack": SubResource("Animation_tcxjl")
+&"tonfa_attack": SubResource("Animation_tcxjl"),
+&"tonfa_bubble_attack": SubResource("Animation_xqqyf"),
+&"tonfa_bubble_special": SubResource("Animation_fvkdd"),
+&"tonfa_shark_attack": SubResource("Animation_oth5e"),
+&"tonfa_shark_special": SubResource("Animation_falmy"),
+&"tonfa_shield_special": SubResource("Animation_jcqk8")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oth5e"]
+albedo_color = Color(0.23921138, 0.69249016, 0.42716575, 1)
+emission_enabled = true
+emission = Color(0, 0.5429703, 0.13770851, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fvkdd"]
+material = SubResource("StandardMaterial3D_oth5e")
+size = Vector3(0.06, 0.125, 0.035)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h238m"]
 radius = 1.4871715
@@ -740,7 +1536,7 @@ albedo_color = Color(0.93942297, 0.39496687, 0.65243584, 0.26666668)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
 
 [node name="arm_001" parent="narval_model" index="0"]
-transform = Transform3D(0.290122, -0.05716765, -0.0015490762, 0.022112599, 0.4676039, -0.17273702, 0.018178701, 0.34356996, 0.23483996, -0.96195, 0.535333, -0.0967701)
+transform = Transform3D(0.29012203, -0.05716765, -0.0015490762, 0.0221126, 0.4676039, -0.17273702, 0.018178703, 0.34356996, 0.23483996, -0.96195, 0.535333, -0.0967701)
 material_override = ExtResource("2_g6ta3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="narval_model/arm_001" index="0"]
@@ -769,8 +1565,7 @@ material_overlay = ExtResource("2_tcxjl")
 material_overlay = ExtResource("2_tcxjl")
 
 [node name="Armature_001" parent="narval_model" index="6"]
-transform = Transform3D(-0.18571435, 0.23560596, 0, -0.23560596, -0.18571435, 0, 0, 0, 0.29999998, 0.877745, 0.743121, 0)
-visible = false
+transform = Transform3D(-0.1857144, 0.23560594, 0, -0.235606, -0.18571433, 0, 0, 0, 0.30000004, 0.877745, 0.743121, 0)
 
 [node name="Skeleton3D" parent="narval_model/Armature_001" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
@@ -786,7 +1581,31 @@ skin = SubResource("Skin_k7kmy")
 skeleton = NodePath("../..")
 
 [node name="tonfa" parent="narval_model/Armature_001/Skeleton3D" index="1" instance=ExtResource("3_tcxjl")]
-transform = Transform3D(1.9617492, -2.5780985, -1.667649, -3.0368783, -1.3373497, -1.5049796, 0.4527738, 2.200229, -2.8688087, 1.2763834, 1.4414688, -1.2067876)
+transform = Transform3D(2.3953602, -3.1479394, -2.0362542, -3.708127, -1.6329504, -1.8376263, 0.5528512, 2.6865513, -3.5029135, 1.3785951, 1.3942658, -1.4330379)
+
+[node name="bubble_mesh" type="MeshInstance3D" parent="narval_model/Armature_001/Skeleton3D/tonfa"]
+transform = Transform3D(-0.4572156, 0.11325735, -0.27214456, -0.109543376, 0.40099084, 0.3509168, 0.27366066, 0.3497358, -0.3142145, -0.019809127, 0.5183716, -0.5068399)
+visible = false
+mesh = SubResource("SphereMesh_oth5e")
+skeleton = NodePath("../../../../..")
+
+[node name="shark_mesh" parent="narval_model/Armature_001/Skeleton3D/tonfa" instance=ExtResource("6_y12c8")]
+transform = Transform3D(-0.0069132717, -0.38570482, 0.30213243, -0.37380958, -0.191182, -0.25261793, 0.3167311, -0.2340539, -0.2915479, -0.0818333, 0.36588633, -0.30692708)
+visible = false
+
+[node name="body" parent="narval_model/Armature_001/Skeleton3D/tonfa/shark_mesh" index="0"]
+material_override = ExtResource("7_xqqyf")
+
+[node name="Cube_003" parent="narval_model/Armature_001/Skeleton3D/tonfa/shark_mesh" index="3"]
+material_override = ExtResource("7_xqqyf")
+
+[node name="tonfa_seashell" parent="narval_model/Armature_001/Skeleton3D/tonfa" instance=ExtResource("9_xqqyf")]
+transform = Transform3D(-0.14533852, -0.009597787, -0.32921818, 0.15432823, 0.31591335, -0.07734052, 0.29096308, -0.17235614, -0.12342547, 0.07824665, 0.26120782, -0.19089988)
+visible = false
+
+[node name="Cube" parent="narval_model/Armature_001/Skeleton3D/tonfa/tonfa_seashell" index="0"]
+transform = Transform3D(1.0000004, -2.9802322e-08, 1.1641532e-08, -5.9604645e-08, 1.0000005, -1.8626451e-09, -1.8626451e-08, -5.5879354e-09, 0.34158248, 0.11084652, 0.42908812, 0.34302783)
+material_override = SubResource("StandardMaterial3D_1d6vy")
 
 [node name="Cube" parent="narval_model" index="7"]
 visible = false
@@ -803,6 +1622,7 @@ visible = false
 
 [node name="Armature_002" type="Node3D" parent="narval_model"]
 transform = Transform3D(-0.34428602, 0.19669299, -0.052713607, -0.20143701, -0.34413204, 0.031556804, -0.0298336, 0.0537075, 0.395254, 0.86031646, 0.685295, -0.110497)
+visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_002"]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999991, 0, 0, 0)
@@ -890,6 +1710,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_1hi58")
 }
 speed_scale = 1.2
+blend_times = [&"tonfa_attack", &"RESET", 0.3, &"tonfa_attack", &"dust_magic", 0.15, &"tonfa_attack", &"tonfa_attack", 0.1, &"tonfa_attack", &"tonfa_bubble_special", 0.12, &"tonfa_bubble_special", &"tonfa_attack", 0.2, &"tonfa_shark_special", &"tonfa_shark_attack", 0.2, &"tonfa_shield_special", &"RESET", 0.4, &"tonfa_shield_special", &"tonfa_attack", 0.3]
+
+[node name="tonfa_seashell" parent="." instance=ExtResource("9_xqqyf")]
+transform = Transform3D(0.77, 0, 0, 0, 0.77, 0, 0, 0, 0.77, 0, 0.8746232, 1.453484)
+visible = false
+
+[node name="Cube" parent="tonfa_seashell" index="0"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 0.34158245, 0, 0, 0.4828353)
+material_override = SubResource("StandardMaterial3D_1d6vy")
 
 [node name="bubble_particle" parent="." instance=ExtResource("5_1hi58")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23013, -0.108429)
@@ -901,6 +1730,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23013, -0.108429)
 emitting = false
 amount = 25
 scale_amount_max = 1.4
+
+[node name="shark_effect" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2717457, -0.5521434)
+emitting = false
+amount = 25
+explosiveness = 0.11
+randomness = 0.57
+mesh = SubResource("BoxMesh_fvkdd")
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 5, 0)
+scale_amount_min = 0.3
+scale_amount_max = 1.4
+hue_variation_max = 0.56
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -915,7 +1758,8 @@ visible = false
 material_override = SubResource("StandardMaterial3D_y12c8")
 mesh = SubResource("SphereMesh_xqqyf")
 
-[node name="npc_dialogue_area" parent="." instance=ExtResource("7_chc6g")]
-
 [editable path="narval_model"]
+[editable path="narval_model/Armature_001/Skeleton3D/tonfa/shark_mesh"]
+[editable path="narval_model/Armature_001/Skeleton3D/tonfa/tonfa_seashell"]
 [editable path="narval_model/Armature_002/Skeleton3D/bat"]
+[editable path="tonfa_seashell"]

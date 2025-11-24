@@ -36,6 +36,8 @@ func _physics_process(_delta: float) -> void:
 func open_portal(emmited_name: String, func_id: String) -> void:
 	if emmited_name == npc_name:
 		if func_id == "open_first_level_portal":
+			Global.current_mission = 1
+			SignalBus.on_mission_list_updated.emit(Global.missions[1])
 			var item_thrower: Object = item_thrower_inst.instantiate()
 			item_thrower.position = position + $portal_pos.position
 			get_parent().add_child(item_thrower)

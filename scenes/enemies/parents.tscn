@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3rpr78xtkjjo"]
+[gd_scene load_steps=14 format=3 uid="uid://b3rpr78xtkjjo"]
 
 [ext_resource type="Script" uid="uid://d1qd1er62q8ex" path="res://scripts/enemies/parents.gd" id="1_iki5j"]
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_yvd8t"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/mommy_model.tscn" id="3_cmt7j"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/daddy_model.tscn" id="4_5ogx3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_iki5j"]
 radius = 0.576816
@@ -20,9 +22,6 @@ albedo_color = Color(1, 1, 1, 0.164706)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mpfoe"]
 radius = 0.481804
-
-[sub_resource type="BoxMesh" id="BoxMesh_5ogx3"]
-size = Vector3(1, 1.2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mp1gm"]
 size = Vector3(1, 1, 1.2)
@@ -47,27 +46,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.647887, 0, 0)
 hitbox_collision = NodePath("hitbox")
 
 [node name="hitbox" type="CollisionShape3D" parent="mom/enemy_hitbox"]
+transform = Transform3D(0.99999994, 5.0931703e-11, 0, 8.9187324e-10, 0.9999999, 0, 0, 0, 1, -0.75088906, -0.0063912706, 0.0032407215)
 shape = SubResource("SphereShape3D_iki5j")
 
 [node name="molde" type="CSGMesh3D" parent="mom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6810539, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_cmt7j")
 
 [node name="escudo" type="CSGMesh3D" parent="mom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6810539, 0, 0)
 visible = false
 mesh = SubResource("SphereMesh_iki5j")
 material = SubResource("StandardMaterial3D_cmt7j")
 
 [node name="pie_spawner" type="Node3D" parent="mom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.52408)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6961696, 2.4286342, -0.47322154)
 
 [node name="collision" type="CollisionShape3D" parent="mom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6810539, 0, 0)
 shape = SubResource("SphereShape3D_mpfoe")
 
-[node name="dad" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649594, 0, 0)
+[node name="mommy_model" parent="mom" instance=ExtResource("3_cmt7j")]
+unique_name_in_owner = true
+transform = Transform3D(-0.011344353, 0, 0.9999356, 0, 1, 0, -0.9999356, 0, -0.011344353, -0.647887, 0, 0)
 
-[node name="standing" type="CSGMesh3D" parent="dad"]
-mesh = SubResource("BoxMesh_5ogx3")
+[node name="dad" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.948888, 0, 0)
+
+[node name="daddy_model" parent="dad" instance=ExtResource("4_5ogx3")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.06887388, 0.010915756, 0.116583586)
 
 [node name="horning" type="CSGMesh3D" parent="dad"]
 visible = false
