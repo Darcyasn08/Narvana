@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=22 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
 [ext_resource type="PackedScene" uid="uid://b5l6p3vjx5d2r" path="res://scenes/worlds/village_model.tscn" id="2_si0xe"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
 [ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="8_cui3h"]
+[ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="8_d7i1k"]
 [ext_resource type="Script" uid="uid://c7fulmdyxadgs" path="res://scripts/portals/third_level_boulder_portal.gd" id="9_kkcbw"]
 [ext_resource type="PackedScene" uid="uid://dpcirx3ugqc27" path="res://3d_models/placeholders/blocking-boulder.glb" id="10_jprao"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
@@ -55,10 +56,10 @@ _data = {
 size = Vector3(19.2479, 6.1073, 62.1363)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cui3h"]
-radius = 9.464033
+radius = 9.46403
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kkcbw"]
-size = Vector3(8.467957, 6.2807617, 15.117065)
+size = Vector3(8.46796, 6.28076, 15.1171)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jprao"]
 size = Vector3(37.672, 4.90061, 50.6132)
@@ -66,17 +67,20 @@ size = Vector3(37.672, 4.90061, 50.6132)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7i1k"]
 albedo_color = Color(0.510644, 0.614563, 0.643374, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7i1k"]
+size = Vector3(6.468689, 8.007935, 15.5946045)
+
 [node name="normal_world" type="Node3D"]
 script = ExtResource("1_eqvwj")
 
 [node name="village_model" parent="." instance=ExtResource("2_si0xe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027374268, 0.11322975, -0.012557983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0273743, 0.11323, -0.012558)
 
 [node name="player" parent="." instance=ExtResource("1_d5nc6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45.193596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45.1936)
 
 [node name="grandma" parent="." instance=ExtResource("18_wcbeh")]
-transform = Transform3D(-0.7557623, 0, 0.6548463, 0, 1, 0, -0.6548463, 0, -0.7557623, -3.535904, 0.39259803, 26.767315)
+transform = Transform3D(-0.755762, 0, 0.654846, 0, 1, 0, -0.654846, 0, -0.755762, -3.5359, 0.392598, 26.7673)
 
 [node name="bubble_particle" parent="." instance=ExtResource("19_ektfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95251, 0, 9.92114)
@@ -91,11 +95,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6762, 0, 47.369)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1493, 0, 75.6621)
 
 [node name="crab_npc2" parent="." instance=ExtResource("3_8qtj8")]
-transform = Transform3D(-1.0997432, 0, -0.02376593, 0, 1.1, 0, 0.02376593, 0, -1.0997432, -61.979, 0.13671517, 88.9328)
+transform = Transform3D(-1.09974, 0, -0.0237659, 0, 1.1, 0, 0.0237659, 0, -1.09974, -61.979, 0.136715, 88.9328)
 
 [node name="master" parent="." instance=ExtResource("24_nuhyk")]
 transform = Transform3D(0.849027, 0, -0.528349, 0, 1, 0, 0.528349, 0, 0.849027, 17.2728, 0.156346, 27.5645)
 npc_name = "second_master"
+
+[node name="first_level_portal" parent="master" instance=ExtResource("8_d7i1k")]
+transform = Transform3D(0.91047585, 0, 0.09087757, 0, 0.915, 0, -0.09087757, 0, 0.91047585, 14.381957, 0.156346, 25.114191)
+top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.517573, 0.105414, -0.849121, 0.0795626, 0.994012, 0.0749045, 0.851932, -0.0287897, -0.522861, 5.89608, 17.8716, 84.1874)
@@ -123,49 +131,49 @@ libraries = {
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="cutscene_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63129, 2.55365, -26.47425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63129, 2.55365, -26.4743)
 shape = SubResource("BoxShape3D_46g8v")
-debug_color = Color(0.9075345, 0.98089653, 1, 0.42)
+debug_color = Color(0.907534, 0.980897, 1, 0.42)
 
 [node name="jellyfish_npc" parent="." instance=ExtResource("8_cui3h")]
-transform = Transform3D(0.77102476, 0, 0.6368052, 0, 1, 0, -0.6368052, 0, 0.77102476, 48.06794, 0, 41.741173)
+transform = Transform3D(0.771025, 0, 0.636805, 0, 1, 0, -0.636805, 0, 0.771025, 48.0679, 0, 41.7412)
 current_color = 1
 
 [node name="jellyfish_npc3" parent="." instance=ExtResource("8_cui3h")]
-transform = Transform3D(0.89904636, 0, -0.43785346, 0, 1, 0, 0.43785346, 0, 0.89904636, -14.175619, 4.7683716e-07, 60.665066)
+transform = Transform3D(0.899046, 0, -0.437853, 0, 1, 0, 0.437853, 0, 0.899046, -14.1756, 4.76837e-07, 60.6651)
 current_color = 1
 
 [node name="jellyfish_npc2" parent="." instance=ExtResource("8_cui3h")]
-transform = Transform3D(-0.99820346, 0, 0.05991605, 0, 1, 0, -0.05991605, 0, -0.99820346, 53.520336, 0, 40.641384)
+transform = Transform3D(-0.998203, 0, 0.059916, 0, 1, 0, -0.059916, 0, -0.998203, 53.5203, 0, 40.6414)
 current_color = 2
 
 [node name="third_level_boulder_portal" type="Area3D" parent="."]
-transform = Transform3D(0.8746028, 0, 0.48484012, 0, 1, 0, -0.48484012, 0, 0.8746028, -95.39868, 0, 162.18536)
+transform = Transform3D(0.874603, 0, 0.48484, 0, 1, 0, -0.48484, 0, 0.874603, -95.3987, 0, 162.185)
 collision_mask = 5
 script = ExtResource("9_kkcbw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal"]
 shape = SubResource("SphereShape3D_cui3h")
-debug_color = Color(1, 1, 1, 0.41960785)
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="third_level_entrance" type="Area3D" parent="third_level_boulder_portal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03542608, 0, -0.21235645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0354261, 0, -0.212356)
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal/third_level_entrance"]
-transform = Transform3D(0.99966687, 0, -0.025810553, 0, 1, 0, 0.025810553, 0, 0.99966687, -5.840576, 2.6403809, -0.21879578)
+transform = Transform3D(0.999667, 0, -0.0258106, 0, 1, 0, 0.0258106, 0, 0.999667, -5.84058, 2.64038, -0.218796)
 shape = SubResource("BoxShape3D_kkcbw")
 disabled = true
 
 [node name="boulder_col" type="StaticBody3D" parent="third_level_boulder_portal"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_boulder_portal/boulder_col"]
-transform = Transform3D(-0.68925154, 0, 1.3480167, 0, 1.514, 0, -1.3480167, 0, -0.68925154, 13.250488, 2.9527392, 132.05789)
+transform = Transform3D(-0.689252, 0, 1.34802, 0, 1.514, 0, -1.34802, 0, -0.689252, 13.2505, 2.95274, 132.058)
 shape = SubResource("BoxShape3D_jprao")
 debug_color = Color(0.734151, 0.94601, 1, 0.42)
 
 [node name="blocking-boulder" parent="third_level_boulder_portal" instance=ExtResource("10_jprao")]
-transform = Transform3D(-0.016171448, 0, 1.5139196, 0, 1.514, 0, -1.5139196, 0, -0.016171448, -2.9363604, 0, 0.5592604)
+transform = Transform3D(-0.0161714, 0, 1.51392, 0, 1.514, 0, -1.51392, 0, -0.0161714, -2.93636, 0, 0.55926)
 
 [node name="Cube" parent="third_level_boulder_portal/blocking-boulder" index="0"]
 material_override = SubResource("StandardMaterial3D_d7i1k")
@@ -197,8 +205,17 @@ material_override = SubResource("StandardMaterial3D_d7i1k")
 [node name="Cube_009" parent="third_level_boulder_portal/blocking-boulder" index="9"]
 material_override = SubResource("StandardMaterial3D_d7i1k")
 
+[node name="enter_temple_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.407793, 0, 117.01698)
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enter_temple_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3501892, 3.5039673, 0.3925171)
+shape = SubResource("BoxShape3D_d7i1k")
+
 [connection signal="body_entered" from="cutscene_area" to="." method="_on_cutscene_area_body_entered"]
 [connection signal="body_entered" from="third_level_boulder_portal" to="third_level_boulder_portal" method="_on_body_entered"]
 [connection signal="body_entered" from="third_level_boulder_portal/third_level_entrance" to="third_level_boulder_portal" method="_on_third_level_entrance_body_entered"]
+[connection signal="body_entered" from="enter_temple_area" to="." method="_on_enter_temple_area_body_entered"]
 
 [editable path="third_level_boulder_portal/blocking-boulder"]

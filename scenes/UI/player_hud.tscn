@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://vssohrk800fr"]
+[gd_scene load_steps=17 format=3 uid="uid://vssohrk800fr"]
 
 [ext_resource type="Script" uid="uid://baywyoo5t1h7a" path="res://scripts/player_hud.gd" id="1_umbc4"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_r6s25"]
@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bg5p8dymit33r" path="res://UI/magics/player-hud-details.png" id="5_fdwu4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0ngs"]
-bg_color = Color(0.32936105, 0.45779145, 0.60422325, 1)
-corner_radius_bottom_right = 100
+bg_color = Color(0.32156864, 0.43137255, 0.5568628, 0.6156863)
+corner_radius_bottom_right = 180
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0ngs"]
 font_size = 24
@@ -62,6 +62,16 @@ corner_radius_bottom_left = 6
 [sub_resource type="LabelSettings" id="LabelSettings_h0vcf"]
 font = ExtResource("2_r6s25")
 font_size = 35
+outline_size = 9
+outline_color = Color(0.20645556, 0.15670878, 0.29178193, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gie0l"]
+bg_color = Color(0.32156864, 0.43137255, 0.5568628, 0.6156863)
+border_color = Color(0.17324162, 0.15502769, 0.38303792, 1)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
 
 [node name="player_hud" type="CanvasLayer"]
 script = ExtResource("1_umbc4")
@@ -71,10 +81,10 @@ modulate = Color(0.72840744, 0.40279904, 0.48537827, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -38.0
-offset_top = -26.0
-offset_right = 126.0
-offset_bottom = 117.0
+offset_left = -23.0
+offset_top = -13.0
+offset_right = 141.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_fdwu4")
@@ -82,14 +92,14 @@ texture = ExtResource("5_fdwu4")
 [node name="Panel" type="Panel" parent="."]
 offset_left = -54.0
 offset_top = -44.0
-offset_right = 100.0
-offset_bottom = 113.0
+offset_right = 134.0
+offset_bottom = 147.66232
 theme_override_styles/panel = SubResource("StyleBoxFlat_q0ngs")
 
 [node name="health" type="HBoxContainer" parent="."]
-offset_left = 109.0
+offset_left = 45.0
 offset_top = 22.0
-offset_right = 513.0
+offset_right = 449.0
 offset_bottom = 79.0
 
 [node name="Label" type="Label" parent="."]
@@ -328,7 +338,7 @@ anchor_right = 1.0
 offset_left = -275.0
 offset_top = 146.0
 offset_right = -18.0
-offset_bottom = 319.0
+offset_bottom = 354.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdwu4")
 
@@ -345,12 +355,99 @@ label_settings = SubResource("LabelSettings_h0vcf")
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 24.0
-offset_top = 72.0
+offset_top = 60.0
 offset_right = 232.0
-offset_bottom = 162.0
+offset_bottom = 186.0
+theme_override_colors/default_color = Color(0.76917076, 0.9262626, 0.97882944, 1)
+theme_override_colors/font_outline_color = Color(0.17494494, 0.17520389, 0.41750416, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("2_r6s25")
 theme_override_font_sizes/normal_font_size = 25
 text = "- Procure e vá 
 até o templo"
+
+[node name="bubble" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -298.0
+offset_top = -20.0
+offset_right = -263.0
+offset_bottom = 16.11111
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble2" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -286.0
+offset_top = 33.0
+offset_right = -263.0
+offset_bottom = 56.730156
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble7" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_top = -31.0
+offset_right = -34.0
+offset_bottom = -7.269844
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble3" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = -31.0
+offset_right = -237.0
+offset_bottom = -11.396828
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble4" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -291.0
+offset_top = 191.0
+offset_right = -269.0
+offset_bottom = 213.69841
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble5" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = 218.0
+offset_right = -241.0
+offset_bottom = 233.4762
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
+
+[node name="bubble6" type="Panel" parent="indicator_panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 214.0
+offset_right = 14.0
+offset_bottom = 229.4762
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gie0l")
 
 [connection signal="timeout" from="magics/magics_timer" to="." method="_on_magics_timer_timeout"]

@@ -1,5 +1,8 @@
 extends Node
 
+#alterações - 25/11
+#narwhal_skin, player, normal_world, cutscene_system, pause_menu, house, player_hud
+
 var current_mission: int = 0
 var missions: Dictionary = {
 	0: {
@@ -44,7 +47,7 @@ var coins: int = 100
 var player_can_move: bool = true
 var player_can_attack: bool = true
 var magic_select: int = 1
-var current_weapon: int = 2
+var current_weapon: int = 0
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1
@@ -85,6 +88,7 @@ var mouse_sens: float = .11
 var player_base_pos: Vector3 = Vector3(0,5,0)
 var player_normal_pos: Vector3 = Vector3(0,0, -45)
 var player_first_level_pos: Vector3 = Vector3(1.3,2.7,40.5)
+var player_third_level_pos: Vector3 = Vector3(0,2.3,0)
 
 var worlds_files: Dictionary = {
 	"normal_world": "res://scenes/worlds/normal_world.tscn",
@@ -113,11 +117,11 @@ var dead_enemies_third_level: Array = [
 
 var current_room: int = 0
 var current_world: int = 0
-enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL}
+enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL, THIRD_LEVEL}
 var last_saved_pos: Vector3 = Vector3(0,0,-16)
 
 var completed_levels: Dictionary = {
-	"first_level": false,
+	"first_level": true,
 	"second_level": false,
 	"third_level": false
 }
@@ -175,7 +179,7 @@ var inventory: Dictionary = {
 			"player_has": true,
 			"icon": "res://UI/inventory/jewel.png",
 			"name": "Jóias",
-			"desc": "Caras e lindas (+velocidade)",
+			"desc": "São caras e lindas (+velocidade)",
 			"buff": {
 				"damage": 0,
 				"health": 0,
@@ -190,6 +194,17 @@ var inventory: Dictionary = {
 			"buff": {
 				"damage": 20,
 				"health": 0,
+				"speed": 0,
+			},
+		},
+		"rings": {
+			"player_has": true,
+			"icon": "res://icon.svg",
+			"name": "Alianças",
+			"desc": "Alianças de um relacionamento, que agora são apenas memórias (+vida)",
+			"buff": {
+				"damage": 0,
+				"health": 1,
 				"speed": 0,
 			},
 		},

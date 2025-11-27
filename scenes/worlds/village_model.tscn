@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://b5l6p3vjx5d2r"]
+[gd_scene load_steps=50 format=3 uid="uid://b5l6p3vjx5d2r"]
 
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="1_8nofl"]
 [ext_resource type="PackedScene" uid="uid://dqxrcwsc2n7ag" path="res://scenes/objects/village_entrance_sign.tscn" id="2_qvsrs"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b45b7h100db75" path="res://scenes/buildings/park_house.tscn" id="19_nt7q7"]
 [ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="20_ejfqt"]
 [ext_resource type="PackedScene" uid="uid://bn8kupvmhir1u" path="res://scenes/objects/floor_lamp.tscn" id="21_iqmjs"]
-[ext_resource type="PackedScene" uid="uid://cehotwhkrkbkq" path="res://scenes/NPCs/master.tscn" id="22_c5sx8"]
 [ext_resource type="PackedScene" uid="uid://ve4qpxaa31bp" path="res://3d_models/placeholders/weird-big-rock.glb" id="23_va2y6"]
 [ext_resource type="PackedScene" uid="uid://3qtdsyvow4dy" path="res://3d_models/placeholders/small-grass.glb" id="24_be073"]
 [ext_resource type="PackedScene" uid="uid://d1tytyctx2luy" path="res://3d_models/placeholders/corals.glb" id="25_o2d15"]
@@ -666,10 +665,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.58442, 0.0383854, 4.15699)
 
 [node name="floor_lamp6" parent="." instance=ExtResource("21_iqmjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01416, 0.0383854, 3.98338)
-
-[node name="master" parent="." instance=ExtResource("22_c5sx8")]
-transform = Transform3D(0.849027, 0, -0.528349, 0, 1, 0, 0.528349, 0, 0.849027, 17.2728, 0.156346, 27.5645)
-npc_name = "second_master"
 
 [node name="weird-big-rock" parent="." instance=ExtResource("23_va2y6")]
 transform = Transform3D(0.408968, 0, -0.912549, 0, 1, 0, 0.912549, 0, 0.408968, -64.476, 0, 166.036)

@@ -11,7 +11,7 @@ font = ExtResource("2_7gwa3")
 font_size = 50
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1bpe"]
-bg_color = Color(0.5372549, 0.6431373, 0.85882354, 0.30980393)
+bg_color = Color(0.537255, 0.643137, 0.858824, 0.309804)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -58,7 +58,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("cutscene_text:text")
+tracks/0/path = NodePath("../final/cutscene_text:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,27 +71,27 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../final_cutscene/cutscene_text:text")
+tracks/1/path = NodePath("../final/final_cutscene_track:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["
-"]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../final_cutscene/final_cutscene_track:playing")
+tracks/2/path = NodePath("cutscene_text:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": ["
+"]
 }
 
 [sub_resource type="Animation" id="Animation_13gxu"]
@@ -100,11 +100,11 @@ length = 17.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../final_cutscene/cutscene_text:text")
+tracks/0/path = NodePath("../final/cutscene_text:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.7333333, 4.4466667, 8, 10.833333, 13.3),
+"times": PackedFloat32Array(0, 1.73333, 4.44667, 8, 10.8333, 13.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
@@ -113,11 +113,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../final_cutscene/final_cutscene_track:playing")
+tracks/1/path = NodePath("../final/final_cutscene_track:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26666668, 16.9),
+"times": PackedFloat32Array(0, 0.266667, 16.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -125,6 +125,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_pk56f"]
 resource_name = "start"
+length = 21.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -132,11 +133,11 @@ tracks/0/path = NodePath("cutscene_text:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.1, 4.233333, 8, 13.243333, 17.233334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
-"]
+", "Depois de dias trabalhando incasávelmente", "Você volta do trabalho e se encontra com algo no seu correio", "É um folheto com 30% de desconto para uma viagem para a China", "Você decide que é hora de férias para seu trabalho", "E arruma suas malas..."]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gwa3"]
@@ -168,7 +169,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="start_cutscene" type="Control" parent="control"]
+[node name="start" type="Control" parent="control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,7 +177,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="cutscene_text" type="Label" parent="control/start_cutscene"]
+[node name="cutscene_text" type="Label" parent="control/start"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -184,9 +185,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -610.0
-offset_top = -43.0
+offset_top = -51.0
 offset_right = 611.0
-offset_bottom = 44.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "
@@ -195,7 +196,8 @@ label_settings = SubResource("LabelSettings_a1bpe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="final_cutscene" type="Control" parent="control"]
+[node name="final" type="Control" parent="control"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -203,7 +205,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="TextureRect" parent="control/final_cutscene"]
+[node name="ColorRect" type="TextureRect" parent="control/final"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,7 +218,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_octsf")
 
-[node name="cutscene_text" type="Label" parent="control/final_cutscene"]
+[node name="cutscene_text" type="Label" parent="control/final"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -235,7 +237,7 @@ label_settings = SubResource("LabelSettings_a1bpe")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="final_cutscene_track" type="AudioStreamPlayer2D" parent="control/final_cutscene"]
+[node name="final_cutscene_track" type="AudioStreamPlayer2D" parent="control/final"]
 stream = ExtResource("4_octsf")
 
 [node name="skip_cutscene" type="Button" parent="."]
@@ -258,7 +260,8 @@ libraries = {
 }
 
 [node name="cutscene_player" type="AnimationPlayer" parent="."]
-root_node = NodePath("../control/start_cutscene")
+unique_name_in_owner = true
+root_node = NodePath("../control/start")
 libraries = {
 &"": SubResource("AnimationLibrary_7gwa3")
 }

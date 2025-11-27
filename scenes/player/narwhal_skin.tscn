@@ -1566,6 +1566,7 @@ material_overlay = ExtResource("2_tcxjl")
 
 [node name="Armature_001" parent="narval_model" index="6"]
 transform = Transform3D(-0.1857144, 0.23560594, 0, -0.235606, -0.18571433, 0, 0, 0, 0.30000004, 0.877745, 0.743121, 0)
+visible = false
 
 [node name="Skeleton3D" parent="narval_model/Armature_001" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
@@ -1676,7 +1677,6 @@ debug_color = Color(0.738708, 0.33321, 0.13141, 0.42)
 
 [node name="Armature_003" type="Node3D" parent="narval_model"]
 transform = Transform3D(-0.310471, 0.393875, 0, -0.393875, -0.310471, 0, 3.72529e-09, 0, 0.501527, 0.730457, 0.735353, -0.290247)
-visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_003"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
@@ -1695,10 +1695,15 @@ bones/1/position = Vector3(-1.19209e-07, 1, -5.68434e-14)
 bones/1/rotation = Quaternion(-0.707107, -1.05367e-08, 1.05367e-08, 0.707107)
 bones/1/scale = Vector3(1, 1, 1)
 
-[node name="arm" type="MeshInstance3D" parent="narval_model/Armature_003/Skeleton3D"]
-material_overlay = ExtResource("2_tcxjl")
-mesh = SubResource("ArrayMesh_yb3wd")
-skin = SubResource("Skin_falmy")
+[node name="arm_001" type="MeshInstance3D" parent="narval_model/Armature_003/Skeleton3D"]
+transform = Transform3D(0.10722801, -1.05973, 0.32039404, 0.67859006, 0.05239767, -0.169105, 0.13422902, 0.58166206, 0.5989591, -0.050708055, 0.44331604, 0.25119403)
+material_override = ExtResource("2_g6ta3")
+mesh = SubResource("ArrayMesh_fsys7")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="narval_model/Armature_003/Skeleton3D/arm_001"]
+material_override = ExtResource("4_h238m")
+mesh = SubResource("ArrayMesh_chc6g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="narval_model"]
 libraries = {

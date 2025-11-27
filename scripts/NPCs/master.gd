@@ -45,8 +45,13 @@ func open_portal(emmited_name: String, func_id: String) -> void:
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 			#add_child(first_level_portal)
 		if func_id == "open_second_level_portal":
-			var second_level_portal: Object = second_portal_inst.instantiate()
-			second_level_portal.position = $portal_pos.position
-			#Global.current_weapon = Global.weapons.BAT
+			Global.current_mission = 3
+			SignalBus.on_mission_list_updated.emit(Global.missions[3])
+			var item_thrower: Object = item_thrower_inst.instantiate()
+			item_thrower.position = position + $second_portal_pos.position
+			get_parent().add_child(item_thrower)
+			#var second_level_portal: Object = second_portal_inst.instantiate()
+			#second_level_portal.position = $portal_pos.position
+			Global.current_weapon = Global.weapons.TONFA
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
-			add_child(second_level_portal)
+			#add_child(second_level_portal)

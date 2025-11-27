@@ -29,6 +29,7 @@ var stunned: bool = false
 var immune: bool = false
 var immune_time: float = 2.5
 var is_attacking: bool = false
+var is_in_stairs: bool = false
 
 # VARIÁVEIS DE IMPRTAÇÃO
 @onready var camera_pivot: Node3D = $camera_pivot
@@ -106,6 +107,9 @@ func _physics_process(delta: float) -> void:
 	if state == "spinning":
 		$weapons_special.rotation.y += 0.07
 	$combo_timer_label.text = str(snapped($combo_attack_timer.time_left, 0.1))
+	
+	if is_in_stairs:
+		position.y += 1
 	move_and_slide()
 
 
@@ -119,7 +123,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack") and Global.player_can_attack:
+	if event.is_action_pressed("attack") and Global.player_can_attack and Global.current_weapon != 0:
 		is_attacking = true
 		match combo_attack_count:
 			0:
@@ -188,7 +192,7 @@ func hurt(damage) -> void:
 		$hurt_sfx.play()
 		Global.player_health -= damage
 		health = Global.player_health
-		print("player health: ",Global.player_health)
+		#print("player health: ",Global.player_health)
 		SignalBus.on_player_health_changed.emit(Global.player_health)
 		await get_tree().create_timer(.1).timeout
 		skin_material.albedo_color = previous_skin_color
@@ -317,6 +321,8 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
 		stunned = false
+	if area.is_in_group("stairs"):
+		is_in_stairs = true
 
 
 func update_current_pos() -> void:
@@ -458,3 +464,7 @@ func _on_combo_attack_timer_timeout() -> void:
 	combo_attack_count = 0
 	$narwhal_skin/narval_model/attack_player.play("RESET")
 	is_attacking = false
+
+func _on_player_hitbox_area_exited(area: Area3D) -> void:
+	if area.is_in_group("stairs"):
+		is_in_stairs = false

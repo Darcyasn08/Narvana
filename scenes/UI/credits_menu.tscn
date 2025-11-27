@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpenk1gdcg45u"]
+[gd_scene load_steps=10 format=3 uid="uid://dpenk1gdcg45u"]
 
-[sub_resource type="Animation" id="Animation_ua4j6"]
-resource_name = "roll"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("scroll_panel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 2.6, 18.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(418, 0), Vector2(418, 0), Vector2(418, -1248)]
-}
+[ext_resource type="Script" uid="uid://b7ort4677olw" path="res://scripts/UI/credits_menu.gd" id="1_ifrfk"]
+[ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_jp26l"]
+[ext_resource type="FontFile" uid="uid://cwpmeeyjkmkq1" path="res://UI/fonts/h_houji/hHouji.ttf" id="3_77vit"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rdn8r"]
+font = ExtResource("2_jp26l")
+font_size = 49
+
+[sub_resource type="LabelSettings" id="LabelSettings_82o72"]
+font = ExtResource("2_jp26l")
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_um4a5"]
+font = ExtResource("3_77vit")
+font_size = 21
 
 [sub_resource type="Animation" id="Animation_ifrfk"]
 length = 0.001
@@ -31,6 +31,36 @@ tracks/0/keys = {
 "values": [Vector2(418, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ua4j6"]
+resource_name = "roll"
+length = 21.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("scroll_panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2.03333, 18.6667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(418, 0), Vector2(418, 0), Vector2(418, -1576.07)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(19.7333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_start_menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1ob8"]
 _data = {
 &"RESET": SubResource("Animation_ifrfk"),
@@ -38,6 +68,7 @@ _data = {
 }
 
 [node name="credits_menu" type="CanvasLayer"]
+script = ExtResource("1_ifrfk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -61,7 +92,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -542.0
 offset_right = 547.0
-offset_bottom = 1488.0
+offset_bottom = 1904.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -70,61 +101,186 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -38.5
-offset_top = 124.0
-offset_right = 38.5
-offset_bottom = 147.0
+offset_left = -59.5
+offset_top = 148.0
+offset_right = 59.5
+offset_bottom = 171.0
 grow_horizontal = 2
 text = "CRÉDITOS"
+label_settings = SubResource("LabelSettings_rdn8r")
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="scroll_panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -64.0
-offset_top = 255.0
-offset_right = 64.0
-offset_bottom = 278.0
+offset_left = -105.0
+offset_top = 310.0
+offset_right = 105.0
+offset_bottom = 342.0
 grow_horizontal = 2
 text = "MODELAGEM 3D"
+label_settings = SubResource("LabelSettings_82o72")
 
 [node name="Label3" type="Label" parent="scroll_panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -64.0
-offset_top = 594.0
-offset_right = 64.0
-offset_bottom = 617.0
+offset_left = -105.0
+offset_top = 501.0
+offset_right = 105.0
+offset_bottom = 533.0
 grow_horizontal = 2
 text = "PROGRAMAÇÃO"
-
-[node name="Label4" type="Label" parent="scroll_panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -64.0
-offset_top = 924.0
-offset_right = 64.0
-offset_bottom = 947.0
-grow_horizontal = 2
-text = "MÚSICAS"
+label_settings = SubResource("LabelSettings_82o72")
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="scroll_panel"]
+[node name="Label12" type="Label" parent="scroll_panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -89.5
-offset_top = 1173.0
-offset_right = 89.5
-offset_bottom = 1196.0
+offset_left = -105.0
+offset_top = 839.0
+offset_right = 105.0
+offset_bottom = 871.0
+grow_horizontal = 2
+text = "ANIMAÇÃO"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label18" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -104.5
+offset_top = 691.0
+offset_right = 105.5
+offset_bottom = 723.0
+grow_horizontal = 2
+text = "INTERFACE"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label14" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 1002.0
+offset_right = 211.0
+offset_bottom = 1034.0
+grow_horizontal = 2
+text = "MÚSICAS E EFEITOS SONOROS"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label16" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 1169.0
+offset_right = 211.0
+offset_bottom = 1201.0
 grow_horizontal = 2
 text = "MATERIAIS ADICIONAIS"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label17" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 1384.0
+offset_right = 211.0
+offset_bottom = 1416.0
+grow_horizontal = 2
+text = "AGRADECIMENTOS ESPECIAIS"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label10" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 363.0
+offset_right = 142.75
+offset_bottom = 435.0
+grow_horizontal = 2
+text = "Luan Carvalho
+Julia Rodrigues
+Isabele Camargo"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
+
+[node name="Label11" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 556.0
+offset_right = 142.75
+offset_bottom = 635.0
+grow_horizontal = 2
+text = "Lucas Salmazzo
+Julia Rodrigues"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
+
+[node name="Label19" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 735.0
+offset_right = 142.75
+offset_bottom = 814.0
+grow_horizontal = 2
+text = "Julia Rodrigues"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
+
+[node name="Label13" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 889.0
+offset_right = 142.75
+offset_bottom = 968.0
+grow_horizontal = 2
+text = "Julia Rodrigues
+Luan Carvalho"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
+
+[node name="Label15" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 1052.0
+offset_right = 142.75
+offset_bottom = 1131.0
+grow_horizontal = 2
+text = "Julia Rodrigues
+Luan Carvalho"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="scroll_panel"]
 layout_mode = 1
@@ -132,9 +288,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -89.5
-offset_top = 1436.0
+offset_top = 1660.0
 offset_right = 89.5
-offset_bottom = 1485.0
+offset_bottom = 1709.0
 grow_horizontal = 2
 text = "Um jogo feito por....
 PIRARUCU GAMES"
@@ -149,8 +305,23 @@ offset_top = 1222.0
 offset_right = 143.5
 offset_bottom = 1271.0
 grow_horizontal = 2
-text = "Six Trillion Years and Overnight Story
-(colocar fonte tbm)q"
+text = "Six Trillion Years and One Night Story
+hHouji (creditos certos depois) "
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.5
+offset_top = 1453.0
+offset_right = 88.5
+offset_bottom = 1502.0
+grow_horizontal = 2
+text = "Emu
+"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

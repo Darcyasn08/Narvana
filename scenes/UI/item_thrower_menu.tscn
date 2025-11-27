@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b83e0181tmysa"]
+[gd_scene load_steps=8 format=3 uid="uid://b83e0181tmysa"]
 
 [ext_resource type="Script" uid="uid://deny7qetalx0x" path="res://scripts/UI/item_thrower_menu.gd" id="1_4fxbg"]
 [ext_resource type="Texture2D" uid="uid://dqgi303awgppg" path="res://UI/menu/item-thrower-screen.png" id="1_7b318"]
@@ -9,19 +9,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6s25"]
 bg_color = Color(0.16888526, 0.20093396, 0.38701218, 0.4392157)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57prj"]
-atlas = ExtResource("3_r2dm2")
-region = Rect2(30.102417, 39.17994, 627.487, 631.6661)
-
 [sub_resource type="LabelSettings" id="LabelSettings_i8h7k"]
 font = ExtResource("4_hfb4j")
 font_size = 80
 shadow_size = 30
 shadow_color = Color(0.49803922, 0.21568628, 0.3647059, 0.27058825)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfb4j"]
-atlas = ExtResource("4_57prj")
-region = Rect2(12.871582, 23.590195, 670.3588, 654.7691)
 
 [node name="item_thrower_menu" type="CanvasLayer"]
 process_mode = 3
@@ -65,14 +57,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="item1_button" type="TextureButton" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 700.00006
 offset_bottom = 700.0
 scale = Vector2(0.43540666, 0.43540666)
 texture_normal = ExtResource("3_r2dm2")
-texture_hover = SubResource("AtlasTexture_57prj")
 
-[node name="Label" type="Label" parent="Control/item1_button"]
+[node name="item1_label" type="Label" parent="Control/item1_button"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 254.93411
 offset_top = 666.044
@@ -82,15 +75,16 @@ text = "-20 dano"
 label_settings = SubResource("LabelSettings_i8h7k")
 
 [node name="item2_button" type="TextureButton" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 307.99997
 offset_right = 808.0
 offset_bottom = 500.0
 scale = Vector2(0.45032734, 0.45032734)
 texture_normal = ExtResource("4_57prj")
-texture_hover = SubResource("AtlasTexture_hfb4j")
 
-[node name="Label" type="Label" parent="Control/item2_button"]
+[node name="item2_label" type="Label" parent="Control/item2_button"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 254.93411
 offset_top = 666.044
@@ -99,5 +93,9 @@ offset_bottom = 776.044
 text = "-1 vida"
 label_settings = SubResource("LabelSettings_i8h7k")
 
+[connection signal="mouse_entered" from="Control/item1_button" to="." method="_on_item_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/item1_button" to="." method="_on_item_1_button_mouse_exited"]
 [connection signal="pressed" from="Control/item1_button" to="." method="_on_item_1_button_pressed"]
+[connection signal="mouse_entered" from="Control/item2_button" to="." method="_on_item_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/item2_button" to="." method="_on_item_2_button_mouse_exited"]
 [connection signal="pressed" from="Control/item2_button" to="." method="_on_item_2_button_pressed"]

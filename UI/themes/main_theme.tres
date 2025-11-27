@@ -9,7 +9,7 @@ content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.44404978, 0.65568006, 0.7568627, 1)
+bg_color = Color(0.44405, 0.65568, 0.756863, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -22,7 +22,7 @@ content_margin_left = 20.0
 content_margin_top = 20.0
 content_margin_right = 20.0
 content_margin_bottom = 20.0
-bg_color = Color(0.23217979, 0.5027338, 0.5598674, 1)
+bg_color = Color(0.23218, 0.502734, 0.559867, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -31,7 +31,7 @@ expand_margin_top = 3.0
 expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yej4y"]
-bg_color = Color(0.16630566, 0.28687972, 0.43413866, 1)
+bg_color = Color(0.166306, 0.28688, 0.434139, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -42,8 +42,8 @@ expand_margin_bottom = 2.0
 [resource]
 default_font = ExtResource("1_yej4y")
 default_font_size = 27
-CheckBox/colors/checkbox_unchecked_color = Color(0.06402029, 0.13241121, 0.4726556, 1)
-CheckBox/colors/icon_hover_color = Color(0.88744587, 0.5995597, 0.73505133, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(0.0640203, 0.132411, 0.472656, 1)
+CheckBox/colors/icon_hover_color = Color(0.887446, 0.59956, 0.735051, 1)
 CheckBox/styles/focus = SubResource("StyleBoxEmpty_yej4y")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_0y7b2")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_brfgq")

@@ -13,10 +13,11 @@ func _ready() -> void:
 func start_cutscene(cutscene: String) -> void:
 	current_cutscene = cutscene
 	show()
+	$control.get_node(cutscene).show()
 	is_ending = false
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	$control/cutscene_player.play(cutscene)
+	%cutscene_player.play(cutscene)
 
 func _on_start_cutscene_anim_animation_finished(_anim_name: StringName) -> void:
 	if !is_ending:
@@ -32,6 +33,7 @@ func end_cutscene() -> void:
 	get_tree().paused = false
 	Global.cutscenes["start"] = true
 	if current_cutscene == "final":
-		get_tree().change_scene_to_file("credits")
+		get_tree().change_scene_to_file("res://scenes/UI/credits_menu.tscn")
 	else:
+		$control.get_node(current_cutscene).hide()
 		hide()

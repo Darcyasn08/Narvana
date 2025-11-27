@@ -1,29 +1,39 @@
-[gd_scene load_steps=10 format=3 uid="uid://1yw87h11dy60"]
+[gd_scene load_steps=14 format=3 uid="uid://1yw87h11dy60"]
 
 [ext_resource type="PackedScene" uid="uid://bs2g61d7wvii2" path="res://scenes/worlds/third_level_entrance_model.tscn" id="1_k1isi"]
+[ext_resource type="Script" uid="uid://bhakjn4a32ti6" path="res://scripts/worlds/third_level_entrance.gd" id="1_siuay"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="2_bsvhe"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="3_exxl8"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_bsvhe"]
 [ext_resource type="Script" uid="uid://yll0h8if6wfq" path="res://scripts/third_level_choice_area.gd" id="4_exxl8"]
+[ext_resource type="PackedScene" uid="uid://cw01vvimnw8u4" path="res://scenes/item_thrower.tscn" id="7_1gxcr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28w3a"]
 size = Vector3(23.800598, 13.911804, 32.05237)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k1isi"]
-size = Vector3(41.105198, 9.064575, 12.442017)
+size = Vector3(10.047296, 9.064575, 11.047409)
 
 [sub_resource type="LabelSettings" id="LabelSettings_exxl8"]
 font = ExtResource("4_bsvhe")
 font_size = 45
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bsvhe"]
-size = Vector3(201.50092, 12.411865, 33.756073)
+size = Vector3(125.15671, 12.411865, 33.756073)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_siuay"]
+size = Vector3(70.60361, 12.411865, 33.756073)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1gxcr"]
+size = Vector3(9.143127, 6.888794, 1.4616699)
 
 [node name="third_level_entrance" type="Node3D"]
+script = ExtResource("1_siuay")
 
 [node name="third_level_entrance_model" parent="." instance=ExtResource("1_k1isi")]
 
 [node name="player" parent="." instance=ExtResource("2_bsvhe")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.7724762, 2.4905205, 12.929802)
 
 [node name="spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("3_exxl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.72292, -23.396679, -47.87668)
@@ -37,12 +47,12 @@ shape = SubResource("BoxShape3D_28w3a")
 
 [node name="third_level_choice_area" type="Area3D" parent="."]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8635378, -31.10122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8635378, -48.48845)
 collision_mask = 5
 script = ExtResource("4_exxl8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="third_level_choice_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.72262, 4.0322876, 2.7339478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0847144, 4.0322876, 2.7676468)
 shape = SubResource("BoxShape3D_k1isi")
 
 [node name="choice_canvas" type="CanvasLayer" parent="third_level_choice_area"]
@@ -115,9 +125,26 @@ item: pelúcia"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.041653)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.027546, 5.7059326, -1.69841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.199646, 5.7059326, -1.69841)
 shape = SubResource("BoxShape3D_bsvhe")
 debug_color = Color(0.9429925, 0.98799723, 0.9999998, 0.41960785)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.537025, 5.7059326, -1.69841)
+shape = SubResource("BoxShape3D_siuay")
+debug_color = Color(0.9429925, 0.98799723, 0.9999998, 0.41960785)
+
+[node name="upstairs_pos_node" type="Node3D" parent="."]
+transform = Transform3D(0.83251536, 0, 0.554002, 0, 1, 0, -0.554002, 0, 0.83251536, 90.14404, 4.0412126, -71.51096)
+
+[node name="item_thrower" parent="." instance=ExtResource("7_1gxcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6062541, 1.9662247, -27.767416)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="item_thrower"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item_thrower/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4324646, 2.944397, -4.7729473)
+shape = SubResource("BoxShape3D_1gxcr")
 
 [connection signal="body_entered" from="third_level_choice_area" to="third_level_choice_area" method="_on_body_entered"]
 [connection signal="pressed" from="third_level_choice_area/choice_canvas/choice_control/stairs_button" to="third_level_choice_area" method="_on_stairs_button_pressed"]

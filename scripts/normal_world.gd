@@ -20,5 +20,9 @@ func _on_cutscene_area_body_entered(body: Node3D) -> void:
 	if body.name == "player":
 		if Global.cutscenes["start"] == false:
 			await get_tree().create_timer(1).timeout
-			#print("emmiting")
 			SignalBus.on_ignite_cutscene.emit("start") #depois fazer com que emita o nome exato
+
+func _on_enter_temple_area_body_entered(body: Node3D) -> void:
+	if body.name == "player":
+		Global.missions[0]["done"] = true
+		SignalBus.on_mission_list_updated.emit(Global.missions[0])

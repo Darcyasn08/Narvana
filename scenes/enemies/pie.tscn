@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://buo3ejpwiun80"]
 
-[ext_resource type="Script" uid="uid://dwcuq53xq8mac" path="res://scripts/enemies/pie.gd" id="1_o6muh"]
+[ext_resource type="Script" uid="uid://soxpv1qathgs" path="res://scripts/enemies/pie.gd" id="1_o6muh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0m2ic"]
 size = Vector3(1, 0.3, 1)
@@ -43,6 +43,7 @@ autostart = true
 monitoring = false
 
 [node name="explosion" type="CollisionShape3D" parent="explosion_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028638363, 0.016254187, 0.0055270195)
 shape = SubResource("SphereShape3D_cg3m5")
 
 [node name="explosion_molde" type="CSGMesh3D" parent="."]

@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		#$collision.disabled = true
 		$gran_capo_model.set_state("start_circling")
 		await get_tree().create_timer(1.2).timeout
-		$swirl_col.disabled = false
+		%swirl_col.disabled = false
 		$gran_capo_model.set_state("big_circling")
 		$Timer.wait_time = 9.0
 		$Timer.start()
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func damage_player(area)-> void:
-	if state == "swirl2" or state == "beating2":
+	if state == "beating2":
 		get_tree().call_group("player","hurt",damage)
 
 func unique_take_damage(area)-> void:
@@ -138,7 +138,7 @@ func cancel_swirl() -> void:
 	$enemy_hitbox/swirl.disabled = true
 	$enemy_hitbox/hitbox.disabled = false
 	#$collision.disabled = true
-	$swirl_col.disabled = true
+	%swirl_col.disabled = true
 	$gran_capo_model.set_state("idle")
 	$enemy_hitbox/swirl.scale = Vector3(1.098,1.098,1.098)
 	$Timer.wait_time = 2.0
