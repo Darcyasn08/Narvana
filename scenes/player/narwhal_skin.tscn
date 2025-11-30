@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://utkg066kgy3y"]
+[gd_scene load_steps=54 format=4 uid="uid://utkg066kgy3y"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_ngfep"]
 [ext_resource type="Material" uid="uid://c4tg74phgwyas" path="res://shaders/narval-body-shader.tres" id="2_g6ta3"]
@@ -237,6 +237,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arm_001:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("arm_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.63417983, -0.006596208, 0.094297975)]
+}
 
 [sub_resource type="Animation" id="Animation_5gtgg"]
 resource_name = "narwhal_idle"
@@ -269,9 +293,61 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.10472), Vector3(0, 0, 0.10472), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_1d6vy"]
+resource_name = "dash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.0442953, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.07998844, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("arm_001:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.52),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.96195, 0.535333, -0.0967701), Vector3(-0.962, 0.535, 0.028), Vector3(-0.962, 0.535, -0.25117737)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("arm_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.52),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.63417983, -0.006596208, 0.094297975), Vector3(0.6335545, 0.46774822, 0.09424778), Vector3(0.6335546, -0.41809368, 0.094247796)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_je7p5"]
 _data = {
 &"RESET": SubResource("Animation_h17s1"),
+&"dash": SubResource("Animation_1d6vy"),
 &"narwhal_idle": SubResource("Animation_5gtgg"),
 &"walk": SubResource("Animation_je7p5")
 }
@@ -831,10 +907,10 @@ tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.166666, 0.6),
+"times": PackedFloat32Array(0, 0.166666, 0.46666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.9599311, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -1.0471976, 0), Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1536,11 +1612,11 @@ albedo_color = Color(0.93942297, 0.39496687, 0.65243584, 0.26666668)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442953, 0)
 
 [node name="arm_001" parent="narval_model" index="0"]
-transform = Transform3D(0.29012203, -0.05716765, -0.0015490762, 0.0221126, 0.4676039, -0.17273702, 0.018178703, 0.34356996, 0.23483996, -0.96195, 0.535333, -0.0967701)
+transform = Transform3D(0.29012203, -0.05716765, -0.001549076, 0.0221126, 0.4676039, -0.172737, 0.018178703, 0.34356996, 0.23483993, -0.96195, 0.535333, -0.0967701)
 material_override = ExtResource("2_g6ta3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="narval_model/arm_001" index="0"]
-transform = Transform3D(0.97621036, 0.07612354, 0.20302318, -0.07414372, 0.99709666, -0.017350972, -0.20375453, 0.0018852949, 0.9790201, 0, 0, 0)
+transform = Transform3D(0.9762103, 0.07612354, 0.20302318, -0.074143715, 0.9970966, -0.01735096, -0.20375453, 0.0018852921, 0.9790201, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_g6ta3")
 mesh = SubResource("ArrayMesh_y12c8")
 
@@ -1622,6 +1698,7 @@ visible = false
 
 [node name="Armature_002" type="Node3D" parent="narval_model"]
 transform = Transform3D(-0.34428602, 0.19669299, -0.052713607, -0.20143701, -0.34413204, 0.031556804, -0.0298336, 0.0537075, 0.395254, 0.86031646, 0.685295, -0.110497)
+visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_002"]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999991, 0, 0, 0)
@@ -1675,6 +1752,7 @@ debug_color = Color(0.738708, 0.33321, 0.13141, 0.42)
 
 [node name="Armature_003" type="Node3D" parent="narval_model"]
 transform = Transform3D(-0.310471, 0.393875, 0, -0.393875, -0.310471, 0, 3.72529e-09, 0, 0.501527, 0.730457, 0.735353, -0.290247)
+visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_003"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0)
@@ -1695,6 +1773,7 @@ bones/1/scale = Vector3(1, 1, 1)
 
 [node name="arm_001" type="MeshInstance3D" parent="narval_model/Armature_003/Skeleton3D"]
 transform = Transform3D(0.10722801, -1.05973, 0.32039404, 0.67859006, 0.05239767, -0.169105, 0.13422902, 0.58166206, 0.5989591, -0.050708055, 0.44331604, 0.25119403)
+visible = false
 material_override = ExtResource("2_g6ta3")
 mesh = SubResource("ArrayMesh_fsys7")
 skeleton = NodePath("")
@@ -1707,6 +1786,7 @@ mesh = SubResource("ArrayMesh_chc6g")
 libraries = {
 &"": SubResource("AnimationLibrary_je7p5")
 }
+blend_times = [&"dash", &"dash", 0.2, &"dash", &"narwhal_idle", 0.2, &"dash", &"walk", 0.2, &"narwhal_idle", &"dash", 0.1, &"narwhal_idle", &"walk", 0.1, &"walk", &"dash", 0.1]
 
 [node name="attack_player" type="AnimationPlayer" parent="narval_model"]
 libraries = {

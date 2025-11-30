@@ -115,7 +115,7 @@ func add_plus_values() -> void:
 		Global.player_health = Global.max_player_health
 	#print("player health summing: ",Global.player_health, "---",Global.max_player_health)
 	SignalBus.on_player_health_changed.emit(Global.player_health)
-	#print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
+	print("vida: ",Global.player_health, " dano: ",Global.player_damage, " velocidade: ",Global.player_speed)
 
 func add_shop_item() -> void:
 	if Global.inventory["shop_items"] != {}:
@@ -186,9 +186,9 @@ func _on_change_weapon_button_pressed() -> void:
 		Global.current_weapon = Global.weapons.TONFA
 		SignalBus.on_change_player_weapon.emit(2)
 		print(Global.current_weapon)
-		%weapon_texture.texture = load("res://UI/inventory/bat-icon.png")
+		%weapon_texture.texture = load("res://UI/inventory/tonfa-icon.png")
 	elif Global.current_weapon == Global.weapons.TONFA:
 		Global.current_weapon = Global.weapons.BAT
 		SignalBus.on_change_player_weapon.emit(1)
 		print(Global.current_weapon)
-		%weapon_texture.texture = load("res://UI/inventory/tonfa-icon.png")
+		%weapon_texture.texture = load("res://UI/inventory/bat-icon.png")

@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 		$CollisionShape3D.global_rotation.y = lerp_angle($CollisionShape3D.global_rotation.y,target_angle,rotation_speed *delta)
 		$player_hitbox.global_rotation.y = lerp_angle($player_hitbox.global_rotation.y,target_angle,rotation_speed *delta)
 		ground_speed = velocity.length()
-		if ground_speed > 0.0:
+		if ground_speed > 0.0 and !dashed:
 			$narwhal_skin/narval_model/AnimationPlayer.play("walk")
 		elif ground_speed <= 0.0:
 			$narwhal_skin/narval_model/AnimationPlayer.play("narwhal_idle")
@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 		if !knockbacked:
 			var y_velocity: float = velocity.y
 			velocity.y = 0.0
-			velocity = velocity.move_toward(move_direction * move_speed, acceleration * delta)
+			velocity = velocity.move_toward(move_direction * Global.player_speed, acceleration * delta)
 			velocity.y = y_velocity + gravity * delta
 	else:
 		ground_speed = 0
@@ -216,16 +216,18 @@ func die() -> void:
 
 func dash() -> void:
 	dashed = true
-	move_speed += 125
+	$narwhal_skin/narval_model/AnimationPlayer.play("dash")
+	Global.player_speed += 125
 	acceleration += 150
 	await(get_tree().create_timer(.2).timeout)
-	move_speed -= 125
+	Global.player_speed -= 125
 	await(get_tree().create_timer(.2).timeout)
 	acceleration -= 110
 	await(get_tree().create_timer(.1).timeout)
 	acceleration -= 40
 	await(get_tree().create_timer(.8).timeout)
 	dashed = false
+	$narwhal_skin/narval_model/AnimationPlayer.play("walk")
 
 
 func knockback(force: Vector3, _impact_point: Vector3) -> void:
@@ -411,8 +413,8 @@ func special_attack() -> void:
 			Global.player_can_attack = true
 			Global.player_damage = Global.player_damage*4
 		if Global.current_weapon == 2:
-			#var what_special : int = randi_range(1,3)
-			var what_special: int = 3
+			var what_special : int = randi_range(1,3)
+			#var what_special: int = 3
 			if what_special == 1:
 				is_shark_attack = true
 				$narwhal_skin/narval_model/attack_player.play("tonfa_shark_special")
@@ -434,12 +436,12 @@ func special_attack() -> void:
 			state = "spinning"
 			$weapons_special/mangual.disabled = false
 			$weapons_special.rotation = skin.rotation
-			move_speed = 2.0
+			Global.player_speed = 2.0
 			Global.player_can_attack = false
 			Global.player_damage = Global.player_damage / 2
 			velocity = Vector3.ZERO
 			await(get_tree().create_timer(5.0).timeout)
-			move_speed = 8.0
+			Global.player_speed = 8.0
 			Global.player_damage = Global.player_damage * 2
 			Global.player_can_attack = true
 			$weapons_special/mangual.disabled = true
@@ -462,12 +464,12 @@ func coffee_effects(stage: int) -> void:
 	if stage == 1:
 		mouse_sens += 0.09
 	if stage == 2:
-		move_speed -= 2.0
+		Global.player_speed -= 2.0
 	if stage == 3:
 		dmg_multi = 2
 	if stage == 0:
 		mouse_sens -= 0.09
-		move_speed += 2.0
+		Global.player_speed += 2.0
 		dmg_multi = 1
 
 func _on_shield_detection_area_entered(area: Area3D) -> void:

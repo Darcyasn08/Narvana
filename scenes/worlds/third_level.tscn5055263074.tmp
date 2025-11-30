@@ -1,18 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2iq548vonqdh"]
+[gd_scene load_steps=9 format=3 uid="uid://d2iq548vonqdh"]
 
 [ext_resource type="Script" uid="uid://552lts4bm380" path="res://scripts/third_level.gd" id="1_2t2b7"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_nvibc"]
 [ext_resource type="PackedScene" uid="uid://5cw8r5rannak" path="res://scenes/worlds/third_level_model.tscn" id="2_7ssvg"]
 [ext_resource type="PackedScene" uid="uid://fj0mxoy6ofl1" path="res://scenes/managers/spawner_manager.tscn" id="3_e587m"]
 [ext_resource type="PackedScene" uid="uid://btpev621cofay" path="res://scenes/enemies/spawner.tscn" id="4_28w3a"]
-[ext_resource type="PackedScene" uid="uid://c60x0jfkdac5l" path="res://scenes/particles/second_level_collision_particle.tscn" id="5_qgi1w"]
 [ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="6_qgi1w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l66sv"]
 size = Vector3(40, 15.630798, 52.98645)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2t2b7"]
-size = Vector3(45.034027, 14.943298, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_adg0o"]
 radius = 9.071
@@ -35,31 +31,6 @@ area_node = NodePath("Area3D")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.679121, 1.4932251)
 shape = SubResource("BoxShape3D_l66sv")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="spawner_manager"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26849365, 5.2098694, 28.318645)
-shape = SubResource("BoxShape3D_2t2b7")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="spawner_manager/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41078186, 5.2098694, -25.547047)
-shape = SubResource("BoxShape3D_2t2b7")
-
-[node name="particles" type="Node3D" parent="spawner_manager"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5903273, 0)
-
-[node name="second_level_collision_particle" parent="spawner_manager/particles" instance=ExtResource("5_qgi1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.942415, 0, -25.6526)
-
-[node name="second_level_collision_particle2" parent="spawner_manager/particles" instance=ExtResource("5_qgi1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.748045, 0, -25.6526)
-
-[node name="second_level_collision_particle3" parent="spawner_manager/particles" instance=ExtResource("5_qgi1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.748045, 0, 28.180172)
-
-[node name="second_level_collision_particle4" parent="spawner_manager/particles" instance=ExtResource("5_qgi1w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.544119, 0, 28.180172)
 
 [node name="spawner" parent="." instance=ExtResource("4_28w3a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8350773, 1.778614, 44.95849)

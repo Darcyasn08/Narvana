@@ -41,13 +41,15 @@ var next_scene: String = "res://scenes/worlds/normal_world.tscn"
 var loading_screen: Object = preload("res://scenes/UI/loading_screen.tscn")
 var time_lapsed: int = 0
 var in_combat: bool = false
-var coins: int = 100
+var coins: int = 0
+
+var boulder_broken: bool = false
 
 #player
 var player_can_move: bool = true
 var player_can_attack: bool = true
 var magic_select: int = 1
-var current_weapon: int = 0
+var current_weapon: int = 2
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1
@@ -65,11 +67,11 @@ var unlocked_weapons: Dictionary = {
 
 var base_player_health: int = 6
 var base_player_damage: float = 200.0
-var base_player_speed: float = 8.0
+var base_player_speed: float = 7.0
 
 var player_health: int = 6
-var player_damage: float = 180.0
-var player_speed: float = 8.0
+var player_damage: float = 200.0
+var player_speed: float = 7.0
 
 var plus_player_health: int
 var plus_player_damage: float
@@ -88,7 +90,7 @@ var mouse_sens: float = .11
 var player_base_pos: Vector3 = Vector3(0,5,0)
 var player_normal_pos: Vector3 = Vector3(0,0, -45)
 var player_first_level_pos: Vector3 = Vector3(1.3,2.7,40.5)
-var player_third_level_pos: Vector3 = Vector3(0,2.3,0)
+var player_third_level_pos: Vector3 = Vector3(-1.73,2.3,13)
 
 var worlds_files: Dictionary = {
 	"normal_world": "res://scenes/worlds/normal_world.tscn",
@@ -139,11 +141,11 @@ var shop_items: Dictionary = {
 	0: {
 		"name": "Doce",
 		"desc": "É bem docinho",
-		"price": 45,
+		"price": 25,
 		"buff": {
-			"damage": 0,
+			"damage": 25,
 			"health": 0,
-			"speed": 1,
+			"speed": 0,
 		},
 		"icon": "res://UI/shop/candy.png"
 	},
@@ -155,7 +157,7 @@ var shop_items: Dictionary = {
 			"health": 1,
 			"speed": 0,
 		},
-		"price": 20,
+		"price": 25,
 		"icon": "res://UI/shop/tea.png"
 	}
 }

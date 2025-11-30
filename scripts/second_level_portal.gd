@@ -4,11 +4,18 @@ extends Area3D
 enum portal_types {ENTER, EXIT}
 @export var portal_closed: bool = false
 var player_near: bool = false
+@export var rot: Vector3 = Vector3(0,0,0)
+@export var pos: Vector3 = Vector3(0,0,0)
 
 func _ready() -> void:
 	if portal_type == portal_types.EXIT:
 		SignalBus.on_boss_defeated.connect(open_exit_portal)
 		portal_closed = true
+	if pos != Vector3(0,0,0):
+		global_rotation_degrees = rot
+		global_position = pos
+	print(global_position)
+	print(global_rotation)
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "player":

@@ -10,6 +10,7 @@ func _ready() -> void:
 	if npc_name != null:
 		$npc_manager.current_npc = npc_name
 	SignalBus.on_start_dialog_function.connect(open_portal)
+	SignalBus.on_create_portal.connect(create_portal)
 	if npc_name == "second_master":
 		if !Global.completed_levels["first_level"]:
 			$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", true)
@@ -43,8 +44,8 @@ func open_portal(emmited_name: String, func_id: String) -> void:
 			Global.current_mission = 1
 			SignalBus.on_mission_list_updated.emit(Global.missions[1])
 			var item_thrower: Object = item_thrower_inst.instantiate()
-			item_thrower.position = $portal_pos.position
-			add_child(item_thrower)
+			item_thrower.position = position + $portal_pos.position
+			get_parent().add_child(item_thrower)
 			Global.current_weapon = Global.weapons.BAT
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 			#add_child(first_level_portal)
@@ -52,10 +53,13 @@ func open_portal(emmited_name: String, func_id: String) -> void:
 			Global.current_mission = 3
 			SignalBus.on_mission_list_updated.emit(Global.missions[3])
 			var item_thrower: Object = item_thrower_inst.instantiate()
-			item_thrower.position = $portal_pos2.position
-			add_child(item_thrower)
+			item_thrower.position = position + $portal_pos2.position
+			get_parent().add_child(item_thrower)
 			#var second_level_portal: Object = second_portal_inst.instantiate()
 			#second_level_portal.position = $portal_pos.position
 			Global.current_weapon = Global.weapons.TONFA
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 			#add_child(second_level_portal)
+
+func create_portal(portal_path: String) -> void:
+	pass

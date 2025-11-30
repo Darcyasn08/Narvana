@@ -905,3 +905,5 @@ mesh = SubResource("BoxMesh_qflks")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="thermal_water"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.151712, 0.108705, -7.76834)
 mesh = SubResource("BoxMesh_qflks")
+
+[connection signal="body_entered" from="thermal_water" to="." method="_on_thermal_water_body_entered"]

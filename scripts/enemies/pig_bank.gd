@@ -12,7 +12,7 @@ var coinins = preload("res://scenes/enemies/coin.tscn")
 @onready var player = $"../player"
 
 func _ready() -> void:
-	print("im the new pig")
+	pass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

@@ -348,11 +348,11 @@ data = PackedVector3Array(-17.5, 4.5, 0.5, 17.5, 4.5, 0.5, -17.5, -4.5, 0.5, 17.
 material = ExtResource("1_jhwnl")
 size = Vector3(10, 3.4, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_385i6"]
-lightmap_size_hint = Vector2i(724, 426)
+[sub_resource type="BoxMesh" id="BoxMesh_owpsq"]
+lightmap_size_hint = Vector2i(729, 436)
 material = SubResource("StandardMaterial3D_qndhv")
 add_uv2 = true
-size = Vector3(82, 1, 62)
+size = Vector3(82, 2, 63)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_posuy"]
 data = PackedVector3Array(-41, 0.5, 31, 41, 0.5, 31, -41, -0.5, 31, 41, 0.5, 31, 41, -0.5, 31, -41, -0.5, 31, 41, 0.5, -31, -41, 0.5, -31, 41, -0.5, -31, -41, 0.5, -31, -41, -0.5, -31, 41, -0.5, -31, 41, 0.5, 31, 41, 0.5, -31, 41, -0.5, 31, 41, 0.5, -31, 41, -0.5, -31, 41, -0.5, 31, -41, 0.5, -31, -41, 0.5, 31, -41, -0.5, -31, -41, 0.5, 31, -41, -0.5, 31, -41, -0.5, -31, 41, 0.5, 31, -41, 0.5, 31, 41, 0.5, -31, -41, 0.5, 31, -41, 0.5, -31, 41, 0.5, -31, -41, -0.5, 31, 41, -0.5, 31, -41, -0.5, -31, 41, -0.5, 31, 41, -0.5, -31, -41, -0.5, -31)
@@ -861,7 +861,7 @@ room2 = 2
 
 [node name="first_level_door5" parent="temple_room1" instance=ExtResource("2_j28s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7827, 2.03972, 0.014875412)
-room1 = 2
+room1 = 7
 room2 = 2
 
 [node name="first_level_door6" parent="temple_room1" instance=ExtResource("2_j28s7")]
@@ -872,7 +872,7 @@ room2 = 7
 [node name="first_level_door7" parent="temple_room1" instance=ExtResource("2_j28s7")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.343016, 2.0397196, -14.350819)
 room1 = 2
-room2 = 2
+room2 = 7
 
 [node name="first_level_door4" parent="temple_room1" instance=ExtResource("2_j28s7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5343, 2.03972, -13.2173)
@@ -1329,7 +1329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44166, -0.373157, -177.696)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="temple_room6/meshes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.212, -60.9286)
-mesh = SubResource("BoxMesh_385i6")
+mesh = SubResource("BoxMesh_owpsq")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="temple_room6/meshes/MeshInstance3D3"]

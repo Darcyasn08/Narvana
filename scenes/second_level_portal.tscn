@@ -32,6 +32,7 @@ albedo_color = Color(0.317188, 0.134983, 0.0163365, 1)
 roughness = 0.0
 
 [node name="second_level_portal" type="Area3D"]
+top_level = true
 collision_mask = 5
 script = ExtResource("1_a41b0")
 

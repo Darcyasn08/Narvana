@@ -63,6 +63,7 @@ func start_dialogue(npc: String) -> void:
 		talk_speed = normal_talk_speed
 		has_started_diag = true
 		cur_npc = npc
+		print(cur_npc)
 		cur_text = 0
 		check_done_dialog()
 		check_options()

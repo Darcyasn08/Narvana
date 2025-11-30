@@ -37,13 +37,13 @@ func _ready() -> void:
 			Global.dead_enemies_second_level[current_room][0] = 0
 			Global.dead_enemies_second_level[current_room][1] = 0
 			is_second_level = true
-			if $StaticBody3D:
-				for child in $StaticBody3D.get_children():
-					child.set_deferred("disabled", true)
-			if $particles:
-				for particle in $particles.get_children():
-					particle.get_node("size_indicator").hide()
-					particle.emitting = false
+	if $StaticBody3D:
+		for child in $StaticBody3D.get_children():
+			child.set_deferred("disabled", true)
+	if $particles:
+		for particle in $particles.get_children():
+			particle.get_node("size_indicator").hide()
+			particle.emitting = false
 	area_node.area_entered.connect(_on_area_3d_area_entered)
 	area_node.body_entered.connect(_on_area_3d_body_entered)
 	area_node.body_exited.connect(_on_area_3d_body_exited)
@@ -82,17 +82,26 @@ func update_enemy_deaths() -> void:
 				if $particles:
 					for particle in $particles.get_children():
 						particle.emitting = false
-		#Global.worlds.THIRD_LEVEL:
+		Global.worlds.THIRD_LEVEL:
+			Global.dead_enemies_third_level[current_room][0] = enemy_death_count
+			await get_tree().create_timer(.3).timeout
+			if enemy_death_count >= Global.dead_enemies_third_level[current_room][1]:
+				SignalBus.on_room_completed.emit(current_room)
+				if $StaticBody3D:
+					for child in $StaticBody3D.get_children():
+						child.set_deferred("disabled", true)
+				if $particles:
+					for particle in $particles.get_children():
+						particle.emitting = false
 
 func start_room(current_room: int) -> void:
 	SignalBus.on_start_room.emit(current_room)
-	if is_second_level:
-		if $StaticBody3D:
-			for child in $StaticBody3D.get_children():
-				child.set_deferred("disabled", false)
-		if $particles:
-			for particle in $particles.get_children():
-				particle.emitting = true
+	if $StaticBody3D:
+		for child in $StaticBody3D.get_children():
+			child.set_deferred("disabled", false)
+	if $particles:
+		for particle in $particles.get_children():
+			particle.emitting = true
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
@@ -108,6 +117,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 				var master_ghost: Object = master_ghost_inst.instantiate()
 				master_ghost.global_position = Vector3(25,15.8,-170)
 				get_parent().add_child(master_ghost)
+				Global.player_third_level_pos = Vector3(24,15,-144)
 				
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
@@ -118,7 +128,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemies"):
-		print("new enemy")
 		match Global.current_world:
 			Global.worlds.FIRST_LEVEL:
 				Global.dead_enemies_first_level[current_room][1] += 1
@@ -126,5 +135,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 				print(body.name)
 				Global.dead_enemies_second_level[current_room][1] += 1
 				print("OBJETIVO DA SALA: ",Global.dead_enemies_second_level[current_room][1], " INIMIGOS DERROTADOS: ", enemy_death_count)
+			Global.worlds.THIRD_LEVEL:
+				Global.dead_enemies_third_level[current_room][1] += 1
 	if body.name == "player":
 		pass

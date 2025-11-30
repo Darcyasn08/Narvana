@@ -5,11 +5,16 @@ enum portal_types {ENTER, EXIT}
 @export var portal_closed: bool = false
 var player_near: bool = false
 var player
+@export var rot: Vector3 = Vector3(0,0,0)
+@export var pos: Vector3 = Vector3(0,0,0)
 
 func _ready() -> void:
 	if portal_type == portal_types.EXIT:
 		SignalBus.on_boss_defeated.connect(open_exit_portal)
 		portal_closed = true
+	if pos != Vector3(0,0,0):
+		global_position = pos
+		global_rotation_degrees = rot
 
 func _physics_process(_delta: float) -> void:
 	if player != null and get_node_or_null("npc_interact_sign") != null:

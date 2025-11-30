@@ -53,6 +53,8 @@ data = PackedVector3Array(-6, 15, 0.5, 6, 15, 0.5, -6, -15, 0.5, 6, 15, 0.5, 6, 
 
 [node name="third_level_entrance_model" type="Node3D"]
 
+[node name="abism_model_abism_model2_bridge#StaticBody3D" type="StaticBody3D" parent="."]
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 light_color = Color(1, 0.983194, 0.381281, 1)
@@ -77,9 +79,7 @@ disabled = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="abism_model/abism_model2/Cube/StaticBody3D2"]
 shape = SubResource("ConcavePolygonShape3D_jpwcx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="abism_model/abism_model2/bridge" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="abism_model/abism_model2/bridge/StaticBody3D"]
+[node name="abism_model_abism_model2_bridge_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConcavePolygonShape3D_33ar6")
 
 [node name="tree" parent="." instance=ExtResource("3_33ar6")]
@@ -158,6 +158,24 @@ shape = SubResource("ConcavePolygonShape3D_jfa4e")
 
 [node name="small_rock" parent="." instance=ExtResource("4_jpwcx")]
 transform = Transform3D(0.5674558, 0, -0.82340384, 0, 1, 0, 0.82340384, 0, 0.5674558, 35.576412, 0.72029114, -18.258163)
+
+[node name="tree10" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(-0.9701816, 0, -0.24237919, 0, 1, 0, 0.24237919, 0, -0.9701816, 49.49952, 15.370255, -175.03989)
+
+[node name="tree11" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(-0.08952005, 0, -0.99598515, 0, 1, 0, 0.99598515, 0, -0.08952005, 5.4995193, 15.370255, -205.03989)
+
+[node name="tree12" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(-0.08952005, 0, -0.99598515, 0, 1, 0, 0.99598515, 0, -0.08952005, -0.18662453, 15.370255, -155.24548)
+
+[node name="tree13" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(-0.08952005, 0, -0.99598515, 0, 1, 0, 0.99598515, 0, -0.08952005, 43.05421, 14.686791, -138.94112)
+
+[node name="tree14" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(0.33183196, 0, -0.94333863, 0, 1, 0, 0.94333863, 0, 0.33183196, 15.517745, 14.518531, -132.21962)
+
+[node name="tree15" parent="." instance=ExtResource("3_33ar6")]
+transform = Transform3D(0.33183196, 0, -0.94333863, 0, 1, 0, 0.94333863, 0, 0.33183196, 12.275132, 11.89471, -108.86191)
 
 [editable path="abism_model"]
 [editable path="abism_model/abism_model2"]

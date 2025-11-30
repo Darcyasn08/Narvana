@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 var life: int = 8000
 var damage: int = 1
-var bullet_inst: Object = preload("res://scenes/projectile.tscn")
+var bullet_inst: Object = preload("res://scenes/weapon/projectile.tscn")
 var bullet_speed: float = 35.0
 var saidas_disponiveis: Array = []
 var state: String = "shooting"
@@ -166,6 +166,7 @@ func unique_take_damage(area) -> void:
 
 func unique_die() -> void:
 	Global.completed_levels["first_level"] = true
+	Global.coins += 25
 	$door.hide()
 	$house_model/AnimationPlayer.play("death")
 	await $house_model/AnimationPlayer.animation_finished

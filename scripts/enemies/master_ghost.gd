@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var life: int = 8000
+var life: int = 6000
 var damage: int = 1
 var bullet_speed: float = 20.0
 var state: String = "storm"
@@ -13,9 +13,11 @@ var enemies_count: int = 0
 var round: int = 0
 var shoots_count: int = 0
 
+var original_resource: StandardMaterial3D = load("res://shaders/ex_skin.tres")
+var unique_resource: Object = original_resource.duplicate()
 
 var raioins: Object = preload("res://scenes/enemies/meteor.tscn")
-var bulletins: Object = preload("res://scenes/projectile.tscn")
+var bulletins: Object = preload("res://scenes/weapon/projectile.tscn")
 
 var player_path: String = "player"
 @onready var player: CharacterBody3D = get_node(player_path)
@@ -25,8 +27,11 @@ func _ready() -> void:
 		player_path = "../"+player_path
 		player = get_node(player_path)
 	SignalBus.on_round_over.connect(rounds)
+	%master_tiny_model/eyes.material_overlay = unique_resource
+	unique_resource.albedo_color = Color("e3405cff")
+	%master_tiny_model/eyes.material_overlay = null
+
 func _physics_process(delta: float) -> void:
-	
 	if elevating and state == "battle":
 		$floor_holder.position.y += 0.2
 	if elevating and state == "shooting":
@@ -46,11 +51,15 @@ func unique_take_damage(area) -> void:
 		%master_tiny_model.set_state("tiny_scream")
 		await(get_tree().create_timer(.75).timeout)#tempo da animção dele gritando grande
 		scream()
-
+	%master_tiny_model/eyes.material_overlay = unique_resource
+	await get_tree().create_timer(.2).timeout
+	%master_tiny_model/eyes.material_overlay = null
 
 func unique_die() -> void:
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.5).timeout
+	$fade_canvas/fade_anim.play("fade_in")
 	get_tree().paused = true
+	await $fade_cutscene_canvas/fade_anim.animation_finished
 	SignalBus.on_ignite_cutscene.emit("final")
 	
 func damage_player(_area) -> void:
@@ -87,7 +96,7 @@ func storm_rain() -> void:
 	for j in 3:
 		for i in 15:
 			var raio = raioins.instantiate()
-			raio.pos.y = $floor_holder.position.y + .5
+			raio.pos.y = $floor_holder.position.y + .7
 			raio.pos.z = randf_range( -17, 17 )
 			raio.pos.x = randf_range(-17,17)
 			raio.damage = damage
@@ -147,13 +156,17 @@ func tile_disapear(number : int) -> void:
 	var tile : CollisionShape3D = get_node("floor_holder/tile"+str(number))
 	var moldet : MeshInstance3D = get_node("floor_holder/tile_mold"+str(number))
 	moldet.hide()
-	await(get_tree().create_timer(.4).timeout)
+	await(get_tree().create_timer(.3).timeout)
 	moldet.show()
-	await(get_tree().create_timer(.4).timeout)
+	await(get_tree().create_timer(.28).timeout)
 	moldet.hide()
-	await(get_tree().create_timer(.4).timeout)
+	await(get_tree().create_timer(.25).timeout)
 	moldet.show()
-	await(get_tree().create_timer(.4).timeout)
+	await(get_tree().create_timer(.2).timeout)
+	moldet.hide()
+	await(get_tree().create_timer(.19).timeout)
+	moldet.show()
+	await(get_tree().create_timer(.16).timeout)
 	moldet.hide()
 	await(get_tree().create_timer(.2).timeout)# troca tudo isso por uma animçao desaparecendo 
 	tile.disabled = true
@@ -219,7 +232,7 @@ func _on_grand_dust_area_entered(area: Area3D) -> void:
 
 
 func _on_manager_area_entered(area: Area3D) -> void:
-	print(enemies_count)
+	#print(enemies_count)
 	if area.name =="player_hitbox":
 		pass
 	if area.is_in_group("enemies"):

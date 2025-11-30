@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=24 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
@@ -66,6 +66,67 @@ size = Vector3(37.672, 4.90061, 50.6132)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7i1k"]
 albedo_color = Color(0.510644, 0.614563, 0.643374, 1)
 
+[sub_resource type="Animation" id="Animation_jprao"]
+resource_name = "break_boulder"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blocking-boulder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.66, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5814778, 0), Vector3(-0.047182627, 1.5795143, 0.08316674), Vector3(0.035114296, 1.5803916, -0.06184207), Vector3(0.12198785, 1.5842887, -0.012236521)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blocking-boulder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.66, 1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.93636, 0, 0.55926), Vector3(-2.9363403, -0.81481457, 0.5592499), Vector3(-2.9363403, -2.5656433, 0.5592499), Vector3(-2.9363403, -4.4270597, 0.5592499), Vector3(-2.9363403, -9.387159, 0.5592499)]
+}
+
+[sub_resource type="Animation" id="Animation_d7i1k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blocking-boulder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5814778, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blocking-boulder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.93636, 0, 0.55926)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67h3a"]
+_data = {
+&"RESET": SubResource("Animation_d7i1k"),
+&"break_boulder": SubResource("Animation_jprao")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7i1k"]
 size = Vector3(6.468689, 8.007935, 15.5946045)
 
@@ -101,7 +162,7 @@ transform = Transform3D(0.849027, 0, -0.528349, 0, 1, 0, 0.528349, 0, 0.849027, 
 npc_name = "second_master"
 
 [node name="second_portal_pos" type="Node3D" parent="master"]
-transform = Transform3D(0.7717024, 0, 0.6359839, 0, 1, 0, -0.6359839, 0, 0.7717024, -4.01635, 4.7683716e-07, 0.24848515)
+transform = Transform3D(0.7878175, 0, 0.6159089, 0, 1, 0, -0.6159089, 0, 0.7878175, -4.437818, 4.7683716e-07, -0.22362195)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.517573, 0.105414, -0.849121, 0.0795626, 0.994012, 0.0749045, 0.851932, -0.0287897, -0.522861, 5.89608, 17.8716, 84.1874)
@@ -171,7 +232,7 @@ shape = SubResource("BoxShape3D_jprao")
 debug_color = Color(0.734151, 0.94601, 1, 0.42)
 
 [node name="blocking-boulder" parent="third_level_boulder_portal" instance=ExtResource("10_jprao")]
-transform = Transform3D(-0.0161714, 0, 1.51392, 0, 1.514, 0, -1.51392, 0, -0.0161714, -2.93636, 0, 0.55926)
+transform = Transform3D(-0.016171446, 0, 1.51392, 0, 1.514, 0, -1.5139195, 0, -0.016171452, -2.93636, 0, 0.55926)
 
 [node name="Cube" parent="third_level_boulder_portal/blocking-boulder" index="0"]
 material_override = SubResource("StandardMaterial3D_d7i1k")
@@ -202,6 +263,11 @@ material_override = SubResource("StandardMaterial3D_d7i1k")
 
 [node name="Cube_009" parent="third_level_boulder_portal/blocking-boulder" index="9"]
 material_override = SubResource("StandardMaterial3D_d7i1k")
+
+[node name="boulder_anim" type="AnimationPlayer" parent="third_level_boulder_portal"]
+libraries = {
+&"": SubResource("AnimationLibrary_67h3a")
+}
 
 [node name="enter_temple_area" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.407793, 0, 117.01698)

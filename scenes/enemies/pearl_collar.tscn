@@ -230,7 +230,7 @@ one_shot = true
 autostart = true
 
 [node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("2_f22wo")]
-transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0.0013900029, 0.16330831, -4.2020663e-05)
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0.0013900029, 0.16330831, -0.45152885)
 hitbox_collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="enemy_hitbox" groups=["enemies"]]

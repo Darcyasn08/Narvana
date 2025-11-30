@@ -31,6 +31,7 @@ signal on_game_saved()
 signal on_send_delete_request()
 signal on_delete_confirmed()
 signal on_changed_mouse_sens()
+signal on_create_portal()
 
 #player
 signal on_player_health_changed()

@@ -373,7 +373,7 @@ npc_name = "master_end_first_level"
 end_of_level = true
 
 [node name="player" parent="." instance=ExtResource("1_tqy6i")]
-transform = Transform3D(-0.9999997, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.9999997, 1.5867033, 3.3161364, 36.46803)
+transform = Transform3D(-0.9999997, 0, -8.742275e-08, 0, 1, 0, 8.742275e-08, 0, -0.9999997, 1.5867033, 3.3161364, 37.814545)
 
 [node name="first_level_model" parent="." instance=ExtResource("9_3vejw")]
 

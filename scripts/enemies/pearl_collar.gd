@@ -4,7 +4,7 @@ var speed: float = 3.0
 var life: int = 700
 var damage: int = 1
 var acceleration: float = 9.0
-var pearlins = preload("res://scenes/projectile.tscn")
+var pearlins = preload("res://scenes/weapon/projectile.tscn")
 var bullet_speed: float = 16.0
 var random: int 
 var swimming: bool = false
@@ -20,7 +20,6 @@ func _ready() -> void:
 	$"dragãoperola/Plano".material_overlay = unique_resource
 	for child in $"dragãoperola".get_children():
 		if "Esfera UV" in child.name:
-			print("there is a sphere")
 			child.material_overlay = unique_resource
 
 func _physics_process(delta: float) -> void:

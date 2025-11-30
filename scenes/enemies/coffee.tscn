@@ -11,9 +11,11 @@ radius = 0.6
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ih0s"]
 radius = 0.6
 
-[node name="coffee_holder" type="Node3D"]
+[node name="coffee_holder" type="Node3D" groups=["enemies"]]
 
 [node name="coffee" type="CharacterBody3D" parent="." groups=["enemies"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_fe1ek")
 
 [node name="enemy_hitbox" parent="coffee" instance=ExtResource("1_tlbmd")]

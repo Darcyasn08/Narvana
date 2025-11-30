@@ -196,7 +196,7 @@ debug_shape_custom_color = Color(0.22369, 0.410482, 0.542014, 1)
 debug_shape_thickness = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.332233, 0, -0.298431, 0, 0.446587, 0, 0.298431, 0, 0.332233, 0, 1.03, -0.0774962)
+transform = Transform3D(0.332233, 0, -0.298431, 0, 0.446587, 0, 0.298431, 0, 0.332233, 0, 1.03, -0.10366902)
 shape = SubResource("CapsuleShape3D_qek5x")
 
 [node name="camera_pivot" type="Node3D" parent="."]
@@ -218,7 +218,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0603153)
 collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_hitbox"]
-transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.347729, 0, 1.038, 0)
+transform = Transform3D(0.347729, 0, -0.280222, 0, 0.446587, 0, 0.280222, 0, 0.347729, 0, 1.038, -0.06566107)
 shape = SubResource("CapsuleShape3D_u8vuu")
 
 [node name="player_hud" parent="." instance=ExtResource("6_0owmy")]

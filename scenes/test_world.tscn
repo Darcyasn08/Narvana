@@ -2,18 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_2nnkd"]
 [ext_resource type="Script" uid="uid://reu1armmlmns" path="res://scripts/test_world.gd" id="1_8ash4"]
-[ext_resource type="PackedScene" uid="uid://delx6cwd7s7vi" path="res://scenes/pink_tree.tscn" id="3_anvu8"]
+[ext_resource type="PackedScene" uid="uid://delx6cwd7s7vi" path="res://scenes/objects/pink_tree.tscn" id="3_anvu8"]
 [ext_resource type="PackedScene" uid="uid://03c0c086wpdq" path="res://3d_models/placeholders/box.glb" id="5_s2ra0"]
 [ext_resource type="PackedScene" uid="uid://bswrtrq6u5s6h" path="res://3d_models/placeholders/barrel.glb" id="6_s2ra0"]
-[ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/crab_npc.tscn" id="7_lywpe"]
+[ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="7_lywpe"]
 [ext_resource type="PackedScene" uid="uid://dei3a3xrdp3f0" path="res://scenes/UI/dialogue_system.tscn" id="8_lywpe"]
 [ext_resource type="PackedScene" uid="uid://bqcvfpirtiax4" path="res://scenes/temple.tscn" id="9_8ash4"]
 [ext_resource type="PackedScene" uid="uid://d0l4begr7id8h" path="res://scenes/UI/pause_menu.tscn" id="9_pli87"]
 [ext_resource type="PackedScene" uid="uid://c7tr11oyqicij" path="res://scenes/small_bridge.tscn" id="11_fithi"]
-[ext_resource type="PackedScene" uid="uid://c8vm4aos1dsc1" path="res://scenes/coin_trap.tscn" id="12_4dyd7"]
-[ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/matador_3000.tscn" id="12_d55t2"]
-[ext_resource type="PackedScene" uid="uid://2qo7msqk15km" path="res://scenes/coin.tscn" id="13_4dyd7"]
-[ext_resource type="PackedScene" uid="uid://cbrwv7t17y737" path="res://scenes/car.tscn" id="14_imjh6"]
+[ext_resource type="PackedScene" uid="uid://fti7eumun2t0" path="res://scenes/enemies/coin_trap.tscn" id="12_4dyd7"]
+[ext_resource type="PackedScene" uid="uid://cxuc6bndkvomy" path="res://scenes/enemies/matador_3000.tscn" id="12_d55t2"]
+[ext_resource type="PackedScene" uid="uid://2fpmlotjvsh5" path="res://scenes/enemies/coin.tscn" id="13_4dyd7"]
+[ext_resource type="PackedScene" uid="uid://36quneone50i" path="res://scenes/enemies/master_ghost.tscn" id="14_dv75v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_anvu8"]
 sky_top_color = Color(0.281165, 0.348478, 0.551473, 1)
@@ -170,7 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20182, -4.76837e-07, 8.4050
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33198, 1.54596, 1.01522)
 
 [node name="player" parent="." instance=ExtResource("1_2nnkd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9897, 0.349868, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.530357, 2.126795, 16.593317)
 
 [node name="dialogue_system" parent="." instance=ExtResource("8_lywpe")]
 
@@ -193,11 +193,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.41512)
 
 [node name="coin" parent="." instance=ExtResource("13_4dyd7")]
 
-[node name="car" parent="." instance=ExtResource("14_imjh6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.869, 2.08731, 11.0571)
-
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1276, 4.13257, -52.6316)
 shape = SubResource("BoxShape3D_imjh6")
+
+[node name="master_ghost" parent="." instance=ExtResource("14_dv75v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.41925, 0, 20.654364)

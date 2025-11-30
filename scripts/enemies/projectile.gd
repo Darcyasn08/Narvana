@@ -5,24 +5,29 @@ var follow : bool
 var pos : Vector3
 var rot : Vector3
 var size : float
-var model : float #futuramente colocar pra essa variavel determinar o modelo do tiro
+var model : String = "" #futuramente colocar pra essa variavel determinar o modelo do tiro
 var damage : int
 var blush : bool = false
 var stunner : bool = false
 var stun_time : float 
 
-var player_path: String = "player"
-@onready var player: CharacterBody3D = get_node(player_path)
+@onready var player: CharacterBody3D = $"../player"
 
 func _ready() -> void:
+	if model != "":
+		$CSGSphere3D.hide()
+		var projectile_inst: Object = load(model)
+		var projectile: Object = projectile_inst.instantiate()
+		add_child(projectile)
 	global_position = pos
 	rotation = rot
 	if size != 0.0:
-		scale = Vector3(size,size,size)
+		$hurtbox/CollisionShape3D.scale = Vector3(size,size,size)
 	
 func _physics_process(_delta: float) -> void:
 	var forward: Vector3 = global_basis.z #determina oq é a frente 
 	var move_direction: Vector3 = forward 
+	#move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
 	move_direction = move_direction.normalized() #nao sei oq isso faz
 	velocity = velocity.move_toward(move_direction * -speed, 20000) #move pra frente
 	

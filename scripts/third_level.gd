@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		Global.player_third_level_pos = Vector3(90,0,-71)
+		Global.player_third_level_pos = Vector3(92,5,-71)
 		Global.next_scene = "res://scenes/worlds/third_level_entrance.tscn"
 		get_tree().change_scene_to_file("res://scenes/UI/loading_screen.tscn")
 
