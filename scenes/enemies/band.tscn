@@ -160,7 +160,7 @@ shape = SubResource("CapsuleShape3D_fws80")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06362772, 0, 0.4344368)
 
 [node name="octopus" type="CharacterBody3D" parent="." groups=["enemies", "multi_enemies"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1361141, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5474224, 0)
 collision_layer = 2
 collision_mask = 3
 
@@ -192,6 +192,21 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="octopus/Cylinder/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mnnoo")
 
+[node name="floor_lamp" parent="octopus/Cylinder" instance=ExtResource("6_e68ae")]
+transform = Transform3D(0.65104157, 0, 0, 0, 1.1627907, 0, 0, 0, 0.650618, 0, -0.2826321, -4.630677)
+
+[node name="floor_lamp2" parent="octopus/Cylinder" instance=ExtResource("6_e68ae")]
+transform = Transform3D(0.65104157, 0, 0, 0, 1.1627907, 0, 0, 0, 0.650618, -1.7813073, -0.2826321, -4.2670813)
+
+[node name="floor_lamp3" parent="octopus/Cylinder" instance=ExtResource("6_e68ae")]
+transform = Transform3D(0.65104157, 0, 0, 0, 1.1627907, 0, 0, 0, 0.650618, 1.6722492, -0.2826321, -4.35365)
+
+[node name="floor_lamp4" parent="octopus/Cylinder" instance=ExtResource("6_e68ae")]
+transform = Transform3D(0.65104157, 0, 0, 0, 1.1627907, 0, 0, 0, 0.650618, 3.2460253, -0.2826321, -3.3565164)
+
+[node name="floor_lamp5" parent="octopus/Cylinder" instance=ExtResource("6_e68ae")]
+transform = Transform3D(0.65104157, 0, 0, 0, 1.1627907, 0, 0, 0, 0.650618, -3.2721834, -0.2826321, -3.2003033)
+
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
@@ -201,21 +216,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 3.952, -0.24885964, 1.228
 visible = false
 mesh = SubResource("CylinderMesh_yy6y2")
 material = SubResource("StandardMaterial3D_fws80")
-
-[node name="floor_lamp" parent="." instance=ExtResource("6_e68ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31919956, -5.34578)
-
-[node name="floor_lamp2" parent="." instance=ExtResource("6_e68ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7360885, 0.31919956, -4.786933)
-
-[node name="floor_lamp3" parent="." instance=ExtResource("6_e68ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5685751, 0.31919956, -4.919989)
-
-[node name="floor_lamp4" parent="." instance=ExtResource("6_e68ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.985895, 0.31919956, -3.3873944)
-
-[node name="floor_lamp5" parent="." instance=ExtResource("6_e68ae")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0260744, 0.31919956, -3.1472955)
 
 [connection signal="area_entered" from="sea_horse/guitar_explosion" to="." method="_on_guitar_explosion_area_entered"]
 [connection signal="area_entered" from="turtle/enemy_hitbox" to="." method="_on_enemy_hitbox_area_entered"]

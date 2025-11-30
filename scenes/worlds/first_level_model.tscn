@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://wfmenxc5spvh"]
+[gd_scene load_steps=134 format=3 uid="uid://wfmenxc5spvh"]
 
 [ext_resource type="Material" uid="uid://dhe5pluydox4d" path="res://shaders/temple_wall.tres" id="1_jhwnl"]
 [ext_resource type="PackedScene" uid="uid://cexua4one0xip" path="res://scenes/first_level_door.tscn" id="2_j28s7"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://mnxptcq63xgx" path="res://3d_models/placeholders/tree.glb" id="15_w3r8l"]
 [ext_resource type="PackedScene" uid="uid://4ea2kbl7af8u" path="res://3d_models/placeholders/sand-floor.glb" id="16_wnqe7"]
 [ext_resource type="PackedScene" uid="uid://dq20xfygww1g1" path="res://scenes/objects/water_fountain.tscn" id="17_n1b32"]
+[ext_resource type="PackedScene" uid="uid://bxvhcn73lm845" path="res://scenes/objects/temple_outside_fence.tscn" id="19_myx3h"]
+[ext_resource type="PackedScene" uid="uid://b1lk5j8cothsr" path="res://scenes/pink_tree.tscn" id="20_7xkx6"]
 
 [sub_resource type="Environment" id="Environment_snglc"]
 background_mode = 1
@@ -227,6 +229,16 @@ lightmap_size_hint = Vector2i(629, 476)
 add_uv2 = true
 size = Vector3(70, 12, 55)
 
+[sub_resource type="BoxMesh" id="BoxMesh_fw270"]
+lightmap_size_hint = Vector2i(429, 401)
+add_uv2 = true
+size = Vector3(30, 12, 55)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uvspc"]
+lightmap_size_hint = Vector2i(354, 326)
+add_uv2 = true
+size = Vector3(30, 12, 40)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5n3x"]
 albedo_color = Color(0.260029, 0.0236171, 0.0197453, 1)
 
@@ -246,6 +258,18 @@ data = PackedVector3Array(-30, 1, 32.5, 30, 1, 32.5, -30, -1, 32.5, 30, 1, 32.5,
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wnqe7"]
 data = PackedVector3Array(-30, 1, 32.5, 30, 1, 32.5, -30, -1, 32.5, 30, 1, 32.5, 30, -1, 32.5, -30, -1, 32.5, 30, 1, -32.5, -30, 1, -32.5, 30, -1, -32.5, -30, 1, -32.5, -30, -1, -32.5, 30, -1, -32.5, 30, 1, 32.5, 30, 1, -32.5, 30, -1, 32.5, 30, 1, -32.5, 30, -1, -32.5, 30, -1, 32.5, -30, 1, -32.5, -30, 1, 32.5, -30, -1, -32.5, -30, 1, 32.5, -30, -1, 32.5, -30, -1, -32.5, 30, 1, 32.5, -30, 1, 32.5, 30, 1, -32.5, -30, 1, 32.5, -30, 1, -32.5, 30, 1, -32.5, -30, -1, 32.5, 30, -1, 32.5, -30, -1, -32.5, 30, -1, 32.5, 30, -1, -32.5, -30, -1, -32.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1wwg6"]
+lightmap_size_hint = Vector2i(469, 326)
+material = SubResource("StandardMaterial3D_qndhv")
+add_uv2 = true
+size = Vector3(33, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_idopc"]
+lightmap_size_hint = Vector2i(344, 241)
+material = SubResource("StandardMaterial3D_qndhv")
+add_uv2 = true
+size = Vector3(25, 2, 43)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w3r8l"]
 material = ExtResource("1_jhwnl")
@@ -427,7 +451,7 @@ size = Vector3(24.049244, 10.9077, 45.11608)
 size = Vector3(17.806568, 10.9077, 13.410612)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3641t"]
-size = Vector3(16.8104, 10.9077, 45.11608)
+size = Vector3(2.4515867, 10.9077, 45.491634)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j28s7"]
 size = Vector3(12.012272, 12.690666, 55.857468)
@@ -842,6 +866,18 @@ material_override = ExtResource("1_jhwnl")
 mesh = SubResource("BoxMesh_rfcne")
 skeleton = NodePath("../../../..")
 
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="temple_room1/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.048706, 16.4598, -106.770325)
+material_override = ExtResource("1_jhwnl")
+mesh = SubResource("BoxMesh_fw270")
+skeleton = NodePath("../../../..")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="temple_room1/walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15075827, 16.4598, -106.770325)
+material_override = ExtResource("1_jhwnl")
+mesh = SubResource("BoxMesh_uvspc")
+skeleton = NodePath("../../../..")
+
 [node name="MeshInstance3D16" type="MeshInstance3D" parent="temple_room1/walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47971, 22.2728, 0.0704002)
 material_override = SubResource("StandardMaterial3D_l5n3x")
@@ -981,28 +1017,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.172, 1.4538302, 7.866131)
 transform = Transform3D(0.657394, 0, 0, 0, 0.657394, 0, 0, 0, 0.657394, 17.46001, 1.6542916, 8.872459)
 
 [node name="big_rock" parent="temple_room3" instance=ExtResource("7_twsuy")]
-transform = Transform3D(0.557203, 0, 0.222335, 0, 0.599924, 0, -0.222335, 0, 0.557203, 25.848053, 1.8476952, 17.543602)
+transform = Transform3D(0.5999046, 0, 0.0047429055, 0, 0.59992397, 0, -0.0047429055, 0, 0.5999046, 14.922364, 1.8476952, 17.362385)
 
 [node name="big_rock2" parent="temple_room3" instance=ExtResource("7_twsuy")]
-transform = Transform3D(0.3752735, 0, 0.11871182, 0, 0.393602, 0, -0.11871182, 0, 0.3752735, 25.038553, 1.8962286, 14.975353)
+transform = Transform3D(0.39276123, 0, -0.025715798, 0, 0.393602, 0, 0.025715798, 0, 0.39276123, 15.10108, 1.8962286, 14.675518)
 
 [node name="fence" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(1.2324753, 0, 0.24329908, 0, 1.2562602, 0, -0.24329908, 0, 1.2324753, 24.805462, 2.12581, 10.74358)
+transform = Transform3D(1.2324753, 0, 0.24329908, 0, 1.2562602, 0, -0.24329908, 0, 1.2324753, 12.003438, 2.12581, 21.01075)
 
 [node name="fence2" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(1.2324753, 0, 0.24329908, 0, 1.2562602, 0, -0.24329908, 0, 1.2324753, 24.472506, 2.12581, 9.056927)
-
-[node name="fence3" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(1.253545, 0, -0.08262211, 0, 1.25626, 0, 0.08262211, 0, 1.253545, 24.876469, 2.12581, 12.365219)
+transform = Transform3D(1.2324753, 0, 0.24329908, 0, 1.2562602, 0, -0.24329908, 0, 1.2324753, 11.670482, 2.12581, 19.324097)
 
 [node name="fence4" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -17.939308, 2.12581, -12.0075)
+transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -33.318314, 2.12581, -12.0075)
 
 [node name="fence5" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -18.091208, 2.12581, -10.295097)
+transform = Transform3D(-1.25135, 0, 0.111019, 0, 1.25626, 0, -0.111019, 0, -1.25135, -33.47021, 2.12581, -10.295097)
 
 [node name="fence6" parent="temple_room3" instance=ExtResource("8_1n2n2")]
-transform = Transform3D(-1.18044, 0, 0.429831, 0, 1.25626, 0, -0.429831, 0, -1.18044, -17.554108, 2.12581, -13.584396)
+transform = Transform3D(-1.18044, 0, 0.429831, 0, 1.25626, 0, -0.429831, 0, -1.18044, -32.933113, 2.12581, -13.584396)
 
 [node name="bubble_particle" parent="temple_room3" instance=ExtResource("9_mcmud")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5959, 2.12036, -13.7277)
@@ -1011,7 +1044,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5959, 2.12036, -13.7277)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.24922, 2.12036, -10.0236)
 
 [node name="bubble_particle4" parent="temple_room3" instance=ExtResource("9_mcmud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3518, 2.95387, 14.6627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.222353, 2.226055, 14.662701)
 amount = 5
 
 [node name="stone_path" type="Node3D" parent="temple_room3"]
@@ -1079,6 +1112,14 @@ mesh = SubResource("BoxMesh_xpdtr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="temple_room4/MeshInstance3D2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wnqe7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.962246, 21.866318, -2.4864044)
+mesh = SubResource("BoxMesh_1wwg6")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="temple_room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5730586, 21.866318, -2.4864044)
+mesh = SubResource("BoxMesh_idopc")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="temple_room4"]
 visible = false
@@ -1471,7 +1512,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.809761, 3.2364802, -26.615
 shape = SubResource("BoxShape3D_fw270")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="outside_collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.6143, 3.59024, 2.91399)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.793705, 3.59024, 2.7262115)
 shape = SubResource("BoxShape3D_3641t")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="outside_collision"]
@@ -1482,12 +1523,7 @@ shape = SubResource("BoxShape3D_j28s7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.187748, 2.6987567, -110.39)
 shape = SubResource("BoxShape3D_4c4wp")
 
-[node name="temple_fences" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 27.026, -0.177227, -47.6001)
-multimesh = SubResource("MultiMesh_b30th")
-script = ExtResource("12_suavr")
-
-[node name="temple_fences2" type="MultiMeshInstance3D" parent="."]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.9409, -0.177227, -47.6001)
 multimesh = SubResource("MultiMesh_b30th")
 script = ExtResource("12_suavr")
@@ -1730,6 +1766,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.3298, 0.688198, -81.3576)
 [node name="sand-floor2" parent="." instance=ExtResource("16_wnqe7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1025, 0.688198, -49.6932)
 
+[node name="sand-floor8" parent="." instance=ExtResource("16_wnqe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.850883, 0.24792182, -180.17426)
+
 [node name="sand-floor4" parent="." instance=ExtResource("16_wnqe7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06291, 1.03202, -87.4439)
 
@@ -1771,7 +1810,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9349, 0.354911, 0, -0.354911, 0.9349, -0.2
 shape = SubResource("BoxShape3D_pi7aj")
 
 [node name="sand-floor3" parent="." instance=ExtResource("16_wnqe7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.949753, 0.141473, -50.3096)
+transform = Transform3D(0.9316912, 0, -0.3632512, 0, 1, 0, 0.3632512, 0, 0.9316912, 17.342459, 0.141473, -49.828552)
 
 [node name="water_fountain" parent="." instance=ExtResource("17_n1b32")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 6.2032, 0.796346, -178.364)
@@ -1793,3 +1832,96 @@ transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -
 
 [node name="temple_pillar_mesh10" parent="." instance=ExtResource("14_xpdtr")]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 36.543026, 1.6114061, -235.88516)
+
+[node name="fence_line" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.557957, 0, 0)
+
+[node name="temple_outside_fence" parent="fence_line" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -47.24558)
+
+[node name="temple_outside_fence2" parent="fence_line" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -57.443325)
+
+[node name="temple_outside_fence3" parent="fence_line" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -67.711136)
+
+[node name="temple_outside_fence4" parent="fence_line" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -77.92842)
+
+[node name="temple_outside_fence5" parent="fence_line" instance=ExtResource("19_myx3h")]
+transform = Transform3D(0.26940724, 0, 0.96302634, 0, 1, 0, -0.96302634, 0, 0.26940724, 32.727844, 0, -87.89595)
+
+[node name="fence_line2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.17271, 0, 0)
+
+[node name="temple_outside_fence" parent="fence_line2" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -47.24558)
+
+[node name="temple_outside_fence2" parent="fence_line2" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -57.443325)
+
+[node name="temple_outside_fence3" parent="fence_line2" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -67.711136)
+
+[node name="temple_outside_fence4" parent="fence_line2" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -77.92842)
+
+[node name="temple_outside_fence5" parent="fence_line2" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.258274, 0, -87.89595)
+
+[node name="fence_line3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.00434, 0, -108.86104)
+
+[node name="temple_outside_fence" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -47.24558)
+
+[node name="temple_outside_fence2" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -57.443325)
+
+[node name="temple_outside_fence3" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -67.711136)
+
+[node name="temple_outside_fence4" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -77.92842)
+
+[node name="temple_outside_fence5" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.258274, 0, -87.89595)
+
+[node name="temple_outside_fence6" parent="fence_line3" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-0.5875453, 0, 0.80919135, 0, 1, 0, -0.80919135, 0, -0.5875453, 28.004896, 0, -97.340546)
+
+[node name="fence_line4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39450264, 0, -113.8084)
+
+[node name="temple_outside_fence" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(0.51369095, 0, 0.8579753, 0, 1, 0, -0.8579753, 0, 0.51369095, 27.366915, -9.536743e-07, -48.14373)
+
+[node name="temple_outside_fence6" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(0.8083805, 0, 0.58866036, 0, 1, 0, -0.58866036, 0, 0.8083805, 20.707056, -9.536743e-07, -40.680428)
+
+[node name="temple_outside_fence2" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(0.11852524, 0, 0.99295104, 0, 1, 0, -0.99295104, 0, 0.11852524, 30.62736, -9.536743e-07, -57.44332)
+
+[node name="temple_outside_fence3" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -67.711136)
+
+[node name="temple_outside_fence4" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.25266, -9.536743e-07, -77.92842)
+
+[node name="temple_outside_fence5" parent="fence_line4" instance=ExtResource("19_myx3h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 31.258274, 0, -87.89595)
+
+[node name="pink_tree" parent="." instance=ExtResource("20_7xkx6")]
+transform = Transform3D(0.7335757, 0, -0.6796078, 0, 1, 0, 0.6796078, 0, 0.7335757, -9.001407, 0, -162.48999)
+
+[node name="pink_tree5" parent="." instance=ExtResource("20_7xkx6")]
+transform = Transform3D(0.7335757, 0, -0.6796078, 0, 1, 0, 0.6796078, 0, 0.7335757, -17.928822, 1.9073486e-06, -198.64503)
+
+[node name="pink_tree2" parent="." instance=ExtResource("20_7xkx6")]
+transform = Transform3D(-0.79968464, 0, -0.60042024, 0, 1, 0, 0.60042024, 0, -0.79968464, 27.300533, 0, -187.37378)
+
+[node name="pink_tree3" parent="." instance=ExtResource("20_7xkx6")]
+transform = Transform3D(-0.576803, 0, -0.81688327, 0, 1, 0, 0.81688327, 0, -0.576803, 14.775646, 0, -163.5714)
+
+[node name="pink_tree4" parent="." instance=ExtResource("20_7xkx6")]
+transform = Transform3D(0.016527563, 0, -0.9998634, 0, 1, 0, 0.9998634, 0, 0.016527563, -1.6433678, 0, -180.02132)

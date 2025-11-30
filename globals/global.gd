@@ -49,7 +49,7 @@ var boulder_broken: bool = false
 var player_can_move: bool = true
 var player_can_attack: bool = true
 var magic_select: int = 1
-var current_weapon: int = 2
+var current_weapon: int = 0
 var n: int = 0
 var rotation_mouse_axis_y: int = 1
 var rotation_mouse_axis_x: int = 1
@@ -190,7 +190,7 @@ var inventory: Dictionary = {
 		},
 		"photo": {
 			"player_has": true,
-			"icon": "res://icon.svg",
+			"icon": "res://UI/inventory/band-photo.png",
 			"name": "Foto da banda",
 			"desc": "Dessa foto, vem muitas memórias, e uma certa vontade de continuar (+ataque)",
 			"buff": {
@@ -201,7 +201,7 @@ var inventory: Dictionary = {
 		},
 		"rings": {
 			"player_has": true,
-			"icon": "res://icon.svg",
+			"icon": "res://UI/inventory/rings.png",
 			"name": "Alianças",
 			"desc": "Alianças de um relacionamento, que agora são apenas memórias (+vida)",
 			"buff": {

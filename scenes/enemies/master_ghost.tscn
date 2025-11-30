@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://36quneone50i"]
+[gd_scene load_steps=55 format=4 uid="uid://36quneone50i"]
 
 [ext_resource type="PackedScene" uid="uid://dr3f3465lsom3" path="res://3d_models/placeholders/narval.glb" id="1_4ti4q"]
 [ext_resource type="Script" uid="uid://c74axhgjtfg56" path="res://scripts/enemies/master_ghost.gd" id="1_if84c"]
@@ -1130,45 +1130,6 @@ height = 4.79521
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlyu8"]
 size = Vector3(36, 15, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3icp8"]
-bg_color = Color(0.025325887, 0.063945785, 0.15296102, 1)
-
-[sub_resource type="Animation" id="Animation_3icp8"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_v72ff"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v72ff"]
-_data = {
-&"RESET": SubResource("Animation_v72ff"),
-&"fade_in": SubResource("Animation_3icp8")
-}
-
 [node name="master_ghost" type="CharacterBody3D"]
 collision_mask = 0
 script = ExtResource("1_if84c")
@@ -1318,6 +1279,7 @@ debug_color = Color(0.98870105, 0.99761647, 1, 0.41960785)
 [node name="master_tiny_model" parent="." instance=ExtResource("4_hlyu8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3616, -0.22715148, -16.5634)
+visible = false
 
 [node name="collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.76124, -16.7534)
@@ -1355,24 +1317,6 @@ shape = SubResource("BoxShape3D_hlyu8")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
-
-[node name="fade_canvas" type="CanvasLayer" parent="."]
-layer = 2
-visible = false
-
-[node name="Panel" type="Panel" parent="fade_canvas"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_3icp8")
-
-[node name="fade_anim" type="AnimationPlayer" parent="fade_canvas"]
-libraries = {
-&"": SubResource("AnimationLibrary_v72ff")
-}
 
 [connection signal="area_entered" from="floor_holder/manager" to="." method="_on_manager_area_entered"]
 [connection signal="area_exited" from="floor_holder/manager" to="." method="_on_manager_area_exited"]

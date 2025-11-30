@@ -49,7 +49,7 @@ func _on_master_volume_scroll_scrolling() -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(int(%master_volume_scroll.value)))
 
 func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/UI/credits_menu.tscn")
 
 func _on_open_second_level_pressed() -> void:
 	Global.next_scene = "res://scenes/worlds/second_level.tscn"

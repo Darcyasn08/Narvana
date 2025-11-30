@@ -152,7 +152,7 @@ func oct_attack() -> void :
 	#animaçao do polvo batendo na bateria
 	for i: int in 8:
 		var holofote = holofoteins.instantiate()
-		holofote.pos.y = $octopus.global_position.y
+		holofote.pos.y = $octopus.position.y
 		holofote.pos.z = randf_range( $octopus.position.z - 1.5 , $octopus.position.z - 20 )
 		holofote.pos.x = randf_range( $octopus.position.x - 10, $octopus.position.x + 10 )
 		holofote.damage = damage

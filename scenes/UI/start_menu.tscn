@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://cc7turudgrccy"]
 
 [ext_resource type="Script" uid="uid://bsh1q8cgr4ta2" path="res://scripts/UI/start_menu.gd" id="1_jcvkx"]
-[ext_resource type="Texture2D" uid="uid://cgsi50jbgo843" path="res://UI/start_menu_art.jpg" id="2_jcvkx"]
+[ext_resource type="Texture2D" uid="uid://caw1vdl2et07" path="res://UI/menu/begin_menu(narvana).png" id="2_uyt88"]
 [ext_resource type="Texture2D" uid="uid://hb48uqcnov17" path="res://art/narvana-logo - Copia.png" id="3_201h0"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="4_1y4tv"]
 [ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="5_4fmqt"]
@@ -157,6 +157,7 @@ process_mode = 3
 script = ExtResource("1_jcvkx")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -171,8 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.992554, 0.992554)
-texture = ExtResource("2_jcvkx")
+texture = ExtResource("2_uyt88")
 
 [node name="Narvana-logo-Copia" type="Sprite2D" parent="."]
 position = Vector2(423, 222)
@@ -183,10 +183,10 @@ texture = ExtResource("3_201h0")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 118.0
-offset_top = -319.0
-offset_right = 334.0
-offset_bottom = -101.0
+offset_left = 153.0
+offset_top = -484.0
+offset_right = 369.0
+offset_bottom = -266.0
 grow_vertical = 0
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
@@ -231,6 +231,7 @@ text = "SAIR"
 flat = true
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

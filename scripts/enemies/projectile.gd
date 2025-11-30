@@ -27,7 +27,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	var forward: Vector3 = global_basis.z #determina oq é a frente 
 	var move_direction: Vector3 = forward 
-	#move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
+	move_direction.y = 0.0 #reseta o de y, pq ele não muda na hora de mover
 	move_direction = move_direction.normalized() #nao sei oq isso faz
 	velocity = velocity.move_toward(move_direction * -speed, 20000) #move pra frente
 	

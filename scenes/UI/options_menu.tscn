@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bcwkhk5uegqo"]
+[gd_scene load_steps=18 format=3 uid="uid://bcwkhk5uegqo"]
 
 [ext_resource type="Script" uid="uid://rsoqnta267iu" path="res://scripts/options_menu.gd" id="1_3t8k5"]
 [ext_resource type="Texture2D" uid="uid://bw52kmj3v78vx" path="res://UI/back_button.png" id="2_ijsq6"]
 [ext_resource type="Texture2D" uid="uid://f6d2vijjakrh" path="res://UI/telas.png" id="2_qgort"]
+[ext_resource type="FontFile" uid="uid://cwpmeeyjkmkq1" path="res://UI/fonts/h_houji/hHouji.ttf" id="4_5tpni"]
 [ext_resource type="Theme" uid="uid://11omh52um1e5" path="res://UI/themes/main_theme.tres" id="4_ijsq6"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="5_6mmsa"]
 
@@ -33,13 +34,25 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_qgort"]
-font_size = 20
+font = ExtResource("4_5tpni")
+font_size = 23
+font_color = Color(0.57857364, 0.87611705, 0.992382, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ijsq6"]
-font_size = 14
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bj8r8"]
+bg_color = Color(0.12335002, 0.1090086, 0.13017428, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mmsa"]
-bg_color = Color(0.60458827, 0.66251916, 0.8604169, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pyo8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyo8y"]
+bg_color = Color(0.12335002, 0.1090086, 0.13017428, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tpni"]
 bg_color = Color(0.11690276, 0.17772809, 0.24818254, 1)
@@ -181,14 +194,15 @@ offset_bottom = 38.0
 text = "MOVIMENTAÇÃO"
 label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label2" type="Label" parent="controls_screen/Panel"]
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel"]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 51.0
 offset_right = 222.0
-offset_bottom = 79.0
+offset_bottom = 113.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
 text = "Use WASD para se mover"
-label_settings = SubResource("LabelSettings_ijsq6")
 
 [node name="Panel2" type="Panel" parent="controls_screen"]
 layout_mode = 0
@@ -207,15 +221,16 @@ offset_bottom = 38.0
 text = "INTERAÇÃO"
 label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label2" type="Label" parent="controls_screen/Panel2"]
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel2"]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 51.0
 offset_right = 222.0
-offset_bottom = 79.0
+offset_bottom = 116.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
 text = "Use [E] para interagir com
 personagens e objetos"
-label_settings = SubResource("LabelSettings_ijsq6")
 
 [node name="Panel3" type="Panel" parent="controls_screen"]
 layout_mode = 0
@@ -234,16 +249,42 @@ offset_bottom = 38.0
 text = "ATAQUE"
 label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label2" type="Label" parent="controls_screen/Panel3"]
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel3"]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 51.0
 offset_right = 222.0
-offset_bottom = 79.0
-text = "Use o [Botão esquerdo do
-mouse] para atacar com a 
-arma equipada"
-label_settings = SubResource("LabelSettings_ijsq6")
+offset_bottom = 111.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
+text = "Use o [Botão esquerdo do mouse] para atacar com a  arma equipada"
+
+[node name="Panel7" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 86.0
+offset_right = 1122.0
+offset_bottom = 210.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
+
+[node name="Label" type="Label" parent="controls_screen/Panel7"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "ATAQUE ESPECIAL"
+label_settings = SubResource("LabelSettings_qgort")
+
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel7"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 111.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
+text = "Com a tonfa equipada, aperte [Q] para usar um ataque especial aleatório"
 
 [node name="Panel4" type="Panel" parent="controls_screen"]
 layout_mode = 0
@@ -262,14 +303,15 @@ offset_bottom = 38.0
 text = "PULO"
 label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label2" type="Label" parent="controls_screen/Panel4"]
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel4"]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 51.0
 offset_right = 222.0
-offset_bottom = 79.0
+offset_bottom = 108.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
 text = "Use [Espaço] para pular"
-label_settings = SubResource("LabelSettings_ijsq6")
 
 [node name="Panel5" type="Panel" parent="controls_screen"]
 layout_mode = 0
@@ -288,15 +330,42 @@ offset_bottom = 38.0
 text = "DASH"
 label_settings = SubResource("LabelSettings_qgort")
 
-[node name="Label2" type="Label" parent="controls_screen/Panel5"]
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel5"]
 layout_mode = 1
 offset_left = 15.0
 offset_top = 51.0
 offset_right = 222.0
-offset_bottom = 79.0
-text = "Enquanto anda, use [Shift]
-para dar dash"
-label_settings = SubResource("LabelSettings_ijsq6")
+offset_bottom = 112.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
+text = "Enquanto anda, use [Shift] para dar dash"
+
+[node name="Panel6" type="Panel" parent="controls_screen"]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 244.0
+offset_right = 850.0
+offset_bottom = 368.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3t8k5")
+
+[node name="Label" type="Label" parent="controls_screen/Panel6"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 55.0
+offset_bottom = 38.0
+text = "MAGIA"
+label_settings = SubResource("LabelSettings_qgort")
+
+[node name="Label2" type="RichTextLabel" parent="controls_screen/Panel6"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 222.0
+offset_bottom = 111.0
+theme_override_fonts/normal_font = ExtResource("5_6mmsa")
+theme_override_font_sizes/normal_font_size = 19
+text = "Use [R] ou [Botão direito do mouse] para usar a magia escolhida"
 
 [node name="master_volume_label" type="Label" parent="controls_screen"]
 layout_mode = 0
@@ -401,55 +470,25 @@ alignment = 1
 icon_alignment = 1
 
 [node name="delete_saves_button" type="Button" parent="."]
-offset_left = 320.0
-offset_top = 994.0
-offset_right = 568.0
-offset_bottom = 1041.0
+offset_left = 344.0
+offset_top = 982.0
+offset_right = 592.0
+offset_bottom = 1033.0
 theme_override_colors/font_color = Color(0.6951987, 0.14622092, 0.2796674, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("5_6mmsa")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_bj8r8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pyo8y")
 text = "Deletar saves"
 
-[node name="open_second_level" type="Button" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -317.0
-offset_top = -94.0
-offset_right = -48.0
-offset_bottom = -35.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.33207086, 0.27387822, 0.5405638, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
-text = "Ir para segunda fase"
-
-[node name="open_third_level" type="Button" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -317.0
-offset_top = -173.0
-offset_right = -48.0
-offset_bottom = -114.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.33207086, 0.27387822, 0.5405638, 1)
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_6mmsa")
-text = "Ir para terceira fase"
-
 [node name="credits_button" type="Button" parent="."]
-visible = false
-offset_left = 368.0
-offset_top = 937.0
-offset_right = 616.0
-offset_bottom = 984.0
-theme_override_font_sizes/font_size = 24
+offset_left = 343.0
+offset_top = 919.0
+offset_right = 593.0
+offset_bottom = 967.0
+theme_override_fonts/font = ExtResource("5_6mmsa")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyo8y")
 text = "Créditos"
 
 [node name="credits_menu" type="Control" parent="."]
@@ -528,6 +567,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="controls_screen/Label2/mouse_y_invert" to="." method="_on_mouse_y_invert_pressed"]
 [connection signal="pressed" from="controls_screen/Label3/mouse_x_invert" to="." method="_on_mouse_x_invert_pressed"]
 [connection signal="pressed" from="delete_saves_button" to="." method="_on_delete_saves_button_pressed"]
-[connection signal="pressed" from="open_second_level" to="." method="_on_open_second_level_pressed"]
-[connection signal="pressed" from="open_third_level" to="." method="_on_open_third_level_pressed"]
 [connection signal="pressed" from="credits_button" to="." method="_on_credits_button_pressed"]

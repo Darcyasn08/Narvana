@@ -23,7 +23,7 @@ size = Vector3(26.213932, 10.4901, 28.030945)
 size = Vector3(20.23951, 10.4901, 27.6615)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab8ao"]
-size = Vector3(61.4844, 9.45813, 42.5285)
+size = Vector3(69.87086, 16.711487, 42.5285)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jfkq5"]
 size = Vector3(20.366884, 10.104914, 28.1129)
@@ -134,9 +134,12 @@ current_room = 3
 collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager4/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.398146, 1.53972, -1.23374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.591373, 5.1663985, -1.2337418)
 shape = SubResource("BoxShape3D_ab8ao")
 debug_color = Color(0.5511, 0.301779, 0.687454, 1)
+
+[node name="player_pos_node" type="Node3D" parent="spawner_manager4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7077322, -0.5051093, 12.114258)
 
 [node name="spawner_manager5" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01088, 3.76564, -101.457)

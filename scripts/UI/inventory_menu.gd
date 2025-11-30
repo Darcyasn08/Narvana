@@ -160,7 +160,7 @@ func select_shop_item(index: int) -> void:
 		add_plus_values()
 		%shop_item_icon.texture = load(Global.inventory["shop_items"][index]["icon"])
 		if Global.inventory["shop_items"][index]["buff"]["damage"]:
-			$shop_item_container/selected_item_stats.text = str("+:",Global.inventory["shop_items"][index]["buff"]["damage"], "dano")
+			$shop_item_container/selected_item_stats.text = str("+",Global.inventory["shop_items"][index]["buff"]["damage"], "dano")
 		elif Global.inventory["shop_items"][index]["buff"]["health"] != 0:
 			$shop_item_container/selected_item_stats.text = str("+",Global.inventory["shop_items"][index]["buff"]["health"], " vida")
 		elif Global.inventory["shop_items"][index]["buff"]["speed"] != 0:

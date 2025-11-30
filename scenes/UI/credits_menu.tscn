@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpenk1gdcg45u"]
+[gd_scene load_steps=15 format=3 uid="uid://dpenk1gdcg45u"]
 
 [ext_resource type="Script" uid="uid://b7ort4677olw" path="res://scripts/UI/credits_menu.gd" id="1_ifrfk"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_jp26l"]
-[ext_resource type="FontFile" uid="uid://cwpmeeyjkmkq1" path="res://UI/fonts/h_houji/hHouji.ttf" id="3_77vit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jp26l"]
+bg_color = Color(0.26565927, 0.47999293, 0.62288314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77vit"]
+bg_color = Color(0.11223591, 0.21722984, 0.4393893, 0.4745098)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rdn8r"]
 font = ExtResource("2_jp26l")
@@ -13,7 +18,23 @@ font = ExtResource("2_jp26l")
 font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_um4a5"]
-font = ExtResource("3_77vit")
+font = ExtResource("2_jp26l")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ed6o"]
+font = ExtResource("2_jp26l")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_77vit"]
+font = ExtResource("2_jp26l")
+font_size = 43
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1ob8"]
+font = ExtResource("2_jp26l")
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_jp26l"]
+font = ExtResource("2_jp26l")
 font_size = 21
 
 [sub_resource type="Animation" id="Animation_ifrfk"]
@@ -53,7 +74,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(19.7333),
+"times": PackedFloat32Array(20.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -84,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jp26l")
 
 [node name="scroll_panel" type="Panel" parent="."]
 anchors_preset = 13
@@ -95,6 +117,7 @@ offset_right = 547.0
 offset_bottom = 1904.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_77vit")
 
 [node name="Label" type="Label" parent="scroll_panel"]
 layout_mode = 1
@@ -147,7 +170,7 @@ offset_top = 839.0
 offset_right = 105.0
 offset_bottom = 871.0
 grow_horizontal = 2
-text = "ANIMAÇÃO"
+text = "ANIMAÇÃO 3D"
 label_settings = SubResource("LabelSettings_82o72")
 horizontal_alignment = 1
 
@@ -175,7 +198,21 @@ offset_top = 1002.0
 offset_right = 211.0
 offset_bottom = 1034.0
 grow_horizontal = 2
-text = "MÚSICAS E EFEITOS SONOROS"
+text = "MÚSICAS E SFX"
+label_settings = SubResource("LabelSettings_82o72")
+horizontal_alignment = 1
+
+[node name="Label20" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -211.0
+offset_top = 1143.0
+offset_right = 211.0
+offset_bottom = 1175.0
+grow_horizontal = 2
+text = "ARTE"
 label_settings = SubResource("LabelSettings_82o72")
 horizontal_alignment = 1
 
@@ -185,23 +222,24 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -211.0
-offset_top = 1169.0
+offset_top = 1313.5313
 offset_right = 211.0
-offset_bottom = 1201.0
+offset_bottom = 1345.5313
 grow_horizontal = 2
 text = "MATERIAIS ADICIONAIS"
 label_settings = SubResource("LabelSettings_82o72")
 horizontal_alignment = 1
 
 [node name="Label17" type="Label" parent="scroll_panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -211.0
-offset_top = 1384.0
+offset_top = 1476.0
 offset_right = 211.0
-offset_bottom = 1416.0
+offset_bottom = 1508.0
 grow_horizontal = 2
 text = "AGRADECIMENTOS ESPECIAIS"
 label_settings = SubResource("LabelSettings_82o72")
@@ -277,6 +315,20 @@ offset_top = 1052.0
 offset_right = 142.75
 offset_bottom = 1131.0
 grow_horizontal = 2
+text = "Julia Rodrigues"
+label_settings = SubResource("LabelSettings_um4a5")
+horizontal_alignment = 1
+
+[node name="Label21" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.75
+offset_top = 1183.0
+offset_right = 142.75
+offset_bottom = 1262.0
+grow_horizontal = 2
 text = "Julia Rodrigues
 Luan Carvalho"
 label_settings = SubResource("LabelSettings_um4a5")
@@ -284,43 +336,68 @@ horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="scroll_panel"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -89.5
-offset_top = 1660.0
-offset_right = 89.5
-offset_bottom = 1709.0
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = 380.88245
+offset_right = 133.5
+offset_bottom = 443.88245
 grow_horizontal = 2
-text = "Um jogo feito por....
-PIRARUCU GAMES"
+grow_vertical = 2
+text = "Um jogo feito por...."
+label_settings = SubResource("LabelSettings_8ed6o")
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="scroll_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.5
+offset_top = 594.04297
+offset_right = 174.5
+offset_bottom = 690.04297
+grow_horizontal = 2
+grow_vertical = 2
+text = "PIRARUCU GAMES"
+label_settings = SubResource("LabelSettings_77vit")
+horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="scroll_panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -143.5
-offset_top = 1222.0
-offset_right = 143.5
-offset_bottom = 1271.0
+offset_left = -257.5
+offset_top = 1354.5313
+offset_right = 257.5
+offset_bottom = 1429.5313
 grow_horizontal = 2
-text = "Six Trillion Years and One Night Story
-hHouji (creditos certos depois) "
+text = "Six Trillion Years and One Night Story (música cutscene final)
+Japestyle Plain (fonte principal)
+hHouji (fonte secundária)"
+label_settings = SubResource("LabelSettings_t1ob8")
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="scroll_panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -199.5
-offset_top = 1453.0
-offset_right = 88.5
-offset_bottom = 1502.0
+offset_left = -147.5
+offset_top = 1526.0
+offset_right = 140.5
+offset_bottom = 1575.0
 grow_horizontal = 2
-text = "Emu
+text = "Emu Otori
 "
+label_settings = SubResource("LabelSettings_jp26l")
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

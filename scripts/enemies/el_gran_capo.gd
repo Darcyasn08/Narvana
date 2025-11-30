@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
-
-var life: int = 7000
+var life: int = 5000
 var damage: int = 1
 var bullet_speed: float = 5.0
 var state : String = "bubble"
@@ -82,7 +81,6 @@ func unique_take_damage(area)-> void:
 func unique_die()-> void:
 	Global.completed_levels["second_level"] = true
 	Global.coins += 30
-	SignalBus.on_ignite_cutscene.emit("final")
 
 func look_to_player()-> void:
 	var pos2d: Vector2 = Vector2(global_position.x, global_position.z)

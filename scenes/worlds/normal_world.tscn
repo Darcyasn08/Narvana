@@ -66,6 +66,33 @@ size = Vector3(37.672, 4.90061, 50.6132)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d7i1k"]
 albedo_color = Color(0.510644, 0.614563, 0.643374, 1)
 
+[sub_resource type="Animation" id="Animation_d7i1k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blocking-boulder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5814778, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blocking-boulder:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.93636, 0, 0.55926)]
+}
+
 [sub_resource type="Animation" id="Animation_jprao"]
 resource_name = "break_boulder"
 length = 1.4
@@ -92,33 +119,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-2.93636, 0, 0.55926), Vector3(-2.9363403, -0.81481457, 0.5592499), Vector3(-2.9363403, -2.5656433, 0.5592499), Vector3(-2.9363403, -4.4270597, 0.5592499), Vector3(-2.9363403, -9.387159, 0.5592499)]
-}
-
-[sub_resource type="Animation" id="Animation_d7i1k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blocking-boulder:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5814778, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("blocking-boulder:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-2.93636, 0, 0.55926)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67h3a"]

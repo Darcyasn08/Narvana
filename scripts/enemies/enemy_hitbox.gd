@@ -24,6 +24,8 @@ func _on_area_entered(area: Area3D, defense := 1.0) -> void:
 				defense = 0.75
 		#print("ive seen a weapon")
 		take_damage(area, Global.player_damage, defense)
+	if area.name == "grand_dust":
+		parent.queue_free()
 	
 	if area.name == "player_hitbox":
 		damage_player(area)

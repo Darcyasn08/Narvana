@@ -59,15 +59,16 @@ func unique_die() -> void:
 	await get_tree().create_timer(.5).timeout
 	$fade_canvas/fade_anim.play("fade_in")
 	get_tree().paused = true
-	await $fade_cutscene_canvas/fade_anim.animation_finished
+	await $fade_canvas/fade_anim.animation_finished
 	SignalBus.on_ignite_cutscene.emit("final")
 	
-func damage_player(_area) -> void:
+func damage_player(_area: Area3D) -> void:
 	pass
 
 
 func _on_timer_timeout() -> void:
 	if state == "storm":
+		%master_tiny_model.hide()
 		await storm_rain()
 		state = "battle"
 		$Timer.wait_time = 2.0
@@ -120,7 +121,7 @@ func battle_start() -> void:
 	player.jump_impulse = 12.0
 	$grand_dust/dust_area.disabled = false
 	$floor_holder/manager/arena.disabled = false
-	
+
 func scream() -> void:
 	in_sequence = false
 	hit_count = 0
@@ -128,8 +129,7 @@ func scream() -> void:
 	await get_tree().create_timer(1.5).timeout
 	screaming = false
 	$scream_wall.position.z = 0.0
-	
-	
+
 func start_sequence() -> void:
 	in_sequence = true
 	hit_count += 1
@@ -138,10 +138,7 @@ func start_sequence() -> void:
 	hit_count = 0
 
 func sorteia_numero() -> void:
-	if distile.is_empty(): # detecta se todos os numeros ja foram para 
-		pass
-		print("Todos os números já foram sorteados.")
-	else: 
+	if !distile.is_empty(): # detecta se todos os numeros ja foram para 
 		var indice :int = randi() % distile.size() # sorteia um numero aleatório da lista
 		if indice == 0:
 			sorteia_numero()
@@ -172,7 +169,6 @@ func tile_disapear(number : int) -> void:
 	tile.disabled = true
 
 
-
 func rounds() -> void:
 	if round < 3: # < 3
 		sorteia_numero()
@@ -181,7 +177,7 @@ func rounds() -> void:
 			var catch_enemy: String = Global.enemies[0][randi_range(0,3)]
 			var enemy_path: Object = load(catch_enemy)
 			var enemy: Object = enemy_path.instantiate()
-			enemy.global_position = Vector3(randf_range(global_position.x-18,global_position.x + 18),$floor_holder.position.y + 3,randf_range(global_position.z -18,global_position.z + 18))
+			enemy.global_position = Vector3(randf_range(global_position.x-18,global_position.x + 18),$floor_holder.global_position.y + 3,randf_range(global_position.z -18,global_position.z + 18))
 			get_parent().add_child(enemy)
 		round +=1
 	elif round == 3: # == 3
@@ -205,6 +201,7 @@ func rounds() -> void:
 		await(get_tree().create_timer(1.25).timeout)#tempo da animção dele gritando grande
 		#animção dele diminuindo
 		%master_model_ani.set_state("getting_tiny")
+		round = 0
 		$Timer.wait_time = 1.0
 		$Timer.start()
 		
