@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://pt2ggf7n8lnx"]
+[gd_scene load_steps=21 format=3 uid="uid://pt2ggf7n8lnx"]
 
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_d5nc6"]
 [ext_resource type="Script" uid="uid://cu2vv5oo36g8j" path="res://scripts/normal_world.gd" id="1_eqvwj"]
 [ext_resource type="PackedScene" uid="uid://b5l6p3vjx5d2r" path="res://scenes/worlds/village_model.tscn" id="2_si0xe"]
 [ext_resource type="PackedScene" uid="uid://c0mhi6ktt3kfj" path="res://scenes/NPCs/crab_npc.tscn" id="3_8qtj8"]
 [ext_resource type="PackedScene" uid="uid://doqjhvexujiyp" path="res://scenes/NPCs/jellyfish_npc.tscn" id="8_cui3h"]
-[ext_resource type="PackedScene" uid="uid://cgkvbcn4gwfui" path="res://scenes/first_level_portal.tscn" id="8_d7i1k"]
 [ext_resource type="Script" uid="uid://c7fulmdyxadgs" path="res://scripts/portals/third_level_boulder_portal.gd" id="9_kkcbw"]
 [ext_resource type="PackedScene" uid="uid://dpcirx3ugqc27" path="res://3d_models/placeholders/blocking-boulder.glb" id="10_jprao"]
 [ext_resource type="PackedScene" uid="uid://p0sgx84xx5b5" path="res://scenes/NPCs/grandma.tscn" id="18_wcbeh"]
@@ -98,12 +97,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1493, 0, 75.6621)
 transform = Transform3D(-1.09974, 0, -0.0237659, 0, 1.1, 0, 0.0237659, 0, -1.09974, -61.979, 0.136715, 88.9328)
 
 [node name="master" parent="." instance=ExtResource("24_nuhyk")]
-transform = Transform3D(0.849027, 0, -0.528349, 0, 1, 0, 0.528349, 0, 0.849027, 17.2728, 0.156346, 27.5645)
+transform = Transform3D(0.849027, 0, -0.528349, 0, 1, 0, 0.528349, 0, 0.849027, 17.969635, 0.15634552, 27.923117)
 npc_name = "second_master"
 
-[node name="first_level_portal" parent="master" instance=ExtResource("8_d7i1k")]
-transform = Transform3D(0.91047585, 0, 0.09087757, 0, 0.915, 0, -0.09087757, 0, 0.91047585, 14.381957, 0.156346, 25.114191)
-top_level = true
+[node name="second_portal_pos" type="Node3D" parent="master"]
+transform = Transform3D(0.7717024, 0, 0.6359839, 0, 1, 0, -0.6359839, 0, 0.7717024, -4.01635, 4.7683716e-07, 0.24848515)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.517573, 0.105414, -0.849121, 0.0795626, 0.994012, 0.0749045, 0.851932, -0.0287897, -0.522861, 5.89608, 17.8716, 84.1874)

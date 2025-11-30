@@ -60,7 +60,7 @@ func buy_item() -> void:
 		$item_list/alert_text.hide()
 	else:
 		Global.coins -= Global.shop_items[selected_index]["price"]
-		print("Compra efetuada! Dinheiro restante: ", Global.coins)
+		#print("Compra efetuada! Dinheiro restante: ", Global.coins)
 		$coins_label.text = str(Global.coins)
 	
 	var n: int = 0

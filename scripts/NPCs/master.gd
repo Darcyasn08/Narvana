@@ -21,8 +21,12 @@ func _ready() -> void:
 			show()
 	if Global.completed_levels["first_level"] and npc_name == "master":
 		hide()
+		$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", false)
+		$StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
 	if Global.completed_levels["second_level"]:
 		hide()
+		$npc_dialogue_area/CollisionShape3D.set_deferred("disabled", false)
+		$StaticBody3D/CollisionShape3D.set_deferred("disabled", false)
 		#simular que o mestre morreu, fazendo todos os outros sumirem
 
 func _physics_process(_delta: float) -> void:
@@ -39,8 +43,8 @@ func open_portal(emmited_name: String, func_id: String) -> void:
 			Global.current_mission = 1
 			SignalBus.on_mission_list_updated.emit(Global.missions[1])
 			var item_thrower: Object = item_thrower_inst.instantiate()
-			item_thrower.position = position + $portal_pos.position
-			get_parent().add_child(item_thrower)
+			item_thrower.position = $portal_pos.position
+			add_child(item_thrower)
 			Global.current_weapon = Global.weapons.BAT
 			SignalBus.on_change_player_weapon.emit(Global.current_weapon)
 			#add_child(first_level_portal)
@@ -48,8 +52,8 @@ func open_portal(emmited_name: String, func_id: String) -> void:
 			Global.current_mission = 3
 			SignalBus.on_mission_list_updated.emit(Global.missions[3])
 			var item_thrower: Object = item_thrower_inst.instantiate()
-			item_thrower.position = position + $second_portal_pos.position
-			get_parent().add_child(item_thrower)
+			item_thrower.position = $portal_pos2.position
+			add_child(item_thrower)
 			#var second_level_portal: Object = second_portal_inst.instantiate()
 			#second_level_portal.position = $portal_pos.position
 			Global.current_weapon = Global.weapons.TONFA

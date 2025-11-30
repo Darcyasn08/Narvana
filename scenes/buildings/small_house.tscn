@@ -75,10 +75,12 @@ material_override = SubResource("StandardMaterial3D_0i8io")
 visibility_range_end = 90.0
 
 [node name="Cube_003" parent="small_house_model" index="2"]
+transform = Transform3D(1, 0, 0, 0, 2.3, 0, 0, 0, 0.2, 1.0290589, 2.3, -3.9157224)
 material_override = SubResource("StandardMaterial3D_7n6sq")
 visibility_range_end = 90.0
 
 [node name="Cube_004" parent="small_house_model" index="3"]
+transform = Transform3D(1, 0, 0, 0, 2.3, 0, 0, 0, 0.2, -0.9954344, 2.3, -3.9157224)
 material_override = SubResource("StandardMaterial3D_7n6sq")
 visibility_range_end = 90.0
 
@@ -117,9 +119,11 @@ visibility_range_end = 90.0
 visibility_range_end = 90.0
 
 [node name="Cube_016" parent="small_house_model" index="15"]
+transform = Transform3D(0.80406225, 0, 0, 0, 1.2477521, 0, 0, 0, 0.19951385, -1.0084237, 3.0488377, -3.92937)
 visibility_range_end = 90.0
 
 [node name="Cube_017" parent="small_house_model" index="16"]
+transform = Transform3D(0.80406225, 0, 0, 0, 1.2477521, 0, 0, 0, 0.19951385, 1.0353941, 3.0488377, -3.92937)
 visibility_range_end = 90.0
 
 [node name="Cube" parent="small_house_model" index="21"]

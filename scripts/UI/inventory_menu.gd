@@ -13,6 +13,26 @@ func _ready() -> void:
 	SignalBus.on_item_selected.connect(select_shop_item)
 	update_items()
 	$money_label.text = str(Global.coins)
+	if !Global.completed_levels["first_level"]:
+		$weapon_exchange.hide()
+	else:
+		$weapon_exchange.show()
+	if Global.current_world != Global.worlds.NORMAL:
+		$magics/dust_magic_button.disabled = true
+		$magics/crab_magic_button.disabled = true
+		%change_weapon_button.disabled = true
+		$disabled_buttons_label.show()
+	else:
+		$magics/dust_magic_button.disabled = false
+		$magics/crab_magic_button.disabled = false
+		%change_weapon_button.disabled = false
+		$disabled_buttons_label.hide()
+	if Global.magic_select == 1:
+		%dust_magic_select.show()
+		%crab_magic_select.hide()
+	elif Global.magic_select == 2:
+		%dust_magic_select.hide()
+		%crab_magic_select.show()
 
 func update_items() -> void:
 	for child in $item_list.get_children():
@@ -112,6 +132,7 @@ func add_shop_item() -> void:
 		item_button.id = next_index
 		item_button.size = Vector2(50,40)
 		%shop_items_dropbox/VBoxContainer.add_child(item_button)
+	%money_label.text = str(Global.coins)
 
 func select_shop_item(index: int) -> void:
 	Global.selected_shop_item = index
@@ -152,6 +173,22 @@ func _on_open_item_select_pressed() -> void:
 
 func _on_dust_magic_button_pressed() -> void:
 	Global.magic_select = 1
+	%dust_magic_select.show()
+	%crab_magic_select.hide()
 
 func _on_crab_magic_button_pressed() -> void:
 	Global.magic_select = 2
+	%dust_magic_select.hide()
+	%crab_magic_select.show()
+
+func _on_change_weapon_button_pressed() -> void:
+	if Global.current_weapon == Global.weapons.BAT:
+		Global.current_weapon = Global.weapons.TONFA
+		SignalBus.on_change_player_weapon.emit(2)
+		print(Global.current_weapon)
+		%weapon_texture.texture = load("res://UI/inventory/bat-icon.png")
+	elif Global.current_weapon == Global.weapons.TONFA:
+		Global.current_weapon = Global.weapons.BAT
+		SignalBus.on_change_player_weapon.emit(1)
+		print(Global.current_weapon)
+		%weapon_texture.texture = load("res://UI/inventory/tonfa-icon.png")

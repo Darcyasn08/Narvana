@@ -116,7 +116,7 @@ script = ExtResource("1_pfrex")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0203638, 0.0120106, -0.0783634)
 
 [node name="player" parent="." instance=ExtResource("1_k6ckt")]
-transform = Transform3D(0.998832, 0, 0.0483269, 0, 1, 0, -0.0483269, 0, 0.998832, 0.56730986, 0.24365, -50.20393)
+transform = Transform3D(0.4264111, 0, -0.90452987, 0, 1, 0, 0.90452987, 0, 0.4264111, 12.10581, 0.24365287, -44.05073)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -48)
@@ -490,7 +490,7 @@ transform = Transform3D(0.701171, 0, -0.712993, 0, 1, 0, 0.712993, 0, 0.701171, 
 [node name="spawner_manager8" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -111.947, 0, 98.3556)
 area_node = NodePath("Area3D")
-current_room = 5
+current_room = 6
 
 [node name="Area3D" type="Area3D" parent="spawner_manager8"]
 
@@ -550,7 +550,7 @@ transform = Transform3D(-0.0445608, 0, -0.999007, 0, 1, 0, 0.999007, 0, -0.04456
 [node name="spawner_manager9" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -165.521, 0, 98.7932)
 area_node = NodePath("Area3D")
-current_room = 5
+current_room = 7
 
 [node name="Area3D" type="Area3D" parent="spawner_manager9"]
 
@@ -610,7 +610,7 @@ transform = Transform3D(0.701171, 0, -0.712993, 0, 1, 0, 0.712993, 0, 0.701171, 
 [node name="spawner_manager10" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -221.542, 0, 99.2508)
 area_node = NodePath("Area3D")
-current_room = 5
+current_room = 8
 
 [node name="Area3D" type="Area3D" parent="spawner_manager10"]
 
@@ -670,7 +670,7 @@ transform = Transform3D(0.701171, 0, -0.712993, 0, 1, 0, 0.712993, 0, 0.701171, 
 [node name="boss_spawner_manager" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("4_7wo7l")]
 transform = Transform3D(0.999967, 0, 0.00816805, 0, 1, 0, -0.00816805, 0, 0.999967, -215.414, 0, 159.944)
 area_node = NodePath("Area3D")
-current_room = 6
+current_room = 9
 
 [node name="Area3D" type="Area3D" parent="boss_spawner_manager"]
 
@@ -859,10 +859,10 @@ transform = Transform3D(-0.215826, 0, 0.976432, 0, 1, 0, -0.976432, 0, -0.215826
 room_number = 3
 
 [node name="second_level_portal" parent="." instance=ExtResource("13_s3ee0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54.74)
+transform = Transform3D(-0.0142065305, 0, -0.999899, 0, 1, 0, 0.999899, 0, -0.0142065305, 17.282904, -0.01598072, -44.383892)
 
 [node name="second_level_portal2" parent="." instance=ExtResource("13_s3ee0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -228.758, 0, 221.396)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -224.64296, -0.030541897, 219.1621)
 portal_type = 1
 portal_closed = true
 

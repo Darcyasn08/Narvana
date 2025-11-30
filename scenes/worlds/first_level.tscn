@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b321563xw53sn"]
+[gd_scene load_steps=25 format=3 uid="uid://b321563xw53sn"]
 
 [ext_resource type="Script" uid="uid://c622ck5d1m38p" path="res://scripts/first_level.gd" id="1_qndhv"]
 [ext_resource type="PackedScene" uid="uid://cjdchlemwopfg" path="res://scenes/player/player.tscn" id="1_tqy6i"]
@@ -16,8 +16,20 @@ size = Vector3(33.4841, 11.0663, 27.6672)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kalee"]
 size = Vector3(33.494644, 10.4901, 27.6615)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3vejw"]
+size = Vector3(26.213932, 10.4901, 28.030945)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mune"]
+size = Vector3(20.23951, 10.4901, 27.6615)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ab8ao"]
 size = Vector3(61.4844, 9.45813, 42.5285)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfkq5"]
+size = Vector3(20.366884, 10.104914, 28.1129)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ro425"]
+size = Vector3(20.435883, 10.104914, 33.03555)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kg2vu"]
 size = Vector3(33.7289, 10.6015, 32.897247)
@@ -74,6 +86,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.169538, 0.774168, -0.30396
 shape = SubResource("BoxShape3D_kalee")
 debug_color = Color(0, 0, 0, 0.784314)
 
+[node name="spawner_manager8" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.09182, 5.2207, 3.0988998)
+area_node = NodePath("Area3D")
+current_room = 7
+
+[node name="Area3D" type="Area3D" parent="spawner_manager8"]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager8/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8098907, 0.774168, -0.488683)
+shape = SubResource("BoxShape3D_3vejw")
+debug_color = Color(0, 0, 0, 0.784314)
+
 [node name="spawner_manager3" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137938, 3.99524, -27.172829)
 area_node = NodePath("Area3D")
@@ -85,6 +110,19 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager3/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53972, 0)
 shape = SubResource("BoxShape3D_kalee")
+debug_color = Color(0, 0, 0, 0.784314)
+
+[node name="spawner_manager9" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.246338, 3.99524, -27.172829)
+area_node = NodePath("Area3D")
+current_room = 8
+
+[node name="Area3D" type="Area3D" parent="spawner_manager9"]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager9/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6275673, 1.5397198, 0)
+shape = SubResource("BoxShape3D_6mune")
 debug_color = Color(0, 0, 0, 0.784314)
 
 [node name="spawner_manager4" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
@@ -111,6 +149,32 @@ collision_mask = 5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager5/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24342203, 1.5397198, -0.21990967)
 shape = SubResource("BoxShape3D_kalee")
+debug_color = Color(0, 0, 0, 0.784314)
+
+[node name="spawner_manager10" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.157534, 3.76564, -101.457)
+area_node = NodePath("Area3D")
+current_room = 9
+
+[node name="Area3D" type="Area3D" parent="spawner_manager10"]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager10/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028215408, 1.7323129, -0.44087982)
+shape = SubResource("BoxShape3D_jfkq5")
+debug_color = Color(0, 0, 0, 0.784314)
+
+[node name="spawner_manager11" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.157534, 3.76564, -133.4237)
+area_node = NodePath("Area3D")
+current_room = 10
+
+[node name="Area3D" type="Area3D" parent="spawner_manager11"]
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawner_manager11/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062847137, 1.7323129, -0.27409363)
+shape = SubResource("BoxShape3D_ro425")
 debug_color = Color(0, 0, 0, 0.784314)
 
 [node name="spawner_manager6" parent="." node_paths=PackedStringArray("area_node") instance=ExtResource("7_qedf2")]
@@ -147,7 +211,7 @@ transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 
 room_number = 1
 
 [node name="spawner5" parent="." instance=ExtResource("7_kalee")]
-transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 26.216482, 3.62426, 3.328915)
+transform = Transform3D(0.858602, 0, -0.512642, 0, 1, 0, 0.512642, 0, 0.858602, 29.234694, 3.62426, 0.64249706)
 room_number = 1
 
 [node name="spawner6" parent="." instance=ExtResource("7_kalee")]
@@ -162,6 +226,19 @@ room_number = 1
 [node name="spawner2" parent="." instance=ExtResource("7_kalee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.96711, 4.19867, -31.9431)
 enemy_number = 1
+room_number = 2
+
+[node name="spawner17" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.868336, 3.3727126, -31.290562)
+enemy_number = 1
+room_number = 2
+
+[node name="spawner18" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.054132, 3.3727126, -35.227905)
+room_number = 2
+
+[node name="spawner19" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.942833, 3.3727126, -21.02159)
 room_number = 2
 
 [node name="spawner4" parent="." instance=ExtResource("7_kalee")]
@@ -216,6 +293,34 @@ room_number = 5
 transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -4.47453, 3.42575, -100.835945)
 room_number = 4
 
+[node name="spawner20" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -28.409641, 3.42575, -110.305534)
+enemy_number = 3
+room_number = 4
+
+[node name="spawner23" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -30.284678, 3.42575, -140.34135)
+enemy_number = 3
+room_number = 4
+
+[node name="spawner24" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -29.135994, 3.42575, -127.49981)
+room_number = 4
+
+[node name="spawner25" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -21.882551, 3.4257503, -134.68573)
+enemy_number = 1
+room_number = 4
+
+[node name="spawner21" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -29.574408, 3.42575, -93.8856)
+enemy_number = 3
+room_number = 4
+
+[node name="spawner22" parent="." instance=ExtResource("7_kalee")]
+transform = Transform3D(0.632367, 0, 0.774669, 0, 1, 0, -0.774669, 0, 0.632367, -23.885382, 3.42575, -102.49673)
+room_number = 4
+
 [node name="thermal_water" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.828495, 1.7416329, -26.552685)
 collision_mask = 5
@@ -263,7 +368,7 @@ transform = Transform3D(0.921056, 0, -0.389429, 0, 1, 0, 0.389429, 0, 0.921056, 
 transform = Transform3D(-0.9999989, 0, 8.7422684e-08, 0, 1, 0, -8.7422684e-08, 0, -0.9999989, 1.109513, 2.01868, 46.16549)
 
 [node name="master" parent="." instance=ExtResource("15_u5f21")]
-transform = Transform3D(0.86395854, 0, 0.5035629, 0, 1, 0, -0.5035629, 0, 0.86395854, 3.961577, 2.5924413, -259.88602)
+transform = Transform3D(0.86395854, 0, 0.5035629, 0, 1, 0, -0.5035629, 0, 0.86395854, 4.508968, 2.5924413, -259.20984)
 npc_name = "master_end_first_level"
 end_of_level = true
 

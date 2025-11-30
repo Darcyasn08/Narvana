@@ -318,7 +318,19 @@ var dialogs: Dictionary = {
 					"options": {},
 				},
 				3: {
-					"text": "Quer entrar agora?",
+					"text": "Aliás, agora que você avançou no Baiacunismo",
+					"options": {},
+				},
+				4: {
+					"text": "você tem a habilidade de se proteger sozinho por um tempo com sua nova magia...",
+					"options": {},
+				},
+				5: {
+					"text": "e de ter ataques especiais com a tonfa que ganhou, ambas estão na sua mochila.",
+					"options": {},
+				},
+				6: {
+					"text": "Gostaria de enfrentar suas relações agora?",
 					"options": {
 						0: {
 							"text": "Sim",

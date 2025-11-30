@@ -1,9 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://buo3ejpwiun80"]
 
 [ext_resource type="Script" uid="uid://soxpv1qathgs" path="res://scripts/enemies/pie.gd" id="1_o6muh"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_0m2ic"]
-size = Vector3(1, 0.3, 1)
+[ext_resource type="PackedScene" uid="uid://betfimsaqlg3v" path="res://3d_models/enemies/pie_model.glb" id="2_6piy0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_o6muh"]
 radius = 0.402928
@@ -20,11 +18,11 @@ height = 4.0
 radial_segments = 21
 rings = 7
 
-[node name="pie" type="CharacterBody3D"]
+[node name="pie" type="CharacterBody3D" groups=["enemies"]]
 script = ExtResource("1_o6muh")
 
-[node name="molde" type="CSGMesh3D" parent="."]
-mesh = SubResource("BoxMesh_0m2ic")
+[node name="pie_model" parent="." instance=ExtResource("2_6piy0")]
+transform = Transform3D(-1.4044305e-08, 0, -0.3121421, 0, 0.34641072, 0, 0.32129624, 0, -1.3644165e-08, 0, -0.39789093, 0)
 
 [node name="collision" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_o6muh")
@@ -43,7 +41,6 @@ autostart = true
 monitoring = false
 
 [node name="explosion" type="CollisionShape3D" parent="explosion_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028638363, 0.016254187, 0.0055270195)
 shape = SubResource("SphereShape3D_cg3m5")
 
 [node name="explosion_molde" type="CSGMesh3D" parent="."]

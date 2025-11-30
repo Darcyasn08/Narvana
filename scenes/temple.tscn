@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://bqcvfpirtiax4"]
+[gd_scene load_steps=65 format=4 uid="uid://bqcvfpirtiax4"]
 
 [ext_resource type="PackedScene" uid="uid://c604eidrq5pn2" path="res://3d_models/placeholders/temple.glb" id="1_0u0yr"]
 [ext_resource type="Script" uid="uid://dmr2xfuco0n51" path="res://scripts/temple.gd" id="1_vh502"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://p351eeibp51n" path="res://scenes/particles/bubble_particle.tscn" id="8_hapkp"]
 [ext_resource type="PackedScene" uid="uid://de82vn2m3pvwx" path="res://scenes/objects/temple_corals.tscn" id="9_vh502"]
 [ext_resource type="PackedScene" uid="uid://lc1214hwqt4y" path="res://scenes/objects/pufferfish_statue.tscn" id="10_xp7k0"]
-[ext_resource type="PackedScene" uid="uid://dmc4qvahhs3qq" path="res://scenes/objects/weapon_station.tscn" id="11_xp7k0"]
 [ext_resource type="PackedScene" uid="uid://dos6p8ge7u8oc" path="res://scenes/objects/temple_pillar_mesh.tscn" id="12_n3poh"]
 [ext_resource type="PackedScene" uid="uid://dsrgh2oi4i880" path="res://scenes/NPCs/temple_gardener.tscn" id="13_vh502"]
 
@@ -853,9 +852,6 @@ shape = SubResource("ConcavePolygonShape3D_a5w5l")
 
 [node name="master" parent="temple_model" instance=ExtResource("7_7p6xb")]
 transform = Transform3D(0.983376, 0, 0.181583, 0, 1, 0, -0.181583, 0, 0.983376, -5.81143, 2.07608, -5.3780003)
-
-[node name="weapon_station" parent="temple_model" instance=ExtResource("11_xp7k0")]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 12.977094, 2.48964, -0.9962616)
 
 [node name="temple_pillar_mesh" parent="temple_model" instance=ExtResource("12_n3poh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1008, 1.91973, 2.401701)

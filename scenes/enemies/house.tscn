@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cbmvifyq76o3c"]
+[gd_scene load_steps=33 format=4 uid="uid://cbmvifyq76o3c"]
 
 [ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_hfkix"]
 [ext_resource type="Script" uid="uid://cp8t6ivttqjbl" path="res://scripts/enemies/house.gd" id="1_metfq"]
@@ -9,16 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://b22ndftmpantp" path="res://scenes/NPCs/npc_interact_sign.tscn" id="6_a3hrb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bgf8x"]
-size = Vector3(13.496111, 7.24175, 5.910343)
+size = Vector3(13.4961, 7.24175, 5.91034)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vy7fe"]
-size = Vector3(4.008683, 3.17648, 2.5747843)
+size = Vector3(4.00868, 3.17648, 2.57478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_10qhy"]
-size = Vector3(11.599951, 6.571327, 5.09649)
+size = Vector3(11.6, 6.57133, 5.09649)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4pusr"]
-size = Vector3(2.937891, 2.8798351, 2.3136272)
+size = Vector3(2.93789, 2.87984, 2.31363)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy7fe"]
 transparency = 1
@@ -33,7 +33,7 @@ height = 0.1
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_o1325"]
 height = 50.0
-radius = 0.42871094
+radius = 0.428711
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_edarn"]
 top_radius = 0.1
@@ -84,11 +84,11 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ehikn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5pr62"]
-albedo_color = Color(0.13746846, 0.20980462, 0.3678418, 1)
+albedo_color = Color(0.137468, 0.209805, 0.367842, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fkhxy"]
 _surfaces = [{
-"aabb": AABB(-1.0519615, -1.0519615, -1.0519615, 2.103923, 2.103923, 2.103923),
+"aabb": AABB(-1.05196, -1.05196, -1.05196, 2.10392, 2.10392, 2.10392),
 "attribute_data": PackedByteArray("wP6/PgAAgD+g/x8/wP8/P6D/Hz8AAIA/wP6/PsD/Pz/A/r8+wP8/P6D/Hz8A//8+oP8fP8D/Pz/A/r8+AP//PsD+vz4A//8+oP8fPwD9fz6g/x8/AP//PsD+vz4A/X8+wP6/PgD9fz6g/x8/AAAAAKD/Hz8A/X8+wP6/PgAAAAAA+f89AP//PsD+vz4A/X8+wP6/PgD//z4A+f89AP1/PqD/Hz8A//8+4P9fPwD9fz7g/18/AP//PqD/Hz8A/X8+"),
 "format": 34359742487,
 "index_count": 36,
@@ -100,7 +100,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obbqb"]
-size = Vector3(5.11122, 3.81848, 4.9542284)
+size = Vector3(5.11122, 3.81848, 4.95423)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edarn"]
 albedo_color = Color(0.113991, 0.0699603, 0.174345, 1)
@@ -119,7 +119,7 @@ material = SubResource("StandardMaterial3D_6f60q")
 size = Vector3(3, 3.1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3hrb"]
-bg_color = Color(0.093606494, 0.14894056, 0.23376673, 1)
+bg_color = Color(0.0936065, 0.148941, 0.233767, 1)
 
 [sub_resource type="Animation" id="Animation_5pr62"]
 length = 0.001
@@ -145,10 +145,10 @@ tracks/0/path = NodePath("Control:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.8666667),
+"times": PackedFloat32Array(0, 0.333333, 0.866667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.68235296), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.682353), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkhxy"]
@@ -157,28 +157,32 @@ _data = {
 &"fade_in": SubResource("Animation_ttyie")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3hrb"]
+size = Vector3(15, 6, 1)
+
 [node name="house" type="CharacterBody3D"]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("1_metfq")
 
 [node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("1_hfkix")]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0.135937, -0.206804, 0.084125)
 hitbox_collision = NodePath("hitbox")
 
 [node name="hitbox" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.10248, -0.009382724, 0.004760981, 0.009383936, 1.1024764, -0.000283699, -0.0047581303, 0.00032419362, 1.10258, -0.70210195, 4.0207853, -1.331814)
+transform = Transform3D(1.10248, -0.00938272, 0.00476098, 0.00938394, 1.10248, -0.000283699, -0.00475813, 0.000324194, 1.10258, -0.702102, 4.02079, -1.33181)
 shape = SubResource("BoxShape3D_bgf8x")
 
 [node name="hitbox2" type="CollisionShape3D" parent="enemy_hitbox"]
-transform = Transform3D(1.10247, -0.009382668, 0.004760981, 0.009383741, 1.1024699, -0.000283696, -0.00475808, 0.0003241911, 1.10258, -0.64013153, 1.7256944, 2.7318885)
+transform = Transform3D(1.10247, -0.00938267, 0.00476098, 0.00938374, 1.10247, -0.000283696, -0.00475808, 0.000324191, 1.10258, -0.640132, 1.72569, 2.73189)
 shape = SubResource("BoxShape3D_vy7fe")
 
 [node name="colisao_principal" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.1025482, -0.009621792, 0, 0.0096217925, 1.1025481, 0, 0, 0, 1.1025902, -0.64556736, 3.5615458, -1.3522549)
+transform = Transform3D(1.10255, -0.00962179, 0, 0.00962179, 1.10255, 0, 0, 0, 1.10259, -0.645567, 3.56155, -1.35225)
 shape = SubResource("BoxShape3D_10qhy")
 
 [node name="colisao_principal2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.51919687, 1.5857434, 2.1065693)
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, -0.519197, 1.58574, 2.10657)
 shape = SubResource("BoxShape3D_4pusr")
 
 [node name="Timer" type="Timer" parent="."]
@@ -203,7 +207,7 @@ mesh = SubResource("CylinderMesh_10qhy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.01356)
 
 [node name="hurtbox" type="CollisionShape3D" parent="holo_holder/laser_area"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 24.268997)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 24.269)
 shape = SubResource("CylinderShape3D_o1325")
 disabled = true
 
@@ -223,7 +227,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.05393, 0.848487)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="holo_holder/house_laser_beam/Cube_052" index="0"]
-transform = Transform3D(1.537413, 0, 0, 0, 0.9999997, 0, 0, 0, 1.1787336, 0, 0, 0)
+transform = Transform3D(1.53741, 0, 0, 0, 1, 0, 0, 0, 1.17873, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_5pr62")
 mesh = SubResource("ArrayMesh_fkhxy")
 
@@ -231,19 +235,19 @@ mesh = SubResource("ArrayMesh_fkhxy")
 visible = false
 
 [node name="door" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6169238, 0.848334, 2.4053)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616924, 0.848334, 2.4053)
 
 [node name="door_collision" type="CollisionShape3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041275024, 0.6206669, 1.0421755)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0041275, 0.620667, 1.04218)
 shape = SubResource("BoxShape3D_obbqb")
 disabled = true
 
 [node name="door_closed" type="MeshInstance3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03366983, 0.16025501, 0.14245534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0336698, 0.160255, 0.142455)
 mesh = SubResource("BoxMesh_4pusr")
 
 [node name="door_open" type="MeshInstance3D" parent="door"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022994637, 0.097702324, 0.13832712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0229946, 0.0977023, 0.138327)
 mesh = SubResource("BoxMesh_bgf8x")
 
 [node name="npc_interact_sign" parent="door" instance=ExtResource("6_a3hrb")]
@@ -251,7 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53772, 2.02325)
 visible = false
 
 [node name="house_model" parent="." instance=ExtResource("5_4pusr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.023463795, -0.011333738, -0.055934362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0234638, -0.0113337, -0.0559344)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.687037, 0.726623, 0, -0.726623, -0.687037, -0.189648, 10.0956, 0.186694)
@@ -286,6 +290,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_a3hrb")
 libraries = {
 &"": SubResource("AnimationLibrary_fkhxy")
 }
+
+[node name="scream_barrier" type="StaticBody3D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="scream_barrier_col" type="CollisionShape3D" parent="scream_barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_a3hrb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="holo_holder/laser_area" to="." method="_on_laser_area_area_entered"]

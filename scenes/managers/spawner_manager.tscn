@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://fj0mxoy6ofl1"]
+[gd_scene load_steps=3 format=3 uid="uid://fj0mxoy6ofl1"]
 
 [ext_resource type="Script" uid="uid://crxvc5ju2yplf" path="res://scripts/managers/spawner_manager.gd" id="1_kk5jv"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_kk5jv"]
+
 [node name="spawner_manager" type="Node3D" groups=["spawners"]]
 script = ExtResource("1_kk5jv")
+
+[node name="place_indicator" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_kk5jv")

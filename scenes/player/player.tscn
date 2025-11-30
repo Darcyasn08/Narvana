@@ -389,6 +389,7 @@ libraries = {
 [connection signal="area_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="magics/shield_holder/shield_detection" to="." method="_on_shield_detection_area_entered"]
+[connection signal="body_entered" from="magics/shield_holder/shield_detection" to="." method="_on_shield_detection_body_entered"]
 [connection signal="timeout" from="combo_attack_timer" to="." method="_on_combo_attack_timer_timeout"]
 
 [editable path="magics/sandbox_magic"]

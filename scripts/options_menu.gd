@@ -54,3 +54,7 @@ func _on_credits_button_pressed() -> void:
 func _on_open_second_level_pressed() -> void:
 	Global.next_scene = "res://scenes/worlds/second_level.tscn"
 	get_tree().change_scene_to_packed(Global.loading_screen)
+
+func _on_open_third_level_pressed() -> void:
+	Global.next_scene = "res://scenes/worlds/third_level_entrance.tscn"
+	get_tree().change_scene_to_packed(Global.loading_screen)

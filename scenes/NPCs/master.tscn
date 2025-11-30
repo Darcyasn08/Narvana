@@ -165,8 +165,8 @@ current_npc = "master"
 [node name="portal_pos" type="Node3D" parent="."]
 transform = Transform3D(0.947752, 0, -0.319009, 0, 1, 0, 0.319009, 0, 0.947752, 5.99407, 0, 1.65829)
 
-[node name="second_portal_pos" type="Node3D" parent="."]
-transform = Transform3D(0.947752, 0, -0.319009, 0, 1, 0, 0.319009, 0, 0.947752, 3.8155608, 0, 4.7545743)
+[node name="portal_pos2" type="Node3D" parent="."]
+transform = Transform3D(0.947752, 0, -0.319009, 0, 1, 0, 0.319009, 0, 0.947752, 4.1627665, 0, 4.9136696)
 
 [node name="npc_interact_sign" parent="." instance=ExtResource("6_yfbkh")]
 visible = false

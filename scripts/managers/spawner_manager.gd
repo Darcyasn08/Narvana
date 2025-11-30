@@ -11,13 +11,14 @@ var spawner_list: Array
 
 var enemy_death_count: int = 0
 
+var master_ghost_inst: Object = preload("res://scenes/enemies/master_ghost.tscn")
+
 func _ready() -> void:
 	var rooms: int
 	var rooms_to_add: int
 	await get_tree().create_timer(.1).timeout
 	match Global.current_world:
 		Global.worlds.FIRST_LEVEL:
-			print("is on first level")
 			if Global.dead_enemies_first_level.size() <= current_room:
 				for room: Array in Global.dead_enemies_first_level:
 					rooms += 1
@@ -52,6 +53,8 @@ func _ready() -> void:
 		$Area3D.set_collision_mask_value(3, true)
 		$Area3D.add_to_group("spawners")
 	await get_tree().create_timer(1).timeout
+	
+	%place_indicator.hide()
 	
 	if area_node:
 		area_node.add_to_group("spawners")
@@ -94,11 +97,18 @@ func start_room(current_room: int) -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		if !player_left:
-			print("player entered!! and current wave: ",current_room)
+			#print("player entered!! and current wave: ",current_room)
 			await get_tree().create_timer(.3).timeout
 			start_room(current_room)
 			if $player_pos_node:
 				SignalBus.on_set_player_pos.emit($player_pos_node.global_position, $player_pos_node.global_rotation)
+			if $tiles_placeholder: #terceira fase do mestre
+				$tiles_placeholder.hide()
+				Global.player_third_level_pos = Vector3(26,17.5,-136) #caso o player morra na batalha
+				var master_ghost: Object = master_ghost_inst.instantiate()
+				master_ghost.global_position = Vector3(25,15.8,-170)
+				get_parent().add_child(master_ghost)
+				
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.is_in_group("enemies"):
@@ -108,6 +118,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemies"):
+		print("new enemy")
 		match Global.current_world:
 			Global.worlds.FIRST_LEVEL:
 				Global.dead_enemies_first_level[current_room][1] += 1

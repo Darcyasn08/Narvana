@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bngpynw8vjxay"]
+[gd_scene load_steps=17 format=3 uid="uid://bngpynw8vjxay"]
 
 [ext_resource type="Script" uid="uid://bk888l1j70g6i" path="res://scripts/UI/cutscene_system.gd" id="1_qfkak"]
 [ext_resource type="FontFile" uid="uid://diccobu1aaarx" path="res://UI/fonts/japestyle/Japestyle Plain.ttf" id="2_7gwa3"]
-[ext_resource type="Texture2D" uid="uid://cxbdwcm85xc7t" path="res://UI/3-2.png" id="3_octsf"]
 [ext_resource type="FontFile" uid="uid://cwpmeeyjkmkq1" path="res://UI/fonts/h_houji/hHouji.ttf" id="4_0v5ml"]
 [ext_resource type="AudioStream" uid="uid://d2n8kn5y04ucg" path="res://music/Six Trillion Years and Overnight Story.mp3" id="4_octsf"]
+[ext_resource type="Texture2D" uid="uid://ch3dvpq11k3e5" path="res://UI/cutscenes/final-cutscene01.png" id="5_octsf"]
+[ext_resource type="Texture2D" uid="uid://bknchgc3cpu70" path="res://UI/cutscenes/final-cutscene02.png" id="6_13gxu"]
+[ext_resource type="Texture2D" uid="uid://tx7hnepi8h4g" path="res://UI/cutscenes/final-cutscene03.png" id="7_pk56f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_a1bpe"]
 font = ExtResource("2_7gwa3")
@@ -93,6 +95,30 @@ tracks/2/keys = {
 "values": ["
 "]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../final/anim_frames:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../final/anim_frames:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_13gxu"]
 resource_name = "final"
@@ -108,7 +134,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
-", "Com o último golpe...", "O CEO cai aos pedaços", "Narval olha feliz para si mesmo no reflexo", "porque...", "...finalmente chegou ao NARVANA"]
+", "Com o último golpe...", "O fantasma do mestre cai aos pedaços", "Narval olha feliz para si mesmo no reflexo", "porque...", "...finalmente chegou ao NARVANA"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -121,6 +147,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../final/anim_frames:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 7.6800003, 12.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, ExtResource("5_octsf"), ExtResource("6_13gxu"), ExtResource("7_pk56f")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../final/anim_frames:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.56666666, 0.99000007, 12.566667, 12.833333, 13.2, 14.166667, 15.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_pk56f"]
@@ -137,7 +187,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["
-", "Depois de dias trabalhando incasávelmente", "Você volta do trabalho e se encontra com algo no seu correio", "É um folheto com 30% de desconto para uma viagem para a China", "Você decide que é hora de férias para seu trabalho", "E arruma suas malas..."]
+", "Depois de dias trabalhando incasávelmente", "Você volta do trabalho e se encontra com algo no seu correio", "É um folheto com 30% de desconto para uma viagem para a China", "Você decide que é hora de férias do seu trabalho", "E arruma suas malas..."]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7gwa3"]
@@ -197,7 +247,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="final" type="Control" parent="control"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,7 +254,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="TextureRect" parent="control/final"]
+[node name="anim_frames" type="TextureRect" parent="control/final"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -216,7 +266,6 @@ offset_right = -483.0
 offset_bottom = -295.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_octsf")
 
 [node name="cutscene_text" type="Label" parent="control/final"]
 layout_mode = 1

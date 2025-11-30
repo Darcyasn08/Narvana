@@ -33,5 +33,6 @@ func _input(_event: InputEvent) -> void:
 				Global.completed_levels["second_level"] = true
 			#Global.last_saved_pos = Vector3(13,1,30)
 			Global.current_world = Global.worlds.NORMAL
+			Global.last_saved_pos = Vector3(14,1,29)
 			Global.next_scene = "res://scenes/worlds/normal_world.tscn"
 			get_tree().change_scene_to_packed(Global.loading_screen)

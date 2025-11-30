@@ -19,7 +19,8 @@ var bubbles_rmn : int = 0
 var is_shark_attack: bool = false
 var attack_combo_time: float = .8
 var combo_attack_count: int = 0
-var state : String = ""
+var dmg_multi: float = 1.0
+var state: String = ""
 
 # OUTRAS VARIÁVEIS (depois eu separo isso melhor)
 var health: int = 6
@@ -47,6 +48,7 @@ func _ready() -> void:
 	SignalBus.on_game_saved.connect(update_current_pos)
 	SignalBus.on_stun_hit.connect(stunned_by_enemy)
 	SignalBus.on_set_player_pos.connect(set_player_pos)
+	SignalBus.on_coffee_hits.connect(coffee_effects)
 	change_current_weapon(Global.current_weapon)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	health = Global.player_health
@@ -186,6 +188,7 @@ func _input(event: InputEvent) -> void:
 
 
 func hurt(damage) -> void:
+	damage = damage * dmg_multi
 	if damage < Global.player_health and immune == false:
 		get_immune(immune_time)
 		skin_material.albedo_color = Color(0.522, 0.243, 0.522, 1.0)
@@ -321,8 +324,8 @@ func _on_player_hitbox_area_entered(area: Area3D) -> void:
 		await(get_tree().create_timer(.3).timeout)
 		knockbacked = false
 		stunned = false
-	if area.is_in_group("stairs"):
-		is_in_stairs = true
+	#if area.is_in_group("stairs"):
+		#is_in_stairs = true
 
 
 func update_current_pos() -> void:
@@ -379,10 +382,10 @@ func magic() -> void:
 			Global.player_damage = Global.player_damage - (Global.player_damage/3)
 			#print(Global.player_damage)
 			magic_time = 50
-	
-	SignalBus.on_use_magic.emit(magic_time)
-	await(get_tree().create_timer(magic_time).timeout)
-	magic_col = false 
+		
+		SignalBus.on_use_magic.emit(magic_time)
+		await(get_tree().create_timer(magic_time).timeout)
+		magic_col = false 
 
 func stunned_by_enemy(stun_time: float) -> void:
 	Global.player_can_move = false
@@ -455,6 +458,18 @@ func deactivate_shield() -> void:
 	Global.player_can_move = true
 	Global.player_can_attack = true
 
+func coffee_effects(stage: int) -> void:
+	if stage == 1:
+		mouse_sens += 0.09
+	if stage == 2:
+		move_speed -= 2.0
+	if stage == 3:
+		dmg_multi = 2
+	if stage == 0:
+		mouse_sens -= 0.09
+		move_speed += 2.0
+		dmg_multi = 1
+
 func _on_shield_detection_area_entered(area: Area3D) -> void:
 	if area.is_in_group("enemies") or area.is_in_group("multi_enemies"):
 		deactivate_shield()
@@ -468,3 +483,8 @@ func _on_combo_attack_timer_timeout() -> void:
 func _on_player_hitbox_area_exited(area: Area3D) -> void:
 	if area.is_in_group("stairs"):
 		is_in_stairs = false
+
+func _on_shield_detection_body_entered(body: Node3D) -> void:
+	if body.is_in_group("enemies") or body.is_in_group("multi_enemies"):
+		deactivate_shield()
+		state = ""

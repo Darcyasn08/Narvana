@@ -1,17 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://6w2iiwjwu6sg"]
+[gd_scene load_steps=10 format=3 uid="uid://6w2iiwjwu6sg"]
 
 [ext_resource type="Script" uid="uid://b4c3knekjk6gf" path="res://scripts/second_level_portal.gd" id="1_a41b0"]
 [ext_resource type="Texture2D" uid="uid://cjs00e6sncidg" path="res://art/portal.png" id="1_rhu2h"]
+[ext_resource type="PackedScene" uid="uid://cniyires1knml" path="res://3d_models/placeholders/temple_door_normal.glb" id="3_l5s53"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a41b0"]
 radius = 3.52674
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5s53"]
-albedo_color = Color(0.257125, 0.282082, 0.607768, 1)
+emission_enabled = true
+emission = Color(0.89129615, 0.71198803, 0.92601496, 1)
+emission_energy_multiplier = 1.4
 
 [sub_resource type="BoxMesh" id="BoxMesh_0mgn0"]
 material = SubResource("StandardMaterial3D_l5s53")
-size = Vector3(4, 3, 0.6)
+size = Vector3(4, 4.74, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a41b0"]
+albedo_color = Color(0.9913226, 0.7343867, 0.8656504, 1)
+emission_enabled = true
+emission = Color(0.95844203, 0.6539668, 0.93696356, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l5s53"]
+material = SubResource("StandardMaterial3D_a41b0")
+size = Vector3(0.1, 0.6, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mgn0"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.317188, 0.134983, 0.0163365, 1)
+roughness = 0.0
 
 [node name="second_level_portal" type="Area3D"]
 collision_mask = 5
@@ -26,8 +44,42 @@ visible = false
 texture = ExtResource("1_rhu2h")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46147, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3894935, 0)
 mesh = SubResource("BoxMesh_0mgn0")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.722046e-06, 2.2534168, -0.11524582)
+amount = 10
+mesh = SubResource("BoxMesh_l5s53")
+emission_shape = 3
+emission_box_extents = Vector3(1, 2.2, 0.4)
+direction = Vector3(1, 0, 7)
+spread = 40.91
+gravity = Vector3(0, 1, 4)
+initial_velocity_max = 4.0
+scale_amount_min = 0.6
+scale_amount_max = 1.2
+
+[node name="temple_door_normal" parent="." instance=ExtResource("3_l5s53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4205713, 0, 0.277498)
+
+[node name="Cube" parent="temple_door_normal" index="0"]
+material_override = SubResource("StandardMaterial3D_0mgn0")
+
+[node name="Cube_002" parent="temple_door_normal" index="1"]
+material_override = SubResource("StandardMaterial3D_l5s53")
+
+[node name="temple_door_normal2" parent="." instance=ExtResource("3_l5s53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2330246, 0, 0.277498)
+
+[node name="Cube" parent="temple_door_normal2" index="0"]
+material_override = SubResource("StandardMaterial3D_0mgn0")
+
+[node name="Cube_002" parent="temple_door_normal2" index="1"]
+material_override = SubResource("StandardMaterial3D_l5s53")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="temple_door_normal"]
+[editable path="temple_door_normal2"]

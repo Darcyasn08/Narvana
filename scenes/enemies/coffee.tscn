@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8kejmkgvlroo"]
+
+[ext_resource type="Script" uid="uid://deywv4nyy05jm" path="res://scripts/enemies/coffee.gd" id="1_fe1ek"]
+[ext_resource type="PackedScene" uid="uid://b8d1fkygyobpy" path="res://scenes/enemies/enemy_hitbox.tscn" id="1_tlbmd"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/coffee_model.tscn" id="3_7flu8"]
+[ext_resource type="PackedScene" uid="uid://cjs1ldkm157o5" path="res://3d_models/enemies/puddle_model.glb" id="4_7flu8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qctss"]
+radius = 0.6
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ih0s"]
+radius = 0.6
+
+[node name="coffee_holder" type="Node3D"]
+
+[node name="coffee" type="CharacterBody3D" parent="." groups=["enemies"]]
+script = ExtResource("1_fe1ek")
+
+[node name="enemy_hitbox" parent="coffee" instance=ExtResource("1_tlbmd")]
+transform = Transform3D(0.906914, 0.00771929, -0.0039141, -0.00771821, 0.906922, 0.000266699, 0.00391623, -0.000233359, 0.906947, 0, 1.55313, 0)
+
+[node name="hitbox" type="CollisionShape3D" parent="coffee/enemy_hitbox"]
+transform = Transform3D(1.10254, -0.00938307, 0.00476098, 0.00938438, 1.10255, -0.000283719, -0.00475839, 0.000324205, 1.10258, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_qctss")
+
+[node name="collision" type="CollisionShape3D" parent="coffee"]
+transform = Transform3D(0.969956, -0.00825473, 0.00418846, 0.00825588, 0.969965, -0.00024958, -0.00418618, 0.000285218, 0.969991, 0, 1.55313, 0)
+shape = SubResource("CapsuleShape3D_0ih0s")
+
+[node name="Timer" type="Timer" parent="coffee"]
+one_shot = true
+
+[node name="coffe_model" parent="coffee" instance=ExtResource("3_7flu8")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24106699, 0)
+
+[node name="puddle" parent="." instance=ExtResource("4_7flu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84155, 0, -0.465089)
+visible = false
+
+[connection signal="timeout" from="coffee/Timer" to="coffee" method="_on_timer_timeout"]

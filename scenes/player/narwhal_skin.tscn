@@ -1566,7 +1566,6 @@ material_overlay = ExtResource("2_tcxjl")
 
 [node name="Armature_001" parent="narval_model" index="6"]
 transform = Transform3D(-0.1857144, 0.23560594, 0, -0.235606, -0.18571433, 0, 0, 0, 0.30000004, 0.877745, 0.743121, 0)
-visible = false
 
 [node name="Skeleton3D" parent="narval_model/Armature_001" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.9999989, 0, 0, 0)
@@ -1623,7 +1622,6 @@ visible = false
 
 [node name="Armature_002" type="Node3D" parent="narval_model"]
 transform = Transform3D(-0.34428602, 0.19669299, -0.052713607, -0.20143701, -0.34413204, 0.031556804, -0.0298336, 0.0537075, 0.395254, 0.86031646, 0.685295, -0.110497)
-visible = false
 
 [node name="Skeleton3D" type="Skeleton3D" parent="narval_model/Armature_002"]
 transform = Transform3D(1.0000002, 0, 0, 0, 1.0000001, 0, 0, 0, 0.9999991, 0, 0, 0)

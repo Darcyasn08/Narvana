@@ -10,6 +10,9 @@ var knocker: int = 0
 var player_near: bool = false
 var original_resource: Object = load("res://shaders/house_damage.tres")
 var unique_resource: Object = original_resource.duplicate()
+var screaming :bool = false
+var in_sequence : bool = false
+var hit_count: int = 0
 
 @onready var player: CharacterBody3D = $"../player"
 @onready var walls_holder = $"house_model/walls_holder"
@@ -51,6 +54,9 @@ func _physics_process(delta: float) -> void:
 			knocker = 0
 			$Timer.wait_time = 10
 			$Timer.start()
+			
+	if screaming == true : 
+		$scream_barrier.position.z += 0.2
 			
 	move_and_slide()
 	$holo_holder.move_and_slide() 
@@ -142,6 +148,15 @@ func _on_laser_area_area_entered(area: Area3D) -> void:
 
 
 func unique_take_damage(area) -> void:
+	if !in_sequence:
+		start_sequence()
+		print("cu")
+	elif in_sequence and hit_count < 6:
+		hit_count += 1	
+		print("buceta")
+	if in_sequence and hit_count >= 6:
+		scream()
+		print("penis")
 	print("damage")
 	
 	$house_model/house_model/Cube_001.material_overlay = unique_resource
@@ -151,8 +166,6 @@ func unique_take_damage(area) -> void:
 
 func unique_die() -> void:
 	Global.completed_levels["first_level"] = true
-	Global.missions[1]["done"] = true
-	SignalBus.on_mission_list_updated.emit(Global.missions[2]) #referente ao próximo desafio
 	$door.hide()
 	$house_model/AnimationPlayer.play("death")
 	await $house_model/AnimationPlayer.animation_finished
@@ -170,3 +183,18 @@ func _on_door_area_exited(area: Area3D) -> void:
 	if area.name == "player_hitbox":
 		player_near = false
 		$door/npc_interact_sign.hide()
+
+func scream() -> void:
+	in_sequence = false
+	hit_count = 0
+	screaming = true
+	await get_tree().create_timer(1.5).timeout
+	screaming = false
+	$scream_barrier.position.z = 0.0
+	
+func start_sequence() -> void:
+	in_sequence = true
+	hit_count += 1
+	await get_tree().create_timer(7).timeout
+	in_sequence = false
+	hit_count = 0

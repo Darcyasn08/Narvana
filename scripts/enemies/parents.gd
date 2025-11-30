@@ -1,6 +1,6 @@
 extends Node3D
 
-var life: int = 400
+var life: int = 1200
 var damage: int = 1
 var cur_parent : CharacterBody3D
 var state: String = "dads_turn"
@@ -10,7 +10,7 @@ var dadshs: int = 0 #tendeu? dad + dashs = dadshs kkkkkkkkkkkk
 var speed : float = 3.0
 var acceleration : float = 15.0
 
-var pieins = preload("res://scenes/enemies/pie.tscn")
+var pieins: Object = preload("res://scenes/enemies/pie.tscn")
 
 @onready var mom: CharacterBody3D = $mom
 @onready var dad: CharacterBody3D = $dad

@@ -99,7 +99,7 @@ var worlds_files: Dictionary = {
 var enemies: Array = [
 	["res://scenes/enemies/coin.tscn","res://scenes/enemies/pig_bank.tscn","res://scenes/enemies/car.tscn", "res://scenes/enemies/pearl_collar.tscn", "res://scenes/enemies/house.tscn", "res://scenes/enemies/coin_trap.tscn"], #uma fase
 	["res://scenes/enemies/ex_gf.tscn", "res://scenes/enemies/dolphin.tscn", "res://scenes/enemies/parents.tscn", "res://scenes/enemies/band.tscn", "res://scenes/enemies/el_gran_capo.tscn"],
-	["res://scenes/enemies/coin.tscn"]
+	["res://scenes/enemies/coffee.tscn"]
 ]
 
 #levels
@@ -121,7 +121,7 @@ enum worlds {NORMAL, FIRST_LEVEL, SECOND_LEVEL, THIRD_LEVEL}
 var last_saved_pos: Vector3 = Vector3(0,0,-16)
 
 var completed_levels: Dictionary = {
-	"first_level": true,
+	"first_level": false,
 	"second_level": false,
 	"third_level": false
 }

@@ -40,6 +40,7 @@ material_override = SubResource("StandardMaterial3D_0vhhs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="area" groups=["weapon"]]
 transform = Transform3D(1, 0, 0, 0, 0.875042, 0.484046, 0, -0.484046, 0.875042, 0, 0.43249077, -0.2468062)
 shape = SubResource("CylinderShape3D_xegi3")
+disabled = true
 debug_color = Color(0.811176, 0.407637, 0.139143, 0.42)
 
 [editable path="tonfa_model"]

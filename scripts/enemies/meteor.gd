@@ -5,9 +5,17 @@ var time : float
 var falling : bool
 var damage : int
 var pos : Vector3
+var molde: String = ""
+var escale: Vector3
 
 func _ready() -> void:
-	global_position = pos
+	if molde != "":
+		$falling_obj/molde.hide()
+		var projectile_inst: Object = load(molde)
+		var projectile: Object = projectile_inst.instantiate()
+		projectile.scale = escale
+		$falling_obj.add_child(projectile)
+	position = pos
 	await(get_tree().create_timer(time).timeout)
 	falling = true
 

@@ -3,22 +3,28 @@ extends Node3D
 var player_near: bool = false
 var portal_path: String = "res://scenes/first_level_portal.tscn"
 var portal_inst: Object = load(portal_path)
+var portal_pos: Vector3
+var portal_rot: Vector3 = Vector3(0,0,0)
 
 func _ready() -> void:
-	$item_thrower_menu.hide()
 	SignalBus.on_item_removed.connect(create_portal)
+	$item_thrower_menu.hide()
 
-func create_portal() -> void:
-	print("pedido portal criado")
+func create_portal(_item: String) -> void:
 	$CPUParticles3D.emitting = true
-	if !Global.completed_levels["first_level"]:
-		portal_path = "res://scenes/first_level_portal.tscn"
-	elif !Global.completed_levels["second_level"]:
-		print("portal segunda fase criado")
-		portal_path = "res://scenes/second_level_portal.tscn"
-	var portal: Object = portal_inst.instantiate()
-	portal.position = Vector3(position.x,1.92,position.z-5.4)
-	get_parent().add_child(portal)
+	if !Global.current_world == Global.worlds.THIRD_LEVEL:
+		if !Global.completed_levels["first_level"]:
+			portal_path = "res://scenes/first_level_portal.tscn"
+			portal_pos = Vector3(position.x,1.92,position.z-5.4)
+		else:
+			portal_path = "res://scenes/second_level_portal.tscn"
+			portal_inst = load(portal_path)
+			portal_pos = Vector3(-4.54,0,-0.37)
+			portal_rot = Vector3(0,18,0)
+		var portal: Object = portal_inst.instantiate()
+		portal.position = portal_pos
+		portal.rotation += portal_rot
+		get_parent().add_child(portal)
 	$Area3D/CollisionShape3D.set_deferred("disabled", true)
 	await get_tree().create_timer(1).timeout
 	$CPUParticles3D.emitting = false
