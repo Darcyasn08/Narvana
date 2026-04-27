@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://w1dh1r4ewd5b"]
+[gd_scene format=4 uid="uid://w1dh1r4ewd5b"]
 
 [ext_resource type="Script" uid="uid://cpnradiojh1gn" path="res://scripts/enemies/pig_bank.gd" id="1_fgw4t"]
 [ext_resource type="PackedScene" uid="uid://b1dsnp5ypcvjf" path="res://3d_models/placeholders/piggy-bank-enemy.glb" id="2_tsjtq"]
@@ -147,14 +147,14 @@ height = 1.27923
 radius = 0.457245
 height = 1.34195
 
-[node name="pig_bank" type="CharacterBody3D" groups=["enemies"]]
+[node name="pig_bank" type="CharacterBody3D" unique_id=884119156 groups=["enemies"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100025, 0.0555692)
 script = ExtResource("1_fgw4t")
 
-[node name="piggy-bank-enemy" parent="." instance=ExtResource("2_tsjtq")]
+[node name="piggy-bank-enemy" parent="." unique_id=95583998 instance=ExtResource("2_tsjtq")]
 transform = Transform3D(0.727908, 0, 0, 0, 0.727908, 0, 0, 0, 0.727908, 0, 0, 0)
 
-[node name="Skeleton3D" parent="piggy-bank-enemy/Armature" index="0"]
+[node name="Skeleton3D" parent="piggy-bank-enemy/Armature" parent_id_path=PackedInt32Array(95583998, 244997439) index="0" unique_id=912585148]
 bones/1/position = Vector3(9.75424e-14, 1.16776, 4.09647e-07)
 bones/1/rotation = Quaternion(-0.067840226, -1.07748325e-14, 1.6174406e-08, 0.9976963)
 bones/1/scale = Vector3(1, 0.999999, 1)
@@ -166,42 +166,40 @@ bones/8/position = Vector3(1.69539e-06, 0.670109, -7.77032e-07)
 bones/8/rotation = Quaternion(-0.080284275, 0.014174297, 0.13193797, 0.9878997)
 bones/8/scale = Vector3(0.999999, 0.999999, 1)
 
-[node name="Cube" parent="piggy-bank-enemy/Armature/Skeleton3D" index="0"]
+[node name="Cube" parent="piggy-bank-enemy/Armature/Skeleton3D" index="0" unique_id=443187235]
 material_override = SubResource("StandardMaterial3D_yw1nj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="piggy-bank-enemy/Armature/Skeleton3D/Cube" index="0"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="piggy-bank-enemy/Armature/Skeleton3D/Cube" index="0" unique_id=1662397188]
 material_override = ExtResource("4_6cpeg")
 mesh = SubResource("ArrayMesh_g32mx")
 skin = SubResource("Skin_sm7gn")
 skeleton = NodePath("../..")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="piggy-bank-enemy"]
-libraries = {
-&"": SubResource("AnimationLibrary_pqxdv")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="piggy-bank-enemy" unique_id=1934356347]
+libraries/ = SubResource("AnimationLibrary_pqxdv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1596174594]
 transform = Transform3D(1.7, 0, 0, 0, -6.3163e-08, -1.7, 0, 1.445, -7.43094e-08, 0, 0, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_lks3o")
 
-[node name="collision" type="CollisionShape3D" parent="."]
+[node name="collision" type="CollisionShape3D" parent="." unique_id=725195559]
 transform = Transform3D(2.45139, 0, 0, 0, -1.07154e-07, -2.45139, 0, 2.45139, -1.07154e-07, 0, 1.0987, 0)
 shape = SubResource("CapsuleShape3D_fgw4t")
 
-[node name="coinslot1" type="Node3D" parent="."]
+[node name="coinslot1" type="Node3D" parent="." unique_id=1766353747]
 transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, -0.582, 0.2, -0.48)
 
-[node name="coinslot2" type="Node3D" parent="."]
+[node name="coinslot2" type="Node3D" parent="." unique_id=1373481398]
 transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, 0.767, 0.2, -0.48)
 
-[node name="coinslot3" type="Node3D" parent="."]
+[node name="coinslot3" type="Node3D" parent="." unique_id=526382268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018, 0.2, 0.508)
 
-[node name="enemy_hitbox" parent="." node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("5_nykp7")]
+[node name="enemy_hitbox" parent="." unique_id=710219476 node_paths=PackedStringArray("hitbox_collision") instance=ExtResource("5_nykp7")]
 hitbox_collision = NodePath("collision")
 
-[node name="collision" type="CollisionShape3D" parent="enemy_hitbox"]
+[node name="collision" type="CollisionShape3D" parent="enemy_hitbox" unique_id=1757807749]
 transform = Transform3D(2.70274, 0.011671, 0.0230015, 0.0230047, -0.00069562, -2.70277, -0.0116646, 2.70284, -0.000794867, -0.0120461, 1.37818, -0.0731184)
 shape = SubResource("CapsuleShape3D_tsjtq")
 debug_color = Color(0.811433, 0.396121, 0.298925, 0.42)

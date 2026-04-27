@@ -11,14 +11,11 @@ var coinins = preload("res://scenes/enemies/coin.tscn")
 
 @onready var player = $"../player"
 
-func _ready() -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
-	if is_on_floor() == true:
+	if is_on_floor():
 		look_to_player(delta) #muda a rotação do bixo pra ficar de frente com o player
 		rotation.x = 0
 		var forward := global_basis.z #determina oq é a frente 
